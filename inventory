@@ -1,0 +1,9 @@
+system:
+  hosts:
+    local:
+      ansible_host: localhost
+      ansible_user: 
+      ansible_password: 
+      web_server: moonpie1.fyre.ibm.com
+      webserver_user: 
+      webserver_password: 

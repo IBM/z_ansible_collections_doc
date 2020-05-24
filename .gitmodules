@@ -1,0 +1,6 @@
+[submodule "source/ibm_zos_core"]
+	path = source/ibm_zos_core
+	url = git@github.com:ansible-collections/ibm_zos_core.git
+[submodule "source/ibm_zos_ims"]
+	path = source/ibm_zos_ims
+	url = git@github.com:ansible-collections/ibm_zos_ims.git
