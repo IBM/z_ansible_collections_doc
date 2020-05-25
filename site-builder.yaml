@@ -27,17 +27,8 @@
   connection: local
   vars:
     ############################################################################
-    # Configure variables as needed
+    # Configure variables as needed in inventory
     ############################################################################
-
-    # If new collections are being accepted, set to True
-    ADD_NEW_COLLECTIONS: True
-
-    # Deploy the HTML to a webserver for review
-    DRY_RUN: False
-
-    # Deploy the HTML to gh-pages (Live deployment)
-    DEPLOY_HTML: False
 
     # Array of collection git submodules located under directory source/<...>
     ARRAY_OF_REGISTERED_COLLECTIONS: []
@@ -90,11 +81,10 @@
     - name: Display the array of unregistered collections
       debug: msg="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
 
-
     ############################################################################
     # Add new pending collections
     ############################################################################
-    # If new collections are being added, set ADD_NEW_COLLECTIONS=TRUE.
+    # If new collections are being added, set accept_new_collection_registrant=TRUE.
     # New collections must be added as Git submodules to the `source` directory.
     # TODO:  Can update this to use 'ARRAY_OF_NEW_COLLECTIONS'
 
@@ -109,7 +99,11 @@
           git checkout $tag
           cd ../..
       with_items: "{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
+      register: git_add_submodules
 
+    - name: Display the Git submodules added
+      debug: msg="{{ git_add_submodules }}"
+      # when: git_add_submodules.????
 
     ############################################################################
     # Evaluate that the collections (git submodules) have required files
@@ -143,11 +137,11 @@
     - name: Clean up the directory and build the HTML
       raw: make clean; make html; make view-html;
 
-    - name: Decide if you want to continue to HTML deployment tasks
-      pause: prompt='Continue deploying HTML? Press return to continue. Press Ctrl+c and then "a" to abort'
+    #- name: Decide if you want to continue to HTML deployment tasks
+    #  pause: prompt='Continue deploying HTML? Press return to continue. Press Ctrl+c and then "a" to abort'
 
     ############################################################################
-    # Deploy HTML to web-server for review if DRY_RUN=TRUE
+    # Deploy HTML to web-server for review if deploy_to_web_server=True
     ############################################################################
 
     - name: Copy files to remote host
@@ -163,16 +157,34 @@
       delegate_to: "{{ web_server }}"
       remote_user: "{{ webserver_user }}"
       register: webserver_upload
+      when: deploy_to_web_server
 
     - name: Uploading content for review.
       debug: msg="Successfully uploaded content for review at [ http://collection-doc.moonpie1.fyre.ibm.com/index.html ]"
-      when: not webserver_upload.failed
+      when: not webserver_upload.failed and deploy_to_web_server
 
     ############################################################################
-    # Deploy HTML to gh-pages if DEPLOY_HTML=TRUE
+    # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     ############################################################################
 
+    - name: Add Git worktree gh-pages
+      # debug: msg="{{ item.item.split('=')[1] }}"
+      shell: |
+          git checkout master
+          git worktree add gh-pages gh-pages
+          rsync -av build/html/ gh-pages/
+          cd gh-pages
+          git add .
+          git status
+          git commit -m "Automated commit to update documentation"
+          git push
+          cd master
+          git worktree remove gh-pages
+      register: git_add_worktree
 
+    - name: Display Git worktree gh-pages added
+      debug: msg="{{ git_add_worktree }}"
+      # when: git_add_worktree.????
 
       ##########################################################################
       # TODO: Should we track a particular submodule branch?

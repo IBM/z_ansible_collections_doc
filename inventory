@@ -7,3 +7,9 @@ system:
       web_server: moonpie1.fyre.ibm.com
       webserver_user: 
       webserver_password: 
+      # Deploy the HTML to gh-pages (Live deployment)
+      deploy_to_gh_pages: False
+      # Deploy the HTML to a webserver for review
+      deploy_to_web_server: False
+      # If new collections are being accepted, set to True
+      accept_new_collection_registrant: false

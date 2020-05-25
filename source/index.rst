@@ -23,9 +23,15 @@ IBM z/OS Core
 IBM z/OS IMS
 ------------
 
-
 .. toctree::
 
    ibm_zos_ims/docs/zos-collection-index
+
+Copyright
+=========
+
+.. toctree::
+
+   copyright
 
 
