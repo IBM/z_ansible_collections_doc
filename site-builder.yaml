@@ -106,6 +106,11 @@
       # when: git_add_submodules.????
 
     ############################################################################
+    # Update all collections (git submodules)
+    ############################################################################
+    # TODO: git submodule update --remote
+
+    ############################################################################
     # Evaluate that the collections (git submodules) have required files
     ############################################################################
 
@@ -128,7 +133,6 @@
         success_msg: "Collection {{ item.item }} is valid."
         fail_msg: "Collection {{ item.item }} is NOT valid."
       with_items: "{{ stat_collection_index_rst.results}}"
-
 
     ############################################################################
     # Generate and view HTML
@@ -167,19 +171,18 @@
     # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     ############################################################################
 
+    # TODO: Move gh-pages to a Git submodule over worktree
+    
     - name: Add Git worktree gh-pages
       # debug: msg="{{ item.item.split('=')[1] }}"
       shell: |
-          git checkout master
-          git worktree add gh-pages gh-pages
           rsync -av build/html/ gh-pages/
           cd gh-pages
           git add .
           git status
           git commit -m "Automated commit to update documentation"
           git push
-          cd master
-          git worktree remove gh-pages
+          cd ..
       register: git_add_worktree
 
     - name: Display Git worktree gh-pages added
