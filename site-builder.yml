@@ -100,7 +100,6 @@
       register: git_add_submodules
       when: accept_new_registry_collections
 
-    ##### COPY TO VERSION
     # Stat all known collections in this repository again after having added unregistered collections
     - name: Check if Git submodule exists in the `source/` directory
       stat:
@@ -110,7 +109,6 @@
 
     - name: Display the submodule stats
       debug: msg="{{ git_submodule }}"
-    ###### END COPY
 
     - name: Populate an array with registered collections in this repository
       set_fact:
