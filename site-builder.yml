@@ -198,7 +198,7 @@
 
     - name: Copy files to remote host
       copy:
-        src: build/html/index.html
+        src: build/html/
         dest: /var/www/collection-doc
         owner: root
         group: root
@@ -218,24 +218,21 @@
     # ############################################################################
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
+    # rsync -av build/html/ gh-pages/
 
-    # # TODO: Move gh-pages to a Git submodule over worktree
-    
-    # - name: Add Git worktree gh-pages
-    #   # debug: msg="{{ item.item.split('=')[1] }}"
-    #   shell: |
-    #       rsync -av build/html/ gh-pages/
-    #       cd gh-pages
-    #       git add .
-    #       git status
-    #       git commit -m "Automated commit to update documentation"
-    #       git push
-    #       cd ..
-    #   register: git_add_worktree
+    - name: Add Git worktree gh-pages
+      shell: |
+          cp build/html/* site/gh-pages
+          cd gh-pages
+          git add .
+          git status
+          git commit -m "Automated commit to update documentation"
+          git push
+          cd ..
+      register: git_update_doc
 
-    # - name: Display Git worktree gh-pages added
-    #   debug: msg="{{ git_add_worktree }}"
-    #   # when: git_add_worktree.????
+    - name: Display Git worktree gh-pages added
+      debug: msg="{{ git_update_doc }}"
 
       ##########################################################################
       # TODO: Should we track a particular submodule branch?
