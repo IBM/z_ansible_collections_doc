@@ -6,7 +6,7 @@ system:
       ansible_password: 
       web_server: moonpie1.fyre.ibm.com
       webserver_user: root
-      webserver_password: Moon-pie01
+      webserver_password: 
       # Deploy the HTML to gh-pages (Live deployment)
       deploy_to_gh_pages: True
       # Deploy the HTML to a webserver for review

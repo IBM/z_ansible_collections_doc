@@ -219,11 +219,10 @@
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
     # rsync -av build/html/ gh-pages/
-
     - name: Add Git worktree gh-pages
       shell: |
-          cp build/html/* site/gh-pages
-          cd gh-pages
+          cp -R build/html/* site/gh-pages
+          cd site/gh-pages
           git add .
           git status
           git commit -m "Automated commit to update documentation"
