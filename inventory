@@ -2,14 +2,14 @@ system:
   hosts:
     local:
       ansible_host: localhost
-      ansible_user: 
-      ansible_password: 
+      ansible_user:
+      ansible_password:
       web_server: moonpie1.fyre.ibm.com
-      webserver_user: 
-      webserver_password: 
+      webserver_user: root
+      webserver_password:
       # Deploy the HTML to gh-pages (Live deployment)
       deploy_to_gh_pages: False
       # Deploy the HTML to a webserver for review
-      deploy_to_web_server: False
+      deploy_to_web_server: True
       # If new collections are being accepted, set to True
-      accept_new_collection_registrant: false
+      accept_new_registry_collections: True
