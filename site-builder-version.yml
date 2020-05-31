@@ -31,11 +31,11 @@
     ############################################################################
 
     # Array of collection git submodules located under directory source/<...>
-    ARRAY_OF_REGISTERED_COLLECTIONS: []
+    ARRAY_OF_REGISTERED_COLLECTIONS_LATEST: []
 
     # Array of collections in registry but NOT under directory source/<...>
     # in other words, collections pending acceptance
-    ARRAY_OF_UNREGISTERED_COLLECTIONS: []
+    ARRAY_OF_UNREGISTERED_COLLECTIONS_LATEST: []
 
   # ##############################################################################
   # # Parse 'registry.yml' for certified contributors (key:value)
@@ -66,24 +66,24 @@
     # script before including the new collections.
     ############################################################################
 
-    # Stat all known collections in this repository
-    - name: Check if Git submodule exists in the `source/` directory
+    # Stat all known collections in this repository after having added unregistered collections
+    - name: Check if Git submodule exists in the `source/latest/` directory
       stat:
-        path: source/{{ item }}
-      register: git_submodule
+        path: source/latest/{{ item }}
+      register: stat_submodule_latest
       with_items: "{{collections}}"
 
     - name: Display the submodule stats
-      debug: msg="{{ git_submodule }}"
+      debug: msg="{{ stat_submodule_latest }}"
 
     - name: Populate array with unregistered collections (collections that are not submodules)
       set_fact:
-        ARRAY_OF_UNREGISTERED_COLLECTIONS="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }} + [ '{{ item.item}}' ]"
-      with_items: "{{ git_submodule.results}}"
+        ARRAY_OF_UNREGISTERED_COLLECTIONS_LATEST="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS_LATEST }} + [ '{{ item.item}}' ]"
+      with_items: "{{ stat_submodule_latest.results}}"
       when: not item.stat.exists
 
     - name: Display the array of unregistered collections
-      debug: msg="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
+      debug: msg="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS_LATEST }}"
 
       # Add these additional commands to the next task if you want to automate
       # getting the latest tags, better we use the registry as the default instead
@@ -95,31 +95,19 @@
     - name: Add Git submodules if we are accepting new collections
       shell: |
           touch .gitmodules
-          git submodule add git@github.com:ansible-collections/{{ item }}.git source/{{ item }}
-      with_items: "{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
+          git submodule add git@github.com:ansible-collections/{{ item }}.git source/latest/{{ item }}
+      with_items: "{{ ARRAY_OF_UNREGISTERED_COLLECTIONS_LATEST }}"
       register: git_add_submodules
       when: accept_new_registry_collections
 
-    ##### COPY TO VERSION
-    # Stat all known collections in this repository again after having added unregistered collections
-    - name: Check if Git submodule exists in the `source/` directory
-      stat:
-        path: source/{{ item }}
-      register: git_submodule
-      with_items: "{{collections}}"
-
-    - name: Display the submodule stats
-      debug: msg="{{ git_submodule }}"
-    ###### END COPY
-
     - name: Populate an array with registered collections in this repository
       set_fact:
-        ARRAY_OF_REGISTERED_COLLECTIONS="{{ ARRAY_OF_REGISTERED_COLLECTIONS }} + [ '{{ item.item }}' ]"
-      with_items: "{{ git_submodule.results}}"
+        ARRAY_OF_REGISTERED_COLLECTIONS_LATEST="{{ ARRAY_OF_REGISTERED_COLLECTIONS_LATEST }} + [ '{{ item.item }}' ]"
+      with_items: "{{ stat_submodule_latest.results}}"
       when: item.stat.exists
 
     - name: Display the array of registered collections in this repository
-      debug: msg="{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
+      debug: msg="{{ ARRAY_OF_REGISTERED_COLLECTIONS_LATEST }}"
 
     ############################################################################
     # Update all collections (git submodules)
@@ -138,22 +126,22 @@
 
     - name: Git checkout the latest branch or tag provided in the registry
       shell: |
-          cd source/{{ item.key }}
+          cd source/latest/{{ item.key }}
           git checkout {{ item.value.latest }}
       loop: "{{ lookup('dict', collections) }}"
       register: git_checkout_latest
-      when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
+      when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS_LATEST
 
     - name: Display the checkout
       debug: msg="{{ git_checkout_latest }}"
 
     - name: Git checkout the stable branch or tag provided in the registry
       shell: |
-          cd source/{{ item.key }}
+          cd source/latest/{{ item.key }}
           git checkout {{ item.value.stable }}
       loop: "{{ lookup('dict', collections) }}"
       register: git_checkout_stable
-      when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
+      when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS_LATEST
       ignore_errors: yes
 
     - name: Display Git stable checkout
@@ -166,9 +154,9 @@
 
     - name: Stat file zos-collection-index.rst in all collections.
       stat:
-        path: source/{{ item }}/docs/zos-collection-index.rst
+        path: source/latest/{{ item }}/docs/zos-collection-index.rst
       register: stat_collection_index_rst
-      with_items: "{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
+      with_items: "{{ ARRAY_OF_REGISTERED_COLLECTIONS_LATEST }}"
 
     - name: Display registered collections with zos-collection-index.rst
       debug: msg="{{ item.item }}"
@@ -176,7 +164,7 @@
       when: item.stat.exists
 
       # Fail the build if collections don't meet requirements
-    - name: Evaluate if the registered collections have the file 'source/<collection>/zos-collection-index.rst'.
+    - name: Evaluate if the registered collections have the file 'source/latest/<collection>/zos-collection-index.rst'.
       assert:
         that:
           - item.stat.exists
@@ -249,3 +237,17 @@
       # Currently leaning towards just using 'add' and then checking
       # out the latest tag
       ##########################################################################
+
+      ##########################################################################
+      # TODO: add submodule cleanup
+      ##########################################################################
+      # 1) Remove the submodule entry from .git/config
+      # git submodule deinit -f source/<sub-module>
+      # 2) Remove the submodule directory from the superproject's .git/modules directory
+      # rm -rf .git/modules/source/<sub-module>
+      # 3) Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+      # git rm -f .gitmodules
+      # 4) List all the cached items/submodules
+      # git ls-files --stage
+      # 5) removed the cached submodule
+      # git rm --cached source/<sub-module>
