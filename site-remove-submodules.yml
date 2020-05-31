@@ -15,7 +15,7 @@
 #   2) Remove the submodule directory from the superproject .git/modules directory
 #      rm -rf .git/modules/source/latest || stable/<sub-module>
 #   3) Remove entry .gitmodules
-#      git rm -f .gitmodules
+#      git config -f .gitmodules --remove-section submodule.source/{{ item.item }}
 #   4) List all the cached items which include submodules (not a step in remoing submodules)
 #      git ls-files --stage
 #   5) removed the cached submodule
@@ -64,6 +64,7 @@
     - name: Display the submodule stats
       debug: msg="{{ stat_submodule }}"
 
+    # git config -f .gitmodules --remove-section submodule.source/{{ item.item }}
     - name: Remove Git submodules
       shell: |
           git submodule deinit -f source/{{ item.item }}
