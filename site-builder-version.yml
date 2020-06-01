@@ -212,7 +212,7 @@
       when: deploy_to_web_server
 
     - name: Uploading content for review.
-      debug: msg="Successfully uploaded content for review at [ http://collection-doc.moonpie1.fyre.ibm.com/index.html ]"
+      debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
       when: deploy_to_web_server and webserver_upload and not webserver_upload.failed
 
     # ############################################################################

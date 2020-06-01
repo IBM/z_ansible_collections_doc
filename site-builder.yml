@@ -189,6 +189,7 @@
     - name: Clean up the directory and build the HTML
       raw: make clean; make html; make view-html;
 
+    # TODO: For now leave this prompt till we automate so we an kill the playbook if we are not happy with the generated HTML
     - name: Decide if you want to continue to HTML deployment tasks
       pause: prompt='Continue deploying HTML? Press return to continue. Press Ctrl+c and then "a" to abort'
 
@@ -196,9 +197,9 @@
     # # Deploy HTML to web-server for review if deploy_to_web_server=True
     # ############################################################################
 
-    - name: Copy files to remote host
+    - name: Copy files to LAN Apache server for review
       copy:
-        src: build/html/
+        src: build/html/index.html
         dest: /var/www/collection-doc
         owner: root
         group: root
@@ -211,15 +212,14 @@
       register: webserver_upload
       when: deploy_to_web_server
 
-    - name: Uploading content for review.
-      debug: msg="Successfully uploaded content for review at [ http://collection-doc.moonpie1.fyre.ibm.com/index.html ]"
+    - name: Uploaded content for review.
+      debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
       when: deploy_to_web_server and webserver_upload and not webserver_upload.failed
 
     # ############################################################################
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
-    # rsync -av build/html/ gh-pages/
-    - name: Add Git worktree gh-pages
+    - name: Copy the generated HTML from `build/html/` to `site/gh-pages/`
       shell: |
           cp -R build/html/* site/gh-pages
           cd site/gh-pages
@@ -227,19 +227,8 @@
           git status
           git commit -m "Automated commit to update documentation"
           git push
-          cd ..
+          cd ../..
       register: git_update_doc
 
-    - name: Display Git worktree gh-pages added
+    - name: Display site/gh-pages updated HTML content
       debug: msg="{{ git_update_doc }}"
-
-      ##########################################################################
-      # TODO: Should we track a particular submodule branch?
-      ##########################################################################
-      # git submodule add -b master {{ item.item.split('=')[1] }}
-      # git submodule init
-      # If we track we can also support update to pull the new commits
-      # git submodule update --remote
-      # Currently leaning towards just using 'add' and then checking
-      # out the latest tag
-      ##########################################################################

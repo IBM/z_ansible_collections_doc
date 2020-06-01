@@ -1,0 +1,15 @@
+################################################################################
+#  Flow control variables used to manage playbook execution
+#    accept_new_registry_collections - Default is True, it will instruct the
+#      playbook to Git pull in any collections repositories that are not
+#      currently in this repository that appear in the `registry.yml`
+#    deploy_to_web_server - Default is True, it deploys the HTML to a LAN Apache
+#      server so the doc can be shared via a link for others to review before
+#      deploying live.
+#    deploy_to_gh_pages - default is True, it will instruct the playbook to
+#      deploy the generated HTML to the doc-site (site/gh-pages).
+################################################################################
+
+deploy_to_gh_pages: True
+deploy_to_web_server: True
+accept_new_registry_collections: True
