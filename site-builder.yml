@@ -19,6 +19,7 @@
 #
 # Usage:
 #    ansible-playbook -i inventory site-builder.yaml
+#    ansible-playbook -i inventory site-builder.yml --ask-vault-pass
 ################################################################################
 
 ---
@@ -120,24 +121,18 @@
       debug: msg="{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
 
     ############################################################################
-    # Update all collections (git submodules)
-    # Commands that work for this are:
-    # git submodule foreach git pull origin master , git submodule update --recursive --remote
-    # ##########################################################################
-
-    - name: Git update all registered collections in this repository
-      shell: |
-          git submodule update --recursive --remote
-
-    ############################################################################
-    # Checkout the correct branch versions based on the registry else default
-    # to the latest Git tag.
+    # Checkout the correct branch version based on the registry, git  pull the
+    # latest changes.
+    # TODO:
+    #   Consider defaulting to the latest branch (see above ), tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+    #   Consider checking out as latest and stable, ie `git checkout v1.1.0-beta1 -b latest`
     ############################################################################
 
     - name: Git checkout the latest branch or tag provided in the registry
       shell: |
           cd source/{{ item.key }}
           git checkout {{ item.value.latest }}
+          git pull origin {{ item.value.latest }}
       loop: "{{ lookup('dict', collections) }}"
       register: git_checkout_latest
       when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
@@ -149,6 +144,7 @@
       shell: |
           cd source/{{ item.key }}
           git checkout {{ item.value.stable }}
+          git pull origin {{ item.value.stable }}
       loop: "{{ lookup('dict', collections) }}"
       register: git_checkout_stable
       when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
@@ -157,6 +153,16 @@
     - name: Display Git stable checkout
       debug: msg="{{ git_checkout_stable }}"
       when: git_checkout_stable
+
+    ############################################################################
+    # Update all collections (git submodules) - this is now done above
+    # Commands that DON'T work for this are:
+    #   - git submodule foreach git pull origin master
+    #   - git submodule update --recursive --remote
+    # - name: Git update all registered collections in this repository
+    #   shell: |
+    #       git submodule update --recursive --remote
+    # ##########################################################################
 
     ############################################################################
     # Evaluate that the collections (git submodules) have required files
@@ -230,5 +236,12 @@
           cd ../..
       register: git_update_doc
 
+    # See https://ibm.github.io/z_ansible_collections_doc/index.html
     - name: Display site/gh-pages updated HTML content
       debug: msg="{{ git_update_doc }}"
+
+    # TODO: Test this on the next deployment
+    # - name: Display site/gh-pages updated HTML content
+    #   debug: msg="Successfully committed documentation to site/gh-pages viewable at [ https://ibm.github.io/z_ansible_collections_doc/index.html ]"
+    #   when: git_update_doc.false and (stdout_lines | join('') | search('Automated commit'))
+    #   stdout_lines

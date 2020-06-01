@@ -11,25 +11,22 @@
 #
 # Instructions:
 #  <item>: The collection repository name as a dictionary element such as
-#          'ibm_zos_core'
-#  git: The collection repsotiry git url such as 'bm_zos_core.git'
-#  stable: The Git tag name or branch name. If it is a branch you the valume
-#          must conform to the Tag format: tags/<tag> , ie tags/v1.0.0.
-#          This is used to generate stable documenation.
-#          The default is to leave this empty and allow the script to detect
-#          the stable version since versioning is NOT currently supported.
-#  latest: The Git tag name or branch name. If it is a branch you the valume
-#          must conform to the Tag format: tags/<tag> , ie tags/v1.0.0.
-#          This is used to generate lastet documenation.
-#          The default is to leave this empty and allow the script to detect
-#          the latest version since versioning is NOT currently supported.
+#          'ibm_zos_core', 'ibm_zos_ims', etc
+#  git:    The collection repository git url such as 'bm_zos_core.git'
+#  stable: The Git tag or branch name to generate stable documenation.
+#  latest: The Git tag or branch name to generate latest documenation.
+#
+# Notes:
+#   Only one version of documetation is currently generated and supported.
+#   Documentation is only generator for the latest branch or tag, there is plans
+#   to support both latest and stable in the near future.
 ################################################################################
 collections:
   ibm_zos_core:
     git: ibm_zos_core.git
     stable:
-    latest: v1.1.0-beta1
+    latest: dev
   ibm_zos_ims:
     git: ibm_zos_ims.git
     stable:
-    latest: v1.0.0-beta2
+    latest: dev
