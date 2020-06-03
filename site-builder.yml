@@ -4,18 +4,24 @@
 
 ################################################################################
 # Description:
-#    This playbook will perform document generation tasks based on the
-#    collections in the `registry.yml` and on the configurations enabled in
-#    this playbook.
-# Tasks:
-#    - Parse the certified registry
-#    - Evaluate the registered certified collections
-#    - Add new pending certified collections
-#    - Pre-check requirements
-#      - docs/source/<collection>/docs/zos-collections-index.rst
-#    - Build HTML from RST using Sphinx
-#    - Upload HTML web-server for review
-#    - Commit go gh-pages
+#    This playbook will generate documentation for all collections in the
+#    registry.yml, perform validation, allow for a preview of generated doc,
+#    upload it to a local Apache server for review and upload to gh-pages.
+#
+# Group_vars:
+#    Booleans designed to control the flow of this playbook to run this
+#    playbook headless. See group_vars/all.yml for more information.
+#
+#    accept_new_registry_collections - Default is True, it will instruct the
+#       playbook to Git pull in any collections repositories that are not
+#       currently in this repository that appear in the `registry.yml`
+#    deploy_to_web_server - Default is True, it deploys the HTML to a LAN Apache
+#       server so the doc can be shared via a link for others to review before
+#       deploying live.
+#    deploy_to_gh_pages - default is True, it will instruct the playbook to
+#       deploy the generated HTML to the doc-site (site/gh-pages).
+#    cleanup_generated_html - default is True, it will remove all generated
+#      HTML to avoid checking that in, this repo should not store generated HTML
 #
 # Usage:
 #    ansible-playbook -i inventory site-builder.yaml
@@ -43,15 +49,15 @@
   # ##############################################################################
 
   tasks:
-    - name: Parse the registry for collection configurations
+    - name: Parse the registry for collection entries
       include_vars: registry.yml
 
-    - name: Display the registry details using lookup
+    - name: Display the registry collection entry details
       debug:
         msg: "Collection = {{ item.key }}, git = {{ item.value.git }}, stable = {{ item.value.stable }}, latest = {{ item.value.latest }}"
       loop: "{{ lookup('dict', collections) }}"
 
-    - name: Display the collection repository names from the registry
+    - name: Display the registry collection entriy names
       debug:
          var: collections[item]
           # Display the git url for the collection
@@ -61,57 +67,77 @@
 
     ############################################################################
     # Evaluate the state of all collections currently in the repo and compare
-    # them to the certified-registry, then add the new collections to this repo
-    # if accept_new_registry_collections==True. Allowing for boolean
-    # accept_new_registry_collections provides the ability to run and test the
-    # script before including the new collections.
+    # them to the registry.yml
     ############################################################################
 
-    # Stat all known collections in this repository
-    - name: Check if Git submodule exists in the `source/` directory
+    - name: Evaluate which colletions are in directory `source/<collection>`
       stat:
         path: source/{{ item }}
       register: git_submodule
       with_items: "{{collections}}"
 
-    - name: Display the submodule stats
+    - name: Display the colletions in directory `source/<collection>`
       debug: msg="{{ git_submodule }}"
 
-    - name: Populate array with unregistered collections (collections that are not submodules)
+    - name: Populate array with the unregistered collections (collections in registry.yml but not in this repo)
       set_fact:
         ARRAY_OF_UNREGISTERED_COLLECTIONS="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }} + [ '{{ item.item}}' ]"
       with_items: "{{ git_submodule.results}}"
       when: not item.stat.exists
 
-    - name: Display the array of unregistered collections
+    - name: Display the unregistered collections
       debug: msg="{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
 
-      # Add these additional commands to the next task if you want to automate
-      # getting the latest tags, better we use the registry as the default instead
-      # cd source/{{ item }}
-      # git fetch --tags
-      # tag=$(git describe --tags `git rev-list --tags --max-count=1`)
-      # git checkout $tag
-      # cd ../..
-    - name: Add Git submodules if we are accepting new collections
+      # If we encounter a collection under source/<collection> that is empty,
+      # then correctly restore the Git submodule
+    - name: Evaluate if the collections under `source/<collection>` have files
+      shell: |
+          find source/{{ item.item }}/ -type f -print | wc -l
+      with_items: "{{ git_submodule.results}}"
+      register: collection_file_count
+      when: item.stat.exists
+
+    - name: Display the collections under `source/<collection>` that have NO files
+      debug: msg="{{ item }}"
+      with_items: "{{ collection_file_count.results }}"
+      when: item.item.stat.exists and item.stdout|int == 0
+
+    - name: Update the collections that have no files under under `source/<collection>`
+      shell: |
+          git rm -f --cached source/{{ item.item.item }}
+          rm -rf .git/modules/source/{{ item.item.item }}
+          git config -f .gitmodules --remove-section submodule.source/{{ item.item.item }}
+          rm -rf source/{{ item.item.item }}
+          git submodule add git@github.com:ansible-collections/{{ item.item.item }}.git source/{{ item.item.item }}
+          git submodule init
+      with_items: "{{ collection_file_count.results }}"
+      when: item.item.stat.exists and item.stdout|int == 0
+
+      # These commands can get the latest Git tag if you want to automate the getting the latest tag
+      #   cd source/{{ item }}
+      #   git fetch --tags
+      #   tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+      #   git checkout $tag
+      #   cd ../..
+    - name: Add the unregistered collections if we are accepting new collections
       shell: |
           touch .gitmodules
           git submodule add git@github.com:ansible-collections/{{ item }}.git source/{{ item }}
+          git submodule init
       with_items: "{{ ARRAY_OF_UNREGISTERED_COLLECTIONS }}"
       register: git_add_submodules
       when: accept_new_registry_collections
 
-    # Stat all known collections in this repository again after having added unregistered collections
-    - name: Check if Git submodule exists in the `source/` directory
+    - name: Recalculate which collections are under the `source/<collection>` directory
       stat:
         path: source/{{ item }}
       register: git_submodule
       with_items: "{{collections}}"
 
-    - name: Display the submodule stats
+    - name: Display the updated collections under the `source/<collection>` directory
       debug: msg="{{ git_submodule }}"
 
-    - name: Populate an array with registered collections in this repository
+    - name: Populate an array with the registered collections found under the `source/<collection>` directory
       set_fact:
         ARRAY_OF_REGISTERED_COLLECTIONS="{{ ARRAY_OF_REGISTERED_COLLECTIONS }} + [ '{{ item.item }}' ]"
       with_items: "{{ git_submodule.results}}"
@@ -121,14 +147,14 @@
       debug: msg="{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
 
     ############################################################################
-    # Checkout the correct branch version based on the registry, git  pull the
-    # latest changes.
+    # Git checkout the correct branch based on the registry.yml values, then
+    # git pull the latest changes
     # TODO:
     #   Consider defaulting to the latest branch (see above ), tag=$(git describe --tags `git rev-list --tags --max-count=1`)
-    #   Consider checking out as latest and stable, ie `git checkout v1.1.0-beta1 -b latest`
+    #   Consider checking them out as 'latest' and 'stable', ie `git checkout v1.1.0-beta1 -b latest`
     ############################################################################
 
-    - name: Git checkout the latest branch or tag provided in the registry
+    - name: Update the collections contents with Git for collections under `source/<collection>`
       shell: |
           cd source/{{ item.key }}
           git checkout {{ item.value.latest }}
@@ -137,25 +163,27 @@
       register: git_checkout_latest
       when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
 
-    - name: Display the checkout
+    - name: Display the results to updating the collections under `source/<collection>`
       debug: msg="{{ git_checkout_latest }}"
 
-    - name: Git checkout the stable branch or tag provided in the registry
-      shell: |
-          cd source/{{ item.key }}
-          git checkout {{ item.value.stable }}
-          git pull origin {{ item.value.stable }}
-      loop: "{{ lookup('dict', collections) }}"
-      register: git_checkout_stable
-      when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
-      ignore_errors: yes
-
-    - name: Display Git stable checkout
-      debug: msg="{{ git_checkout_stable }}"
-      when: git_checkout_stable
+    # Enable  this for version support , needs to have its own array for stable
+    # - name: Git checkout the stable branch or tag provided in the registry
+    #   shell: |
+    #       cd source/{{ item.key }}
+    #       git checkout {{ item.value.stable }}
+    #       git pull origin {{ item.value.stable }}
+    #   loop: "{{ lookup('dict', collections) }}"
+    #   register: git_checkout_stable
+    #   when: item.key in ARRAY_OF_REGISTERED_COLLECTIONS
+    #   ignore_errors: yes
+    #
+    # - name: Display Git stable checkout
+    #   debug: msg="{{ git_checkout_stable }}"
+    #   when: git_checkout_stable
 
     ############################################################################
-    # Update all collections (git submodules) - this is now done above
+    # Update all collections (git submodules) - this is now done above by
+    # traversing each collection and doing a git pull origin <collection>
     # Commands that DON'T work for this are:
     #   - git submodule foreach git pull origin master
     #   - git submodule update --recursive --remote
@@ -168,42 +196,50 @@
     # Evaluate that the collections (git submodules) have required files
     ############################################################################
 
-    - name: Stat file zos-collection-index.rst in all collections.
+    - name: Check that each collection has a source/<collection>/docszos-collection-index.rst file
       stat:
         path: source/{{ item }}/docs/zos-collection-index.rst
       register: stat_collection_index_rst
       with_items: "{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
 
-    - name: Display registered collections with zos-collection-index.rst
+    - name: Display the collections with file source/<collection>/docszos-collection-index.rst
       debug: msg="{{ item.item }}"
       with_items: "{{ stat_collection_index_rst.results}}"
       when: item.stat.exists
 
       # Fail the build if collections don't meet requirements
-    - name: Evaluate if the registered collections have the file 'source/<collection>/zos-collection-index.rst'.
+    - name: Determine which collections are valid and continue, otherwise exit the build
       assert:
         that:
           - item.stat.exists
-        success_msg: "Collection {{ item.item }} is valid."
-        fail_msg: "Collection {{ item.item }} is NOT valid."
+        success_msg: "[PASS] Collection {{ item.item }} contains source/{{ item.item }}/docszos-collection-index.rst"
+        fail_msg: "[FAIL] Collection {{ item.item }} does NOT contain source/{{ item.item }}/docszos-collection-index.rst"
       with_items: "{{ stat_collection_index_rst.results}}"
 
     # ############################################################################
     # # Generate and view HTML
     # ############################################################################
 
-    - name: Clean up the directory and build the HTML
+    - name: Generate HTML and display the results locally in the users browser
       raw: make clean; make html; make view-html;
-
-    # TODO: For now leave this prompt till we automate so we an kill the playbook if we are not happy with the generated HTML
-    - name: Decide if you want to continue to HTML deployment tasks
-      pause: prompt='Continue deploying HTML? Press return to continue. Press Ctrl+c and then "a" to abort'
 
     # ############################################################################
     # # Deploy HTML to web-server for review if deploy_to_web_server=True
     # ############################################################################
 
-    - name: Copy files to LAN Apache server for review
+      # This is a manual prompt to continue which would need to be removed when this is automated
+    - name: Confirm continuing to upload HTML to private Apache server
+      pause:
+        prompt: "Do you want to upload the generated HTML to an Apache server for review? (yes/no)"
+      register: confirm_delete
+
+    - raw: make clean;
+      when: not confirm_delete.user_input | bool
+
+    - meta: end_play
+      when: not confirm_delete.user_input | bool
+
+    - name: Copying files to an Apache server for review
       copy:
         src: build/html/index.html
         dest: /var/www/collection-doc
@@ -218,13 +254,25 @@
       register: webserver_upload
       when: deploy_to_web_server
 
-    - name: Uploaded content for review.
+    - name: Uploaded content for review
       debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
       when: deploy_to_web_server and webserver_upload and not webserver_upload.failed
 
     # ############################################################################
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
+
+    - name: Confirm continuing to upload HTML to public doc-site (gh-pages)
+      pause:
+        prompt: "Do you want to upload the generated HTML to the doc-site and go live ? (yes/no)"
+      register: confirm_delete
+
+    - raw: make clean;
+      when: not confirm_delete.user_input | bool
+
+    - meta: end_play
+      when: not confirm_delete.user_input | bool
+
     - name: Copy the generated HTML from `build/html/` to `site/gh-pages/`
       shell: |
           cp -R build/html/* site/gh-pages
@@ -235,10 +283,15 @@
           git push
           cd ../..
       register: git_update_doc
+      when: deploy_to_gh_pages
 
     # See https://ibm.github.io/z_ansible_collections_doc/index.html
-    - name: Display site/gh-pages updated HTML content
+    - name: Display the HTML content uploaded to the doc site (gh-pages)
       debug: msg="{{ git_update_doc }}"
+      when: deploy_to_gh_pages
+
+    - raw: make clean;
+      when: not confirm_delete.user_input | bool
 
     # TODO: Test this on the next deployment
     # - name: Display site/gh-pages updated HTML content

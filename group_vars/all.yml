@@ -8,8 +8,11 @@
 #      deploying live.
 #    deploy_to_gh_pages - default is True, it will instruct the playbook to
 #      deploy the generated HTML to the doc-site (site/gh-pages).
+#    cleanup_generated_html - default is True, it will remove all generated
+#      HTML to avoid checking that in, this repo should not store generated HTML
 ################################################################################
 
 deploy_to_gh_pages: True
 deploy_to_web_server: True
 accept_new_registry_collections: True
+cleanup_generated_html: True
