@@ -61,9 +61,9 @@ if [[ $(command -v brew) == "" ]]; then
     # export PATH="/usr/local/bin:${PATH}"
     echo "Unable to find Homebrew,  will install Hombrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-    echo "Discovered Home, will update Homebrew"
-    brew update
+# else
+#     echo "Discovered Homebrew, will update Homebrew"
+#     brew update
 fi
 
 echo "Checking to see if Git is installed."
@@ -75,6 +75,8 @@ fi
 echo "Checking to see if Openssl 1.1 is installed."
 if [[ $(command -v command -v /usr/local/opt/openssl\@1.1/bin/openssl) == "" ]]; then
     echo "Unable to find Openssl 1.1, will install using Hombrew"
+    echo "Will update Homebrew"
+    brew update
     brew install openssl
 fi
 
@@ -104,7 +106,7 @@ $PY_HOME/bin/python3 -m venv $PY_HOME/venv
 # we will use a subprocess. Similarly, we need to install the dependencies into
 # the virutual enviroment so all this is done in the next line of code.
 echo "Initializing Python virtual environment and installing all documentation generation dependencies"
-/bin/bash -c ". $PY_HOME/venv/bin/activate; python3 --version; pip3 --version; pip3 install -r requirements.txt; exec /bin/bash -i"
+/bin/bash -c ". $PY_HOME/venv/bin/activate; python3 --version; pip3 --version; pip3 install -r ../../requirements.txt; exec /bin/bash -i"
 
 ################################################################################
 # These commands need to be run in the virutal env, they are just for reference

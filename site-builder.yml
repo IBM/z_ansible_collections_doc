@@ -298,3 +298,14 @@
     #   debug: msg="Successfully committed documentation to site/gh-pages viewable at [ https://ibm.github.io/z_ansible_collections_doc/index.html ]"
     #   when: git_update_doc.false and (stdout_lines | join('') | search('Automated commit'))
     #   stdout_lines
+
+    ############################################################################
+    # Notes on how to add gh-pages as a submodule. This is has been done prior
+    # running this build script. Its part of the initial repository build.
+    ############################################################################
+    # git checkout --orphan gh-pages
+    # git reset --hard
+    # git commit --allow-empty -m "Init"
+    # git checkout master
+    # git push -u origin gh-pages
+    # git submodule add -b gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
