@@ -106,7 +106,8 @@ $PY_HOME/bin/python3 -m venv $PY_HOME/venv
 # we will use a subprocess. Similarly, we need to install the dependencies into
 # the virutual enviroment so all this is done in the next line of code.
 echo "Initializing Python virtual environment and installing all documentation generation dependencies"
-/bin/bash -c ". $PY_HOME/venv/bin/activate; python3 --version; pip3 --version; pip3 install -r ../../requirements.txt; exec /bin/bash -i"
+cp requirements.txt $PY_HOME
+/bin/bash -c ". $PY_HOME/venv/bin/activate; python3 --version; pip3 --version; pip3 install -r $PY_HOME/requirements.txt; exec /bin/bash -i"
 
 ################################################################################
 # These commands need to be run in the virutal env, they are just for reference
