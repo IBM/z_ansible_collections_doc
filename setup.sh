@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ################################################################################
 # Copyright (c) IBM Corporation 2020
 ################################################################################
@@ -17,9 +19,14 @@
 #   based on whether you have Python installed or not as well as the operating
 #   system type.
 #
-#   Note: Currently the only fully supported operating system to install
+#   Note:
+#   Currently the only fully supported operating system to install
 #   dependencies is Mac OSX. If you have  the dependencies installed, you can
 #   run this for any operating system.
+#
+#   Ensure you have access to cloen from Github, this requires that you share
+#   your hosts ssh keys with Github, see link:
+#   https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 #
 # Dependencies:
 #   Git:
@@ -165,7 +172,7 @@ install_homebrew()
     fi
 }
 
-# Builds a virtual Python installation 
+# Builds a virtual Python installation
 python_venv_build()
 {
     # A Python verson was passed into the function
