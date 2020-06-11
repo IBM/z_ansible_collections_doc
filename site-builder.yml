@@ -262,6 +262,20 @@
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
 
+    - name: Update the 'site/gh-pages' after a repository clone so its tracked accordingly
+      shell: |
+          git rm --cached site/gh-pages
+          rm -rf .git/modules/site/*
+          git config -f .gitmodules --remove-section submodule.site/gh-pages
+          rm -rf site/gh-pages
+          git submodule add -b gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
+          git submodule init
+      register: site_gh_pages_return
+
+    - name: Display the Git submodule 'site/gh-pages' result
+      debug: msg="{{ site_gh_pages_return }}"
+      when: site_gh_pages_return
+
     - name: Confirm continuing to upload HTML to public doc-site (gh-pages)
       pause:
         prompt: "Do you want to upload the generated HTML to the doc-site and go live ? (yes/no)"
