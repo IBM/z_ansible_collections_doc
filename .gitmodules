@@ -1,10 +1,10 @@
-[submodule "site/gh-pages"]
-	path = site/gh-pages
-	url = git@github.com:IBM/z_ansible_collections_doc.git
-	branch = gh-pages
 [submodule "source/ibm_zos_core"]
 	path = source/ibm_zos_core
 	url = git@github.com:ansible-collections/ibm_zos_core.git
 [submodule "source/ibm_zos_ims"]
 	path = source/ibm_zos_ims
 	url = git@github.com:ansible-collections/ibm_zos_ims.git
+[submodule "site/gh-pages"]
+	path = site/gh-pages
+	url = git@github.com:IBM/z_ansible_collections_doc.git
+	branch = gh-pages

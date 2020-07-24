@@ -16,7 +16,7 @@
 ##############################################################################
 
 project = 'Red Hat Ansible Certified Content for IBM Z'
-copyright = '2020, IBM'
+copyright = 'IBM Corporation 2020'
 author = 'IBM'
 
 # Disable the Copyright footer for Read the docs at the bottom of the page
@@ -44,7 +44,7 @@ templates_path = ['templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['ibm_zos_core/docs/source/index.rst', 'ibm_zos_ims/docs/source/index.rst', 'ibm_zos_ims/docs/zos-collection-index.rst', 'ibm_zos_core/docs/zos-collection-index.rst']
 
 ##############################################################################
 # Options for HTML output
