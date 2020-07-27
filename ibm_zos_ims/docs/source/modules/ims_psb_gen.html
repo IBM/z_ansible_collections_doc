@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
-    <link rel="next" title="Playbooks" href="../playbooks.html" />
+    <link rel="next" title="Release Notes" href="../../../../release/release.html" />
     <link rel="prev" title="ims_dbd_gen – Generate IMS DBD" href="ims_dbd_gen.html" /> 
 </head>
 
@@ -81,30 +80,43 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/zos-collection-index.html">IBM z/OS core collection</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../zos-collection-index.html">IBM z/OS IMS collection</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../zos-collection-index.html#reference">Reference</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../modules.html#module-reference">Module reference</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../playbooks.html">Playbooks</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#community-guides">Community guides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#appendices">Appendices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../zos-collection-index.html#license">License</a></li>
-</ul>
-</li>
-</ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../howdoi/howdoi.html">How Do I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS Core</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS IMS</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html#module-reference">Module reference</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ims_acb_gen.html">ims_acb_gen – Generate IMS ACB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ims_command.html">ims_command – Submit IMS Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ims_dbd_gen.html">ims_dbd_gen – Generate IMS DBD</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ims_psb_gen – Generate IMS PSB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Content / General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/supplementary.html">Supplementary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
             
@@ -152,7 +164,7 @@
     
       <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../zos-collection-index.html">IBM z/OS IMS collection</a> &raquo;</li>
+          <li><a href="../../ansible_content.html">z/OS IMS</a> &raquo;</li>
         
           <li><a href="../modules.html">Modules</a> &raquo;</li>
         
@@ -206,8 +218,8 @@
 </div>
 </dd>
 <dt>member_list</dt><dd><p>A list of member names if the source specified is a data set.</p>
-<p>Is required if <em>location</em> is ‘DATA_SET’.</p>
-<p>If ‘member_list’ is empty and location is set to ‘false’, then src is expected to be a sequential data set.</p>
+<p>Optionally, proceeding the source_member, a colon with a target name for the generated PSB member can be specified. If no target name is specified, source_name will be used as the target name.</p>
+<p>If ‘member_list’ is empty and location is set to ‘DATA_SET’ or not specified, then src is expected to be a sequential data set.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -252,8 +264,8 @@
 </div>
 </dd>
 <dt>member_list</dt><dd><p>A list of member names if the source specified is a data set.</p>
-<p>Is required if <em>location</em> is ‘DATA_SET’.</p>
-<p>If ‘member_list’ is empty and location is set to ‘false’, then src is expected to be a sequential data set.</p>
+<p>Optionally, proceeding the source_member, a colon with a target name for the generated PSB member can be specified. If no target name is specified, source_name will be used as the target name.</p>
+<p>If ‘member_list’ is empty and location is set to ‘DATA_SET’ or not specified, then src is expected to be a sequential data set.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -295,7 +307,7 @@
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/src/somefile</span>
     <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USS</span>
     <span class="nt">replace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DATA.SET.DBDLIB</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DATA.SET.PSBLIB</span>
     <span class="nt">sys_lib</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DATA.SET.SDFSMAC</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.MACLIB</span>
@@ -310,10 +322,16 @@
       <span class="p p-Indicator">-</span>
         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OMVSADM.IMSTESTU.ANSIBLE.PSB.SRC</span>
         <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
-        <span class="nt">member_list</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">PSBGENL</span><span class="p p-Indicator">,</span> <span class="nv">PSBGENL</span><span class="p p-Indicator">]</span>
+        <span class="nt">member_list</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">PSBGENL</span> <span class="p p-Indicator">:</span> <span class="nv">TARGET1</span><span class="p p-Indicator">,</span> <span class="nv">PSBGENL</span> <span class="p p-Indicator">:</span> <span class="nv">TARGET2</span><span class="p p-Indicator">]</span>
       <span class="p p-Indicator">-</span>
         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OMVSADM.IMSTESTU.ANSIBLE.PSB.SRC</span>
         <span class="nt">member_list</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">PSBGENL</span><span class="p p-Indicator">,</span> <span class="nv">PSBGENL</span><span class="p p-Indicator">]</span>
+        <span class="nt">replace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="p p-Indicator">-</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OMVSADM.IMSTESTU.ANSIBLE.PSB.SRC</span>
+        <span class="nt">member_list</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;COGPSBL&#39;</span><span class="l l-Scalar l-Scalar-Plain">:&#39;TARGET3&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;COGPSBL2&#39;</span><span class="p p-Indicator">:</span> <span class="s">&#39;TARGET4&#39;</span>
         <span class="nt">replace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
       <span class="p p-Indicator">-</span>
         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OMVSADM.IMSTESTU.ANSIBLE.PSB.SQ</span>
@@ -411,7 +429,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../playbooks.html" class="btn btn-neutral float-right" title="Playbooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../../release/release.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ims_dbd_gen.html" class="btn btn-neutral float-left" title="ims_dbd_gen – Generate IMS DBD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -423,7 +441,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; <a href="../../../../copyright.html">Copyright</a> 2020, IBM
+        &copy; Copyright IBM Corporation 2020
 
     </p>
   </div> 

@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="IBM z/OS core collection" href="ibm_zos_core/docs/zos-collection-index.html" /> 
+    <link rel="next" title="How Do I" href="howdoi/howdoi.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,14 +79,31 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html">IBM z/OS core collection</a></li>
-</ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html">IBM z/OS IMS collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howdoi/howdoi.html">How Do I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playbooks/playbooks.html">Playbooks</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibm_zos_core/docs/ansible_content.html">z/OS Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release/release.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faqs/faqs.html">Content / General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/supplementary.html">Supplementary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
             
@@ -153,256 +169,45 @@ Ansible Automation Platform ecosystem. This enables development and operations
 automation on Z through a seamless, unified workflow orchestration with
 configuration management, provisioning, and application deployment in one
 easy-to-use platform.</p>
-<p>IBM z/OS core collection, as part of the broader offering
-<strong>Red Hat® Ansible Certified Content for IBM Z</strong>, will be available on both,
-Galaxy as community supported and Automation Hub with enterprise support.</p>
-<div class="section" id="ibm-z-os-core">
-<h2>IBM z/OS Core<a class="headerlink" href="#ibm-z-os-core" title="Permalink to this headline">¶</a></h2>
+<p>This solution comes together as one offering through the coordinated effort of
+all the offerings. Each offering is represented in a distribution format known
+as collections that can include include playbooks, roles, modules, and plugins.</p>
+<p>You can install and use collections through Automation Hub, Ansible Galaxy and
+by building the collections from source available on GitHub.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html">IBM z/OS core collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#getting-started">Getting Started</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/installation.html">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/installation.html#ansible-galaxy">Ansible Galaxy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/installation.html#automation-hub-and-private-galaxy-server">Automation Hub and Private Galaxy server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/installation.html#local-build">Local build</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/quickstart.html#ibm-zos-core">ibm_zos_core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/quickstart.html#z-os-connection-plugin">z/OS Connection Plugin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/quickstart.html#ansible-doc">ansible-doc</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#reference">Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/plugins.html">Plugins</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/plugins.html#action">Action</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/plugins.html#connection">Connection</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/modules.html">Modules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/modules.html#module-reference">Module reference</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_data_set.html">zos_data_set – Manage data sets</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_data_set.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_data_set.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_data_set.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html">zos_encode – Perform encoding operations.</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_encode.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html">zos_fetch – Fetch data from z/OS</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#see-also">See Also</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_fetch.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_output.html">zos_job_output – Display job output</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_output.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_output.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_output.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_output.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_query.html">zos_job_query – Query job status</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_query.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_query.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_query.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_query.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_submit.html">zos_job_submit – Submit JCL</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_submit.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_submit.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_submit.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_job_submit.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator.html">zos_operator – Execute operator command</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html#see-also">See Also</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_operator_action_query.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_ping.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_ping.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_ping.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_tso_command.html">zos_tso_command – Execute TSO commands</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_tso_command.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_tso_command.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_tso_command.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_core/docs/source/modules/zos_tso_command.html#return-values">Return Values</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/filters.html">Filters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html">Playbooks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html#playbook-documentation">Playbook Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html#sample-configuration-and-setup">Sample Configuration and Setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html#inventory">Inventory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html#group-vars">Group_vars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/playbooks.html#run-the-playbook">Run the playbook</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/supplementary.html">Supplementary</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/supplementary.html#encode">Encode</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#community-guides">Community guides</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/community_guides.html">Contributing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/community_guides.html#helpful-links">Helpful Links</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#requirements">Requirements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/requirements.html">Requirements</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/requirements.html#control-node">Control node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/requirements.html#managed-node">Managed node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/requirements.html#id1">Python on z/OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/requirements.html#zoau">ZOAU</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#appendices">Appendices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html">Releases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-1-1-0-beta1">Version 1.1.0-beta1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-1-0-0">Version 1.0.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-0-0-4">Version 0.0.4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-0-0-3">Version 0.0.3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-0-0-2">Version 0.0.2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_core/docs/source/release_notes.html#version-0-0-1">Version 0.0.1</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_core/docs/zos-collection-index.html#license">License</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="howdoi/howdoi.html">How Do I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playbooks/playbooks.html">Playbooks</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="ibm-z-os-ims">
-<h2>IBM z/OS IMS<a class="headerlink" href="#ibm-z-os-ims" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html">IBM z/OS IMS collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#getting-started">Getting Started</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/installation.html">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/installation.html#ansible-galaxy">Ansible Galaxy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/installation.html#automation-hub-and-private-galaxy-server">Automation Hub and Private Galaxy server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/installation.html#local-build">Local build</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#reference">Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/modules.html">Modules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/modules.html#module-reference">Module reference</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html">ims_acb_gen – Generate IMS ACB</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_acb_gen.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html">ims_command – Submit IMS Commands</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_command.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html">ims_dbd_gen – Generate IMS DBD</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_dbd_gen.html#return-values">Return Values</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html">ims_psb_gen – Generate IMS PSB</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html#synopsis">Synopsis</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html#parameters">Parameters</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html#examples">Examples</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html#notes">Notes</a></li>
-<li class="toctree-l6"><a class="reference internal" href="ibm_zos_ims/docs/source/modules/ims_psb_gen.html#return-values">Return Values</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/playbooks.html">Playbooks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/playbooks.html#playbook-documentation">Playbook Documentation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#community-guides">Community guides</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/community_guides.html">Contributing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/community_guides.html#helpful-links">Helpful Links</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#requirements">Requirements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/requirements.html">Requirements</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/requirements.html#control-node">Control node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/requirements.html#managed-node">Managed node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/requirements.html#id1">Python on z/OS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#appendices">Appendices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ibm_zos_ims/docs/source/release_notes.html">Releases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/release_notes.html#version-1-0-0-beta2">Version 1.0.0-beta2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibm_zos_ims/docs/source/release_notes.html#version-1-0-0-beta1">Version 1.0.0-beta1</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_zos_ims/docs/zos-collection-index.html#license">License</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ibm_zos_core/docs/ansible_content.html">z/OS Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="copyright">
-<h1>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release/release.html">Release Notes</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faqs/faqs.html">Content / General</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/supplementary.html">Supplementary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 </div>
 </div>
@@ -415,7 +220,7 @@ Galaxy as community supported and Automation Hub with enterprise support.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ibm_zos_core/docs/zos-collection-index.html" class="btn btn-neutral float-right" title="IBM z/OS core collection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="howdoi/howdoi.html" class="btn btn-neutral float-right" title="How Do I" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -425,7 +230,7 @@ Galaxy as community supported and Automation Hub with enterprise support.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; <a href="copyright.html">Copyright</a> 2020, IBM
+        &copy; Copyright IBM Corporation 2020
 
     </p>
   </div> 

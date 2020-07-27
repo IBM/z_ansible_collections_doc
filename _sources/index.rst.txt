@@ -1,3 +1,8 @@
+.. ...........................................................................
+.. © Copyright IBM Corporation 2020                                          .
+.. ...........................................................................
+
+===========================================
 Red Hat Ansible Certified Content for IBM Z
 ===========================================
 
@@ -8,30 +13,53 @@ automation on Z through a seamless, unified workflow orchestration with
 configuration management, provisioning, and application deployment in one
 easy-to-use platform.
 
-IBM z/OS core collection, as part of the broader offering
-**Red Hat® Ansible Certified Content for IBM Z**, will be available on both,
-Galaxy as community supported and Automation Hub with enterprise support.
+This solution comes together as one offering through the coordinated effort of
+all the offerings. Each offering is represented in a distribution format known
+as collections that can include include playbooks, roles, modules, and plugins.
 
-
-IBM z/OS Core
--------------
-
-.. toctree::
-
-   ibm_zos_core/docs/zos-collection-index
-
-IBM z/OS IMS
-------------
+You can install and use collections through Automation Hub, Ansible Galaxy and
+by building the collections from source available on GitHub.
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
 
-   ibm_zos_ims/docs/zos-collection-index
-
-Copyright
-=========
+   howdoi/howdoi
+   requirements/requirements
+   installation/installation
+   playbooks/playbooks
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Ansible Content
 
-   copyright
+   ibm_zos_core/docs/ansible_content
+   ibm_zos_ims/docs/ansible_content
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Release Notes
+
+   release/release
+
+.. toctree::
+   :maxdepth: 1
+   :caption: FAQs
+
+   faqs/faqs
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Reference
+
+   reference/supplementary
+   reference/community
+   reference/helpful_links
+
+
+
+
+
+
 
 

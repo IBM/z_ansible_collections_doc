@@ -34,10 +34,7 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
-    <link rel="next" title="Modules" href="modules.html" />
-    <link rel="prev" title="IBM z/OS IMS collection" href="../zos-collection-index.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,31 +78,31 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_core/docs/zos-collection-index.html">IBM z/OS core collection</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../zos-collection-index.html">IBM z/OS IMS collection</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#features">Features</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../zos-collection-index.html#getting-started">Getting Started</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ansible-galaxy">Ansible Galaxy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#automation-hub-and-private-galaxy-server">Automation Hub and Private Galaxy server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#local-build">Local build</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#reference">Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#community-guides">Community guides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#appendices">Appendices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../zos-collection-index.html#license">License</a></li>
-</ul>
-</li>
-</ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howdoi/howdoi.html">How Do I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_core/docs/ansible_content.html">z/OS Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS IMS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">Content / General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/supplementary.html">Supplementary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
             
@@ -151,8 +148,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../zos-collection-index.html">IBM z/OS IMS collection</a> &raquo;</li>
-        
       <li>Installation</li>
     
     
@@ -168,7 +163,7 @@
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>You can install the <strong>IBM z/OS IMS collection</strong> using one of these options:
-Ansible Galaxy or a local build.</p>
+Ansible Galaxy, private Galaxy Server or a local build.</p>
 <p>For more information on installing collections, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html">using collections</a>.</p>
 <div class="section" id="ansible-galaxy">
 <h2>Ansible Galaxy<a class="headerlink" href="#ansible-galaxy" title="Permalink to this headline">¶</a></h2>
@@ -230,20 +225,18 @@ path, such as:</p>
 <p>For more information on installing collections with Ansible Galaxy,
 see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#installing-collections-with-ansible-galaxy">installing collections</a>.</p>
 </div>
-<div class="section" id="automation-hub-and-private-galaxy-server">
-<h2>Automation Hub and Private Galaxy server<a class="headerlink" href="#automation-hub-and-private-galaxy-server" title="Permalink to this headline">¶</a></h2>
-<p>Configuring access to a private Galaxy server follows the same instructions
-that you would use to configure your client to point to Automation Hub. When
-hosting a private Galaxy server or pointing to Hub, available content is not
+<div class="section" id="private-galaxy-server">
+<h2>Private Galaxy server<a class="headerlink" href="#private-galaxy-server" title="Permalink to this headline">¶</a></h2>
+<p>When hosting a private Galaxy server, available content is not
 always consistent with what is available on the community Galaxy server.</p>
 <p>You can use the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with the option <code class="docutils literal notranslate"><span class="pre">install</span></code> to
-install a collection on your system (control node) hosted in Automation Hub
-or a private Galaxy server.</p>
+install a collection on your system (control node) hosted on a private
+Galaxy server.</p>
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command is configured to access
 <code class="docutils literal notranslate"><span class="pre">https://galaxy.ansible.com</span></code> as the server when you install a
-collection. The <cite>ansible-galaxy</cite> client can be configured to point to Hub or
-other servers, such as a privately running Galaxy server, by configuring the
-server list in the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file.</p>
+collection. The <cite>ansible-galaxy</cite> client can be configured to point to a
+privately running Galaxy server, by configuring the server list in
+the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file.</p>
 <p>Ansible searches for <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> in the following locations in this order:</p>
 <blockquote>
 <div><ul class="simple">
@@ -262,23 +255,9 @@ server names.</p></li>
 <li><p>Set the url option for each server name.</p></li>
 </ul>
 </div></blockquote>
-<p>For Automation Hub, you additionally need to:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Set the auth_url option for each server name.</p></li>
-<li><p>Set the API token for each server name. For more information on API tokens,
-see <a class="reference external" href="https://cloud.redhat.com/ansible/automation-hub/token/">Get API token from the version dropdown to copy your API token</a>.</p></li>
-</ul>
-</div></blockquote>
-<p>The following example shows a configuration for Automation Hub, a private
-running Galaxy server, and Galaxy:</p>
+<p>The following example shows a private running Galaxy server, and Galaxy:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">galaxy</span><span class="p p-Indicator">]</span>
-<span class="l l-Scalar l-Scalar-Plain">server_list = automation_hub, galaxy, private_galaxy</span>
-
-<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.automation_hub]</span>
-<span class="l l-Scalar l-Scalar-Plain">url=https://cloud.redhat.com/api/automation-hub/</span>
-<span class="l l-Scalar l-Scalar-Plain">auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token</span>
-<span class="l l-Scalar l-Scalar-Plain">token=&lt;hub_token&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">server_list = galaxy, private_galaxy</span>
 
 <span class="l l-Scalar l-Scalar-Plain">[galaxy_server.galaxy]</span>
 <span class="l l-Scalar l-Scalar-Plain">url=https://galaxy.ansible.com/</span>
@@ -358,21 +337,12 @@ installation path, for example, <code class="docutils literal notranslate"><span
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../zos-collection-index.html" class="btn btn-neutral float-left" title="IBM z/OS IMS collection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; <a href="../../../copyright.html">Copyright</a> 2020, IBM
+        &copy; Copyright IBM Corporation 2020
 
     </p>
   </div> 
