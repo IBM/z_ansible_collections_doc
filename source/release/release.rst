@@ -2,9 +2,9 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-=============
-Release Notes
-=============
+=======
+Release
+=======
 
 Something about releases here
 and some more

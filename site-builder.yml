@@ -294,7 +294,7 @@
           git add .
           git status
           git commit -m "Automated commit to update documentation"
-          git push
+          git push -f
           cd ../..
       register: git_update_doc
       when: deploy_to_gh_pages

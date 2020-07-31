@@ -44,7 +44,11 @@ templates_path = ['templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['ibm_zos_core/docs/source/index.rst', 'ibm_zos_ims/docs/source/index.rst', 'ibm_zos_ims/docs/zos-collection-index.rst', 'ibm_zos_core/docs/zos-collection-index.rst']
+exclude_patterns = [
+    'ibm_zos_core/docs/source/index.rst', 'ibm_zos_ims/docs/source/index.rst',
+    'ibm_zos_core/docs/source/installation.rst', 'ibm_zos_core/docs/zos-collection-index.rst',
+    'ibm_zos_core/docs/source/license.rst', 'ibm_zos_core/docs/source/playbooks.rst',
+    'ibm_zos_core/docs/source/requirements.rst']
 
 ##############################################################################
 # Options for HTML output
