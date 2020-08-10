@@ -29,4 +29,4 @@ collections:
   ibm_zos_ims:
     git: ibm_zos_ims.git
     stable:
-    latest: dev
+    latest: content/2869/updated-doc-model

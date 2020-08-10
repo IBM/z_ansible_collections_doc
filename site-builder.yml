@@ -157,6 +157,7 @@
     - name: Update the collections contents with Git for collections under `source/<collection>`
       shell: |
           cd source/{{ item.key }}
+          git pull
           git checkout {{ item.value.latest }}
           git pull origin {{ item.value.latest }}
       loop: "{{ lookup('dict', collections) }}"
@@ -196,26 +197,26 @@
     # Evaluate that the collections (git submodules) have required files
     ############################################################################
 
-    - name: Check that each collection has a source/<collection>/docszos-collection-index.rst file
-      stat:
-        path: source/{{ item }}/docs/zos-collection-index.rst
-      register: stat_collection_index_rst
-      with_items: "{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
-
-    - name: Display the collections with file source/<collection>/docszos-collection-index.rst
-      debug: msg="{{ item.item }}"
-      with_items: "{{ stat_collection_index_rst.results}}"
-      when: item.stat.exists
-
-      # Fail the build if collections don't meet requirements
-    - name: Determine which collections are valid and continue, otherwise exit the build
-      assert:
-        that:
-          - item.stat.exists
-        success_msg: "[PASS] Collection {{ item.item }} contains source/{{ item.item }}/docszos-collection-index.rst"
-        fail_msg: "[FAIL] Collection {{ item.item }} does NOT contain source/{{ item.item }}/docszos-collection-index.rst"
-      with_items: "{{ stat_collection_index_rst.results}}"
-
+    ### - name: Check that each collection has a source/<collection>/docs/zos-collection-index.rst file
+    ###   stat:
+    ###     path: source/{{ item }}/docs/zos-collection-index.rst
+    ###   register: stat_collection_index_rst
+    ###   with_items: "{{ ARRAY_OF_REGISTERED_COLLECTIONS }}"
+### 
+    ### - name: Display the collections with file source/<collection>/docs/zos-collection-index.rst
+    ###   debug: msg="{{ item.item }}"
+    ###   with_items: "{{ stat_collection_index_rst.results}}"
+    ###   when: item.stat.exists
+### 
+    ###   # Fail the build if collections don't meet requirements
+    ### - name: Determine which collections are valid and continue, otherwise exit the build
+    ###   assert:
+    ###     that:
+    ###       - item.stat.exists
+    ###     success_msg: "[PASS] Collection {{ item.item }} contains source/{{ item.item }}/docszos-collection-index.rst"
+    ###     fail_msg: "[FAIL] Collection {{ item.item }} does NOT contain source/{{ item.item }}/docszos-collection-index.rst"
+    ###   with_items: "{{ stat_collection_index_rst.results}}"
+### 
     # ############################################################################
     # # Generate and view HTML
     # ############################################################################
