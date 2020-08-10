@@ -315,6 +315,17 @@
     - raw: make clean;
       when: not confirm_delete.user_input | bool
 
+    ############################################################################
+    # Tear down, remove anything we don't need or want and reset the environment
+    ############################################################################
+    - name: Remove directory `build/`
+      file:
+        path: build
+        state: absent
+
+    # Consider for tear down to remove any submodule contents in gh-pages
+    #git clean -fd site/gh-pages/
+
     # TODO: Test this on the next deployment
     # - name: Display site/gh-pages updated HTML content
     #   debug: msg="Successfully committed documentation to site/gh-pages viewable at [ https://ibm.github.io/z_ansible_collections_doc/index.html ]"
