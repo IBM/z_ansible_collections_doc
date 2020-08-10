@@ -169,6 +169,10 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Collections are a distribution format for prepackaged Ansible content including
+playbooks, roles, modules, and plugins that enable you to quickly set up your automation project.
+Before you install a collection, review the <a class="reference external" href="https://github.com/z_ansible_collections_doc/requirements/requirements.html">requirements</a> to learn about any
+dependencies and determine the appropriate installation option.</p>
 <p>You can install a <strong>Red Hat® Ansible Certified Content for IBM Z collection</strong>
 using one of these options:</p>
 <ul class="simple">
@@ -179,29 +183,30 @@ using one of these options:</p>
 <p>For more information on installing collections, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html">using collections</a>.</p>
 <div class="section" id="id1">
 <h2>Ansible Galaxy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Galaxy enables you to quickly configure your automation project with content
-from the Ansible community.</p>
-<p>Galaxy provides prepackaged units of work known as collections. You can use the
-<a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with the option <code class="docutils literal notranslate"><span class="pre">install</span></code> to install a collection on
+<p>Ansible Galaxy enables you to quickly configure your automation project with content
+from the Ansible community. Galaxy provides prepackaged units of work known as collections. You can use the
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with the <code class="docutils literal notranslate"><span class="pre">install</span></code> option to install a collection on
 your system (control node) hosted in Galaxy.</p>
 <p>By default, the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command installs the latest available
 collection, but you can add a version identifier to install a specific version.
 Before installing a collection from Galaxy, review all the available versions.
-Periodically, new releases containing enhancements and features you might be
+Periodically, new releases containing enhancements and features that you might be
 interested in become available.</p>
-<p>The ansible-galaxy command ignores any pre-release versions unless
+<p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command ignores any pre-release versions unless
 the <code class="docutils literal notranslate"><span class="pre">==</span></code> range identifier is set to that pre-release version.
 A pre-release version is denoted by appending a hyphen and a series of
-dot separated identifiers immediately following the patch version. The
-<strong>IBM z/OS core collection</strong> releases collections with the pre-release
-naming convention such as <strong>1.1.0-beta1</strong> that would require a range identifier.</p>
-<p>Here is an example an example of installing a pre-release collection:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core:<span class="o">==</span><span class="m">1</span>.1.0-beta1
+dot separated identifiers immediately following the patch version. All
+<strong>IBM z/OS collections</strong> release collections with the pre-release
+naming convention such as <strong>1.1.0-beta.1</strong> that would require a range identifier.</p>
+<p>Here is an example of installing a pre-release collection:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core:<span class="o">==</span><span class="m">1</span>.1.0-beta.1
 </pre></div>
 </div>
 <p>If you have installed a prior version, you must overwrite an existing
 collection with the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option.</p>
-<p>Here are a few examples of installing the <strong>IBM z/OS core collection</strong>:</p>
+<p>Installing any <strong>IBM z/OS collection</strong> involves identical steps. Use the same instructions as
+shown in the following examples of installing the <strong>IBM z/OS core collection</strong> to
+install and configure any collection offered as part of the RedHat Ansible Certified Content for IBM Z:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core
 $ ansible-galaxy collection install -f ibm.ibm_zos_core
 $ ansible-galaxy collection install --force ibm.ibm_zos_core
