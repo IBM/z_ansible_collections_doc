@@ -255,29 +255,32 @@
       delegate_to: "{{ web_server }}"
       remote_user: "{{ webserver_user }}"
       register: webserver_upload
-      when: deploy_to_web_server
+      when: deploy_to_web_server | bool
 
     - name: Uploaded content for review
       debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
-      when: deploy_to_web_server and webserver_upload and not webserver_upload.failed
+      when: deploy_to_web_server | bool and webserver_upload and not webserver_upload.failed
 
     # ############################################################################
     # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
     # ############################################################################
 
-    - name: Update the 'site/gh-pages' after a repository clone so its tracked accordingly
-      shell: |
-          git rm --cached site/gh-pages
-          rm -rf .git/modules/site/*
-          git config -f .gitmodules --remove-section submodule.site/gh-pages
-          rm -rf site/gh-pages
-          git submodule add -b gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
-          git submodule init
-      register: site_gh_pages_return
-
-    - name: Display the Git submodule 'site/gh-pages' result
-      debug: msg="{{ site_gh_pages_return }}"
-      when: site_gh_pages_return
+    # TODO: 
+    # This should not run as part of the playbook, tbh not sure why/where to run this but
+    # if anything it should part of an init and not post init as it wipes out the entire existance
+    # of the gh-pages submodule and .gitmodules entry.
+    # - name: Update the 'site/gh-pages' after a repository clone so its tracked accordingly
+    #   shell: |
+    #       git rm --cached site/gh-pages
+    #       rm -rf .git/modules/site/*
+    #       git config -f .gitmodules --remove-section submodule.site/gh-pages
+    #       rm -rf site/gh-pages
+    #       git submodule add -b gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
+    #       git submodule init
+    #   register: site_gh_pages_return
+    # - name: Display the Git submodule 'site/gh-pages' result
+    #   debug: msg="{{ site_gh_pages_return }}"
+    #   when: site_gh_pages_return
 
     - name: Confirm continuing to upload HTML to public doc-site (gh-pages)
       pause:
