@@ -3,7 +3,7 @@
 .. ...........................................................................
 
 ===========================================
-Red Hat Ansible Certified Content for IBM X
+Red Hat Ansible Certified Content for IBM Z
 ===========================================
 
 **Red Hat® Ansible Certified Content for IBM Z** provides the ability to
