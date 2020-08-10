@@ -233,12 +233,14 @@
       pause:
         prompt: "Do you want to upload the generated HTML to an Apache server for review? (yes/no)"
       register: confirm_delete
+      when: deploy_to_web_server | bool
 
     - raw: make clean;
-      when: not confirm_delete.user_input | bool
+      when: deploy_to_web_server | bool and not confirm_delete.user_input | bool
+
 
     - meta: end_play
-      when: not confirm_delete.user_input | bool
+      when: deploy_to_web_server | bool and not confirm_delete.user_input | bool
 
     - name: Copying files to an Apache server for review
       copy:

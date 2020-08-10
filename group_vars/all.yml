@@ -13,6 +13,6 @@
 ################################################################################
 
 deploy_to_gh_pages: True
-deploy_to_web_server: True
+deploy_to_web_server: False
 accept_new_registry_collections: True
 cleanup_generated_html: True
