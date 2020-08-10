@@ -48,10 +48,10 @@ to set the port for a host can be reviewed in the
 .. _patterns:
    https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html#intro-patterns
 .. _sample inventory file:
-   https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/inventory
+   https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/inventory
 .. _FAQ:
    https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#running-on-z-os
 .. _behavioral inventory parameters:
    https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters
 .. _playbooks directory:
-   https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks
+   https://github.com/ansible-collections/ibm_zos_ims/tree/master/playbooks

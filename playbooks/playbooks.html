@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sample Configuration and Setup" href="../ibm_zos_core/docs/source/playbook_config_setup.html" />
+    <link rel="next" title="Configuration" href="../ibm_zos_core/docs/source/playbook_config_setup.html" />
     <link rel="prev" title="Installation" href="../installation/installation.html" /> 
 </head>
 
@@ -86,7 +86,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Playbooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ibm-zos-core">ibm_zos_core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ansible-doc">ansible-doc</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration-and-setup">Configuration and Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#offerings">Offerings</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_config_setup.html">z/OS core</a></li>
@@ -129,7 +133,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -213,6 +217,66 @@ a managed node (host) to be managed with Ansible.</p>
 same location where the collection is installed. For more information, refer to
 the <a class="reference external" href="installation.html">installation documentation</a>. In the following examples, this document will
 refer to the installation path as <code class="docutils literal notranslate"><span class="pre">~/.ansible/collections/ibm/ibm_zos_core</span></code>.</p>
+<div class="section" id="ibm-zos-core">
+<h3>ibm_zos_core<a class="headerlink" href="#ibm-zos-core" title="Permalink to this headline">¶</a></h3>
+<p>After the collection is installed, you can access the collection content for a
+playbook by referencing the namespace <code class="docutils literal notranslate"><span class="pre">ibm</span></code> and the collection’s fully
+qualified name <code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code>. For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+
+<span class="nt">tasks</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Query submitted job &#39;HELLO&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zos_core.zos_job_query</span><span class="p p-Indicator">:</span>
+    <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HELLO</span>
+</pre></div>
+</div>
+<p>In Ansible 2.9, the <code class="docutils literal notranslate"><span class="pre">collections</span></code> keyword was added to reduce the need
+to refer to the collection repeatedly. For example, you can use the
+<code class="docutils literal notranslate"><span class="pre">collections</span></code> keyword in your playbook:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">collections</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zos_core</span>
+
+  <span class="nt">tasks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Query submitted job &#39;HELLO&#39;</span>
+    <span class="nt">zos_job_query</span><span class="p">:</span>
+        <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HELLO</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ansible-doc">
+<h3>ansible-doc<a class="headerlink" href="#ansible-doc" title="Permalink to this headline">¶</a></h3>
+<p>Modules included in this collection provide additional documentation that is
+similar to a UNIX, or UNIX-like operating system man page (manual page). This
+documentation can be accessed from the command line by using the
+<code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command.</p>
+<p>Here’s how to use the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command after you install the
+<strong>IBM z/OS core collection</strong>: <code class="docutils literal notranslate"><span class="pre">ansible-doc</span> <span class="pre">ibm.ibm_zos_core.zos_data_set</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; ZOS_DATA_SET    <span class="o">(</span>/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core/plugins/modules/zos_data_set.py<span class="o">)</span>
+
+        Create, delete and <span class="nb">set</span> attributes of data sets. When forcing data <span class="nb">set</span> replacement, contents will not be
+        preserved.
+
+* This module is maintained by The Ansible Community
+OPTIONS <span class="o">(=</span> is mandatory<span class="o">)</span>:
+
+- batch
+        Batch can be used to perform operations on multiple data sets in a single module call.
+        Each item in the list expects the same options as zos_data_set.
+        <span class="o">[</span>Default: <span class="o">(</span>null<span class="o">)]</span>
+        type: list
+        version_added: <span class="m">2</span>.9
+
+- data_class
+        The data class name <span class="o">(</span>required <span class="k">for</span> SMS-managed data sets<span class="o">)</span>
+        <span class="o">[</span>Default: <span class="o">(</span>null<span class="o">)]</span>
+        type: str
+        version_added: <span class="m">2</span>.9
+</pre></div>
+</div>
+<p>For more information on using the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command, refer
+to <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc">Ansible guide</a>.</p>
+</div>
 </div>
 <div class="section" id="configuration-and-setup">
 <h2>Configuration and Setup<a class="headerlink" href="#configuration-and-setup" title="Permalink to this headline">¶</a></h2>
@@ -276,7 +340,7 @@ refer to the installation path as <code class="docutils literal notranslate"><sp
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ibm_zos_core/docs/source/playbook_config_setup.html" class="btn btn-neutral float-right" title="Sample Configuration and Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../ibm_zos_core/docs/source/playbook_config_setup.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../installation/installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

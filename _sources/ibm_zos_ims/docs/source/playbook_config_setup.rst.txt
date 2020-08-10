@@ -2,8 +2,8 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-Sample Configuration and Setup
-==============================
+Configuration
+=============
 
 Each release of Ansible provides options in addition to the ones identified in
 the sample configurations that are included with this collection. These options
@@ -47,10 +47,10 @@ For more information about available configurations for ``ansible.cfg``, read
 the Ansible documentation on `Ansible configuration settings`_.
 
 .. _ansible.cfg:
-   https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg
+   https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/ansible.cfg
 .. _Ansible configuration settings:
    https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings-locations
 .. _precedence rules:
    https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html#general-precedence-rules
 .. _playbooks directory:
-   https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks
+   https://github.com/ansible-collections/ibm_zos_ims/tree/master/playbooks

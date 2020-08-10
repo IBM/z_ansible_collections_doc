@@ -32,6 +32,78 @@ refer to the installation path as ``~/.ansible/collections/ibm/ibm_zos_core``.
 .. _installation documentation:
    installation.html
 
+ibm_zos_core
+------------
+
+After the collection is installed, you can access the collection content for a
+playbook by referencing the namespace ``ibm`` and the collection's fully
+qualified name ``ibm_zos_core``. For example:
+
+.. code-block:: yaml
+
+    - hosts: all
+
+    tasks:
+    - name: Query submitted job 'HELLO'
+        ibm.ibm_zos_core.zos_job_query:
+        job_name: HELLO
+
+
+In Ansible 2.9, the ``collections`` keyword was added to reduce the need
+to refer to the collection repeatedly. For example, you can use the
+``collections`` keyword in your playbook:
+
+.. code-block:: yaml
+
+    - hosts: all
+      collections:
+      - ibm.ibm_zos_core
+
+      tasks:
+      - name: Query submitted job 'HELLO'
+        zos_job_query:
+            job_name: HELLO
+
+ansible-doc
+-----------
+
+Modules included in this collection provide additional documentation that is
+similar to a UNIX, or UNIX-like operating system man page (manual page). This
+documentation can be accessed from the command line by using the
+``ansible-doc`` command.
+
+Here's how to use the ``ansible-doc`` command after you install the
+**IBM z/OS core collection**: ``ansible-doc ibm.ibm_zos_core.zos_data_set``
+
+.. code-block:: sh
+
+    > ZOS_DATA_SET    (/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core/plugins/modules/zos_data_set.py)
+
+            Create, delete and set attributes of data sets. When forcing data set replacement, contents will not be
+            preserved.
+
+    * This module is maintained by The Ansible Community
+    OPTIONS (= is mandatory):
+
+    - batch
+            Batch can be used to perform operations on multiple data sets in a single module call.
+            Each item in the list expects the same options as zos_data_set.
+            [Default: (null)]
+            type: list
+            version_added: 2.9
+
+    - data_class
+            The data class name (required for SMS-managed data sets)
+            [Default: (null)]
+            type: str
+            version_added: 2.9
+
+For more information on using the ``ansible-doc`` command, refer
+to `Ansible guide`_.
+
+.. _Ansible guide:
+   https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc
+
 
 Configuration and Setup
 =======================

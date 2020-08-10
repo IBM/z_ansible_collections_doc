@@ -92,22 +92,27 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS Core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../modules.html#module-reference">Module reference</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">zos_copy – Copy data to z/OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zos_copy – Copy data to z/OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#see-also">See Also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -117,7 +122,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -221,12 +226,12 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>backup_file</dt><dd><p>Specify a unique USS file name or data set name for the destination backup.</p>
-<p>If the destination (dest) is a USS file or path, the backup_file name must be a file or path name, and the USS path or file must be an absolute path name.</p>
-<p>If the destination is an MVS data set, the backup_file name must be an MVS data set name.</p>
-<p>If the backup_file is not provided, the default backup_file name will be used. If the destination is a USS file or USS path, the name of the backup file will be the destination file or path name appended with a timestamp, e.g. <code class="docutils literal notranslate"><span class="pre">/path/file_name.2020-04-23-08-32-29-bak.tar</span></code>.</p>
+<dt>backup_name</dt><dd><p>Specify a unique USS file name or data set name for the destination backup.</p>
+<p>If the destination (dest) is a USS file or path, the backup_name must be a file or path name, and the USS path or file must be an absolute path name.</p>
+<p>If the destination is an MVS data set, the backup_name must be an MVS data set name.</p>
+<p>If the backup_name is not provided, the default backup_name will be used. If the destination is a USS file or USS path, the name of the backup file will be the destination file or path name appended with a timestamp, e.g. <code class="docutils literal notranslate"><span class="pre">/path/file_name.2020-04-23-08-32-29-bak.tar</span></code>.</p>
 <p>If the destination is an MVS data set, it will be a data set with a random name generated by calling the ZOAU API. The MVS backup data set recovery can be done by renaming it.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set member and <code class="docutils literal notranslate"><span class="pre">backup_file</span></code> is not provided, the data set member will be backed up to the same partitioned data set with a randomly generated member name.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set member and <code class="docutils literal notranslate"><span class="pre">backup_name</span></code> is not provided, the data set member will be backed up to the same partitioned data set with a randomly generated member name.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -341,6 +346,20 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
+<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 22</div>
+</div>
+</dd>
+<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to C(true). By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: false</div>
+</div>
+</dd>
 </dl>
 </div>
 <div class="section" id="examples">
@@ -431,7 +450,7 @@
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/dest</span>
     <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">backup_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/local_file_backup</span>
+    <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/local_file_backup</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a PDS on remote system to a new PDS</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
@@ -482,7 +501,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Destination data sets are assumed to be in catalog. When trying to copy to an uncataloged data set, the module assumes that the data set does not exist and will create it.</p>
-<p>Destination will be backed up if either <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">backup_file</span></code> is provided. If <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code> but <code class="docutils literal notranslate"><span class="pre">backup_file</span></code> is provided, task will fail.</p>
+<p>Destination will be backed up if either <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">backup_name</span></code> is provided. If <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code> but <code class="docutils literal notranslate"><span class="pre">backup_name</span></code> is provided, task will fail.</p>
 <p>When copying local files or directories, temporary storage will be used on the remote z/OS system. The size of the temporary storage will correspond to the size of the file or directory being copied. Temporary files will always be deleted, regardless of success or failure of the copy task.</p>
 <p>VSAM data sets can only be copied to other VSAM data sets.</p>
 <p>For supported character sets used to encode data, refer to <a class="reference external" href="https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode">https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode</a></p>
@@ -529,11 +548,11 @@
 <div class="line"><strong>sample</strong>: 8d320d5f68b048fc97559d771ede68b37a71e8374d1d678d96dcfa2b2da7a64e</div>
 </div>
 </dd>
-<dt>backup_file</dt><dd><div class="line-block">
+<dt>backup_name</dt><dd><div class="line-block">
 <div class="line">Name of the backup file or data set that was created.</div>
 </div>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: if backup=true or backup_file=true</div>
+<div class="line"><strong>returned</strong>: if backup=true or backup_name=true</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: <a class="reference external" href="mailto:/path/to/file&#46;txt&#46;2015-02-03&#37;&#52;&#48;04">/path/to/file<span>&#46;</span>txt<span>&#46;</span>2015-02-03<span>&#64;</span>04</a>:15~</div>
 </div>

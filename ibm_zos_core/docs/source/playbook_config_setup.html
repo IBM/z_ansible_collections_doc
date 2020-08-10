@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sample Configuration and Setup &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Configuration &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Sample Configuration and Setup" href="../../../ibm_zos_ims/docs/source/playbook_config_setup.html" />
+    <link rel="next" title="Configuration" href="../../../ibm_zos_ims/docs/source/playbook_config_setup.html" />
     <link rel="prev" title="Playbooks" href="../../../playbooks/playbooks.html" /> 
 </head>
 
@@ -108,7 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -166,7 +166,7 @@
         
           <li><a href="../../../playbooks/playbooks.html">Playbooks</a> &raquo;</li>
         
-      <li>Sample Configuration and Setup</li>
+      <li>Configuration</li>
     
     
 
@@ -178,8 +178,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sample-configuration-and-setup">
-<h1>Sample Configuration and Setup<a class="headerlink" href="#sample-configuration-and-setup" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>Each release of Ansible provides options in addition to the ones identified in
 the sample configurations that are included with this collection. These options
 allow you to customize how Ansible operates in your environment. Ansible
@@ -189,10 +189,10 @@ Ansible <a class="reference external" href="https://docs.ansible.com/ansible/lat
 <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> configurations. Included in the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks">playbooks directory</a> is a
 sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> that can supplement <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> with a
 little modification.</p>
-<p>In the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a>, the only required configuration is <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code>.
+<p>In <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a>, the only required configuration is <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code>.
 Setting the <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code> is <strong>required</strong> because it overrides the
 default behavior which is to transfer Ansible modules to the target in binary
-via SFTP, however this will fail with the error:</p>
+via SFTP. However, this will fail with the error:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>SyntaxError: Non-UTF-8 code starting with ‘x83’ in file
@@ -203,8 +203,8 @@ see <a class="reference external" href="https://python.org/dev/peps/pep-0263/">h
 <p>Setting <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code> in <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> will prevent this error.</p>
 <p>You can specify the SSH port used by Ansible and instruct Ansible where to
 write the temporary files on the target. This can be easily done by adding the
-options to your inventory or <cite>ansible.cfg</cite>.</p>
-<p>An example of adding these options to <cite>ansible.cfg</cite> is shown below. For more
+options to your inventory or to <cite>ansible.cfg</cite>.</p>
+<p>An example of adding these options to <cite>ansible.cfg</cite> is shown below. For additional
 details, see the sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> notes.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">defaults</span><span class="p p-Indicator">]</span>
 <span class="l l-Scalar l-Scalar-Plain">forks = 25</span>
@@ -224,7 +224,7 @@ the Ansible documentation on <a class="reference external" href="https://docs.an
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../ibm_zos_ims/docs/source/playbook_config_setup.html" class="btn btn-neutral float-right" title="Sample Configuration and Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../ibm_zos_ims/docs/source/playbook_config_setup.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../../playbooks/playbooks.html" class="btn btn-neutral float-left" title="Playbooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

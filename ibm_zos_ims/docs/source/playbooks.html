@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -162,28 +162,38 @@
             
   <div class="section" id="playbooks">
 <h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline">¶</a></h1>
-<p>The sample playbooks that are <strong>included</strong> in the <strong>IBM z/OS IMS collection</strong>
-demonstrate how to use the collection content.</p>
-<div class="section" id="playbook-documentation">
-<h2>Playbook Documentation<a class="headerlink" href="#playbook-documentation" title="Permalink to this headline">¶</a></h2>
 <p>An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.</p>
-<p>A <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/tree/master/playbooks">playbooks directory</a> that contains a sample playbook is included in the
-<strong>IBM z/OS IMS collection</strong>. The sample playbook is for reference and can be run
-with the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command with some modification to the <strong>inventory</strong>,
-<strong>ansible.cfg</strong> and <strong>group_vars</strong> as well as updates to the module parameters
-to reference your IMS artifacts and configuration.</p>
-<p>To get started with configuring your environment for running playbooks, see the
-<a class="reference external" href="https://ansible-collections.github.io/ibm_zos_core/playbooks.html#sample-configuration-and-setup">sample configuration and setup</a> section and the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks">sample playbooks</a> in the
-<strong>IBM z/OS core collection.</strong></p>
-<p>You can find the playbook content that is included with the collection in the
-same location where the collection is installed. For more information, refer to
-the <a class="reference external" href="installation.html">installation documentation</a>.</p>
-<p>The sample playbook that is included in the <strong>IBM z/OS IMS collection</strong> demonstrates
-how to perform tasks using the modules included in the <strong>Red Hat Ansible Certified
-Content for IBM z/OS IMS collection.</strong> The sample does not demonstrate all of the
-available module options for the collection. To learn more about all the available
-options, refer to the ansible-doc or the <a class="reference external" href="modules.html">module reference</a>.</p>
+<p>Sample playbooks that demonstrate how to use the collection content are <strong>included</strong>
+in the <strong>IBM z/OS IMS collection</strong>. You can find the samples on
+<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/tree/master/playbooks">Github</a> or in the collections playbooks directory included with the
+installation. For more information about the collections installation and
+hierarchy, refer to the RedHat Ansible Certified Content <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/installation/installation.html">installation</a> documentation.</p>
+<p>The sample playbook can be run with the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command with some
+modification to the <strong>inventory</strong>, <strong>ansible.cfg</strong> and <strong>group_vars</strong>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playbook_config_setup.html">Configuration</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Inventory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playbook_inventory.html">Inventory</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">group_vars</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playbook_group_vars.html">Group_vars</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Run a playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="playbook_run.html">Run the playbook</a></li>
+</ul>
 </div>
 </div>
 

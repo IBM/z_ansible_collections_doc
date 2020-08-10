@@ -68,7 +68,7 @@ The included **all.yml** sample variables file contents are:
    ZOAU; for example, ``/usr/lpp/IBM/zoautil``.
 
 .. _all.yml:
-   https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/group_vars/all.yml
+   https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/group_vars/all.yml
 
 
 A reusable approach to storing your group variables is to create top level

@@ -2,18 +2,11 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
+License
 =======
-Release
-=======
 
-Something about releases here
-and some more
+This collection are licensed under
+`Apache License, Version 2.0`_.
 
-Offerings
-=========
-
-.. toctree::
-   :maxdepth: 1
-
-   z/OS core </../ibm_zos_core/docs/source/release_notes>
-   z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
+.. _Apache License, Version 2.0:
+    https://opensource.org/licenses/Apache-2.0

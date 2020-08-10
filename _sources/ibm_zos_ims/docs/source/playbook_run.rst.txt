@@ -7,7 +7,7 @@ Run the playbook
 
 Access the sample Ansible playbook and ensure that you are within the collection
 playbooks directory where the sample files are included:
-``~/.ansible/collections/ibm/ibm_zos_core/playbooks/``.
+``~/.ansible/collections/ibm/ibm_zos_ims/playbooks/``.
 
 Use the Ansible command ``ansible-playbook`` to run the sample playbook.  The
 command syntax is ``ansible-playbook -i <inventory> <playbook>``; for example,
@@ -54,5 +54,5 @@ ERROR, DEBUG.
    https://linux.die.net/man/1/sshpass
 
 .. _files directory:
-   https://github.com/ansible-collections/ibm_zos_core/tree/dev/playbooks/files
+   https://github.com/ansible-collections/ibm_zos_ims/tree/dev/playbooks/files
 

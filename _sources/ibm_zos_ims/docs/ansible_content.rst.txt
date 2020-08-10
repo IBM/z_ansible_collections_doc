@@ -20,11 +20,13 @@ a solution that will enable you to automate tasks on z/OS subsystems such
 as IMS.
 
 .. _IBM z/OS IMS collection:
-   https://github.com/ansible-collections/ibm_zos_core
+   https://github.com/ansible-collections/ibm_zos_ims
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: Reference
 
+   source/plugins
    source/modules
+   source/filters

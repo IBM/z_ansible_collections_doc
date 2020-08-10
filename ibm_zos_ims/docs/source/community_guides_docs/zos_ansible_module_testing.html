@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -107,8 +107,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../reference/community.html#offerings">Offerings</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../ibm_zos_core/docs/source/community_guides.html">z/OS core</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../community_guides.html">z/OS IMS</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../community_guides.html#development">Development</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../community_guides.html#z-os-ansible-module-testing">z/OS Ansible Module Testing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../community_guides.html#development">Development</a></li>
 </ul>
 </li>
 </ul>
@@ -199,8 +198,8 @@ for z/OS Ansible modules.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>IBM z/OS collections are dependent on specific versions of ZOAU. When
-configuring the dependencies, refer to the collections requirements
-and dependencies to ensure proper execution.</p></li>
+configuring the dependencies, refer to the requirements
+and dependencies of the particular collection to ensure proper execution.</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -211,7 +210,7 @@ and dependencies to ensure proper execution.</p></li>
 <div class="section" id="configuration-and-dependencies">
 <h1>Configuration and Dependencies<a class="headerlink" href="#configuration-and-dependencies" title="Permalink to this headline">¶</a></h1>
 <p>This section explains how to configure the environment and which dependencies to
-install to run both the functional and unti test cases.</p>
+install to run both the functional and unit test cases.</p>
 <div class="section" id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Install the requirements using the supplied <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> with <code class="docutils literal notranslate"><span class="pre">pip3</span></code>.
@@ -219,7 +218,7 @@ In the root folder of the collection, run the command:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip3 install -r tests/requirements.txt
 </pre></div>
 </div>
-<p>If the command responds with <code class="docutils literal notranslate"><span class="pre">ERROR:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">install</span> <span class="pre">packages</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">EnvironmentError:</span> <span class="pre">[Errno</span> <span class="pre">13]</span> <span class="pre">Permission</span> <span class="pre">denied</span></code>
+<p>If the command responds with <code class="docutils literal notranslate"><span class="pre">ERROR:</span> <span class="pre">Could</span> <span class="pre">not</span> <span class="pre">install</span> <span class="pre">packages</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">EnvironmentError:</span> <span class="pre">[Errno</span> <span class="pre">13]</span> <span class="pre">Permission</span> <span class="pre">denied</span></code>,
 run the command with the additional <code class="docutils literal notranslate"><span class="pre">-user</span></code> option:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip3 install --user -r tests/requirements.txt
 </pre></div>
@@ -301,11 +300,11 @@ z/OS system; the unit tests do not require z/OS access.</p>
 <div class="section" id="run-functional-tests">
 <h2>Run Functional Tests<a class="headerlink" href="#run-functional-tests" title="Permalink to this headline">¶</a></h2>
 <p>To run the functional tests, you will need a Python 3 environment.
-Pass the YAML configuration to  command <code class="docutils literal notranslate"><span class="pre">pytest</span></code> with the option <code class="docutils literal notranslate"><span class="pre">--zinventory</span></code>
+Pass the YAML configuration to the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> command  with the option <code class="docutils literal notranslate"><span class="pre">--zinventory</span></code>
 or <code class="docutils literal notranslate"><span class="pre">-z</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> looks for the YAML configuration in the local
-directory as <strong>test-config.yaml</strong>. In this example, we assume that the path to the
-YAML configuration is <strong>/home/myuser/test_config.yml</strong>.</p>
-<p>If the environment is using Python 2, or Python 3 is not present in the host PATH:</p>
+directory as <strong>test-config.yaml</strong>.</p>
+<p>In this example, the path to the YAML configuration is <strong>/home/myuser/test_config.yml</strong>.</p>
+<p>If the environment is using Python 2 or Python 3 is not present in the host PATH:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ python3 -m pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span>
 </pre></div>
 </div>
@@ -432,7 +431,7 @@ having to worry about undoing patches at the end of a test.</p></li>
 <div class="section" id="zos-import-mocker">
 <h2>zos_import_mocker<a class="headerlink" href="#zos-import-mocker" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/dev/tests/conftest.py#L57">zos_import_mocker</a> pytest fixture is designed to simplify mocking import
-dependencies without causing side-effects.</p>
+dependencies without disrupting any of the existing operations.</p>
 <p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/dev/tests/conftest.py#L57">zos_import_mocker</a> returns two items when it is provided to a test:</p>
 <ol class="arabic">
 <li><p>A mocker object from <a class="reference external" href="https://github.com/pytest-dev/pytest-mock">pytest-mock</a>.</p>

@@ -2,8 +2,8 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-Sample Configuration and Setup
-==============================
+Configuration
+=============
 
 Each release of Ansible provides options in addition to the ones identified in
 the sample configurations that are included with this collection. These options
@@ -16,10 +16,10 @@ The Ansible configuration file `ansible.cfg` can override almost all
 sample `ansible.cfg`_ that can supplement ``ansible-playbook`` with a
 little modification.
 
-In the `ansible.cfg`_, the only required configuration is ``pipelining = True``.
+In `ansible.cfg`_, the only required configuration is ``pipelining = True``.
 Setting the ``pipelining = True`` is **required** because it overrides the
 default behavior which is to transfer Ansible modules to the target in binary
-via SFTP, however this will fail with the error:
+via SFTP. However, this will fail with the error:
 
 .. warning::
    SyntaxError: Non-UTF-8 code starting with '\x83' in file
@@ -31,9 +31,9 @@ Setting ``pipelining = True`` in `ansible.cfg`_ will prevent this error.
 
 You can specify the SSH port used by Ansible and instruct Ansible where to
 write the temporary files on the target. This can be easily done by adding the
-options to your inventory or `ansible.cfg`.
+options to your inventory or to `ansible.cfg`.
 
-An example of adding these options to `ansible.cfg` is shown below. For more
+An example of adding these options to `ansible.cfg` is shown below. For additional
 details, see the sample `ansible.cfg`_ notes.
 
 .. code-block:: yaml

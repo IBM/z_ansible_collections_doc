@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Dependencies &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Installation" href="../../../installation/installation.html" />
-    <link rel="prev" title="Managed node" href="../../../ibm_zos_core/docs/source/requirements_managed.html" /> 
+    <link rel="prev" title="Dependencies" href="../../../ibm_zos_core/docs/source/requirements_managed.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -105,7 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -163,7 +163,7 @@
         
           <li><a href="../../../requirements/requirements.html">Requirements</a> &raquo;</li>
         
-      <li>Managed node</li>
+      <li>Dependencies</li>
     
     
 
@@ -175,19 +175,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managed-node">
-<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h1>
-<ul>
+  <div class="section" id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
 <li><p><a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a></p></li>
 <li><p>z/OS <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">V2R3</a> or <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW">later</a></p></li>
 <li><p><a class="reference external" href="requirements.html#id1">IBM Z Open Automation Utilities</a> (ZOAU)</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>IBM z/OS core collections are dependent on specific versions of ZOAU.
+<ul>
+<li><p>IBM z/OS IMS collections are dependent on specific versions of ZOAU.
 For information about the required version of ZOAU, review the
 <a class="reference external" href="release_notes.html">release notes</a>.</p></li>
 </ul>
-</div></blockquote>
 </li>
 <li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.2.0/com.ibm.zos.v2r2.e0za100/ch1openssh.htm">z/OS OpenSSH</a></p></li>
 <li><p>The z/OS® shell</p></li>
@@ -195,14 +193,16 @@ For information about the required version of ZOAU, review the
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, the only supported shell is the <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code>; this is because
-shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code> handle the reading and writing of untagged files
-differently. <code class="docutils literal notranslate"><span class="pre">bash</span></code> added enhanced ASCII support in 4.3 and thus differs
-from 4.2; we encourage users avoid using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code> to
-change the default shell as does <a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>. Should the
-<code class="docutils literal notranslate"><span class="pre">bash</span></code> shell be the only shell available, you will need to control how
-new and existing files are tagged and encoded, this can be controlled by
-setting both “_ENCODE_FILE_NEW” and “_ENCODE_FILE_EXISTING”; for example,</p>
+<p>Currently, only <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code> is supported . Using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
+to change the default shell is discouraged. For more information, see
+<a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>.</p>
+<p>Shells such as <code class="docutils literal notranslate"><span class="pre">bash``are</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">because</span> <span class="pre">they</span> <span class="pre">handle</span> <span class="pre">the</span> <span class="pre">reading</span> <span class="pre">and</span>
+<span class="pre">writing</span> <span class="pre">of</span> <span class="pre">untagged</span> <span class="pre">files</span> <span class="pre">differently.</span> <span class="pre">``bash</span></code> added enhanced ASCII support
+in 4.3 and thus differs from 4.2. If <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell is the only shell
+available, you will need to control how the new and existing files are tagged
+and encoded. This can be controlled by
+setting both “_ENCODE_FILE_NEW” and “_ENCODE_FILE_EXISTING”.
+For example,</p>
 <ul class="simple">
 <li><p>_ENCODE_FILE_NEW: “IBM-1047”</p></li>
 <li><p>_ENCODE_FILE_EXISTING: “IBM-1047”</p></li>
@@ -269,7 +269,7 @@ latest PTF, installation and configuration instructions.</p></li>
         <a href="../../../installation/installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../ibm_zos_core/docs/source/requirements_managed.html" class="btn btn-neutral float-left" title="Managed node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../ibm_zos_core/docs/source/requirements_managed.html" class="btn btn-neutral float-left" title="Dependencies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

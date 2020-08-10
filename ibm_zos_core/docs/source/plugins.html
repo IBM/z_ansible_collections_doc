@@ -93,6 +93,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#action">Action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#z-os-connection-plugin">z/OS Connection Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -103,7 +104,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -191,6 +192,31 @@ and expandable feature set.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code>: Enables the Ansible controller to communicate with a z/OS target machine by using SSH, with the added support to transfer ASCII as EBCDIC when transferring REXX modules. This connection plugin was forked from the Ansible <a class="reference external" href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/connection/ssh.py">ssh.py</a> connection plugin.</p></li>
 <li><p>For further reference, see the <a class="reference external" href="quickstart.html#z-os-connection-plugin">zos_ssh quickstart</a> guide.</p></li>
 </ul>
+</div>
+<div class="section" id="z-os-connection-plugin">
+<h2>z/OS Connection Plugin<a class="headerlink" href="#z-os-connection-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Since EBCDIC encoding is used on z/OS, custom plugins are required to determine
+the correct transport method when targeting a z/OS system. The zos_ssh.py
+connection plugin is a fork of the default ssh.py plugin with the added
+functionality to check if a module is written in REXX.</p>
+<p>Since REXX scripts are required be in EBCDIC encoding to run, they must be
+handled differently during transfer. If the string
+<code class="docutils literal notranslate"><span class="pre">__ANSIBLE_ENCODE_EBCDIC__</span></code> is found in the first line of the module, the
+module is transferred to the target system using SCP. Otherwise, SFTP is used.
+SCP treats files as text, automatically encoding as EBCDIC at transfer time.
+SFTP treats files as binary, performing no encoding changes.</p>
+<p><strong>REXX Module Configuration</strong>:</p>
+<ul class="simple">
+<li><p>Ensure a REXX modules first line is a comment containing the case insensitive keyword <code class="docutils literal notranslate"><span class="pre">rexx</span></code></p></li>
+<li><p>Followed by the case sensitive value <code class="docutils literal notranslate"><span class="pre">__ANSIBLE_ENCODE_EBCDIC__</span></code></p></li>
+</ul>
+<p><strong>Example REXX module</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/* rexx  __ANSIBLE_ENCODE_EBCDIC__  */
+<span class="nv">x</span> <span class="o">=</span> <span class="m">55</span>
+SAY <span class="s1">&#39;{&quot;SYSTEM_VERSION&quot;:&quot;&#39;</span> x <span class="s1">&#39;&quot;}&#39;</span>
+RETURN <span class="m">0</span>
+</pre></div>
+</div>
 </div>
 </div>
 

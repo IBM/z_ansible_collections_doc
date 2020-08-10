@@ -57,11 +57,18 @@ Do the modules leave any objects/files behind?
 
 TBD
 
-Offerings
-=========
 
-.. toctree::
-   :maxdepth: 1
-
-   z/OS core </../ibm_zos_core/docs/source/faqs.rst>
-   z/OS IMS </../ibm_zos_ims/docs/source/faqs.rst>
+.. ..........................................................................
+.. . TODO
+.. ..........................................................................
+.. . Disabled for the time being, when the collections can contribute content
+.. . enable this feature
+.. ..........................................................................
+.. Offerings
+.. =========
+..
+.. .. toctree::
+..    :maxdepth: 1
+..
+..    z/OS core </../ibm_zos_core/docs/source/faqs.rst>
+..    z/OS IMS </../ibm_zos_ims/docs/source/faqs.rst>

@@ -108,7 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -182,7 +182,7 @@
 <h1>Run the playbook<a class="headerlink" href="#run-the-playbook" title="Permalink to this headline">¶</a></h1>
 <p>Access the sample Ansible playbook and ensure that you are within the collection
 playbooks directory where the sample files are included:
-<code class="docutils literal notranslate"><span class="pre">~/.ansible/collections/ibm/ibm_zos_core/playbooks/</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">~/.ansible/collections/ibm/ibm_zos_ims/playbooks/</span></code>.</p>
 <p>Use the Ansible command <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> to run the sample playbook.  The
 command syntax is <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">&lt;inventory&gt;</span> <span class="pre">&lt;playbook&gt;</span></code>; for example,
 <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">inventory</span> <span class="pre">zos-collection-sample.yaml</span></code>.</p>
@@ -218,7 +218,7 @@ easy to determine if a sample has access to the host’s resources.
 Review the playbook notes sections for additional details and
 configuration.</p>
 <p>Sample playbooks often submit JCL that is included with this collection
-under the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/dev/playbooks/files">files directory</a>. Review the sample JCL for necessary edits to
+under the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/tree/dev/playbooks/files">files directory</a>. Review the sample JCL for necessary edits to
 allow for submission on the target system. The most common changes are to
 add a CLASS parameter and change the NOTIFY user parameter. For more details,
 see the JCL notes section included in the collection.</p>

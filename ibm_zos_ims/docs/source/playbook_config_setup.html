@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sample Configuration and Setup &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Configuration &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Inventory" href="../../../ibm_zos_core/docs/source/playbook_inventory.html" />
-    <link rel="prev" title="Sample Configuration and Setup" href="../../../ibm_zos_core/docs/source/playbook_config_setup.html" /> 
+    <link rel="prev" title="Configuration" href="../../../ibm_zos_core/docs/source/playbook_config_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -108,7 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Release</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -166,7 +166,7 @@
         
           <li><a href="../../../playbooks/playbooks.html">Playbooks</a> &raquo;</li>
         
-      <li>Sample Configuration and Setup</li>
+      <li>Configuration</li>
     
     
 
@@ -178,18 +178,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sample-configuration-and-setup">
-<h1>Sample Configuration and Setup<a class="headerlink" href="#sample-configuration-and-setup" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>Each release of Ansible provides options in addition to the ones identified in
 the sample configurations that are included with this collection. These options
 allow you to customize how Ansible operates in your environment. Ansible
 supports several sources to configure its behavior and all sources follow the
 Ansible <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html#general-precedence-rules">precedence rules</a>.</p>
 <p>The Ansible configuration file <cite>ansible.cfg</cite> can override almost all
-<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> configurations. Included in the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks">playbooks directory</a> is a
-sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> that can supplement <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> with a
+<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> configurations. Included in the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/tree/master/playbooks">playbooks directory</a> is a
+sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/ansible.cfg">ansible.cfg</a> that can supplement <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> with a
 little modification.</p>
-<p>In the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a>, the only required configuration is <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code>.
+<p>In the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/ansible.cfg">ansible.cfg</a>, the only required configuration is <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code>.
 Setting the <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code> is <strong>required</strong> because it overrides the
 default behavior which is to transfer Ansible modules to the target in binary
 via SFTP, however this will fail with the error:</p>
@@ -200,12 +200,12 @@ via SFTP, however this will fail with the error:</p>
 AnsiballZ_stat.py on line 1, but no encoding declared;
 see <a class="reference external" href="https://python.org/dev/peps/pep-0263/">https://python.org/dev/peps/pep-0263/</a> for details</p>
 </div>
-<p>Setting <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code> in <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> will prevent this error.</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">pipelining</span> <span class="pre">=</span> <span class="pre">True</span></code> in <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/ansible.cfg">ansible.cfg</a> will prevent this error.</p>
 <p>You can specify the SSH port used by Ansible and instruct Ansible where to
 write the temporary files on the target. This can be easily done by adding the
 options to your inventory or <cite>ansible.cfg</cite>.</p>
 <p>An example of adding these options to <cite>ansible.cfg</cite> is shown below. For more
-details, see the sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> notes.</p>
+details, see the sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims/blob/master/playbooks/ansible.cfg">ansible.cfg</a> notes.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">defaults</span><span class="p p-Indicator">]</span>
 <span class="l l-Scalar l-Scalar-Plain">forks = 25</span>
 <span class="l l-Scalar l-Scalar-Plain">remote_tmp = /u/ansible/tmp</span>
@@ -227,7 +227,7 @@ the Ansible documentation on <a class="reference external" href="https://docs.an
         <a href="../../../ibm_zos_core/docs/source/playbook_inventory.html" class="btn btn-neutral float-right" title="Inventory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../ibm_zos_core/docs/source/playbook_config_setup.html" class="btn btn-neutral float-left" title="Sample Configuration and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../ibm_zos_core/docs/source/playbook_config_setup.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
