@@ -275,7 +275,7 @@
     #       rm -rf .git/modules/site/*
     #       git config -f .gitmodules --remove-section submodule.site/gh-pages
     #       rm -rf site/gh-pages
-    #       git submodule add -b gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
+    #       git submodule add -b -f gh-pages git@github.com:IBM/z_ansible_collections_doc.git site/gh-pages
     #       git submodule init
     #   register: site_gh_pages_return
     # - name: Display the Git submodule 'site/gh-pages' result
@@ -297,11 +297,13 @@
       shell: |
           cp -R build/html/* site/gh-pages
           cd site/gh-pages
+          git checkout gh-pages
           git add .
           git status
           git commit -m "Automated commit to update documentation"
           git push -f
           cd ../..
+          git checkout master
       register: git_update_doc
       when: deploy_to_gh_pages
 
