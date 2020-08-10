@@ -6,6 +6,11 @@
 Installation
 ============
 
+Collections are a distribution format for prepackaged Ansible content including
+playbooks, roles, modules, and plugins that enable you to quickly set up your automation project.
+Before you install a collection, review the `requirements`_ to learn about any
+dependencies and determine the appropriate installation option.
+
 You can install a **Red Hat® Ansible Certified Content for IBM Z collection**
 using one of these options:
 
@@ -27,39 +32,42 @@ For more information on installing collections, see `using collections`_.
 .. _using collections:
    https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
 
+.. _requirements:
+   https://github.com/z_ansible_collections_doc/requirements/requirements.html
+
 Ansible Galaxy
 ==============
-Galaxy enables you to quickly configure your automation project with content
-from the Ansible community.
-
-Galaxy provides prepackaged units of work known as collections. You can use the
-`ansible-galaxy`_ command with the option ``install`` to install a collection on
+Ansible Galaxy enables you to quickly configure your automation project with content
+from the Ansible community. Galaxy provides prepackaged units of work known as collections. You can use the
+`ansible-galaxy`_ command with the ``install`` option to install a collection on
 your system (control node) hosted in Galaxy.
 
 By default, the `ansible-galaxy`_ command installs the latest available
 collection, but you can add a version identifier to install a specific version.
 Before installing a collection from Galaxy, review all the available versions.
-Periodically, new releases containing enhancements and features you might be
+Periodically, new releases containing enhancements and features that you might be
 interested in become available.
 
-The ansible-galaxy command ignores any pre-release versions unless
+The `ansible-galaxy`_ command ignores any pre-release versions unless
 the ``==`` range identifier is set to that pre-release version.
 A pre-release version is denoted by appending a hyphen and a series of
-dot separated identifiers immediately following the patch version. The
-**IBM z/OS core collection** releases collections with the pre-release
-naming convention such as **1.1.0-beta1** that would require a range identifier.
+dot separated identifiers immediately following the patch version. All
+**IBM z/OS collections** release collections with the pre-release
+naming convention such as **1.1.0-beta.1** that would require a range identifier.
 
-Here is an example an example of installing a pre-release collection:
+Here is an example of installing a pre-release collection:
 
 .. code-block:: sh
 
-   $ ansible-galaxy collection install ibm.ibm_zos_core:==1.1.0-beta1
+   $ ansible-galaxy collection install ibm.ibm_zos_core:==1.1.0-beta.1
 
 
 If you have installed a prior version, you must overwrite an existing
 collection with the ``--force`` option.
 
-Here are a few examples of installing the **IBM z/OS core collection**:
+Installing any **IBM z/OS collection** involves identical steps. Use the same instructions as
+shown in the following examples of installing the **IBM z/OS core collection** to
+install and configure any collection offered as part of the RedHat Ansible Certified Content for IBM Z:
 
 .. code-block:: sh
 

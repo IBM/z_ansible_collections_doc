@@ -108,7 +108,10 @@ to `Ansible guide`_.
 Configuration and Setup
 =======================
 
-Each offering can vary.... more info here...
+Each release of a collection provides sample default configurations, and options
+that allow you to customize Ansible to your environment. Select an offering to
+learn more about the configuration and setup options available to set up your
+automation project.
 
 Offerings
 ---------
@@ -122,7 +125,12 @@ Offerings
 Inventory
 =========
 
-Each offering can vary.... more info here...
+Ansible works with multiple managed nodes (hosts) that must be listed in a list
+of group of lists, known as the Inventory. After the inventory is defined, you
+can use the patterns to select the hosts or groups that you want Ansible to run
+against. Review the inventory section in the corresponding collections to
+learn more about how inventory is defined and the other caveats.
+
 
 Offerings
 ---------
@@ -136,6 +144,7 @@ Offerings
 Group_vars
 ==========
 
+Group variables (Group_vars) enable you to
 Each offering can vary.... more info here...
 
 Offerings
