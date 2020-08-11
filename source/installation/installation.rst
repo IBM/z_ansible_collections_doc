@@ -52,7 +52,7 @@ The `ansible-galaxy`_ command ignores any pre-release versions unless
 the ``==`` range identifier is set to that pre-release version.
 A pre-release version is denoted by appending a hyphen and a series of
 dot separated identifiers immediately following the patch version. All
-**IBM z/OS collections** release collections with the pre-release
+**IBM z/OS collections** releases use the pre-release
 naming convention such as **1.1.0-beta.1** that would require a range identifier.
 
 Here is an example of installing a pre-release collection:
