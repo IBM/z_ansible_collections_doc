@@ -24,7 +24,6 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Getting Started
 
-   howdoi/howdoi
    requirements/requirements
    installation/installation
    playbooks/playbooks
@@ -42,11 +41,16 @@ by building the collections from source available on GitHub.
 
    release/release
 
-.. toctree::
-   :maxdepth: 1
-   :caption: FAQs
+.. ..........................................................................
+.. . TODO
+.. ..........................................................................
+.. . Disabled for the time being
+.. ..........................................................................
+.. .. toctree::
+..   :maxdepth: 1
+..   :caption: FAQs
 
-   faqs/faqs
+..   faqs/faqs
 
 .. toctree::
    :maxdepth: 1
@@ -57,7 +61,12 @@ by building the collections from source available on GitHub.
    reference/helpful_links
 
 
-
+.. ..........................................................................
+.. . TODO
+.. ..........................................................................
+.. . Disabled for the time being
+.. ..........................................................................
+..   howdoi/howdoi
 
 
 
