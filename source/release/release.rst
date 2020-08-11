@@ -7,9 +7,9 @@ Release
 =======
 
 Navigate to the release notes of a specific collection to learn about the release of new
-modules, their availability in Ansible Galaxy or automation Hub, the required dependencies,
+modules, their availability in Ansible Galaxy or Automation Hub, the required dependencies,
 supported software versions, details of bug fixes and more. From the release notes,
-select a specific version to view the corresponding details.
+select a specific release version to view its corresponding details.
 
 
 Offerings

@@ -13,7 +13,7 @@ Helpful Links
 .. _Ansible guide:
    https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html
 
-.. _First playbook:
+.. _create a playbook and run a command:
    https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
 
 .. _video:

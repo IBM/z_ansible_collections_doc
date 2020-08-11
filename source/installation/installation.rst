@@ -33,7 +33,7 @@ For more information on installing collections, see `using collections`_.
    https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
 
 .. _requirements:
-   https://github.com/z_ansible_collections_doc/requirements/requirements.html
+   https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html
 
 Ansible Galaxy
 ==============
