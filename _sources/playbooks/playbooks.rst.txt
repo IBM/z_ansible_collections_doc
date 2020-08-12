@@ -144,8 +144,14 @@ Offerings
 Group_vars
 ==========
 
-Group variables (Group_vars) enable you to
-Each offering can vary.... more info here...
+Group variables (group_vars) enable you to manage the variables and organize the
+the variable values easily. Group variables can be stored either in the
+inventory file or a separate host and group variable files. The sample playbook
+includes a sample variables file titled **all.yml**.
+
+Each offering in the IBM z/OS collection has a specific set of group_vars and
+the documentation provides a list of the variable values. Learn more about the
+specific Group_vars from the corresponding offering:
 
 Offerings
 ---------
@@ -160,7 +166,13 @@ Offerings
 Run a playbook
 ==============
 
-Each offering can vary.... more info here...
+Before you run a playbook, review the playbook samples included in the playbook
+directory of a collection to determine the requirements with respect to space,
+location, authority, and the artifacts that will be created and/or cleaned up.
+Each offering may include specific caveats and instructions to run a playbook.
+Follow the instructions in the Playbooks section of the offerings before you
+proceed.
+
 
 Offerings
 ---------
