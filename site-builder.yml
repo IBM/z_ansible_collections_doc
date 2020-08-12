@@ -318,7 +318,7 @@
     ############################################################################
     # Tear down, remove anything we don't need or want and reset the environment
     ############################################################################
-    - name: Remove directory `build/`
+    - name: Tear down - remove directory `build/`
       file:
         path: build
         state: absent
@@ -329,11 +329,14 @@
 
     # Hack of a solution for now, got to be better ways and to find those need
     # to make time for them.
-    - name: return motd to registered var
+    - name: Tear down - clean up git submodule `source/ibm_zos_core/`
       command: git submodule update source/ibm_zos_core/
 
-    - name: return motd to registered var
+    - name: Tear down - clean up git submodule `source/ibm_zos_ims/`
       command: git submodule update source/ibm_zos_ims/
+
+    - name: Tear down - clean up git submodule `site/gh-pages`
+      command: git submodule update site/gh-pages
 
     # TODO: Test this on the next deployment
     # - name: Display site/gh-pages updated HTML content
