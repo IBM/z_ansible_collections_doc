@@ -25,7 +25,7 @@ using one of these options:
    installation.html#automation-hub-and-private-galaxy-server
 
 .. _local build:
-   installation/installation.html#id3
+   installation.html#id3
 
 For more information on installing collections, see `using collections`_.
 
