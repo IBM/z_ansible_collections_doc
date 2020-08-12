@@ -8,3 +8,4 @@
 	path = site/gh-pages
 	url = git@github.com:IBM/z_ansible_collections_doc.git
 	branch = gh-pages
+	ignore = dirty
