@@ -25,7 +25,7 @@ using one of these options:
    installation.html#automation-hub-and-private-galaxy-server
 
 .. _local build:
-   installation/installation.html#id3
+   installation.html#id3
 
 For more information on installing collections, see `using collections`_.
 
@@ -33,7 +33,7 @@ For more information on installing collections, see `using collections`_.
    https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
 
 .. _requirements:
-   https://github.com/z_ansible_collections_doc/requirements/requirements.html
+   ../requirements/requirements.html
 
 Ansible Galaxy
 ==============
@@ -52,7 +52,7 @@ The `ansible-galaxy`_ command ignores any pre-release versions unless
 the ``==`` range identifier is set to that pre-release version.
 A pre-release version is denoted by appending a hyphen and a series of
 dot separated identifiers immediately following the patch version. All
-**IBM z/OS collections** release collections with the pre-release
+**IBM z/OS collections** releases use the pre-release
 naming convention such as **1.1.0-beta.1** that would require a range identifier.
 
 Here is an example of installing a pre-release collection:

@@ -8,13 +8,16 @@ Helpful Links
 
 * Getting Started `Ansible guide`_.
 * Watch the Ansible quickstart `video`_.
-* Learn how to create a playbook and run a command `First playbook`_.
+* Learn how to `create a playbook and run a command`_.
 
 .. _Ansible guide:
    https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html
 
-.. _First playbook:
+.. _create a playbook and run a command:
    https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
+
+.. _video:
+   https://www.ansible.com/resources/get-started
 
 .. ..........................................................................
 .. . TODO
