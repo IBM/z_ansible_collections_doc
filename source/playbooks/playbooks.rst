@@ -146,7 +146,7 @@ Group_vars
 
 Group variables (group_vars) enable you to manage the variables and organize the
 the variable values easily. Group variables can be stored either in the
-inventory file or a separate host and group variable files. The sample playbook
+inventory file or separate host and group variable files. The sample playbook
 includes a sample variables file titled **all.yml**.
 
 Each offering in the IBM z/OS collection has a specific set of group_vars and
