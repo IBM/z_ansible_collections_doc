@@ -15,7 +15,7 @@ easy-to-use platform.
 
 This solution comes together as one offering through the coordinated effort of
 all the offerings. Each offering is represented in a distribution format known
-as collections that can include include playbooks, roles, modules, and plugins.
+as collections that can include playbooks, roles, modules, and plugins.
 
 You can install and use collections through Automation Hub, Ansible Galaxy and
 by building the collections from source available on GitHub.
