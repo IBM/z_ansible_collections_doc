@@ -191,8 +191,8 @@ For information about the required version of ZOAU, review the
 <p>Currently, only <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code> is supported . Using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
 to change the default shell is discouraged. For more information, see
 <a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>.</p>
-<p>Shells such as <code class="docutils literal notranslate"><span class="pre">bash``are</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">because</span> <span class="pre">they</span> <span class="pre">handle</span> <span class="pre">the</span> <span class="pre">reading</span> <span class="pre">and</span>
-<span class="pre">writing</span> <span class="pre">of</span> <span class="pre">untagged</span> <span class="pre">files</span> <span class="pre">differently.</span> <span class="pre">``bash</span></code> added enhanced ASCII support
+<p>Shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code> are not supported because they handle the reading and
+writing of untagged files differently. <code class="docutils literal notranslate"><span class="pre">bash</span></code> added enhanced ASCII support
 in 4.3 and thus differs from 4.2. If <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell is the only shell
 available, you will need to control how the new and existing files are tagged
 and encoded. This can be controlled by
