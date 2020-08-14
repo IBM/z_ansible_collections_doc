@@ -295,15 +295,25 @@
 
     - name: Copy the generated HTML from `build/html/` to `site/gh-pages/`
       shell: |
-          cp -R build/html/* site/gh-pages
           cd site/gh-pages
           git checkout gh-pages
+          cp ../../build/html/* .
           git add .
           git status
           git commit -m "Automated commit to update documentation"
           git push -f
           cd ../..
           git checkout master
+          git status
+          # cp -R build/html/* site/gh-pages
+          # cd site/gh-pages
+          # git checkout gh-pages
+          # git add .
+          # git status
+          # git commit -m "Automated commit to update documentation"
+          # git push -f
+          # cd ../..
+          # git checkout master
       register: git_update_doc
       when: deploy_to_gh_pages
 
