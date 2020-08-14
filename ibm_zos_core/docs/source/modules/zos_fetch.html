@@ -259,11 +259,24 @@
 <div class="line"><strong>default</strong>: true</div>
 </div>
 </dd>
+<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 <dt>is_binary</dt><dd><p>Specifies if the file being fetched is a binary.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 <div class="line"><strong>default</strong>: false</div>
+</div>
+</dd>
+<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 22</div>
 </div>
 </dd>
 <dt>src</dt><dd><p>Name of a UNIX System Services (USS) file, PS(sequential data set), PDS, PDSE, member of a PDS, PDSE or KSDS(VSAM data set).</p>
@@ -285,20 +298,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 <div class="line"><strong>default</strong>: true</div>
-</div>
-</dd>
-<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-<div class="line"><strong>default</strong>: 22</div>
-</div>
-</dd>
-<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to C(true). By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: false</div>
 </div>
 </dd>
 </dl>
@@ -370,6 +369,7 @@
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set – Manage data sets</span></a></p></li>
+<li><p><a class="reference internal" href="zos_copy.html#zos-copy-module"><span class="std std-ref">zos_copy – Copy data to z/OS</span></a></p></li>
 </ul>
 </div>
 </div>

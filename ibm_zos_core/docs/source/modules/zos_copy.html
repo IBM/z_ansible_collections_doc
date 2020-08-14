@@ -285,6 +285,12 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
+<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 <dt>is_binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file/data set.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -323,6 +329,13 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
+<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 22</div>
+</div>
+</dd>
 <dt>src</dt><dd><p>Absolute local path to a file to copy to the remote z/OS system.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">remote_src</span></code> is true, then src must be the absolute path to a UNIX System Services (USS) file, name of a data set, or data set member.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, destination must be a partitioned data set or a USS directory.</p>
@@ -339,20 +352,6 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-<div class="line"><strong>default</strong>: 22</div>
-</div>
-</dd>
-<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to C(true). By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: false</div>
 </div>
 </dd>
 </dl>

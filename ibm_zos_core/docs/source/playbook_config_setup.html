@@ -180,6 +180,10 @@ the sample configurations that are included with this collection. These options
 allow you to customize how Ansible operates in your environment. Ansible
 supports several sources to configure its behavior and all sources follow the
 Ansible <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html#general-precedence-rules">precedence rules</a>.</p>
+<p>Although the collection includes sample configurations, it also provides a
+playbook (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/dev/playbooks/host-setup.yaml">host-setup</a>) that will attempt to locate Ansible dependencies on
+a z/OS system and use them to generate a valid <strong>inventory</strong> and <strong>host_vars</strong>
+file for the host.</p>
 <p>The Ansible configuration file <cite>ansible.cfg</cite> can override almost all
 <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> configurations. Included in the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks">playbooks directory</a> is a
 sample <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/blob/master/playbooks/ansible.cfg">ansible.cfg</a> that can supplement <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> with a

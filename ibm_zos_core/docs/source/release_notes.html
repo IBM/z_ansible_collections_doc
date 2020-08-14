@@ -96,6 +96,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Release</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../../release/release.html#offerings">Offerings</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-2">Version 1.2.0-beta.2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-1">Version 1.2.0-beta.1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#version-1-1-0-beta1">Version 1.1.0-beta1</a></li>
@@ -178,6 +179,73 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-2-0-beta-2">
+<h2>Version 1.2.0-beta.2<a class="headerlink" href="#version-1-2-0-beta-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Update recommended</p></li>
+<li><p>Module Changes</p>
+<ul>
+<li><p>Update zos_fetch and zos_copy to allow for user specified SFTP transfer
+port.</p></li>
+<li><p>Refactor module option <strong>backup_file</strong> to <strong>backup_name</strong> in modules
+<code class="docutils literal notranslate"><span class="pre">zos_copy</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_encode</span></code>.</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> record format.</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> allowable characters for data sets.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> with option <strong>ignore_sftp_stderr</strong>
+to alter module behavior.</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> so that all outstanding messages are
+returned.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> with verbose option.</p></li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li><p>Update documentation in support of <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/index.html">centralized content</a>.</p></li>
+</ul>
+</li>
+<li><p>New playbook to aid in generating <strong>group_vars</strong></p></li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by IBM Open Enterprise Python for z/OS: 3.8.2 or later</p></li>
+<li><p>Supported by IBM Z Open Automation Utilities 1.0.3 PTF UI70435 or later</p></li>
+<li><p>Supported by z/OS V2R3</p></li>
+<li><p>The z/OS® shell</p></li>
+</ul>
+</div>
+<div class="section" id="known-issues">
+<h3>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p>When executing programs using zos_mvs_raw, you may encounter errors
+that originate in the programs implementation. Two such known issues are
+noted below of which one has been addressed with an APAR.</p>
+<ol class="arabic simple">
+<li><p>zos_mvs_raw module execution fails when invoking
+Database Image Copy 2 Utility or Database Recovery Utility in conjunction
+with FlashCopy or Fast Replication.</p></li>
+<li><p>zos_mvs_raw module execution fails when invoking DFSRRC00 with parm
+“UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is
+addressed by APAR PH28089.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="version-1-2-0-beta-1">
 <h2>Version 1.2.0-beta.1<a class="headerlink" href="#version-1-2-0-beta-1" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">

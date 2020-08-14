@@ -15,7 +15,7 @@ Control node
 A control node is any machine with Ansible installed. From the control node,
 you can run commands and playbooks from a laptop, desktop, or server.
 However, you cannot run a collection on a Windows system. All IBM z/OS collections
-require the following these versions of software:
+require these versions of software:
 
 * `Ansible version`_: 2.9 or later
 * `Python`_: 2.7 or later
