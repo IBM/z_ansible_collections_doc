@@ -297,7 +297,7 @@
       shell: |
           cd site/gh-pages
           git checkout gh-pages
-          cp ../../build/html/* .
+          cp -R ../../build/html/* .
           git add .
           git status
           git commit -m "Automated commit to update documentation"
