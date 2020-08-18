@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Requirements &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -34,9 +34,7 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Dependencies" href="../../../ibm_zos_ims/docs/source/requirements_managed.html" />
-    <link rel="prev" title="Requirements" href="../../../requirements/requirements.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,19 +79,8 @@
             
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../requirements/requirements.html#control-node">Control node</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../requirements/requirements.html#managed-node">Managed node</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../../requirements/requirements.html#offerings">Offerings</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">z/OS core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
@@ -156,9 +143,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../requirements/requirements.html">Requirements</a> &raquo;</li>
-        
-      <li>Managed node</li>
+      <li>Requirements</li>
     
     
 
@@ -170,8 +155,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managed-node">
-<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>IBM z/OS core collection</strong> requires both a <strong>control node</strong> and
+<strong>managed node</strong> be configured with a minimum set of requirements. The
+control node is often referred to as the <strong>controller</strong> and the
+managed node as the <strong>host</strong>.</p>
+<div class="section" id="control-node">
+<h2>Control node<a class="headerlink" href="#control-node" title="Permalink to this headline">¶</a></h2>
+<p>The controller is where the Ansible engine that runs the playbook is installed.
+Refer to RedHat Ansible Certified Content documentation for more on the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/requirements/requirements_controller.html">controllers dependencies</a>.</p>
+</div>
+<div class="section" id="managed-node">
+<h2>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h2>
 <p>The managed z/OS node is the host that is managed by Ansible, as identified in
 the Ansible inventory.
 The managed node has dependencies that are specific to each release of the
@@ -211,7 +207,7 @@ For example,</p>
 for further configurations.</p>
 </div>
 <div class="section" id="id1">
-<h2>Python on z/OS<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h3>Python on z/OS<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>If the Ansible target is z/OS, you must install
 <strong>IBM Open Enterprise Python for z/OS</strong> which is ported for the z/OS platform
 and required by <strong>IBM z/OS core collection</strong>.</p>
@@ -238,7 +234,7 @@ Rocket Python is the only available Python on the target, review the
 </div>
 </div>
 <div class="section" id="zoau">
-<h2>ZOAU<a class="headerlink" href="#zoau" title="Permalink to this headline">¶</a></h2>
+<h3>ZOAU<a class="headerlink" href="#zoau" title="Permalink to this headline">¶</a></h3>
 <p>IBM Z Open Automation Utilities provide support for executing automation tasks
 on z/OS. With ZOAU, you can run traditional MVS commands such as IEBCOPY,
 IDCAMS, and IKJEFT01, as well as perform a number of data set operations
@@ -257,21 +253,13 @@ latest PTF, installation, and configuration instructions.</p></li>
 </ul>
 </div>
 </div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../../ibm_zos_ims/docs/source/requirements_managed.html" class="btn btn-neutral float-right" title="Dependencies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../../requirements/requirements.html" class="btn btn-neutral float-left" title="Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
