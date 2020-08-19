@@ -157,8 +157,9 @@
     - name: Update the collections contents with Git for collections under `source/<collection>`
       shell: |
           cd source/{{ item.key }}
-          git pull
+          git fetch --all
           git checkout {{ item.value.latest }}
+          git reset --hard origin/master
           git pull origin {{ item.value.latest }}
       loop: "{{ lookup('dict', collections) }}"
       register: git_checkout_latest
