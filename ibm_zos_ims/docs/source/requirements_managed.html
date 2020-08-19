@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dependencies &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -158,7 +158,7 @@
         
           <li><a href="../../../requirements/requirements.html">Requirements</a> &raquo;</li>
         
-      <li>Dependencies</li>
+      <li>Managed node</li>
     
     
 
@@ -170,12 +170,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="managed-node">
+<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h1>
+<p>The managed z/OS node is the host that is managed by Ansible, as identified in
+the Ansible inventory. The managed node has dependencies that are specific
+to each release of the <strong>IBM z/OS IMS collection</strong>. Review the details of the
+dependencies before you proceed to install the IBM z/OS IMS collection.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a></p></li>
 <li><p>z/OS <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">V2R3</a> or <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW">later</a></p></li>
-<li><p><a class="reference external" href="requirements.html#id1">IBM Z Open Automation Utilities</a> (ZOAU)</p>
+<li><p><a class="reference external" href="requirements_managed.html#zoau">IBM Z Open Automation Utilities</a> (ZOAU)</p>
 <ul>
 <li><p>IBM z/OS IMS collections are dependent on specific versions of ZOAU.
 For information about the required version of ZOAU, review the
@@ -229,7 +233,7 @@ instructions.</p></li>
 <p>Currently, IBM Open Enterprise Python for z/OS is the supported and
 recommended Python distribution for use on z/OS with Ansible and ZOAU. If
 Rocket Python is the only available python on the target, review the
-<a class="reference external" href="playbooks.html#group-vars">recommended environment variables</a> for Rocket Python.</p>
+<a class="reference external" href="playbook_group_vars.html">recommended environment variables</a> for Rocket Python.</p>
 </div>
 </div>
 <div class="section" id="zoau">
