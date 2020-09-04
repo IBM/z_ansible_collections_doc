@@ -272,11 +272,12 @@
 <div class="line"><strong>default</strong>: false</div>
 </div>
 </dd>
-<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
+<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer.</p>
+<p>If this parameter is not specified, <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> will be used.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> is not specified, port 22 will be used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
-<div class="line"><strong>default</strong>: 22</div>
 </div>
 </dd>
 <dt>src</dt><dd><p>Name of a UNIX System Services (USS) file, PS(sequential data set), PDS, PDSE, member of a PDS, PDSE or KSDS(VSAM data set).</p>

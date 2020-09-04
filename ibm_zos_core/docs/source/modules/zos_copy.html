@@ -255,7 +255,7 @@
 </div>
 </dd>
 <dt>encoding</dt><dd><p>Specifies which encodings the destination file or data set should be converted from and to.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">encoding</span></code> is not provided, no encoding conversions will take place.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">encoding</span></code> is not provided, the module determines which local and remote charsets to convert the data from and to. Note that this is only done for text data and not binary data.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">encoding</span></code> is provided and <code class="docutils literal notranslate"><span class="pre">src</span></code> is an MVS data set, task will fail.</p>
 <p>Only valid if <code class="docutils literal notranslate"><span class="pre">is_binary</span></code> is false.</p>
 <div class="line-block">
@@ -329,11 +329,12 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer. Default is port 22.</p>
+<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer.</p>
+<p>If this parameter is not specified, <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> will be used.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> is not specified, port 22 will be used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
-<div class="line"><strong>default</strong>: 22</div>
 </div>
 </dd>
 <dt>src</dt><dd><p>Absolute local path to a file to copy to the remote z/OS system.</p>
@@ -341,6 +342,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, destination must be a partitioned data set or a USS directory.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file and dest ends with “/” or destination is a directory, the file is copied to the directory with the same filename as src.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a VSAM data set, destination must also be a VSAM.</p>
+<p>Wildcards can be used to copy multiple PDS/PDSE members to another PDS/PDSE.</p>
 <p>Required unless using <code class="docutils literal notranslate"><span class="pre">content</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -486,6 +488,18 @@
   <span class="nt">zos_copy</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SRC.PDS</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy all members inside a PDS to another PDS</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(*)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy all members starting with &#39;ABC&#39; inside a PDS to another PDS</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(ABC*)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
     <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
