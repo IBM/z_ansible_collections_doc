@@ -3,25 +3,24 @@
 .. ...........................................................................
 
 ===================
-Playbook & Concepts
+Playbooks & Concepts
 ===================
 
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
-There are many playbooks available in our `samples repository`_ contributed
+There are many playbooks available in our `samples repository`_,contributed
 and supported by the **Red Hat Ansible Certified Content for IBM Z** team. The
 Git repository playbooks demonstrate various topics that include:
 
-* `z/OS administration`_,
+* `z/OS administration`_
 * `z/OS concepts`_
 * `IMS`_
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
-little modification the included **inventory**, **ansible.cfg**
+a little modification, the included **inventory**, **ansible.cfg**
 and **host_vars** can be tailored to your environment. Each sample will
 include all the necessary content that is needed to run a sample playbook.
-
 For more information, refer to the documentation included with each sample
 in the `samples repository`_.
 
@@ -54,17 +53,17 @@ Variables
 
 Host variables (host_vars) enable you to manage the variables and organize the
 the variable values easily. Host variables can be stored either in the
-**inventory** file, separate **host_vars** or **group_vars** variable files.
-
+**inventory** file or separate **host_vars** or **group_vars** variable files.
 Each sample in the `samples repository`_ can vary on which **host_vars** or
-**group_vars** are required, review the documentation that is included with
+**group_vars** are required. For more information, review the documentation that is included with
 each sample.
 
 Run a playbook
 ==============
 
-Use the Ansible command ``ansible-playbook`` to run the sample playbook.  The
-command syntax is ``ansible-playbook -i <inventory> <playbook>``; for example,
+Use the Ansible command ``ansible-playbook`` to run a sample playbook.  The
+command syntax is ``ansible-playbook -i <inventory> <playbook>``; 
+for example,
 ``ansible-playbook -i inventory sample.yaml``.
 
 Debugging
@@ -79,8 +78,8 @@ ERROR, DEBUG.
 
 .. note::
    It is a good practice to review the playbook samples before executing them.
-   It will help you understand what requirements in terms of space, location,
-   names, authority, and artifacts will be created and cleaned up. Although
+   It will help you understand the requirements in terms of space, location,
+   names, authority, and the artifacts that will be created and cleaned up. Although
    samples are always written to operate without the need for the user's
    configuration, flexibility is written into the samples because it is not
    easy to determine if a sample has access to the host's resources.
