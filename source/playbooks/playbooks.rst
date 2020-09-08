@@ -2,23 +2,28 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-=========
-Playbooks
-=========
+===================
+Playbook & Concepts
+===================
 
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
 There are many playbooks available in our `samples repository`_ contributed
-and supported by **Red Hat Ansible Certified Content for IBM Z**. The repository
-playbooks demonstrate various topics that include `z/OS administration`_,
-`z/OS concepts`_ and `IMS`_. The sample playbook can be run with the
-``ansible-playbook`` command with some modification to the **inventory**,
-**ansible.cfg** and **group_vars**.
+and supported by the **Red Hat Ansible Certified Content for IBM Z** team. The
+Git repository playbooks demonstrate various topics that include:
 
-You can find the playbook content included with each sample in the
-`samples repository`_. For more information, refer to
-the documentation included with each sample.
+* `z/OS administration`_,
+* `z/OS concepts`_
+* `IMS`_
+
+The sample playbooks can be run with the ``ansible-playbook`` command and with
+little modification the included **inventory**, **ansible.cfg**
+and **host_vars** can be tailored to your environment. Each sample will
+include all the necessary content that is needed to run a sample playbook.
+
+For more information, refer to the documentation included with each sample
+in the `samples repository`_.
 
 .. _Ansible playbook:
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
@@ -44,15 +49,16 @@ learn more about how inventory is defined.
 .. _inventory section:
    https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 
-Group_vars
-==========
+Variables
+=========
 
-Group variables (group_vars) enable you to manage the variables and organize the
-the variable values easily. Group variables can be stored either in the
-inventory file or separate host and group variable files.
+Host variables (host_vars) enable you to manage the variables and organize the
+the variable values easily. Host variables can be stored either in the
+**inventory** file, separate **host_vars** or **group_vars** variable files.
 
-Each sample in the `samples repository`_ can vary on which **group_vars** are
-required, review the documentation that is included with each sample.
+Each sample in the `samples repository`_ can vary on which **host_vars** or
+**group_vars** are required, review the documentation that is included with
+each sample.
 
 Run a playbook
 ==============
@@ -60,6 +66,9 @@ Run a playbook
 Use the Ansible command ``ansible-playbook`` to run the sample playbook.  The
 command syntax is ``ansible-playbook -i <inventory> <playbook>``; for example,
 ``ansible-playbook -i inventory sample.yaml``.
+
+Debugging
+=========
 
 Optionally, you can configure the console logging verbosity during playbook
 execution. This is helpful in situations where communication is failing and
@@ -78,12 +87,5 @@ ERROR, DEBUG.
    Review the playbook notes sections for additional details and
    configuration.
 
-   Sample playbooks often perform operations such as copying data or
-   submitting JCL that are included with the sample under a files directory.
-   Review the sample artifacts for necessary edits to allow for submission on
-   the target system.
-
-.. _ask-pass documentation:
-   https://linux.die.net/man/1/sshpass
 
 
