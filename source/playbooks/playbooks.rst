@@ -19,7 +19,7 @@ as:
 * `IMS`_
 
 Playbooks, content, and topics are added to the
-`samples repository`_regularly. We encourage you to **Watch** the repository to
+`samples repository`_ regularly. We encourage you to **Watch** the repository to
 get notified by Git when there are updates. You can perform this operation by
 visiting the `samples repository`_ and selecting the **Watch** button on the
 top right:
@@ -53,7 +53,7 @@ Concepts
 The `basic concepts`_ common to playbooks, the artifacts needed to run a
 playbook such as **inventory** and **variables**, instructions on how
 to run a playbook, and run it in the debug mode are discussed in
-the following sections. 
+the following sections.
 
 .. _basic concepts:
    https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
@@ -63,8 +63,8 @@ Inventory
 
 Ansible works with multiple managed nodes (hosts) that must be written into a
 list known as **inventory**. After the inventory is defined, you
-can use the patterns to select the hosts or groups that you want Ansible to run
-on. Review the `inventory section`_ in the corresponding documentation to
+can use the patterns to select the hosts or groups that you want Ansible to
+manage. Review the `inventory section`_ in the corresponding documentation to
 learn more about how inventory is defined.
 
 .. _inventory section:
