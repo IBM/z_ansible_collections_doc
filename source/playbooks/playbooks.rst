@@ -14,7 +14,7 @@ and supported by the **Red Hat Ansible Certified Content for IBM Z** team. The
 Git samples repository contain playbooks that  demonstrate various topics such
 as:
 
-* `z/OS administration`_,
+* `z/OS administration`_
 * `z/OS concepts`_
 * `IMS`_
 
@@ -32,10 +32,9 @@ you are watching the repository for changes.
 .. image:: https://user-images.githubusercontent.com/25803172/92513989-081a9580-f1c6-11ea-956b-3864b176e45e.png
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
-little modification the included **inventory**, **ansible.cfg**
+a little modification, the included **inventory**, **ansible.cfg**
 and **host_vars** can be tailored to your environment. Each sample will
 include all the necessary content that is needed to run a sample playbook.
-
 For more information, refer to the documentation included with each sample
 in the `samples repository`_.
 
@@ -79,10 +78,9 @@ Variables
 
 Host variables (host_vars) enable you to `manage the variables`_ and organize the
 the variable values easily. Host variables can be stored either in the
-**inventory** file, separate **host_vars** or **group_vars** variable files.
-
+**inventory** file or separate **host_vars** or **group_vars** variable files.
 Each sample in the `samples repository`_ can vary on which **host_vars** or
-**group_vars** are required, review the documentation that is included with
+**group_vars** are required. For more information, review the documentation that is included with
 each sample.
 
 .. _manage the variables:
@@ -116,8 +114,8 @@ ERROR, DEBUG.
 
 .. note::
    It is a good practice to review the playbook samples before executing them.
-   It will help you understand what requirements in terms of space, location,
-   names, authority, and artifacts will be created and cleaned up. Although
+   It will help you understand the requirements in terms of space, location,
+   names, authority, and the artifacts that will be created and cleaned up. Although
    samples are always written to operate without the need for the user's
    configuration, flexibility is written into the samples because it is not
    easy to determine if a sample has access to the host's resources.
