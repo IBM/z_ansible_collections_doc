@@ -10,7 +10,7 @@ An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
 There are **many** playbooks available in our `samples repository`_ contributed
-and supported by the **Red Hat Ansible Certified Content for IBM Z** team. The
+by the **Red Hat Ansible Certified Content for IBM Z** team. The
 Git samples repository contain playbooks that  demonstrate various topics such
 as:
 
@@ -18,18 +18,15 @@ as:
 * `z/OS concepts`_
 * `IMS`_
 
-Playbooks, content and topics are continuously being added to the
-`samples repository`_, thus we encourage you to **watch** the repository so
-that Git will notify you with updates. You can perform this operation by
-visiting the `samples repository`_ and selecting on the watch button in the
-top right hand side of the repository:
+Playbooks, content, and topics are added to the
+`samples repository`_regularly. We encourage you to **Watch** the repository to
+get notified by Git when there are updates. You can perform this operation by
+visiting the `samples repository`_ and selecting the **Watch** button on the
+top right:
 
 .. image:: https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png
 
-After selecting the button, it will display a toggle to unwatch, at this point
-you are watching the repository for changes.
-
-.. image:: https://user-images.githubusercontent.com/25803172/92513989-081a9580-f1c6-11ea-956b-3864b176e45e.png
+You can **Unwatch** a repository and also set your notification preferences from the Watch drop-down menu.
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
 a little modification, the included **inventory**, **ansible.cfg**
@@ -53,10 +50,10 @@ in the `samples repository`_.
 Concepts
 ========
 
-The `basic concepts`_ common to playbooks and the artifacts needed to run a
-playbook such as **inventoy** and  **variables** are discussed here. In
-addition to the artifacts, hwo to run a playbook book and run it in debug mode
-are discussed with links to additional reading material.
+The `basic concepts`_ common to playbooks, the artifacts needed to run a
+playbook such as **inventory** and **variables**, instructions on how
+to run a playbook, and run it in the debug mode are discussed in
+the following sections. 
 
 .. _basic concepts:
    https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
@@ -67,7 +64,7 @@ Inventory
 Ansible works with multiple managed nodes (hosts) that must be written into a
 list known as **inventory**. After the inventory is defined, you
 can use the patterns to select the hosts or groups that you want Ansible to run
-against. Review the `inventory section`_ in the corresponding documentation to
+on. Review the `inventory section`_ in the corresponding documentation to
 learn more about how inventory is defined.
 
 .. _inventory section:
