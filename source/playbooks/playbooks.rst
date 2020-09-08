@@ -2,20 +2,34 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-===================
-Playbook & Concepts
-===================
+=========
+Playbooks
+=========
 
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
-There are many playbooks available in our `samples repository`_ contributed
+There are **many** playbooks available in our `samples repository`_ contributed
 and supported by the **Red Hat Ansible Certified Content for IBM Z** team. The
-Git repository playbooks demonstrate various topics that include:
+Git samples repository contain playbooks that  demonstrate various topics such
+as:
 
 * `z/OS administration`_,
 * `z/OS concepts`_
 * `IMS`_
+
+Playbooks, content and topics are continuously being added to the
+`samples repository`_, thus we encourage you to **watch** the repository so
+that Git will notify you with updates. You can perform this operation by
+visiting the `samples repository`_ and selecting on the watch button in the
+top right hand side of the repository:
+
+.. image:: https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png
+
+After selecting the button, it will display a toggle to unwatch, at this point
+you are watching the repository for changes.
+
+.. image:: https://user-images.githubusercontent.com/25803172/92513989-081a9580-f1c6-11ea-956b-3864b176e45e.png
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
 little modification the included **inventory**, **ansible.cfg**
@@ -37,8 +51,19 @@ in the `samples repository`_.
    https://github.com/IBM/z_ansible_collections_samples/tree/master/ims
 
 
+Concepts
+========
+
+The `basic concepts`_ common to playbooks and the artifacts needed to run a
+playbook such as **inventoy** and  **variables** are discussed here. In
+addition to the artifacts, hwo to run a playbook book and run it in debug mode
+are discussed with links to additional reading material.
+
+.. _basic concepts:
+   https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
+
 Inventory
-=========
+---------
 
 Ansible works with multiple managed nodes (hosts) that must be written into a
 list known as **inventory**. After the inventory is defined, you
@@ -50,9 +75,9 @@ learn more about how inventory is defined.
    https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 
 Variables
-=========
+---------
 
-Host variables (host_vars) enable you to manage the variables and organize the
+Host variables (host_vars) enable you to `manage the variables`_ and organize the
 the variable values easily. Host variables can be stored either in the
 **inventory** file, separate **host_vars** or **group_vars** variable files.
 
@@ -60,15 +85,27 @@ Each sample in the `samples repository`_ can vary on which **host_vars** or
 **group_vars** are required, review the documentation that is included with
 each sample.
 
-Run a playbook
-==============
+.. _manage the variables:
+   https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#organizing-host-and-group-variables
 
-Use the Ansible command ``ansible-playbook`` to run the sample playbook.  The
+Run a playbook
+--------------
+
+Use the Ansible command ``ansible-playbook`` to run a playbook.  The
 command syntax is ``ansible-playbook -i <inventory> <playbook>``; for example,
 ``ansible-playbook -i inventory sample.yaml``.
 
+For further reading, review `run your first command and playbook`_ and follow
+up with `about playbooks`_.
+
+.. _about playbooks:
+   https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks
+
+.. _run your first command and playbook:
+   https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook
+
 Debugging
-=========
+---------
 
 Optionally, you can configure the console logging verbosity during playbook
 execution. This is helpful in situations where communication is failing and
