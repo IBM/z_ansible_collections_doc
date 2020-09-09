@@ -6,179 +6,118 @@
 Playbooks
 =========
 
-The sample playbooks that are **included** in the **IBM z/OS collections**
-demonstrate how to use the collection content.
-
-Documentation
-=============
-
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
-A `playbooks directory`_ that contains a sample playbook is included in the
-**IBM z/OS core collection**. The sample playbook can be run with the
-``ansible-playbook`` command with some modification to the **inventory**,
-**ansible.cfg** and **group_vars**.
+There are **many** playbooks available in our `samples repository`_ contributed
+by the **Red Hat Ansible Certified Content for IBM Z** team. The
+Git samples repository contain playbooks that  demonstrate various topics such
+as:
 
-You can find the playbook content that is included with the collection in the
-same location where the collection is installed. For more information, refer to
-the `installation documentation`_. In the following examples, this document will
-refer to the installation path as ``~/.ansible/collections/ibm/ibm_zos_core``.
+* `z/OS administration`_
+* `z/OS concepts`_
+* `IMS`_
+
+Playbooks, content, and topics are added to the
+`samples repository`_ regularly. We encourage you to **Watch** the repository to
+get notified by Git when there are updates. You can perform this operation by
+visiting the `samples repository`_ and selecting the **Watch** button on the
+top right:
+
+.. image:: https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png
+
+You can **Unwatch** a repository and also set your notification preferences from the Watch drop-down menu.
+
+The sample playbooks can be run with the ``ansible-playbook`` command and with
+a little modification, the included **inventory**, **ansible.cfg**
+and **host_vars** can be tailored to your environment. Each sample will
+include all the necessary content that is needed to run a sample playbook.
+For more information, refer to the documentation included with each sample
+in the `samples repository`_.
 
 .. _Ansible playbook:
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
-.. _playbooks directory:
-   https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks
-.. _installation documentation:
-   installation.html
-
-ibm_zos_core
-------------
-
-After the collection is installed, you can access the collection content for a
-playbook by referencing the namespace ``ibm`` and the collection's fully
-qualified name ``ibm_zos_core``. For example:
-
-.. code-block:: yaml
-
-    - hosts: all
-
-    tasks:
-    - name: Query submitted job 'HELLO'
-        ibm.ibm_zos_core.zos_job_query:
-        job_name: HELLO
+.. _samples repository:
+   https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md
+.. _z/OS administration:
+   https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_administration
+.. _z/OS concepts:
+   https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_concepts
+.. _IMS:
+   https://github.com/IBM/z_ansible_collections_samples/tree/master/ims
 
 
-In Ansible 2.9, the ``collections`` keyword was added to reduce the need
-to refer to the collection repeatedly. For example, you can use the
-``collections`` keyword in your playbook:
+Concepts
+========
 
-.. code-block:: yaml
+The `basic concepts`_ common to playbooks, the artifacts needed to run a
+playbook such as **inventory** and **variables**, instructions on how
+to run a playbook, and run it in the debug mode are discussed in
+the following sections.
 
-    - hosts: all
-      collections:
-      - ibm.ibm_zos_core
-
-      tasks:
-      - name: Query submitted job 'HELLO'
-        zos_job_query:
-            job_name: HELLO
-
-ansible-doc
------------
-
-Modules included in this collection provide additional documentation that is
-similar to a UNIX, or UNIX-like operating system man page (manual page). This
-documentation can be accessed from the command line by using the
-``ansible-doc`` command.
-
-Here's how to use the ``ansible-doc`` command after you install the
-**IBM z/OS core collection**: ``ansible-doc ibm.ibm_zos_core.zos_data_set``
-
-.. code-block:: sh
-
-    > ZOS_DATA_SET    (/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core/plugins/modules/zos_data_set.py)
-
-            Create, delete and set attributes of data sets. When forcing data set replacement, contents will not be
-            preserved.
-
-    * This module is maintained by The Ansible Community
-    OPTIONS (= is mandatory):
-
-    - batch
-            Batch can be used to perform operations on multiple data sets in a single module call.
-            Each item in the list expects the same options as zos_data_set.
-            [Default: (null)]
-            type: list
-            version_added: 2.9
-
-    - data_class
-            The data class name (required for SMS-managed data sets)
-            [Default: (null)]
-            type: str
-            version_added: 2.9
-
-For more information on using the ``ansible-doc`` command, refer
-to `Ansible guide`_.
-
-.. _Ansible guide:
-   https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc
-
-
-Configuration and Setup
-=======================
-
-Each release of a collection provides sample default configurations, and options
-that allow you to customize Ansible to your environment. Select an offering to
-learn more about the configuration and setup options available to set up your
-automation project.
-
-Offerings
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   z/OS core </../ibm_zos_core/docs/source/playbook_config_setup>
-   z/OS IMS </../ibm_zos_ims/docs/source/playbook_config_setup>
+.. _basic concepts:
+   https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
 
 Inventory
-=========
-
-Ansible works with multiple managed nodes (hosts) that must be listed in a list
-of group of lists, known as the Inventory. After the inventory is defined, you
-can use the patterns to select the hosts or groups that you want Ansible to run
-against. Review the inventory section in the corresponding collections to
-learn more about how inventory is defined and the other caveats.
-
-
-Offerings
 ---------
 
-.. toctree::
-   :maxdepth: 1
+Ansible works with multiple managed nodes (hosts) that must be written into a
+list known as **inventory**. After the inventory is defined, you
+can use the patterns to select the hosts or groups that you want Ansible to
+manage. Review the `inventory section`_ in the corresponding documentation to
+learn more about how inventory is defined.
 
-   z/OS core </../ibm_zos_core/docs/source/playbook_inventory>
-   z/OS IMS </../ibm_zos_ims/docs/source/playbook_inventory>
+.. _inventory section:
+   https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 
-Group_vars
-==========
-
-Group variables (group_vars) enable you to manage the variables and organize the
-the variable values easily. Group variables can be stored either in the
-inventory file or separate host and group variable files. The sample playbook
-includes a sample variables file titled **all.yml**.
-
-Each offering in the IBM z/OS collection has a specific set of group_vars and
-the documentation provides a list of the variable values. Learn more about the
-specific Group_vars from the corresponding offering:
-
-Offerings
+Variables
 ---------
 
-.. toctree::
-   :maxdepth: 1
+Host variables (host_vars) enable you to `manage the variables`_ and organize the
+the variable values easily. Host variables can be stored either in the
+**inventory** file or separate **host_vars** or **group_vars** variable files.
+Each sample in the `samples repository`_ can vary on which **host_vars** or
+**group_vars** are required. For more information, review the documentation that is included with
+each sample.
 
-   z/OS core </../ibm_zos_core/docs/source/playbook_group_vars>
-   z/OS IMS </../ibm_zos_ims/docs/source/playbook_group_vars>
-
+.. _manage the variables:
+   https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#organizing-host-and-group-variables
 
 Run a playbook
-==============
+--------------
 
-Before you run a playbook, review the playbook samples included in the playbook
-directory of a collection to determine the requirements with respect to space,
-location, authority, and the artifacts that will be created and/or cleaned up.
-Each offering may include specific caveats and instructions to run a playbook.
-Follow the instructions in the Playbooks section of the offerings before you
-proceed.
+Use the Ansible command ``ansible-playbook`` to run a playbook.  The
+command syntax is ``ansible-playbook -i <inventory> <playbook>``; for example,
+``ansible-playbook -i inventory sample.yaml``.
 
+For further reading, review `run your first command and playbook`_ and follow
+up with `about playbooks`_.
 
-Offerings
+.. _about playbooks:
+   https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks
+
+.. _run your first command and playbook:
+   https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook
+
+Debugging
 ---------
 
-.. toctree::
-   :maxdepth: 1
+Optionally, you can configure the console logging verbosity during playbook
+execution. This is helpful in situations where communication is failing and
+you want to obtain more details. To adjust the logging verbosity, append more
+letter `v`'s; for example, `-v`, `-vv`, `-vvv`, or `-vvvv`. Each letter `v`
+increases logging verbosity similar to traditional logging levels INFO, WARN,
+ERROR, DEBUG.
 
-   z/OS core </../ibm_zos_core/docs/source/playbook_run>
-   z/OS IMS </../ibm_zos_ims/docs/source/playbook_run>
+.. note::
+   It is a good practice to review the playbook samples before executing them.
+   It will help you understand the requirements in terms of space, location,
+   names, authority, and the artifacts that will be created and cleaned up. Although
+   samples are always written to operate without the need for the user's
+   configuration, flexibility is written into the samples because it is not
+   easy to determine if a sample has access to the host's resources.
+   Review the playbook notes sections for additional details and
+   configuration.
+
+
+

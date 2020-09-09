@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Configuration" href="../ibm_zos_core/docs/source/playbook_config_setup.html" />
+    <link rel="next" title="z/OS Core" href="../ibm_zos_core/docs/ansible_content.html" />
     <link rel="prev" title="Installation" href="../installation/installation.html" /> 
 </head>
 
@@ -85,41 +85,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Playbooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ibm-zos-core">ibm_zos_core</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ansible-doc">ansible-doc</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#configuration-and-setup">Configuration and Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#offerings">Offerings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_config_setup.html">z/OS core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_config_setup.html">z/OS IMS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#inventory">Inventory</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Offerings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_inventory.html">z/OS core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_inventory.html">z/OS IMS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#group-vars">Group_vars</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Offerings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_group_vars.html">z/OS core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_group_vars.html">z/OS IMS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#run-a-playbook">Run a playbook</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Offerings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_run.html">z/OS core</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_run.html">z/OS IMS</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inventory">Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-a-playbook">Run a playbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a></li>
 </ul>
 </li>
 </ul>
@@ -198,148 +168,79 @@
             
   <div class="section" id="playbooks">
 <h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline">¶</a></h1>
-<p>The sample playbooks that are <strong>included</strong> in the <strong>IBM z/OS collections</strong>
-demonstrate how to use the collection content.</p>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p>An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.</p>
-<p>A <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks">playbooks directory</a> that contains a sample playbook is included in the
-<strong>IBM z/OS core collection</strong>. The sample playbook can be run with the
-<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command with some modification to the <strong>inventory</strong>,
-<strong>ansible.cfg</strong> and <strong>group_vars</strong>.</p>
-<p>You can find the playbook content that is included with the collection in the
-same location where the collection is installed. For more information, refer to
-the <a class="reference external" href="installation.html">installation documentation</a>. In the following examples, this document will
-refer to the installation path as <code class="docutils literal notranslate"><span class="pre">~/.ansible/collections/ibm/ibm_zos_core</span></code>.</p>
-<div class="section" id="ibm-zos-core">
-<h3>ibm_zos_core<a class="headerlink" href="#ibm-zos-core" title="Permalink to this headline">¶</a></h3>
-<p>After the collection is installed, you can access the collection content for a
-playbook by referencing the namespace <code class="docutils literal notranslate"><span class="pre">ibm</span></code> and the collection’s fully
-qualified name <code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code>. For example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-
-<span class="nt">tasks</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Query submitted job &#39;HELLO&#39;</span>
-    <span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zos_core.zos_job_query</span><span class="p p-Indicator">:</span>
-    <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HELLO</span>
-</pre></div>
-</div>
-<p>In Ansible 2.9, the <code class="docutils literal notranslate"><span class="pre">collections</span></code> keyword was added to reduce the need
-to refer to the collection repeatedly. For example, you can use the
-<code class="docutils literal notranslate"><span class="pre">collections</span></code> keyword in your playbook:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="nt">collections</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zos_core</span>
-
-  <span class="nt">tasks</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Query submitted job &#39;HELLO&#39;</span>
-    <span class="nt">zos_job_query</span><span class="p">:</span>
-        <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HELLO</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="ansible-doc">
-<h3>ansible-doc<a class="headerlink" href="#ansible-doc" title="Permalink to this headline">¶</a></h3>
-<p>Modules included in this collection provide additional documentation that is
-similar to a UNIX, or UNIX-like operating system man page (manual page). This
-documentation can be accessed from the command line by using the
-<code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command.</p>
-<p>Here’s how to use the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command after you install the
-<strong>IBM z/OS core collection</strong>: <code class="docutils literal notranslate"><span class="pre">ansible-doc</span> <span class="pre">ibm.ibm_zos_core.zos_data_set</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; ZOS_DATA_SET    <span class="o">(</span>/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core/plugins/modules/zos_data_set.py<span class="o">)</span>
-
-        Create, delete and <span class="nb">set</span> attributes of data sets. When forcing data <span class="nb">set</span> replacement, contents will not be
-        preserved.
-
-* This module is maintained by The Ansible Community
-OPTIONS <span class="o">(=</span> is mandatory<span class="o">)</span>:
-
-- batch
-        Batch can be used to perform operations on multiple data sets in a single module call.
-        Each item in the list expects the same options as zos_data_set.
-        <span class="o">[</span>Default: <span class="o">(</span>null<span class="o">)]</span>
-        type: list
-        version_added: <span class="m">2</span>.9
-
-- data_class
-        The data class name <span class="o">(</span>required <span class="k">for</span> SMS-managed data sets<span class="o">)</span>
-        <span class="o">[</span>Default: <span class="o">(</span>null<span class="o">)]</span>
-        type: str
-        version_added: <span class="m">2</span>.9
-</pre></div>
-</div>
-<p>For more information on using the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command, refer
-to <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc">Ansible guide</a>.</p>
-</div>
-</div>
-<div class="section" id="configuration-and-setup">
-<h2>Configuration and Setup<a class="headerlink" href="#configuration-and-setup" title="Permalink to this headline">¶</a></h2>
-<p>Each release of a collection provides sample default configurations, and options
-that allow you to customize Ansible to your environment. Select an offering to
-learn more about the configuration and setup options available to set up your
-automation project.</p>
-<div class="section" id="offerings">
-<h3>Offerings<a class="headerlink" href="#offerings" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_config_setup.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_config_setup.html">z/OS IMS</a></li>
+<p>There are <strong>many</strong> playbooks available in our <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> contributed
+by the <strong>Red Hat Ansible Certified Content for IBM Z</strong> team. The
+Git samples repository contain playbooks that  demonstrate various topics such
+as:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_administration">z/OS administration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_concepts">z/OS concepts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/ims">IMS</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+<p>Playbooks, content, and topics are added to the
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> regularly. We encourage you to <strong>Watch</strong> the repository to
+get notified by Git when there are updates. You can perform this operation by
+visiting the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> and selecting the <strong>Watch</strong> button on the
+top right:</p>
+<img alt="https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png" src="https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png" />
+<p>You can <strong>Unwatch</strong> a repository and also set your notification preferences from the Watch drop-down menu.</p>
+<p>The sample playbooks can be run with the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command and with
+a little modification, the included <strong>inventory</strong>, <strong>ansible.cfg</strong>
+and <strong>host_vars</strong> can be tailored to your environment. Each sample will
+include all the necessary content that is needed to run a sample playbook.
+For more information, refer to the documentation included with each sample
+in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a>.</p>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html">basic concepts</a> common to playbooks, the artifacts needed to run a
+playbook such as <strong>inventory</strong> and <strong>variables</strong>, instructions on how
+to run a playbook, and run it in the debug mode are discussed in
+the following sections.</p>
 <div class="section" id="inventory">
-<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
-<p>Ansible works with multiple managed nodes (hosts) that must be listed in a list
-of group of lists, known as the Inventory. After the inventory is defined, you
-can use the patterns to select the hosts or groups that you want Ansible to run
-against. Review the inventory section in the corresponding collections to
-learn more about how inventory is defined and the other caveats.</p>
-<div class="section" id="id1">
-<h3>Offerings<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_inventory.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_inventory.html">z/OS IMS</a></li>
-</ul>
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h3>
+<p>Ansible works with multiple managed nodes (hosts) that must be written into a
+list known as <strong>inventory</strong>. After the inventory is defined, you
+can use the patterns to select the hosts or groups that you want Ansible to
+manage. Review the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">inventory section</a> in the corresponding documentation to
+learn more about how inventory is defined.</p>
 </div>
-</div>
-</div>
-<div class="section" id="group-vars">
-<h2>Group_vars<a class="headerlink" href="#group-vars" title="Permalink to this headline">¶</a></h2>
-<p>Group variables (group_vars) enable you to manage the variables and organize the
-the variable values easily. Group variables can be stored either in the
-inventory file or separate host and group variable files. The sample playbook
-includes a sample variables file titled <strong>all.yml</strong>.</p>
-<p>Each offering in the IBM z/OS collection has a specific set of group_vars and
-the documentation provides a list of the variable values. Learn more about the
-specific Group_vars from the corresponding offering:</p>
-<div class="section" id="id2">
-<h3>Offerings<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_group_vars.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_group_vars.html">z/OS IMS</a></li>
-</ul>
-</div>
-</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>Host variables (host_vars) enable you to <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#organizing-host-and-group-variables">manage the variables</a> and organize the
+the variable values easily. Host variables can be stored either in the
+<strong>inventory</strong> file or separate <strong>host_vars</strong> or <strong>group_vars</strong> variable files.
+Each sample in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> can vary on which <strong>host_vars</strong> or
+<strong>group_vars</strong> are required. For more information, review the documentation that is included with
+each sample.</p>
 </div>
 <div class="section" id="run-a-playbook">
-<h2>Run a playbook<a class="headerlink" href="#run-a-playbook" title="Permalink to this headline">¶</a></h2>
-<p>Before you run a playbook, review the playbook samples included in the playbook
-directory of a collection to determine the requirements with respect to space,
-location, authority, and the artifacts that will be created and/or cleaned up.
-Each offering may include specific caveats and instructions to run a playbook.
-Follow the instructions in the Playbooks section of the offerings before you
-proceed.</p>
-<div class="section" id="id3">
-<h3>Offerings<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/playbook_run.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/playbook_run.html">z/OS IMS</a></li>
-</ul>
+<h3>Run a playbook<a class="headerlink" href="#run-a-playbook" title="Permalink to this headline">¶</a></h3>
+<p>Use the Ansible command <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> to run a playbook.  The
+command syntax is <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">&lt;inventory&gt;</span> <span class="pre">&lt;playbook&gt;</span></code>; for example,
+<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">inventory</span> <span class="pre">sample.yaml</span></code>.</p>
+<p>For further reading, review <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook">run your first command and playbook</a> and follow
+up with <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks">about playbooks</a>.</p>
+</div>
+<div class="section" id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
+<p>Optionally, you can configure the console logging verbosity during playbook
+execution. This is helpful in situations where communication is failing and
+you want to obtain more details. To adjust the logging verbosity, append more
+letter <cite>v</cite>’s; for example, <cite>-v</cite>, <cite>-vv</cite>, <cite>-vvv</cite>, or <cite>-vvvv</cite>. Each letter <cite>v</cite>
+increases logging verbosity similar to traditional logging levels INFO, WARN,
+ERROR, DEBUG.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is a good practice to review the playbook samples before executing them.
+It will help you understand the requirements in terms of space, location,
+names, authority, and the artifacts that will be created and cleaned up. Although
+samples are always written to operate without the need for the user’s
+configuration, flexibility is written into the samples because it is not
+easy to determine if a sample has access to the host’s resources.
+Review the playbook notes sections for additional details and
+configuration.</p>
 </div>
 </div>
 </div>
@@ -353,7 +254,7 @@ proceed.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ibm_zos_core/docs/source/playbook_config_setup.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../ibm_zos_core/docs/ansible_content.html" class="btn btn-neutral float-right" title="z/OS Core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../installation/installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
