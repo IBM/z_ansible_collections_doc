@@ -25,7 +25,7 @@ collections:
   ibm_zos_core:
     git: ibm_zos_core.git
     stable:
-    latest: release-v1.2.0
+    latest: v1.2.1
   ibm_zos_ims:
     git: ibm_zos_ims.git
     stable:
