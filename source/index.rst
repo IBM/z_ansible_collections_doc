@@ -41,16 +41,11 @@ by building the collections from source available on GitHub.
 
    release/release
 
-.. ..........................................................................
-.. . TODO
-.. ..........................................................................
-.. . Disabled for the time being
-.. ..........................................................................
-.. .. toctree::
-..   :maxdepth: 1
-..   :caption: FAQs
+.. toctree::
+   :maxdepth: 1
+   :caption: FAQs
 
-..   faqs/faqs
+   faqs/faqs
 
 .. toctree::
    :maxdepth: 1
