@@ -33,7 +33,7 @@ All **IBM z/OS collections** require **Ansible 2.9 or later**,
 **Python 2.7 or later** and **Open SSH** on the Ansible controller.
 
 On the z/OS managed node, a particular **IBM z/OS collection** or release can
-have a different set of requirements, before you install any
+have a different set of requirements. Before you install any
 **IBM z/OS collection**, review the collection `requirements`_.
 
 .. _requirements:
@@ -46,7 +46,7 @@ How do I install and configure ZOAU?
 * For a brief overview of **ZOAU**, review our `ZOAU documentation`_.
 * Configuring Ansible host or group vars, review our `variable configuration`_.
 * For configuration information, visit the `ZOAU product page`_.
-  * Select the latest version. Then, select "Installing and configuring ZOA Utilities".
+  * Select the latest version and then select "Installing and configuring ZOA Utilities".
 
 .. _ZOAU documentation:
    https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html#zoau
@@ -82,15 +82,15 @@ Ansible Tower/AWX: How much memory and RAM do I need to install a collection?
 For **Ansible Tower**, Ansible recommends a minimum of 4GB RAM for for
 Tower installation.
 
-Additional RAM requirements vary based on how many hosts Tower will manage
+Additional RAM requirements may vary based on how many hosts Tower will manage
 simultaneously (which is controlled by the forks parameter in the job template
 or the system ansible.cfg file).
 
-To avoid possible resource conflicts, Ansible recommends 1 GB of memory per
-10 forks + 2GB reservation for Tower, see the capacity algorithm for further
-details. For example, if forks is set to 400, 40 GB of memory is recommended.
+To avoid resource conflicts, Ansible recommends 1 GB of memory per
+10 forks + 2GB reservation for Tower. For example, if forks is set to 400, 
+40 GB of memory is recommended. See the capacity algorithm to determine resource requirements. 
 
-For more information, see `system requirements`_.
+For more information about the requirements, see `system requirements`_.
 
 .. _system requirements:
    https://docs.ansible.com/ansible-tower/latest/html/installandreference/requirements_refguide.html
@@ -98,16 +98,16 @@ For more information, see `system requirements`_.
 
 For individual **playbooks**, the memory usage is dependent on a few factors:
 
-* The number of z/OS hosts being managed by the playbook and how many forks
-  Ansible creates
+* The number of z/OS hosts managed by the playbook and the number of forks created by 
+  Ansible
 * The number of tasks within the playbook
 * The modules used within the playbook
-* How many tasks are delegated to the local host
+* The number of tasks that are delegated to the local host
 * Whether fact gathering is turned on or off in the playbook
 
 
-Do I have to upgrade to a new version every time there is a new release?
-------------------------------------------------------------------------
+Do I have to upgrade to the latest version of a collection when there is a new release?
+---------------------------------------------------------------------------------------
 
 Although it is not required, we recommended that you upgrade to the
 latest release as they often contain bugfixes to existing modules and plugins.
@@ -167,20 +167,19 @@ module option has been configured to perform a backup.
 Are the modules idempotent?
 ---------------------------
 
-Repeated execution of the modules included in
+Yes, they are idempotent. Repeated execution of the modules included in
 **Red Hat Ansible Certified Content for IBM Z** does not produce different
-behavior. As such, they are idempotent.
+behavior.
 
 Which modules support check mode?
 ---------------------------------
 
 Modules that currently support check mode:  ``zos_data_set``
 
-
 Where can I find a sample playbook?
 -----------------------------------
 
-You can find many sample playbooks, links to blogs and other community
+You can find many sample playbooks, links to blogs, and other community
 resources in the
 `Samples repository for Red Hat Ansible Certified Content for IBM Z`_.
 
@@ -264,20 +263,20 @@ managed node is authenticated using an SSH key. Both
 ``--ask-pass``.
 
 
-Does the user running Ansible on USS need to have any special privileges?
+Does a user running Ansible on USS need to have any special privileges?
 -------------------------------------------------------------------------
 Whether special user privileges are required would depend on the type of task
 Ansible is performing on the remote host. For instance, accessing or
 changing system resources with insufficient access permissions,
 would require elevated privileges.
 
-If the tasks requires ``root`` privileges on USS, you can execute the task with
+If a task requires ``root`` privileges on USS, you can execute the it with the 
 ``become: yes`` parameter. Alternatively, if you want to execute a task as a
 particular user, you can use ``become_user: <user_name>`` parameter.
 
 
-When executing a module, I get **"unsupported parameter"** error. How do I fix it?
-----------------------------------------------------------------------------------
+What causes the error: **"unsupported parameter"**? How do I fix it?
+-----------------------------------------------------------------------------------------------
 This tends to happen when you are specifying a parameter to a module that it
 doesn't support or is deprecated. Update your collection to the latest version
 and review the collection requirements in the `release notes`_ to make sure you
@@ -285,8 +284,8 @@ are using the latest version of the modules and carefully examine the module
 documentation to understand what parameters it supports.
 
 
-When using IBM Python, why do I encounter:
------------------------------------------
+When using IBM Python, why do I get this error?
+-----------------------------------------------
 .. code-block:: sh
 
    UnicodeDecodeError: 'utf-8' codec can't decode byte in position 0: invalid continuation byte"
@@ -300,14 +299,13 @@ defined.
     https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md
 
 
-Why do I see this error during the playbook execution ?
--------------------------------------------------------
+What causes this error during the playbook execution? How do I fix it?
+----------------------------------------------------------------------
 
 .. code-block:: sh
 
    EDC5129I No such file or directory.: b'mvscmdauth'", "rc": 129
 
-**How do I fix it?**
 
 ``mvscmdauth`` is a **ZOAU** shell utility. This error tends to happen when
 **ZOAU** installation is not added to the system **PATH**. Modify your host
@@ -316,7 +314,7 @@ example, if **ZOAU** was installed in ``/usr/lpp/IBM/zoau``, you should add
 ``/usr/lpp/IBM/zoau/bin`` to **PATH**.
 
 
-Why do I see this error during the playbook execution ?
+Why do I get this error during the playbook execution ?
 -------------------------------------------------------
 
 .. code-block:: sh
@@ -324,12 +322,12 @@ Why do I see this error during the playbook execution ?
    IOError: [Errno 21] Is a directory: u'/tmp/xxx'
    
 
-It is likely that the ``/tmp`` directory of the managed node is full and is not
-able to store any more data. Clear the ``/tmp`` directory and re-run the
+It is likely that the ``/tmp`` directory of the managed node is full and cannot
+store any more data. Clear the ``/tmp`` directory and re-run the
 playbook.
 
 
-Why do I see this warning during the playbook execution ?
+Why do I get this warning during the playbook execution ?
 ---------------------------------------------------------
 
 .. code-block:: sh
@@ -350,7 +348,7 @@ collection, see our `installation doc`_ or the sample `repository doc`_.
    By default the ``ansible-galaxy install`` command installs the latest
    collection.
 
-Why do I see this error during the playbook execution ?
+Why do I get this error during the playbook execution ?
 -------------------------------------------------------
 
 .. code-block:: sh
@@ -363,8 +361,8 @@ environment variables are configured incorrectly. Refer to the
 these variables.
 
 
-My managed z/OS system has a pre-login prompt which is causing ``zos_copy`` and ``zos_fetch`` modules to fail.
---------------------------------------------------------------------------------------------------------------
+Why does my managed z/OS system pre-login prompt cause the ``zos_copy`` and ``zos_fetch`` modules to fail?
+----------------------------------------------------------------------------------------------------------
 
 By default, ``SFTP`` redirects **pre-login** prompts to system **stderr**,
 which ``zos_copy`` interprets as a failure. You can bypass this behavior and
@@ -377,7 +375,7 @@ Community
 
 Where can I open issues and track them?
 ----------------------------------------------
-You can track open issues and raise new issues for bugs, feature issues or
+You can track open issues and raise new issues for bugs, feature issues, or
 comments in our `contributing topic`_.
 
 .. _contributing topic:
