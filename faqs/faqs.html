@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Content / General &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Installation, versions &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supplementary" href="../reference/supplementary.html" />
+    <link rel="prev" title="Releases" href="../ibm_zos_ims/docs/source/release_notes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,6 +95,57 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../release/release.html">Releases</a></li>
 </ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation, versions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-install-a-collection">How do I install a collection?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-do-i-require-to-install-a-collection">What do I require to install a collection?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-install-and-configure-zoau">How do I install and configure ZOAU?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-can-i-download-the-latest-version-of-python">Where can I download the latest version of Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#are-there-any-additional-installation-requirements-for-z-os">Are there any additional installation requirements for z/OS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-much-memory-and-ram-do-i-need-to-install-a-collection">How much memory and RAM do I need to install a collection?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#do-i-have-to-upgrade-to-the-latest-version-of-a-collection-when-there-is-a-new-release">Do I have to upgrade to the latest version of a collection when there is a new release?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-know-which-version-of-a-collection-i-am-using">How can I know which version of a collection I am using?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-update-a-collection-to-the-latest-version">How do I update a collection to the latest version?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#modules-playbooks">Modules, Playbooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-the-best-practices-for-module-development-and-testing-z-os-ansible-modules">What are the best practices for module development and testing z/OS Ansible modules?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#do-the-modules-leave-any-objects-or-files-behind-after-a-playbook-completes-running">Do the modules leave any objects or files behind after a playbook completes running?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#are-the-modules-idempotent">Are the modules idempotent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-modules-support-check-mode">Which modules support check mode?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-can-i-find-a-sample-playbook">Where can I find a sample playbook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#are-there-any-specific-requirements-for-running-a-playbook">Are there any specific requirements for running a playbook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-customize-how-ansible-operates-in-my-environment">How can I customize how Ansible operates in my environment?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-test-my-playbooks">How do I test my playbooks?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#troubleshooting-messages">Troubleshooting, Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-test-if-an-ansible-or-z-os-module-is-able-to-reach-the-target-host">How can I test if an Ansible or z/OS module is able to reach the target (host)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication">Which modules are affected when  using <code class="docutils literal notranslate"><span class="pre">askpass</span></code> instead of SSH authentication?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-a-user-running-ansible-on-uss-need-to-have-any-special-privileges">Does a user running Ansible on USS need to have any special privileges?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-causes-the-error-unsupported-parameter-how-do-i-fix-it">What causes the error: <strong>“unsupported parameter”</strong>? How do I fix it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#when-using-ibm-python-why-do-i-get-this-error">When using IBM Python, why do I get this error?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-causes-this-error-during-the-playbook-execution-how-do-i-fix-it">What causes this error during the playbook execution? How do I fix it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-i-get-this-error-during-the-playbook-execution">Why do I get this error during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-i-get-this-warning-during-the-playbook-execution">Why do I get this warning during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Why do I get this error during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-does-my-managed-z-os-system-pre-login-prompt-cause-the-zos-copy-and-zos-fetch-modules-to-fail">Why does my managed z/OS system pre-login prompt cause the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules to fail?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#community">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-can-i-open-issues-and-track-them">Where can I open issues and track them?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-frequently-are-the-collections-updated">How frequently are the collections updated?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-collections-are-offered-as-part-of-redhat-certified-content">What collections are offered as part of RedHat certified content?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-contribute-new-modules-to-the-collection">Can I contribute new modules to the collection?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-can-i-find-the-documentation-for-a-particular-collection">Where can I find the documentation for a particular collection?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#others">Others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-are-precedence-rules-defined-in-ansible">How are precedence rules defined in Ansible?</a></li>
+</ul>
+</li>
+</ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference/supplementary.html">Supplementary</a></li>
@@ -143,7 +196,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Content / General</li>
+      <li>Installation, versions</li>
     
     
 
@@ -155,52 +208,326 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="content-general">
-<h1>Content / General<a class="headerlink" href="#content-general" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="how-do-i-know-if-ansible-is-installed-on-the-controller">
-<h2>How do I know if Ansible is installed on the controller?<a class="headerlink" href="#how-do-i-know-if-ansible-is-installed-on-the-controller" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>You can execute the <code class="docutils literal notranslate"><span class="pre">ansible</span> <span class="pre">--version</span></code> to see the Ansible version and the
-adhoc <code class="docutils literal notranslate"><span class="pre">ping</span></code> command.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible all -i <span class="s2">&quot;host.vmec.svl.ibm.com,&quot;</span> -c <span class="s1">&#39;ibm.ibm_zos_core.zos_ssh&#39;</span> -u host_user -m <span class="s1">&#39;ibm.ibm_zos_core.zos_ping&#39;</span> -e <span class="s1">&#39;ansible_python_interpreter=&quot;export _BPXK_AUTOCVT=ON ; /u/oeusr01/python/pyz_3_8_2/usr/lpp/IBM/cyp/v3r8/pyz/bin/python3&quot;&#39;</span>
+  <div class="section" id="installation-versions">
+<h1>Installation, versions<a class="headerlink" href="#installation-versions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-do-i-install-a-collection">
+<h2>How do I install a collection?<a class="headerlink" href="#how-do-i-install-a-collection" title="Permalink to this headline">¶</a></h2>
+<p>You can install a collection using one of the following options:</p>
+<ul class="simple">
+<li><p>Ansible Galaxy : Use the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command with the <strong>install</strong>
+option to install a collection hosted in Galaxy on your control node</p></li>
+<li><p>Automation Hub and Private Galaxy server:  You can use the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code>
+command with the <strong>install</strong> option to install a collection on your
+control node hosted in Automation Hub or a private Galaxy server.
+You need to configure the <code class="docutils literal notranslate"><span class="pre">auth_url</span></code> option and the API <code class="docutils literal notranslate"><span class="pre">token</span></code>  in
+<strong>ansible.cfg</strong> for each server name.</p></li>
+<li><p>Local installation: You can use the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> collection install
+command to install a collection built from source. To build your own
+collection, you must clone the Git repository, build the collection archive,
+and install the collection.</p></li>
+</ul>
+<p>For detailed instructions on how to install a collection, see our
+<a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/installation/installation.html">installation doc</a>.</p>
+</div>
+<div class="section" id="what-do-i-require-to-install-a-collection">
+<h2>What do I require to install a collection?<a class="headerlink" href="#what-do-i-require-to-install-a-collection" title="Permalink to this headline">¶</a></h2>
+<p>All <strong>IBM z/OS collections</strong> require <strong>Ansible 2.9 or later</strong>,
+<strong>Python 2.7 or later</strong> and <strong>Open SSH</strong> on the Ansible controller.</p>
+<p>On the z/OS managed node, a particular <strong>IBM z/OS collection</strong> or release can
+have a different set of requirements. Before you install any
+<strong>IBM z/OS collection</strong>, review the collection <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html">requirements</a>.</p>
+</div>
+<div class="section" id="how-do-i-install-and-configure-zoau">
+<h2>How do I install and configure ZOAU?<a class="headerlink" href="#how-do-i-install-and-configure-zoau" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For a brief overview of <strong>ZOAU</strong>, review our <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html#zoau">ZOAU documentation</a>.</p></li>
+<li><p>Configuring Ansible host or group vars, review our <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md#variables">variable configuration</a>.</p></li>
+<li><p>For configuration information, visit the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSKFYE">ZOAU product page</a> and select a
+version and review <strong>Installing and configuring ZOA Utilities</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="where-can-i-download-the-latest-version-of-python">
+<h2>Where can I download the latest version of Python?<a class="headerlink" href="#where-can-i-download-the-latest-version-of-python" title="Permalink to this headline">¶</a></h2>
+<p>Refer to <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python product page</a> to find out how to get
+access to Python.</p>
+</div>
+<div class="section" id="are-there-any-additional-installation-requirements-for-z-os">
+<h2>Are there any additional installation requirements for z/OS?<a class="headerlink" href="#are-there-any-additional-installation-requirements-for-z-os" title="Permalink to this headline">¶</a></h2>
+<p>Different collections as part of the offering will have different requirements.
+Refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/release/release.html">release notes</a> of a collection to determine the specific
+requirements.</p>
+</div>
+<div class="section" id="how-much-memory-and-ram-do-i-need-to-install-a-collection">
+<h2>How much memory and RAM do I need to install a collection?<a class="headerlink" href="#how-much-memory-and-ram-do-i-need-to-install-a-collection" title="Permalink to this headline">¶</a></h2>
+<p>For <strong>Ansible Tower/AWX</strong>, Ansible recommends a minimum of 4GB RAM for for
+Tower installation.</p>
+<p>Additional RAM requirements may vary based on how many hosts Tower will manage
+simultaneously (which is controlled by the forks parameter in the job template
+or the system ansible.cfg file).</p>
+<p>To avoid resource conflicts, Ansible recommends 1 GB of memory per
+10 forks + 2GB reservation for Tower. For example, if forks is set to 400,
+40 GB of memory is recommended. See the capacity algorithm to determine resource requirements.</p>
+<p>For more information about the requirements, see <a class="reference external" href="https://docs.ansible.com/ansible-tower/latest/html/installandreference/requirements_refguide.html">system requirements</a>.</p>
+<p>For individual <strong>playbooks</strong>, the memory usage is dependent on a few factors:</p>
+<ul class="simple">
+<li><p>The number of z/OS hosts managed by the playbook and the number of forks created by
+Ansible</p></li>
+<li><p>The number of tasks within the playbook</p></li>
+<li><p>The modules used within the playbook</p></li>
+<li><p>The number of tasks that are delegated to the local host</p></li>
+<li><p>Whether fact gathering is turned on or off in the playbook</p></li>
+</ul>
+</div>
+<div class="section" id="do-i-have-to-upgrade-to-the-latest-version-of-a-collection-when-there-is-a-new-release">
+<h2>Do I have to upgrade to the latest version of a collection when there is a new release?<a class="headerlink" href="#do-i-have-to-upgrade-to-the-latest-version-of-a-collection-when-there-is-a-new-release" title="Permalink to this headline">¶</a></h2>
+<p>Although it is not required, we recommended that you upgrade to the
+latest release as they often contain bugfixes to existing modules and plugins.</p>
+<p>If you are currently facing issues with any of the modules, upgrading to the
+latest release could likely resolve the problem.</p>
+</div>
+<div class="section" id="how-can-i-know-which-version-of-a-collection-i-am-using">
+<h2>How can I know which version of a collection I am using?<a class="headerlink" href="#how-can-i-know-which-version-of-a-collection-i-am-using" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the directory where you have installed your collection. The default
+installation directory is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~/.ansible/collections/ansible_collections/ibm/&lt;collection-name&gt;
 </pre></div>
 </div>
-</div></blockquote>
+<p>After you have navigated to that directory, run the following command:
+<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">MANIFEST.json</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">version</span></code></p>
 </div>
-<div class="section" id="how-do-i-know-the-collection-installed-on-the-controller">
-<h2>How do I know the collection installed on the controller?<a class="headerlink" href="#how-do-i-know-the-collection-installed-on-the-controller" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>After you have reviewed the instructions (link) you can execute the adhoc
-<code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> command:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible all -i <span class="s2">&quot;host.vmec.svl.ibm.com,&quot;</span> -c <span class="s1">&#39;ibm.ibm_zos_core.zos_ssh&#39;</span> -u host_user -m <span class="s1">&#39;ibm.ibm_zos_core.zos_ping&#39;</span>
+<div class="section" id="how-do-i-update-a-collection-to-the-latest-version">
+<h2>How do I update a collection to the latest version?<a class="headerlink" href="#how-do-i-update-a-collection-to-the-latest-version" title="Permalink to this headline">¶</a></h2>
+<p>The easiest and recommended way to update your collection is by using the
+<code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy collection install &lt;collection-name:version&gt; --force
 </pre></div>
 </div>
-</div></blockquote>
 </div>
-<div class="section" id="how-do-i-configure-zoau">
-<h2>How do i configure ZOAU?<a class="headerlink" href="#how-do-i-configure-zoau" title="Permalink to this headline">¶</a></h2>
-<p>You can review our documentation that provides the environment variables
-needed for Ansible here and how to install it from ZAOUs product page.</p>
 </div>
-<div class="section" id="how-much-memory-do-i-need">
-<h2>How much memory do I need?<a class="headerlink" href="#how-much-memory-do-i-need" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<div class="section" id="modules-playbooks">
+<h1>Modules, Playbooks<a class="headerlink" href="#modules-playbooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-the-best-practices-for-module-development-and-testing-z-os-ansible-modules">
+<h2>What are the best practices for module development and testing z/OS Ansible modules?<a class="headerlink" href="#what-are-the-best-practices-for-module-development-and-testing-z-os-ansible-modules" title="Permalink to this headline">¶</a></h2>
+<p>For recommendations on module development and testing, see the
+<a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/community_guides.html#development">community guides</a>.</p>
 </div>
-<div class="section" id="where-can-i-get-python">
-<h2>Where can I get Python?<a class="headerlink" href="#where-can-i-get-python" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<div class="section" id="do-the-modules-leave-any-objects-or-files-behind-after-a-playbook-completes-running">
+<h2>Do the modules leave any objects or files behind after a playbook completes running?<a class="headerlink" href="#do-the-modules-leave-any-objects-or-files-behind-after-a-playbook-completes-running" title="Permalink to this headline">¶</a></h2>
+<p>The modules create temporary files and folders on the managed z/OS system
+(usually in the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> directory), which are then cleaned up after the module
+execution.</p>
+<p>The only other instance where objects are left behind is when a
+module option has been configured to perform a backup.</p>
 </div>
-<div class="section" id="where-can-i-get-zoau">
-<h2>Where can I get ZOAU?<a class="headerlink" href="#where-can-i-get-zoau" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<div class="section" id="are-the-modules-idempotent">
+<h2>Are the modules idempotent?<a class="headerlink" href="#are-the-modules-idempotent" title="Permalink to this headline">¶</a></h2>
+<p>Yes, they are idempotent. Repeated execution of the modules included in
+<strong>Red Hat Ansible Certified Content for IBM Z</strong> does not produce different
+behavior.</p>
 </div>
-<div class="section" id="do-this-require-me-to-install-something-on-z-os">
-<h2>Do this require me to install something on z/OS?<a class="headerlink" href="#do-this-require-me-to-install-something-on-z-os" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<div class="section" id="which-modules-support-check-mode">
+<h2>Which modules support check mode?<a class="headerlink" href="#which-modules-support-check-mode" title="Permalink to this headline">¶</a></h2>
+<p>Modules that currently support check mode:  <code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code></p>
 </div>
-<div class="section" id="do-the-modules-leave-any-objects-files-behind">
-<h2>Do the modules leave any objects/files behind?<a class="headerlink" href="#do-the-modules-leave-any-objects-files-behind" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<div class="section" id="where-can-i-find-a-sample-playbook">
+<h2>Where can I find a sample playbook?<a class="headerlink" href="#where-can-i-find-a-sample-playbook" title="Permalink to this headline">¶</a></h2>
+<p>You can find many sample playbooks, links to blogs, and other community
+resources in the
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples">Samples repository for Red Hat Ansible Certified Content for IBM Z</a>.</p>
+</div>
+<div class="section" id="are-there-any-specific-requirements-for-running-a-playbook">
+<h2>Are there any specific requirements for running a playbook?<a class="headerlink" href="#are-there-any-specific-requirements-for-running-a-playbook" title="Permalink to this headline">¶</a></h2>
+<p>Running a playbook has a few requirements that could be dependent on the
+included collections as well as space, location, names, and authority. A
+few artifacts will be created and cleaned up to enable running a playbook. To
+review the requirements, see <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/playbooks/playbooks.html">playbooks</a>.</p>
+</div>
+<div class="section" id="how-can-i-customize-how-ansible-operates-in-my-environment">
+<h2>How can I customize how Ansible operates in my environment?<a class="headerlink" href="#how-can-i-customize-how-ansible-operates-in-my-environment" title="Permalink to this headline">¶</a></h2>
+<p>You can specify what configuration Ansible uses when running playbooks by
+modifying the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file or defining the <strong>ANSIBLE_CONFIG</strong> environment
+variable. For more information, refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html">configuration guide for Ansible</a>.</p>
+</div>
+<div class="section" id="how-do-i-test-my-playbooks">
+<h2>How do I test my playbooks?<a class="headerlink" href="#how-do-i-test-my-playbooks" title="Permalink to this headline">¶</a></h2>
+<p>There a couple of testing strategies you can follow to test your playbooks.
+Refer to the official testing  <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html">strategies recommended by Ansible</a>.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting-messages">
+<h1>Troubleshooting, Messages<a class="headerlink" href="#troubleshooting-messages" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-can-i-test-if-an-ansible-or-z-os-module-is-able-to-reach-the-target-host">
+<h2>How can I test if an Ansible or z/OS module is able to reach the target (host)?<a class="headerlink" href="#how-can-i-test-if-an-ansible-or-z-os-module-is-able-to-reach-the-target-host" title="Permalink to this headline">¶</a></h2>
+<p>You can test if a collection is installed and is working correctly by executing
+the command illustrated in the example below. Ensure that you change the host
+name to your remote z/OS host, as well as the user and Python binary path.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following example illustrates testing the installation of the
+z/OS core collection.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible all <span class="se">\</span>
+-i <span class="s1">&#39;&lt;zos-host-name&gt;,&#39;</span> <span class="se">\</span>
+-c <span class="s1">&#39;ibm.ibm_zos_core.zos_ssh&#39;</span> <span class="se">\</span>
+-u <span class="s1">&#39;user-name&#39;</span> <span class="se">\</span>
+-m <span class="s1">&#39;ibm.ibm_zos_core.zos_ping&#39;</span> <span class="se">\</span>
+-e <span class="s1">&#39;ansible_python_interpreter=/path/to/zos/python/binary&#39;</span>
+</pre></div>
+</div>
+<p>The above command executes the <code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> module against your remote
+z/OS host. If the command succeeds and returns the following output,
+the collection was installed correctly.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&lt;zos-host-name&gt; <span class="p">|</span> <span class="nv">SUCCESS</span> <span class="o">=</span>&gt; <span class="o">{</span>
+    <span class="s2">&quot;changed&quot;</span>: false,
+    <span class="s2">&quot;ping&quot;</span>: <span class="s2">&quot;pong&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication">
+<h2>Which modules are affected when  using <code class="docutils literal notranslate"><span class="pre">askpass</span></code> instead of SSH authentication?<a class="headerlink" href="#which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Data transfer modules such as <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> depend on the
+authenticated <code class="docutils literal notranslate"><span class="pre">SSH</span></code> connection from the control node to the managed node. When
+using these modules, ensure that the connection from the controller to the
+managed node is authenticated using an SSH key. Both
+<code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules do not support Ansible ad-hoc
+<code class="docutils literal notranslate"><span class="pre">--ask-pass</span></code>.</p>
+</div>
+<div class="section" id="does-a-user-running-ansible-on-uss-need-to-have-any-special-privileges">
+<h2>Does a user running Ansible on USS need to have any special privileges?<a class="headerlink" href="#does-a-user-running-ansible-on-uss-need-to-have-any-special-privileges" title="Permalink to this headline">¶</a></h2>
+<p>Whether special user privileges are required would depend on the type of task
+Ansible is performing on the remote host. For instance, accessing or
+changing system resources with insufficient access permissions,
+would require elevated privileges.</p>
+<p>If a task requires <code class="docutils literal notranslate"><span class="pre">root</span></code> privileges on USS, you can execute the it with the
+<code class="docutils literal notranslate"><span class="pre">become:</span> <span class="pre">yes</span></code> parameter. Alternatively, if you want to execute a task as a
+particular user, you can use <code class="docutils literal notranslate"><span class="pre">become_user:</span> <span class="pre">&lt;user_name&gt;</span></code> parameter.</p>
+</div>
+<div class="section" id="what-causes-the-error-unsupported-parameter-how-do-i-fix-it">
+<h2>What causes the error: <strong>“unsupported parameter”</strong>? How do I fix it?<a class="headerlink" href="#what-causes-the-error-unsupported-parameter-how-do-i-fix-it" title="Permalink to this headline">¶</a></h2>
+<p>This tends to happen when you are specifying a parameter to a module that it
+doesn’t support or is deprecated. Update your collection to the latest version
+and review the collection requirements in the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/release/release.html">release notes</a> to make sure you
+are using the latest version of the modules and carefully examine the module
+documentation to understand what parameters it supports.</p>
+</div>
+<div class="section" id="when-using-ibm-python-why-do-i-get-this-error">
+<h2>When using IBM Python, why do I get this error?<a class="headerlink" href="#when-using-ibm-python-why-do-i-get-this-error" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UnicodeDecodeError</span><span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t decode byte in position 0: invalid continuation byte&quot;</span>
+</pre></div>
+</div>
+<p>The most likely cause of this error is that you have not properly set up your
+environment variables for your managed node. Refer to the following
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md">configuration guide</a> to understand which environment variables need to be
+defined.</p>
+</div>
+<div class="section" id="what-causes-this-error-during-the-playbook-execution-how-do-i-fix-it">
+<h2>What causes this error during the playbook execution? How do I fix it?<a class="headerlink" href="#what-causes-this-error-during-the-playbook-execution-how-do-i-fix-it" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>EDC5129I No such file or directory.: b<span class="s1">&#39;mvscmdauth&#39;</span><span class="s2">&quot;, &quot;</span>rc<span class="s2">&quot;: 129</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mvscmdauth</span></code> is a <strong>ZOAU</strong> shell utility. This error tends to happen when
+<strong>ZOAU</strong> installation is not added to the system <strong>PATH</strong>. Modify your host
+variables and add the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of the <strong>ZOAU</strong> installation. for
+example, if <strong>ZOAU</strong> was installed in <code class="docutils literal notranslate"><span class="pre">/usr/lpp/IBM/zoau</span></code>, you should add
+<code class="docutils literal notranslate"><span class="pre">/usr/lpp/IBM/zoau/bin</span></code> to <strong>PATH</strong>.</p>
+</div>
+<div class="section" id="why-do-i-get-this-error-during-the-playbook-execution">
+<h2>Why do I get this error during the playbook execution ?<a class="headerlink" href="#why-do-i-get-this-error-during-the-playbook-execution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>IOError: <span class="o">[</span>Errno <span class="m">21</span><span class="o">]</span> Is a directory: u<span class="s1">&#39;/tmp/xxx&#39;</span>
+</pre></div>
+</div>
+<p>It is likely that the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> directory of the managed node is full and cannot
+store any more data. Clear the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> directory and re-run the
+playbook.</p>
+</div>
+<div class="section" id="why-do-i-get-this-warning-during-the-playbook-execution">
+<h2>Why do I get this warning during the playbook execution ?<a class="headerlink" href="#why-do-i-get-this-warning-during-the-playbook-execution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>WARNING<span class="o">]</span>: Python Warning: Incorrect Python Found
+</pre></div>
+</div>
+<p>It is likely that you are using an older version of the collection which was
+supported by the <strong>Rocket Python</strong> distribution. Verify that you have installed
+<strong>IBM Open Enterprise Python for z/OS</strong> on your z/OS managed node and upgrade
+to the latest version of the collection. To learn more about how to upgrade the
+collection, see our <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/installation/installation.html">installation doc</a> or the sample <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#id2">repository doc</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">install</span></code> command installs the latest
+collection.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Why do I get this error during the playbook execution ?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Internal Error: Unable to find message file <span class="k">for</span> command: mvscmdmsg
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mvscmdmsg</span></code> is a <strong>ZOAU</strong> utility. Generally, this issue appears when the
+environment variables are configured incorrectly. Refer to the
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md">configuration guide</a> documentation to understand how to properly configure
+these variables.</p>
+</div>
+<div class="section" id="why-does-my-managed-z-os-system-pre-login-prompt-cause-the-zos-copy-and-zos-fetch-modules-to-fail">
+<h2>Why does my managed z/OS system pre-login prompt cause the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules to fail?<a class="headerlink" href="#why-does-my-managed-z-os-system-pre-login-prompt-cause-the-zos-copy-and-zos-fetch-modules-to-fail" title="Permalink to this headline">¶</a></h2>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">SFTP</span></code> redirects <strong>pre-login</strong> prompts to system <strong>stderr</strong>,
+which <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> interprets as a failure. You can bypass this behavior and
+ignore stderr content by setting <strong>ignore_sftp_stderr</strong> parameter of
+<code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> to <strong>true</strong>.</p>
+</div>
+</div>
+<div class="section" id="community">
+<h1>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="where-can-i-open-issues-and-track-them">
+<h2>Where can I open issues and track them?<a class="headerlink" href="#where-can-i-open-issues-and-track-them" title="Permalink to this headline">¶</a></h2>
+<p>You can track open issues and raise new issues for bugs, feature issues, or
+comments in our <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/reference/community.html">contributing topic</a>.</p>
+</div>
+<div class="section" id="how-frequently-are-the-collections-updated">
+<h2>How frequently are the collections updated?<a class="headerlink" href="#how-frequently-are-the-collections-updated" title="Permalink to this headline">¶</a></h2>
+<p>We follow Agile methodologies to continuously deliver new features. The
+complexity of the features drives the release cadence. We encourage you to
+review the release notes to learn about our latest release.</p>
+</div>
+<div class="section" id="what-collections-are-offered-as-part-of-redhat-certified-content">
+<h2>What collections are offered as part of RedHat certified content?<a class="headerlink" href="#what-collections-are-offered-as-part-of-redhat-certified-content" title="Permalink to this headline">¶</a></h2>
+<p>Currently, we offer collections for z/OS core and z/OS IMS under the Red Hat
+Ansible Certified Content available in Ansible Automation Hub and Galaxy. These
+collections offer a seamless, unified workflow orchestration with configuration
+management, provisioning, and application deployment in one easy-to-use
+platform.</p>
+</div>
+<div class="section" id="can-i-contribute-new-modules-to-the-collection">
+<h2>Can I contribute new modules to the collection?<a class="headerlink" href="#can-i-contribute-new-modules-to-the-collection" title="Permalink to this headline">¶</a></h2>
+<p>We are currently not accepting community contributions. We do encourage you to
+open git issues for bugs, comments or feature requests. To learn more about how
+to contribute to a collection, see our <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/reference/community.html">contributing topic</a>.</p>
+</div>
+<div class="section" id="where-can-i-find-the-documentation-for-a-particular-collection">
+<h2>Where can I find the documentation for a particular collection?<a class="headerlink" href="#where-can-i-find-the-documentation-for-a-particular-collection" title="Permalink to this headline">¶</a></h2>
+<p>Collections certified with Red Hat Automation Hub will have integrated
+documentation. If you have entitlement to Automation Hub, you can
+view the <a class="reference external" href="https://cloud.redhat.com/ansible/automation-hub/?page_size=12&amp;view_type=list&amp;tags=zos">collections documentation</a>. You can also navigate to
+<strong>Ansible Automation Hub</strong> –&gt; <strong>Collections</strong> –&gt; <strong>enter a collection name in the
+Filter by keywords field</strong> –&gt; <strong>Documentation</strong>.</p>
+<p>Optionally, you can access documentation under <strong>Ansible Content</strong> in the
+Red Hat Ansible Certified Content for IBM Z collection documentation site.</p>
+</div>
+</div>
+<div class="section" id="others">
+<h1>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-are-precedence-rules-defined-in-ansible">
+<h2>How are precedence rules defined in Ansible?<a class="headerlink" href="#how-are-precedence-rules-defined-in-ansible" title="Permalink to this headline">¶</a></h2>
+<p>Ansible offers four sources for controlling its behavior. In order of precedence
+from lowest (most easily overridden) to highest (overrides all others), the
+categories are:</p>
+<ul class="simple">
+<li><p>Configuration settings</p></li>
+<li><p>Command-line options</p></li>
+<li><p>Playbook keywords</p></li>
+<li><p>Variables</p></li>
+</ul>
+<p>For a more detailed explanation of precedence rules, refer to both the
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html">official documentation</a> and <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file&gt;&gt;">reference</a>.</p>
 </div>
 </div>
 
@@ -209,6 +536,15 @@ needed for Ansible here and how to install it from ZAOUs product page.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reference/supplementary.html" class="btn btn-neutral float-right" title="Supplementary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ibm_zos_ims/docs/source/release_notes.html" class="btn btn-neutral float-left" title="Releases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
