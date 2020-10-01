@@ -45,8 +45,8 @@ How do I install and configure ZOAU?
 
 * For a brief overview of **ZOAU**, review our `ZOAU documentation`_.
 * Configuring Ansible host or group vars, review our `variable configuration`_.
-* For configuration information, visit the `ZOAU product page`_.
-  * Select the latest version and then select "Installing and configuring ZOA Utilities".
+* For configuration information, visit the `ZOAU product page`_ and select a
+  version and review **Installing and configuring ZOA Utilities**.
 
 .. _ZOAU documentation:
    https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html#zoau
@@ -68,18 +68,18 @@ access to Python.
    https://www.ibm.com/products/open-enterprise-python-zos
 
 
-Do I need any additional installation on z/OS?
-----------------------------------------------
+Are there any additional installation requirements for z/OS?
+------------------------------------------------------------
 
 Different collections as part of the offering will have different requirements.
 Refer to the `release notes`_ of a collection to determine the specific
 requirements.
 
 
-Ansible Tower/AWX: How much memory and RAM do I need to install a collection?
------------------------------------------------------------------------------
+How much memory and RAM do I need to install a collection?
+----------------------------------------------------------
 
-For **Ansible Tower**, Ansible recommends a minimum of 4GB RAM for for
+For **Ansible Tower/AWX**, Ansible recommends a minimum of 4GB RAM for for
 Tower installation.
 
 Additional RAM requirements may vary based on how many hosts Tower will manage
@@ -134,7 +134,7 @@ How do I update a collection to the latest version?
 ---------------------------------------------------
 
 The easiest and recommended way to update your collection is by using the
-`ansible-galaxy` command:
+``ansible-galaxy`` command:
 
 .. code-block:: sh
 
@@ -286,7 +286,7 @@ documentation to understand what parameters it supports.
 
 When using IBM Python, why do I get this error?
 -----------------------------------------------
-.. code-block:: sh
+.. code-block::
 
    UnicodeDecodeError: 'utf-8' codec can't decode byte in position 0: invalid continuation byte"
 
