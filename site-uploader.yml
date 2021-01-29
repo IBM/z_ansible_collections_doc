@@ -1,0 +1,54 @@
+################################################################################
+# Copyright (c) IBM Corporation 2020
+#
+# Description:
+#    This playbook will prompt you to upload generated HTML to a private
+#    web-server for local hosting and viewing. On a successful upload the
+#    playbook will return the URL where the HTML doc is hosted.
+#
+#    Note: This has been extracted from the original build because escalated
+#    privalages have been problmatice with Ansible versions greater than 2.10.
+#    Run this playbook using Ansible 2.9.x
+#
+# Usage:
+#    ansible-playbook -i inventory site-uploader.yml --ask-vault-pass
+################################################################################
+
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    # ############################################################################
+    # # Deploy HTML to web-server for review if deploy_to_web_server=True
+    # ############################################################################
+
+      # This is a manual prompt to continue which would need to be removed when this is automated
+    - name: Confirm continuing to upload HTML to private Apache server
+      pause:
+        prompt: "Do you want to upload the generated HTML to an Apache server for review? (y/n)"
+      register: deploy_to_web_server_reply
+    - debug:
+        msg="{{deploy_to_web_server_reply}}"
+
+    - name: Copying files to an Apache server for review
+      copy:
+        src: build/html/
+        dest: /var/www/collection-doc
+        owner: root
+        group: root
+        mode: 0755
+        force: yes
+      vars:
+        ansible_become_password: "{{ webserver_password }}"
+      delegate_to: "{{ web_server }}"
+      remote_user: "{{ webserver_user }}"
+      become: yes
+      become_user: "{{ webserver_user }}"
+      become_method: sudo
+      register: webserver_upload
+      when: deploy_to_web_server_reply.user_input == "y"
+
+    - name: Uploaded content for review
+      debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
+      when: deploy_to_web_server_reply | bool and webserver_upload and not webserver_upload.failed
