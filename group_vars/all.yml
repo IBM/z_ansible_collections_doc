@@ -12,7 +12,7 @@
 #      HTML to avoid checking that in, this repo should not store generated HTML
 ################################################################################
 
-deploy_to_gh_pages: True
-deploy_to_web_server: False
+deploy_to_gh_pages: False
+deploy_to_web_server: True
 accept_new_registry_collections: True
 cleanup_generated_html: True
