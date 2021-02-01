@@ -51,15 +51,63 @@
         msg: "Collection source/{{item.item}} exists."
       with_items: "{{ git_submodule.results }}"
 
-    - name: Checkout the collections in the registry to this repository
+    ############################################################################
+    # Check if there are changes to .gitmodules that are not staged or stashed
+    # that will result in this playbook failing to properly teardown then init
+    # based on the registry.yml.
+    # Avoids this error:
+    #  fatal: Please, stage your changes to .gitmodules or stash them to proceed
+    ############################################################################
+    - name: Checking if `.gitmodules` has unstaged changes
       shell: |
-          touch .gitmodules
-          git submodule add {{ collections[item].git}} source/{{ item }}
-          git submodule init
+        git status --untracked-files=no --porcelain .gitmodules
+      register: status_gitmodules
+
+    - name: Display the Git submodule 'status_gitmodules' result
+      debug: msg="Changes have been detected for '.gitmodules', changes have been
+        staged, you may unstage them with command 'git reset HEAD .gitmodules'"
+      when: status_gitmodules.stdout == " M .gitmodules"
+
+    - name: Completed evaluating `.gitmodules`
+      shell: |
+        git add .gitmodules
+      register: add_gitmodules
+      when: status_gitmodules.stdout == " M .gitmodules"
+
+    - name: Display the Git submodule 'status_gitmodules' result
+      debug: msg="add_gitmodules"
+      when: status_gitmodules.stdout == " M .gitmodules" and add_gitmodules
+
+    # ############################################################################
+    # Complete teardown and setup of all submodules to avoid conflicts when new
+    # private branches are added to the registry.yml and not properly udated in
+    # the .gitmodules config; just makes for a cleaner run and less troubleshooting
+    # for those who don't properly maintain their clone repository
+    #
+    # NOTE: This only manages the submodules in the `registry.yml` not any
+    # submodules excluded from the registry.yml
+    # ############################################################################
+    - name: Teardown all submodules then init them according to `registry.yml`.
+      shell: |
+        git rm --cached source/{{ item }}
+        rm -rf .git/modules/source/{{ item }}
+        git config -f .gitmodules --remove-section submodule.source/{{ item }}
+        rm -rf source/{{ item }}
+        git submodule add {{ collections[item].git}} source/{{ item }}
+        git submodule init
       with_items: "{{collections}}"
       register: git_add_submodules
 
-    - name: Update the collections contents with Git for collections under `source/<collection>`
+    - name: Display the result from the teardown and init for all submodules registerd in `registry.yml`.
+      debug: msg="{{ git_add_submodules }}"
+      when: git_add_submodules
+
+    # ############################################################################
+    # After teardown and init, traverse each submodule and checkout the latest
+    # branch indentified in registry.yml
+    # ############################################################################
+
+    - name: Update each of the submodule contents under `source/<submodule>`.
       shell: |
           cd source/{{ item }}
           git fetch --all
@@ -69,7 +117,7 @@
       with_items: "{{collections}}"
       register: git_checkout_latest
 
-    - name: Display the results to updating the collections under `source/<collection>`
+    - name: Display the results after updating the submodules under `source/<submodule>`.
       debug: msg="{{ git_checkout_latest }}"
 
     # ############################################################################
