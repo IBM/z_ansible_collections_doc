@@ -80,7 +80,8 @@
       raw: make clean; make html; make view-html;
 
     # ############################################################################
-    # # Deploy HTML to gh-pages if deploy_to_gh_pages=True
+    # Deploy HTML to gh-pages if deploy_to_gh_pages=True
+    # Must have WRITE access to the repository.
     # ############################################################################
 
     - meta: end_play
