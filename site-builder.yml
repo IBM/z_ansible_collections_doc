@@ -14,7 +14,7 @@
 #       deploy the generated HTML to the doc-site (site/gh-pages).
 #
 # Usage:
-#    ansible-playbook -i inventory site-builder.yml --ask-vault-pass
+#    ansible-playbook -i inventory site-builder.yml
 ################################################################################
 
 ---
@@ -58,25 +58,56 @@
     # Avoids this error:
     #  fatal: Please, stage your changes to .gitmodules or stash them to proceed
     ############################################################################
-    - name: Checking if `.gitmodules` has unstaged changes
+
+    - name: Check status of `.gitmodules`.
       shell: |
         git status --untracked-files=no --porcelain .gitmodules
       register: status_gitmodules
 
-    - name: Display the Git submodule 'status_gitmodules' result
-      debug: msg="Changes have been detected for '.gitmodules', changes have been
-        staged, you may unstage them with command 'git reset HEAD .gitmodules'"
-      when: status_gitmodules.stdout == " M .gitmodules"
+    - name: Display status of `.gitmodules`.
+      debug: msg="{{status_gitmodules}}"
 
-    - name: Completed evaluating `.gitmodules`
+    - name: Evaluate if `.gitmodules` has unstaged changes.
+      set_fact:
+        status_gitmodule_M: "{{ status_gitmodules.stdout | regex_search('^\\s*M ')}}"
+
+    - name: Display if `.gitmodules` has unstaged changes
+      debug:
+        msg: "Unstaged changes have been found in .gitsubmodules."
+      when: status_gitmodule_M
+
+    # If you modify a file, then:
+    #  (A) use git add to copy it to the index / staging-area
+    #  (B) modify it again, now all three versions of that file differ.
+    #  This is will generate the MM status.
+    - name: Evaluate if `.gitmodules` has staged and unstaged changes.
+      set_fact:
+        status_gitmodule_MM: "{{ status_gitmodules.stdout | regex_search('^\\s*MM ')}}"
+
+    - name: Display if `.gitmodules` has staged and unstaged changes.
+      debug:
+        msg: "Staged and unstaged changes have been found in .gitsubmodules."
+      when: status_gitmodule_MM
+
+    - name: Reset .gitmodules if there are staged and unstaged changes.
+      shell: |
+        git reset HEAD .gitmodules
+      when: status_gitmodule_MM
+
+    - name: Stagging .gitmodules
       shell: |
         git add .gitmodules
       register: add_gitmodules
-      when: status_gitmodules.stdout == " M .gitmodules"
+      when: status_gitmodule_M or status_gitmodule_MM
 
-    - name: Display the Git submodule 'status_gitmodules' result
-      debug: msg="add_gitmodules"
-      when: status_gitmodules.stdout == " M .gitmodules" and add_gitmodules
+    - name: Display result from staging .gitmodules.
+      debug: msg="{{add_gitmodules}}"
+      when: status_gitmodule_M or status_gitmodule_MM
+
+    - name: Display summary of changes.
+      debug: msg="Changes have been detected for '.gitmodules', changes have been
+        staged, you may unstage them with command 'git reset HEAD .gitmodules'"
+      when: status_gitmodule_M or status_gitmodule_MM
 
     # ############################################################################
     # Complete teardown and setup of all submodules to avoid conflicts when new
@@ -87,25 +118,89 @@
     # NOTE: This only manages the submodules in the `registry.yml` not any
     # submodules excluded from the registry.yml
     # ############################################################################
-    - name: Teardown all submodules then init them according to `registry.yml`.
+
+    # NOTE: Performing this as a single task introduces failures that can not be ignored.
+    #       Thus it has been reduced to individual tasks.
+    # - name: Teardown all submodules then init them according to `registry.yml`.
+    #   shell: |
+    #     git rm -f --cached source/{{ item }}
+    #     rm -rf source/{{ item }}
+    #     rm -rf .git/modules/source/{{ item }}
+    #     git config -f .gitmodules --remove-section submodule.source/{{ item }}
+    #     git submodule add {{ collections[item].git}} source/{{ item }}
+    #     git submodule init
+    #   with_items: "{{collections}}"
+    #   register: git_add_submodules
+    # - name: Display the result from the teardown and init for all submodules registerd in `registry.yml`.
+    #   debug: msg="{{ git_add_submodules }}"
+    #   when: git_add_submodules
+
+    - name: 1 - Remove cached submodules according to `registry.yml`.
       shell: |
-        git rm --cached source/{{ item }}
-        rm -rf .git/modules/source/{{ item }}
-        git config -f .gitmodules --remove-section submodule.source/{{ item }}
+        git rm -f --cached source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_1
+      ignore_errors: yes
+
+    - name: 1 - Display Remove cached submodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_1 }}"
+      when: git_add_submodules_1
+
+    - name: 2 - Remove local files according to `registry.yml`.
+      shell: |
         rm -rf source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_2
+
+    - name: 2 - Display remove local files according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_2 }}"
+      when: git_add_submodules_2
+
+    - name: 3 - Remove all git managed submodule content according to `registry.yml`.
+      shell: |
+        rm -rf .git/modules/source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_3
+
+    - name: 3 - Display remove all git managed submodule content according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_3 }}"
+      when: git_add_submodules_3
+
+    - name: 4 - Remove .gitmodules references for all submodules according to `registry.yml`.
+      shell: |
+        git config -f .gitmodules --remove-section submodule.source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_4
+      ignore_errors: yes
+
+    - name: 4 - Display remove .gitmodules references for all submodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_4 }}"
+      when: git_add_submodules_4
+
+    - name: 5 - Add all submodules to .gitmodules according to `registry.yml`.
+      shell: |
         git submodule add {{ collections[item].git}} source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_5
+
+    - name: 5 - Display add all submodules to .gitmodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_5 }}"
+      when: git_add_submodules_5
+
+    - name: 6 - Init all submodules according to `registry.yml`.
+      shell: |
         git submodule init
       with_items: "{{collections}}"
-      register: git_add_submodules
+      register: git_add_submodules_6
 
-    - name: Display the result from the teardown and init for all submodules registerd in `registry.yml`.
-      debug: msg="{{ git_add_submodules }}"
-      when: git_add_submodules
+    - name: 6 - Init all submodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_6 }}"
+      when: git_add_submodules_6
 
-    # ############################################################################
-    # After teardown and init, traverse each submodule and checkout the latest
-    # branch indentified in registry.yml
-    # ############################################################################
+    # # ############################################################################
+    # # After teardown and init, traverse each submodule and checkout the latest
+    # # branch indentified in registry.yml
+    # # ############################################################################
 
     - name: Update each of the submodule contents under `source/<submodule>`.
       shell: |
@@ -120,9 +215,9 @@
     - name: Display the results after updating the submodules under `source/<submodule>`.
       debug: msg="{{ git_checkout_latest }}"
 
-    # ############################################################################
-    # # Generate and view HTML
-    # ############################################################################
+    ############################################################################
+    # Generate and view HTML
+    ############################################################################
 
     - name: Generate HTML and display the results locally in the users browser
       raw: make clean; make html; make view-html;
