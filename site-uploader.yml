@@ -51,4 +51,4 @@
 
     - name: Uploaded content for review
       debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
-      when: deploy_to_web_server_reply | bool and webserver_upload and not webserver_upload.failed
+      when: deploy_to_web_server_reply == "y" and webserver_upload and not webserver_upload.failed
