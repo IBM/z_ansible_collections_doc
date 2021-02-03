@@ -6,16 +6,19 @@
 Requirements
 ============
 
-Before you install any IBM z/OS collection, you must configure a control node and
-managed node with a minimum set of requirements. The following sections detail the
-specific software requirements for the control and managed nodes.
+Before you install any IBM® z/OS® collection, you must configure a
+**control node** and **managed node** with a minimum set of requirements. The
+following sections detail the specific software requirements for the control and
+managed nodes.
 
 Control node
 ============
-A control node is any machine with Ansible installed. From the control node,
-you can run commands and playbooks from a laptop, desktop, or server.
-However, you cannot run a collection on a Windows system. All IBM z/OS collections
-require these versions of software:
+A control node is any machine with Ansible® installed. From the control node,
+you can run commands and playbooks from a laptop, desktop, or server. However,
+Windows® is not a supported controller for Ansible collections managing a z/OS
+node.
+
+All IBM z/OS collections require these versions of software:
 
 * `Ansible version`_: 2.9 or later
 * `Python`_: 2.7 or later
@@ -27,13 +30,6 @@ require these versions of software:
    https://www.python.org/downloads/release/latest
 .. _OpenSSH:
    https://www.openssh.com/
-
-
-.. .. toctree::
-..    :maxdepth: 1
-
-..    requirements_controller
-
 
 Managed node
 ============
