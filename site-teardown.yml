@@ -87,3 +87,9 @@
       debug: msg="{{ git_add_submodules_4 }}"
       when: git_add_submodules_4
 
+    ############################################################################
+    # Generate and view HTML
+    ############################################################################
+
+    - name: Clean up generted HTML
+      raw: make clean;
