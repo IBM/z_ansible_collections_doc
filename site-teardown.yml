@@ -1,0 +1,89 @@
+################################################################################
+# Copyright (c) IBM Corporation 2020
+#
+# Description:
+#    This playbook will tear down all submodules including cached and meta-data.
+#    This should be run for a clean checkin to github
+#
+# Usage:
+#    ansible-playbook -i inventory site-teardown.yml
+################################################################################
+
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+
+  # ##############################################################################
+  # # Parse 'registry.yml' for certified contributors (key:value)
+  # ##############################################################################
+
+  tasks:
+    - name: Parse the registry for collection entries
+      include_vars: registry.yml
+
+    - name: Display the registered collections and properites in `registry.yml`.
+      debug:
+         var: collections[item]
+      with_items: "{{collections}}"
+
+    ############################################################################
+    # Evaluate the state of all collections currently in the repo and compare
+    # them to the registry.yml
+    #############################################################################
+
+    - name: Evaluate which collections are in directory `source/<collection>`
+      stat:
+        path: source/{{ item }}
+      register: git_submodule
+      with_items: "{{collections}}"
+
+    # ############################################################################
+    # Perform teardown of all submodules to avoid conflicts 
+    #
+    # NOTE: This only manages the submodules in the `registry.yml` not any
+    # submodules excluded from the registry.yml
+    # ############################################################################
+
+    - name: 1 - Remove cached submodules according to `registry.yml`.
+      shell: |
+        git rm -f --cached source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_1
+      ignore_errors: yes
+
+    - name: 1 - Display Remove cached submodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_1 }}"
+      when: git_add_submodules_1
+
+    - name: 2 - Remove local files according to `registry.yml`.
+      shell: |
+        rm -rf source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_2
+
+    - name: 2 - Display remove local files according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_2 }}"
+      when: git_add_submodules_2
+
+    - name: 3 - Remove all git managed submodule content according to `registry.yml`.
+      shell: |
+        rm -rf .git/modules/source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_3
+
+    - name: 3 - Display remove all git managed submodule content according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_3 }}"
+      when: git_add_submodules_3
+
+    - name: 4 - Remove .gitmodules references for all submodules according to `registry.yml`.
+      shell: |
+        git config -f .gitmodules --remove-section submodule.source/{{ item }}
+      with_items: "{{collections}}"
+      register: git_add_submodules_4
+      ignore_errors: yes
+
+    - name: 4 - Display remove .gitmodules references for all submodules according to `registry.yml`.
+      debug: msg="{{ git_add_submodules_4 }}"
+      when: git_add_submodules_4
+
