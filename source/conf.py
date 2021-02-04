@@ -44,11 +44,47 @@ templates_path = ['templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-    'ibm_zos_core/docs/source/index.rst', 'ibm_zos_ims/docs/source/index.rst',
-    'ibm_zos_core/docs/source/installation.rst', 'ibm_zos_core/docs/zos-collection-index.rst',
-    'ibm_zos_core/docs/source/license.rst', 'ibm_zos_core/docs/source/playbooks.rst',
-    'ibm_zos_core/docs/source/requirements.rst']
+exclude_patterns = exclude_patterns = [
+    'ibm_zos_cics/docs/source/index.rst',
+    'ibm_zos_cics/docs/source/installation.rst',
+    'ibm_zos_cics/docs/source/playbooks.rst',
+    'ibm_zos_cics/docs/source/requirements.rst',
+    'ibm_zos_cics/docs/zos-collection-index.rst',
+    'ibm_zos_core/docs/files/role_sample/roles.rst',
+    'ibm_zos_core/docs/source/index.rst',
+    'ibm_zos_core/docs/source/installation.rst',
+    'ibm_zos_core/docs/source/license.rst',
+    'ibm_zos_core/docs/source/playbooks.rst',
+    'ibm_zos_core/docs/source/requirements-single.rst',
+    'ibm_zos_core/docs/source/requirements.rst',
+    'ibm_zos_core/docs/zos-collection-index.rst',
+    'ibm_zos_ims/docs/source/index.rst',
+    'ibm_zos_ims/docs/source/installation.rst',
+    'ibm_zos_ims/docs/source/license.rst',
+    'ibm_zos_ims/docs/source/playbook_config_setup.rst',
+    'ibm_zos_ims/docs/source/playbook_group_vars.rst',
+    'ibm_zos_ims/docs/source/playbook_inventory.rst',
+    'ibm_zos_ims/docs/source/playbook_run.rst',
+    'ibm_zos_ims/docs/source/playbooks-single.rst',
+    'ibm_zos_ims/docs/source/playbooks.rst',
+    'ibm_zos_ims/docs/source/requirements-single.rst',
+    'ibm_zos_ims/docs/source/requirements.rst',
+    'ibm_zos_sysauto/docs/source/index.rst',
+    'ibm_zos_sysauto/docs/source/installation.rst',
+    'ibm_zos_sysauto/docs/source/license.rst',
+    'ibm_zos_sysauto/docs/source/playbooks.rst',
+    'ibm_zos_sysauto/docs/source/requirements.rst',
+    'ibm_zos_sysauto/docs/source/playbooks/sample_pb_create_dynres.rst',
+    'ibm_zos_sysauto/docs/source/playbooks/sample_pb_delete_dynres.rst',
+    'zhmc-ansible-modules/docs/source/bibliography.rst',
+    'zhmc-ansible-modules/docs/source/community_guides.rst',
+    'zhmc-ansible-modules/docs/source/index.rst',
+    'zhmc-ansible-modules/docs/source/installation.rst',
+    'zhmc-ansible-modules/docs/source/playbooks.rst',
+    'zhmc-ansible-modules/docs/source/requirements.rst',
+    'zhmc-ansible-modules/docs/source/versioning.rst',
+    'howdoi/howdoi.rst'
+    ]
 
 ##############################################################################
 # Options for HTML output
@@ -76,22 +112,23 @@ html_context = {
 # Currently we are not using these options, for more info follow links:
 # https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/
-# html_theme_options = {
-#      'canonical_url': '',
-#      'analytics_id': 'UA-XXXXXXX-1',
-#      'logo_only': False,
-#      'display_version': True,
-#      'prev_next_buttons_location': 'bottom',
-#      'style_external_links': False,
-#      'vcs_pageview_mode': '',
-#      'style_nav_header_background': 'white',
-#      # Toc options
-#      'collapse_navigation': True,
-#      'sticky_navigation': True,
-#      'navigation_depth': 4,
-#      'includehidden': True,
-#      'titles_only': False
-# }
+html_theme_options = {
+    'prev_next_buttons_location': None
+    # 'canonical_url': '',
+    #'analytics_id': 'UA-XXXXXXX-1',
+    #'logo_only': False,
+    #'display_version': True,
+    #'prev_next_buttons_location': 'bottom',
+    #'style_external_links': False,
+    #'vcs_pageview_mode': '',
+    #'style_nav_header_background': 'white',
+    #Toc options
+    #'collapse_navigation': True,
+    #'sticky_navigation': True,
+    #'navigation_depth': 4,
+    #'includehidden': True,
+    #'titles_only': False
+}
 
 
 ##############################################################################
