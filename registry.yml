@@ -23,10 +23,12 @@
 ################################################################################
 collections:
   ibm_zos_core:
-    git: ibm_zos_core.git
+    git: git@github.com:ansible-collections/ibm_zos_core.git
     stable:
     latest: v1.3.0-beta.1
+    origin: master
   ibm_zos_ims:
-    git: ibm_zos_ims.git
+    git: git@github.com:ansible-collections/ibm_zos_ims.git
     stable:
-    latest: v1.1.0-beta.1
+    latest: release-v1.1.0
+    origin: master
