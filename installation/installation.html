@@ -173,10 +173,12 @@
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Collections are a distribution format for prepackaged Ansible content including
-playbooks, roles, modules, and plugins that enable you to quickly set up your automation project.
-Before you install a collection, review the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html">requirements</a> to learn about any
+playbooks, roles, modules, and plugins that enable you to quickly set up your
+automation project. Collections are hosted and available for installation from
+Ansible Galaxy.</p>
+<p>Before you install a collection, review the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html">requirements</a> to learn about any
 dependencies and determine the appropriate installation option.</p>
-<p>You can install a <strong>Red Hat® Ansible Certified Content for IBM Z collection</strong>
+<p>You can install a <strong>Red Hat® Ansible® Certified Content for IBM Z® collection</strong>
 using one of these options:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="installation.html#ansible-galaxy">Ansible Galaxy</a></p></li>
@@ -186,62 +188,51 @@ using one of these options:</p>
 <p>For more information on installing collections, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html">using collections</a>.</p>
 <div class="section" id="id1">
 <h2>Ansible Galaxy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Ansible Galaxy enables you to quickly configure your automation project with content
-from the Ansible community. Galaxy provides prepackaged units of work known as collections. You can use the
-<a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with the <code class="docutils literal notranslate"><span class="pre">install</span></code> option to install a collection on
-your system (control node) hosted in Galaxy.</p>
+<p>Ansible Galaxy enables you to quickly configure your automation project with
+content from the Ansible community. Ansible Galaxy provides prepackaged units of
+work known as collections. You can use the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with
+the <code class="docutils literal notranslate"><span class="pre">install</span></code> option to install a collection on your system also referred to
+as the control node.</p>
 <p>By default, the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command installs the latest available
-collection, but you can add a version identifier to install a specific version.
-Before installing a collection from Galaxy, review all the available versions.
-Periodically, new releases containing enhancements and features that you might be
-interested in become available.</p>
-<p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command ignores any pre-release versions unless
-the <code class="docutils literal notranslate"><span class="pre">==</span></code> range identifier is set to that pre-release version.
-A pre-release version is denoted by appending a hyphen and a series of
-dot separated identifiers immediately following the patch version. All
-<strong>IBM z/OS collections</strong> releases use the pre-release
-naming convention such as <strong>1.1.0-beta.1</strong> that would require a range identifier.</p>
-<p>Here is an example of installing a pre-release collection:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core:<span class="o">==</span><span class="m">1</span>.1.0-beta.1
-</pre></div>
-</div>
+collection, but you can add a version identifier to install a specific version.</p>
 <p>If you have installed a prior version, you must overwrite an existing
 collection with the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option.</p>
-<p>Installing any <strong>IBM z/OS collection</strong> involves identical steps. Use the same instructions as
-shown in the following examples of installing the <strong>IBM z/OS core collection</strong> to
-install and configure any collection offered as part of the RedHat Ansible Certified Content for IBM Z:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core
-$ ansible-galaxy collection install -f ibm.ibm_zos_core
-$ ansible-galaxy collection install --force ibm.ibm_zos_core
+<p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command ignores any <strong>pre-release</strong> versions unless
+the <code class="docutils literal notranslate"><span class="pre">==</span></code> range identifier is set to that pre-release version.
+A pre-release version is denoted by appending a hyphen and a series of
+dot separated identifiers immediately following the patch version.</p>
+<p><strong>IBM Z collections</strong> follow <a class="reference external" href="https://semver.org/">semantic versioning</a> that includes the pre-release
+naming convention such as <strong>1.1.0-beta.1</strong> that would require a range identifier.</p>
+<p>Collections are installed using the <strong>ibm</strong> namespace followed by the collection
+name. Collections names can be located under the section labeled
+<strong>Ansible Content</strong>. For example, <code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code>, <code class="docutils literal notranslate"><span class="pre">ibm_zos_ims</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ibm_zos_cics</span></code>, <code class="docutils literal notranslate"><span class="pre">ibm_zhmc</span></code> and <code class="docutils literal notranslate"><span class="pre">ibm_zos_sysauto</span></code> are all collection names
+such that the installation command would follow this syntax:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install &lt;namespace&gt;.&lt;collection name&gt;
 </pre></div>
 </div>
-<p>The collection installation progress will be output to the console. Note the
-location of the installation so that you can review other content included with
-the collection, such as the sample playbook. By default, collections are
-installed in <code class="docutils literal notranslate"><span class="pre">~/.ansible/collections</span></code>; see the sample output.</p>
+<p>Here is an example of installing a collection:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.&lt;collection name&gt;
+</pre></div>
+</div>
+<p>Here is an example of installing a collection with the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install --force ibm.&lt;collection name&gt;
+</pre></div>
+</div>
+<p>Here is an example of installing a pre-release collection:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.&lt;collection name&gt;:<span class="o">==</span><span class="m">1</span>.1.0-beta.1
+</pre></div>
+</div>
+<p>By default, collections are installed in <code class="docutils literal notranslate"><span class="pre">~/.ansible/collections</span></code>.
+The collection installation progress will be output to the console, for example:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Process install dependency map
 Starting collection install process
-Installing <span class="s1">&#39;ibm.ibm_zos_core:1.0.0&#39;</span> to <span class="s1">&#39;/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core&#39;</span>
-</pre></div>
-</div>
-<p>After installation, the collection content will resemble this hierarchy: :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>├── collections/
-│  ├── ansible_collections/
-│      ├── ibm/
-│          ├── ibm_zos_core/
-│              ├── docs/
-│              ├── playbooks/
-│              ├── plugins/
-│                  ├── action/
-│                  ├── connection/
-│                  ├── module_utils/
-│                  ├── modules/
-│                  └── filter/
+Installing <span class="s1">&#39;ibm.&lt;collection name&gt;:1.0.0&#39;</span> to <span class="s1">&#39;/Users/user/.ansible/collections/ansible_collections/ibm/&lt;collection name&gt;  &#39;</span>
 </pre></div>
 </div>
 <p>You can use the <cite>-p</cite> option with <cite>ansible-galaxy</cite> to specify the installation
 path, such as:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.ibm_zos_core -p /home/ansible/collections
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm.&lt;collection name&gt; -p /home/ansible/collections
 </pre></div>
 </div>
 <p>For more information on installing collections with Ansible Galaxy,
@@ -252,15 +243,15 @@ see <a class="reference external" href="https://docs.ansible.com/ansible/latest/
 <p>Configuring access to a private Galaxy server follows the same instructions
 that you would use to configure your client to point to Automation Hub. When
 hosting a private Galaxy server or pointing to Hub, available content is not
-always consistent with what is available on the community Galaxy server.</p>
+always consistent with what is available on Ansible Galaxy server.</p>
 <p>You can use the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html">ansible-galaxy</a> command with the option <code class="docutils literal notranslate"><span class="pre">install</span></code> to
-install a collection on your system (control node) hosted in Automation Hub
-or a private Galaxy server.</p>
+install a collection on the control node hosted in Automation Hub or a private
+Galaxy server.</p>
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command is configured to access
 <code class="docutils literal notranslate"><span class="pre">https://galaxy.ansible.com</span></code> as the server when you install a
-collection. The <cite>ansible-galaxy</cite> client can be configured to point to Hub or
-other servers, such as a privately running Galaxy server, by configuring the
-server list in the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file.</p>
+collection. The <cite>ansible-galaxy</cite> client can be configured to point to Ansible
+Automation Hub or other servers, such as a privately running Galaxy server, by
+configuring the server list in the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file.</p>
 <p>Ansible searches for <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> in the following locations in this order:</p>
 <blockquote>
 <div><ul class="simple">
@@ -319,49 +310,47 @@ Galaxy.</p>
 <p>To build a collection from the Git repository:</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p>Clone the sample repository:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>Collection archive names will change depending on the release version.</p></li>
-<li><p>They adhere to this convention <strong>&lt;namespace&gt;-&lt;collection&gt;-&lt;version&gt;.tar.gz</strong>, for example, <strong>ibm-ibm_zos_core-1.0.0.tar.gz</strong></p></li>
-</ul>
+<li><p>Choose and <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository">git clone</a> a collection repository:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;path/to/repository&gt;/&lt;collection name&gt;.git
+</pre></div>
 </div>
 </li>
 </ol>
 <p>2. Build the collection by running the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">build</span></code>
-command, which must be run from inside the collection:</p>
+command, which must be run from inside the collection.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ibm_zos_core
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;collection name&gt;
 ansible-galaxy collection build
 </pre></div>
 </div>
 <p>Example output of a locally built collection:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection build
-Created collection <span class="k">for</span> ibm.ibm_zos_core at /Users/user/git/ibm/zos-ansible/ibm_zos_core/ibm-ibm_zos_core-1.0.0.tar.gz
+Created collection <span class="k">for</span> ibm.&lt;collection name&gt; at /Users/user/git/ibm/zos-ansible/&lt;collection name&gt;/&lt;collection name&gt;-1.0.0.tar.gz
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>If you build the collection with Ansible version 2.9 or earlier, you will see the following warning that you can ignore.</p></li>
-<li><p>[WARNING]: Found unknown keys in collection galaxy.yml at ‘/Users/user/git/ibm/zos-ansible/ibm_zos_core/galaxy.yml’: build_ignore</p></li>
+<li><p>Collection archive names will change depending on the release version.</p></li>
+<li><p>They adhere to this convention <strong>&lt;namespace&gt;-&lt;collection&gt;-&lt;version&gt;.tar.gz</strong>, for example, <strong>ibm-ibm_zos_core-1.0.0.tar.gz</strong></p></li>
+<li><p>If you build the collection with Ansible version 2.9 or earlier, you may see the following warning that you can ignore.</p></li>
+<li><p>[WARNING]: Found unknown keys in collection galaxy.yml at ‘/Users/user/git/ibm/zos-ansible/&lt;collection name&gt;/galaxy.yml’: build_ignore</p></li>
 </ul>
 </div>
 </div></blockquote>
 <ol class="arabic" start="3">
 <li><p>Install the locally built collection:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm-ibm_zos_core-1.0.0.tar.gz
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-galaxy collection install ibm-&lt;collection name&gt;-1.0.0.tar.gz
 </pre></div>
 </div>
 <p>In the output of collection installation, note the installation path to access the sample playbook:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Process install dependency map
 Starting collection install process
-Installing <span class="s1">&#39;ibm.ibm_zos_core:1.0.0&#39;</span> to <span class="s1">&#39;/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core&#39;</span>
+Installing <span class="s1">&#39;ibm.&lt;collection name&gt;:1.0.0&#39;</span> to <span class="s1">&#39;/Users/user/.ansible/collections/ansible_collections/ibm/&lt;collection name&gt;&#39;</span>
 </pre></div>
 </div>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option with <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> to specify the
-installation path, for example, <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">ibm-ibm_zos_core-1.0.0.tar.gz</span> <span class="pre">-p</span> <span class="pre">/home/ansible/collections</span></code>.</p>
+installation path, for example, <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">ibm-&lt;collection</span> <span class="pre">name&gt;-1.0.0.tar.gz</span> <span class="pre">-p</span> <span class="pre">/home/ansible/collections</span></code>.</p>
 <p>For more information, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#installing-collections-with-ansible-galaxy">installing collections with Ansible Galaxy</a>.</p>
 </li>
 </ol>
@@ -374,15 +363,6 @@ installation path, for example, <code class="docutils literal notranslate"><span
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../playbooks/playbooks.html" class="btn btn-neutral float-right" title="Playbooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../ibm_zos_ims/docs/source/requirements_managed.html" class="btn btn-neutral float-left" title="Managed node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
