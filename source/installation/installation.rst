@@ -84,18 +84,19 @@ Use this command to override an existing version:
 
 Installing a pre-release version
 --------------------------------
-The `ansible-galaxy`_ command ignores any **pre-release** versions unless
-the ``==`` range identifier is set to that pre-release version.
-A pre-release version is denoted by appending a hyphen and a series of
+A pre-release version of a collection is denoted by appending a hyphen and a series of
 dot separated identifiers immediately following the patch version.
 **IBM Z collections** follow `semantic versioning`_ that includes a pre-release
-naming convention that requires a range identifier. For example, **1.1.0-beta.1**
+naming convention that requires a range identifier. For example, **1.1.0-beta.1**.
+The `ansible-galaxy`_ command ignores any **pre-release** versions unless
+the identifier is set to that pre-release version.
 
-Use this command to install a pre-release version of a collection:
+
+Here is an example command to install a pre-release version of a collection:
 
 .. code-block:: sh
 
-   $ ansible-galaxy collection install ibm.<collection name>:==1.1.0-beta.1
+   $ ansible-galaxy collection install ibm.<collection name>:1.1.0-beta.1
 
 By default, all collections are installed in ``~/.ansible/collections``. You can
 use the `-p` option with `ansible-galaxy` to specify an installation path such as:
