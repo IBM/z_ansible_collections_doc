@@ -23,6 +23,10 @@ All IBM z/OS collections require these versions of software:
 * `Ansible version`_: 2.9 or later
 * `Python`_: 2.7 or later
 * `OpenSSH`_
+   * Modules which can have Ansible tasks delegated to a localhost need not
+     have OpenSSH enabled. Such modules often rely on a REST API for automation.
+     Refer to the collections under `managed node documentation`_
+     to review which collections leverage a REST endpoint.
 
 .. _Ansible version:
    https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
@@ -35,8 +39,8 @@ Managed node
 ============
 
 A managed node is often referred to as a target node, or host, and it is managed
-by Ansible. Ansible need not be installed on a managed node, but SSH must be
-enabled. Each offering in the IBM z/OS collections varies in terms of the requirements for
+by Ansible. Ansible need not be installed on a managed node.
+Each offering in the IBM z/OS collections varies in terms of the requirements for
 the managed node. Select one of the following offerings to learn
 more about the specific dependencies and required/supported software versions.
 

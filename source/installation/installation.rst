@@ -43,67 +43,74 @@ Ansible Galaxy
 Ansible Galaxy enables you to quickly configure your automation project with
 content from the Ansible community. Ansible Galaxy provides prepackaged units of
 work known as collections. You can use the `ansible-galaxy`_ command with
-the ``install`` option to install a collection on your system also referred to
+the ``install`` option to install a collection on your system, also referred to
 as the control node.
 
-By default, the `ansible-galaxy`_ command installs the latest available
-collection, but you can add a version identifier to install a specific version.
-
-If you have installed a prior version, you must overwrite an existing
-collection with the ``--force`` option.
-
-The `ansible-galaxy`_ command ignores any **pre-release** versions unless
-the ``==`` range identifier is set to that pre-release version.
-A pre-release version is denoted by appending a hyphen and a series of
-dot separated identifiers immediately following the patch version.
-
-**IBM Z collections** follow `semantic versioning`_ that includes the pre-release
-naming convention such as **1.1.0-beta.1** that would require a range identifier.
-
 Collections are installed using the **ibm** namespace followed by the collection
-name. Collections names can be located under the section labeled
+name. Collection names can be placed under the section labeled
 **Ansible Content**. For example, ``ibm_zos_core``, ``ibm_zos_ims``,
-``ibm_zos_cics``, ``ibm_zhmc`` and ``ibm_zos_sysauto`` are all collection names
-such that the installation command would follow this syntax:
+``ibm_zos_cics``, ``ibm_zhmc`` and ``ibm_zos_sysauto`` are collection names
+and the installation command would follow this syntax:
 
 .. code-block:: sh
 
    $ ansible-galaxy collection install <namespace>.<collection name>
 
-Here is an example of installing a collection:
+You can install an Ansible collection in one of these ways:
+
+Fresh installation
+------------------
+By default, the `ansible-galaxy`_ command installs the latest available
+collection. If you would like to install a previous version of a collection or if
+the installation is unsuccessful, use the ``--force option to override an existing
+installation or use a range identifier to install a specific version.
+
+Use this command for a fresh installation:
 
 .. code-block:: sh
 
    $ ansible-galaxy collection install ibm.<collection name>
 
-Here is an example of installing a collection with the ``--force`` option:
+Overriding an existing installation
+-----------------------------------
+If you want to override a previously installed version of a collection, use the
+``--force`` option.
+
+Use this command to override an existing version:
 
 .. code-block:: sh
 
    $ ansible-galaxy collection install --force ibm.<collection name>
 
-Here is an example of installing a pre-release collection:
+Installing a pre-release version
+--------------------------------
+The `ansible-galaxy`_ command ignores any **pre-release** versions unless
+the ``==`` range identifier is set to that pre-release version.
+A pre-release version is denoted by appending a hyphen and a series of
+dot separated identifiers immediately following the patch version.
+**IBM Z collections** follow `semantic versioning`_ that includes a pre-release
+naming convention that requires a range identifier. For example, **1.1.0-beta.1**
+
+Use this command to install a pre-release version of a collection:
 
 .. code-block:: sh
 
    $ ansible-galaxy collection install ibm.<collection name>:==1.1.0-beta.1
 
-By default, collections are installed in ``~/.ansible/collections``.
-The collection installation progress will be output to the console, for example:
+By default, all collections are installed in ``~/.ansible/collections``. You can
+use the `-p` option with `ansible-galaxy` to specify an installation path such as:
+
+.. code-block:: sh
+
+   $ ansible-galaxy collection install ibm.<collection name> -p /home/ansible/collections
+
+The progress of the installation is output to the console:
 
 .. code-block:: sh
 
    Process install dependency map
    Starting collection install process
    Installing 'ibm.<collection name>:1.0.0' to '/Users/user/.ansible/collections/ansible_collections/ibm/<collection name>  '
-
-
-You can use the `-p` option with `ansible-galaxy` to specify the installation
-path, such as:
-
-.. code-block:: sh
-
-   $ ansible-galaxy collection install ibm.<collection name> -p /home/ansible/collections
 
 For more information on installing collections with Ansible Galaxy,
 see `installing collections`_.
@@ -117,12 +124,9 @@ see `installing collections`_.
 
 Automation Hub and Private Galaxy server
 ========================================
-Configuring access to a private Galaxy server follows the same instructions
-that you would use to configure your client to point to Automation Hub. When
-hosting a private Galaxy server or pointing to Hub, available content is not
-always consistent with what is available on Ansible Galaxy server.
-
-You can use the `ansible-galaxy`_ command with the option ``install`` to
+Configuring access to a private Galaxy server follows the same procedure
+that you would use to configure your client to point to Automation Hub.
+You can use the `ansible-galaxy`_ command with the ``install`` option to
 install a collection on the control node hosted in Automation Hub or a private
 Galaxy server.
 
@@ -130,9 +134,8 @@ By default, the ``ansible-galaxy`` command is configured to access
 ``https://galaxy.ansible.com`` as the server when you install a
 collection. The `ansible-galaxy` client can be configured to point to Ansible
 Automation Hub or other servers, such as a privately running Galaxy server, by
-configuring the server list in the ``ansible.cfg`` file.
-
-Ansible searches for ``ansible.cfg`` in the following locations in this order:
+configuring the server list in the ``ansible.cfg`` file. Ansible searches for
+``ansible.cfg`` in the following locations in this order:
 
    * ANSIBLE_CONFIG (environment variable if set)
    * ansible.cfg (in the current directory)
@@ -154,6 +157,11 @@ For Automation Hub, you additionally need to:
 
 .. _Get API token from the version dropdown to copy your API token:
    https://cloud.redhat.com/ansible/automation-hub/token/
+
+.. note::
+
+   When hosting a private Galaxy server or pointing to Hub, available content may not
+   be always consistent with what is available on Ansible Galaxy server.
 
 The following example shows a configuration for Automation Hub, a private
 running Galaxy server, and Galaxy:
@@ -204,7 +212,7 @@ To build a collection from the Git repository:
          $ git clone git@github.com:<path/to/repository>/<collection name>.git
 
    2. Build the collection by running the ``ansible-galaxy collection build``
-   command, which must be run from inside the collection.
+      command, which must be run from inside the collection.
 
       .. code-block:: sh
 
@@ -218,11 +226,15 @@ To build a collection from the Git repository:
          $ ansible-galaxy collection build
          Created collection for ibm.<collection name> at /Users/user/git/ibm/zos-ansible/<collection name>/<collection name>-1.0.0.tar.gz
 
-      .. note::
-         * Collection archive names will change depending on the release version.
-         * They adhere to this convention **<namespace>-<collection>-<version>.tar.gz**, for example, **ibm-ibm_zos_core-1.0.0.tar.gz**
-         * If you build the collection with Ansible version 2.9 or earlier, you may see the following warning that you can ignore.
-         * [WARNING]: Found unknown keys in collection galaxy.yml at '/Users/user/git/ibm/zos-ansible/<collection name>/galaxy.yml': build_ignore
+   .. note::
+
+      * Collection archive names will change depending on the release version. The
+        names adhere to this convention:
+
+          **<namespace>-<collection>-<version>.tar.gz**, for example, **ibm-ibm_zos_core-1.0.0.tar.gz**
+      * If you build a collection with Ansible version 2.9 or earlier, you may see the following warning that you can ignore:
+
+         **[WARNING]: Found unknown keys in collection galaxy.yml at '/Users/user/git/ibm/zos-ansible/<collection name>/galaxy.yml': build_ignore**
 
 
    3. Install the locally built collection:
@@ -240,7 +252,7 @@ To build a collection from the Git repository:
          Installing 'ibm.<collection name>:1.0.0' to '/Users/user/.ansible/collections/ansible_collections/ibm/<collection name>'
 
       You can use the ``-p`` option with ``ansible-galaxy`` to specify the
-      installation path, for example, ``ansible-galaxy collection install ibm-<collection name>-1.0.0.tar.gz -p /home/ansible/collections``.
+      installation path. For example,``ansible-galaxy collection install ibm-<collection name>-1.0.0.tar.gz -p /home/ansible/collections``.
 
       For more information, see `installing collections with Ansible Galaxy`_.
 
