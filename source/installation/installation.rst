@@ -62,7 +62,7 @@ Fresh installation
 ------------------
 By default, the `ansible-galaxy`_ command installs the latest available
 collection. If you would like to install a previous version of a collection or if
-the installation is unsuccessful, use the ``--force option to override an existing
+the installation is unsuccessful, use the ``--force`` option to override an existing
 installation or use a range identifier to install a specific version.
 
 Use this command for a fresh installation:
