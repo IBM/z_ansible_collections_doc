@@ -25,7 +25,7 @@ All IBM z/OS collections require these versions of software:
 * `OpenSSH`_
    * Modules which can have Ansible tasks delegated to a localhost need not
      have OpenSSH enabled. Such modules often rely on a REST API for automation.
-     Refer to the collections under `managed node documentation`_
+     Refer to the collections listed in the **Managed node** section
      to review which collections leverage a REST endpoint.
 
 .. _Ansible version:
