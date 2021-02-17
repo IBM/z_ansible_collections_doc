@@ -20,13 +20,7 @@ as:
 
 Playbooks, content, and topics are added to the
 `samples repository`_ regularly. We encourage you to **Watch** the repository to
-get notified by Git when there are updates. You can perform this operation by
-visiting the `samples repository`_ and selecting the **Watch** button on the
-top right:
-
-.. image:: https://user-images.githubusercontent.com/25803172/92514021-1799de80-f1c6-11ea-8532-8fdc5256bb8f.png
-
-You can **Unwatch** a repository and also set your notification preferences from the Watch drop-down menu.
+get notified by Git when there are updates.
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
 a little modification, the included **inventory**, **ansible.cfg**

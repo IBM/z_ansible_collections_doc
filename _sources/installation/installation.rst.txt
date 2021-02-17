@@ -19,7 +19,7 @@ using one of these options:
 
 - `Ansible Galaxy`_
 - `Ansible Automation Hub`_
-- `local build`_
+- `Local build`_
 
 .. _Ansible Galaxy:
    installation.html#ansible-galaxy
@@ -27,7 +27,7 @@ using one of these options:
 .. _Ansible Automation Hub:
    installation.html#automation-hub-and-private-galaxy-server
 
-.. _local build:
+.. _Local build:
    installation.html#id3
 
 For more information on installing collections, see `using collections`_.
