@@ -1,5 +1,5 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020                                          .
+.. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
 ============
@@ -24,6 +24,11 @@ All IBM z/OS collections require these versions of software:
 * `Python`_: 2.7 or later
 * `OpenSSH`_
 
+   * Modules which can have Ansible tasks delegated to a localhost need not
+     have OpenSSH enabled. Such modules often rely on a REST API for automation.
+     Refer to the collections listed in the **Managed node** section
+     to review which collections leverage a REST endpoint.
+
 .. _Ansible version:
    https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 .. _Python:
@@ -35,8 +40,8 @@ Managed node
 ============
 
 A managed node is often referred to as a target node, or host, and it is managed
-by Ansible. Ansible need not be installed on a managed node, but SSH must be
-enabled. Each offering in the IBM z/OS collections varies in terms of the requirements for
+by Ansible. Ansible need not be installed on a managed node.
+Each offering in the IBM z/OS collections varies in terms of the requirements for
 the managed node. Select one of the following offerings to learn
 more about the specific dependencies and required/supported software versions.
 
@@ -48,3 +53,6 @@ Offerings
 
    z/OS core </../ibm_zos_core/docs/source/requirements_managed>
    z/OS IMS </../ibm_zos_ims/docs/source/requirements_managed>
+   z/OS CICS <../ibm_zos_cics/docs/source/requirements_managed>
+..   Z HMC <../zhmc-ansible-modules/docs/source/requirements_managed>
+..   Z System Automation <../ibm_zos_sysauto/docs/source/requirements_managed>
