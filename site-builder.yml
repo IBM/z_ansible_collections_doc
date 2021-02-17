@@ -245,7 +245,41 @@
       register: git_update_doc
       when: deploy_to_gh_pages
 
-    # See https://ibm.github.io/z_ansible_collections_doc/index.html
     - name: Display the HTML content uploaded to the doc site (gh-pages)
       debug: msg="{{ git_update_doc }}"
+      when: deploy_to_gh_pages
+
+    - name: Check status of `site/gh-pages`.
+      shell: |
+        git status --untracked-files=no --porcelain site/gh-pages
+      register: status_site_gh_pages
+
+    - name: Display status of `site/gh-pages`.
+      debug: msg="{{status_site_gh_pages}}"
+      when: status_site_gh_pages
+
+    - name: Evaluate if `site/gh-pages` has unstaged changes.
+      set_fact:
+        status_site_gh_pages_M: "{{ status_site_gh_pages.stdout | regex_search('^\\s*M ')}}"
+      when: status_site_gh_pages
+
+    - name: Display if `site/gh-pages` has unstaged changes
+      debug:
+        msg: "Unstaged changes have been found in site/gh-pages."
+      when: status_site_gh_pages
+
+    - name: Commiting and pushing unstaged changes for `site/gh-pages`.
+      shell: |
+        git add site/gh-pages
+        git commit -m "Automated commit to update subproject commit."
+        git push -f
+      register: status_commit_site_pages_push
+
+    - name: Display commiting and pushing unstaged changes for `site/gh-pages`.
+      debug: msg="{{status_commit_site_pages_push}}"
+      when: status_commit_site_pages_push
+
+    # See https://ibm.github.io/z_ansible_collections_doc/index.html
+    - name: Follow this URL to view the updated collection content
+      debug: msg="https://ibm.github.io/z_ansible_collections_doc/index.html"
       when: deploy_to_gh_pages
