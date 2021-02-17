@@ -23,6 +23,7 @@ All IBM z/OS collections require these versions of software:
 * `Ansible version`_: 2.9 or later
 * `Python`_: 2.7 or later
 * `OpenSSH`_
+
    * Modules which can have Ansible tasks delegated to a localhost need not
      have OpenSSH enabled. Such modules often rely on a REST API for automation.
      Refer to the collections listed in the **Managed node** section
