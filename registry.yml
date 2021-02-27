@@ -35,7 +35,7 @@ collections:
   ibm_zos_cics:
     git: git@github.com:ansible-collections/ibm_zos_cics.git
     stable:
-    latest: v1.0.0
+    latest: v1.0.1
     origin: main
 
   ##############################################################################
