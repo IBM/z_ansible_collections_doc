@@ -61,10 +61,10 @@ How do I install and configure ZOAU?
 Where can I download the latest version of Python?
 --------------------------------------------------
 
-Refer to `IBM Open Enterprise Python product page`_ to find out how to get
+Refer to `IBM Open Enterprise SDK for Python product page`_ to find out how to get
 access to Python.
 
-.. _IBM Open Enterprise Python product page:
+.. _IBM Open Enterprise SDK for Python product page:
    https://www.ibm.com/products/open-enterprise-python-zos
 
 
@@ -336,7 +336,7 @@ Why do I get this warning during the playbook execution ?
 
 It is likely that you are using an older version of the collection which was
 supported by the **Rocket Python** distribution. Verify that you have installed
-**IBM Open Enterprise Python for z/OS** on your z/OS managed node and upgrade
+**IBM Open Enterprise SDK for Python** on your z/OS managed node and upgrade
 to the latest version of the collection. To learn more about how to upgrade the
 collection, see our `installation doc`_ or the sample `repository doc`_.
 
