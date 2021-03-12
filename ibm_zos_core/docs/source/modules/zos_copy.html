@@ -398,9 +398,6 @@
   <span class="nt">zos_copy</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/file.txt</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/file.txt</span>
-    <span class="nt">encoding</span><span class="p">:</span>
-      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
-      <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local directory to a PDSE</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
@@ -421,10 +418,13 @@
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/uss/location</span>
     <span class="nt">local_follow</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file to a PDS member</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file to a PDS member and convert encoding</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
+    <span class="nt">encoding</span><span class="p">:</span>
+      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTF-8</span>
+      <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a VSAM(KSDS) to a VSAM(KSDS)</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
@@ -442,9 +442,6 @@
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/remote/uss/file</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
     <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">encoding</span><span class="p">:</span>
-      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
-      <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a USS directory to another USS directory</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
@@ -557,183 +554,150 @@
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id6">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><dl>
-<dt>src</dt><dd><div class="line-block">
-<div class="line">Source file or data set being copied.</div>
-</div>
+<dl>
+<dt>src</dt><dd><p>Source file or data set being copied.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: changed</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: /path/to/source.log</div>
 </div>
 </dd>
-<dt>dest</dt><dd><div class="line-block">
-<div class="line">Destination file/path or data set name.</div>
-</div>
+<dt>dest</dt><dd><p>Destination file/path or data set name.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: SAMPLE.SEQ.DATA.SET</div>
 </div>
 </dd>
-<dt>checksum</dt><dd><div class="line-block">
-<div class="line">SHA256 checksum of the file after running zos_copy.</div>
-</div>
+<dt>checksum</dt><dd><p>SHA256 checksum of the file after running zos_copy.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: C(validate) is C(true) and if dest is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: 8d320d5f68b048fc97559d771ede68b37a71e8374d1d678d96dcfa2b2da7a64e</div>
 </div>
 </dd>
-<dt>backup_name</dt><dd><div class="line-block">
-<div class="line">Name of the backup file or data set that was created.</div>
-</div>
+<dt>backup_name</dt><dd><p>Name of the backup file or data set that was created.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: if backup=true or backup_name=true</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: <a class="reference external" href="mailto:/path/to/file&#46;txt&#46;2015-02-03&#37;&#52;&#48;04">/path/to/file<span>&#46;</span>txt<span>&#46;</span>2015-02-03<span>&#64;</span>04</a>:15~</div>
 </div>
 </dd>
-<dt>gid</dt><dd><div class="line-block">
-<div class="line">Group id of the file, after execution.</div>
-</div>
+<dt>gid</dt><dd><p>Group id of the file, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 100</div>
 </div>
 </dd>
-<dt>group</dt><dd><div class="line-block">
-<div class="line">Group of the file, after execution.</div>
-</div>
+<dt>group</dt><dd><p>Group of the file, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: httpd</div>
 </div>
 </dd>
-<dt>owner</dt><dd><div class="line-block">
-<div class="line">Owner of the file, after execution.</div>
-</div>
+<dt>owner</dt><dd><p>Owner of the file, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: httpd</div>
 </div>
 </dd>
-<dt>uid</dt><dd><div class="line-block">
-<div class="line">Owner id of the file, after execution.</div>
-</div>
+<dt>uid</dt><dd><p>Owner id of the file, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 100</div>
 </div>
 </dd>
-<dt>mode</dt><dd><div class="line-block">
-<div class="line">Permissions of the target, after execution.</div>
-</div>
+<dt>mode</dt><dd><p>Permissions of the target, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: 420</div>
 </div>
 </dd>
-<dt>size</dt><dd><div class="line-block">
-<div class="line">Size(in bytes) of the target, after execution.</div>
-</div>
+<dt>size</dt><dd><p>Size(in bytes) of the target, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and dest is USS</div>
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 1220</div>
 </div>
 </dd>
-<dt>state</dt><dd><div class="line-block">
-<div class="line">State of the target, after execution.</div>
-</div>
+<dt>state</dt><dd><p>State of the target, after execution.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success and if dest is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: file</div>
 </div>
 </dd>
-<dt>note</dt><dd><div class="line-block">
-<div class="line">A note to the user after module terminates.</div>
-</div>
+<dt>note</dt><dd><p>A note to the user after module terminates.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: C(force) is C(false) and dest exists</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: No data was copied</div>
 </div>
 </dd>
-<dt>msg</dt><dd><div class="line-block">
-<div class="line">Failure message returned by the module.</div>
-</div>
+<dt>msg</dt><dd><p>Failure message returned by the module.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: Error while gathering data set information</div>
 </div>
 </dd>
-<dt>stdout</dt><dd><div class="line-block">
-<div class="line">The stdout from a USS command or MVS command, if applicable.</div>
-</div>
+<dt>stdout</dt><dd><p>The stdout from a USS command or MVS command, if applicable.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: Copying local file /tmp/foo/src to remote path /tmp/foo/dest</div>
 </div>
 </dd>
-<dt>stderr</dt><dd><div class="line-block">
-<div class="line">The stderr of a USS command or MVS command, if applicable.</div>
-</div>
+<dt>stderr</dt><dd><p>The stderr of a USS command or MVS command, if applicable.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: No such file or directory “/tmp/foo”</div>
 </div>
 </dd>
-<dt>stdout_lines</dt><dd><div class="line-block">
-<div class="line">List of strings containing individual lines from stdout.</div>
-</div>
+<dt>stdout_lines</dt><dd><p>List of strings containing individual lines from stdout.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: list</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;u</span><span class="se">\&quot;</span><span class="s2">Copying local file /tmp/foo/src to remote path /tmp/foo/dest..</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;u\&quot;Copying local file /tmp/foo/src to remote path /tmp/foo/dest..\&quot;&quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </dd>
-<dt>stderr_lines</dt><dd><div class="line-block">
-<div class="line">List of strings containing individual lines from stderr.</div>
-</div>
+<dt>stderr_lines</dt><dd><p>List of strings containing individual lines from stderr.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: list</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;u</span><span class="se">\&quot;</span><span class="s2">FileNotFoundError&quot;</span><span class="p">:</span> <span class="s2">&quot;No such file or directory </span><span class="se">\u0027</span><span class="s2">/tmp/foo</span><span class="se">\u0027\&quot;</span><span class="s2">&quot;</span><span class="p">}]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;u\&quot;FileNotFoundError&quot;</span><span class="p">:</span> <span class="s2">&quot;No such file or directory \u0027/tmp/foo\u0027\&quot;&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </dd>
-<dt>rc</dt><dd><div class="line-block">
-<div class="line">The return code of a USS or MVS command, if applicable.</div>
-</div>
+<dt>rc</dt><dd><p>The return code of a USS or MVS command, if applicable.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 8</div>
 </div>
 </dd>
-<dt>cmd</dt><dd><div class="line-block">
-<div class="line">The MVS command issued, if applicable.</div>
-</div>
+<dt>cmd</dt><dd><p>The MVS command issued, if applicable.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -741,7 +705,6 @@
 </div>
 </dd>
 </dl>
-</div></blockquote>
 </div>
 </div>
 

@@ -247,49 +247,47 @@
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><dl>
-<dt>output</dt><dd><div class="line-block">
-<div class="line">List of each TSO command output.</div>
-</div>
+<dl>
+<dt>output</dt><dd><p>List of each TSO command output.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
 </div>
 <dl>
-<dt>command</dt><dd><div class="line-block">
-<div class="line">The executed TSO command.</div>
-</div>
+<dt>command</dt><dd><p>The executed TSO command.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>rc</dt><dd><div class="line-block">
-<div class="line">The return code from the executed TSO command.</div>
-</div>
+<dt>rc</dt><dd><p>The return code from the executed TSO command.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
-<dt>content</dt><dd><div class="line-block">
-<div class="line">The response resulting from the execution of the TSO command.</div>
-</div>
+<dt>content</dt><dd><p>The response resulting from the execution of the TSO command.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: list</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;NO MODEL DATA SET                                                OMVSADM&quot;</span><span class="p">,</span> <span class="s2">&quot;TERMUACC                                                                &quot;</span><span class="p">,</span> <span class="s2">&quot;SUBGROUP(S)= VSAMDSET SYSCTLG  BATCH    SASS     MASS     IMSGRP1       &quot;</span><span class="p">,</span> <span class="s2">&quot;             IMSGRP2  IMSGRP3  DSNCAT   DSN120   J42      M63           &quot;</span><span class="p">,</span> <span class="s2">&quot;             J91      J09      J97      J93      M82      D67           &quot;</span><span class="p">,</span> <span class="s2">&quot;             D52      M12      CCG      D17      M32      IMSVS         &quot;</span><span class="p">,</span> <span class="s2">&quot;             DSN210   DSN130   RAD      CATLG4   VCAT     CSP           &quot;</span><span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;NO MODEL DATA SET                                                OMVSADM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TERMUACC                                                                &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SUBGROUP(S)= VSAMDSET SYSCTLG  BATCH    SASS     MASS     IMSGRP1       &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;             IMSGRP2  IMSGRP3  DSNCAT   DSN120   J42      M63           &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;             J91      J09      J97      J93      M82      D67           &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;             D52      M12      CCG      D17      M32      IMSVS         &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;             DSN210   DSN130   RAD      CATLG4   VCAT     CSP           &quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </dd>
-<dt>lines</dt><dd><div class="line-block">
-<div class="line">The line number of the content.</div>
-</div>
+<dt>lines</dt><dd><p>The line number of the content.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -298,7 +296,6 @@
 </dl>
 </dd>
 </dl>
-</div></blockquote>
 </div>
 </div>
 

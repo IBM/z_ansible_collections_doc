@@ -227,16 +227,31 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>debug</dt><dd><p>Return debugging information.</p>
+<dt>verbose</dt><dd><p>Return diagnostic messages that lists and describes the execution of the operator commands.</p>
+<p>Return security trace messages that help you understand and diagnose the execution of the operator commands</p>
+<p>Return trace instructions displaying how the the command’s operation is read, evaluated and executed.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>verbose</dt><dd><p>Return verbose information.</p>
+<dt>wait_time_s</dt><dd><p>Set maximum time in seconds to wait for the commands to execute.</p>
+<p>When set to 0, the system default is used.</p>
+<p>This option is helpful on a busy system needing more time to execute commands.</p>
+<p>Setting <em>wait</em> can instruct if execution should wait the full <em>wait_time_s</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>wait</dt><dd><p>Specify to wait the full <em>wait_time_s</em> interval before retrieving responses.</p>
+<p>This option is recommended to ensure the responses are accessible and captured by logging facilities and the <em>verbose</em> option.</p>
+<p><em>delay=True</em> waits the full <em>wait_time_s</em> interval.</p>
+<p><em>delay=False</em> returns as soon as the first command executes.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
 </dl>
@@ -252,54 +267,75 @@
     <span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;d</span><span class="nv"> </span><span class="s">u,all&#39;</span>
     <span class="nt">verbose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Execute an operator command to show active jobs with verbose and debug information</span>
-  <span class="nt">zos_operator</span><span class="p">:</span>
-    <span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;d</span><span class="nv"> </span><span class="s">u,all&#39;</span>
-    <span class="nt">verbose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">debug</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Execute an operator command to purge all job logs (requires escaping)</span>
   <span class="nt">zos_operator</span><span class="p">:</span>
     <span class="nt">cmd</span><span class="p">:</span> <span class="s">&quot;\\$PJ(*)&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Execute operator command to show jobs, waiting UP TO 5 seconds for response</span>
+  <span class="nt">zos_operator</span><span class="p">:</span>
+    <span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;d</span><span class="nv"> </span><span class="s">u,all&#39;</span>
+    <span class="nt">wait_time_s</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+    <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Execute operator command to show jobs, always waiting 7 seconds for response</span>
+  <span class="nt">zos_operator</span><span class="p">:</span>
+    <span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;d</span><span class="nv"> </span><span class="s">u,all&#39;</span>
+    <span class="nt">wait_time_s</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+    <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><dl>
-<dt>rc</dt><dd><div class="line-block">
-<div class="line">Return code of the operator command</div>
-</div>
+<dl>
+<dt>rc</dt><dd><p>Return code of the operator command</p>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: on success</div>
+<div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
-<dt>content</dt><dd><div class="line-block">
-<div class="line">The response resulting from the execution of the operator command</div>
-</div>
+<dt>content</dt><dd><p>The text from the command issued, plus verbose messages if <em>verbose=True</em></p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: on success</div>
 <div class="line"><strong>type</strong>: list</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;MV2C      2020039  04:29:57.58             ISF031I CONSOLE XIAOPIN ACTIVATED &quot;</span><span class="p">,</span> <span class="s2">&quot;MV2C      2020039  04:29:57.58            -D U,ALL                           &quot;</span><span class="p">,</span> <span class="s2">&quot;MV2C      2020039  04:29:57.59             IEE457I 04.29.57 UNIT STATUS 948  &quot;</span><span class="p">,</span> <span class="s2">&quot;         UNIT TYPE STATUS        VOLSER     VOLSTATE      SS                 &quot;</span><span class="p">,</span> <span class="s2">&quot;          0100 3277 OFFLINE                                 0                &quot;</span><span class="p">,</span> <span class="s2">&quot;          0101 3277 OFFLINE                                 0                &quot;</span><span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;MV2C      2020039  04:29:57.58             ISF031I CONSOLE XIAOPIN ACTIVATED &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MV2C      2020039  04:29:57.58            -D U,ALL                           &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MV2C      2020039  04:29:57.59             IEE457I 04.29.57 UNIT STATUS 948  &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;         UNIT TYPE STATUS        VOLSER     VOLSTATE      SS                 &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;          0100 3277 OFFLINE                                 0                &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;          0101 3277 OFFLINE                                 0                &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF050I USER=OMVSADM GROUP= PROC=REXX TERMINAL=09A3233B&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF051I SAF Access allowed SAFRC=0 ACCESS=READ CLASS=SDSF RESOURCE=GROUP.ISFSPROG.SDSF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF051I SAF Access allowed SAFRC=0 ACCESS=READ CLASS=SDSF RESOURCE=ISFCMD.FILTER.PREFIX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF055I ACTION=D Access allowed USERLEVEL=7 REQLEVEL=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF051I SAF Access allowed SAFRC=0 ACCESS=READ CLASS=SDSF RESOURCE=ISFCMD.ODSP.ULOG.JES2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF147I REXX variable ISFTIMEOUT fetched, return code 00000001 value is \u0027\u0027.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF754I Command \u0027SET DELAY 5\u0027 generated from associated variable ISFDELAY.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF769I System command issued, command text: D U,ALL -S.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF146I REXX variable ISFDIAG set, return code 00000001 value is \u002700000000 00000000 00000000 00000000 00000000\u0027.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISF766I Request completed, status: COMMAND ISSUED.&quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </dd>
-<dt>changed</dt><dd><div class="line-block">
-<div class="line">Indicates if any changes were made during module operation. Given operator commands may introduce changes that are unknown to the module. True is always returned unless either a module or command failure has occurred.</div>
-</div>
+<dt>changed</dt><dd><p>Indicates if any changes were made during module operation. Given operator commands may introduce changes that are unknown to the module. True is always returned unless either a module or command failure has occurred.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
 </div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
 </dd>
 </dl>
-</div></blockquote>
 </div>
 </div>
 

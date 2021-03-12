@@ -194,11 +194,15 @@
             
   <div class="section" id="modules">
 <h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
-<p>The IBM z/OS core collection contains modules that can be used in a playbook to
-automate tasks on z/OS. Ansible executes each module on the target node and
-returns the result back to the controller. While different modules perform
+<p>The <strong>IBM z/OS core</strong> collection contains modules that can be used in a playbook
+to automate tasks on <strong>z/OS</strong>. Ansible executes each module on the target node
+and returns the result back to the controller. While different modules perform
 different tasks, their interfaces and responses follow similar patterns.</p>
-<p>Each module contains parameter documentation, samples and return values.</p>
+<p>You can also access the documentation of each module from the command line by
+using the <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc">ansible-doc</a> command, for example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-doc ibm.ibm_zos_core.zos_data_set
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules/zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>

@@ -173,43 +173,22 @@
             
   <div class="section" id="z-os-core">
 <h1>z/OS Core<a class="headerlink" href="#z-os-core" title="Permalink to this headline">¶</a></h1>
-<p>The <strong>IBM z/OS core collection</strong>, also represented as <strong>ibm_zos_core</strong>
-in this document, is part of the broader offering <strong>Red Hat® Ansible
-Certified Content for IBM Z</strong>. IBM z/OS core collection supports tasks
-such as creating data sets, submitting jobs, querying jobs,
-retrieving job output, encoding data sets, fetching data sets, operator
-commands, TSO commands, ping and querying operator actions.</p>
-<p>The <strong>IBM z/OS core collection</strong> serves as a dependency for other collections
-under the <strong>Red Hat® Ansible Certified Content for IBM Z</strong> umbrella and
-works closely with offerings such as <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims">IBM z/OS IMS collection</a> to deliver
-a solution that will enable you to automate tasks on z/OS subsystems such
-as IMS.</p>
-<p>Modules include documentation that is similar to a UNIX, or UNIX-like operating
-system man page (manual page). This documentation can be accessed from the
-command line by using the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command documented in the
-<a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-doc.html#ansible-doc">Ansible guide</a>.</p>
-<p>Here’s how to use the <code class="docutils literal notranslate"><span class="pre">ansible-doc</span></code> command after you install the
-<strong>IBM z/OS core collection</strong>: <code class="docutils literal notranslate"><span class="pre">ansible-doc</span> <span class="pre">ibm.ibm_zos_core.zos_data_set</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$ansible</span>-doc ibm.ibm_zos_core.zos_data_set
-
-&gt; ZOS_DATA_SET    <span class="o">(</span>/Users/user/.ansible/collections/ansible_collections/ibm/ibm_zos_core/plugins/modules/zos_data_set.py<span class="o">)</span>
-
-   Create, delete and <span class="nb">set</span> attributes of data sets. When forcing data <span class="nb">set</span> replacement, contents will not be preserved.
-
- OPTIONS <span class="o">(=</span> is mandatory<span class="o">)</span>:
-
- - batch
-         Batch can be used to perform operations on multiple data sets in a single module call.
-         Each item in the list expects the same options as zos_data_set.
-         type: list
-
- - data_class
-         The data class name <span class="o">(</span>required <span class="k">for</span> SMS-managed data sets<span class="o">)</span>
-         type: str
-</pre></div>
-</div>
+<p>The <strong>IBM® z/OS® core collection</strong>, also represented as
+<a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">ibm_zos_core</a> in this document, is  part of the broader
+initiative to bring Ansible® Automation to IBM Z® through the offering
+<strong>Red Hat® Ansible Certified Content for IBM Z</strong>.</p>
+<p>The <strong>IBM z/OS core collection</strong> supports automation tasks such as
+creating data sets, submitting jobs, querying jobs,
+retrieving job output, encoding data sets, fetching data sets, copying data
+sets, executing operator commands, executing TSO commands, ping,
+querying operator actions, APF authorizing libraries,
+editing textual data in data sets or Unix System Services files,
+finding data sets, backing up and restoring data sets and
+volumes and running z/OS programs without JCL.</p>
+<p>The Ansible modules in this collection are written in Python and REXX and
+interact with <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSKFYE">Z Open Automation Utilities</a>.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption"><span class="caption-text">Collection Content</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="source/plugins.html">Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/modules.html">Modules</a></li>

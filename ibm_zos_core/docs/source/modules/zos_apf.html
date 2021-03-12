@@ -226,30 +226,31 @@
 <div class="section" id="parameters">
 <h2><a class="toc-backref" href="#id4">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>batch</dt><dd><p>A list of dictionaries for adding or removing libraries.</p>
-<p>This is mutually exclusive with <code class="docutils literal notranslate"><span class="pre">library</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code>, <code class="docutils literal notranslate"><span class="pre">sms</span></code></p>
-<p>Can be used with <code class="docutils literal notranslate"><span class="pre">persistent</span></code></p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: list</div>
-</div>
-<dl>
 <dt>library</dt><dd><p>The library name to be added or removed from the APF list.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>sms</dt><dd><p>Indicates that the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter is managed by the storage management subsystem (SMS), and therefore no volume is associated with the library.</p>
-<p>If true <code class="docutils literal notranslate"><span class="pre">volume</span></code> will be ignored.</p>
+<dt>state</dt><dd><p>Ensure that the library is added <code class="docutils literal notranslate"><span class="pre">state=present</span></code> or removed <code class="docutils literal notranslate"><span class="pre">state=absent</span></code>.</p>
+<p>The APF list format has to be “DYNAMIC”.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: present</div>
+<div class="line"><strong>choices</strong>: absent, present</div>
+</div>
+</dd>
+<dt>force_dynamic</dt><dd><p>Will force the APF list format to “DYNAMIC” before adding or removing libraries.</p>
+<p>If the format is “STATIC”, the format will be changed to “DYNAMIC”.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>volume</dt><dd><p>The identifier for the volume containing the library specified on the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one of the following.</p>
+<dt>volume</dt><dd><p>The identifier for the volume containing the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one the following.</p>
 <ol class="arabic simple">
-<li><p>The volume serial number</p></li>
+<li><p>The volume serial number.</p></li>
 <li><p>Six asterisks (<strong>**</strong>), indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
 <li><p><em>MCAT</em>, indicating that the system must use the volume serial number of the volume containing the master catalog.</p></li>
 </ol>
@@ -259,19 +260,11 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-</dl>
-</dd>
-<dt>force_dynamic</dt><dd><p>Will force the APF list format to “DYNAMIC” before adding or removing libraries.</p>
-<p>If the format is “STATIC”, the format will be changed to “DYNAMIC”.</p>
+<dt>sms</dt><dd><p>Indicates that the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter is managed by the storage management subsystem (SMS), and therefore no volume is associated with the library.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">sms=True</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code> value will be ignored.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>library</dt><dd><p>The library name to be added or removed from the APF list.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>operation</dt><dd><p>Change APF list format to “DYNAMIC” <code class="docutils literal notranslate"><span class="pre">operation=set_dynamic</span></code> or “STATIC” <code class="docutils literal notranslate"><span class="pre">operation=set_static</span></code></p>
@@ -291,6 +284,22 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
+<dt>data_set_name</dt><dd><p>The data set name used for persisting or removing a <code class="docutils literal notranslate"><span class="pre">library</span></code> from the APF list.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>marker</dt><dd><p>The marker line template.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{mark}</span></code> will be replaced with “BEGIN” and “END”.</p>
+<p>Using a custom marker without the <code class="docutils literal notranslate"><span class="pre">{mark}</span></code> variable may result in the block being repeatedly inserted on subsequent playbook runs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{mark}</span></code> length may not exceed 72 characters.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: /* {mark} ANSIBLE MANAGED BLOCK &lt;timestamp&gt; <a href="#id1"><span class="problematic" id="id2">*</span></a>/</div>
+</div>
+</dd>
 <dt>backup</dt><dd><p>Creates a backup file or backup data set for <em>data_set_name</em>, including the timestamp information to ensure that you retrieve the original APF list defined in <em>data_set_name</em>”.</p>
 <p><em>backup_name</em> can be used to specify a backup file name if <em>backup=true</em>.</p>
 <p>The backup file name will be return on either success or failure of module execution such that data can be retrieved.</p>
@@ -309,43 +318,26 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>data_set_name</dt><dd><p>The data set name used for persisting or removing a <code class="docutils literal notranslate"><span class="pre">library</span></code> from the APF list.</p>
+</dl>
+</dd>
+<dt>batch</dt><dd><p>A list of dictionaries for adding or removing libraries.</p>
+<p>This is mutually exclusive with <code class="docutils literal notranslate"><span class="pre">library</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code>, <code class="docutils literal notranslate"><span class="pre">sms</span></code></p>
+<p>Can be used with <code class="docutils literal notranslate"><span class="pre">persistent</span></code></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
+</div>
+<dl>
+<dt>library</dt><dd><p>The library name to be added or removed from the APF list.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>marker</dt><dd><p>The marker line template.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{mark}</span></code> will be replaced with “BEGIN” and “END”.</p>
-<p>Using a custom marker without the <code class="docutils literal notranslate"><span class="pre">{mark}</span></code> variable may result in the block being repeatedly inserted on subsequent playbook runs.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{mark}</span></code> length may not exceed 72 characters.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: /* {mark} ANSIBLE MANAGED BLOCK &lt;timestamp&gt; <a href="#id1"><span class="problematic" id="id2">*</span></a>/</div>
-</div>
-</dd>
-</dl>
-</dd>
-<dt>sms</dt><dd><p>Indicates that the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter is managed by the storage management subsystem (SMS), and therefore no volume is associated with the library.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">sms=True</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code> value will be ignored.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>state</dt><dd><p>Ensure that the library is added <code class="docutils literal notranslate"><span class="pre">state=present</span></code> or removed <code class="docutils literal notranslate"><span class="pre">state=absent</span></code>.</p>
-<p>The APF list format has to be “DYNAMIC”.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: present</div>
-<div class="line"><strong>choices</strong>: absent, present</div>
-</div>
-</dd>
-<dt>volume</dt><dd><p>The identifier for the volume containing the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one the following.</p>
+<dt>volume</dt><dd><p>The identifier for the volume containing the library specified on the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one of the following.</p>
 <ol class="arabic simple">
-<li><p>The volume serial number.</p></li>
+<li><p>The volume serial number</p></li>
 <li><p>Six asterisks (<strong>**</strong>), indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
 <li><p><em>MCAT</em>, indicating that the system must use the volume serial number of the volume containing the master catalog.</p></li>
 </ol>
@@ -354,6 +346,15 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
+</dd>
+<dt>sms</dt><dd><p>Indicates that the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter is managed by the storage management subsystem (SMS), and therefore no volume is associated with the library.</p>
+<p>If true <code class="docutils literal notranslate"><span class="pre">volume</span></code> will be ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </div>
@@ -410,52 +411,42 @@
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id7">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><dl>
-<dt>stdout</dt><dd><div class="line-block">
-<div class="line">The stdout from ZOAU command apfadm. Output varies based on the type of operation.</div>
-</div>
+<dl>
+<dt>stdout</dt><dd><p>The stdout from ZOAU command apfadm. Output varies based on the type of operation.</p>
+<p>state&gt; stdout of the executed operator command (opercmd), “SETPROG” from ZOAU command apfadm</p>
+<p>operation&gt; stdout of operation options list&gt; Returns a list of dictionaries of APF list entries [{‘vol’: ‘PP0L6P’, ‘ds’: ‘DFH.V5R3M0.CICS.SDFHAUTH’}, {‘vol’: ‘PP0L6P’, ‘ds’: ‘DFH.V5R3M0.CICS.SDFJAUTH’}, …] set_dynamic&gt;  Set to DYNAMIC set_static&gt;   Set to STATIC check_format&gt; DYNAMIC or STATIC</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>stderr</dt><dd><div class="line-block">
-<div class="line">The error messages from ZOAU command apfadm</div>
-</div>
+<dt>stderr</dt><dd><p>The error messages from ZOAU command apfadm</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: BGYSC1310E ADD Error: Dataset COMMON.LINKLIB volume COMN01 is already present in APF list.</div>
 </div>
 </dd>
-<dt>rc</dt><dd><div class="line-block">
-<div class="line">The return code from ZOAU command apfadm</div>
-</div>
+<dt>rc</dt><dd><p>The return code from ZOAU command apfadm</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
-<dt>msg</dt><dd><div class="line-block">
-<div class="line">The module messages</div>
-</div>
+<dt>msg</dt><dd><p>The module messages</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: failure</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: Parameter verification failed</div>
 </div>
 </dd>
-<dt>backup_name</dt><dd><div class="line-block">
-<div class="line">Name of the backup file or data set that was created.</div>
-</div>
+<dt>backup_name</dt><dd><p>Name of the backup file or data set that was created.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: if backup=true, always</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 </dl>
-</div></blockquote>
 </div>
 </div>
 

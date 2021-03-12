@@ -224,12 +224,11 @@
 <div class="section" id="parameters">
 <h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>backup_name</dt><dd><p>When <em>operation=backup</em>, the destination data set or UNIX file to hold the backup.</p>
-<p>When <em>operation=restore</em>, the destination data set or UNIX file backup to restore.</p>
-<p>There are no enforced conventions for backup names. However, using a common extension like <code class="docutils literal notranslate"><span class="pre">.dzp</span></code> for UNIX files and <code class="docutils literal notranslate"><span class="pre">.DZP</span></code> for data sets will improve readability.</p>
+<dt>operation</dt><dd><p>Used to specify the operation to perform.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: backup, restore</div>
 </div>
 </dd>
 <dt>data_sets</dt><dd><p>Determines which data sets to include in the backup.</p>
@@ -238,17 +237,6 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
-<dt>exclude</dt><dd><p>When <em>operation=backup</em>, specifies a list of data sets or data set patterns to exclude from the backup.</p>
-<p>When <em>operation=restore</em>, specifies a list of data sets or data set patterns to exclude when restoring from a backup.</p>
-<p>The single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used in place of exactly one qualifier. In addition, it can be used to indicate that only part of a qualifier has been specified.”</p>
-<p>When used with other qualifiers, the double asterisk, <code class="docutils literal notranslate"><span class="pre">**</span></code>, indicates either the nonexistence of leading, trailing, or middle qualifiers, or the fact that they play no role in the selection process.</p>
-<p>Two asterisks are the maximum permissible in a qualifier. If there are two asterisks in a qualifier, they must be the first and last characters.</p>
-<p>A question mark <code class="docutils literal notranslate"><span class="pre">?</span></code> or percent sign <code class="docutils literal notranslate"><span class="pre">%</span></code> matches a single character.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: raw</div>
-</div>
-</dd>
 <dt>include</dt><dd><p>When <em>operation=backup</em>, specifies a list of data sets or data set patterns to include in the backup.</p>
 <p>When <em>operation=restore</em>, specifies a list of data sets or data set patterns to include when restoring from a backup.</p>
 <p>The single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used in place of exactly one qualifier. In addition, it can be used to indicate to DFSMSdss that only part of a qualifier has been specified.</p>
@@ -260,7 +248,27 @@
 <div class="line"><strong>type</strong>: raw</div>
 </div>
 </dd>
+<dt>exclude</dt><dd><p>When <em>operation=backup</em>, specifies a list of data sets or data set patterns to exclude from the backup.</p>
+<p>When <em>operation=restore</em>, specifies a list of data sets or data set patterns to exclude when restoring from a backup.</p>
+<p>The single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used in place of exactly one qualifier. In addition, it can be used to indicate that only part of a qualifier has been specified.”</p>
+<p>When used with other qualifiers, the double asterisk, <code class="docutils literal notranslate"><span class="pre">**</span></code>, indicates either the nonexistence of leading, trailing, or middle qualifiers, or the fact that they play no role in the selection process.</p>
+<p>Two asterisks are the maximum permissible in a qualifier. If there are two asterisks in a qualifier, they must be the first and last characters.</p>
+<p>A question mark <code class="docutils literal notranslate"><span class="pre">?</span></code> or percent sign <code class="docutils literal notranslate"><span class="pre">%</span></code> matches a single character.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: raw</div>
+</div>
+</dd>
 </dl>
+</dd>
+<dt>volume</dt><dd><p>This applies to both data set restores and volume restores.</p>
+<p>When <em>operation=backup</em> and <em>data_sets</em> are provided, specifies the volume that contains the data sets to backup.</p>
+<p>When <em>operation=restore</em>, specifies the volume the backup should be restored to.</p>
+<p><em>volume</em> is required when restoring a full volume backup.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
 </dd>
 <dt>full_volume</dt><dd><p>When <em>operation=backup</em> and <em>full_volume=True</em>, specifies that the entire volume provided to <em>volume</em> should be backed up.</p>
 <p>When <em>operation=restore</em> and <em>full_volume=True</em>, specifies that the volume should be restored (default is dataset).</p>
@@ -270,18 +278,25 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>hlq</dt><dd><p>Specifies the new HLQ to use for the data sets being restored.</p>
-<p>Defaults to running user’s username.</p>
+<dt>temp_volume</dt><dd><p>Specifies a particular volume on which the temporary data sets should be created during the backup and restore process.</p>
+<p>When <em>operation=backup</em> and <em>backup_name</em> is a data set, specifies the volume the backup should be placed in.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>operation</dt><dd><p>Used to specify the operation to perform.</p>
+<dt>backup_name</dt><dd><p>When <em>operation=backup</em>, the destination data set or UNIX file to hold the backup.</p>
+<p>When <em>operation=restore</em>, the destination data set or UNIX file backup to restore.</p>
+<p>There are no enforced conventions for backup names. However, using a common extension like <code class="docutils literal notranslate"><span class="pre">.dzp</span></code> for UNIX files and <code class="docutils literal notranslate"><span class="pre">.DZP</span></code> for data sets will improve readability.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: backup, restore</div>
+</div>
+</dd>
+<dt>recover</dt><dd><p>Specifies if potentially recoverable errors should be ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
 <dt>overwrite</dt><dd><p>When <em>operation=backup</em>, specifies if an existing data set or UNIX file matching <em>backup_name</em> should be deleted.</p>
@@ -291,22 +306,16 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>recover</dt><dd><p>Specifies if potentially recoverable errors should be ignored.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>sms_management_class</dt><dd><p>When <em>operation=restore</em>, specifies the management class to use. The management class will also be used for temporary data sets created during restore process.</p>
-<p>When <em>operation=backup</em>, specifies the management class to use for temporary data sets created during backup process.</p>
+<dt>sms_storage_class</dt><dd><p>When <em>operation=restore</em>, specifies the storage class to use. The storage class will also be used for temporary data sets created during restore process.</p>
+<p>When <em>operation=backup</em>, specifies the storage class to use for temporary data sets created during backup process.</p>
 <p>If neither of <em>sms_storage_class</em> or <em>sms_management_class</em> are specified, the z/OS system’s Automatic Class Selection (ACS) routines will be used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>sms_storage_class</dt><dd><p>When <em>operation=restore</em>, specifies the storage class to use. The storage class will also be used for temporary data sets created during restore process.</p>
-<p>When <em>operation=backup</em>, specifies the storage class to use for temporary data sets created during backup process.</p>
+<dt>sms_management_class</dt><dd><p>When <em>operation=restore</em>, specifies the management class to use. The management class will also be used for temporary data sets created during restore process.</p>
+<p>When <em>operation=backup</em>, specifies the management class to use for temporary data sets created during backup process.</p>
 <p>If neither of <em>sms_storage_class</em> or <em>sms_management_class</em> are specified, the z/OS system’s Automatic Class Selection (ACS) routines will be used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -331,17 +340,8 @@
 <div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
 </div>
 </dd>
-<dt>temp_volume</dt><dd><p>Specifies a particular volume on which the temporary data sets should be created during the backup and restore process.</p>
-<p>When <em>operation=backup</em> and <em>backup_name</em> is a data set, specifies the volume the backup should be placed in.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
-<dt>volume</dt><dd><p>This applies to both data set restores and volume restores.</p>
-<p>When <em>operation=backup</em> and <em>data_sets</em> are provided, specifies the volume that contains the data sets to backup.</p>
-<p>When <em>operation=restore</em>, specifies the volume the backup should be restored to.</p>
-<p><em>volume</em> is required when restoring a full volume backup.</p>
+<dt>hlq</dt><dd><p>Specifies the new HLQ to use for the data sets being restored.</p>
+<p>Defaults to running user’s username.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
