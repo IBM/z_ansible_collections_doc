@@ -37,16 +37,15 @@ collections:
     stable:
     latest: v1.0.1
     origin: main
+  zhmc-ansible-modules:
+    git: git@github.com:zhmcclient/zhmc-ansible-modules.git
+    stable:
+    latest: 0.9.1
+    origin: master
 
   ##############################################################################
-  # Forked repo's for zhmc and sysauto - stop gap for my development till
-  # collections below update their repos RST
+  # Forked repo sysauto - stop gap for my development
   ##############################################################################
-  # zhmc-ansible-modules:
-  #   git: git@github.com:ddimatos/zhmc-ansible-modules.git
-  #   stable:
-  #   latest: content/unified-doc-updates
-  #   origin: master
   # ibm_zos_sysauto:
   #   git: git@github.com:ddimatos/ibm_zos_sysauto.git
   #   stable:
@@ -54,15 +53,10 @@ collections:
   #   origin: main
 
   ##############################################################################
-  # Official repo's for zhmc and sysauto
+  # Official repo sysauto
   ##############################################################################
-  # zhmc-ansible-modules:
-  #   git: git@github.com:zhmcclient/zhmc-ansible-modules.git
-  #   stable:
-  #   latest: 0.9.1
-  #   origin: master
   # ibm_zos_sysauto:
-  # git: git@github.com:ansible-collections/ibm_zos_sysauto.git
-  # stable:
-  # latest: main
-  # origin: main
+  #   git: git@github.com:ansible-collections/ibm_zos_sysauto.git
+  #   stable:
+  #   latest: main
+  #   origin: main
