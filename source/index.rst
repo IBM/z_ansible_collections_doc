@@ -32,10 +32,10 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Ansible Content
 
+   Beta - Z HMC<zhmc-ansible-modules/docs/ansible_content>
    z/OS core<ibm_zos_core/docs/ansible_content>
-   z/OS IMS<ibm_zos_ims/docs/ansible_content>
    z/OS CICS<ibm_zos_cics/docs/ansible_content>
-..   Beta - Z HMC<zhmc-ansible-modules/docs/ansible_content>
+   z/OS IMS<ibm_zos_ims/docs/ansible_content>
 ..   Beta - Z System Automation<ibm_zos_sysauto/docs/ansible_content>
 
 .. toctree::
