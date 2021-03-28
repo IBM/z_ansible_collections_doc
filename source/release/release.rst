@@ -18,8 +18,8 @@ Offerings
 .. toctree::
    :maxdepth: 1
 
+   Z HMC </../zhmc-ansible-modules/docs/source/release_notes>
    z/OS core </../ibm_zos_core/docs/source/release_notes>
-   z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
    z/OS CICS </../ibm_zos_cics/docs/source/release_notes>
-..   Z HMC </../zhmc-ansible-modules/docs/source/release_notes>
+   z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
 ..   Z System Automation <../ibm_zos_sysauto/docs/source/release_notes>
