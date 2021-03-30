@@ -45,9 +45,6 @@ Each offering in the IBM z/OS collections varies in terms of the requirements fo
 the managed node. Select one of the following offerings to learn
 more about the specific dependencies and required/supported software versions.
 
-Offerings
----------
-
 .. toctree::
    :maxdepth: 1
 

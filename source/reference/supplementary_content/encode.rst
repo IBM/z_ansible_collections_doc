@@ -2,9 +2,9 @@
 .. © Copyright IBM Corporation 2020                                          .
 .. ...........................................................................
 
-======
-Encode
-======
+==============
+Charector Sets
+==============
 
 Many of the z/OS modules offer options to convert the data encodings that are
 read, copied, and transferred from a USS file or a data set. Encoding is managed

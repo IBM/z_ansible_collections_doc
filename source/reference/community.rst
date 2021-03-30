@@ -11,9 +11,6 @@ each collection. Although the collections come together as a unified solution,
 each offering operates on its own, thus review the individual collections on
 how to contribute.
 
-Offerings
-=========
-
 .. toctree::
    :maxdepth: 1
 

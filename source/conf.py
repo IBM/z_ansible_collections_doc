@@ -45,10 +45,6 @@ templates_path = ['templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = exclude_patterns = [
-    'zhmc-ansible-modules/docs/source/bibliography.rst',
-    'zhmc-ansible-modules/docs/source/community_guides.rst',
-    'zhmc-ansible-modules/docs/source/index.rst',
-    'zhmc-ansible-modules/docs/source/installation.rst',
     'ibm_zos_cics/docs/source/index.rst',
     'ibm_zos_cics/docs/source/installation.rst',
     'ibm_zos_cics/docs/source/playbooks.rst',
@@ -80,7 +76,6 @@ exclude_patterns = exclude_patterns = [
     'ibm_zos_sysauto/docs/source/requirements.rst',
     'ibm_zos_sysauto/docs/source/playbooks/sample_pb_create_dynres.rst',
     'ibm_zos_sysauto/docs/source/playbooks/sample_pb_delete_dynres.rst',
-    'zhmc-ansible-modules/docs/source/bibliography.rst',
     'zhmc-ansible-modules/docs/source/community_guides.rst',
     'zhmc-ansible-modules/docs/source/index.rst',
     'zhmc-ansible-modules/docs/source/installation.rst',

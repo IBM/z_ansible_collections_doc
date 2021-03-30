@@ -11,10 +11,6 @@ modules, their availability in Ansible Galaxy or Automation Hub, the required de
 supported software versions, details of bug fixes and more. From the release notes,
 select a specific release version to view its corresponding details.
 
-
-Offerings
-=========
-
 .. toctree::
    :maxdepth: 1
 
