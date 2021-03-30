@@ -11,15 +11,11 @@ modules, their availability in Ansible Galaxy or Automation Hub, the required de
 supported software versions, details of bug fixes and more. From the release notes,
 select a specific release version to view its corresponding details.
 
-
-Offerings
-=========
-
 .. toctree::
    :maxdepth: 1
 
+   Z HMC </../zhmc-ansible-modules/docs/source/release_notes>
    z/OS core </../ibm_zos_core/docs/source/release_notes>
-   z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
    z/OS CICS </../ibm_zos_cics/docs/source/release_notes>
-..   Z HMC </../zhmc-ansible-modules/docs/source/release_notes>
+   z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
 ..   Z System Automation <../ibm_zos_sysauto/docs/source/release_notes>

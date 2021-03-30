@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Releases" href="../../../ibm_zos_ims/docs/source/release_notes.html" />
-    <link rel="prev" title="Releases" href="../../../release/release.html" /> 
+    <link rel="next" title="Releases" href="../../../ibm_zos_cics/docs/source/release_notes.html" />
+    <link rel="prev" title="Releases" href="../../../zhmc-ansible-modules/docs/source/release_notes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,36 +88,114 @@
 </ul>
 <p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/ansible_content.html">Beta - Z HMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../release/release.html#offerings">Offerings</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS core</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-3-0-beta-2">Version 1.3.0-beta.2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-3-0-beta-1">Version 1.3.0-beta.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-4">Version 1.2.0-beta.4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-3">Version 1.2.0-beta.3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-2">Version 1.2.0-beta.2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-2-0-beta-1">Version 1.2.0-beta.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-1-0-beta1">Version 1.1.0-beta1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-1-0-0">Version 1.0.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-0-0-4">Version 0.0.4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-0-0-3">Version 0.0.3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-0-0-2">Version 0.0.2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#version-0-0-1">Version 0.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/release_notes.html">Z HMC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0-beta-2">Version 1.3.0-beta.2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/release_notes.html">z/OS CICS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0-beta-1">Version 1.3.0-beta.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known issues</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0-beta-4">Version 1.2.0-beta.4</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0-beta-3">Version 1.2.0-beta.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0-beta-2">Version 1.2.0-beta.2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0-beta-1">Version 1.2.0-beta.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0-beta1">Version 1.1.0-beta1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-0-0-4">Version 0.0.4</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-0-0-3">Version 0.0.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-0-0-2">Version 0.0.2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id40">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-0-0-1">Version 0.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/release_notes.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +209,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../reference/supplementary.html">Supplementary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
