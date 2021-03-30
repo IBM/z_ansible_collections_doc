@@ -11,3 +11,6 @@
 [submodule "source/ibm_zos_cics"]
 	path = source/ibm_zos_cics
 	url = git@github.com:ansible-collections/ibm_zos_cics.git
+[submodule "source/zhmc-ansible-modules"]
+	path = source/zhmc-ansible-modules
+	url = git@github.com:zhmcclient/zhmc-ansible-modules.git
