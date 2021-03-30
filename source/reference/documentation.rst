@@ -14,4 +14,5 @@ such documentation might be Web Services APIs, product specific reading , etc.
    :maxdepth: 1
 
    Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
-   z/OS core <../zos_core/documentation/documentation>
+   z/OS core <../ibm_zos_core/docs/source/documentation/documentation>
+
