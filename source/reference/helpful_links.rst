@@ -6,8 +6,8 @@
 Helpful Links
 =============
 
-Here is a list of useful resources to understand the most common Ansible use cases and how
-to get started with automating your IT tasks with Ansible. 
+Here is a list of useful resources to understand the most common Ansible use
+cases and how to get started with automating your IT tasks with Ansible.
 
 * Ansible `Getting Started Guide`_
 * A `video guide to Ansible`_
@@ -26,8 +26,8 @@ to get started with automating your IT tasks with Ansible.
   * `Discord Server`_
 
 In addition to these resources, we encourage you to visit the
-`Documentation`_ page for the corresponding supplementary documentation for each collection
-in the **Red Hat® Ansible Certified Content for IBM Z**.
+`Documentation`_ page for the corresponding supplementary documentation for each
+collection in the **Red Hat® Ansible Certified Content for IBM Z**.
 
 .. _use cases:
    https://www.ansible.com/use-cases
@@ -67,6 +67,6 @@ in the **Red Hat® Ansible Certified Content for IBM Z**.
 
 .. _Ansible Newsletter:
    https://github.com/ansible/community/wiki/News
-   
+
 .. _Documentation:
-   https://ibm.github.io/z_ansible_collections_doc/reference/documentation.html
+   documentation.html

@@ -6,16 +6,17 @@
 Documentation
 =============
 
-In addition to the common reference material included in `Helpful Links`_, each collection in
-the **Red Hat® Ansible Certified Content for IBM Z** includes supplementary documentation specific to the collection. Examples of
-such documentation include Web Services APIs, guidelines for development and testing the modules,
-offering-specific reading, etc. 
- 
+In addition to the common reference material included in `Helpful Links`_,
+each collection in the **Red Hat® Ansible Certified Content for IBM Z**
+includes supplementary documentation specific to the collection. Examples of
+such documentation include Web Services APIs, guidelines for development and
+testing the modules, offering-specific reading, etc.
+
 .. toctree::
    :maxdepth: 1
 
    Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
-   z/OS core <../ibm_zos_core/docs/source/documentation/documentation>
+   z/OS core <../ibm_zos_core/docs/source/resources/resources>
 
- .. _Helpful Links: 
-    https://ibm.github.io/z_ansible_collections_doc/reference/helpful_links.html
+.. _Helpful Links:
+   helpful_links.html
