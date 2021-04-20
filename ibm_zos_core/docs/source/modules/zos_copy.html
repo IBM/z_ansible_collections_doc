@@ -124,6 +124,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">Beta - z/OS Sys Auto</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -258,11 +259,12 @@
 <dt>dest</dt><dd><p>Remote absolute path or data set where the file should be copied to.</p>
 <p>Destination can be a USS path or an MVS data set name.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, it will be allocated.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are files and if the parent directory of <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist, then the task will fail.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>KSDS &lt;KSDS_module&gt;</cite> or VSA:ref:<cite>ESDS &lt;ESDS_module&gt;</cite>, then source can be ESDS, KSDS or RRDS.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>RRDS &lt;RRDS_module&gt;</cite>, then the source must be RRDS.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is and existing VSA:ref:<cite>LDS &lt;LDS_module&gt;</cite>, then source must be LDS.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>KSDS &lt;KSDS_module&gt;</cite> or VSA:ref:<cite>ESDS &lt;ESDS_module&gt;</cite>, then source can be ESDS, KSDS or RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>RRDS &lt;RRDS_module&gt;</cite>, then the source must be RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is and existing VSA:ref:<cite>LDS &lt;LDS_module&gt;</cite>, then source must be LDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, you can override storage management rules by specifying both <code class="docutils literal notranslate"><span class="pre">volume</span></code> and <code class="docutils literal notranslate"><span class="pre">model_ds</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -372,9 +374,11 @@
 </div>
 </dd>
 <dt>volume</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist, specify which volume <code class="docutils literal notranslate"><span class="pre">dest</span></code> should be allocated to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">volume</span></code> must be used with <code class="docutils literal notranslate"><span class="pre">model_ds</span></code>, otherwise the <code class="docutils literal notranslate"><span class="pre">volume</span></code> value is ignored.</p>
 <p>Only valid when the destination is an MVS data set.</p>
 <p>The volume must already be present on the device.</p>
-<p>If no volume is specified, an appropriate volume will be chosen to allocate <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p>
+<p>If no volume is specified, storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>If the storage administrator has specified a system default unit name and you do not set a <code class="docutils literal notranslate"><span class="pre">volume</span></code> name for non-system-managed data sets, then the system uses the volumes associated with the default unit name. Check with your storage administrator to determine whether a default unit name has been specified.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -541,6 +545,7 @@
 <p>When copying local files or directories, temporary storage will be used on the remote z/OS system. The size of the temporary storage will correspond to the size of the file or directory being copied. Temporary files will always be deleted, regardless of success or failure of the copy task.</p>
 <p>VSAM data sets can only be copied to other VSAM data sets.</p>
 <p>For supported character sets used to encode data, refer to <a class="reference external" href="https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode">https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode</a></p>
+<p><a class="reference internal" href="#zos-copy-module"><span class="std std-ref">zos_copy</span></a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on ZOS from using Co:Z thus falling back to using standard SFTP.</p>
 </div>
 </div>
 <div class="section" id="see-also">

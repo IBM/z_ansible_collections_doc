@@ -52,4 +52,4 @@ more about the specific dependencies and required/supported software versions.
    z/OS core </../ibm_zos_core/docs/source/requirements_managed>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements_managed>
    z/OS IMS </../ibm_zos_ims/docs/source/requirements_managed>
-..   Z System Automation <../ibm_zos_sysauto/docs/source/requirements_managed>
+   z/OS Sys Auto <../ibm_zos_sysauto/docs/source/requirements_managed>

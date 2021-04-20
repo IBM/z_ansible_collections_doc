@@ -18,4 +18,4 @@ how to contribute.
    z/OS core </../ibm_zos_core/docs/source/community_guides>
    z/OS IMS </../ibm_zos_ims/docs/source/community_guides>
    z/OS CICS </../ibm_zos_cics/docs/source/community_guides>
-..   Z System Automation <../ibm_zos_sysauto/docs/source/community_guides>
+   z/OS Sys Auto <../ibm_zos_sysauto/docs/source/community_guides>
