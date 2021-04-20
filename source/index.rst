@@ -54,10 +54,9 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Reference
 
-   reference/supplementary
+   reference/documentation
    reference/community
    reference/helpful_links
-
 
 .. ..........................................................................
 .. . TODO
