@@ -14,3 +14,6 @@
 [submodule "source/zhmc-ansible-modules"]
 	path = source/zhmc-ansible-modules
 	url = git@github.com:zhmcclient/zhmc-ansible-modules.git
+[submodule "source/ibm_zos_sysauto"]
+	path = source/ibm_zos_sysauto
+	url = git@github.com:ansible-collections/ibm_zos_sysauto.git
