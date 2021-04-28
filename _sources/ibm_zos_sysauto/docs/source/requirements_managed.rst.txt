@@ -32,14 +32,7 @@ For more details about installation and configuration, refer to the
    https://www.ibm.com/support/knowledgecenter/SSWRCJ_4.2.0/com.ibm.safos.doc_4.2/kc_welcome-444.html
 .. _Configure and Run the System Automation Operations REST Server:
    https://www.ibm.com/support/knowledgecenter/de/SSWRCJ_4.2.0/com.ibm.safos.doc_4.2/InstallPlan/set_up_rest_server.html
-
-.. ...........................
-.. TODO:
-.. `inventory` should really point to https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-.. but we can't until playbooks are removed from doc and move to the playbooks repository
-.. ...........................
-
 .. _inventory:
-   playbooks.html#inventory
+   https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 .. _IBM Z System Automation Operations REST server:
    https://www.ibm.com/support/knowledgecenter/de/SSWRCJ_4.2.0/com.ibm.safos.doc_4.2/ProgrammersReference/Overview_rest_server.html   

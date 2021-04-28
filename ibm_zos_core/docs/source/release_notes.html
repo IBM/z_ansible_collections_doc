@@ -92,36 +92,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">Beta - z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/release_notes.html">Z HMC</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-1">Version 1.3.1</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues">Known issues</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Known issues</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-0-0">Version 1.0.0</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -206,10 +213,70 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-3-0">
-<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-3-1">
+<h2>Version 1.3.1<a class="headerlink" href="#version-1-3-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-s-new">
 <h3>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p>Connection plugin <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> was updated to prioritize the execution of
+modules written in REXX over other implementations such is the case for
+<code class="docutils literal notranslate"><span class="pre">zos_ping</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> was updated to support Automation Hub documentation
+generation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> 3.8.2 or later</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.0?topic=installing-configuring-zoa-utilities">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1?topic=installing-configuring-zoa-utilities">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+<div class="section" id="known-issues">
+<h3>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p>When executing programs using <code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code>, you may encounter errors
+that originate in the implementation of the programs. Two such known issues
+are noted below of which one has been addressed with an APAR.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking
+Database Image Copy 2 Utility or Database Recovery Utility in conjunction
+with FlashCopy or Fast Replication.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking DFSRRC00 with parm
+“UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is
+addressed by APAR PH28089.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-0">
+<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>What’s New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Modules</p>
 <ul>
@@ -309,16 +376,15 @@ playbook and its optional integration into AWX.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="availability">
-<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Availability<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Reference<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later</p></li>
 <li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
@@ -327,8 +393,8 @@ playbook and its optional integration into AWX.</p></li>
 <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1?topic=installing-configuring-zoa-utilities">Z Open Automation Utilities 1.1.1</a></p></li>
 </ul>
 </div>
-<div class="section" id="known-issues">
-<h3>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Known issues<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Modules</p>
 <ul>
@@ -384,16 +450,16 @@ explains what configurations must be made to run the sample playbook.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h3>Availability<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Availability<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Reference<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Reference<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by IBM Open Enterprise Python for z/OS: 3.8.2 or later</p></li>
 <li><p>Supported by IBM Z Open Automation Utilities 1.0.3 PTF UI70435</p></li>
@@ -404,8 +470,8 @@ explains what configurations must be made to run the sample playbook.</p></li>
 </div>
 <div class="section" id="version-1-1-0">
 <h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Notes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Notes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Update recommended</p></li>
 <li><p>New modules</p>
@@ -425,16 +491,16 @@ explains what configurations must be made to run the sample playbook.</p></li>
 <li><p>New samples</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>Availability<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Availability<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>Reference<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Reference<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by IBM Open Enterprise Python for z/OS: 3.8.2 or later</p></li>
 <li><p>Supported by IBM Z Open Automation Utilities: 1.0.3 PTF UI70435</p></li>
@@ -445,8 +511,8 @@ explains what configurations must be made to run the sample playbook.</p></li>
 </div>
 <div class="section" id="version-1-0-0">
 <h2>Version 1.0.0<a class="headerlink" href="#version-1-0-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Notes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Update recommended</p></li>
 <li><p>Security vulnerabilities fixed</p></li>
@@ -455,16 +521,16 @@ explains what configurations must be made to run the sample playbook.</p></li>
 <li><p>Documentation updates</p></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Availability<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>Reference<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by IBM Z Open Automation Utilities: 1.0.1 PTF UI66957 through
 1.0.3 PTF UI70435</p></li>
