@@ -82,7 +82,14 @@ exclude_patterns = exclude_patterns = [
     'zhmc-ansible-modules/docs/source/playbooks.rst',
     'zhmc-ansible-modules/docs/source/requirements.rst',
     'zhmc-ansible-modules/docs/source/versioning.rst',
-    'howdoi/howdoi.rst'
+    'howdoi/howdoi.rst',
+    'ibm_zosmf/docs/source/index.rst',
+    'ibm_zosmf/docs/source/requirements.rst',
+    'ibm_zosmf/docs/source/installation.rst',
+    'ibm_zosmf/docs/source/license.rst',
+    'ibm_zosmf/docs/source/playbooks.rst',
+    'ibm_zosmf/docs/source/requirements-single.rst',
+    'ibm_zosmf/docs/source/requirements_control.rst'
     ]
 
 ##############################################################################

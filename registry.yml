@@ -47,4 +47,8 @@ collections:
     stable:
     latest: v1.0.0
     origin: main
-
+  ibm_zosmf:
+    git: git@github.com:IBM/ibm_zosmf.git
+    stable:
+    latest: main
+    origin: main
