@@ -29,6 +29,16 @@ All IBM z/OS collections require these versions of software:
      Refer to the collections listed in the **Managed node** section
      to review which collections leverage a REST endpoint.
 
+Each offering in the **Red Hat® Ansible Certified Content for IBM Z** offering
+can vary in terms of the requirements for the control node. Select one of the
+following offerings to learn more about the specific dependencies and
+required/supported software versions.
+
+.. toctree::
+   :maxdepth: 1
+
+   z/OS z/OSMF <../ibm_zosmf/docs/source/requirements_control>
+
 .. _Ansible version:
    https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 .. _Python:

@@ -88,8 +88,7 @@ exclude_patterns = exclude_patterns = [
     'ibm_zosmf/docs/source/installation.rst',
     'ibm_zosmf/docs/source/license.rst',
     'ibm_zosmf/docs/source/playbooks.rst',
-    'ibm_zosmf/docs/source/requirements-single.rst',
-    'ibm_zosmf/docs/source/requirements_control.rst'
+    'ibm_zosmf/docs/source/requirements-single.rst'
     ]
 
 ##############################################################################
