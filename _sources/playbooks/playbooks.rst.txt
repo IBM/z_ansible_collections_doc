@@ -9,18 +9,25 @@ Playbooks
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
-There are **many** playbooks available in our `samples repository`_ contributed
-by the **Red Hat Ansible Certified Content for IBM Z** team. The
-Git samples repository contain playbooks that  demonstrate various topics such
-as:
+There are **many** playbooks available in our GitHub`samples repository`_
+contributed by the **Red Hat Ansible Certified Content for IBM Z** team. The
+GitHub samples repository contain playbooks that  demonstrate various topics
+such as:
 
-* `z/OS administration`_
-* `z/OS concepts`_
-* `IMS`_
+* `Z Systems Administration <https://github.com/IBM/z_ansible_collections_samples#z-topics>`_
+* `z/OS Administration <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Basic Operations <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Concepts <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Integrating Existing Automation <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Provisioning <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Application & Service Deployment <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Subsystems <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `z/OS Software Installation <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
 
 Playbooks, content, and topics are added to the
-`samples repository`_ regularly. We encourage you to **Watch** the repository to
-get notified by Git when there are updates.
+`samples repository`_ regularly. We encourage you to configure your GitHub
+`activity subscriptions`_ for this repository to get notified by GitHub when there
+are updates.
 
 The sample playbooks can be run with the ``ansible-playbook`` command and with
 a little modification, the included **inventory**, **ansible.cfg**
@@ -33,12 +40,10 @@ in the `samples repository`_.
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
 .. _samples repository:
    https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md
-.. _z/OS administration:
-   https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_administration
-.. _z/OS concepts:
-   https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_concepts
 .. _IMS:
    https://github.com/IBM/z_ansible_collections_samples/tree/master/ims
+.. _activity subscriptions:
+   https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github
 
 
 Concepts

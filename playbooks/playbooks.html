@@ -102,6 +102,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/ansible_content.html">Beta - z/OS z/OSMF</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -181,18 +182,25 @@
 <h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline">¶</a></h1>
 <p>An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.</p>
-<p>There are <strong>many</strong> playbooks available in our <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> contributed
-by the <strong>Red Hat Ansible Certified Content for IBM Z</strong> team. The
-Git samples repository contain playbooks that  demonstrate various topics such
-as:</p>
+<p>There are <strong>many</strong> playbooks available in our GitHub`samples repository`_
+contributed by the <strong>Red Hat Ansible Certified Content for IBM Z</strong> team. The
+GitHub samples repository contain playbooks that  demonstrate various topics
+such as:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_administration">z/OS administration</a></p></li>
-<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_concepts">z/OS concepts</a></p></li>
-<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/ims">IMS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#z-topics">Z Systems Administration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Administration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Basic Operations</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Concepts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Integrating Existing Automation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Provisioning</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Application &amp; Service Deployment</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Subsystems</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Software Installation</a></p></li>
 </ul>
 <p>Playbooks, content, and topics are added to the
-<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> regularly. We encourage you to <strong>Watch</strong> the repository to
-get notified by Git when there are updates.</p>
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> regularly. We encourage you to configure your GitHub
+<a class="reference external" href="https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github">activity subscriptions</a> for this repository to get notified by GitHub when there
+are updates.</p>
 <p>The sample playbooks can be run with the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command and with
 a little modification, the included <strong>inventory</strong>, <strong>ansible.cfg</strong>
 and <strong>host_vars</strong> can be tailored to your environment. Each sample will
