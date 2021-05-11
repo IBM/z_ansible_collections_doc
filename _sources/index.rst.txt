@@ -37,7 +37,7 @@ by building the collections from source available on GitHub.
    z/OS CICS<ibm_zos_cics/docs/ansible_content>
    z/OS IMS<ibm_zos_ims/docs/ansible_content>
    z/OS Sys Auto<ibm_zos_sysauto/docs/ansible_content>
-   Beta - z/OS z/OSMF<ibm_zosmf/docs/ansible_content>
+   z/OS z/OSMF<ibm_zosmf/docs/ansible_content>
 
 .. toctree::
    :maxdepth: 1
