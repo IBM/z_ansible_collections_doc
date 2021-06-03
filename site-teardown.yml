@@ -87,6 +87,15 @@
       debug: msg="{{ git_add_submodules_4 }}"
       when: git_add_submodules_4
 
+    - name: 5 - Temporarily force a `git reset` because site-builder.yaml leaves this in changed state.
+      shell: |
+        git reset HEAD .gitmodules
+      register: git_add_submodules_5
+
+    - name: 5 - Display git reset HEAD .gitmodules.
+      debug: msg="{{ git_add_submodules_4 }}"
+      when: git_add_submodules_5
+
     ############################################################################
     # Generate and view HTML
     ############################################################################
