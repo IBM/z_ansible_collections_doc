@@ -4,6 +4,14 @@
 # Description:
 #    This playbook will generate documentation for all collections in the
 #    registry.yml, perform validation, allow for a preview of generated doc
+#    and upload to gh-pages.
+#
+# Group_vars:
+#    Booleans designed to control the flow of this playbook to run this
+#    playbook headless. See group_vars/all.yml for more information.
+#
+#    deploy_to_gh_pages - default is True, it will instruct the playbook to
+#       deploy the generated HTML to the doc-site (site/gh-pages).
 #
 # Usage:
 #    ansible-playbook -i inventory site-builder.yml
@@ -189,10 +197,10 @@
       debug: msg="{{ git_add_submodules_6 }}"
       when: git_add_submodules_6
 
-    ############################################################################
-    # After teardown and init, traverse each submodule and checkout the latest
-    # branch indentified in registry.yml
-    ############################################################################
+    # # ############################################################################
+    # # After teardown and init, traverse each submodule and checkout the latest
+    # # branch indentified in registry.yml
+    # # ############################################################################
 
     - name: Update each of the submodule contents under `source/<submodule>`.
       shell: |
@@ -213,3 +221,79 @@
 
     - name: Generate HTML and display the results locally in the users browser
       raw: make clean; make html; make view-html;
+
+# ############################################################################
+# Deploy HTML to gh-pages if deploy_to_gh_pages=True
+# Must have WRITE access to the repository.
+# ############################################################################
+#
+# This content has been pulled into another playbook; site-deploy.yml
+#    - meta: end_play
+#      when: not deploy_to_gh_pages
+#
+#    - name: Copy the generated HTML from `build/html/` to `site/gh-pages/`
+#      shell: |
+#          cd site/gh-pages
+#          git checkout gh-pages
+#          cp -R ../../build/html/* .
+#          git add .
+#          git status
+#          git commit -m "Automated commit to update documentation"
+#          git push -f
+#          cd ../..
+#          git checkout master
+#          git status
+#          git submodule update
+#      register: git_update_doc
+#      when: deploy_to_gh_pages
+#
+#    - name: Display the HTML content uploaded to the doc site (gh-pages)
+#      debug: msg="{{ git_update_doc }}"
+#      when: deploy_to_gh_pages
+
+################################################################################
+# It does not look like we need to perform this check anymore and in fact
+# it appears this is committing the submodules I was seeing, I am usure why
+# I introduced this logic, possibly before the teardown scripts.
+# Note, at this point playbook if the gh-pages has been commited this will be
+# left behind "modified:   site/gh-pages (new commits)" after a teardown
+# git submodule update will fix this
+################################################################################
+#    - name: Check status of `site/gh-pages`.
+#      shell: |
+#        git status --untracked-files=no --porcelain site/gh-pages
+#      register: status_site_gh_pages
+#
+#    - name: Display status of `site/gh-pages`.
+#      debug: msg="{{status_site_gh_pages}}"
+#      when: status_site_gh_pages
+#
+#    - name: Evaluate if `site/gh-pages` has unstaged changes.
+#      set_fact:
+#        status_site_gh_pages_M: "{{ status_site_gh_pages.stdout | regex_search('^\\s*M ')}}"
+#      when: status_site_gh_pages
+#
+#    - name: Display if `site/gh-pages` has unstaged changes
+#      debug:
+#        msg: "Unstaged changes have been found in site/gh-pages."
+#      when: status_site_gh_pages
+#
+#    - name: Commiting and pushing unstaged changes for `site/gh-pages`.
+#      shell: |
+#        git add site/gh-pages
+#        git commit -m "Automated commit to update subproject commit."
+#        git push -f
+#      register: status_commit_site_pages_push
+#
+#    - name: Display commiting and pushing unstaged changes for `site/gh-pages`.
+#      debug: msg="{{status_commit_site_pages_push}}"
+#      when: status_commit_site_pages_push
+
+################################################################################
+# If the content has been built and pushed to gh-pages, display the URL to the
+# user
+################################################################################
+#    # See https://ibm.github.io/z_ansible_collections_doc/index.html
+#    - name: Follow this URL to view the updated collection content
+#      debug: msg="https://ibm.github.io/z_ansible_collections_doc/index.html"
+#      when: deploy_to_gh_pages
