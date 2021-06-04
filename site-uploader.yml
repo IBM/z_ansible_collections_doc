@@ -1,15 +1,20 @@
 ################################################################################
-# Copyright (c) IBM Corporation 2020
+# Copyright (c) IBM Corporation 2020, 2021
 #
 # Description:
 #    This playbook will prompt you to upload generated HTML to a private
 #    web-server for local hosting and viewing. On a successful upload the
-#    playbook will return the URL where the HTML doc is hosted.
+#    playbook will return the URL where the HTML doc is hosted. This takes
+#    at least 20 minutes to complete. See comments below for improvements.
 #
 #    Note: This has been extracted from the original build because escalated
 #    privalages have been problmatice with Ansible versions greater than 2.10.
 #    Run this playbook using Ansible 2.9.x
 #
+#   Ideas for improvement:
+#   - Ping the webserver
+#   - Check that this plabybook is run from the same domain the server is located
+#   - Upload the documentation as a tar and unzip to increse performance
 # Usage:
 #    ansible-playbook -i inventory site-uploader.yml --ask-vault-pass
 ################################################################################
@@ -19,17 +24,21 @@
   gather_facts: no
 
   tasks:
+    ############################################################################
+    # Confirm that the conent should be uploaded (its a slow process)
+    ############################################################################
+    #- name: Confirm continuing to upload HTML to private Apache server
+    #  pause:
+    #    prompt: "Do you want to upload the generated HTML to an Apache server for review? (y/n)"
+    # register: deploy_to_web_server_reply
+
+    # - name: Confirmation entered
+    #   debug:
+    #     var: deploy_to_web_server_reply
+
     # ############################################################################
     # # Deploy HTML to web-server for review if deploy_to_web_server=True
     # ############################################################################
-
-      # This is a manual prompt to continue which would need to be removed when this is automated
-    - name: Confirm continuing to upload HTML to private Apache server
-      pause:
-        prompt: "Do you want to upload the generated HTML to an Apache server for review? (y/n)"
-      register: deploy_to_web_server_reply
-    - debug:
-        msg="{{deploy_to_web_server_reply}}"
 
     - name: Copying files to an Apache server for review
       copy:
@@ -47,8 +56,9 @@
       become_user: "{{ webserver_user }}"
       become_method: sudo
       register: webserver_upload
-      when: deploy_to_web_server_reply.user_input == "y"
+      # when: deploy_to_web_server_reply.user_input == "y"
 
-    - name: Uploaded content for review
-      debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
-      when: deploy_to_web_server_reply == "y" and webserver_upload and not webserver_upload.failed
+    - name: Uploaded content for internal review.
+      debug: msg="Successfully uploaded content for review at [ http://{{ web_server }}/index.html ]"
+      # debug: msg="Successfully uploaded content for review at [ http://collection-doc.{{ web_server }}/index.html ]"
+      # when: deploy_to_web_server_reply == "y" and webserver_upload and not webserver_upload.failed
