@@ -101,8 +101,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/release_notes.html">Z HMC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/release_notes.html">z/OS core</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS CICS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-3">Version 1.0.3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">What’s New</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -189,10 +193,21 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-0-1">
-<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-0-3">
+<h2>Version 1.0.3<a class="headerlink" href="#version-1-0-3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-s-new">
 <h3>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Updated timeout support on requests to be configurable via the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> option. The default value is 30 seconds if not specified</p></li>
+<li><p>Improve sanitisation and validation of parameters.</p></li>
+<li><p>Added support for CMCI Feedback on failed CMCI Requests.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-0-1">
+<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>What’s New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Initial release of the <strong>IBM® z/OS® CICS® collection</strong>, also referred to as <strong>ibm_zos_cics</strong>, which is part of the broader offering <strong>Red Hat® Ansible® Certified Content for IBM Z®</strong>.</p>
 <p>This collection can manage CICS and CICSPlex® SM resources and definitions by calling the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/fundamentals/cpsm/cpsm-cmci-restfulapi-overview.html">CMCI REST API</a>, which can be configured in a CICSplex or in a stand-alone region.</p>
 <ul class="simple">
@@ -208,12 +223,12 @@
 <li><p>Documentation</p>
 <ul>
 <li><p>Generic documentation is available at <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_cics/docs/ansible_content.html">the documentation site</a>, covering guidance on installation, modules, and other reference.</p></li>
-<li><p>Documentation related to playbook configuration is provided with sample playbooks at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/cics/cmci">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
+<li><p>Documentation related to playbook configuration is provided with sample playbooks at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_subsystems/cics">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
 </ul>
 </li>
 <li><p>Playbooks</p>
 <ul>
-<li><p>Sample playbooks are available at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/cics/cmci">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
+<li><p>Sample playbooks are available at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_subsystems/cics">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
 </ul>
 </li>
 </ul>
@@ -221,6 +236,7 @@
 <div class="section" id="availability">
 <h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_cics">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_cics">GitHub</a></p></li>
 </ul>
