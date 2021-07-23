@@ -16,6 +16,14 @@
 
 ---
 - hosts: all
+  connection: local
+
+- name: Partially tearing down to be save to avoid undesirable commits
+  import_playbook: site-teardown.yml
+  vars:
+      set_make_clean: false
+
+- hosts: all
   gather_facts: no
   connection: local
 

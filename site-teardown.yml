@@ -13,6 +13,8 @@
 - hosts: all
   gather_facts: no
   connection: local
+  vars:
+    make_clean: "{{ set_make_clean | default(true) }}"
 
   # ##############################################################################
   # # Parse 'registry.yml' for certified contributors (key:value)
@@ -39,7 +41,7 @@
       with_items: "{{collections}}"
 
     # ############################################################################
-    # Perform teardown of all submodules to avoid conflicts 
+    # Perform teardown of all submodules to avoid conflicts
     #
     # NOTE: This only manages the submodules in the `registry.yml` not any
     # submodules excluded from the registry.yml
@@ -102,3 +104,4 @@
 
     - name: Clean up generted HTML
       raw: make clean;
+      when: make_clean
