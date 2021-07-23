@@ -2,3 +2,21 @@
 	path = site/gh-pages
 	url = git@github.com:IBM/z_ansible_collections_doc.git
 	branch = gh-pages
+[submodule "source/ibm_zos_core"]
+	path = source/ibm_zos_core
+	url = git@github.com:ansible-collections/ibm_zos_core.git
+[submodule "source/ibm_zos_ims"]
+	path = source/ibm_zos_ims
+	url = git@github.com:ansible-collections/ibm_zos_ims.git
+[submodule "source/ibm_zos_cics"]
+	path = source/ibm_zos_cics
+	url = git@github.com:ansible-collections/ibm_zos_cics.git
+[submodule "source/zhmc-ansible-modules"]
+	path = source/zhmc-ansible-modules
+	url = git@github.com:zhmcclient/zhmc-ansible-modules.git
+[submodule "source/ibm_zos_sysauto"]
+	path = source/ibm_zos_sysauto
+	url = git@github.com:ansible-collections/ibm_zos_sysauto.git
+[submodule "source/ibm_zosmf"]
+	path = source/ibm_zosmf
+	url = git@github.com:IBM/ibm_zosmf.git
