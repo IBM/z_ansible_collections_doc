@@ -35,7 +35,7 @@ collections:
   ibm_zos_cics:
     git: git@github.com:ansible-collections/ibm_zos_cics.git
     stable:
-    latest: v1.0.3_docs
+    latest: main
     origin: main
   zhmc-ansible-modules:
     git: git@github.com:zhmcclient/zhmc-ansible-modules.git
