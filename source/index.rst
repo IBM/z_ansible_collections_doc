@@ -42,8 +42,13 @@ by building the collections from source available on GitHub.
 .. toctree::
    :maxdepth: 1
    :caption: Release Notes
-
    release/release
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Troubleshooting
+
+   troubleshooting/errorsandmessages
 
 .. toctree::
    :maxdepth: 1
