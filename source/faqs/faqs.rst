@@ -36,8 +36,8 @@ On the z/OS managed node, a particular **IBM z/OS collection** or release can
 have a different set of requirements. Before you install any
 **IBM z/OS collection**, review the collection `requirements`_.
 
-.. _requirements:
-   https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html
+.. .. _requirements:
+..    https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html
 
 Where can I download the latest version of Python?
 --------------------------------------------------
@@ -272,16 +272,15 @@ Refer to the official testing  `strategies recommended by Ansible`_.
 
 Support
 =======
-If I run into a problem when using the RedHat content how should I seek support?
---------------------------------------------------------------------------------
-* For issues with the RedHat content, including the z/OS core and CICS collections,
-  raise a GitHub issue against `RedHat Support`_.
+
+If I run into a problem when using the RedHat Ansible content, how should I seek support?
+-----------------------------------------------------------------------------------------
+For all issues with the RedHat Ansible content, including the z/OS core and CICS collections,
+raise a GitHub issue against `RedHat Support`_.
 
 .. _RedHat Support:
-   https://github.com/ansible-collections/ibm_zos_core/issues
-
-* If you encounter a specific CICS server-related issue, raise a case against the CICS team
-  as you would normally do with other CICS products.
+   https://github.com/ansible-collections/ibm_zos_core/issues/new?assignees=&labels
+   =Type%3A+Bug&template=bug_report.md&title=%5BBug%5D+Report+module%2C+plugin%2C+task+or+feature+bugs
 
 Community
 =========

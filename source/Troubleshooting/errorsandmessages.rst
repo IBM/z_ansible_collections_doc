@@ -59,7 +59,7 @@ particular user, you can use ``become_user: <user_name>`` parameter.
 
 
 What causes the error: **"unsupported parameter"**? How do I fix it?
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------
 This tends to happen when you are specifying a parameter to a module that it
 doesn't support or is deprecated. Update your collection to the latest version
 and review the collection requirements in the `release notes`_ to make sure you
@@ -151,3 +151,20 @@ By default, ``SFTP`` redirects **pre-login** prompts to system **stderr**,
 which ``zos_copy`` interprets as a failure. You can bypass this behavior and
 ignore stderr content by setting **ignore_sftp_stderr** parameter of
 ``zos_copy`` to **true**.
+
+Troubleshooting CICS
+====================
+
+If I run into a problem when using IBM z/OS CICS collection, how should I seek support?
+---------------------------------------------------------------------------------------
+* If you encounter a specific CICS server-related issue, raise a case against the CICS team
+  as you would normally do with other CICS products.
+
+* For all issues with the RedHat content, including the z/OS core and CICS collections,
+raise a GitHub issue against `RedHat Support`_.
+
+The GitHub issue template includes a link to the **MustGather** document for all the
+IBM z/OS CICS collection-related questions.
+
+.. _RedHat Support:
+   https://github.com/ansible-collections/ibm_zos_core/issues
