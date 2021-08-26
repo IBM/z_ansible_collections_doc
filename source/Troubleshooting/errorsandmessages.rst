@@ -152,19 +152,23 @@ which ``zos_copy`` interprets as a failure. You can bypass this behavior and
 ignore stderr content by setting **ignore_sftp_stderr** parameter of
 ``zos_copy`` to **true**.
 
-Troubleshooting CICS
-====================
+Troubleshooting Collections
+===========================
 
-If I run into a problem when using IBM z/OS CICS collection, how should I seek support?
----------------------------------------------------------------------------------------
+If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?
+----------------------------------------------------------------------------------------------
+* For issues related to the Ansible collections, raise a GitHub issue against the appropriate collection repository:
+
+  * `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
+  * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
+
+
 * If you encounter a specific CICS server-related issue, raise a case against the CICS team
   as you would normally do with other CICS products.
 
-* For all issues with the RedHat content, including the z/OS core and CICS collections,
-raise a GitHub issue against `RedHat Support`_.
+  * For CICS collection-related issues, gather the CICS `MustGather`_ data before contacting
+    the support team.
 
-The GitHub issue template includes a link to the **MustGather** document for all the
-IBM z/OS CICS collection-related questions.
 
-.. _RedHat Support:
-   https://github.com/ansible-collections/ibm_zos_core/issues
+.. _Mustgather:
+   https://www.ibm.com/docs/en/cics-ts/5.6?topic=support-ansible-zos-cics-collection

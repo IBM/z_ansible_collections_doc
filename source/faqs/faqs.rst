@@ -273,14 +273,14 @@ Refer to the official testing  `strategies recommended by Ansible`_.
 Support
 =======
 
-If I run into a problem when using the RedHat Ansible content, how should I seek support?
------------------------------------------------------------------------------------------
-For all issues with the RedHat Ansible content, including the z/OS core and CICS collections,
-raise a GitHub issue against `RedHat Support`_.
+If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?
+----------------------------------------------------------------------------------------------
+For issues related to the Ansible collections, raise a GitHub issue against the
+appropriate collection repository:
 
-.. _RedHat Support:
-   https://github.com/ansible-collections/ibm_zos_core/issues/new?assignees=&labels
-   =Type%3A+Bug&template=bug_report.md&title=%5BBug%5D+Report+module%2C+plugin%2C+task+or+feature+bugs
+* `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
+* `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
+
 
 Community
 =========
