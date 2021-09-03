@@ -280,7 +280,10 @@ appropriate collection repository:
 
 * `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
 * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
-
+* `IBM z/OS IMS  <https://github.com/ansible-collections/ibm_zos_ims/issues/new/choose>`_
+* `IBM Z HMC <https://github.com/zhmcclient/zhmc-ansible-modules/issues>`_
+* `IBM z/OS Sys Auto <https://github.com/ansible-collections/ibm_zos_sysauto/issues/new/choose>`_
+* `IBM z/OSMF <https://github.com/IBM/ibm_zosmf/issues>`_
 
 Community
 =========
