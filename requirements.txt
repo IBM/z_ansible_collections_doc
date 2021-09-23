@@ -9,7 +9,7 @@
 ################################################################################
 
 alabaster==0.7.12
-ansible==4.0.0
+ansible==4.2.0
 ansible-core==2.11.1
 ansible-doc-extractor==0.1.5
 ansible-lint==5.0.7
