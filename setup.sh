@@ -309,7 +309,7 @@ generate_static_requirements_txt()
     echo "sphinxcontrib-qthelp==1.0.3">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
     echo "sphinxcontrib-serializinghtml==1.1.4">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
     echo "typed-ast==1.4.0">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
-    echo "urllib3==1.25.9">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
+    echo "urllib3==1.25.11">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
     echo "virtualenv==20.0.15">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
     echo "voluptuous==0.11.7">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
     echo "wrapt==1.11.1">>$PY_VENV_HOME/$PY_VERSION/venv/requirements.txt
