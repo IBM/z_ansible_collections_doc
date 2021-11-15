@@ -148,7 +148,7 @@ How do I install and configure ZOAU?
    https://www.ibm.com/support/knowledgecenter/en/SSKFYE
 
 .. _variable configuration:
-   https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md#variables
+   https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/zos_core/configuration_guide.md#environment-variables
 
 How frequently are the collections updated?
 -------------------------------------------
@@ -357,4 +357,3 @@ For a more detailed explanation of precedence rules, refer to both the
 ..
 ..    z/OS core </../ibm_zos_core/docs/source/faqs.rst>
 ..    z/OS IMS </../ibm_zos_ims/docs/source/faqs.rst>
-
