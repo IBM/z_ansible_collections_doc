@@ -112,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
@@ -133,9 +134,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -222,7 +223,7 @@
 <div class="section" id="synopsis">
 <h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Manage block of multi-lines in z/OS UNIX System Services (USS) files, PS(sequential data set), PDS, PDSE, or member of a PDS or PDSE.</p></li>
+<li><p>Manage block of multi-lines in z/OS UNIX System Services (USS) files, PS (sequential data set), PDS, PDSE, or member of a PDS or PDSE.</p></li>
 <li><p>This module ensures a particular block of multi-line text surrounded by customizable marker lines is present in a USS file or data set, or replaces an existing block identified by the markers.</p></li>
 <li><p>This is primarily useful when you want to change a block of multi-line text in a USS file or data set.</p></li>
 </ul>
@@ -230,7 +231,7 @@
 <div class="section" id="parameters">
 <h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>src</dt><dd><p>The location can be a UNIX System Services (USS) file, PS(sequential data set), member of a PDS or PDSE, PDS, PDSE.</p>
+<dt>src</dt><dd><p>The location can be a UNIX System Services (USS) file, PS (sequential data set), member of a PDS or PDSE, PDS, PDSE.</p>
 <p>The USS file must be an absolute pathname.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -382,7 +383,7 @@
 <p class="admonition-title">Note</p>
 <p>It is the playbook author or user’s responsibility to avoid files that should not be encoded, such as binary files. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.</p>
 <p>All data sets are always assumed to be cataloged. If an uncataloged data set needs to be encoded, it should be cataloged first. The <a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set</span></a> module can be used to catalog uncataloged data sets.</p>
-<p>For supported character sets used to encode data, refer to <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/reference/supplementary_content/encode.html">https://ibm.github.io/z_ansible_collections_doc/reference/supplementary_content/encode.html</a></p>
+<p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 <p>When using ‘with_*’ loops be aware that if you do not set a unique mark the block will be overwritten on each iteration.</p>
 <p>When more then one block should be handled in a file you must change the <em>marker</em> per task.</p>
 </div>

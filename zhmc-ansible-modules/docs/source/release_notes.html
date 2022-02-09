@@ -121,9 +121,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -200,6 +200,17 @@
 <p><strong>Incompatible changes:</strong></p>
 <p><strong>Deprecations:</strong></p>
 <p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Fixed new Pylint issues reported by Pylint 2.9 and 2.10.</p></li>
+<li><p>Improved handling of exceptions when creation of zhmcclient.Session fails.
+(issue #451)</p></li>
+<li><p>Added support for Python 3.10, but needed to exclude the Ansible sanity
+test for the time being, since it does not yet support Python 3.10.</p></li>
+<li><p>Increased the minimum versions of the requests, cryptography, and PyYAML
+packages due to fixes requires for Python 3.10, and also due to the new
+package dependency resolver in Pip.</p></li>
+<li><p>Added support for Ansible 5.0.</p></li>
+</ul>
 <p><strong>Enhancements:</strong></p>
 <p><strong>Cleanup:</strong></p>
 <p><strong>Known issues:</strong></p>

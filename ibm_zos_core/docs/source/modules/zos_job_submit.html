@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
@@ -132,9 +133,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -250,14 +251,15 @@
 </div>
 </dd>
 <dt>wait</dt><dd><p>Wait for the Job to finish and capture the output. Default is false.</p>
-<p>User can specify the wait time, see option <code class="docutils literal notranslate"><span class="pre">wait_time_s</span></code>.</p>
+<p>When <em>wait</em> is false or absent, the module will wait up to 10 seconds for the job to start, but will not wait for the job to complete.</p>
+<p>If <em>wait</em> is true, User can specify the wait time, see option <code class="docutils literal notranslate"><span class="pre">wait_time_s</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>wait_time_s</dt><dd><p>When wait is true, the module will wait for a maximum of 60 seconds by default.</p>
-<p>User can set the wait time manually in this option.</p>
+<dt>wait_time_s</dt><dd><p>When <em>wait</em> is true, the module will wait for the number of seconds for Job completion.</p>
+<p>User can set the wait time manually with this option.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -358,13 +360,13 @@
 <h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For supported character sets used to encode data, refer to <a class="reference external" href="https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode">https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode</a></p>
+<p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 </div>
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>jobs</dt><dd><p>List of jobs output.</p>
+<dt>jobs</dt><dd><p>List of jobs output. If no job status is found, this will return an empty job code with msg=JOB NOT FOUND.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -577,7 +579,13 @@
             <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;CC 0000&quot;</span><span class="p">,</span>
             <span class="nt">&quot;msg_code&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;steps&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;step_cc&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;step_name&quot;</span><span class="p">:</span> <span class="s2">&quot;DLORD6&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
         <span class="p">},</span>
         <span class="nt">&quot;subsystem&quot;</span><span class="p">:</span> <span class="s2">&quot;STL1&quot;</span>
     <span class="p">}</span>
@@ -681,20 +689,20 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;CC 0000&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;msg_code&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ret_code&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;CC 0000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;msg_code&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;steps&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;step_cc&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;step_name&quot;</span><span class="p">:</span> <span class="s2">&quot;STEP0001&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">}</span>
-<span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -705,7 +713,7 @@
 <div class="line"><strong>sample</strong>: CC 0000</div>
 </div>
 </dd>
-<dt>msg_code</dt><dd><p>Return code extracted from the <cite>msg</cite> so that it can better evaluated. For example, ABEND(S0C4) would yield “”S0C4”.</p>
+<dt>msg_code</dt><dd><p>Return code extracted from the <cite>msg</cite> so that it can be evaluated. For example, ABEND(S0C4) would yield “S0C4”.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: S0C4</div>
@@ -714,13 +722,33 @@
 <dt>msg_txt</dt><dd><p>Returns additional information related to the job.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: No job can be located with this job name: HELLO</div>
+<div class="line"><strong>sample</strong>: JCL Error detected.  Check the data dumps for more information.</div>
 </div>
 </dd>
-<dt>code</dt><dd><p>Return code converted to integer value (when possible).</p>
+<dt>code</dt><dd><p>Return code converted to integer value (when possible). For JCL ERRORs, this will be None.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: int</div>
 </div>
+</dd>
+<dt>steps</dt><dd><p>Series of JCL steps that were executed and their return codes.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
+</div>
+<dl>
+<dt>step_name</dt><dd><p>Name of the step shown as “was executed” in the DD section.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: STEP0001</div>
+</div>
+</dd>
+<dt>step_cc</dt><dd><p>The CC returned for this step in the DD section.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 00</div>
+</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>

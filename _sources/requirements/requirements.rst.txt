@@ -42,7 +42,7 @@ required/supported software versions.
 .. _Ansible version:
    https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 .. _Python:
-   https://www.python.org/downloads/release/latest
+   https://www.python.org/downloads
 .. _OpenSSH:
    https://www.openssh.com/
 

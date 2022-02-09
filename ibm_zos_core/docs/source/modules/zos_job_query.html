@@ -110,6 +110,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
@@ -131,9 +132,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -241,7 +242,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>job_id</dt><dd><p>The job number that has been assigned to the job. These normally begin with STC, JOB, TSU and are followed by 5 digits.</p>
+<dt>job_id</dt><dd><p>The job number that has been assigned to the job. These normally begin with STC, JOB, TSU and are followed by 5 digits. When job are potentially greater than 99,999, the job number format will begin with S, J, T and are followed by 7 digits.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -280,7 +281,7 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>jobs</dt><dd><p>The list of z/OS job(s) and status.</p>
+<dt>jobs</dt><dd><p>The output information for a list of jobs matching specified criteria. If no job status is found, this will return an empty job code with msg=JOB NOT FOUND.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -333,14 +334,20 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;CC 0000&quot;</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ret_code&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;CC 0000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;msg_code&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;steps&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;step_cc&quot;</span><span class="p">:</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;step_name&quot;</span><span class="p">:</span> <span class="s2">&quot;STEP0001&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">}</span>
-<span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -351,10 +358,42 @@
 <div class="line"><strong>sample</strong>: CC 0000</div>
 </div>
 </dd>
+<dt>msg_code</dt><dd><p>Return code extracted from the <cite>msg</cite> so that it can be evaluated. For example, ABEND(S0C4) would yield “S0C4”.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: S0C4</div>
+</div>
+</dd>
+<dt>msg_txt</dt><dd><p>Returns additional information related to the job.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: No job can be located with this job name: HELLO</div>
+</div>
+</dd>
 <dt>code</dt><dd><p>Return code converted to integer value (when possible).</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: int</div>
 </div>
+</dd>
+<dt>steps</dt><dd><p>Series of JCL steps that were executed and their return codes.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
+</div>
+<dl>
+<dt>step_name</dt><dd><p>Name of the step shown as “was executed” in the DD section.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: STEP0001</div>
+</div>
+</dd>
+<dt>step_cc</dt><dd><p>The CC returned for this step in the DD section.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 00</div>
+</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>

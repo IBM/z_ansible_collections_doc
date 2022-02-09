@@ -112,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
@@ -133,9 +134,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -250,7 +251,7 @@
 </dd>
 <dt>content</dt><dd><p>When used instead of <code class="docutils literal notranslate"><span class="pre">src</span></code>, sets the contents of a file or data set directly to the specified value.</p>
 <p>Works only when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a USS file, sequential data set, or a partitioned data set member.</p>
-<p>This is for simple values; for anything complex or with formatting, use <a class="reference external" href="https://docs.ansible.com/ansible/latest/modules/copy_module.html">https://docs.ansible.com/ansible/latest/modules/copy_module.html</a></p>
+<p>This is for simple values; for anything complex or with formatting, use <a class="reference external" href="https://docs.ansible.com/ansible/latest/modules/copy_module.html">ansible.builtin.copy</a></p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a directory, then content will be copied to <code class="docutils literal notranslate"><span class="pre">/path/to/dest/inline_copy</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -262,10 +263,10 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are files and if the parent directory of <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist, then the task will fail.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>KSDS &lt;KSDS_module&gt;</cite> or VSA:ref:<cite>ESDS &lt;ESDS_module&gt;</cite>, then source can be ESDS, KSDS or RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSA:ref:<cite>RRDS &lt;RRDS_module&gt;</cite>, then the source must be RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is and existing VSA:ref:<cite>LDS &lt;LDS_module&gt;</cite>, then source must be LDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, you can override storage management rules by specifying both <code class="docutils literal notranslate"><span class="pre">volume</span></code> and <code class="docutils literal notranslate"><span class="pre">model_ds</span></code>.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (KSDS) or VSAM (ESDS), then source can be ESDS, KSDS or RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (RRDS), then the source must be RRDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is and existing VSAM (LDS), then source must be LDS. The <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, you can override storage management rules by specifying both <code class="docutils literal notranslate"><span class="pre">volume</span></code> and other optional DS specs (type, space, record size, etc).</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -302,7 +303,8 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
+<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through SFTP, the module fails if the SFTP command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by SFTP and continue execution.</p>
+<p>When Ansible verbosity is set to greater than 3, either through the command line interface (CLI) using <strong>-vvvv</strong> or through environment variables such as <strong>verbosity = 4</strong>, then this parameter will automatically be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -331,14 +333,6 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>model_ds</dt><dd><p>When copying a local file/directory to a non-existing PDS, PDSE or PS, specify a model data set to allocate the destination after.</p>
-<p>If this parameter is not provided, the destination data set will be allocated based on the size of the local file/directory.</p>
-<p>Only valid if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a local file or directory and <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
 <dt>remote_src</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the module searches for <code class="docutils literal notranslate"><span class="pre">src</span></code> at the local machine.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the module goes to the remote/target machine for <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <div class="line-block">
@@ -346,8 +340,9 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>sftp_port</dt><dd><p>Indicates which port should be used to connect to the remote z/OS system to perform data transfer.</p>
-<p>If this parameter is not specified, <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> will be used.</p>
+<dt>sftp_port</dt><dd><p>Configuring the SFTP port used by the <a class="reference internal" href="#zos-copy-module"><span class="std std-ref">zos_copy</span></a> module has been deprecated and will be removed in ibm.ibm_zos_core collection version 1.5.0.</p>
+<p>Configuring the SFTP port with <em>sftp_port</em> will no longer have any effect on which port is used by this module.</p>
+<p>To configure the SFTP port used for module <a class="reference internal" href="#zos-copy-module"><span class="std std-ref">zos_copy</span></a>, refer to topic <a class="reference external" href="https://docs.ansible.com/ansible/latest/plugins/connection.html#using-connection-plugins">using connection plugins</a></p>
 <p>If <code class="docutils literal notranslate"><span class="pre">ansible_port</span></code> is not specified, port 22 will be used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -375,7 +370,6 @@
 </div>
 </dd>
 <dt>volume</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist, specify which volume <code class="docutils literal notranslate"><span class="pre">dest</span></code> should be allocated to.</p>
-<p><code class="docutils literal notranslate"><span class="pre">volume</span></code> must be used with <code class="docutils literal notranslate"><span class="pre">model_ds</span></code>, otherwise the <code class="docutils literal notranslate"><span class="pre">volume</span></code> value is ignored.</p>
 <p>Only valid when the destination is an MVS data set.</p>
 <p>The volume must already be present on the device.</p>
 <p>If no volume is specified, storage management rules will be used to determine the volume where <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be allocated.</p>
@@ -384,6 +378,71 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
+</dd>
+<dt>destination_dataset</dt><dd><p>These are settings to use when creating the destination data set</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>dd_type</dt><dd><p>Organization of the destination</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: BASIC</div>
+<div class="line"><strong>choices</strong>: KSDS, ESDS, RRDS, LDS, SEQ, PDS, PDSE, MEMBER, BASIC</div>
+</div>
+</dd>
+<dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
+<p>The unit of space used is set using <em>space_type</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: 5</div>
+</div>
+</dd>
+<dt>space_secondary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the secondary space allocated for the data set.</p>
+<p>The unit of space used is set using <em>space_type</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: 3</div>
+</div>
+</dd>
+<dt>space_type</dt><dd><p>If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.</p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: M</div>
+<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
+</div>
+</dd>
+<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">FB</span></code>)</p>
+<p>Choices are case-insensitive.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: FB</div>
+<div class="line"><strong>choices</strong>: FB, VB, FBA, VBA, U</div>
+</div>
+</dd>
+<dt>record_length</dt><dd><p>The length of each record in the data set, in bytes.</p>
+<p>For variable data sets, the length must include the 4-byte prefix area.</p>
+<p>Defaults vary depending on format: If FB/FBA 80, if VB/VBA 137, if U 0.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 80</div>
+</div>
+</dd>
+<dt>block_size</dt><dd><p>The block size to use for the data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </div>
@@ -432,7 +491,7 @@
       <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTF-8</span>
       <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a VSAM(KSDS) to a VSAM(KSDS)</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a VSAM (KSDS) to a VSAM (KSDS)</span>
   <span class="nt">zos_copy</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SRC.VSAM</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.DEST.VSAM</span>
@@ -545,8 +604,8 @@
 <p>Destination will be backed up if either <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">backup_name</span></code> is provided. If <code class="docutils literal notranslate"><span class="pre">backup</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code> but <code class="docutils literal notranslate"><span class="pre">backup_name</span></code> is provided, task will fail.</p>
 <p>When copying local files or directories, temporary storage will be used on the remote z/OS system. The size of the temporary storage will correspond to the size of the file or directory being copied. Temporary files will always be deleted, regardless of success or failure of the copy task.</p>
 <p>VSAM data sets can only be copied to other VSAM data sets.</p>
-<p>For supported character sets used to encode data, refer to <a class="reference external" href="https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode">https://ansible-collections.github.io/ibm_zos_core/supplementary.html#encode</a></p>
-<p><a class="reference internal" href="#zos-copy-module"><span class="std std-ref">zos_copy</span></a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on ZOS from using Co:Z thus falling back to using standard SFTP.</p>
+<p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
+<p><a class="reference internal" href="#zos-copy-module"><span class="std std-ref">zos_copy</span></a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on z/OS from using Co:Z thus falling back to using standard SFTP.</p>
 </div>
 </div>
 <div class="section" id="see-also">

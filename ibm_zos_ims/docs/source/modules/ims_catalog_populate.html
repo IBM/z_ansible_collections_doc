@@ -120,9 +120,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -256,6 +256,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>buffer_pool_param_dataset</dt><dd><p>Defines the buffer pool parameters data set. This option is required if you are running the utility as a DLI.</p>
@@ -504,6 +505,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
 <dt>acb_lib</dt><dd><p>Defines an ACB library data set that contains the ACB members that are used to populate the IMS catalog.</p>
@@ -865,6 +867,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>steplib</dt><dd><p>Points to IMS.SDFSRESL, which contains the IMS nucleus and required IMS modules.</p>
@@ -873,6 +876,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>sysabend</dt><dd><p>Defines the dump data set. This defaults to = *</p>

@@ -120,9 +120,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -268,14 +268,14 @@
 <dt>src</dt><dd><p>The src field can reference a PDS, PDSE member, sequential data set, or UNIX System Services file path.</p>
 <p>If a PDS is specified, all members within the PDS will be treated as individual DBD source members to be processed.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>location</dt><dd><p>The DBD source location. Supported options are DATA_SET or USS. The default is DATA_SET.</p>
 <p>The DATA_SET option can be used for a PDS, PDSE, or sequential data set.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: DATA_SET</div>
 <div class="line"><strong>choices</strong>: DATA_SET, USS</div>
@@ -310,6 +310,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>dest</dt><dd><p>The target output DBDLIB partitioned data set where the DBD members will be generated to.</p>

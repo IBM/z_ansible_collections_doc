@@ -120,9 +120,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -222,7 +222,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: BUILD, DELETE</div>
+<div class="line"><strong>choices</strong>: build, delete, BUILD, DELETE</div>
 </div>
 </dd>
 <dt>compression</dt><dd><p>PRECOMP,POSTCOMP, in any combination, cause the required in-place compression.</p>
@@ -230,6 +230,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: precomp, postcomp, precomp,postcomp, PRECOMP, POSTCOMP, PRECOMP,POSTCOMP</div>
 </div>
 </dd>
 <dt>psb_name</dt><dd><p>The name of the PS**s**. Specifies that blocks are built or deleted for all PSBs that are named on this control statement.</p>
@@ -237,12 +238,14 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>dbd_name</dt><dd><p>The name of the DBD(s). Specifies that blocks are built or deleted for this DBD, and for all PSBs that reference this DBD either directly or indirectly through logical relationships.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>acb_lib</dt><dd><p>The ACB Maintenance utility maintains the prebuilt blocks (ACB) library (IMS.ACBLIB). The ACB library is a consolidated library of program (PSB) and database (DBD) descriptions.</p>
@@ -258,6 +261,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>dbd_lib</dt><dd><p>The ACB Maintenance utility receives input from the IMS DBDLIB data set.</p>
@@ -265,6 +269,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>steplib</dt><dd><p>Points to the IMS SDFSRESL data set, which contains the IMS nucleus and required IMS modules. If STEPLIB is unauthorized by having unauthorized libraries that are concatenated to SDFSRESL, you must specify the <em>reslib</em> parameter.</p>
@@ -273,12 +278,14 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>reslib</dt><dd><p>Points to an authorized library that contains the IMS SVC modules. For IMS batch, SDFSRESL and any data set that is concatenated to it in the reslib field must be authorized through the Authorized Program Facility (APF).</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 <dt>build_psb</dt><dd><p>Specifies whether ims_acb_gen rebuilds all PSBs that reference a changed DBD in the <em>dbdname</em> parameter.</p>

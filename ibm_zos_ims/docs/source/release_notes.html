@@ -102,22 +102,28 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/release_notes.html">z/OS core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/release_notes.html">z/OS CICS</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS IMS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0-beta-1">Version 1.2.0-beta.1</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Reference</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-1-0-beta-1">Version 1.1.0-beta.1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id7">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-0-0-beta3">Version 1.0.0-beta3</a></li>
@@ -132,9 +138,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -204,10 +210,44 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-1-0">
-<h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-2-0-beta-1">
+<h2>Version 1.2.0-beta.1<a class="headerlink" href="#version-1-2-0-beta-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes">
 <h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Update recommended</p></li>
+<li><p>Bug fixes and enhancements</p>
+<ul>
+<li><p>Adds support for Ansible 4 (ansible-core 2.11)</p></li>
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">ims_catalog_populate</span></code> where <code class="docutils literal notranslate"><span class="pre">check_timestamp:</span> <span class="pre">false</span></code> would cause module calls to return an IMS error.</p></li>
+<li><p>Improved JSON keys for <code class="docutils literal notranslate"><span class="pre">ims_command_utils</span></code> to replace whitespaces with underscores to help make the output more parsable.</p></li>
+<li><p>This update also has updated prerequisites for Ansible 2.11 and ZOAU 1.1.0 or later.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_ims">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by IBM z/OS core collection v1.3.0 or later</p></li>
+<li><p>Supported by IBM Z Open Enterprise Python for z/OS: 3.8.2 or later</p></li>
+<li><p>Supported by IBM Z Open Automation Utilities 1.1.0 PTF or later</p></li>
+<li><p>Supported by z/OS V2R3</p></li>
+<li><p>The z/OS® shell</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-1-0">
+<h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>Update recommended</p></li>
@@ -218,48 +258,6 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">ims_dbrc</span></code> - improved pep8 and Ansible Sanity compliance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ims_dbd_gen</span></code> - added usage of Python tempdir libraries instead of fixed string</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ims_psb_gen</span></code> - added usage of Python tempdir libraries instead of fixed string</p></li>
-</ul>
-</li>
-<li><p>Documentation updates</p></li>
-<li><p>Improved test and security coverage</p></li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="availability">
-<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
-<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_ims">Galaxy</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims">GitHub</a></p></li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>Supported by IBM z/OS core collection v1.2.1</p></li>
-<li><p>Supported by IBM Z Open Enterprise SDK for Python for z/OS: 3.8.2 or later</p></li>
-<li><p>Supported by IBM Z Open Automation Utilities 1.0.3 PTF UI70435</p></li>
-<li><p>Supported by z/OS V2R3</p></li>
-<li><p>The z/OS® shell</p></li>
-</ul>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="version-1-0-1">
-<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>Update recommended</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ims_acb_gen</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ims_dbd_gen</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ims_psb_gen</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ims_command</span></code></p></li>
 </ul>
 </li>
 <li><p>Documentation updates</p></li>
@@ -281,6 +279,48 @@
 <h3>Reference<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
+<li><p>Supported by IBM z/OS core collection v1.2.1</p></li>
+<li><p>Supported by IBM Z Open Enterprise SDK for Python for z/OS: 3.8.2 or later</p></li>
+<li><p>Supported by IBM Z Open Automation Utilities 1.0.3 PTF UI70435</p></li>
+<li><p>Supported by z/OS V2R3</p></li>
+<li><p>The z/OS® shell</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="version-1-0-1">
+<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Update recommended</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ims_acb_gen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ims_dbd_gen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ims_psb_gen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ims_command</span></code></p></li>
+</ul>
+</li>
+<li><p>Documentation updates</p></li>
+<li><p>Improved test and security coverage</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_ims">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims">GitHub</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
 <li><p>Supported by IBM z/OS core collection v1.2.1 or later</p></li>
 <li><p>Supported by IBM Z Open Enterprise Python for z/OS: 3.8.2 or later</p></li>
 <li><p>Supported by IBM Z Open Automation Utilities 1.0.3 PTF UI70435 or later</p></li>
@@ -292,8 +332,8 @@
 </div>
 <div class="section" id="version-1-1-0-beta-1">
 <h2>Version 1.1.0-beta.1<a class="headerlink" href="#version-1-1-0-beta-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
-<h3>Notes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>Notes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Update recommended</p></li>
 <li><p>New modules</p>
@@ -311,15 +351,15 @@
 <li><p>Updated sample playbook</p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>Availability<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Availability<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_ims">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_ims">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3>Reference<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Reference<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by IBM z/OS core collection v1.2.0-beta.1 or later</p></li>
 <li><p>Supported by IBM Z Open Enterprise Python for z/OS: 3.8.2 or later</p></li>

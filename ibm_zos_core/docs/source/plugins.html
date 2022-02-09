@@ -92,8 +92,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../ansible_content.html">z/OS core</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#action">Action</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connection">Connection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#z-os-connection-plugin">z/OS Connection Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -111,9 +109,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -189,41 +187,15 @@ and expandable feature set.</p>
 <div class="section" id="action">
 <h2>Action<a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_ping</span></code>: A fork of Ansible <a class="reference external" href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/action/normal.py">normal.py</a> action plugin that is modified to allow a conditional shebang line in REXX modules.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code>: Used to <a class="reference external" href="modules/zos_job_submit.html">submit a job</a> from the controller and optionally monitor the job completion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ping</span></code>: A fork of Ansible <a class="reference external" href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/action/normal.py">normal</a> action plugin that is modified to
+support modules written in REXX such as <a class="reference external" href="modules/zos_ping.html">zos_ping</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code>: Used to <a class="reference external" href="modules/zos_copy.html">copy data</a> from the controller to the z/OS managed
+node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code>: Used to <a class="reference external" href="modules/zos_fetch.html">fetch data</a> from the z/OS managed node to the
+controller.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code>: Used to <a class="reference external" href="modules/zos_job_submit.html">submit a job</a> from the controller and optionally
+monitor the job completion.</p></li>
 </ul>
-</div>
-<div class="section" id="connection">
-<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code>: Enables the Ansible controller to communicate with a z/OS target machine by using SSH, with the added support to transfer ASCII as EBCDIC when transferring REXX modules. This connection plugin was forked from the Ansible <a class="reference external" href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/connection/ssh.py">ssh.py</a> connection plugin.</p></li>
-<li><p>For further reference, see <strong>z/OS Connection Plugin</strong>.</p></li>
-</ul>
-</div>
-<div class="section" id="z-os-connection-plugin">
-<h2>z/OS Connection Plugin<a class="headerlink" href="#z-os-connection-plugin" title="Permalink to this headline">¶</a></h2>
-<p>Since EBCDIC encoding is used on z/OS, custom plugins are required to determine
-the correct transport method when targeting a z/OS system. The zos_ssh.py
-connection plugin is a fork of the default ssh.py plugin with the added
-functionality to check if a module is written in REXX.</p>
-<p>Since REXX scripts are required be in EBCDIC encoding to run, they must be
-handled differently during transfer. If the string
-<code class="docutils literal notranslate"><span class="pre">__ANSIBLE_ENCODE_EBCDIC__</span></code> is found in the first line of the module, the
-module is transferred to the target system using SCP. Otherwise, SFTP is used.
-SCP treats files as text, automatically encoding as EBCDIC at transfer time.
-SFTP treats files as binary, performing no encoding changes.</p>
-<p><strong>REXX Module Configuration</strong>:</p>
-<ul class="simple">
-<li><p>Ensure a REXX modules first line is a comment containing the case insensitive keyword <code class="docutils literal notranslate"><span class="pre">rexx</span></code></p></li>
-<li><p>Followed by the case sensitive value <code class="docutils literal notranslate"><span class="pre">__ANSIBLE_ENCODE_EBCDIC__</span></code></p></li>
-</ul>
-<p><strong>Example REXX module</strong>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/* rexx  __ANSIBLE_ENCODE_EBCDIC__  */
-<span class="nv">x</span> <span class="o">=</span> <span class="m">55</span>
-SAY <span class="s1">&#39;{&quot;SYSTEM_VERSION&quot;:&quot;&#39;</span> x <span class="s1">&#39;&quot;}&#39;</span>
-RETURN <span class="m">0</span>
-</pre></div>
-</div>
 </div>
 </div>
 

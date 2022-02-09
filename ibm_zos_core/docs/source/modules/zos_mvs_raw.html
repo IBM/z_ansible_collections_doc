@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_operator – Execute operator command" href="zos_operator.html" />
-    <link rel="prev" title="zos_lineinfile – Manage textual data on z/OS" href="zos_lineinfile.html" /> 
+    <link rel="prev" title="zos_mount – Mount a z/OS file system." href="zos_mount.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -104,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">zos_mvs_raw – Run a z/OS program.</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
@@ -133,9 +134,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -299,11 +300,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: library, pds, pdse, large, basic, seq, rrds, esds, lds, ksds</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: library, pds, pdse, large, basic, seq, rrds, esds, lds, ksds</div>
-</div>
 </dd>
 <dt>disposition</dt><dd><p><em>disposition</em> indicates the status of a data set.</p>
 <p>Defaults to shr.</p>
@@ -319,18 +315,8 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
-</div>
 </dd>
 <dt>disposition_abnormal</dt><dd><p><em>disposition_abnormal</em> indicates what to do with the data set after an abnormal termination of the program.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -357,17 +343,9 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
 </dd>
 <dt>backup</dt><dd><p>Determines if a backup should be made of an existing data set when <em>disposition=NEW</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
 <p><em>backup</em> is only used when <em>replace=true</em>.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -395,10 +373,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
 </dd>
 <dt>volumes</dt><dd><p>The volume or volumes on which a data set resides or will reside.</p>
 <p>Do not specify the same volume multiple times.</p>
@@ -410,10 +384,6 @@
 <dt>sms_management_class</dt><dd><p>The desired management class for a new SMS-managed data set.</p>
 <p><em>sms_management_class</em> is ignored if specified for an existing data set.</p>
 <p>All values must be between 1-8 alpha-numeric characters.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -434,10 +404,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>block_size</dt><dd><p>The maximum length of a block in bytes.</p>
 <p>Default is dependent on <em>record_format</em></p>
@@ -447,10 +413,6 @@
 </div>
 </dd>
 <dt>directory_blocks</dt><dd><p>The number of directory blocks to allocate to the data set.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -471,19 +433,11 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: dict</div>
-</div>
 <dl>
 <dt>label</dt><dd><p>The label for the key encrypting key used by the Encryption Key Manager.</p>
 <p>Key label must have a private key associated with it.</p>
 <p><em>label</em> can be a maximum of 64 characters.</p>
 <p>Maps to KEYLAB1 on z/OS.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -705,7 +659,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: u, vb, vba, fb, fba</div>
 </div>
-<p><em>dd_input</em> supports single or multiple lines of input.</p>
 </dd>
 <dt>return_content</dt><dd><p>Determines how content should be returned to the user.</p>
 <p>If not provided, no content from the DD is returned.</p>
@@ -776,7 +729,7 @@
 <p><em>src_encoding</em> and <em>response_encoding</em> are only used when <em>type=text</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">base64</span></code> means return content in binary mode.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: text, base64</div>
 </div>
@@ -811,17 +764,9 @@
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>return_content</dt><dd><p>Determines how content should be returned to the user.</p>
 <p>If not provided, no content from the DD is returned.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: dict</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: dict</div>
@@ -836,19 +781,9 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: text, base64</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: text, base64</div>
-</div>
 </dd>
 <dt>src_encoding</dt><dd><p>The encoding of the data set on the z/OS system.</p>
 <p>for <em>dd_input</em>, <em>src_encoding</em> should generally not need to be changed.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: ibm-1047</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -908,10 +843,6 @@
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>dds</dt><dd><p>A list of DD statements, which can contain any of the following types: <em>dd_data_set</em>, <em>dd_unix</em>, and <em>dd_input</em>.</p>
 <div class="line-block">
@@ -948,11 +879,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: new, shr, mod, old</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: new, shr, mod, old</div>
-</div>
 </dd>
 <dt>disposition_normal</dt><dd><p><em>disposition_normal</em> indicates what to do with the data set after normal termination of the program.</p>
 <div class="line-block">
@@ -962,11 +888,6 @@
 </div>
 </dd>
 <dt>disposition_abnormal</dt><dd><p><em>disposition_abnormal</em> indicates what to do with the data set after abnormal termination of the program.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -1038,10 +959,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>sms_storage_class</dt><dd><p>The desired storage class for a new SMS-managed data set.</p>
 <p><em>sms_storage_class</em> is ignored if specified for an existing data set.</p>
@@ -1050,18 +967,10 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>sms_data_class</dt><dd><p>The desired data class for a new SMS-managed data set.</p>
 <p><em>sms_data_class</em> is ignored if specified for an existing data set.</p>
 <p>All values must be between 1-8 alpha-numeric characters.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -1104,19 +1013,10 @@
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
 <p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
 <p>Maps to KEYCD1 on z/OS.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: l, h</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -1140,10 +1040,6 @@
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
-<div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
 <p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
@@ -1153,7 +1049,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: l, h</div>
 </div>
-<p>Maps to KEYCD2 on z/OS.</p>
 </dd>
 </dl>
 </dd>
@@ -1172,7 +1067,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
-<p>Provide <em>key_offset</em> only for VSAM key-sequenced data sets.</p>
 </dd>
 <dt>record_length</dt><dd><p>The logical record length. (e.g <code class="docutils literal notranslate"><span class="pre">80</span></code>).</p>
 <p>For variable data sets, the length must include the 4-byte prefix area.</p>
@@ -1183,7 +1077,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
-<p>Maps to LRECL on z/OS.</p>
 </dd>
 <dt>record_format</dt><dd><p>The format and characteristics of the records for new data set.</p>
 <div class="line-block">
@@ -1198,7 +1091,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
-<p>If not provided, no content from the DD is returned.</p>
 <dl>
 <dt>type</dt><dd><p>The type of the content to be returned.</p>
 <p><code class="docutils literal notranslate"><span class="pre">text</span></code> means return content in encoding specified by <em>response_encoding</em>.</p>
@@ -1209,7 +1101,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: text, base64</div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">base64</span></code> means return content in binary mode.</p>
 </dd>
 <dt>src_encoding</dt><dd><p>The encoding of the data set on the z/OS system.</p>
 <div class="line-block">
@@ -1219,11 +1110,6 @@
 </div>
 </dd>
 <dt>response_encoding</dt><dd><p>The encoding to use when returning the contents of the data set.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: iso8859-1</div>
-</div>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -1239,8 +1125,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
-</dd>
-<dt>dd_unix</dt><dd><p>The path to a file in UNIX System Services (USS).</p>
 <dl>
 <dt>path</dt><dd><p>The path to an existing UNIX file.</p>
 <p>Or provide the path to an new created UNIX file when <em>status_group=OCREAT</em>.</p>
@@ -1256,8 +1140,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: keep, delete</div>
 </div>
-</dd>
-<dt>disposition_normal</dt><dd><p>Indicates what to do with the UNIX file after normal termination of the program.</p>
 </dd>
 <dt>disposition_abnormal</dt><dd><p>Indicates what to do with the UNIX file after abnormal termination of the program.</p>
 <div class="line-block">
@@ -1342,7 +1224,6 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>choices</strong>: u, vb, vba, fb, fba</div>
 </div>
-<p><em>record_format</em> is required in situations where the data will be processed as records and therefore, <em>record_length</em>, <em>block_size</em> and <em>record_format</em> need to be supplied since a UNIX file would normally be treated as a stream of bytes.</p>
 </dd>
 <dt>return_content</dt><dd><p>Determines how content should be returned to the user.</p>
 <p>If not provided, no content from the DD is returned.</p>
@@ -1385,7 +1266,6 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
-<p>Input will be saved to a temporary data set with a record length of 80.</p>
 <dl>
 <dt>content</dt><dd><p>The input contents for the DD.</p>
 <p><em>dd_input</em> supports single or multiple lines of input.</p>
@@ -1577,25 +1457,6 @@
       <span class="p p-Indicator">-</span> <span class="nt">dd_unix</span><span class="p">:</span>
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
           <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/myuser/outputfile.txt</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
-          <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SOME.DATASET.*&#39;)&quot;</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">List data sets matching pattern in catalog,</span>
-    <span class="l l-Scalar l-Scalar-Plain">save output to a file in UNIX System Services.</span>
-    <span class="l l-Scalar l-Scalar-Plain">Return the contents of the file in encoding IBM-1047,</span>
-    <span class="l l-Scalar l-Scalar-Plain">while the file is encoded in ISO8859-1.</span>
-  <span class="nt">zos_mvs_raw</span><span class="p">:</span>
-    <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">dds</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_unix</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
-          <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/myuser/outputfile.txt</span>
-          <span class="nt">return_content</span><span class="p">:</span>
-            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
-            <span class="nt">src_encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iso8859-1</span>
-            <span class="nt">response_encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibm-1047</span>
       <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
           <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SOME.DATASET.*&#39;)&quot;</span>

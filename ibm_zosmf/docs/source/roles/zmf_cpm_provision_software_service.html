@@ -96,6 +96,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS z/OSMF</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../modules.html">Modules</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../roles.html">Roles</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance – Role creates a z/OS software instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance – Role get specific z/OS software instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates – Role lists all published z/OS software templates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_manage_software_instance.html">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">zmf_cpm_provision_software_service – Role provisions a z/OS software service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
@@ -117,9 +120,9 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">Installation, versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#troubleshooting-messages">Troubleshooting, Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
@@ -280,7 +283,7 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 </dd>
-<dt>zmf_body</dt><dd><p>Instead of specifying <em>domain-name</em>, <em>tenant-name</em>, <em>system-nicknames</em> and <em>input-variable</em> individually, this parameter can be used to pass them as a dictionary variable. This variable needs to be in following format,</p>
+<dt>zmf_body</dt><dd><p>Instead of specifying <em>domain_name</em>, <em>tenant_name</em>, <em>system_nicknames</em> and <em>input_variable</em> individually, this parameter can be used to pass them as a dictionary variable. This variable needs to be in following format,</p>
 <p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;domain-name&quot;:&quot;{{</span> <span class="pre">domain_name</span> <span class="pre">}}&quot;,</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;domain-name&quot;:&quot;{{</span> <span class="pre">domain_name</span> <span class="pre">}}&quot;,</span></code></p>
