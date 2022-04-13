@@ -20,16 +20,37 @@ Releases
 ========
 
 
-Version 1.0.0-dev1
-------------------
+Version 1.0.2
+-------------
 
-This version contains all fixes up to version 0.10.x.
+Released: 2022-04-09
 
-Released: not yet
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
 
-**Incompatible changes:**
+**Bug fixes:**
 
-**Deprecations:**
+* Added a tag 'infrastructure' to the collection metadata (tags field in
+  galaxy.yml) - Ansible Automation Hub requires at least one tag from a
+  standard tag list to be specified.
+
+* Added "make check" for running "flake8" since the "pep8" that is run as
+  part of the ansible sanity test does not find some issues.
+  Resolved those new issues.
+
+* Removed the "tools" directory from the temporary archive built for the sanity
+  test, and removed the ignore statements for "tools/os_setup.sh" from the
+  ignore files because the sanity test on AutomationHub tests against the
+  uploaded archive which does not have that script.
+
+
+Version 1.0.0
+-------------
+
+This version contains all fixes up to version 0.10.1.
+
+Released: 2022-04-08
+
+Availability: `Galaxy`_, `GitHub`_
 
 **Bug fixes:**
 
@@ -47,15 +68,23 @@ Released: not yet
 
 * Added support for Ansible 5.0.
 
+* Increased minimum version of zhmcclient from 0.31.0 to 1.2.0 in order to
+  pick up fixes and new functionality.
+
+* Docs: Increased minimum version of Sphinx to 4.1.0 to fix an issue with
+  renamed filters in Jinja2 3.1.0.
+
+* Docs/dev: Pinned voluptous to <0.13.0 on Python 2.7. Increased sphinx-versions
+  to 1.1.3.post-am2 for fix for Click 8.1.0. (issue #488)
+
 **Enhancements:**
 
-**Cleanup:**
+* Added a new zhmc_lpar Ansible module for managing LPARs on CPCs in classic
+  mode. (issue #418)
 
-**Known issues:**
-
-* See `list of open issues`_.
-
-.. _`list of open issues`: https://github.com/zhmcclient/zhmc-ansible-modules/issues
+* Added state values 'active' and 'inactive' to the zhmc_cpc Ansible module
+  for activating/starting and deactivating/stopping CPCs in their current
+  operational mode. (issue #418)
 
 
 Version 0.10.0
@@ -64,6 +93,8 @@ Version 0.10.0
 This version contains all fixes up to version 0.9.2.
 
 Released: 2021-06-17
+
+Availability: `Galaxy`_, `GitHub`_
 
 **Incompatible changes:**
 
@@ -494,5 +525,7 @@ This is the initial release.
    https://github.com/zhmcclient/zhmc-ansible-modules/releases
 .. _Galaxy:
    https://galaxy.ansible.com/ibm/ibm_zhmc
+.. _AutomationHub:
+   https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc
 .. _Pypi:
    https://pypi.org/project/zhmc-ansible-modules/

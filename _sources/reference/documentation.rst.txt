@@ -15,9 +15,9 @@ testing the modules, offering-specific reading, etc.
 .. toctree::
    :maxdepth: 1
 
-   Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
    z/OS core <../ibm_zos_core/docs/source/resources/resources>
    z/OS z/OSMF <../ibm_zosmf/docs/source/resources>
+   Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
 
 .. _Helpful Links:
    helpful_links.html

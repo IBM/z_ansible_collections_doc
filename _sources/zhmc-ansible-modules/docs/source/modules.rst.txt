@@ -40,6 +40,7 @@ Modules supported with CPCs in any operational mode:
    :glob:
 
    modules/zhmc_cpc
+   modules/zhmc_cpc_list
 
 Modules supported only with CPCs in DPM operational mode:
 
@@ -59,7 +60,12 @@ Modules supported only with CPCs in DPM operational mode:
 
 Modules supported only with CPCs in classic operational mode:
 
-* None
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   modules/zhmc_lpar
+   modules/zhmc_lpar_list
 
 You can also access the documentation of each module from the command line by
 using the `ansible-doc`_ command, for example:

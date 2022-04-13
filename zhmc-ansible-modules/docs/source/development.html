@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Contributing" href="../../../ibm_zos_core/docs/source/community_guides.html" />
-    <link rel="prev" title="Contributing" href="../../../reference/community.html" /> 
+    <link rel="next" title="Helpful Links" href="../../../reference/helpful_links.html" />
+    <link rel="prev" title="Contributing" href="../../../ibm_zosmf/docs/source/community_guides.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,12 +88,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">Beta - Z HMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">Z HMC</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -111,6 +111,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../reference/community.html">Contributing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/community_guides.html">z/OS core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/community_guides.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/community_guides.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/community_guides.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/community_guides.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#repository">Repository</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-the-development-environment">Setting up the development environment</a></li>
@@ -120,11 +125,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#starting-a-new-version">Starting a new version</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/community_guides.html">z/OS core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/community_guides.html">z/OS IMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/community_guides.html">z/OS CICS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/community_guides.html">z/OS Sys Auto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/community_guides.html">z/OS z/OSMF</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
@@ -439,7 +439,7 @@ it. This will cause it to appear in the Release tab.</p>
 <p>You need to be registered on Ansible Galaxy, and your userid there needs to
 be authorized to modify the ‘ibm’ namespace.</p>
 <p>Look up your API Key on <a class="reference external" href="https://galaxy.ansible.com/me/preferences">https://galaxy.ansible.com/me/preferences</a> and upload
-to galaxy while the <cite>GALAXY_TOKEN</cite> environment variable is set to your API
+to Galaxy while the <cite>GALAXY_TOKEN</cite> environment variable is set to your API
 Key:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">GALAXY_TOKEN</span><span class="o">={</span>your-galaxy-api-key<span class="o">}</span> make upload
 </pre></div>
@@ -449,7 +449,24 @@ Key:</p>
 without any development suffix) is shown.</p>
 <p><strong>Attention!!</strong> This only works once for each version. You cannot
 re-release the same version to Ansible Galaxy, or otherwise update it.</p>
-<p>Verify that the released version arrived on Ansible Galaxy at
+<p>Verify that the import on Ansible Galaxy succeeded, by checking the status
+at <a class="reference external" href="https://galaxy.ansible.com/my-imports">https://galaxy.ansible.com/my-imports</a> (you need to log in).</p>
+<p>Verify that the new version is shown on Ansible Galaxy at
+<a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc/">https://galaxy.ansible.com/ibm/ibm_zhmc/</a>.</p>
+</li>
+<li><p>Publish the collection to Ansible AutomationHub:</p>
+<p>You need to be registered on Ansible AutomationHub, and your userid there
+needs to be authorized to modify the ‘ibm’ namespace.</p>
+<p>Go to <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm">https://console.redhat.com/ansible/automation-hub/repo/published/ibm</a>
+and log in.</p>
+<p>Click the “Upload Collection” button and select the distribution archive
+<cite>dist/ibm-ibm_zhmc-M.N.U.tar.gz</cite> (which has been built by the previous step).</p>
+<p>The import page at
+<a class="reference external" href="https://console.redhat.com/ansible/automation-hub/my-imports?namespace=ibm">https://console.redhat.com/ansible/automation-hub/my-imports?namespace=ibm</a>
+should now show the new version with status “Pending”. Wait until the
+import processing has completed, and verify that it succeeded.</p>
+<p>The approval status should now be “waiting for approval”, and once it has
+been approved it should be public on Ansible AutomationHub at
 <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc/">https://galaxy.ansible.com/ibm/ibm_zhmc/</a></p>
 </li>
 </ol>
@@ -515,28 +532,30 @@ git checkout -b start_<span class="si">${</span><span class="nv">MNU</span><span
 </div>
 <p>and insert the following section before the top-most section, and update
 the version to a draft version of the version that is being started:</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Version M.N.U-dev1</span>
-<span class="gh">------------------</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Version M.N.U-dev1
+------------------
 
 This version contains all fixes up to version M.N-1.x.
 
 Released: not yet
 
-<span class="gs">**Incompatible changes:**</span>
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
 
-<span class="gs">**Deprecations:**</span>
+**Incompatible changes:**
 
-<span class="gs">**Bug fixes:**</span>
+**Deprecations:**
 
-<span class="gs">**Enhancements:**</span>
+**Bug fixes:**
 
-<span class="gs">**Cleanup:**</span>
+**Enhancements:**
 
-<span class="gs">**Known issues:**</span>
+**Cleanup:**
 
-<span class="m">*</span> See <span class="s">`list of open issues`_</span>.
+**Known issues:**
 
-<span class="p">..</span> <span class="nt">_`list of open issues`:</span> https://github.com/zhmcclient/zhmc-ansible-modules/issues
+* See `list of open issues`_.
+
+.. _`list of open issues`: https://github.com/zhmcclient/zhmc-ansible-modules/issues
 </pre></div>
 </div>
 </li>

@@ -88,7 +88,6 @@
 </ul>
 <p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Beta - Z HMC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
@@ -113,6 +112,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
@@ -302,7 +302,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>instance_info_json_path</dt><dd><p>Directory path for the JSON file that holds variables associated with software instance. Specify the file name that includes variables associated with the configured softare instance e.g. /tmp/myVar.json. File contains json array of variables with name, value and visibility format where name identifies variable name, value identifies variable value and visibility identifies whether variable is “public” or “private”. For example,</p>
+<dt>instance_var_json_path</dt><dd><p>Directory path for the JSON file that holds variables associated with software instance. Specify the file name that includes variables associated with the configured softare instance e.g. /tmp/myVar.json. File contains json array of variables with name, value and visibility format where name identifies variable name, value identifies variable value and visibility identifies whether variable is “public” or “private”. For example,</p>
 <p><code class="docutils literal notranslate"><span class="pre">[</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;name&quot;:&quot;VAR1&quot;,</span></code></p>
