@@ -14,9 +14,9 @@ how to contribute.
 .. toctree::
    :maxdepth: 1
 
-   Z HMC </../zhmc-ansible-modules/docs/source/development>
    z/OS core </../ibm_zos_core/docs/source/community_guides>
    z/OS IMS </../ibm_zos_ims/docs/source/community_guides>
    z/OS CICS </../ibm_zos_cics/docs/source/community_guides>
    z/OS Sys Auto <../ibm_zos_sysauto/docs/source/community_guides>
    z/OS z/OSMF <../ibm_zosmf/docs/source/community_guides>
+   Z HMC </../zhmc-ansible-modules/docs/source/development>
