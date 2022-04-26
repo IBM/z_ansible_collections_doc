@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -33,6 +33,8 @@
   
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="ims_psb_gen – Generate IMS PSB" href="ims_psb_gen.html" />
@@ -80,13 +82,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -114,11 +116,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -126,7 +128,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
@@ -287,55 +289,55 @@
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sample DBRC Single Command</span>
-  <span class="nt">ims_dbrc</span><span class="p">:</span>
-    <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span>
-    <span class="nt">steplib</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span>
-    <span class="nt">dbd_lib</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span>
-    <span class="nt">genjcl_input_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span>
-    <span class="nt">genjcl_output_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span>
-    <span class="nt">dynamic_allocation_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DYNALLOC</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample DBRC Single Command</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ims_dbrc</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_input_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_output_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dynamic_allocation_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DYNALLOC</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sample DBRC Multiple Commands with dynamic_allocation_dataset Specified</span>
-  <span class="nt">ims_dbrc</span><span class="p">:</span>
-    <span class="nt">command</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LIST.DB ALL</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LIST.DBDS DBD(CUSTOMER)</span>
-    <span class="nt">steplib</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span>
-    <span class="nt">dbd_lib</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span>
-    <span class="nt">genjcl_input_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span>
-    <span class="nt">genjcl_output_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span>
-    <span class="nt">dynamic_allocation_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.SDFSRESL</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample DBRC Multiple Commands with dynamic_allocation_dataset Specified</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ims_dbrc</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LIST.DB ALL</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LIST.DBDS DBD(CUSTOMER)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_input_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_output_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dynamic_allocation_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.SDFSRESL</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sample DBRC Multiple Commands with RECON specified</span>
-  <span class="nt">ims_dbrc</span><span class="p">:</span>
-    <span class="nt">command</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">INIT.DB DBD(TESTDB)</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DELETE.DB DBD(TESTDB)</span>
-    <span class="nt">steplib</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span>
-    <span class="nt">dbd_lib</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span>
-    <span class="nt">genjcl_input_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span>
-    <span class="nt">genjcl_output_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span>
-    <span class="nt">recon1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON1</span>
-    <span class="nt">recon2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON2</span>
-    <span class="nt">recon3</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample DBRC Multiple Commands with RECON specified</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ims_dbrc</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LIST.RECON STATUS</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INIT.DB DBD(TESTDB)</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DELETE.DB DBD(TESTDB)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTU.IMS1501.MARKER</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.EXITLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTG.IMS15R.TSTRES</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.IMS15R.USERLIB</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSBLD.I15RTSMM.CRESLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.DBDLIB</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_input_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.GENJCL</span><span class="w"></span>
+<span class="w">    </span><span class="nt">genjcl_output_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.JCLOUT</span><span class="w"></span>
+<span class="w">    </span><span class="nt">recon1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">recon2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">recon3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMSTESTL.IMS1.RECON3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

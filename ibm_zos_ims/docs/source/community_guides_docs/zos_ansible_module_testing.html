@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -33,6 +33,8 @@
   
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Contributing" href="../../../../ibm_zos_cics/docs/source/community_guides.html" />
@@ -80,13 +82,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -95,11 +97,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -107,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../reference/community.html">Contributing</a><ul class="current">
@@ -283,22 +285,22 @@ run the command with the additional <code class="docutils literal notranslate"><
 </tbody>
 </table>
 <p>Example YAML configuration:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">some.host.name</span>
-<span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myuser</span>
-<span class="nt">python_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/lpp/IBM/cyp/v3r8/pyz</span>
-<span class="nt">environment</span><span class="p">:</span>
-  <span class="nt">_BPXK_AUTOCVT</span><span class="p">:</span> <span class="s">&quot;ON&quot;</span>
-  <span class="nt">_CEE_RUNOPTS</span><span class="p">:</span> <span class="s">&quot;&#39;FILETAG(AUTOCVT,AUTOTAG)</span><span class="nv"> </span><span class="s">POSIX(ON)&#39;&quot;</span>
-  <span class="nt">_TAG_REDIR_ERR</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">txt</span>
-  <span class="nt">_TAG_REDIR_IN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">txt</span>
-  <span class="nt">_TAG_REDIR_OUT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">txt</span>
-  <span class="nt">LANG</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-  <span class="nt">ZOAU_ROOT</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span>
-  <span class="nt">ZOAU_HOME</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span>
-  <span class="nt">LIBPATH</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil/lib:/usr/lpp/IBM/cyp/v3r8/pyz/lib:/lib:/usr/lib:.&quot;</span>
-  <span class="nt">ZOAUTIL_DIR</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span>
-  <span class="nt">PYTHONPATH</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil/lib&quot;</span>
-  <span class="nt">PATH</span><span class="p">:</span> <span class="s">&quot;/usr/lpp/IBM/zoautil/bin:/usr/lpp/IBM/cyp/v3r8/pyz/bin:/bin:/var/bin&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some.host.name</span><span class="w"></span>
+<span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myuser</span><span class="w"></span>
+<span class="nt">python_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lpp/IBM/cyp/v3r8/pyz</span><span class="w"></span>
+<span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">_BPXK_AUTOCVT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ON&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">_CEE_RUNOPTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;FILETAG(AUTOCVT,AUTOTAG)</span><span class="nv"> </span><span class="s">POSIX(ON)&#39;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">_TAG_REDIR_ERR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">txt</span><span class="w"></span>
+<span class="w">  </span><span class="nt">_TAG_REDIR_IN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">txt</span><span class="w"></span>
+<span class="w">  </span><span class="nt">_TAG_REDIR_OUT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">txt</span><span class="w"></span>
+<span class="w">  </span><span class="nt">LANG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ZOAU_ROOT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ZOAU_HOME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">LIBPATH</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil/lib:/usr/lpp/IBM/cyp/v3r8/pyz/lib:/lib:/usr/lib:.&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ZOAUTIL_DIR</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">PYTHONPATH</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil/lib&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">PATH</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lpp/IBM/zoautil/bin:/usr/lpp/IBM/cyp/v3r8/pyz/bin:/bin:/var/bin&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -316,11 +318,11 @@ or <code class="docutils literal notranslate"><span class="pre">-z</span></code>
 directory as <strong>test-config.yaml</strong>.</p>
 <p>In this example, the path to the YAML configuration is <strong>/home/myuser/test_config.yml</strong>.</p>
 <p>If the environment is using Python 2 or Python 3 is not present in the host PATH:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ python3 -m pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ python3 -m pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If the environment is configured with Python 3:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -335,11 +337,11 @@ unit tests folder:</p>
 </pre></div>
 </div>
 <p>If the environment is using Python 2 or Python 3 is not in the host PATH:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ python3 -m pytest</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ python3 -m pytest</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If the environment is configured with Python 3:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -403,7 +405,7 @@ tests folder to run the test with the added module directory.</p>
 </pre></div>
 </div>
 <p>If the environment is configured with Python 3:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ pytest --host-pattern=all --zinventory=/home/myuser/test_config.yml</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

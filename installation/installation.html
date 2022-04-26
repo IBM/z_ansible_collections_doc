@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -33,6 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Playbooks" href="../playbooks/playbooks.html" />
@@ -80,7 +82,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
@@ -96,7 +98,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -105,11 +107,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../release/release.html">Releases</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -117,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/community.html">Contributing</a></li>
@@ -303,20 +305,20 @@ be always consistent with what is available on Ansible Galaxy server.</p>
 </div>
 <p>The following example shows a configuration for Automation Hub, a private
 running Galaxy server, and Galaxy:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">galaxy</span><span class="p p-Indicator">]</span>
-<span class="l l-Scalar l-Scalar-Plain">server_list = automation_hub, galaxy, private_galaxy</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">galaxy</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">server_list = automation_hub, galaxy, private_galaxy</span><span class="w"></span>
 
-<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.automation_hub]</span>
-<span class="l l-Scalar l-Scalar-Plain">url=https://cloud.redhat.com/api/automation-hub/</span>
-<span class="l l-Scalar l-Scalar-Plain">auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token</span>
-<span class="l l-Scalar l-Scalar-Plain">token=&lt;hub_token&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.automation_hub]</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://cloud.redhat.com/api/automation-hub/</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">token=&lt;hub_token&gt;</span><span class="w"></span>
 
-<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.galaxy]</span>
-<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy.ansible.com/</span>
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.galaxy]</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy.ansible.com/</span><span class="w"></span>
 
-<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.private_galaxy]</span>
-<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy-dev.ansible.com/</span>
-<span class="l l-Scalar l-Scalar-Plain">token=&lt;private_token&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.private_galaxy]</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy-dev.ansible.com/</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">token=&lt;private_token&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>For more configuration information, see

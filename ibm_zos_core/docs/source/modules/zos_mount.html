@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -33,6 +33,8 @@
   
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_mvs_raw – Run a z/OS program." href="zos_mvs_raw.html" />
@@ -80,13 +82,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
@@ -128,11 +130,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -140,7 +142,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
@@ -398,93 +400,93 @@
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unmount a filesystem.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">unmounted</span>
-    <span class="nt">unmount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">REMOUNT</span>
-    <span class="nt">opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">same</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unmount a filesystem.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unmounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">unmount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REMOUNT</span><span class="w"></span>
+<span class="w">    </span><span class="nt">opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem readonly.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">mount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RO</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem readonly.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RO</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">persistent</span><span class="p">:</span>
-        <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
-        <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">persistent</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">data_store</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span><span class="w"></span>
+<span class="w">        </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA after backing up to BPXPRMAB.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">persistent</span><span class="p">:</span>
-        <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
-        <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Yes</span>
-        <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAB)</span>
-        <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA after backing up to BPXPRMAB.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">persistent</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">data_store</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span><span class="w"></span>
+<span class="w">        </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yes</span><span class="w"></span>
+<span class="w">        </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAB)</span><span class="w"></span>
+<span class="w">        </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem ignoring uid/gid values.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">allow_uid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem ignoring uid/gid values.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">allow_uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem asynchronously (don&#39;t wait for completion).</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nowait</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem asynchronously (don&#39;t wait for completion).</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nowait</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem with no security checks.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">mount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NOSECURITY</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem with no security checks.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NOSECURITY</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to 4 devices.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">automove</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
-    <span class="nt">automove_list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">I,DEV1,DEV2,DEV3,DEV9</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to 4 devices.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">automove_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">I,DEV1,DEV2,DEV3,DEV9</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to all except 4 devices.</span>
-  <span class="nt">zos_mount</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">automove</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
-    <span class="nt">automove_list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EXCLUDE,DEV4,DEV5,DEV6,DEV7</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to all except 4 devices.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span><span class="w"></span>
+<span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZFS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span><span class="w"></span>
+<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">automove_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EXCLUDE,DEV4,DEV5,DEV6,DEV7</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -557,7 +559,7 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -576,11 +578,11 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">[</span>
-        <span class="s2">&quot;u\u0027I did this because..\u0027&quot;</span>
-    <span class="p">]</span>
-<span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;u\u0027I did this because..\u0027&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -629,7 +631,7 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -683,9 +685,9 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="s2">&quot;u\&quot;MOUNT FILESYSTEM( \u0027source-dataset\u0027 ) MOUNTPOINT( \u0027/uss-path\u0027 ) TYPE( ZFS )\&quot;&quot;</span>
-<span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;u\&quot;MOUNT FILESYSTEM( \u0027source-dataset\u0027 ) MOUNTPOINT( \u0027/uss-path\u0027 ) TYPE( ZFS )\&quot;&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -697,11 +699,11 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;u\&quot;FileNotFoundError&quot;</span><span class="p">:</span> <span class="s2">&quot;No such file or directory \u0027/tmp/foo\u0027\&quot;&quot;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;u\&quot;FileNotFoundError&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No such file or directory \u0027/tmp/foo\u0027\&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>

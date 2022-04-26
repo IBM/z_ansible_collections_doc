@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -33,6 +33,8 @@
   
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_ping – Ping z/OS and check dependencies." href="zos_ping.html" />
@@ -80,13 +82,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
@@ -127,11 +129,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -139,7 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
@@ -255,23 +257,23 @@
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages issued on system MV2H</span>
-  <span class="nt">zos_operator_action_query</span><span class="p">:</span>
-      <span class="nt">system</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mv2h</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages issued on system MV2H</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mv2h</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages whose job name begin with im5</span>
-  <span class="nt">zos_operator_action_query</span><span class="p">:</span>
-      <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">im5*</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages whose job name begin with im5</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">im5*</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages whose message id begin with dsi*</span>
-  <span class="nt">zos_operator_action_query</span><span class="p">:</span>
-      <span class="nt">message_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dsi*</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages whose message id begin with dsi*</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">message_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsi*</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages given job_name, message_id, system</span>
-  <span class="nt">zos_operator_action_query</span><span class="p">:</span>
-      <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mq*</span>
-      <span class="nt">message_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dsi*</span>
-      <span class="nt">system</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mv29</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages given job_name, message_id, system</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mq*</span><span class="w"></span>
+<span class="w">      </span><span class="nt">message_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsi*</span><span class="w"></span>
+<span class="w">      </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mv29</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -308,26 +310,26 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;job_id&quot;</span><span class="p">:</span> <span class="s2">&quot;STC01537&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;IM5HCONN&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;HWSC0000I&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;message_text&quot;</span><span class="p">:</span> <span class="s2">&quot;*399 HWSC0000I *IMS CONNECT READY* IM5HCONN&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;001&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;MV27&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;job_id&quot;</span><span class="p">:</span> <span class="s2">&quot;STC01533&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;IM5HCTRL&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;DFS3139I&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;message_text&quot;</span><span class="p">:</span> <span class="s2">&quot;*400 DFS3139I IMS INITIALIZED, AUTOMATIC RESTART PROCEEDING IM5H&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;002&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;MV27&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STC01537&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IM5HCONN&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HWSC0000I&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message_text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*399 HWSC0000I *IMS CONNECT READY* IM5HCONN&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;001&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MV27&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STC01533&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IM5HCTRL&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DFS3139I&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message_text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*400 DFS3139I IMS INITIALIZED, AUTOMATIC RESTART PROCEEDING IM5H&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;002&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MV27&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
