@@ -135,7 +135,9 @@ html_theme_options = {
     #'titles_only': False
 }
 
-
+html_static_path = ["_static"]
+#html_js_files = ['cookie_policy.js','button.js','https://www.shift4shop.com/lp/cookie-law-generator/cookie.js?skin=cookielaw4','https://consent.cookiefirst.com/sites/ibm.github.io-e3b380d6-16ff-468d-8905-5324be0b837f/consent.js']
+html_js_files = ['https://www.googletagmanager.com/gtag/js?id=G-MRRYD334NG']
 ##############################################################################
 #                          sphinx-versioning                                 #
 ##############################################################################
