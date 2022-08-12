@@ -51,4 +51,4 @@ collections:
     git: git@github.com:IBM/ibm_zosmf.git
     stable:
     latest: dev
-    origin: dev
+    origin: main
