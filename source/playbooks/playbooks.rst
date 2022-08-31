@@ -9,9 +9,9 @@ Playbooks
 An `Ansible playbook`_ consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.
 
-There are **many** playbooks available in our GitHub`samples repository`_
+There are **many** playbooks available in our GitHub `samples repository`_
 contributed by the **Red Hat Ansible Certified Content for IBM Z** team. The
-GitHub samples repository contain playbooks that  demonstrate various topics
+GitHub samples repository contain playbooks that demonstrate various topics
 such as:
 
 * `Z Systems Administration <https://github.com/IBM/z_ansible_collections_samples#z-topics>`_
@@ -117,6 +117,3 @@ ERROR, DEBUG.
    easy to determine if a sample has access to the host's resources.
    Review the playbook notes sections for additional details and
    configuration.
-
-
-
