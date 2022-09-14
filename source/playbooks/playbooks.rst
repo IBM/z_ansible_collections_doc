@@ -39,9 +39,7 @@ in the `samples repository`_.
 .. _Ansible playbook:
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
 .. _samples repository:
-   https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md
-.. _IMS:
-   https://github.com/IBM/z_ansible_collections_samples/tree/master/ims
+   https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md
 .. _activity subscriptions:
    https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github
 
