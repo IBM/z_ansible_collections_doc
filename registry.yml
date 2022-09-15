@@ -26,7 +26,7 @@ collections:
     git: git@github.com:ansible-collections/ibm_zos_core.git
     stable:
     latest: doc/temp-for-1.3.3
-    origin: master
+    origin: main
   ibm_zos_ims:
     git: git@github.com:ansible-collections/ibm_zos_ims.git
     stable:
