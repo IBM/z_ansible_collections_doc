@@ -21,4 +21,4 @@ assignees: itsBryantP, ddimatos
 <!--- Include additional information for the admins or questions you would like to ask the admins -->
 
 ##### UPDATE REGISTRY.YML
-<!--- Update the [registry.yml](https://github.com/IBM/z_ansible_collections_doc/blob/master/registry.yml) with the required content, see the comments in *registry.yml* -->
+<!--- Update the [registry.yml](https://github.com/IBM/z_ansible_collections_doc/blob/main/registry.yml) with the required content, see the comments in *registry.yml* -->
