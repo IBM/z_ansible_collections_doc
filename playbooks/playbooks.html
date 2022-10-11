@@ -1,34 +1,69 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playbooks &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Playbooks &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="z/OS Core" href="../ibm_zos_core/docs/ansible_content.html" />
     <link rel="prev" title="Installation" href="../installation/installation.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -36,7 +71,17 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
@@ -80,30 +125,63 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
+            
+          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
       <li>Playbooks</li>
+    
+    
 
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="playbooks">
-<h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline"></a></h1>
+            
+  <div class="section" id="playbooks">
+<h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline">¶</a></h1>
 <p>An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for
 a managed node (host) to be managed with Ansible.</p>
 <p>There are <strong>many</strong> playbooks available in our GitHub`samples repository`_
@@ -131,39 +209,39 @@ and <strong>host_vars</strong> can be tailored to your environment. Each sample 
 include all the necessary content that is needed to run a sample playbook.
 For more information, refer to the documentation included with each sample
 in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a>.</p>
-<section id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline"></a></h2>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html">basic concepts</a> common to playbooks, the artifacts needed to run a
 playbook such as <strong>inventory</strong> and <strong>variables</strong>, instructions on how
 to run a playbook, and run it in the debug mode are discussed in
 the following sections.</p>
-<section id="inventory">
-<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline"></a></h3>
+<div class="section" id="inventory">
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h3>
 <p>Ansible works with multiple managed nodes (hosts) that must be written into a
 list known as <strong>inventory</strong>. After the inventory is defined, you
 can use the patterns to select the hosts or groups that you want Ansible to
 manage. Review the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">inventory section</a> in the corresponding documentation to
 learn more about how inventory is defined.</p>
-</section>
-<section id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>Host variables (host_vars) enable you to <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#organizing-host-and-group-variables">manage the variables</a> and organize the
 the variable values easily. Host variables can be stored either in the
 <strong>inventory</strong> file or separate <strong>host_vars</strong> or <strong>group_vars</strong> variable files.
 Each sample in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/master/README.md">samples repository</a> can vary on which <strong>host_vars</strong> or
 <strong>group_vars</strong> are required. For more information, review the documentation that is included with
 each sample.</p>
-</section>
-<section id="run-a-playbook">
-<h3>Run a playbook<a class="headerlink" href="#run-a-playbook" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="run-a-playbook">
+<h3>Run a playbook<a class="headerlink" href="#run-a-playbook" title="Permalink to this headline">¶</a></h3>
 <p>Use the Ansible command <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> to run a playbook.  The
 command syntax is <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">&lt;inventory&gt;</span> <span class="pre">&lt;playbook&gt;</span></code>; for example,
 <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">inventory</span> <span class="pre">sample.yaml</span></code>.</p>
 <p>For further reading, review <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook">run your first command and playbook</a> and follow
 up with <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks">about playbooks</a>.</p>
-</section>
-<section id="debugging">
-<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
 <p>Optionally, you can configure the console logging verbosity during playbook
 execution. This is helpful in situations where communication is failing and
 you want to obtain more details. To adjust the logging verbosity, append more
@@ -181,33 +259,47 @@ easy to determine if a sample has access to the host’s resources.
 Review the playbook notes sections for additional details and
 configuration.</p>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright IBM Corporation 2020, 2021.</p>
-  </div>
+    <p>
+        &copy; Copyright IBM Corporation 2020, 2021
 
-   
+    </p>
+  </div> 
 
 </footer>
+
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Requirements &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>Ibm.Ibm_Zosmf Release Notes &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -36,9 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Control node" href="../ibm_zosmf/docs/source/requirements_control.html" />
-    <link rel="prev" title="Red Hat Ansible Certified Content for IBM Z" href="../index.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,23 +81,8 @@
             
             
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#control-node">Control node</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#managed-node">Managed node</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
@@ -109,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
@@ -174,7 +157,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Requirements</li>
+      <li>Ibm.Ibm_Zosmf Release Notes</li>
     
     
 
@@ -186,58 +169,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="requirements">
-<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<p>Before you install any IBM® z/OS® collection, you must configure a
-<strong>control node</strong> and <strong>managed node</strong> with a minimum set of requirements. The
-following sections detail the specific software requirements for the control and
-managed nodes.</p>
-<div class="section" id="control-node">
-<h2>Control node<a class="headerlink" href="#control-node" title="Permalink to this headline">¶</a></h2>
-<p>A control node is any machine with Ansible® installed. From the control node,
-you can run commands and playbooks from a laptop, desktop, or server. However,
-Windows® is not a supported controller for Ansible collections managing a z/OS
-node.</p>
-<p>All IBM z/OS collections require these versions of software:</p>
+  <div class="section" id="ibm-ibm-zosmf-release-notes">
+<h1><a class="toc-backref" href="#id5">Ibm.Ibm_Zosmf Release Notes</a><a class="headerlink" href="#ibm-ibm-zosmf-release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="topics">
+<p class="topic-title">Topics</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ibm-ibm-zosmf-release-notes" id="id5">Ibm.Ibm_Zosmf Release Notes</a></p>
 <ul>
-<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible version</a>: 2.9 or later</p></li>
-<li><p><a class="reference external" href="https://www.python.org/downloads">Python</a>: 2.7 or later</p></li>
-<li><p><a class="reference external" href="https://www.openssh.com/">OpenSSH</a></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Modules which can have Ansible tasks delegated to a localhost need not
-have OpenSSH enabled. Such modules often rely on a REST API for automation.
-Refer to the collections listed in the <strong>Managed node</strong> section
-to review which collections leverage a REST endpoint.</p></li>
+<li><p><a class="reference internal" href="#v1-2-1" id="id6">v1.2.1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#major-changes" id="id7">Major Changes</a></p></li>
 </ul>
-</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="#v1-2-0" id="id8">v1.2.0</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id9">Major Changes</a></p></li>
+<li><p><a class="reference internal" href="#new-modules" id="id10">New Modules</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#v1-1-0" id="id11">v1.1.0</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id12">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#new-roles" id="id13">New Roles</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#v1-0-1" id="id14">v1.0.1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id15">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id16">New Roles</a></p></li>
+</ul>
 </li>
 </ul>
-<p>Each offering in the <strong>Red Hat® Ansible Certified Content for IBM Z</strong> offering
-can vary in terms of the requirements for the control node. Select one of the
-following offerings to learn more about the specific dependencies and
-required/supported software versions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
+</li>
+</ul>
+</div>
+<div class="section" id="v1-2-1">
+<h2><a class="toc-backref" href="#id6">v1.2.1</a><a class="headerlink" href="#v1-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="major-changes">
+<h3><a class="toc-backref" href="#id7">Major Changes</a><a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Removed dependency on Requests library for Python on the control node.</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="managed-node">
-<h2>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h2>
-<p>A managed node is often referred to as a target node, or host, and it is managed
-by Ansible. Ansible need not be installed on a managed node.
-Each offering in the IBM z/OS collections varies in terms of the requirements for
-the managed node. Select one of the following offerings to learn
-more about the specific dependencies and required/supported software versions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
+<div class="section" id="v1-2-0">
+<h2><a class="toc-backref" href="#id8">v1.2.0</a><a class="headerlink" href="#v1-2-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id9">Major Changes</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Updated module <cite>zmf_sca</cite> which adds support for the security requirements provision.</p></li>
+</ul>
+</div>
+<div class="section" id="new-modules">
+<h3><a class="toc-backref" href="#id10">New Modules</a><a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zosmf.zmf_sca - Automate z/OS security requirements validation and provision</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-0">
+<h2><a class="toc-backref" href="#id11">v1.1.0</a><a class="headerlink" href="#v1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id12">New Modules</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zosmf.zmf_sca - Automate z/OS security requirements validation and provision</p></li>
+</ul>
+</div>
+<div class="section" id="new-roles">
+<h3><a class="toc-backref" href="#id13">New Roles</a><a class="headerlink" href="#new-roles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zosmf.zmf_cpm_create_software_instance - Role creates a z/OS software instance</p></li>
+<li><p>ibm.ibm_zosmf.zmf_cpm_get_software_instance - Role get specific z/OS software instance</p></li>
+<li><p>ibm.ibm_zosmf.zmf_cpm_list_software_templates - Role lists all published z/OS software templates</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-1">
+<h2><a class="toc-backref" href="#id14">v1.0.1</a><a class="headerlink" href="#v1-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id15">New Modules</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zosmf.zmf_authenticate - Authenticate with z/OSMF server</p></li>
+<li><p>ibm.ibm_zosmf.zmf_workflow - Operate z/OS workflows</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id16">New Roles</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zosmf.zmf_cpm_manage_software_instance - Role manages a provisioned z/OS software instance</p></li>
+<li><p>ibm.ibm_zosmf.zmf_cpm_provision_software_service - Role provisions a z/OS software service</p></li>
+<li><p>ibm.ibm_zosmf.zmf_cpm_remove_software_instance - Role removes a z/OS software instance</p></li>
+<li><p>ibm.ibm_zosmf.zmf_workflow_complete - Role completes a z/OS workflow</p></li>
 </ul>
 </div>
 </div>
