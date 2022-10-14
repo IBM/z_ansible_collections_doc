@@ -246,7 +246,7 @@
 <p>USS means the JCL location is located in UNIX System Services (USS).</p>
 <p>LOCAL means locally to the ansible control node.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: DATA_SET</div>
 <div class="line"><strong>choices</strong>: DATA_SET, USS, LOCAL</div>
@@ -657,7 +657,8 @@
 </dd>
 <dt>content</dt><dd><p>The ddname content.</p>
 <div class="line-block">
-<div class="line"><strong>type</strong>: list[str]</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
