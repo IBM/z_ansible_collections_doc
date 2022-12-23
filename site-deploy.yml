@@ -42,7 +42,7 @@
           git commit -m "Automated commit to update documentation"
           git push -f
           cd ../..
-          git checkout master
+          git checkout main
           git status
           git submodule update
       register: git_update_doc
