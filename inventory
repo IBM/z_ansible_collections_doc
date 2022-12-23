@@ -2,3 +2,4 @@ system:
   hosts:
     local:
       ansible_host: localhost
+      # ansible_python_interpreter: ~/ansible_versions/3_8_13/ansible-doc/bin/python
