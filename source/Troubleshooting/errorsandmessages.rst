@@ -79,7 +79,7 @@ environment variables for your managed node. Refer to the following
 defined.
 
 .. _configuration guide:
-    https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md
+    https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md
 
 
 What causes this error during the playbook execution? How do I fix it?

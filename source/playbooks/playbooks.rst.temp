@@ -28,7 +28,7 @@ refer to the installation path as ``~/.ansible/collections/ibm/ibm_zos_core``.
 .. _Ansible playbook:
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
 .. _playbooks directory:
-   https://github.com/ansible-collections/ibm_zos_core/tree/master/playbooks
+   https://github.com/ansible-collections/ibm_zos_core/tree/main/playbooks
 .. _installation documentation:
    installation.html
 

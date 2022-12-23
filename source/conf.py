@@ -110,7 +110,7 @@ html_context = {
     "display_github": "False",
     "github_user": "ansible-collections",
     "github_repo": "ibm_zos_core",
-    "github_version": "master",
+    "github_version": "main",
     "conf_py_path": "/docs/source/",
 }
 
@@ -166,7 +166,7 @@ html_theme_options = {
 ### scv_whitelist_branches = ('release-v1.1.0-beta1',)
 
 # Since all branches are whitelisted, a 'root_ref' must be specified to avoid
-# the error: "Root ref master not found in: v1.0.0 v1.1.0-beta1". The simplest
+# the error: "Root ref main not found in: v1.0.0 v1.1.0-beta1". The simplest
 # solution is to provide a known tagged branch to serve as the root_ref such
 # as 'v1.0.0'.
 # UPDATE: Able to avoid 'root_ref' by setting property 'scv_recent_tag= True'
@@ -175,15 +175,15 @@ html_theme_options = {
 
 # Override root-ref to be the most recent committed tag. If no tags have docs
 # then this option is ignored and --root-ref is used. Since we whitelist the
-# master branch, we need to set a "root_ref" to avoid error
-# "Root ref master not found in: v1.0.0 v1.1.0-beta1", See also 'scv_root_ref'.
+# main branch, we need to set a "root_ref" to avoid error
+# "Root ref main not found in: v1.0.0 v1.1.0-beta1", See also 'scv_root_ref'.
 # UPDATE: Able to avoid 'root_ref' by setting property 'scv_greatest_tag= True'
 # thus commenting out scv_recent_tag = True'.
 # scv_recent_tag = True
 
 # Override root-ref to be the tag with the highest version number. If no tags
 # have docs then this option is ignored and --root-ref is used. Since we
-# whitelist the master branch, we need to set a root_ref.
+# whitelist the main branch, we need to set a root_ref.
 # See also 'scv_root_ref
 ### scv_greatest_tag = True
 
@@ -202,7 +202,7 @@ scv_sort = ('semver',)
 ### scv_show_banner = True
 
 # The branch/tag considered to be the latest/current version. The banner will
-# not be displayed in this ref, only in all others. Default is master.
+# not be displayed in this ref, only in all others. Default is main.
 # This can override the scv_banner_greatest_tag option, but given the greatest
 # tag is currently desired behavior, this site will rely on
 # 'scv_banner_greatest_tag = True' and not use 'scv_banner_main_ref'

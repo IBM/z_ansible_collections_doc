@@ -71,8 +71,3 @@ by building the collections from source available on GitHub.
 .. . Disabled for the time being
 .. ..........................................................................
 ..   howdoi/howdoi
-
-
-
-
-
