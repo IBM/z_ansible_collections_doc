@@ -16,7 +16,7 @@
 ##############################################################################
 
 project = 'Red Hat Ansible Certified Content for IBM Z'
-copyright = 'IBM Corporation 2020, 2021'
+copyright = 'IBM Corp. 2020, 2023'
 author = 'IBM'
 
 # Disable the Copyright footer for Read the docs at the bottom of the page
