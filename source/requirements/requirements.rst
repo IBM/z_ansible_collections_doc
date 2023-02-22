@@ -23,7 +23,7 @@ All IBM z/OS collections are either `Ansible Automation Platform Certified Conte
 with the `AAP Life Cycle`_ which currently is Ansible versions 2.9 - 2.14. For
 support, the controller must use the supported version of Ansible and when applicable
 the collections dependencies. Review the `Ansible Automation Platform Certified Content`_
-to determine which versions of Ansible a collection is supporting.q
+to determine which versions of Ansible a collection is supporting.
 
 IBM z/OS collections minimally require these versions of software, for additional
 supported versions review `Ansible Automation Platform Certified Content`_.
