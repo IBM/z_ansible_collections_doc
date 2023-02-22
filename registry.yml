@@ -45,7 +45,7 @@ collections:
   ibm_zos_sysauto:
     git: git@github.com:ansible-collections/ibm_zos_sysauto.git
     stable:
-    latest: v1.0.0
+    latest: v1.0.1
     origin: main
   ibm_zosmf:
     git: git@github.com:IBM/ibm_zosmf.git
