@@ -105,27 +105,33 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS z/OSMF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id3">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id5">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id6">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id7">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id8">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -208,12 +214,26 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-2-1">
-<h2>Version 1.2.1<a class="headerlink" href="#version-1-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-3-0">
+<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes">
 <h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Removed dependency on Requests library for Python on the control node.</p></li>
+<li><p>Added a new z/OSMF Software Management role <a class="reference external" href="roles/zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates</a> to determine if a software
+instance is missing software updates to resolve PE PTFs, HIPER fixes, or other exception SYSMODs identified by ERROR
+HOLDDATA.  It also helps you identify the SYSMODs that resolve those exceptions.</p></li>
+<li><p>Added a new z/OSMF Software Management role <a class="reference external" href="roles/zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates</a> to determine if a software
+instance is missing updates for fix categories that might be applicable to the software instance.  It also helps you
+identify the SYSMODs that resolve the missing updates.</p></li>
+<li><p>Added a new z/OSMF Software Management role <a class="reference external" href="roles/zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates</a> to search a software instance for one
+or more software updates  to determine which updates are installed or updates that need to be installed.</p></li>
+<li><p>New roles</p>
+<ul>
+<li><p><a class="reference external" href="roles/zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates</a></p></li>
+<li><p><a class="reference external" href="roles/zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates</a></p></li>
+<li><p><a class="reference external" href="roles/zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="availability">
@@ -224,20 +244,21 @@
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The new software management roles only work with z/OSMF V2R5 and above with the APAR PH47050 installed.</p></li>
+<li><p>The new software management roles require proper input values and users who will use these roles should be provided
+appropriate access on z/OS system.</p></li>
+</ul>
 </div>
-<div class="section" id="version-1-2-0">
-<h2>Version 1.2.0<a class="headerlink" href="#version-1-2-0" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="version-1-2-1">
+<h2>Version 1.2.1<a class="headerlink" href="#version-1-2-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which adds support for provisioning security requirements.</p></li>
-<li><p>The updated module zmf_sca is based on the REST API of the z/OSMF Security Configuration Assistant (SCA) with APAR PH47746.
-SCA supports the json format of the security descriptor file. This file can be used to document security requirements
-by function or by product. With the security descriptor file that is easy to create,
-SCA is able to display and automatically provision security requirements in a flexible granularity,
-either by individual requirement, by function or by product. SCA is based on the SAF interface,
-therefore it supports all SAF based security products in most cases. To learn more about z/OSMF SCA, please refer to
-<a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/river-jia/2021/07/25/zosmf-security-configuration-assistant">SCA blog</a> and the <a class="reference external" href="https://mediacenter.ibm.com/media/Use+z+OSMF+to+validate+security+of+DFSMS/1_17jzrqtg/101043781">SCA demo</a> in IBM MediaCenter.</p></li>
+<li><p>Removed dependency on Requests library for Python on the control node.</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
@@ -248,37 +269,20 @@ therefore it supports all SAF based security products in most cases. To learn mo
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The updated module zmf_sca requires that z/OSMF SCA is configured properly.
-For the required configuration of z/OSMF SCA, please refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-security-configuration-assistant-service">z/OSMF SCA Configuration</a></p></li>
-<li><p>The updated module zmf_sca only works with z/OSMF V2R4 and above with the APAR PH47746 installed.</p></li>
-</ul>
 </div>
-</div>
-<div class="section" id="version-1-1-0">
-<h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-2-0">
+<h2>Version 1.2.0<a class="headerlink" href="#version-1-2-0" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
 <h3>Notes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Added a new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which starts with the security validation.</p></li>
-<li><p>The new module zmf_sca is based on the REST API of the z/OSMF Security Configuration Assistant (SCA).
+<li><p>Updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which adds support for provisioning security requirements.</p></li>
+<li><p>The updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> is based on the REST API of the z/OSMF Security Configuration Assistant (SCA) with APAR PH47746.
 SCA supports the json format of the security descriptor file. This file can be used to document security requirements
 by function or by product. With the security descriptor file that is easy to create,
-SCA is able to display and automatically validate security requirements in a flexible granularity,
+SCA is able to display and automatically provision security requirements in a flexible granularity,
 either by individual requirement, by function or by product. SCA is based on the SAF interface,
 therefore it supports all SAF based security products in most cases. To learn more about z/OSMF SCA, please refer to
 <a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/river-jia/2021/07/25/zosmf-security-configuration-assistant">SCA blog</a> and the <a class="reference external" href="https://mediacenter.ibm.com/media/Use+z+OSMF+to+validate+security+of+DFSMS/1_17jzrqtg/101043781">SCA demo</a> in IBM MediaCenter.</p></li>
-<li><p>The new module zmf_sca can be used in use cases like security validation, security audit, etc.</p></li>
-<li><p>Added a new cloud provisioning and management (CP&amp;M) role zmf_cpm_list_software_templates to obtain list of published
-software templates that can be provisioned by user who is requesting to obtain the list.
-List of templates is saved in a file system and contains detailed information about each software template.</p></li>
-<li><p>Added a new CP&amp;M role zmf_cpm_create_software_instance to create a software
-instance in z/OSMF CP&amp;M software instance registry. A json file with various properties for the instance can
-be provided to save instance specific properties in the registry.</p></li>
-<li><p>Added a new CP&amp;M role zmf_cpm_get_software_instance to obtain a specific software instance from the z/OSMF CP&amp;M
-software instance registry. Retrieved software instance along with associated properties is saved in a file system.</p></li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -292,9 +296,62 @@ software instance registry. Retrieved software instance along with associated pr
 <div class="section" id="id5">
 <h3>Reference<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The new module zmf_sca requires that z/OSMF SCA is configured properly.
+<li><p>The updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> requires that z/OSMF SCA is configured properly.
 For the required configuration of z/OSMF SCA, please refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-security-configuration-assistant-service">z/OSMF SCA Configuration</a></p></li>
-<li><p>The new module zmf_sca only works with z/OSMF V2R4 and above with the APAR PH41248 installed.</p></li>
+<li><p>The updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> only works with z/OSMF V2R4 and above with the APAR PH47746 installed.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-1-0">
+<h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added a new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which starts with the security validation.</p></li>
+<li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> is based on the REST API of the z/OSMF Security Configuration Assistant (SCA).
+SCA supports the json format of the security descriptor file. This file can be used to document security requirements
+by function or by product. With the security descriptor file that is easy to create,
+SCA is able to display and automatically validate security requirements in a flexible granularity,
+either by individual requirement, by function or by product. SCA is based on the SAF interface,
+therefore it supports all SAF based security products in most cases. To learn more about z/OSMF SCA, please refer to
+<a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/river-jia/2021/07/25/zosmf-security-configuration-assistant">SCA blog</a> and the <a class="reference external" href="https://mediacenter.ibm.com/media/Use+z+OSMF+to+validate+security+of+DFSMS/1_17jzrqtg/101043781">SCA demo</a> in IBM MediaCenter.</p></li>
+<li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> can be used in use cases like security validation, security audit, etc.</p></li>
+<li><p>Added a new cloud provisioning and management (CP&amp;M) role <a class="reference external" href="roles/zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates</a> to obtain list of published
+software templates that can be provisioned by user who is requesting to obtain the list.
+List of templates is saved in a file system and contains detailed information about each software template.</p></li>
+<li><p>Added a new CP&amp;M role <a class="reference external" href="roles/zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance</a> to create a software
+instance in z/OSMF CP&amp;M software instance registry. A json file with various properties for the instance can
+be provided to save instance specific properties in the registry.</p></li>
+<li><p>Added a new CP&amp;M role <a class="reference external" href="roles/zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance</a> to obtain a specific software instance from the z/OSMF CP&amp;M
+software instance registry. Retrieved software instance along with associated properties is saved in a file system.</p></li>
+<li><p>New modules</p>
+<ul>
+<li><p><a class="reference external" href="modules/zmf_sca.html">zmf_sca</a></p></li>
+</ul>
+</li>
+<li><p>New roles</p>
+<ul>
+<li><p><a class="reference external" href="roles/zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates</a></p></li>
+<li><p><a class="reference external" href="roles/zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance</a></p></li>
+<li><p><a class="reference external" href="roles/zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> requires that z/OSMF SCA is configured properly.
+For the required configuration of z/OSMF SCA, please refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-security-configuration-assistant-service">z/OSMF SCA Configuration</a></p></li>
+<li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> only works with z/OSMF V2R4 and above with the APAR PH41248 installed.</p></li>
 <li><p>The new cloud provisioning and management roles requires z/OSMF cloud provisioning and management
 configured properly and users who will use these roles should be provided appropriate access on
 z/OS system.</p></li>
@@ -303,8 +360,8 @@ z/OS system.</p></li>
 </div>
 <div class="section" id="version-1-0-1">
 <h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Notes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Initial release of IBM z/OS Management Facility (z/OSMF) collection,
 referred to as ibm_zosmf, which is part of the broader offering
@@ -329,20 +386,20 @@ Each playbook contains a README file that explains which configurations are need
 </li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Availability<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Reference<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later.</p></li>
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/abstract.html">z/OS Management Facility</a> V2R3 or later.</p></li>
-<li><p>Module zmf_authenticate is supported by z/OSMF APAR PH12143 (PTF UI66511 for V2R3, PTF UI66512 for V2R4).</p></li>
+<li><p>Module <a class="reference external" href="modules/zmf_authenticate.html">zmf_authenticate</a> is supported by z/OSMF APAR PH12143 (PTF UI66511 for V2R3, PTF UI66512 for V2R4).</p></li>
 </ul>
 </div>
 </div>
@@ -359,7 +416,7 @@ Each playbook contains a README file that explains which configurations are need
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

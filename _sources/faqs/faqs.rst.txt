@@ -148,7 +148,7 @@ How do I install and configure ZOAU?
    https://www.ibm.com/support/knowledgecenter/en/SSKFYE
 
 .. _variable configuration:
-   https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/zos_core/configuration_guide.md#environment-variables
+   https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md#environment-variables
 
 How frequently are the collections updated?
 -------------------------------------------
@@ -227,7 +227,7 @@ for overriding module failures that Ansible provides. For example, we have publi
 cmci_get module so that it ignores failures due to finding no programs.
 
 .. _sample playbook:
-   https://github.com/IBM/z_ansible_collections_samples/tree/master/cics/cmci/override_failure
+   https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics/cmci/override_failure
 
 Where can I find a sample playbook?
 -----------------------------------
@@ -333,7 +333,7 @@ For a more detailed explanation of precedence rules, refer to both the
 .. ..........................................................................
 
 .. _configuration guide:
-    https://github.com/IBM/z_ansible_collections_samples/blob/master/docs/share/configuration_guide.md
+    https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md
 
 .. _installation doc:
    https://ibm.github.io/z_ansible_collections_doc/installation/installation.html

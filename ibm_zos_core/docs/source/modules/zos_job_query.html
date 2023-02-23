@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">zos_job_query – Query job status</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
@@ -283,7 +284,7 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>jobs</dt><dd><p>The output information for a list of jobs matching specified criteria. If no job status is found, this will return an empty job code with msg=JOB NOT FOUND.</p>
+<dt>jobs</dt><dd><p>The output information for a list of jobs matching specified criteria. If no job status is found, this will return ret_code dictionary with parameter msg_txt = The job could not be found.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -344,7 +345,7 @@
 <span class="w">        </span><span class="nt">&quot;msg_txt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;step_cc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0000&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;step_cc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="nt">&quot;step_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STEP0001&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">]</span><span class="w"></span>
@@ -391,8 +392,7 @@
 </dd>
 <dt>step_cc</dt><dd><p>The CC returned for this step in the DD section.</p>
 <div class="line-block">
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: 00</div>
+<div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
 </dl>
@@ -423,7 +423,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
@@ -253,6 +254,32 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
+<dt>message_filter</dt><dd><p>Return outstanding messages requiring operator action awaiting a reply that match a regular expression (regex) filter.</p>
+<p>If the message filter is not specified, all outstanding messages are returned regardless of their content.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>filter</dt><dd><p>Specifies the substring or regex to match to the outstanding messages, see <em>use_regex</em>.</p>
+<p>All special characters in a filter string that are not a regex are escaped.</p>
+<p>Valid Python regular expressions are supported. See <a class="reference external" href="https://docs.python.org/library/re.html">the official documentation</a> for more information.</p>
+<p>Regular expressions are compiled with the flag <strong>re.DOTALL</strong> which makes the <strong>‘.’</strong> special character match any character including a newline.”</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>use_regex</dt><dd><p>Indicates that the value for <em>filter</em> is a regex or a string to match.</p>
+<p>If False, the module assumes that <em>filter</em> is not a regex and matches the <em>filter</em> substring on the outstanding messages.</p>
+<p>If True, the module creates a regex from the <em>filter</em> string and matches it to the outstanding messages.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
 </dl>
 </div>
 <div class="section" id="examples">
@@ -269,11 +296,21 @@
 <span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">message_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsi*</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages given job_name, message_id, system</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages that have the text IMS READY in them</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">message_filter</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMS READY</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display all outstanding messages where the job name begins with &#39;mq&#39;,</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">message ID begins with &#39;dsi&#39;, on system &#39;mv29&#39; and which contain the</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">pattern &#39;IMS&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_operator_action_query</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mq*</span><span class="w"></span>
 <span class="w">      </span><span class="nt">message_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dsi*</span><span class="w"></span>
 <span class="w">      </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mv29</span><span class="w"></span>
+<span class="w">      </span><span class="nt">message_filter</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^.*IMS.*$</span><span class="w"></span>
+<span class="w">          </span><span class="nt">use_regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -362,7 +399,7 @@
 <div class="line"><strong>sample</strong>: STC01537</div>
 </div>
 </dd>
-<dt>message_text</dt><dd><p>Job identifier for outstanding message requiring operator action awaiting a reply.</p>
+<dt>message_text</dt><dd><p>Content of the outstanding message requiring operator action awaiting a reply. If <em>message_filter</em> is set, <em>message_text</em> will be filtered accordingly.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -400,7 +437,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

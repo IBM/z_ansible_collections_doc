@@ -270,6 +270,19 @@ setup z/OSMF SCA properly in z/OS managed nodes.</p>
 </ul>
 </div></blockquote>
 </li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-software-management-service">z/OSMF Software Management</a> (Optional)</p>
+<blockquote>
+<div><p>To interact with the Software Management software instance maintenance reports in your playbook,
+it requires you to set up Software Management properly in z/OS managed nodes.
+Typically, you setup Software Management as a plugin of one z/OSMF server in each sysplex.</p>
+<p>This dependency is only required for using the following roles:</p>
+<ul class="simple">
+<li><p>role: <a class="reference external" href="roles/zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates</a></p></li>
+<li><p>role: <a class="reference external" href="roles/zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates</a></p></li>
+<li><p>role: <a class="reference external" href="roles/zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates</a></p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div>
 
@@ -284,7 +297,7 @@ setup z/OSMF SCA properly in z/OS managed nodes.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

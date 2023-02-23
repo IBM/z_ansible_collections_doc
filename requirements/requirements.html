@@ -198,9 +198,16 @@ managed nodes.</p>
 you can run commands and playbooks from a laptop, desktop, or server. However,
 Windows® is not a supported controller for Ansible collections managing a z/OS
 node.</p>
-<p>All IBM z/OS collections require these versions of software:</p>
+<p>All IBM z/OS collections are either <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
+(AAP) or undergoing certification. Thus, the supported versions of Ansible align
+with the <a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP Life Cycle</a> which currently is Ansible versions 2.9 - 2.14. For
+support, the controller must use the supported version of Ansible and when applicable
+the collections dependencies. Review the <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
+to determine which versions of Ansible a collection is supporting.</p>
+<p>IBM z/OS collections minimally require these versions of software, for additional
+supported versions review <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>.</p>
 <ul>
-<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible version</a>: 2.9 or later</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible version</a>: 2.9</p></li>
 <li><p><a class="reference external" href="https://www.python.org/downloads">Python</a>: 2.7 or later</p></li>
 <li><p><a class="reference external" href="https://www.openssh.com/">OpenSSH</a></p>
 <blockquote>
@@ -254,7 +261,7 @@ more about the specific dependencies and required/supported software versions.</
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

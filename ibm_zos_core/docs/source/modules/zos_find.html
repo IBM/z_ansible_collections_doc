@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="zos_job_output – Display job output" href="zos_job_output.html" />
+    <link rel="next" title="zos_gather_facts – Gather z/OS system facts." href="zos_gather_facts.html" />
     <link rel="prev" title="zos_fetch – Fetch data from z/OS" href="zos_fetch.html" /> 
 </head>
 
@@ -109,6 +109,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
@@ -365,8 +366,8 @@
 <h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only cataloged data sets will be searched. If an uncataloged data set needs to be searched, it should be cataloged first. The <a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set</span></a> module can be used to catalog uncataloged data sets.</p>
-<p>The <a class="reference internal" href="#zos-find-module"><span class="std std-ref">zos_find</span></a> module currently does not support wildcards for high level qualifiers. For example, <code class="docutils literal notranslate"><span class="pre">SOME.*.DATA.SET</span></code> is a valid pattern, but <code class="docutils literal notranslate"><span class="pre">*.DATA.SET</span></code> is not.</p>
+<p>Only cataloged data sets will be searched. If an uncataloged data set needs to be searched, it should be cataloged first. The <a class="reference external" href="./zos_data_set.html">zos_data_set</a> module can be used to catalog uncataloged data sets.</p>
+<p>The <a class="reference external" href="./zos_find.html">zos_find</a> module currently does not support wildcards for high level qualifiers. For example, <code class="docutils literal notranslate"><span class="pre">SOME.*.DATA.SET</span></code> is a valid pattern, but <code class="docutils literal notranslate"><span class="pre">*.DATA.SET</span></code> is not.</p>
 <p>If a data set pattern is specified as <code class="docutils literal notranslate"><span class="pre">USER.*</span></code>, the matching data sets will have two name segments such as <code class="docutils literal notranslate"><span class="pre">USER.ABC</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.XYZ</span></code> etc. If a wildcard is specified as <code class="docutils literal notranslate"><span class="pre">USER.*.ABC</span></code>, the matching data sets will have three name segments such as <code class="docutils literal notranslate"><span class="pre">USER.XYZ.ABC</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.TEST.ABC</span></code> etc.</p>
 <p>The time taken to execute the module is proportional to the number of data sets present on the system and how large the data sets are.</p>
 <p>When searching for content within data sets, only non-binary content is considered.</p>
@@ -471,7 +472,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 

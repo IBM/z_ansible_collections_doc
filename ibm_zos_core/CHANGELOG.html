@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>bm.ibm_zos_core Release Notes &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>ibm.ibm_zos_core Release Notes &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -157,7 +157,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>bm.ibm_zos_core Release Notes</li>
+      <li>ibm.ibm_zos_core Release Notes</li>
     
     
 
@@ -169,97 +169,226 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bm-ibm-zos-core-release-notes">
-<h1><a class="toc-backref" href="#id25">bm.ibm_zos_core Release Notes</a><a class="headerlink" href="#bm-ibm-zos-core-release-notes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ibm-ibm-zos-core-release-notes">
+<h1><a class="toc-backref" href="#id30">ibm.ibm_zos_core Release Notes</a><a class="headerlink" href="#ibm-ibm-zos-core-release-notes" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="topics">
 <p class="topic-title">Topics</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#bm-ibm-zos-core-release-notes" id="id25">bm.ibm_zos_core Release Notes</a></p>
+<li><p><a class="reference internal" href="#ibm-ibm-zos-core-release-notes" id="id30">ibm.ibm_zos_core Release Notes</a></p>
 <ul>
-<li><p><a class="reference internal" href="#v1-4-0" id="id26">v1.4.0</a></p>
+<li><p><a class="reference internal" href="#v1-5-0-beta-1" id="id31">v1.5.0-beta.1</a></p>
 <ul>
-<li><p><a class="reference internal" href="#release-summary" id="id27">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#major-changes" id="id28">Major Changes</a></p></li>
-<li><p><a class="reference internal" href="#minor-changes" id="id29">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#deprecated-features" id="id30">Deprecated Features</a></p></li>
-<li><p><a class="reference internal" href="#bugfixes" id="id31">Bugfixes</a></p></li>
-<li><p><a class="reference internal" href="#new-modules" id="id32">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#release-summary" id="id32">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#major-changes" id="id33">Major Changes</a></p></li>
+<li><p><a class="reference internal" href="#minor-changes" id="id34">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#deprecated-features" id="id35">Deprecated Features</a></p></li>
+<li><p><a class="reference internal" href="#bugfixes" id="id36">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#new-modules" id="id37">New Modules</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-3-6" id="id33">v1.3.6</a></p>
+<li><p><a class="reference internal" href="#v1-4-0-beta-2" id="id38">v1.4.0-beta.2</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id34">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id35">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id36">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id39">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id40">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id41">Bugfixes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-3-5" id="id37">v1.3.5</a></p>
+<li><p><a class="reference internal" href="#v1-4-0-beta-1" id="id42">v1.4.0-beta.1</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id4" id="id38">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id39">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id43">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id44">Major Changes</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id45">Deprecated Features</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id46">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id47">New Modules</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-3-3" id="id40">v1.3.3</a></p>
+<li><p><a class="reference internal" href="#v1-3-4" id="id48">v1.3.4</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id6" id="id41">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id42">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id49">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id50">Bugfixes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-3-1" id="id43">v1.3.1</a></p>
+<li><p><a class="reference internal" href="#v1-3-3" id="id51">v1.3.3</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id8" id="id44">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id9" id="id45">Bugfixes</a></p></li>
-<li><p><a class="reference internal" href="#known-issues" id="id46">Known Issues</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id52">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id53">Bugfixes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-3-0" id="id47">v1.3.0</a></p>
+<li><p><a class="reference internal" href="#v1-3-1" id="id54">v1.3.1</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id10" id="id48">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id11" id="id49">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#id12" id="id50">Bugfixes</a></p></li>
-<li><p><a class="reference internal" href="#id13" id="id51">Known Issues</a></p></li>
-<li><p><a class="reference internal" href="#id14" id="id52">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id55">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id56">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#known-issues" id="id57">Known Issues</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-2-1" id="id53">v1.2.1</a></p>
+<li><p><a class="reference internal" href="#v1-3-0" id="id58">v1.3.0</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id15" id="id54">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id16" id="id55">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#id17" id="id56">Bugfixes</a></p></li>
-<li><p><a class="reference internal" href="#id18" id="id57">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id59">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id60">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id61">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id62">Known Issues</a></p></li>
+<li><p><a class="reference internal" href="#id19" id="id63">New Modules</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-1-0" id="id58">v1.1.0</a></p>
+<li><p><a class="reference internal" href="#v1-2-1" id="id64">v1.2.1</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id19" id="id59">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id20" id="id60">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#id21" id="id61">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id65">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id66">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id67">Bugfixes</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id68">New Modules</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#v1-0-0" id="id62">v1.0.0</a></p>
+<li><p><a class="reference internal" href="#v1-1-0" id="id69">v1.1.0</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id22" id="id63">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#id23" id="id64">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#security-fixes" id="id65">Security Fixes</a></p></li>
-<li><p><a class="reference internal" href="#id24" id="id66">New Modules</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id70">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id25" id="id71">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id72">New Modules</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#v1-0-0" id="id73">v1.0.0</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id27" id="id74">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id28" id="id75">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#security-fixes" id="id76">Security Fixes</a></p></li>
+<li><p><a class="reference internal" href="#id29" id="id77">New Modules</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="v1-4-0">
-<h2><a class="toc-backref" href="#id26">v1.4.0</a><a class="headerlink" href="#v1-4-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v1-5-0-beta-1">
+<h2><a class="toc-backref" href="#id31">v1.5.0-beta.1</a><a class="headerlink" href="#v1-5-0-beta-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="release-summary">
-<h3><a class="toc-backref" href="#id27">Release Summary</a><a class="headerlink" href="#release-summary" title="Permalink to this headline">¶</a></h3>
-<p>Release Date: ‘2022-12-07’
+<h3><a class="toc-backref" href="#id32">Release Summary</a><a class="headerlink" href="#release-summary" title="Permalink to this headline">¶</a></h3>
+<p>Release Date: ‘2022-11-17’
 This changelog describes all changes made to the modules and plugins included
 in this collection. The release date is the date the changelog is created.
 For additional details such as required dependencies and availability review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
 <div class="section" id="major-changes">
-<h3><a class="toc-backref" href="#id28">Major Changes</a><a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">Major Changes</a><a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm_zos_core - Updates the entire collection in that the collection no longer depends on the managed node having installed System Display and Search Facility (SDSF). Remove SDSF dependency from ibm_zos_core collection. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/303">https://github.com/ansible-collections/ibm_zos_core/pull/303</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h3><a class="toc-backref" href="#id34">Minor Changes</a><a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>module utility jobs - was updated to remove the usage of REXX and replaced with ZOAU python APIs. This reduces code replication and it removes the need for REXX interpretation which increases performance. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+<li><p>module utils backup - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>module utils dd_statement- updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>module utils encode - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_apf - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_blockinfile - fixes a bug when using double quotes in the block text of the module. When double quotes appeared in block text, the module would error differently depending on the usage of option insertafter. Examples of this error have return code 1 or 16 along with message “ZOAU dmod return content is NOT in json format” and a varying stderr. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/303">https://github.com/ansible-collections/ibm_zos_core/pull/303</a>).</p></li>
+<li><p>zos_blockinfile - updates the module with a new option named force. This allows for a user to specify that the data set can be shared with others during an update which results in the data set you are updating to be simultaneously updated by others. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/316">https://github.com/ansible-collections/ibm_zos_core/pull/316</a>).</p></li>
+<li><p>zos_blockinfile - updates the module with a new option named indentation. This allows for a user to specify a number of spaces to prepend to the content before being inserted into the destination. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/317">https://github.com/ansible-collections/ibm_zos_core/pull/317</a>).</p></li>
+<li><p>zos_blockinfile - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_copy - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_data_set - Ensures that temporary datasets created by zos_data_set use the tmp_hlq specified. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/491">https://github.com/ansible-collections/ibm_zos_core/pull/491</a>).</p></li>
+<li><p>zos_encode - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_fetch - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_gather_facts - is a new module that can discover facts about the managed z/OS target. This module leverages the zinfo utility offered by ZOAU. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/322">https://github.com/ansible-collections/ibm_zos_core/pull/322</a>).</p></li>
+<li><p>zos_job_output - was updated to leverage the latest changes that removes the REXX code by calling the module utility jobs. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+<li><p>zos_job_query - was updated to leverage the latest changes that removes the REXX code by calling the module utility jobs. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+<li><p>zos_job_query - was updated to use the jobs module utility. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+<li><p>zos_job_submit - The architecture changed such that the entire modules execution time now captured in the duration time which includes job submission and log collection. If a job does not return by the default 10 sec ‘wait_time_s’ value, it can be increased up to 86400 seconds. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_job_submit - behavior changed when a volume is defined in the module options such that it will catalog the data set if it is not cataloged and submit the job. In the past, the function did not catalog the data set and instead performed I/O operations and then submitted the job. This behavior aligns to other module behaviors and reduces the possibility to encounter a permissions issue. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_job_submit - was updated to include an additional error code condition JCLERR. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>)</p></li>
+<li><p>zos_lineinfile - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_mount - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_mvs_raw - Ensures that temporary datasets created by DD Statements use the tmp_hlq specified. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/414">https://github.com/ansible-collections/ibm_zos_core/pull/414</a>).</p></li>
+<li><p>zos_mvs_raw - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/341">https://github.com/ansible-collections/ibm_zos_core/pull/341</a>).</p></li>
+<li><p>zos_operator - added in the response the cmd result (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - added in the response the elapsed time (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - added in the response the wait_time_s set (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - deprecated the wait option, not needed with wait_time_s minor_changes (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - was updated to remove the usage of REXX and replaced with ZOAU python APIs. This reduces code replication and it removes the need for REXX interpretation which increases performance. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-features">
+<h3><a class="toc-backref" href="#id35">Deprecated Features</a><a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zos_encode - deprecates the module options <cite>from_encoding</cite> and <cite>to_encoding</cite> to use suboptions <cite>from</cite> and <cite>to</cite> in order to remain consistent with all other modules. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/345">https://github.com/ansible-collections/ibm_zos_core/pull/345</a>).</p></li>
+<li><p>zos_job_submit - Response ‘message’ property has been deprecated, all responses are now in response property ‘msg’. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_job_submit - The ‘wait’ option has been deprecated because using option ‘wait_time_s’ implies the job is going to wait. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="bugfixes">
+<h3><a class="toc-backref" href="#id36">Bugfixes</a><a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zos_copy - Fixes a bug such that the module fails when copying files from a directory needing also to be encoded. The failure would also delete the <cite>src</cite> which was not desirable behavior. Fixes deletion of src on encoding error. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/321">https://github.com/ansible-collections/ibm_zos_core/pull/321</a>).</p></li>
+<li><p>zos_copy - Fixes wrongful creation of destination backups when module option <cite>force</cite> is true, creating emergency backups meant to restore the system to its initial state in case of a module failure only when force is false. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/590">https://github.com/ansible-collections/ibm_zos_core/pull/590</a>)</p></li>
+<li><p>zos_copy - Fixes a bug where copying a member from a loadlib to another loadlib fails. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/640">https://github.com/ansible-collections/ibm_zos_core/pull/640</a>)</p></li>
+<li><p>zos_copy - Fixes a bug where if a destination has accented characters in its content, the module would fail when trying to determine if it is empty. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/634">https://github.com/ansible-collections/ibm_zos_core/pull/634</a>)</p></li>
+<li><p>zos_copy - Fixes a bug where the computed record length for a new destination dataset would include newline characters. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/620">https://github.com/ansible-collections/ibm_zos_core/pull/620</a>)</p></li>
+<li><p>zos_copy - module was updated to correct a bug in the case when the destination (dest) is a PDSE and the source (src) is a Unix Systems File (USS). The module would fail in determining if the PDSE actually existed and try to create it when it already existed resulting in an error that would prevent the module from correctly executing. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/327">https://github.com/ansible-collections/ibm_zos_core/pull/327</a>)</p></li>
+<li><p>zos_data_set - Fixes a bug such that the module will delete a catalogued data set over an uncatalogued data set even though the volume is provided for the uncataloged data set. This is unexpected behavior and does not align to documentation; correct behavior is that when a volume is provided that is the first place the module should look for the data set, whether or not it is cataloged. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/325">https://github.com/ansible-collections/ibm_zos_core/pull/325</a>).</p></li>
+<li><p>zos_data_set - Fixes a bug where the default record format FB was actually never enforced and when enforced it would cause VSAM creation to fail with a Dynalloc failure. This also cleans up some of the options that are set by default when they have no bearing for batch. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/647">https://github.com/ansible-collections/ibm_zos_core/pull/647</a>)</p></li>
+<li><p>zos_fetch - Updates the modules behavior when fetching VSAM data sets such that the maximum record length is now determined when creating a temporary data set to copy the VSAM data into and a variable-length (VB) data set is used. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/350">https://github.com/ansible-collections/ibm_zos_core/pull/350</a>)</p></li>
+<li><p>zos_job_output - Fixes a bug that returned all ddname’s when a specific ddnamae was provided. Now a specific ddname can be returned and all others ignored. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/334">https://github.com/ansible-collections/ibm_zos_core/pull/334</a>)</p></li>
+<li><p>zos_job_query - was updated to correct a boolean condition that always evaluated to “CANCELLED”. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/312">https://github.com/ansible-collections/ibm_zos_core/pull/312</a>).</p></li>
+<li><p>zos_mount - Fixes option <cite>tag_ccsid</cite> to correctly allow for type int. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/511">https://github.com/ansible-collections/ibm_zos_core/pull/511</a>)</p></li>
+<li><p>zos_mvs_raw - module was updated to correct a bug when no DD statements were provided. The module when no option was provided for <cite>dds</cite> would error, a default was provided to correct this behavior. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/336">https://github.com/ansible-collections/ibm_zos_core/pull/336</a>)</p></li>
+<li><p>zos_operator - Fixes case sensitive error checks, invalid, error &amp; unidentifiable (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - Fixes such that specifying wait_time_s would throw an error (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - Fixes the wait_time_s to default to 1 second (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/issues/389">https://github.com/ansible-collections/ibm_zos_core/issues/389</a>).</p></li>
+<li><p>zos_operator - was updated to correct missing verbosity content when the option verbose was set to True. zos_operator - was updated to correct the trailing lines that would appear in the result content. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/400">https://github.com/ansible-collections/ibm_zos_core/pull/400</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="new-modules">
+<h3><a class="toc-backref" href="#id37">New Modules</a><a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ibm.ibm_zos_core.zos_gather_facts - Gather z/OS system facts.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-0-beta-2">
+<h2><a class="toc-backref" href="#id38">v1.4.0-beta.2</a><a class="headerlink" href="#v1-4-0-beta-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id39">Release Summary</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Release Date: ‘2022-10-17’
+This changelog describes all changes made to the modules and plugins included
+in this collection. The release date is the date the changelog is created.
+For additional details such as required dependencies and availability review
+the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id40">Minor Changes</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zos_copy - enhanced the force option when <cite>force=true</cite> and the remote file or data set <cite>dest</cite> is NOT empty, the <cite>dest</cite> will be deleted and recreated with the <cite>src</cite> data set attributes, otherwise it will be recreated with the <cite>dest</cite> data set attributes. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - fixes a bug that when a directory is copied from the controller to the managed node and a mode is set, the mode is applied to the directory on the managed node. If the directory being copied contains files and mode is set, mode will only be applied to the files being copied not the pre-existing files. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - fixes a bug where options were not defined in the module argument spec that will result in error when running <cite>ansible-core</cite> v2.11 and using options <cite>force</cite> or <cite>mode</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/496">https://github.com/ansible-collections/ibm_zos_core/pull/496</a>)</p></li>
+<li><p>zos_copy - introduced an updated creation policy referred to as precedence rules such that if <cite>dest_data_set</cite> is set, this will take precedence. If <cite>dest</cite> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. If no precedent rule has been exercised, <cite>dest</cite> will be created with the same attributes of <cite>src</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - introduced new computation capabilities such that if <cite>dest</cite> is a nonexistent data set, the attributes assigned will depend on the type of <cite>src</cite>. If <cite>src</cite> is a USS file, <cite>dest</cite> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <cite>src</cite> is binary, <cite>dest</cite> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - option <cite>dest_dataset</cite> has been deprecated and removed in favor of the new option <cite>dest_data_set</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - was enhanced for when <cite>src</cite> is a directory and ends with “/”, the contents of it will be copied into the root of <cite>dest</cite>. It it doesn’t end with “/”, the directory itself will be copied. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/496">https://github.com/ansible-collections/ibm_zos_core/pull/496</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id41">Bugfixes</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zos_copy - fixes a bug that did not create a data set on the specified volume. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_copy - fixes a bug where a number of attributes were not an option when using <cite>dest_data_set</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
+<li><p>zos_job_output - fixes a bug that returned all ddname’s when a specific ddname was provided. Now a specific ddname can be returned and all others ignored. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/507">https://github.com/ansible-collections/ibm_zos_core/pull/507</a>)</p></li>
+<li><p>zos_mount - fixed option <cite>tag_ccsid</cite> to correctly allow for type int. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/502">https://github.com/ansible-collections/ibm_zos_core/pull/502</a>)</p></li>
+<li><p>zos_operator - enhanced to allow for MVS operator <cite>SET</cite> command, <cite>SET</cite> is equivalent to the abbreviated <cite>T</cite> command. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/501">https://github.com/ansible-collections/ibm_zos_core/pull/501</a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-0-beta-1">
+<h2><a class="toc-backref" href="#id42">v1.4.0-beta.1</a><a class="headerlink" href="#v1-4-0-beta-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id43">Release Summary</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Release Date: ‘2021-06-23’
+This changlelog describes all changes made to the modules and plugins included
+in this collection.
+For additional details such as required dependencies and availablity review
+the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id44">Major Changes</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>zos_copy was updated to support the ansible.builtin.ssh connection options; for further reference refer to the SSH plugin documentation.</p></li>
 <li><p>zos_copy was updated to take into account the record length when the source is a USS file and the destination is a data set with a record length. This is done by inspecting the destination data set attributes and using these attributes to create a new data set.</p></li>
@@ -274,38 +403,18 @@ the collections <a class="reference external" href="https://ibm.github.io/z_ansi
 <li><p>zos_ping was updated to remove the need for the zos_ssh connection plugin dependency.</p></li>
 </ul>
 </div>
-<div class="section" id="minor-changes">
-<h3><a class="toc-backref" href="#id29">Minor Changes</a><a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>zos_copy - enhanced the force option when <cite>force=true</cite> and the remote file or data set <cite>dest</cite> is NOT empty, the <cite>dest</cite> will be deleted and recreated with the <cite>src</cite> data set attributes, otherwise it will be recreated with the <cite>dest</cite> data set attributes. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - enhanced to optimize how it captures the permission bits state for the <cite>dest</cite>. This change now reviews the source files instead of traversing the entire <cite>dest</cite> path. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/561">https://github.com/ansible-collections/ibm_zos_core/pull/561</a>)</p></li>
-<li><p>zos_copy - enhanced to support creating a parent directory when it does not exist in the <cite>dest</cite> path. Prior to this change, if a parent directory anywhere in the path did not exist the task would fail as it was stated in documentation. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/561">https://github.com/ansible-collections/ibm_zos_core/pull/561</a>)</p></li>
-<li><p>zos_copy - enhanced to support system symbols in PARMLIB. System symbols are elements that allow different z/OS® systems to share PARMLIB definitions while retaining unique values in those definitions. This was fixed in a future release through the use of one of the ZOAU dependency but this version of <cite>ibm_zos_core</cite> does not support that dependency version so this support was added. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/566">https://github.com/ansible-collections/ibm_zos_core/pull/566</a>)</p></li>
-<li><p>zos_copy - fixes a bug that when a directory is copied from the controller to the managed node and a mode is set, the mode is applied to the directory on the managed node. If the directory being copied contains files and mode is set, mode will only be applied to the files being copied not the pre-existing files. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - fixes a bug where options were not defined in the module argument spec that will result in error when running <cite>ansible-core</cite> v2.11 and using options <cite>force</cite> or <cite>mode</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/496">https://github.com/ansible-collections/ibm_zos_core/pull/496</a>)</p></li>
-<li><p>zos_copy - introduced an updated creation policy referred to as precedence rules such that if <cite>dest_data_set</cite> is set, this will take precedence. If <cite>dest</cite> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. If no precedent rule has been exercised, <cite>dest</cite> will be created with the same attributes of <cite>src</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - introduced new computation capabilities such that if <cite>dest</cite> is a nonexistent data set, the attributes assigned will depend on the type of <cite>src</cite>. If <cite>src</cite> is a USS file, <cite>dest</cite> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <cite>src</cite> is binary, <cite>dest</cite> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - option <cite>dest_dataset</cite> has been deprecated and removed in favor of the new option <cite>dest_data_set</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - was enhanced for when <cite>src</cite> is a directory and ends with “/”, the contents of it will be copied into the root of <cite>dest</cite>. It it doesn’t end with “/”, the directory itself will be copied. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/496">https://github.com/ansible-collections/ibm_zos_core/pull/496</a>)</p></li>
-</ul>
-</div>
-<div class="section" id="deprecated-features">
-<h3><a class="toc-backref" href="#id30">Deprecated Features</a><a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id45">Deprecated Features</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>zos_copy and zos_fetch option sftp_port has been deprecated. To set the SFTP port, use the supported options in the ansible.builtin.ssh plugin. Refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html#parameter-port">SSH port</a> option to configure the port used during the modules SFTP transport.</p></li>
 <li><p>zos_copy module option model_ds has been removed. The model_ds logic is now automatically managed and data sets are either created based on the src data set or overridden by the new option destination_dataset.</p></li>
 <li><p>zos_ssh connection plugin has been removed, it is no longer required. You must remove all playbook references to connection ibm.ibm_zos_core.zos_ssh.</p></li>
 </ul>
 </div>
-<div class="section" id="bugfixes">
-<h3><a class="toc-backref" href="#id31">Bugfixes</a><a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id46">Bugfixes</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>zos_copy - fixes a bug that did not create a data set on the specified volume. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_copy - fixes a bug where a number of attributes were not an option when using <cite>dest_data_set</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/306">https://github.com/ansible-collections/ibm_zos_core/pull/306</a>)</p></li>
-<li><p>zos_job_output - fixes a bug that returned all ddname’s when a specific ddname was provided. Now a specific ddname can be returned and all others ignored. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/507">https://github.com/ansible-collections/ibm_zos_core/pull/507</a>)</p></li>
 <li><p>zos_job_output was updated to correct possible truncated responses for the ddname content. This would occur for jobs with very large amounts of content from a ddname.</p></li>
-<li><p>zos_mount - fixed option <cite>tag_ccsid</cite> to correctly allow for type int. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/502">https://github.com/ansible-collections/ibm_zos_core/pull/502</a>)</p></li>
-<li><p>zos_operator - enhanced to allow for MVS operator <cite>SET</cite> command, <cite>SET</cite> is equivalent to the abbreviated <cite>T</cite> command. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/501">https://github.com/ansible-collections/ibm_zos_core/pull/501</a>)</p></li>
 <li><dl class="simple">
 <dt>zos_ssh - connection plugin was updated to correct a bug in Ansible that</dt><dd><p>would result in playbook task retries overriding the SSH connection
 retries. This is resolved by renaming the zos_ssh option
@@ -319,54 +428,25 @@ constant. (<a class="reference external" href="https://github.com/ansible-collec
 </li>
 </ul>
 </div>
-<div class="section" id="new-modules">
-<h3><a class="toc-backref" href="#id32">New Modules</a><a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id47">New Modules</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>ibm.ibm_zos_core.zos_mount - Mount a z/OS file system.</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="v1-3-6">
-<h2><a class="toc-backref" href="#id33">v1.3.6</a><a class="headerlink" href="#v1-3-6" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><a class="toc-backref" href="#id34">Release Summary</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Release Date: ‘2022-10-07’
-This changelog describes all changes made to the modules and plugins included
-in this collection. The release date is the date the changelog is created.
-For additional details such as required dependencies and availability review
-the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id35">Minor Changes</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>zos_copy - was enhanced for when <cite>src</cite> is a directory and ends with “/”, the contents of it will be copied into the root of <cite>dest</cite>. If it doesn’t end with “/”, the directory itself will be copied. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/515">https://github.com/ansible-collections/ibm_zos_core/pull/515</a>)</p></li>
-</ul>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id36">Bugfixes</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>jobs.py - fixes a utility used by module <cite>zos_job_output</cite> that would truncate the DD content. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_copy - fixes a bug that when a directory is copied from the controller to the managed node and a mode is set, the mode is now applied to the directory on the controller. If the directory being copied contains files and mode is set, mode will only be applied to the files being copied not the pre-existing files.(<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_copy - fixes a bug where options were not defined in the module argument spec that will result in error when running <cite>ansible-core</cite> 2.11 and using options <cite>force</cite> or <cite>mode</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_fetch - fixes a bug where an option was not defined in the module argument spec that will result in error when running <cite>ansible-core</cite> 2.11 and using option <cite>encoding</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_job_submit - fixes a bug where an option was not defined in the module argument spec that will result in error when running <cite>ansible-core</cite> 2.11 and using option <cite>encoding</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_ssh - fixes connection plugin which will error when using <cite>ansible-core</cite> 2.11 with an <cite>AttributeError module ‘ansible.constants’ has no attribute ‘ANSIBLE_SSH_CONTROL_PATH_DIR’</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/462">https://github.com/ansible-collections/ibm_zos_core/pull/462</a>)</p></li>
-<li><p>zos_ssh - fixes connection plugin which will error when using <cite>ansible-core</cite> 2.11 with an <cite>AttributeError module ‘ansible.constants’ has no attribute ‘ANSIBLE_SSH_CONTROL_PATH_DIR’</cite>. (<a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/pull/513">https://github.com/ansible-collections/ibm_zos_core/pull/513</a>)</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="v1-3-5">
-<h2><a class="toc-backref" href="#id37">v1.3.5</a><a class="headerlink" href="#v1-3-5" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id38">Release Summary</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="v1-3-4">
+<h2><a class="toc-backref" href="#id48">v1.3.4</a><a class="headerlink" href="#v1-3-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id49">Release Summary</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2022-03-06’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
 For additional details such as required dependencies and availablity review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id39">Bugfixes</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id50">Bugfixes</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>zos_ssh - connection plugin was updated to correct a bug in Ansible that</dt><dd><p>would result in playbook task retries overriding the SSH connection
@@ -383,17 +463,17 @@ constant. (<a class="reference external" href="https://github.com/ansible-collec
 </div>
 </div>
 <div class="section" id="v1-3-3">
-<h2><a class="toc-backref" href="#id40">v1.3.3</a><a class="headerlink" href="#v1-3-3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id41">Release Summary</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id51">v1.3.3</a><a class="headerlink" href="#v1-3-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id52">Release Summary</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2022-26-04’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
 For additional details such as required dependencies and availablity review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id42">Bugfixes</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id53">Bugfixes</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>zos_copy was updated to correct deletion of all temporary files and unwarranted deletes. - When the module would complete, a cleanup routine did not take into account that other processes had open temporary files and thus would error when trying to remove them. - When the module would copy a directory (source) from USS to another USS directory (destination), any files currently in the destination would be deleted. The modules behavior has changed such that files are no longer deleted unless the force option is set to true. When <strong>force=true</strong>, copying files or a directory to a USS destination will continue if it encounters existing files or directories and overwrite any corresponding files.</p></li>
 <li><p>zos_job_query was updated to correct a boolean condition that always evaluated to “CANCELLED”. - When querying jobs that are either <strong>CANCELLED</strong> or have <strong>FAILED</strong>, they were always treated as <strong>CANCELLED</strong>.</p></li>
@@ -401,33 +481,33 @@ the collections <a class="reference external" href="https://ibm.github.io/z_ansi
 </div>
 </div>
 <div class="section" id="v1-3-1">
-<h2><a class="toc-backref" href="#id43">v1.3.1</a><a class="headerlink" href="#v1-3-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id44">Release Summary</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id54">v1.3.1</a><a class="headerlink" href="#v1-3-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id55">Release Summary</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2022-27-04’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
 For additional details such as required dependencies and availablity review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id45">Bugfixes</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id56">Bugfixes</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>zos_ping was updated to support Automation Hub documentation generation.</p></li>
 <li><p>zos_ssh connection plugin was updated to prioritize the execution of modules written in REXX over other implementations such is the case for zos_ping.</p></li>
 </ul>
 </div>
 <div class="section" id="known-issues">
-<h3><a class="toc-backref" href="#id46">Known Issues</a><a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id57">Known Issues</a><a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>When executing programs using zos_mvs_raw, you may encounter errors that originate in the implementation of the programs. Two such known issues are noted below of which one has been addressed with an APAR. - zos_mvs_raw module execution fails when invoking Database Image Copy 2 Utility or Database Recovery Utility in conjunction with FlashCopy or Fast Replication. - zos_mvs_raw module execution fails when invoking DFSRRC00 with parm “UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is addressed by APAR PH28089.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="v1-3-0">
-<h2><a class="toc-backref" href="#id47">v1.3.0</a><a class="headerlink" href="#v1-3-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id10">
-<h3><a class="toc-backref" href="#id48">Release Summary</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id58">v1.3.0</a><a class="headerlink" href="#v1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id59">Release Summary</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2021-19-04’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
@@ -448,16 +528,16 @@ inventory and a variables configuration.</p></li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id11">
-<h3><a class="toc-backref" href="#id49">Minor Changes</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id60">Minor Changes</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>All modules support relative paths and remove choice case sensitivity.</p></li>
 <li><p>zos_data_set added support to allocate and format zFS data sets.</p></li>
 <li><p>zos_operator supports new options <strong>wait</strong> and <strong>wait_time_s</strong> such that you can specify that zos_operator wait the full <strong>wait_time_s</strong> or return as soon as the first operator command executes.</p></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3><a class="toc-backref" href="#id50">Bugfixes</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3><a class="toc-backref" href="#id61">Bugfixes</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Action plugin zos_copy was updated to support Python 2.7.</p></li>
 <li><p>Job utility is an internal library used by several modules. It has been updated to use a custom written parsing routine capable of handling special characters to prevent job related reading operations from failing when a special character is encountered.</p></li>
@@ -469,14 +549,14 @@ inventory and a variables configuration.</p></li>
 <li><p>Playbook zos_operator_basics.yaml has been updated to use end in the WTO reply over the previous use of cancel. Using cancel is not a valid reply and results in an execution error.</p></li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3><a class="toc-backref" href="#id51">Known Issues</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id62">Known Issues</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>When executing programs using zos_mvs_raw, you may encounter errors that originate in the implementation of the programs. Two such known issues are noted below of which one has been addressed with an APAR. - zos_mvs_raw module execution fails when invoking Database Image Copy 2 Utility or Database Recovery Utility in conjunction with FlashCopy or Fast Replication. - zos_mvs_raw module execution fails when invoking DFSRRC00 with parm “UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is addressed by APAR PH28089.</p></li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3><a class="toc-backref" href="#id52">New Modules</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id63">New Modules</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>ibm.ibm_zos_core.zos_apf - Add or remove libraries to Authorized Program Facility (APF)</p></li>
 <li><p>ibm.ibm_zos_core.zos_backup_restore - Backup and restore data sets and volumes</p></li>
@@ -487,9 +567,9 @@ inventory and a variables configuration.</p></li>
 </div>
 </div>
 <div class="section" id="v1-2-1">
-<h2><a class="toc-backref" href="#id53">v1.2.1</a><a class="headerlink" href="#v1-2-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id15">
-<h3><a class="toc-backref" href="#id54">Release Summary</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id64">v1.2.1</a><a class="headerlink" href="#v1-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3><a class="toc-backref" href="#id65">Release Summary</a><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2020-10-09’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
@@ -498,48 +578,48 @@ the collections <a class="reference external" href="https://ibm.github.io/z_ansi
 <p>Beginning this release, all playbooks previously included with the collection
 will be made available on the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples">playbook repository</a>.</p>
 </div>
-<div class="section" id="id16">
-<h3><a class="toc-backref" href="#id55">Minor Changes</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id66">Minor Changes</a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Documentation related to configuration has been migrated to the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples">playbook repository</a></p></li>
 <li><p>Python 2.x support</p></li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h3><a class="toc-backref" href="#id56">Bugfixes</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3><a class="toc-backref" href="#id67">Bugfixes</a><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>zos_copy - fixed regex support, dictionary merge operation fix</p></li>
 <li><p>zos_encode - removed TemporaryDirectory usage.</p></li>
 <li><p>zos_fetch - fix quote import</p></li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h3><a class="toc-backref" href="#id57">New Modules</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h3><a class="toc-backref" href="#id68">New Modules</a><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>ibm.ibm_zos_core.zos_lineinfile - Manage textual data on z/OS</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="v1-1-0">
-<h2><a class="toc-backref" href="#id58">v1.1.0</a><a class="headerlink" href="#v1-1-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id19">
-<h3><a class="toc-backref" href="#id59">Release Summary</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id69">v1.1.0</a><a class="headerlink" href="#v1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id24">
+<h3><a class="toc-backref" href="#id70">Release Summary</a><a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2020-26-01’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
 For additional details such as required dependencies and availablity review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
-<div class="section" id="id20">
-<h3><a class="toc-backref" href="#id60">Minor Changes</a><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3><a class="toc-backref" href="#id71">Minor Changes</a><a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Documentation updates</p></li>
 <li><p>Improved error handling and messages</p></li>
 <li><p>New Filter that will filter a list of WTOR messages based on message text.</p></li>
 </ul>
 </div>
-<div class="section" id="id21">
-<h3><a class="toc-backref" href="#id61">New Modules</a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h3><a class="toc-backref" href="#id72">New Modules</a><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>ibm.ibm_zos_core.zos_encode - Perform encoding operations.</p></li>
 <li><p>ibm.ibm_zos_core.zos_fetch - Fetch data from z/OS</p></li>
@@ -552,31 +632,31 @@ the collections <a class="reference external" href="https://ibm.github.io/z_ansi
 </div>
 </div>
 <div class="section" id="v1-0-0">
-<h2><a class="toc-backref" href="#id62">v1.0.0</a><a class="headerlink" href="#v1-0-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id22">
-<h3><a class="toc-backref" href="#id63">Release Summary</a><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id73">v1.0.0</a><a class="headerlink" href="#v1-0-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id27">
+<h3><a class="toc-backref" href="#id74">Release Summary</a><a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <p>Release Date: ‘2020-18-03’
 This changlelog describes all changes made to the modules and plugins included
 in this collection.
 For additional details such as required dependencies and availablity review
 the collections <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/release_notes.html">release notes</a></p>
 </div>
-<div class="section" id="id23">
-<h3><a class="toc-backref" href="#id64">Minor Changes</a><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id28">
+<h3><a class="toc-backref" href="#id75">Minor Changes</a><a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Documentation updates</p></li>
 <li><p>Module zos_data_set catalog support added</p></li>
 </ul>
 </div>
 <div class="section" id="security-fixes">
-<h3><a class="toc-backref" href="#id65">Security Fixes</a><a class="headerlink" href="#security-fixes" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id76">Security Fixes</a><a class="headerlink" href="#security-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Improved test, security and injection coverage</p></li>
 <li><p>Security vulnerabilities fixed</p></li>
 </ul>
 </div>
-<div class="section" id="id24">
-<h3><a class="toc-backref" href="#id66">New Modules</a><a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h3><a class="toc-backref" href="#id77">New Modules</a><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>ibm.ibm_zos_core.zos_copy - Copy data to z/OS</p></li>
 <li><p>ibm.ibm_zos_core.zos_job_output - Display job output</p></li>
@@ -598,7 +678,7 @@ the collections <a class="reference external" href="https://ibm.github.io/z_ansi
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright IBM Corporation 2020, 2021
+        &copy; Copyright IBM Corp. 2020, 2023
 
     </p>
   </div> 
