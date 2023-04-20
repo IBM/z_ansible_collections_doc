@@ -101,7 +101,6 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
@@ -134,6 +133,11 @@
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -349,7 +353,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: TEXT, NOTEXT</div>
+<div class="line"><strong>choices</strong>: , TEXT, NOTEXT</div>
 </div>
 </dd>
 <dt>tag_ccsid</dt><dd><p>Identifies the coded character set identifier (ccsid) to be implicitly set for the untagged file.</p>
@@ -372,7 +376,7 @@
 </div>
 </dd>
 <dt>sysname</dt><dd><p>For systems participating in shared file system, <em>sysname</em> specifies the particular system on which a mount should be performed. This system will then become the owner of the file system mounted. This system must be IPLed with SYSPLEX(YES).</p>
-<p><em>sysname</em> is the name of a system participating in shared file system. The name must be 1-8 characters long; the valid characters are A-Z, 0-9, $, &#64;, and #.</p>
+<p><em>sysname</em> is a 1–8 alphanumeric name of a system participating in shared file system.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -393,13 +397,6 @@
 <p>This specifies the list of servers to include or exclude as destinations.</p>
 <p>None is a valid value, meaning ‘move anywhere’.</p>
 <p>Indicator is either INCLUDE or EXCLUDE, which can also be abbreviated as I or E.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
-<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary and backup datasets.</p>
-<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>

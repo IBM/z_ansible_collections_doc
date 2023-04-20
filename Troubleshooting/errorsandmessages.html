@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="General" href="../faqs/faqs.html" />
+    <link rel="prev" title="Releases" href="../zhmc-ansible-modules/docs/source/release_notes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,6 +100,26 @@
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../release/release.html">Releases</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Errors and Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-test-if-an-ansible-or-z-os-module-is-able-to-reach-the-target-host">How can I test if an Ansible or z/OS module is able to reach the target (host)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication">Which modules are affected when using <code class="docutils literal notranslate"><span class="pre">askpass</span></code> instead of SSH authentication?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-a-user-running-ansible-on-uss-need-to-have-any-special-privileges">Does a user running Ansible on USS need to have any special privileges?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-causes-the-error-unsupported-parameter-how-do-i-fix-it">What causes the error: <strong>“unsupported parameter”</strong>? How do I fix it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#when-using-ibm-python-why-do-i-get-this-error">When using IBM Python, why do I get this error?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-causes-this-error-during-the-playbook-execution-how-do-i-fix-it">What causes this error during the playbook execution? How do I fix it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-i-get-this-error-during-the-playbook-execution">Why do I get this error during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-i-get-this-warning-during-the-playbook-execution">Why do I get this warning during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Why do I get this error during the playbook execution ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-does-my-managed-z-os-system-pre-login-prompt-cause-the-zos-copy-and-zos-fetch-modules-to-fail">Why does my managed z/OS system pre-login prompt cause the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules to fail?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#troubleshooting-collections">Troubleshooting Collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#if-i-run-into-a-problem-when-using-an-ansible-collection-for-ibm-z-how-should-i-seek-support">If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
 <ul>
@@ -193,14 +215,14 @@ z/OS core collection.</p>
 z/OS host. If the command succeeds and returns the following output,
 the collection was installed correctly.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&lt;zos-host-name&gt; <span class="p">|</span> <span class="nv">SUCCESS</span> <span class="o">=</span>&gt; <span class="o">{</span>
-    <span class="s2">&quot;changed&quot;</span>: false,
-    <span class="s2">&quot;ping&quot;</span>: <span class="s2">&quot;pong&quot;</span>
+    <span class="s2">&quot;changed&quot;</span>: false,
+    <span class="s2">&quot;ping&quot;</span>: <span class="s2">&quot;pong&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication">
-<h2>Which modules are affected when  using <code class="docutils literal notranslate"><span class="pre">askpass</span></code> instead of SSH authentication?<a class="headerlink" href="#which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication" title="Permalink to this headline">¶</a></h2>
+<h2>Which modules are affected when using <code class="docutils literal notranslate"><span class="pre">askpass</span></code> instead of SSH authentication?<a class="headerlink" href="#which-modules-are-affected-when-using-askpass-instead-of-ssh-authentication" title="Permalink to this headline">¶</a></h2>
 <p>Data transfer modules such as <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> depend on the
 authenticated <code class="docutils literal notranslate"><span class="pre">SSH</span></code> connection from the control node to the managed node. When
 using these modules, ensure that the connection from the controller to the
@@ -222,7 +244,7 @@ particular user, you can use <code class="docutils literal notranslate"><span cl
 <h2>What causes the error: <strong>“unsupported parameter”</strong>? How do I fix it?<a class="headerlink" href="#what-causes-the-error-unsupported-parameter-how-do-i-fix-it" title="Permalink to this headline">¶</a></h2>
 <p>This tends to happen when you are specifying a parameter to a module that it
 doesn’t support or is deprecated. Update your collection to the latest version
-and review the collection requirements in the <a href="#id2"><span class="problematic" id="id3">`release notes`_</span></a> to make sure you
+and review the collection requirements in the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/release/release.html">release notes</a> to make sure you
 are using the latest version of the modules and carefully examine the module
 documentation to understand what parameters it supports.</p>
 </div>
@@ -265,7 +287,7 @@ playbook.</p>
 supported by the <strong>Rocket Python</strong> distribution. Verify that you have installed
 <strong>IBM Open Enterprise SDK for Python</strong> on your z/OS managed node and upgrade
 to the latest version of the collection. To learn more about how to upgrade the
-collection, see our <a href="#id4"><span class="problematic" id="id5">`installation doc`_</span></a> or the sample <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#id2">repository doc</a>.</p>
+collection, see our <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/installation/installation.html">installation doc</a> or the sample <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#id2">repository doc</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">install</span></code> command installs the latest
