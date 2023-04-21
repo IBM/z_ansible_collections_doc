@@ -1,11 +1,11 @@
 
-:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_lpar_list.py
+:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_partition_list.py
 
-.. _zhmc_lpar_list_module:
+.. _zhmc_partition_list_module:
 
 
-zhmc_lpar_list -- List LPARs
-============================
+zhmc_partition_list -- List partitions
+======================================
 
 
 
@@ -16,16 +16,16 @@ zhmc_lpar_list -- List LPARs
 
 Synopsis
 --------
-- List LPARs on a specific CPC (Z system) or on all managed CPCs.
-- CPCs in DPM mode are ignored (i.e. do not lead to a failure).
-- LPARs for which the user has no object access permission are ignored (i.e. do not lead to a failure).
-- The module works for any HMC version. On HMCs with version 2.14.0 or higher, the "List Permitted Logical Partitions" opration is used. On older HMCs, the managed CPCs are listed and the LPARs on each CPC.
+- List partitions on a specific CPC (Z system) or on all managed CPCs.
+- CPCs in classic mode are ignored (i.e. do not lead to a failure).
+- Partitions for which the user has no object access permission are ignored (i.e. do not lead to a failure).
+- The module works for any HMC version. On HMCs with version 2.14.0 or higher, the "List Permitted Partitions" opration is used. On older HMCs, the managed CPCs are listed and the partitions on each CPC.
 
 
 Requirements
 ------------
 
-- The HMC userid must have object-access permissions to these objects: Target LPArs, CPCs of target LPARs (only for z13 and older).
+- The HMC userid must have object-access permissions to these objects: Target partitions, CPCs of target partitions (only for z13 and older).
 
 
 
@@ -79,7 +79,7 @@ hmc_auth
 
 
 cpc_name
-  Name of the CPC for which the LPARs are to be listed.
+  Name of the CPC for which the partitions are to be listed.
 
   Default: All managed CPCs.
 
@@ -105,18 +105,18 @@ Examples
    ---
    # Note: The following examples assume that some variables named 'my_*' are set.
 
-   - name: List the permitted LPARs on all managed CPCs
-     zhmc_lpar_list:
+   - name: List the permitted partitions on all managed CPCs
+     zhmc_partition_list:
        hmc_host: "{{ my_hmc_host }}"
        hmc_auth: "{{ my_hmc_auth }}"
-     register: lpar_list
+     register: partition_list
 
-   - name: List the permitted LPARs on a CPC
-     zhmc_lpar_list:
+   - name: List the permitted partitions on a CPC
+     zhmc_partition_list:
        hmc_host: "{{ my_hmc_host }}"
        hmc_auth: "{{ my_hmc_auth }}"
        cpc_name: CPCA
-     register: lpar_list
+     register: partition_list
 
 
 
@@ -124,6 +124,12 @@ Examples
 
 
 
+See Also
+--------
+
+.. seealso::
+
+   - :ref:`zhmc_partition_module`
 
 
 
@@ -144,8 +150,8 @@ msg
   | **returned**: failure
   | **type**: str
 
-lpars
-  The list of permitted LPARs, with a subset of their properties.
+partitions
+  The list of permitted partitions, with a subset of their properties.
 
   | **returned**: success
   | **type**: list
@@ -156,43 +162,37 @@ lpars
 
         [
             {
-                "activation_mode": "linux",
                 "cpc_name": "CPC1",
                 "has_unacceptable_status": false,
-                "name": "LPAR1",
+                "name": "partition1",
                 "se_version": "2.15.0",
                 "status": "active"
             }
         ]
 
   name
-    LPAR name
+    partition name
 
     | **type**: str
 
   cpc_name
-    Name of the parent CPC of the LPAR
+    Name of the parent CPC of the partition
 
     | **type**: str
 
   se_version
-    SE version of the parent CPC of the LPAR
+    SE version of the parent CPC of the partition
 
     | **type**: str
 
   status
-    The current status of the LPAR. For details, see the description of the 'status' property in the data model of the 'Logical Partition' resource (see :term:`HMC API`).
+    The current status of the partition. For details, see the description of the 'status' property in the data model of the 'Logical Partition' resource (see :term:`HMC API`).
 
     | **type**: str
 
   has_unacceptable_status
-    Indicates whether the current status of the LPAR is unacceptable, based on its 'acceptable-status' property.
+    Indicates whether the current status of the partition is unacceptable, based on its 'acceptable-status' property.
 
     | **type**: bool
-
-  activation_mode
-    The activation mode of the LPAR. For details, see the description of the 'activation-mode' property in the data model of the 'Logical Partition' resource (see :term:`HMC API`).
-
-    | **type**: str
 
 

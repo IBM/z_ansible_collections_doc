@@ -45,7 +45,7 @@ Besides having a supported operating system with a supported Python version
 (see :ref:`Supported environments`), it is recommended that you set up a
 `virtual Python environment`_.
 
-.. _virtual Python environment: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+.. _virtual Python environment: https://docs.python-guide.org/dev/virtualenvs/
 
 Then, with a virtual Python environment active, clone the Git repo of this
 project and prepare the development environment with ``make develop``:
@@ -74,8 +74,8 @@ on GitHub Pages at https://zhmcclient.github.io/zhmc-ansible-modules/.
 That web site represents a defined set of versions of this collection and
 automatically gets updated whenever a pull request gets merged into the
 repository branch that corresponds to the version. The automatic update
-mechanism is implemented in the GitHub Actions workflow file
-``.github/workflows/docs.yml``.
+mechanism is implemented in the GitHub Actions workflow "publish" (in file
+``.github/workflows/publish.yml``).
 
 The versions to be represented on that site are defined in ``docs/source/conf.py``
 in the section for "sphinx-versioning".
@@ -113,10 +113,12 @@ Again, an invocation of Make runs against the currently active Python environmen
 
 There are four kinds of tests currently, available as make targets:
 
+* ``make check`` - Run flake8
 * ``make linkcheck`` - Check links in documentation
-* ``make test`` - Run unit and function tests with test coverage
 * ``make sanity`` - Run Ansible sanity tests (includes flake8, pylint, validate-modules)
-* ``make end2end`` - Run end2end tests (against a real environment)
+* ``make test`` - Run unit and function tests with test coverage
+* ``make end2end_mocked`` - Run end2end tests against a mocked environment
+* ``make end2end`` - Run end2end tests against an environment defined by TESTHMC
 
 For the unit and function tests, the testcases and options for pytest
 can be specified via the environment variable ``TESTOPTS``, as shown in these
@@ -127,6 +129,41 @@ examples:
     $ make test                                      # Run all unit and function tests
     $ TESTOPTS='-vv' make test                       # Specify -vv verbosity for pytest
     $ TESTOPTS='-k test_partition.py' make test      # Run only this test source file
+
+The automated tests performed by Github Actions run on a standard set of test
+environments when a PR is created, and on the full set of test environments when
+a release is prepared and in addition on a weekly basis. See the
+``.github/workflows/test.yml`` file for details.
+
+These automated tests use all Ansible versions that are supported, but not in
+all combinations with all Python versions. See the
+``requirements.txt`` and ``minimum-constraint.txt`` files for details.
+
+The following table shows which Ansible versions are tested on which Python
+versions. In addition, this project tests on a well-defined set of minimum
+versions of Python packages, and a set of latest versions of Python packages
+for each Python version.
+
+======  ========  =======  ============
+Python  Packages  ansible  ansible-core
+------  --------  -------  ------------
+2.7     minimum   2.9      2.9
+3.5     minimum   2.9      2.9
+3.6     minimum   2.9      2.9
+3.7     minimum   2.9      2.9
+3.8     minimum   2.9      2.9
+3.9     minimum   4.0      2.11
+3.10    minimum   5.0      2.12
+3.11    minimum   7.0      2.14
+2.7     latest    2.9      2.9
+3.5     latest    2.9      2.9
+3.6     latest    2.10     2.10
+3.7     latest    4.x      2.11
+3.8     latest    5.x      2.12
+3.9     latest    6.x      2.13
+3.10    latest    7.x      2.14
+3.11    latest    7.x      2.14
+======  ========  =======  ============
 
 
 .. _`Releasing a version`:
@@ -224,159 +261,105 @@ local clone of the zhmc-ansible-modules Git repo.
       add text for any known issues you want users to know about.
     * Remove all empty list items.
 
-5.  When releasing based on the master branch, edit the GitHub workflow file
-    ``test.yml``:
+5.  Commit your changes and push the topic branch to the remote repo:
 
     .. code-block:: sh
 
-        vi .github/workflows/test.yml
-
-    and in the ``on`` section, increase the version of the ``stable_*`` branch
-    to the new stable branch ``stable_M.N`` created earlier:
-
-    .. code-block:: yaml
-
-        on:
-          schedule:
-            . . .
-          push:
-            branches: [ master, stable_M.N ]
-          pull_request:
-            branches: [ master, stable_M.N ]
-
-6.  When releasing based on the master branch, edit the GitHub workflow file
-    ``docs.yml``:
-
-    .. code-block:: sh
-
-        vi .github/workflows/docs.yml
-
-    and in the ``on`` section, increase the version of the ``stable_*`` branch
-    to the new stable branch ``stable_M.N`` created earlier:
-
-    .. code-block:: yaml
-
-        on:
-          push:
-            # PR merge to these branches triggers this workflow
-            branches: [ master, stable_M.N ]
-
-7.  Commit your changes and push the topic branch to the remote repo:
-
-    .. code-block:: sh
-
-        git status  # Double check the changed files
         git commit -asm "Release ${MNU}"
         git push --set-upstream origin release_${MNU}
 
-8.  On GitHub, create a Pull Request for branch ``release_M.N.U``. This will
-    trigger the CI runs.
+6.  On GitHub, create a Pull Request for branch ``release_M.N.U``.
 
     Important: When creating Pull Requests, GitHub by default targets the
     ``master`` branch. When releasing based on a stable branch, you need to
     change the target branch of the Pull Request to ``stable_M.N``.
 
-9.  On GitHub, close milestone ``M.N.U``.
+    The PR creation will cause the "test" workflow to run. That workflow runs
+    tests for all defined environments, since it discovers by the branch name
+    that this is a PR for a release.
 
-10. The items in this step should be performed within no more than 1 minute, so
-    that the documentation that is built uses the new version tag.
+7.  On GitHub, once the checks for that Pull Request have succeeded, merge the
+    Pull Request (no review is needed). This automatically deletes the branch
+    on GitHub.
 
-    * On GitHub, once the checks for the Pull Request for branch ``start_M.N.U``
-      have succeeded, merge the Pull Request (no review is needed). This
-      automatically deletes the branch on GitHub.
+    If the PR did not succeed, fix the issues.
 
-      This also triggers a build of the documentation and subsequent publishing
-      to Github pages. This build takes more than 1 minute to get to the
-      point where it needs the new version tag that is added in the next item.
+8.  On GitHub, close milestone ``M.N.U``.
 
-    * Add a new tag for the version that is being released and push it to
-      the remote repo:
+    Verify that the milestone has no open items anymore. If it does have open
+    items, investigate why and fix.
 
-      .. code-block:: sh
-
-          git checkout ${BRANCH}
-          git pull
-          git tag -f ${MNU}
-          git push -f --tags
-
-    * Wait for the docs workflow named "Release M.N.U" to complete, on
-      https://github.com/zhmcclient/zhmc-ansible-modules/actions/workflows/docs.yml,
-      and once it is complete, double check whether you see the new version
-      in the release notes at
-      https://zhmcclient.github.io/zhmc-ansible-modules/release_notes.html.
-
-      If you do not see the new release notes, the build was faster than the
-      pushing of the new tag, and this can be fixed by simply re-running
-      the docs workflow via the corresponding button in GitHub Actions.
-
-11. Clean up the local repo:
+9.  Publish the collection to Ansible Galaxy
 
     .. code-block:: sh
 
-        git branch -d release_${MNU}
-
-12. When releasing based on the master branch, create and push a new stable
-    branch for the same minor version:
-
-    .. code-block:: sh
-
-        git checkout -b stable_${MN}
-        git push --set-upstream origin stable_${MN}
         git checkout ${BRANCH}
+        git pull
+        git branch -D release_${MNU}
+        git branch -D -r origin/release_${MNU}
+        git tag -f ${MNU}
+        git push -f --tags
 
-    Note that no GitHub Pull Request is created for any ``stable_*`` branch.
+    Pushing the new tag will cause the "publish" workflow to run. That workflow
+    builds the collection, publishes it on Ansible Galaxy, creates a release for
+    it on Github, and finally creates a new stable branch on Github if the master
+    branch was released.
 
-13. On GitHub, edit the new tag ``M.N.U``, and create a release description on
-    it. This will cause it to appear in the Release tab.
+10. Verify the publishing
 
-    You can see the tags in GitHub via Code -> Releases -> Tags.
+    * Verify that the new version is available on Ansible Galaxy at
+      https://galaxy.ansible.com/ibm/ibm_zhmc/
 
-14. Publish the collection to Ansible Galaxy:
+      If the new version is not shown there, verify that the import on Ansible
+      Galaxy succeeded, by checking the status at
+      https://galaxy.ansible.com/my-imports (you need to log in).
 
-    You need to be registered on Ansible Galaxy, and your userid there needs to
-    be authorized to modify the 'ibm' namespace.
+    * Verify that the new version has a release on Github at
+      https://github.com/zhmcclient/zhmc-ansible-modules/releases
 
-    Look up your API Key on https://galaxy.ansible.com/me/preferences and upload
-    to Galaxy while the `GALAXY_TOKEN` environment variable is set to your API
-    Key:
+    * Verify that the new version has documentation on Github pages at
+      https://zhmcclient.github.io/zhmc-ansible-modules/release_notes.html
+
+11. Publish the collection to Ansible AutomationHub
+
+    This needs to be done in addition to the prior publish step, and it
+    has not successfully been automated as of today.
+
+    You need to have an account on https://console.redhat.com, and your
+    userid there needs to be authorized to modify the 'ibm' namespace.
+
+    * Buuild the distribution archive locally:
 
     .. code-block:: sh
 
-        GALAXY_TOKEN={your-galaxy-api-key} make upload
+        make dist
 
-    This will show the collection version and will ask for confirmation.
+    * Open https://console.redhat.com/ansible/automation-hub/repo/published/ibm
+      and log in to your account.
 
-    **Important:** Double check that the correct package version (``M.N.U``,
-    without any development suffix) is shown.
+    * Click on the "Upload Collection" button at the top right of the page,
+      and in the file selection dialog that pops up, select the distribution
+      archive for the version you want to upload:
+
+      .. code-block:: text
+
+          dist/ibm-ibm_zhmc-{M}.{N}.{U}.tar.gz
 
     **Attention!!** This only works once for each version. You cannot
-    re-release the same version to Ansible Galaxy, or otherwise update it.
+    re-release the same version more than once.
 
-    Verify that the import on Ansible Galaxy succeeded, by checking the status
-    at https://galaxy.ansible.com/my-imports (you need to log in).
-
-    Verify that the new version is shown on Ansible Galaxy at
-    https://galaxy.ansible.com/ibm/ibm_zhmc/.
-
-15. Publish the collection to Ansible AutomationHub:
-
-    You need to be registered on Ansible AutomationHub, and your userid there
-    needs to be authorized to modify the 'ibm' namespace.
-
-    Go to https://console.redhat.com/ansible/automation-hub/repo/published/ibm
-    and log in.
-
-    Click the "Upload Collection" button and select the distribution archive
-    `dist/ibm-ibm_zhmc-M.N.U.tar.gz` (which has been built by the previous step).
-
-    The import page at
+    Verify that the import on Ansible AutomationHub succeeded, by checking the
+    status at
     https://console.redhat.com/ansible/automation-hub/my-imports?namespace=ibm
-    should now show the new version with status "Pending". Wait until the
-    import processing has completed, and verify that it succeeded.
+    (you need to log in).
 
-    The approval status should now be "waiting for approval", and once it has
-    been approved it should be public on Ansible AutomationHub at
-    https://galaxy.ansible.com/ibm/ibm_zhmc/
+    After the import succeeded, the release must still be approved by RedHat
+    before it is published, so the approval status should now show
+    "waiting for approval".
+
+    The RedHat team should approve the release within a day or so. Once it has
+    been approved, the new version will be visible on Ansible AutomationHub at
+    https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc .
 
 
 .. _`Starting a new version`:
@@ -503,7 +486,6 @@ local clone of the zhmc-ansible-modules Git repo.
 
     .. code-block:: sh
 
-        git status  # Double check the changed files
         git commit -asm "Start ${MNU}"
         git push --set-upstream origin start_${MNU}
 
@@ -532,4 +514,5 @@ local clone of the zhmc-ansible-modules Git repo.
 
         git checkout ${BRANCH}
         git pull
-        git branch -d start_${MNU}
+        git branch -D start_${MNU}
+        git branch -D -r origin/start_${MNU}

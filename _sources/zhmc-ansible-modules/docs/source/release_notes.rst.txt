@@ -20,10 +20,170 @@ Releases
 ========
 
 
-Version 1.0.2
+Version 1.3.0
 -------------
 
-Released: 2022-04-09
+This version contains all fixes up to version 1.2.1.
+
+Released: 2023-03-03
+
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
+
+**Bug fixes:**
+
+* Unpinned Ansible again. It was pinned in version 1.2.0 on each Python version
+  to a different Ansible version in order to broaden the test coverage. The
+  test coverage across Ansible versions is now defined separately from the
+  Ansible versions required for installing the collection.
+
+**Enhancements:**
+
+* Added a new module 'zhmc_user_list' for listing the HMC users.
+
+**Cleanup:**
+
+* Docs/dev: Changed sphinx-versions to use the PEP 440 compliant tag 1.1.3.post2
+  from our fork.
+
+* Addressed issues in test workflow reported by Github Actions. (issue #616)
+
+
+Version 1.2.0
+-------------
+
+This version contains all fixes up to version 1.1.1.
+
+Released: 2022-12-06
+
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
+
+**Bug fixes:**
+
+* Fixed that every module invocation created an additional log handler, thus
+  duplicating log entries. This only affected the end2end tests, but not when
+  used in Ansible playbooks. (issue #552)
+
+* In the zhmc_partition module, fixed that the artificial property
+  'boot-storage-volume-name' was not included in the result.
+  (related to issue #550)
+
+* In the zhmc_partition module, fixed the support for check mode and added
+  tests. (issue #550)
+
+* In the zhmc_partition module, added missing z14, z15 and z16 input properties:
+  'boot_storage_volume', 'boot_storage_volume_name', 'boot_load_parameters',
+  'permit_ecc_key_import_functions', 'ssc_ipv6_gateway', 'secure_boot',
+  'secure_execution', 'storage_group_uris', 'tape_link_uris',
+  'partition_link_uris', 'available_features_list'. (related to issue #550)
+
+* Test: Added missing z14 partition properties to the mock definition file
+  tests/end2end/mocked_hmc_z14.yaml. (related to issue #550)
+
+* Fixed a flake8 AttributeError when using importlib-metadata 5.0.0 on
+  Python >=3.7, by pinning importlib-metadata to <5.0.0 on these Python
+  versions.
+
+* Temporarily disabled the sanity tests on all Ansible 7 (ansible-core 2.14)
+  test environments. See issue #579 for the overall issue.
+
+* Improved error handling when the zhmcclient_mock module is missing.
+  (issue #574)
+
+* Made the zhmc_adapter module tolerant against unconfigured FICON adapters
+  to avoid HTTP error 404,4 "Get for Storage Port Properties is not supported
+  for this card type". (issue #580)
+
+* Made the zhmc_user module tolerant against unusual cases such as local
+  auth without password rule. (issue #564)
+
+* Updated the set of supported Ansible versions listed in the Installation
+  section of the documentation to add recent Ansible versions up to Ansible 7.
+
+**Enhancements:**
+
+* Added a new 'zhmc_partition_list' Ansible module for listing partitions on
+  CPCs in DPM mode. This speeds up execution time compared to obtaining them
+  from the facts returned by 'zhmc_cpc'. (issue #526)
+
+* Added support for Ansible 6.0.0 by adding an ignore-2.13.txt file to the
+  sanity tests. (issue #533)
+
+* Added a new make target 'end2end_mocked' that runs the end2end
+  tests against mock environments defined with a new HMC inventory file
+  (mocked_inventory.yaml) and a new HMC vault file (mocked_vault.yaml),
+  and new mock files mocked_z14_classic.yaml and mocked_z14_dpm.yaml.
+  (part of issue #396)
+
+* Increased the minimum version of zhmcclient to 1.3.3, in order to pick
+  up fixes. (part of issue #396)
+
+* Added a new module 'zhmc_password_rule' that supports creating/updating,
+  deleting, and gathering facts of a password rule on the HMC. (issue #363)
+
+* Added a new module 'zhmc_password_rule_list' that supports listing the names
+  of password rules on the HMC. (issue #363)
+
+* Added the end2end_mocked tests to the coverage data reported to coveralls.io.
+
+* Added a new module 'zhmc_user_role' that supports creating/updating,
+  deleting, and gathering facts of a user role on the HMC. (issue #362)
+
+* Added a new module 'zhmc_user_role_list' that supports listing the names
+  of user roles on the HMC. (issue #362)
+
+* Merged function tests into end2end tests to remove duplicate test cases.
+
+* Removed the restriction that the zhmc_partition_list and zhmc_lpar_list
+  modules were supported only with HMC versions 2.14.0 and newer. These modules
+  are now supprted with all HMC versions (issue #549)
+
+* Removed the restriction that the 'se-version' property in the result of the
+  zhmc_partition_list and zhmc_lpar_list modules was provided only with HMC
+  versions 2.14.1 and newer. The property is now provided with all HMC versions.
+  (issue #549)
+
+* Added support for 'reset_clear' and 'reset_normal' state in the zhmc_lpar
+  module to support the "Reset Clear" and "Reset Normal" HMC operations.
+  Along with that, added support for a new optional 'os_ipl_token' input
+  parameter to support the respective HMC operation parameter.
+  (issue #556)
+
+* Added a new 'zhmc_adapter_list' Ansible module for listing adapters on
+  CPCs in DPM mode. This speeds up execution time compared to obtaining them
+  from the facts returned by 'zhmc_cpc'. (issue #576)
+
+* Improved the error handling of the zhmc_user module when specified
+  user roles, user patterns, password rules, or LDAP server definitions
+  do not exist. (related to issue #564)
+
+* Increased the set of tested Ansible versions to now include all major versions
+  that are supported, from Ansible 2.9 to Ansible 7.
+
+* Added tests for Python 3.11.
+
+* Simplified the publishing of the collection.
+
+
+* Stated support for the classic-mode only machine generations z196 / z114 /
+  zEC12 / zBC12.
+
+* Stated support for machine generation z16 / LinuxONE 4.
+
+* Upgraded zhmcclient to 1.5.0 to pick up fixes.
+
+
+**Cleanup:**
+
+* Clarified the description of input parameters of the zhmc_lpar module.
+  (part of issue #556)
+
+
+Version 1.1.0
+-------------
+
+This version contains all fixes up to version 1.0.3.
+
+Released: 2022-06-01
 
 Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
 
@@ -41,6 +201,57 @@ Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
   test, and removed the ignore statements for "tools/os_setup.sh" from the
   ignore files because the sanity test on AutomationHub tests against the
   uploaded archive which does not have that script.
+
+* Fixed the use of incorrectly named attributes and methods in the zhmc_user
+  module, and made the module result in check mode consistent with non-check
+  mode. (issue #507)
+
+* Test: Added missing env.vars in the pytest invocation for end2end tests.
+
+* Test: Added missing optional module parameters in the end2end tests.
+
+* Test: Added support for specifying 'hmc_auth.ca_certs' and 'hmc_auth.verify'
+  from the 'hmc_verify_cert' parameter in the HMC definition file in
+  end2end test cases for zhmc_partition and zhmc_user.
+
+* Docs: Fixed incorrect input property names in zhmc_user module.
+  (part of issue #514)
+
+* Test: Fixed failure of sanity test on Python 3.6 due to new
+  CryptographyDeprecationWarning raised by ansible, by pinning cryptography
+  to <37.0.0 on Python 3.6. (issue #518)
+
+* 'zhmc_user' module: Fixed an error for users with LDAP authentication.
+
+* 'zhmc_user' module: Fixed incorrect default properties for users created in
+  check mode.
+
+* Increased minimum version of zhmcclient from 1.2.0 to 1.3.0 in order to
+  pick up fixes and new functionality.
+
+**Enhancements:**
+
+* Test: Made end2end testing compatible with zhmcclient.testutils support using
+  an Ansible compatible HMC inventory file and an Ansible compatible HMC vault
+  file.
+  The default HMC inventory file is now ~/.zhmc_inventory.yaml and can be
+  changed using the TESTINVENTORY env. var.
+  The default HMC vault file is now ~/.zhmc_vault.yaml and can be
+  changed using the TESTVAULT env. var.
+  The default HMC or group to run the end2end tests against is now 'default'
+  and can be changed using the TESTHMC env. var.
+
+* Test: Added support for a TESTCASES env.var for filtering testcases with the
+  pytest -k option.
+
+* Added support for specifying user roles as input in the zhmc_user module.
+  User roles can now be specified with their names. They had been displayed
+  on users before. (issue #514)
+
+* Removed check in zhmc_user module for required input properties 'type' and
+  'authentication_type' because for updating existing users they are not
+  needed, and for creating new users, the HMC checks these.
+  (part of issue #514)
 
 
 Version 1.0.0

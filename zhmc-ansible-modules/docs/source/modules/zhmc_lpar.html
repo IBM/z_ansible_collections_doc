@@ -98,13 +98,20 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">Z HMC</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zhmc_user.html">zhmc_user – Create HMC users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_list.html">zhmc_user_list – List HMC users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule.html">zhmc_password_rule – Create HMC password rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule_list.html">zhmc_password_rule_list – List Password Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role.html">zhmc_user_role – Create HMC user roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role_list.html">zhmc_user_role_list – List HMC user roles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_cpc.html">zhmc_cpc – Manage CPCs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_cpc_list.html">zhmc_cpc_list – List CPCs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_adapter.html">zhmc_adapter – Update adapters and create Hipersocket adapters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter_list.html">zhmc_adapter_list – List adapters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_crypto_attachment.html">zhmc_crypto_attachment – Attach crypto resources to partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_hba.html">zhmc_hba – Create HBAs in partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_nic.html">zhmc_nic – Create NICs in partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_partition.html">zhmc_partition – Create partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_list.html">zhmc_partition_list – List partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group.html">zhmc_storage_group – Create storage groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group_attachment.html">zhmc_storage_group_attachment – Attach storage groups to partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_volume.html">zhmc_storage_volume – Create storage volumes</a></li>
@@ -226,21 +233,16 @@
 <li><p>Update modifiable properties of an active LPAR.</p></li>
 <li><p>Activate an LPAR and update its properties.</p></li>
 <li><p>Load an LPAR and update its properties.</p></li>
-<li><p>Deactivate an LPAR.</p></li>
+<li><p>Deactivate an LPAR using the ‘Deactivate Logical Partition’ operation.</p></li>
+<li><p>Initialize for load using the ‘Reset Clear’ or ‘Reset Normal’ operations.</p></li>
 </ul>
 </div>
 <div class="section" id="requirements">
 <h2><a class="toc-backref" href="#id2">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Access to the WS API of the HMC of the targeted CPC (see <a class="reference internal" href="../bibliography.html#term-HMC-API"><span class="xref std std-term">HMC API</span></a>).</p></li>
 <li><p>The targeted CPC must be in the classic operational mode.</p></li>
-<li><p>The HMC userid must have the following HMC permissions:</p></li>
-<li><p>Object-access permission to the target LPAR and its parent CPC.</p></li>
-<li><p>If the ‘next-activation-profile-name’ property is to be updated, task permission for the ‘Change Object Options’ task or the ‘Customize/Delete Activation Profiles’ task.</p></li>
-<li><p>If any of the ‘zaware-…’ properties is to be updated, task permission for the ‘Firmware Details’ task.</p></li>
-<li><p>If any of the numbers of allocated or reserved cores is is to be updated, task permission for the ‘Logical Processor Add’ task.</p></li>
-<li><p>If the LPAR needs to be activated, task permission for the ‘Activate’ task.</p></li>
-<li><p>If the LPAR needs to be deactivated, task permission for the ‘Deactivate’ task.</p></li>
+<li><p>The HMC userid must have these task permissions: ‘Activate’, ‘Deactivate’, ‘Logical Processor Add’ (if cores are updated), ‘Firmware Details’ (if ‘zaware-…’ properties are updated), ‘Change Object Options’ or ‘Customize/Delete Activation Profiles’ (if ‘next-activation-profile-name’ property is updated).</p></li>
+<li><p>The HMC userid must have object-access permissions to these objects: Target LPARs, CPCs of target LPARs.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
@@ -299,9 +301,11 @@
 </dd>
 <dt>state</dt><dd><p>The desired state for the LPAR:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">inactive</span></code>: Ensures that the LPAR is inactive (i.e. status is ‘not-activated’). Properties cannot be updated. The LPAR is deactivated if needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Ensures that the LPAR is at least activated (i.e. status is ‘not-operating’, ‘operating’ or ‘acceptable’), and then ensures that the LPAR properties have the specified values. The LPAR is activated if needed. If it was already loaded or if auto-load is set, the LPAR will end up loaded.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">loaded</span></code>: Ensures that the LPAR is loaded (i.e. status is ‘operating’ or ‘acceptable’), and then ensures that the LPAR properties have the specified values. The LPAR is first activated if needed, and then loaded if needed (when auto-load is not set).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inactive</span></code>: Ensures that the LPAR is inactive (i.e. status ‘not-activated’), unless the LPAR is currently operating and the <code class="docutils literal notranslate"><span class="pre">force</span></code> parameter was not set to True. Properties cannot be updated. The LPAR is deactivated if needed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_clear</span></code>: Initialize the LPAR for loading by performing a ‘Reset Clear’ operation (clearing its pending interruptions, resetting its channel subsystem, resetting its processors, clearing its memory), unless the LPAR is currently loaded (i.e. status is ‘operating’ or ‘acceptable’) and the <code class="docutils literal notranslate"><span class="pre">force</span></code> parameter was not set to True. Properties cannot be updated. After successful execution of the ‘Reset Normal’ operation, the LPAR will be inactive (i.e. status ‘not-activated’).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_normal</span></code>: Initialize the LPAR for loading by performing a ‘Reset Normal’ operation (clearing its pending interruptions, resetting its channel subsystem, resetting its processors), unless the LPAR is currently loaded (i.e. status is ‘operating’ or ‘acceptable’) and the <code class="docutils literal notranslate"><span class="pre">force</span></code> parameter was not set to True. Properties cannot be updated. After successful execution of the ‘Reset Normal’ operation, the LPAR  will be inactive (i.e. status ‘not-activated’).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Ensures that the LPAR is at least active (i.e. status is ‘not-operating’, ‘operating’ or ‘acceptable’), and then ensures that the LPAR properties have the specified values. The LPAR is activated if needed. If auto-load is set in the activation profile, the LPAR will also be loaded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loaded</span></code>: Ensures that the LPAR is loaded (i.e. status is ‘operating’ or ‘acceptable’), and then ensures that the LPAR properties have the specified values. The LPAR is first activated if needed, and then loaded if needed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">set</span></code>: Ensures that the LPAR properties have the specified values. Requires that the LPAR is at least active (i.e. status is ‘not-operating’, ‘operating’ or ‘acceptable’) but does not activate the LPAR if that is not the case.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">facts</span></code>: Returns the current LPAR properties.</p></li>
 </ul>
@@ -309,7 +313,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: inactive, active, loaded, set, facts</div>
+<div class="line"><strong>choices</strong>: inactive, reset_clear, reset_normal, active, loaded, set, facts</div>
 </div>
 </dd>
 <dt>activation_profile_name</dt><dd><p>The name of the image or load activation profile to be used when the LPAR needs to be activated, for <code class="docutils literal notranslate"><span class="pre">state=active</span></code> and <code class="docutils literal notranslate"><span class="pre">state=loaded</span></code>.</p>
@@ -321,13 +325,18 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>force</dt><dd><p>Controls what happens when the LPAR was already active:</p>
-<p>If True, the parameters from the specified or defaulted image or load activation profile will be applied.</p>
-<p>If False, the parameters from the previously used activation profile remain applied and will not be changed. The previously used activation profile is shown in the ‘last-used-activation-profile’ property of the LPAR.</p>
-<p>TODO: Verify these statements</p>
+<dt>force</dt><dd><p>Controls whether operations that change the LPAR status are performed when the LPAR is currently loaded (i.e. status ‘operating’ or ‘acceptable’):</p>
+<p>If True, such operations are performed regardless of the current LPAR status.</p>
+<p>If False, such operations are performed only if the LPAR is not currently loaded, and are rejected otherwise.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>os_ipl_token</dt><dd><p>Setting this parameter for <code class="docutils literal notranslate"><span class="pre">state=reset_clear</span></code> or <code class="docutils literal notranslate"><span class="pre">state=reset_normal</span></code> requests that the corresponding HMC operations only be performed if the provided value matches the current value of the ‘os-ipl-token’ property of the LPAR, and be rejected otherwise. Note that the ‘os-ipl-token’ property of the LPAR is set by the operating system and is set only by some operating systems, such as z/OS. This parameter is ignored for other <code class="docutils literal notranslate"><span class="pre">state</span></code> values.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>properties</dt><dd><p>Dictionary with new values for the LPAR properties, for <code class="docutils literal notranslate"><span class="pre">state=active</span></code>, <code class="docutils literal notranslate"><span class="pre">state=loaded</span></code> and <code class="docutils literal notranslate"><span class="pre">state=set</span></code>. Key is the property name with underscores instead of hyphens, and value is the property value in YAML syntax. Integer properties may also be provided as decimal strings.</p>
@@ -389,6 +398,24 @@
 <span class="w">    </span><span class="nt">cpc_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_cpc_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_lpar_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">loaded</span><span class="w"></span>
+<span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpar1</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ensure the LPAR is initialized for loading, clearing its memory</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zhmc_lpar</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hmc_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_host</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hmc_auth</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_auth</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">cpc_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_cpc_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_lpar_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reset_clear</span><span class="w"></span>
+<span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpar1</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ensure the LPAR is initialized for loading, not clearing its memory</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zhmc_lpar</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hmc_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_host</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hmc_auth</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_auth</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">cpc_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_cpc_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_lpar_name</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reset_normal</span><span class="w"></span>
 <span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpar1</span><span class="w"></span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ensure the CP sharing weight of the LPAR is 30</span><span class="w"></span>

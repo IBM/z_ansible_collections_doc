@@ -32,6 +32,11 @@ Modules targeting the HMC (i.e. not a specific CPC):
    :glob:
 
    modules/zhmc_user
+   modules/zhmc_user_list
+   modules/zhmc_password_rule
+   modules/zhmc_password_rule_list
+   modules/zhmc_user_role
+   modules/zhmc_user_role_list
 
 Modules supported with CPCs in any operational mode:
 
@@ -49,10 +54,12 @@ Modules supported only with CPCs in DPM operational mode:
    :glob:
 
    modules/zhmc_adapter
+   modules/zhmc_adapter_list
    modules/zhmc_crypto_attachment
    modules/zhmc_hba
    modules/zhmc_nic
    modules/zhmc_partition
+   modules/zhmc_partition_list
    modules/zhmc_storage_group
    modules/zhmc_storage_group_attachment
    modules/zhmc_storage_volume
