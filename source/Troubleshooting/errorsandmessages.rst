@@ -32,11 +32,11 @@ the collection was installed correctly.
 .. code-block:: sh
 
     <zos-host-name> | SUCCESS => {
-        "changed": false,
-        "ping": "pong"
+        "changed": false,
+        "ping": "pong"
     }
 
-Which modules are affected when  using ``askpass`` instead of SSH authentication?
+Which modules are affected when using ``askpass`` instead of SSH authentication?
 ---------------------------------------------------------------------------------
 Data transfer modules such as ``zos_copy`` and ``zos_fetch`` depend on the
 authenticated ``SSH`` connection from the control node to the managed node. When
@@ -65,6 +65,9 @@ doesn't support or is deprecated. Update your collection to the latest version
 and review the collection requirements in the `release notes`_ to make sure you
 are using the latest version of the modules and carefully examine the module
 documentation to understand what parameters it supports.
+
+.. _release notes:
+   https://ibm.github.io/z_ansible_collections_doc/release/release.html
 
 
 When using IBM Python, why do I get this error?
@@ -125,6 +128,9 @@ collection, see our `installation doc`_ or the sample `repository doc`_.
 
 .. _repository doc:
     https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#id2
+
+.. _installation doc:
+   https://ibm.github.io/z_ansible_collections_doc/installation/installation.html
 
 .. note::
 
