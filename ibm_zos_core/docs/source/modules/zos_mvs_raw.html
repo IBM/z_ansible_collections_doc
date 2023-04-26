@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
@@ -718,6 +719,7 @@
 <dt>content</dt><dd><p>The input contents for the DD.</p>
 <p><em>dd_input</em> supports single or multiple lines of input.</p>
 <p>Multi-line input can be provided as a multi-line string or a list of strings with 1 line per list item.</p>
+<p>If a multi-line string is provided make sure to use the proper literal block style indicator “|”.</p>
 <p>If a list of strings is provided, newlines will be added to each of the lines when used as input.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -1277,6 +1279,7 @@
 <dt>content</dt><dd><p>The input contents for the DD.</p>
 <p><em>dd_input</em> supports single or multiple lines of input.</p>
 <p>Multi-line input can be provided as a multi-line string or a list of strings with 1 line per list item.</p>
+<p>If a multi-line string is provided make sure to use the proper literal block style indicator “|”.</p>
 <p>If a list of strings is provided, newlines will be added to each of the lines when used as input.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -1324,6 +1327,13 @@
 </dl>
 </dd>
 </dl>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary and backup datasets.</p>
+<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
 </dd>
 </dl>
 </div>
@@ -1529,7 +1539,7 @@
 <span class="w">    </span><span class="nt">dds</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sortin01</span><span class="w"></span>
-<span class="w">          </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhlq.dfsort.master</span><span class="w"></span>
+<span class="w">          </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhlq.dfsort.main</span><span class="w"></span>
 <span class="w">          </span><span class="nt">disposition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shr</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sortin02</span><span class="w"></span>
@@ -1571,6 +1581,29 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span><span class="w"></span>
 <span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SYS1.*&#39;)&quot;</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Drop the contents of input dataset into output dataset</span><span class="w"></span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">using REPRO command.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">pgm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">idcams</span><span class="w"></span>
+<span class="w">    </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+<span class="w">    </span><span class="nt">dds</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INPUT</span><span class="w"></span>
+<span class="w">        </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.input</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OUTPUT</span><span class="w"></span>
+<span class="w">        </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.output</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span><span class="w"></span>
+<span class="w">        </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">&quot; REPRO -</span><span class="w"></span>
+<span class="w">              </span><span class="no">INFILE(INPUT) -</span><span class="w"></span>
+<span class="w">              </span><span class="no">OUTFILE(OUTPUT)&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_output</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysprint</span><span class="w"></span>
+<span class="w">        </span><span class="nt">return_content</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

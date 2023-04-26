@@ -22,7 +22,6 @@ Synopsis
 
 
 
-
 Parameters
 ----------
 

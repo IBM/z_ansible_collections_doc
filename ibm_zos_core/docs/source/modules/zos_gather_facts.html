@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zos_tso_command – Execute TSO commands &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>zos_gather_facts – Gather z/OS system facts. &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Filters" href="../filters.html" />
-    <link rel="prev" title="zos_ping – Ping z/OS and check dependencies." href="zos_ping.html" /> 
+    <link rel="next" title="zos_job_output – Display job output" href="zos_job_output.html" />
+    <link rel="prev" title="zos_find – Find matching data sets" href="zos_find.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,7 +101,13 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zos_gather_facts – Gather z/OS system facts.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
@@ -111,13 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">zos_tso_command – Execute TSO commands</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -202,7 +202,7 @@
         
           <li><a href="../modules.html">Modules</a> &raquo;</li>
         
-      <li>zos_tso_command – Execute TSO commands</li>
+      <li>zos_gather_facts – Gather z/OS system facts.</li>
     
     
 
@@ -214,8 +214,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="zos-tso-command-execute-tso-commands">
-<span id="zos-tso-command-module"></span><h1>zos_tso_command – Execute TSO commands<a class="headerlink" href="#zos-tso-command-execute-tso-commands" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="zos-gather-facts-gather-z-os-system-facts">
+<span id="zos-gather-facts-module"></span><h1>zos_gather_facts – Gather z/OS system facts.<a class="headerlink" href="#zos-gather-facts-gather-z-os-system-facts" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -227,85 +227,89 @@
 <div class="section" id="synopsis">
 <h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Execute TSO commands on the target z/OS system with the provided options and receive a structured response.</p></li>
+<li><p>Retrieve variables from target z/OS systems.</p></li>
+<li><p>Variables are added to the <em>ansible_facts</em> dictionary, available to playbooks.</p></li>
+<li><p>Apply filters on the <em>gather_subset</em> list to reduce the variables that are added to the <em>ansible_facts</em> dictionary.</p></li>
+<li><p>Note, the module will fail fast if any unsupported options are provided. This is done to raise awareness of a failure in an automation setting.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
 <h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>commands</dt><dd><p>One or more TSO commands to execute on the target z/OS system.</p>
-<p>Accepts a single string or list of strings as input.</p>
+<dt>gather_subset</dt><dd><p>If specified, it will collect facts that come under the specified subset (eg. ipl will return ipl facts). Specifying subsets is recommended to reduce time in gathering facts when the facts needed are in a specific subset.</p>
+<p>The following subsets are available <code class="docutils literal notranslate"><span class="pre">ipl</span></code>, <code class="docutils literal notranslate"><span class="pre">cpu</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, and <code class="docutils literal notranslate"><span class="pre">iodf</span></code>. Depending on the version of ZOAU, additional subsets may be available.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
-<div class="line"><strong>type</strong>: raw</div>
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>default</strong>: [‘all’]</div>
+</div>
+</dd>
+<dt>filter</dt><dd><p>Filter out facts from the <em>ansible_facts</em> dictionary.</p>
+<p>Uses shell-style <a class="reference external" href="https://docs.python.org/3/library/fnmatch.html">fnmatch</a> pattern matching to filter out the collected facts.</p>
+<p>An empty list means ‘no filter’, same as providing ‘*’.</p>
+<p>Filtering is performed after the facts are gathered such that no compute is saved when filtering. Filtering only reduces the number of variables that are added to the <em>ansible_facts</em> dictionary. To restrict the facts that are collected, refer to the <em>gather_subset</em> parameter.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
 </dl>
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execute TSO commands to allocate a new dataset</span><span class="w"></span>
-<span class="w">  </span><span class="nt">zos_tso_command</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alloc da(&#39;TEST.HILL3.TEST&#39;) like(&#39;TEST.HILL3&#39;)</span><span class="w"></span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delete &#39;TEST.HILL3.TEST&#39;</span><span class="w"></span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Return all available z/OS facts.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ibm.ibm_zos_core.zos_gather_facts</span><span class="p">:</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execute TSO command list user TESTUSER to obtain TSO information</span><span class="w"></span>
-<span class="w">  </span><span class="nt">zos_tso_command</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
-<span class="w">           </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LU TESTUSER</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Return z/OS facts in the systems subset (&#39;sys&#39;).</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ibm.ibm_zos_core.zos_gather_facts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gather_subset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sys</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Return z/OS facts in the subsets (&#39;ipl&#39; and &#39;sys&#39;) and filter out all</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">facts that do not match &#39;parmlib&#39;.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ibm.ibm_zos_core.zos_gather_facts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gather_subset</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ipl</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sys</span><span class="w"></span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*parmlib*&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>output</dt><dd><p>List of each TSO command output.</p>
+<dt>ansible_facts</dt><dd><p>Collection of facts that are gathered from the z/OS systems.</p>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: always</div>
-<div class="line"><strong>type</strong>: list</div>
-<div class="line"><strong>elements</strong>: dict</div>
-</div>
-<dl>
-<dt>command</dt><dd><p>The executed TSO command.</p>
-<div class="line-block">
-<div class="line"><strong>returned</strong>: always</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
-<dt>rc</dt><dd><p>The return code from the executed TSO command.</p>
-<div class="line-block">
-<div class="line"><strong>returned</strong>: always</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
-</dd>
-<dt>content</dt><dd><p>The response resulting from the execution of the TSO command.</p>
-<div class="line-block">
-<div class="line"><strong>returned</strong>: always</div>
-<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>returned</strong>: when collected</div>
+<div class="line"><strong>type</strong>: dict</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;NO MODEL DATA SET                                                OMVSADM&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;TERMUACC                                                                &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;SUBGROUP(S)= VSAMDSET SYSCTLG  BATCH    SASS     MASS     IMSGRP1       &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;             IMSGRP2  IMSGRP3  DSNCAT   DSN120   J42      M63           &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;             J91      J09      J97      J93      M82      D67           &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;             D52      M12      CCG      D17      M32      IMSVS         &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;             DSN210   DSN130   RAD      CATLG4   VCAT     CSP           &quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;ansible_facts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;arch_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;hw_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SYSZD6&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;ipl_volume&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RES820&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;lpar_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SVLLAB01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;primary_jes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JES2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;product_mod_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;z/OS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;product_owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IBM CORP&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;product_release&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;product_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;smf_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3090&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sys_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EC33018A&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sysplex_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SVPLEX1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;vm_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EC33018A&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
-</dd>
-<dt>lines</dt><dd><p>The line number of the content.</p>
-<div class="line-block">
-<div class="line"><strong>returned</strong>: always</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
-</dd>
-</dl>
 </dd>
 </dl>
 </div>
