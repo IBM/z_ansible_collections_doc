@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Filters" href="../filters.html" />
+    <link rel="next" title="zos_volume_init – Initialize volumes or minidisks." href="zos_volume_init.html" />
     <link rel="prev" title="zos_ping – Ping z/OS and check dependencies." href="zos_ping.html" /> 
 </head>
 
@@ -118,6 +118,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -235,9 +236,17 @@
 <dl>
 <dt>commands</dt><dd><p>One or more TSO commands to execute on the target z/OS system.</p>
 <p>Accepts a single string or list of strings as input.</p>
+<p>If a list of strings is provided, processing will stop at the first failure, based on rc.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: raw</div>
+</div>
+</dd>
+<dt>max_rc</dt><dd><p>Specifies the maximum return code allowed for a TSO command.</p>
+<p>If more than one TSO command is submitted, the <em>max_rc</em> applies to all TSO commands.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
 </dl>
@@ -254,6 +263,12 @@
 <span class="w">  </span><span class="nt">zos_tso_command</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
 <span class="w">           </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LU TESTUSER</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execute TSO command to list dataset data (allow 4 for no dataset listed or cert found)</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_tso_command</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
+<span class="w">           </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LISTDSD DATASET(&#39;HLQ.DATA.SET&#39;) ALL GENERIC</span><span class="w"></span>
+<span class="w">      </span><span class="nt">max_rc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -274,6 +289,13 @@
 </div>
 </dd>
 <dt>rc</dt><dd><p>The return code from the executed TSO command.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_rc</dt><dd><p>Specifies the maximum return code allowed for a TSO command.</p>
+<p>If more than one TSO command is submitted, the <em>max_rc</em> applies to all TSO commands.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: int</div>

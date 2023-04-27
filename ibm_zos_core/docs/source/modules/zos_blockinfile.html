@@ -120,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -246,7 +247,8 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>state</dt><dd><p>Whether the block should be inserted/replaced (present) or removed (absent).</p>
+<dt>state</dt><dd><p>Whether the block should be inserted or replaced using <em>state=present</em>.</p>
+<p>Whether the block should be removed using <em>state=absent</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -340,7 +342,7 @@
 </dd>
 <dt>force</dt><dd><p>Specifies that the data set can be shared with others during an update which results in the data set you are updating to be simultaneously updated by others.</p>
 <p>This is helpful when a data set is being used in a long running process such as a started task and you are wanting to update or read.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">-f</span></code> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">force</span></code> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -363,13 +365,11 @@
 <span class="w">    </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
 <span class="w">       </span><span class="no">MOUNT FILESYSTEM(&#39;SOME.DATA.SET&#39;) TYPE(ZFS) MODE(READ)</span><span class="w"></span>
 <span class="w">          </span><span class="no">MOUNTPOINT(&#39;/tmp/src/somedirectory&#39;)</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove a library as well as surrounding markers</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span><span class="w"></span>
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(PROG00)</span><span class="w"></span>
 <span class="w">    </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/*</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">ANSIBLE</span><span class="nv"> </span><span class="s">MANAGED</span><span class="nv"> </span><span class="s">BLOCK</span><span class="nv"> </span><span class="s">FOR</span><span class="nv"> </span><span class="s">SOME.DATA.SET</span><span class="nv"> </span><span class="s">*/&quot;</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add ZOAU path to PATH in /etc/profile</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/profile</span><span class="w"></span>
@@ -378,7 +378,6 @@
 <span class="w">      </span><span class="no">ZOAU=/path/to/zoau_dir/bin</span><span class="w"></span>
 <span class="w">      </span><span class="no">export ZOAU</span><span class="w"></span>
 <span class="w">      </span><span class="no">PATH=$ZOAU:$PATH</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Insert/Update HTML surrounded by custom markers after &lt;body&gt; line</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/www/html/index.html</span><span class="w"></span>
@@ -387,13 +386,11 @@
 <span class="w">    </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
 <span class="w">      </span><span class="no">&lt;h1&gt;Welcome to </span><span class="cp">{{</span> <span class="nv">ansible_hostname</span> <span class="cp">}}</span><span class="no">&lt;/h1&gt;</span><span class="w"></span>
 <span class="w">      </span><span class="no">&lt;p&gt;Last updated on </span><span class="cp">{{</span> <span class="nv">ansible_date_time.iso8601</span> <span class="cp">}}</span><span class="no">&lt;/p&gt;</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove HTML as well as surrounding markers</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/www/html/index.html</span><span class="w"></span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span><span class="w"></span>
 <span class="w">    </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;!--</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">ANSIBLE</span><span class="nv"> </span><span class="s">MANAGED</span><span class="nv"> </span><span class="s">BLOCK</span><span class="nv"> </span><span class="s">--&gt;&quot;</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add mappings to /etc/hosts</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/hosts</span><span class="w"></span>
@@ -404,7 +401,6 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">host1</span><span class="p p-Indicator">,</span><span class="nt"> ip</span><span class="p">:</span><span class="w"> </span><span class="nv">10.10.1.10</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">host2</span><span class="p p-Indicator">,</span><span class="nt"> ip</span><span class="p">:</span><span class="w"> </span><span class="nv">10.10.1.11</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">host3</span><span class="p p-Indicator">,</span><span class="nt"> ip</span><span class="p">:</span><span class="w"> </span><span class="nv">10.10.1.12</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
-
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add a code block to a member using a predefined indentation.</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRM00)</span><span class="w"></span>
@@ -413,6 +409,44 @@
 <span class="w">          </span><span class="no">RUN  PROGRAM(DSNTEP2) PLAN(DSNTEP12) -</span><span class="w"></span>
 <span class="w">          </span><span class="no">LIB(&#39;</span><span class="cp">{{</span> <span class="nv">DB2RUN</span> <span class="cp">}}</span><span class="no">.RUNLIB.LOAD&#39;)</span><span class="w"></span>
 <span class="w">    </span><span class="nt">indentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update a script with commands containing quotes.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/u/scripts/script.sh&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">insertafter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;EOF&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">          </span><span class="no">cat &quot;//&#39;</span><span class="cp">{{</span> <span class="nv">DS_NAME</span> <span class="cp">}}</span><span class="no">&#39;&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="no">cat &quot;//&#39;</span><span class="cp">{{</span> <span class="nv">DS_NAME_2</span> <span class="cp">}}</span><span class="no">&#39;&quot;</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set facts for the following two tasks.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">set_fact</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">HLQ</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ANSIBLE&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">MLQ</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;MEMBER&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">LLQ</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TEST&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">MEM</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(JCL)&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">MSG</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;your</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">JCL</span><span class="nv"> </span><span class="s">program&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">CONTENT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">lookup</span><span class="o">(</span><span class="s1">&#39;file&#39;</span><span class="o">,</span> <span class="s1">&#39;files/content.txt&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update JCL in a PDS member with Jinja2 variable syntax.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">HLQ</span> <span class="cp">}}</span><span class="s">.</span><span class="cp">{{</span><span class="nv">MLQ</span><span class="cp">}}</span><span class="s">.</span><span class="cp">{{</span><span class="nv">LLQ</span><span class="cp">}}{{</span><span class="nv">MEM</span><span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">insertafter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HELLO,</span><span class="nv"> </span><span class="s">WORLD&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;//*</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">*//&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker_begin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Begin</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">Block</span><span class="nv"> </span><span class="s">Insertion</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker_end</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;End</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">Block</span><span class="nv"> </span><span class="s">Insertion</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span><span class="w"></span>
+<span class="w">    </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">      </span><span class="no">This is </span><span class="cp">{{</span> <span class="nv">MSG</span> <span class="cp">}}</span><span class="no">, and its now</span><span class="w"></span>
+<span class="w">      </span><span class="no">managed by Ansible.</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update JCL in PDS member with content from a file.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_blockinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">HLQ</span> <span class="cp">}}</span><span class="s">.</span><span class="cp">{{</span><span class="nv">MLQ</span><span class="cp">}}</span><span class="s">.</span><span class="cp">{{</span><span class="nv">LLQ</span><span class="cp">}}{{</span><span class="nv">MEM</span><span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">insertafter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;End</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">Block</span><span class="nv"> </span><span class="s">Insertion</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;//*</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">*//&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker_begin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Begin</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">Block</span><span class="nv"> </span><span class="s">Insertion</span><span class="nv"> </span><span class="s">2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">marker_end</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;End</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">Block</span><span class="nv"> </span><span class="s">Insertion</span><span class="nv"> </span><span class="s">2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">CONTENT</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -423,7 +457,7 @@
 <p>It is the playbook author or user’s responsibility to avoid files that should not be encoded, such as binary files. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.</p>
 <p>All data sets are always assumed to be cataloged. If an uncataloged data set needs to be encoded, it should be cataloged first. The <a class="reference external" href="./zos_data_set.html">zos_data_set</a> module can be used to catalog uncataloged data sets.</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
-<p>When using ‘with_*’ loops be aware that if you do not set a unique mark the block will be overwritten on each iteration.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">with_*</span></code> loops be aware that if you do not set a unique mark the block will be overwritten on each iteration.</p>
 <p>When more then one block should be handled in a file you must change the <em>marker</em> per task.</p>
 </div>
 </div>

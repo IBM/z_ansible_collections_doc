@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zos_volume_init – Initialize volumes or minidisks. &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Filters" href="../filters.html" />
+    <link rel="prev" title="zos_tso_command – Execute TSO commands" href="zos_tso_command.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zos_volume_init – Initialize volumes or minidisks.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#see-also">See Also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS Core</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>zos_volume_init – Initialize volumes or minidisks.</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zos-volume-init-initialize-volumes-or-minidisks">
+<span id="zos-volume-init-module"></span><h1>zos_volume_init – Initialize volumes or minidisks.<a class="headerlink" href="#zos-volume-init-initialize-volumes-or-minidisks" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id4">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Initialize a volume or minidisk on z/OS.</p></li>
+<li><p><em>zos_volume_init</em> will create the volume label and entry into the volume table of contents (VTOC).</p></li>
+<li><p>Volumes are used for storing data and executable programs.</p></li>
+<li><p>A minidisk is a portion of a disk that is linked to your virtual machine.</p></li>
+<li><p>A VTOC lists the data sets that reside on a volume, their location, size, and other attributes.</p></li>
+<li><p><em>zos_volume_init</em> uses the ICKDSF command INIT to initialize a volume. In some cases the command could be protected by facility class <cite>STGADMIN.ICK.INIT</cite>. Protection occurs when the class is active, and the class profile is defined. Ensure the user executing the Ansible task is permitted to execute ICKDSF command INIT, otherwise, any user can use the command.</p></li>
+<li><p>ICKDSF is an Authorized Program Facility (APF) program on z/OS, <em>zos_volume_init</em> will run in authorized mode but if the program ICKDSF is not APF authorized, the task will end.</p></li>
+<li><p>Note that defaults set on target z/OS systems may override ICKDSF parameters.</p></li>
+<li><p>If is recommended that data on the volume is backed up as the <em>zos_volume_init</em> module will not perform any backups. You can use the <a class="reference external" href="./zos_backup_restore.html">zos_backup_restore</a> module to backup a volume.</p></li>
+</ul>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>address</dt><dd><p><em>address</em> is a 3 or 4 digit hexadecimal number that specifies the address of the volume or minidisk.</p>
+<p><em>address</em> can be the number assigned to the device (device number) when it is installed or the virtual address.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>verify_volid</dt><dd><p>Verify that the volume serial matches what is on the existing volume or minidisk.</p>
+<p><em>verify_volid</em> must be 1 to 6 alphanumeric characters or <code class="docutils literal notranslate"><span class="pre">*NONE*</span></code>.</p>
+<p>To verify that a volume serial number does not exist, use <em>verify_volid=*NONE*</em>.</p>
+<p>If <em>verify_volid</em> is specified and the volume serial number does not match that found on the volume or minidisk, initialization does not complete.</p>
+<p>If <em>verify_volid=*NONE*</em> is specified and a volume serial is found on the volume or minidisk, initialization does not complete.</p>
+<p>Note, this option is <strong>not</strong> a boolean, leave it blank to skip the verification.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>verify_offline</dt><dd><p>Verify that the device is not online to any other systems, initialization does not complete.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>volid</dt><dd><p>The volume serial number used to initialize a volume or minidisk.</p>
+<p>Expects 1-6 alphanumeric, national ($,#,&#64;) or special characters.</p>
+<p>A <em>volid</em> with less than 6 characters will be padded with spaces.</p>
+<p>A <em>volid</em> can also be referred to as volser or volume serial number.</p>
+<p>When <em>volid</em> is not specified for a previously initialized volume or minidisk, the volume serial number will remain unchanged.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>vtoc_size</dt><dd><p>The number of tracks to initialize the volume table of contents (VTOC) with.</p>
+<p>The VTOC will be placed in cylinder 0 head 1.</p>
+<p>If no tracks are specified it will default to the number of tracks in a cylinder minus 1. Tracks in a cylinder vary based on direct-access storage device (DASD) models, for 3390 a cylinder is 15 tracks.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>index</dt><dd><p>Create a volume table of contents (VTOC) index.</p>
+<p>The VTOC index enhances the performance of VTOC access.</p>
+<p>When set to <em>false</em>, no index will be created.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>sms_managed</dt><dd><p>Specifies that the volume be managed by Storage Management System (SMS).</p>
+<p>If <em>sms_managed</em> is <em>true</em> then <em>index</em> must also be <em>true</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>verify_volume_empty</dt><dd><p>Verify that no data sets other than the volume table of contents (VTOC) index or the VSAM Volume Data Set(VVDS) exist on the target volume.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary and backup datasets.</p>
+<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize target volume with all default options. Target volume address is &#39;1234&#39;, set volume name to &#39;DEMO01&#39;.</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Target volume is checked to ensure it is offline and contains no data sets. Volume is SMS managed, has an index</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">and VTOC size defined by the system.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1234&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DEMO01&quot;</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize target volume with all default options and additionally check the existing volid</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">matches the given value &#39;DEMO02&#39; before re-initializing the volume and renaming it to &#39;DEMO01&#39;.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1234&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DEMO01&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">verify_volid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DEMO02&quot;</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize non-SMS managed target volume with all the default options.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1234&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DEMO01&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">sms_managed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize non-SMS managed target volume with all the default options and</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">override the default high level qualifier (HLQ).</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1234</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEMO01</span><span class="w"></span>
+<span class="w">    </span><span class="nt">sms_managed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
+<span class="w">    </span><span class="nt">tmp_hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TESTUSR</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize a new SMS managed DASD volume with new volume serial &#39;e8d8&#39; with 30 track VTOC, an index, as long as</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">the existing volume serial is &#39;ine8d8&#39; and there are no pre-existing data sets on the target. The check to see</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">if volume is online before intialization is skipped.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e8d8</span><span class="w"></span>
+<span class="w">    </span><span class="nt">vtoc_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
+<span class="w">    </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+<span class="w">    </span><span class="nt">sms_managed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ine8d8</span><span class="w"></span>
+<span class="w">    </span><span class="nt">verify_volid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ine8d8</span><span class="w"></span>
+<span class="w">    </span><span class="nt">verify_volume_empty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+<span class="w">    </span><span class="nt">verify_offline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize 3 new DASD volumes (0901, 0902, 0903) for use on a z/OS system as &#39;DEMO01&#39;, &#39;DEMO02&#39;, &#39;DEMO03&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">using Ansible loops.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_volume_init</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;090</span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DEMO0</span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">range</span><span class="o">(</span><span class="m">1</span><span class="o">,</span> <span class="m">4</span><span class="o">,</span> <span class="m">1</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2><a class="toc-backref" href="#id4">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="zos_backup_restore.html#zos-backup-restore-module"><span class="std std-ref">zos_backup_restore – Backup and restore data sets and volumes</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>msg</dt><dd><p>Failure message returned by module.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: failure</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: ‘Index’ cannot be False for SMS managed volumes.</div>
+</div>
+</dd>
+<dt>rc</dt><dd><p>Return code from ICKDSF init command.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: when ICKDSF program is run.</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+</dd>
+<dt>content</dt><dd><p>Raw output from ICKDSF.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: when ICKDSF program is run.</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;1ICKDSF - MVS/ESA    DEVICE SUPPORT FACILITIES 17.0                TIME: 18:32:22        01/17/23     PAGE   1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0        &quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0 INIT UNIT(0903) NOVERIFY NOVERIFYOFFLINE VOLID(KET678) -&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0   NODS NOINDEX&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-ICK00700I DEVICE INFORMATION FOR 0903 IS CURRENTLY AS FOLLOWS:&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          PHYSICAL DEVICE = 3390&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          STORAGE CONTROLLER = 2107&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          STORAGE CONTROL DESCRIPTOR = E8&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          DEVICE DESCRIPTOR = 0C&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          ADDITIONAL DEVICE INFORMATION = 4A00003C&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-          TRKS/CYL = 15, # PRIMARY CYLS = 100&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0ICK04000I DEVICE IS IN SIMPLEX STATE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0ICK00703I DEVICE IS OPERATED AS A MINIDISK&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot; ICK00091I 0903 NED=002107.900.IBM.75.0000000BBA01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-ICK03091I EXISTING VOLUME SERIAL READ = KET987&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-ICK03096I EXISTING VTOC IS LOCATED AT CCHH=X\u00270000 0001\u0027 AND IS    14 TRACKS.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0ICK01314I VTOC IS LOCATED AT CCHH=X\u00270000 0001\u0027 AND IS    14 TRACKS.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-ICK00001I FUNCTION COMPLETED, HIGHEST CONDITION CODE WAS 0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0          18:32:22    01/17/23&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;0        &quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-ICK00002I ICKDSF PROCESSING COMPLETE. MAXIMUM CONDITION CODE WAS 0&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

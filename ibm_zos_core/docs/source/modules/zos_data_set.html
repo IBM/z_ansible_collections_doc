@@ -118,6 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -245,6 +246,7 @@
 <dt>state</dt><dd><p>The final state desired for specified data set.</p>
 <p>If <em>state=absent</em> and the data set does not exist on the managed node, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=absent</em> and the data set does exist on the managed node, remove the data set, module completes successfully with <em>changed=True</em>.</p>
+<p>If <em>state=absent</em> and <em>type=MEMBER</em> and <em>force=True</em>, the data set will be opened with <em>DISP=SHR</em> such that the entire data set can be accessed by other processes while the specified member is deleted.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, then the data set is removed. Module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, then no action is taken. Module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=present</em> and the data set does not exist on the managed node, create and catalog the data set, module completes successfully with <em>changed=True</em>.</p>
@@ -396,6 +398,15 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
+<dt>force</dt><dd><p>Specifies that the data set can be shared with others during a member delete operation which results in the data set you are updating to be simultaneously updated by others.</p>
+<p>This is helpful when a data set is being used in a long running process such as a started task and you are wanting to delete a member.</p>
+<p>The <em>force=True</em> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
+<p>The <em>force=True</em> only applies to data set members when <em>state=absent</em> and <em>type=MEMBER</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 <dt>batch</dt><dd><p>Batch can be used to perform operations on multiple data sets in a single module call.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -414,6 +425,7 @@
 <dt>state</dt><dd><p>The final state desired for specified data set.</p>
 <p>If <em>state=absent</em> and the data set does not exist on the managed node, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=absent</em> and the data set does exist on the managed node, remove the data set, module completes successfully with <em>changed=True</em>.</p>
+<p>If <em>state=absent</em> and <em>type=MEMBER</em> and <em>force=True</em>, the data set will be opened with <em>DISP=SHR</em> such that the entire data set can be accessed by other processes while the specified member is deleted.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, then the data set is removed. Module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, then no action is taken. Module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=present</em> and the data set does not exist on the managed node, create and catalog the data set, module completes successfully with <em>changed=True</em>.</p>
@@ -558,6 +570,15 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
+<dt>force</dt><dd><p>Specifies that the data set can be shared with others during a member delete operation which results in the data set you are updating to be simultaneously updated by others.</p>
+<p>This is helpful when a data set is being used in a long running process such as a started task and you are wanting to delete a member.</p>
+<p>The <em>force=True</em> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
+<p>The <em>force=True</em> only applies to data set members when <em>state=absent</em> and <em>type=MEMBER</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -645,6 +666,13 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someds.name.here(mydata)</span><span class="w"></span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span><span class="w"></span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MEMBER</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove a member from an existing PDS/E by opening with disposition DISP=SHR</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_data_set</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someds.name.here(mydata)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MEMBER</span><span class="w"></span>
+<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create multiple partitioned data sets and add one or more members to each</span><span class="w"></span>
 <span class="w">  </span><span class="nt">zos_data_set</span><span class="p">:</span><span class="w"></span>

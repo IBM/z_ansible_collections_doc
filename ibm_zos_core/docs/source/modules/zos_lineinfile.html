@@ -119,6 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -347,6 +348,14 @@
 <div class="line"><strong>default</strong>: IBM-1047</div>
 </div>
 </dd>
+<dt>force</dt><dd><p>Specifies that the data set can be shared with others during an update which results in the data set you are updating to be simultaneously updated by others.</p>
+<p>This is helpful when a data set is being used in a long running process such as a started task and you are wanting to update or read.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">force</span></code> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 </dl>
 </div>
 <div class="section" id="examples">
@@ -383,6 +392,13 @@
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^(.*)User(\d+)m(.*)$&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\1APPUser\3&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">backrefs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add a line to a member while a task is in execution</span><span class="w"></span>
+<span class="w">  </span><span class="nt">zos_lineinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATA.SET(DATA)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">insertafter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+<span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">working</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">now&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
