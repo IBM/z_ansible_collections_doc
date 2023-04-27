@@ -290,25 +290,25 @@
 </div>
 <div class="section" id="bugfixes">
 <h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></dt><dd><ul>
 <li><p>Fixes a bug where files not encoded in IBM-1047 would trigger an error while computing the record length for a new destination dataset.</p></li>
 <li><p>Fixes a bug where the module would change the mode for a directory when copying in the contents of another directory.</p></li>
 <li><p>Fixes a bug where the incorrect encoding would be used during normalization, particularly when processing newlines in files.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_encode</span></code> - Fixes a bug where converted files were not tagged with the new code set afterwards.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_find</span></code> - Fixes a bug where the module would stop searching and exit after the first value in a list was not found.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code></p>
-<blockquote>
-<div><ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code></dt><dd><ul>
 <li><p>Removes use of Python f-string to ensure support for Python 2.7 on the controller.</p></li>
 <li><p>Fixes a bug where an incorect error message would be raised when a USS source was not found.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 </ul>
 </div>
