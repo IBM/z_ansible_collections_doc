@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zmf_cpm_get_software_instance – Role get specific z/OS software instance &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>zmf_zmsc_run_management_service – Role runs a z/OS management service &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="zmf_cpm_list_software_templates – Role lists all published z/OS software templates" href="zmf_cpm_list_software_templates.html" />
-    <link rel="prev" title="zmf_cpm_create_software_instance – Role creates a z/OS software instance" href="zmf_cpm_create_software_instance.html" /> 
+    <link rel="next" title="Z HMC" href="../../../../zhmc-ansible-modules/docs/ansible_content.html" />
+    <link rel="prev" title="zmf_workflow_complete – Role completes a z/OS workflow" href="zmf_workflow_complete.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,13 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../modules.html">Modules</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../roles.html">Roles</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance – Role creates a z/OS software instance</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">zmf_cpm_get_software_instance – Role get specific z/OS software instance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance – Role get specific z/OS software instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates – Role lists all published z/OS software templates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_manage_software_instance.html">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_provision_software_service.html">zmf_cpm_provision_software_service – Role provisions a z/OS software service</a></li>
@@ -113,7 +107,13 @@
 <li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates – Identify Missing Fixcat Software Updates for a Software Instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates – Search a Software Instance for Software Updates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_workflow_complete.html">zmf_workflow_complete – Role completes a z/OS workflow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service – Role runs a z/OS management service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zmf_zmsc_run_management_service – Role runs a z/OS management service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -193,7 +193,7 @@
         
           <li><a href="../roles.html">Roles</a> &raquo;</li>
         
-      <li>zmf_cpm_get_software_instance – Role get specific z/OS software instance</li>
+      <li>zmf_zmsc_run_management_service – Role runs a z/OS management service</li>
     
     
 
@@ -205,8 +205,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="zmf-cpm-get-software-instance-role-get-specific-z-os-software-instance">
-<span id="zmf-cpm-get-software-instance-module"></span><h1>zmf_cpm_get_software_instance – Role get specific z/OS software instance<a class="headerlink" href="#zmf-cpm-get-software-instance-role-get-specific-z-os-software-instance" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="zmf-zmsc-run-management-service-role-runs-a-z-os-management-service">
+<span id="zmf-zmsc-run-management-service-module"></span><h1>zmf_zmsc_run_management_service – Role runs a z/OS management service<a class="headerlink" href="#zmf-zmsc-run-management-service-role-runs-a-z-os-management-service" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -218,7 +218,9 @@
 <div class="section" id="synopsis">
 <h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>The <strong>IBM z/OSMF collection</strong> provides an Ansible role, referred to as <strong>zmf_cpm_get_software_instance</strong>, to obtain a specific software instance defined in the <strong>IBM Cloud Provisioning and Management (CP&amp;M</strong>) software instances registry.</p></li>
+<li><p>The <strong>IBM z/OSMF collection</strong> provides an Ansible role, referred to as <strong>zmf_zmsc_run_management_service</strong>, to run a z/OS management service published in <strong>z/OS Management Services Catalog</strong>.</p></li>
+<li><p>Management Service referenced by playbook must be published in <em>z/OS Management Services Catalog</em>.</p></li>
+<li><p>This role will generate a unique JSON file that holds service instance information. The file location is in following format, <code class="docutils literal notranslate"><span class="pre">&lt;instance_record_dir&gt;/&lt;catalog_service_name&gt;-&lt;instance</span> <span class="pre">objectId&gt;.json</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="variables">
@@ -251,7 +253,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>instance_record_dir</dt><dd><p>Directory path that the provisioning role uses to record the software instance and associated data (in JSON format).</p>
+<dt>instance_record_dir</dt><dd><p>Directory path that the run management service role uses to capture various information (in JSON format) about the service instance.</p>
 <p>On many system default value <code class="docutils literal notranslate"><span class="pre">&quot;/tmp&quot;</span></code> used for this variable may not be acceptable because <code class="docutils literal notranslate"><span class="pre">&quot;/tmp&quot;</span></code> directory can be transient on the system. In such cases it is recommended to specify non-default value for this variable. This variable can be specified in the inventory file or vars file.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -259,42 +261,79 @@
 <div class="line"><strong>default</strong>: /tmp</div>
 </div>
 </dd>
-<dt>external_name</dt><dd><p>The external name associated with the previously created software instance in Cloud Provisioning and Management software registry.</p>
+<dt>catalog_service_name</dt><dd><p>Service name of the management service to be run.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>category_name</dt><dd><p>Category name associated with the management service to be run. If there after are multiple managment services with same name, this parameter is required to uniquely identify management service to be run.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>change_record_number</dt><dd><p>Change record number associated with the change being performed by management service. This information is required when z/OS Management Service Catalog is configured to require change record number to run any management service.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>job_statement</dt><dd><p>Job statement to be used when running a management service.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>system_nickname</dt><dd><p>System nickname as specified in the z/OSMF Systems table.</p>
+<p>If this variable is not specified, management service will run on the system where z/OSMF is currently running.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>input_vars</dt><dd><p>Input variable names and values for the management service to be run.</p>
+<p>This variable is required if management service expects specific inputs from user. This is a json variable and needs to be in following format, <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;var1&quot;:&quot;value1&quot;,&quot;var2&quot;:&quot;value2&quot;,...}</span></code></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: json</div>
+</div>
+</dd>
+<dt>api_polling_retry_count</dt><dd><p>Total retry attempts allowed before the role exits with failure, waiting on the instance action to complete.</p>
+<p>This variable can be specified in the inventory file or vars file.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 50</div>
+</div>
+</dd>
+<dt>api_polling_interval_seconds</dt><dd><p>Interval time (in seconds) for each polling request.</p>
+<p>This variable can be specified in the inventory file or vars file.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 10</div>
 </div>
 </dd>
 </dl>
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample of retrieving software instance from registry</span><span class="w"></span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run z/OS Management Service</span><span class="w"></span>
 <span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sampleHost</span><span class="w"></span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
 <span class="w">  </span><span class="nt">collections</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zosmf</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">vars</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">instance_info_json_path</span><span class="w"></span>
-
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include_module</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zmf_cpm_get_software_instance</span><span class="w"></span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zmf_zmsc_run_management_service</span><span class="w"></span>
 <span class="w">      </span><span class="nt">vars</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">external_software_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;fill-me&gt;&quot;</span><span class="w"></span>
-
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Obtain Variable Value</span><span class="w"></span>
-<span class="w">      </span><span class="nt">vars</span><span class="p">:</span><span class="w"></span>
-<span class="w">           </span><span class="nt">instance_info_json</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span><span class="nv">lookup</span><span class="o">(</span><span class="s1">&#39;file&#39;</span><span class="o">,</span> <span class="nv">instance_info_json_path</span><span class="o">)</span><span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
-
-<span class="w">      </span><span class="nt">set_fact</span><span class="p">:</span><span class="w"></span>
-
-<span class="w">         </span><span class="nt">VAR1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">instance_info_json</span><span class="o">[</span><span class="s1">&#39;registry-info&#39;</span><span class="o">]</span> <span class="o">|</span> <span class="nf">json_query</span><span class="o">(</span><span class="s1">&#39;variables[?name == `&lt;fill-me&gt;`]&#39;</span><span class="o">)</span> <span class="o">|</span> <span class="nf">join</span><span class="o">(</span><span class="s1">&#39; &#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
-
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display VAR1 value</span><span class="w"></span>
-<span class="w">      </span><span class="nt">debug</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;VAR1</span><span class="nv"> </span><span class="s">Value</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="cp">{{</span> <span class="nv">VAR1.value</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">catalog_service_namme</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;fill-me-service-name&gt;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">category_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;optional-category-name&gt;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">change_record_number</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;optional-change_record_number&gt;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">job_statement</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;optional-job_statement&gt;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">systems_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;optional-system-name&gt;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">input_vars</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;optional-input-vars&gt;&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -304,7 +343,7 @@
 <p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>The given example assumes that you have an inventory file <em>inventory.yml</em> and host vars <em>sampleHost.yml</em> with appropriate values to identify the target z/OSMF server end point.</p></li>
-<li><p>When playbooks completes, a message shown in following example is displayed, <code class="docutils literal notranslate"><span class="pre">&quot;msg&quot;:</span> <span class="pre">&quot;Instance</span> <span class="pre">record</span> <span class="pre">saved</span> <span class="pre">at:</span> <span class="pre">/tmp/xxx/xxx.json&quot;</span></code>. This message includes a file path and file name where the instance specific data of of requested software instance is returned. User can obtain specific property from this file using json_query.</p></li>
+<li><p>When playbooks completes, a message shown in following example is displayed, <code class="docutils literal notranslate"><span class="pre">&quot;msg&quot;:</span> <span class="pre">&quot;Instance</span> <span class="pre">record</span> <span class="pre">saved</span> <span class="pre">at:</span> <span class="pre">/tmp/xxx/xxx.json&quot;</span></code>. This message includes a file path and file name where instance specific information is returned.</p></li>
 </ul>
 </div>
 </div>

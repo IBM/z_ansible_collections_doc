@@ -102,16 +102,20 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/release_notes.html">z/OS core</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS CICS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-4">Version 1.0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-5">Version 1.0.5</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-3">Version 1.0.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-4">Version 1.0.4</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">What’s New</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-3">Version 1.0.3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">What’s New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">What’s New</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
@@ -204,10 +208,19 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-0-4">
-<h2>Version 1.0.4<a class="headerlink" href="#version-1-0-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-0-5">
+<h2>Version 1.0.5<a class="headerlink" href="#version-1-0-5" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-s-new">
 <h3>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug fix that includes the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in the built collection.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-0-4">
+<h2>Version 1.0.4<a class="headerlink" href="#version-1-0-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>What’s New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Provide variables for all modules in one go using Ansible’s <a class="reference external" href="https://docs.ansible.com/ansible/2.8/user_guide/playbooks_module_defaults.html#module-defaults-groups">group module defaults</a> support. The group name for the CMCI modules is <code class="docutils literal notranslate"><span class="pre">cmci_group</span></code>.</p></li>
 <li><p>Prevent <code class="docutils literal notranslate"><span class="pre">cmci_get</span></code> from failing if no records are found via the <code class="docutils literal notranslate"><span class="pre">fail_on_nodata</span></code> option. The default value is true if not specified.</p></li>
@@ -216,8 +229,8 @@
 </div>
 <div class="section" id="version-1-0-3">
 <h2>Version 1.0.3<a class="headerlink" href="#version-1-0-3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>What’s New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>What’s New<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Updated timeout support on requests to be configurable via the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> option. The default value is 30 seconds if not specified</p></li>
 <li><p>Improve sanitisation and validation of parameters.</p></li>
@@ -227,8 +240,8 @@
 </div>
 <div class="section" id="version-1-0-1">
 <h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>What’s New<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>What’s New<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Initial release of the <strong>IBM® z/OS® CICS® collection</strong>, also referred to as <strong>ibm_zos_cics</strong>, which is part of the broader offering <strong>Red Hat® Ansible® Certified Content for IBM Z®</strong>.</p>
 <p>This collection can manage CICS and CICSPlex® SM resources and definitions by calling the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cmci-how-it-works-rest-api">CMCI REST API</a>, which can be configured in a CICSplex or in a stand-alone region.</p>
 <ul class="simple">

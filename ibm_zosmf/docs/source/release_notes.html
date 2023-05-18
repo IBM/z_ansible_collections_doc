@@ -105,33 +105,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS z/OSMF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-4-0">Version 1.4.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Availability</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id6">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id7">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id8">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id9">Notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id10">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id11">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -219,10 +225,41 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-3-0">
-<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-4-0">
+<h2>Version 1.4.0<a class="headerlink" href="#version-1-4-0" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes">
 <h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added a new z/OSMF Management Services Catalog role <a class="reference external" href="roles/zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service</a> to run a z/OS management service
+published in B(z/OS Management Services Catalog).</p></li>
+<li><p>Updated module <cite>zmf_workflow</cite> to return the failed step if the workflow is not completed.</p></li>
+<li><p>New roles</p>
+<ul>
+<li><p><a class="reference external" href="roles/zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The new z/OS Management Services Catalog role <a class="reference external" href="roles/zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service</a> works with z/OSMF V2R4
+and above with the APAR PH52813 installed.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-0">
+<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Added a new z/OSMF Software Management role <a class="reference external" href="roles/zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates</a> to determine if a software
 instance is missing software updates to resolve PE PTFs, HIPER fixes, or other exception SYSMODs identified by ERROR
@@ -241,16 +278,16 @@ or more software updates  to determine which updates are installed or updates th
 </li>
 </ul>
 </div>
-<div class="section" id="availability">
-<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Availability<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Reference<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The new software management roles only work with z/OSMF V2R5 and above with the APAR PH47050 installed.</p></li>
 <li><p>The new software management roles require proper input values and users who will use these roles should be provided
@@ -260,14 +297,14 @@ appropriate access on z/OS system.</p></li>
 </div>
 <div class="section" id="version-1-2-1">
 <h2>Version 1.2.1<a class="headerlink" href="#version-1-2-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Notes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Removed dependency on Requests library for Python on the control node.</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Availability<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Availability<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
@@ -277,8 +314,8 @@ appropriate access on z/OS system.</p></li>
 </div>
 <div class="section" id="version-1-2-0">
 <h2>Version 1.2.0<a class="headerlink" href="#version-1-2-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Notes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which adds support for provisioning security requirements.</p></li>
 <li><p>The updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> is based on the REST API of the z/OSMF Security Configuration Assistant (SCA) with APAR PH47746.
@@ -290,16 +327,16 @@ therefore it supports all SAF based security products in most cases. To learn mo
 <a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/river-jia/2021/07/25/zosmf-security-configuration-assistant">SCA blog</a> and the <a class="reference external" href="https://mediacenter.ibm.com/media/Use+z+OSMF+to+validate+security+of+DFSMS/1_17jzrqtg/101043781">SCA demo</a> in IBM MediaCenter.</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>Availability<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>Reference<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The updated module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> requires that z/OSMF SCA is configured properly.
 For the required configuration of z/OSMF SCA, please refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-security-configuration-assistant-service">z/OSMF SCA Configuration</a></p></li>
@@ -309,8 +346,8 @@ For the required configuration of z/OSMF SCA, please refer to <a class="referenc
 </div>
 <div class="section" id="version-1-1-0">
 <h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3>Notes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Notes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Added a new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> for SAF based z/OS security automation, which starts with the security validation.</p></li>
 <li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> is based on the REST API of the z/OSMF Security Configuration Assistant (SCA).
@@ -343,16 +380,16 @@ software instance registry. Retrieved software instance along with associated pr
 </li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Availability<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>Reference<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Reference<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The new module <a class="reference external" href="modules/zmf_sca.html">zmf_sca</a> requires that z/OSMF SCA is configured properly.
 For the required configuration of z/OSMF SCA, please refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/2.4.0?topic=services-configure-security-configuration-assistant-service">z/OSMF SCA Configuration</a></p></li>
@@ -365,8 +402,8 @@ z/OS system.</p></li>
 </div>
 <div class="section" id="version-1-0-1">
 <h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id9">
-<h3>Notes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>Notes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Initial release of IBM z/OS Management Facility (z/OSMF) collection,
 referred to as ibm_zosmf, which is part of the broader offering
@@ -391,16 +428,16 @@ Each playbook contains a README file that explains which configurations are need
 </li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>Availability<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Availability<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zosmf">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/IBM/ibm_zosmf">GitHub</a></p></li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3>Reference<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Reference<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later.</p></li>
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/abstract.html">z/OS Management Facility</a> V2R3 or later.</p></li>

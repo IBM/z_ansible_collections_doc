@@ -304,7 +304,7 @@
 </div>
 </dd>
 <dt>state</dt><dd><p>The desired final state for the specified workflow.</p>
-<dl class="simple">
+<dl>
 <dt>If <em>state=existed</em>, checks whether a workflow instance exists or not.</dt><dd><ul class="simple">
 <li><p>If only <em>workflow_name</em> is specified, the module looks for a workflow instance with same name.</p></li>
 <li><p>If <em>workflow_file</em>, <em>workflow_vars</em>, <em>workflow_vars_file</em> are also specified,
@@ -312,36 +312,49 @@ the module not only looks for workflow instance with same name,
 but also validates if content of workflow definition and variables are consistent.</p></li>
 </ul>
 </dd>
-<dt>If <em>state=started</em>, starts the workflow instance.</dt><dd><ul class="simple">
+<dt>If <em>state=started</em>, starts the workflow instance.</dt><dd><ul>
 <li><p>If <em>workflow_key</em> is specified, finds the workflow instance and starts it.</p></li>
-<li><dl class="simple">
-<dt>If <em>workflow_key</em> is not specified, checks if workflow exists by <em>workflow_name</em>,</dt><dd><ul>
+<li><p>If <em>workflow_key</em> is not specified, checks if workflow exists by <em>workflow_name</em>:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>If exists, starts the workflow instance.</p></li>
 <li><p>If not exist, creates a new workflow instance and starts it.</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
 </dd>
-</dl>
-<p>If <em>state=deleted</em>, delete a workflow instance if it exists.</p>
-<dl>
+<dt>If <em>state=deleted</em>, delete a workflow instance if it exists.</dt><dd><ul class="simple">
+<li><p>If <em>workflow_key</em> is specified, delete the workflow instance.</p></li>
+<li><p>If <em>workflow_key</em> is not specified, checks if workflow exists by <em>workflow_name</em>
+and delete the workflow instance if it exists.</p></li>
+</ul>
+</dd>
 <dt>If <em>state=check</em>, check the status of a workflow.</dt><dd><ul>
-<li><p>If the status of the workflow is ‘automation-in-progress’, return message:
-Workflow instance with key:{} is still in progress. Current step is {}.Percent complete is xx%.</p></li>
-<li><p>If the status of the workflow is ‘complete’, return message:
-Workflow instance with key:{} is is completed.</p></li>
+<li><p>If the status of the workflow is ‘automation-in-progress’, return message:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Workflow instance with key:{} is still in progress. Current step is: {}. Percent complete is xx%.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If the status of the workflow is ‘complete’, return message:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Workflow instance with key:{} is is completed.</p></li>
+</ul>
+</div></blockquote>
+</li>
 <li><p>If the status of the workflow is not ‘automation-in-progress’ or ‘complete’, return message:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Workflow instance with key:{} is not completed: No step is started.</p></li>
-<li><p>Workflow instance with key:{} is not completed: In step {}:
+<li><p>Workflow instance with key:{} is not completed. No step is started.</p></li>
+<li><p>Workflow instance with key:{} is not completed. Failed step is: {}.
 You can manually complete this step in z/OSMF Workflows task,
 and start this workflow instance again with next step name: {}
 specified in argument: workflow_step_name.</p></li>
-<li><p>Workflow instance with key:{} is not completed:
-In step {}: While one or more steps may be skipped.</p></li>
+<li><p>Workflow instance with key:{} is not completed.
+Failed step is: {}. While one or more steps may be skipped.</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -589,11 +602,11 @@ In step {}: While one or more steps may be skipped.</p></li>
 <p>Workflow instance named: ansible_sample_workflow_SY1 with different definition file is found.</p>
 <p>Workflow instance named: ansible_sample_workflow_SY1 is found. While it could not be compared since the argument: workflow_file is required, and please supply variables by the argument: workflow_vars rather than the argument:  workflow_vars_file.”</p>
 <p>Workflow instance named: ansible_sample_workflow_SY1 is started, you can use state=check to check its final status.</p>
-<p>Workflow instance named: ansible_sample_workflow_SY1 is still in progress. Current step is 1.2 Step title. Percent complete is 28%.</p>
+<p>Workflow instance named: ansible_sample_workflow_SY1 is still in progress. Current step is: 1.2 Step title. Percent complete is 28%.</p>
 <p>Workflow instance named: ansible_sample_workflow_SY1 is completed.</p>
-<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed: No step is started.</p>
-<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed: In step 1.2 Step title: IZUWF0145E: Automation processing for the workflow <cite>ansible_sample_workflow_SY1</cite> stopped at step <cite>Step title</cite>. This step cannot be performed automatically. You can manually complete this step in z/OSMF Workflows task, and start this workflow instance again with next step name: subStep3 specified in argument: workflow_step_name.</p>
-<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed: In step 1.2 Step title: IZUWF0162I: Automation processing for workflow <cite>ansible_sample_workflow_SY1</cite> is complete. While one or more steps may be skipped.</p>
+<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed. No step is started.</p>
+<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed. Failed step is: 1.2 Step title. IZUWF0145E: Automation processing for the workflow <cite>ansible_sample_workflow_SY1</cite> stopped at step <cite>Step title</cite>. This step cannot be performed automatically. You can manually complete this step in z/OSMF Workflows task, and start this workflow instance again with next step name: subStep3 specified in argument: workflow_step_name.</p>
+<p>Workflow instance named: ansible_sample_workflow_SY1 is not completed. Failed step is: 1.2 Step title. IZUWF0162I: Automation processing for workflow <cite>ansible_sample_workflow_SY1</cite> is complete. While one or more steps may be skipped.</p>
 <p>Workflow instance named: ansible_sample_workflow_SY1 is deleted.</p>
 <p>Workflow instance named: ansible_sample_workflow_SY1 does not exist.</p>
 </div></blockquote>
@@ -618,17 +631,33 @@ In step {}: While one or more steps may be skipped.</p></li>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>waiting</dt><dd><p>Indicate whether it needs to wait and check again because the workflow is still in progress. Return True if the status of the workflow is ‘automation-in-progress’. Otherwise (the workflow is either completed or paused/failed at some step), return False.</p>
+<dt>workflow_waiting</dt><dd><p>Indicate whether it needs to wait and check again because the workflow is still in progress. Return True if the status of the workflow is ‘automation-in-progress’. Otherwise (the workflow is either completed or paused/failed at some step), return False.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: on success when <cite>state=check</cite></div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>completed</dt><dd><p>Indicate whether the workflow is completed. Return True if the status of the workflow is ‘complete’. Otherwise, return False.</p>
+<dt>workflow_completed</dt><dd><p>Indicate whether the workflow is completed. Return True if the status of the workflow is ‘complete’. Otherwise, return False.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: on success when <cite>state=existed/check</cite></div>
 <div class="line"><strong>type</strong>: bool</div>
 </div>
+</dd>
+<dt>workflow_failed_step</dt><dd><p>Indicate what the failed step is if the workflow is not completed, including the step number, step name and step title.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on success when <cite>state=check</cite></div>
+<div class="line"><strong>type</strong>: dict</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;step_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;createInstanceDirectory&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;step_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;step_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Create a new instance directory&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
 </dd>
 <dt>deleted</dt><dd><p>Indicate whether the workflow is deleted.</p>
 <div class="line-block">
