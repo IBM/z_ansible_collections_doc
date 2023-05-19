@@ -92,7 +92,8 @@ exclude_patterns = exclude_patterns = [
     'ibm_zos_core/CHANGELOG.rst',
     'ibm_zos_ims/CHANGELOG.rst',
     'ibm_zos_sysauto/CHANGELOG.rst',
-    'ibm_zosmf/CHANGELOG.rst'
+    'ibm_zosmf/CHANGELOG.rst',
+    'ibm_zos_cics/CHANGELOG.rst'
     ]
 
 ##############################################################################
