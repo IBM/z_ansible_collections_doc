@@ -249,13 +249,15 @@
 <p>If <em>state=absent</em> and <em>type=MEMBER</em> and <em>force=True</em>, the data set will be opened with <em>DISP=SHR</em> such that the entire data set can be accessed by other processes while the specified member is deleted.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, then the data set is removed. Module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, then no action is taken. Module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is found in the catalog, the module compares the catalog volume attributes to the provided <em>volumes</em>. If the volume attributes are different, the cataloged data set will be uncataloged temporarily while the requested data set be deleted is cataloged. The module will catalog the original data set on completion, if the attempts to catalog fail, no action is taken. Module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=present</em> and the data set does not exist on the managed node, create and catalog the data set, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=True</em> and the data set is present on the managed node the existing data set is deleted, and a new data set is created and cataloged with the desired attributes, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=False</em> and the data set is present on the managed node, no action taken, module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=present</em> and <em>type=MEMBER</em> and the member does not exist in the data set, create a member formatted to store data, module completes successfully with <em>changed=True</em>. Note, a PDSE does not allow a mixture of formats such that there is executables (program objects) and data. The member created is formatted to store data, not an executable.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is already cataloged, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is not cataloged, module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is not cataloged, module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, returns failure with <em>changed=False</em>.</p>
-<p>If <em>state=uncataloged</em> and the data set is not found, no action taken , module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=uncataloged</em> and the data set is not found, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=uncataloged</em> and the data set is found, the data set is uncataloged, module completes successfully with <em>changed=True</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -428,13 +430,15 @@
 <p>If <em>state=absent</em> and <em>type=MEMBER</em> and <em>force=True</em>, the data set will be opened with <em>DISP=SHR</em> such that the entire data set can be accessed by other processes while the specified member is deleted.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, then the data set is removed. Module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, then no action is taken. Module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is found in the catalog, the module compares the catalog volume attributes to the provided <em>volumes</em>. If they volume attributes are different, the cataloged data set will be uncataloged temporarily while the requested data set be deleted is cataloged. The module will catalog the original data set on completion, if the attempts to catalog fail, no action is taken. Module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=present</em> and the data set does not exist on the managed node, create and catalog the data set, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=True</em> and the data set is present on the managed node the existing data set is deleted, and a new data set is created and cataloged with the desired attributes, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=False</em> and the data set is present on the managed node, no action taken, module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=present</em> and <em>type=MEMBER</em> and the member does not exist in the data set, create a member formatted to store data, module completes successfully with <em>changed=True</em>. Note, a PDSE does not allow a mixture of formats such that there is executables (program objects) and data. The member created is formatted to store data, not an executable.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is already cataloged, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is not cataloged, module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is not cataloged, module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, returns failure with <em>changed=False</em>.</p>
-<p>If <em>state=uncataloged</em> and the data set is not found, no action taken , module completes successfully with <em>changed=False</em>.</p>
+<p>If <em>state=uncataloged</em> and the data set is not found, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=uncataloged</em> and the data set is found, the data set is uncataloged, module completes successfully with <em>changed=True</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -443,7 +447,7 @@
 <div class="line"><strong>choices</strong>: present, absent, cataloged, uncataloged</div>
 </div>
 </dd>
-<dt>type</dt><dd><p>The data set type to be used when creating a data set. (e.g <code class="docutils literal notranslate"><span class="pre">pdse</span></code>)</p>
+<dt>type</dt><dd><p>The data set type to be used when creating a data set. (e.g <code class="docutils literal notranslate"><span class="pre">PDSE</span></code>)</p>
 <p><code class="docutils literal notranslate"><span class="pre">MEMBER</span></code> expects to be used with an existing partitioned data set.</p>
 <p>Choices are case-insensitive.</p>
 <div class="line-block">

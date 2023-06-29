@@ -1,11 +1,11 @@
 
-:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_user_list.py
+:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_console.py
 
-.. _zhmc_user_list_module:
+.. _zhmc_console_module:
 
 
-zhmc_user_list -- List HMC users
-================================
+zhmc_console -- Get facts about the HMC
+=======================================
 
 
 
@@ -16,13 +16,13 @@ zhmc_user_list -- List HMC users
 
 Synopsis
 --------
-- List users on the HMC.
+- Get facts about the targeted HMC.
 
 
 Requirements
 ------------
 
-- The HMC userid must have object-access permission to the target users, or task permission to the 'Manage Users' task.
+- No specific task or object-access permissions are required.
 
 
 
@@ -82,6 +82,16 @@ hmc_auth
 
 
 
+state
+  The desired state for the HMC. For consistency with other modules, and for extensibility, this parameter is required even though it has only one value:
+
+  * ``facts``: Returns facts about the HMC.
+
+  | **required**: True
+  | **type**: str
+  | **choices**: facts
+
+
 log_file
   File path of a log file to which the logic flow of this module as well as interactions with the HMC are logged. If null, logging will be propagated to the Python root logger.
 
@@ -100,11 +110,12 @@ Examples
    ---
    # Note: The following examples assume that some variables named 'my_*' are set.
 
-   - name: List users
-     zhmc_user_list:
+   - name: Gather facts about the HMC
+     zhmc_console:
        hmc_host: "{{ my_hmc_host }}"
        hmc_auth: "{{ my_hmc_auth }}"
-     register: user_list
+       state: facts
+     register: hmc1
 
 
 
@@ -120,7 +131,7 @@ Return Values
 
 
 changed
-  Indicates if any change has been made by the module. This will always be false.
+  Indicates if any change has been made by the module. For ``state=facts``, always will be false.
 
   | **returned**: always
   | **type**: bool
@@ -131,35 +142,40 @@ msg
   | **returned**: failure
   | **type**: str
 
-users
-  The list of users, with a subset of their properties.
+hmc
+  The facts about the HMC.
 
   | **returned**: success
-  | **type**: list
-  | **elements**: dict
+  | **type**: dict
   | **sample**:
 
     .. code-block:: json
 
-        [
-            {
-                "name": "Standard",
-                "type": "system-defined"
+        {
+            "api_version": {
+                "{property}": "... from Query API Version operation ... "
             },
-            {
-                "name": "User 1",
-                "type": "standard"
-            }
-        ]
+            "name": "HMC1",
+            "{property}": "... more Console properties ... "
+        }
 
   name
-    User name
+    HMC name
 
     | **type**: str
 
-  type
-    Type of the user ('standard', 'template', 'pattern-based', 'system-defined')
+  {property}
+    Additional properties of the Console object representing the targeted HMC, as described in the data model of the 'Console' object in the :term:`HMC API` book. Note that the set of properties has been extended over the past HMC versions, so you will get less properties on older HMC versions. The property names have hyphens (-) as described in that book.
 
-    | **type**: str
+
+  api_version
+    Additional facts from the 'Query API Version' operation.
+
+    | **type**: dict
+
+    {property}
+      The properties returned from the 'Query API Version' operation, as described in the :term:`HMC API` book. Note that the set of properties has been extended over the past HMC versions, so you will get less properties on older HMC versions. The property names have hyphens (-) as described in that book.
+
+
 
 

@@ -25,12 +25,21 @@ The **IBM Z® HMC collection** provides several modules. Reference material for
 each module contains documentation on what parameters the module accepts and
 what will returned.
 
+Module for HMC sessions:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   modules/zhmc_session
+
 Modules targeting the HMC (i.e. not a specific CPC):
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
+   modules/zhmc_console
    modules/zhmc_user
    modules/zhmc_user_list
    modules/zhmc_password_rule
@@ -58,6 +67,7 @@ Modules supported only with CPCs in DPM operational mode:
    modules/zhmc_crypto_attachment
    modules/zhmc_hba
    modules/zhmc_nic
+   modules/zhmc_nic_list
    modules/zhmc_partition
    modules/zhmc_partition_list
    modules/zhmc_storage_group

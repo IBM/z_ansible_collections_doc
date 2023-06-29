@@ -106,6 +106,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-4-1">Version 1.4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-4-0">Version 1.4.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a></li>
@@ -203,6 +205,69 @@
             
   <div class="section" id="releases">
 <span id="id1"></span><h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-4-1">
+<h2>Version 1.4.1<a class="headerlink" href="#version-1-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released: 2023-06-23</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Addressed safety issues from 6/23, by increasing ‘requests’ to 2.31.0
+on Python &gt;=3.7.</p></li>
+<li><p>Fixed issue in the new zhmc_nic_list module that resulted in TypeError.</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-4-0">
+<h2>Version 1.4.0<a class="headerlink" href="#version-1-4-0" title="Permalink to this headline">¶</a></h2>
+<p>This version contains all fixes up to version 1.3.1.</p>
+<p>Released: 2023-06-22</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Deprecations:</strong></p>
+<ul class="simple">
+<li><p>Deprecated the ‘expand’ input parameter of the ‘zhmc_user’ module. It had
+been used to expand URLs to independent objects (user roles, password rule,
+LDAP server definitions) leading to returning the same objects multiple
+times when invoking the ‘zhmc_user’ module in a loop. (related to issue #658)</p></li>
+</ul>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Test: Fixed a bug when displaying details on failed end2end testcases in
+test_zhmc_password_rule.py and test_zhmc_user.py.</p></li>
+<li><p>Circumvented the removal of Python 2.7 from the Github Actions plugin
+setup-python, by using the Docker container python:2.7.18-buster instead,
+and by adjusting the os_setup.sh script to accomodate the absence of sudo
+in that container. As part of that, Python 2.7 on macOS is no longer tested.</p></li>
+<li><p>Increased version of cryptography package to 41.0.0 on Python &gt;=3.7.</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Dev: Added package dependency checking for the remaining Python-based tools
+that are used in the development of this colleciton.</p></li>
+<li><p>Added safety checking and addressed any reported issues. (#632)</p></li>
+<li><p>Improved performance of the ‘zhmc_user’ and ‘zhmc_user_role’ modules for
+‘state=facts’. (issues #660, #658)</p></li>
+<li><p>The ‘zhmc_user’ module with ‘state=facts’ now returns the artificial name
+properties always consistent with the presence of the corresponding uri
+properties. (related to issue #658)</p></li>
+<li><p>Added a new ‘zhmc_session’ module for maintaining the HMC session across
+playbook/role tasks. This can be used to reduce the number of HMC sessions
+that is created during playbook execution, to one. Without this module,
+each ibm_zhmc module invocation creates its own separate HMC session.
+Along with that, added a new ‘session_id’ input parameter to all existing
+Ansible modules, that can be provided as an alternative to providing userid
+and password.</p></li>
+<li><p>Added a troubleshooting section to the docs.</p></li>
+<li><p>Added support for Ansible version 8 (ansible-core 2.15).</p></li>
+<li><p>Added support for “state=facts” to the zhmc_nic module. (issue #671)</p></li>
+<li><p>Added a new zhmc_nic_list module for lising the NICs of a partition.
+(issue #671)</p></li>
+<li><p>Added a new ‘zhmc_console’ module that provides facts about the targeted HMC.
+(issue #650)</p></li>
+</ul>
+<p><strong>Cleanup:</strong></p>
+<ul class="simple">
+<li><p>Increased minimum versions of pip, setuptools, wheel to more recent versions.</p></li>
+</ul>
+</div>
 <div class="section" id="version-1-3-0">
 <h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
 <p>This version contains all fixes up to version 1.2.1.</p>

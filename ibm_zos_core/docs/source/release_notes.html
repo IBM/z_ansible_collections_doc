@@ -101,7 +101,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-6-0-beta-1">Version 1.6.0-beta.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-6-0">Version 1.6.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#new-modules">New Modules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
@@ -120,7 +120,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-4-1">Version 1.4.1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug fixes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id6">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id7">Reference</a></li>
 </ul>
@@ -271,8 +270,8 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-6-0-beta-1">
-<h2>Version 1.6.0-beta.1<a class="headerlink" href="#version-1-6-0-beta-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-6-0">
+<h2>Version 1.6.0<a class="headerlink" href="#version-1-6-0" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-modules">
 <h3>New Modules<a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -281,12 +280,28 @@
 </div>
 <div class="section" id="minor-changes">
 <h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_blockinfile</span></code> - Adds an enhancement to allow double quotes within a block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Updates the behavior of the <cite>mode</cite> option so that permissions are applied to existing directories and contents.</p></li>
+<li><p>Adds an enhancement to option <cite>restore_backup</cite> to track modified members in a data set in the event of an error, restoring them to their previous state without reallocating the data set.</p></li>
+</ul>
+</div></blockquote>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - Adds a new option named <em>force</em> to enable deletion of a data member in a PDSE that is simultaneously in use by others.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code> - Enables embedded positional wild card placement throughout <em>job_name</em> and <em>job_id</em> parameters.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code> - Adds a new option named <em>force</em> to enable modification of a data member in a data set that is simultaneously in use by others.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_tso_command</span></code> - Adds a new option named <em>max_rc</em> to enable non-zero return codes lower than the specified maximum return as succeeded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>job - Adds support for positional wild card placement for <cite>job_name`</cite> and <cite>job_id</cite>.</p></li>
+<li><p>Adds support for import <em>common.text.converters</em> over the deprecated <em>_text</em> import.</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div>
 <div class="section" id="bugfixes">
@@ -298,19 +313,31 @@
 <li><p>Fixes a bug where files not encoded in IBM-1047 would trigger an error while computing the record length for a new destination dataset.</p></li>
 <li><p>Fixes a bug where the module would change the mode for a directory when copying in the contents of another directory.</p></li>
 <li><p>Fixes a bug where the incorrect encoding would be used during normalization, particularly when processing newlines in files.</p></li>
+<li><p>Fixes a bug where binary files were not excluded when normalizing data to remove newlines.</p></li>
+<li><p>Fixes a bug where a <em>_play_context.verbosity</em> deprecation warning would appear.</p></li>
 </ul>
 </div></blockquote>
 </li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - Fixes a bug where a <em>_play_context.verbosity</em> deprecation warning would appear.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_encode</span></code> - Fixes a bug where converted files were not tagged with the new code set afterwards.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_find</span></code> - Fixes a bug where the module would stop searching and exit after the first value in a list was not found.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Removes use of Python f-string to ensure support for Python 2.7 on the controller.</p></li>
-<li><p>Fixes a bug where an incorect error message would be raised when a USS source was not found.</p></li>
+<li><p>Fixes a bug where an incorrect error message would be raised when a USS source was not found.</p></li>
 </ul>
 </div></blockquote>
 </li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data_set - Fixes an failure caused by cataloging a VSAM data set when the data set is not cataloged.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - Fixes a bug that will leave VSAM data set cluster components behind when instructed to delete the data set (<cite>present=absent</cite>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_gather_facts</span></code> - Fixes a bug that prevented the module from executing with newer versions of ZOAU.</p></li>
 </ul>
 </div>
 <div class="section" id="availability">
@@ -324,7 +351,7 @@
 <div class="section" id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS Version</a> V2R4 or later</p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later</p></li>
 <li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
 <li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.2</a> (or later) but prior to version 1.3.</p></li>
@@ -482,7 +509,7 @@
 <div class="section" id="id5">
 <h3>Reference<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS Version</a> V2R4 or later</p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">z/OS V2R3</a> or later</p></li>
 <li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
 <li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
 <li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.2</a> (or later) but prior to version 1.3.</p></li>
@@ -491,8 +518,8 @@
 </div>
 <div class="section" id="version-1-4-1">
 <h2>Version 1.4.1<a class="headerlink" href="#version-1-4-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bug-fixes">
-<h3>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<p>Bug fixes</p>
+<hr class="docutils" />
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
 <blockquote>
@@ -519,7 +546,6 @@ dataset would include newline characters.</p></li>
 </div></blockquote>
 </li>
 </ul>
-</div>
 <div class="section" id="id6">
 <h3>Availability<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">

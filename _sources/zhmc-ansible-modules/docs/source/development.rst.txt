@@ -116,6 +116,7 @@ There are four kinds of tests currently, available as make targets:
 * ``make check`` - Run flake8
 * ``make linkcheck`` - Check links in documentation
 * ``make sanity`` - Run Ansible sanity tests (includes flake8, pylint, validate-modules)
+* ``make check_reqs`` - Run pip-missing-reqs to perform missing dependency checks
 * ``make test`` - Run unit and function tests with test coverage
 * ``make end2end_mocked`` - Run end2end tests against a mocked environment
 * ``make end2end`` - Run end2end tests against an environment defined by TESTHMC
@@ -136,17 +137,28 @@ a release is prepared and in addition on a weekly basis. See the
 ``.github/workflows/test.yml`` file for details.
 
 These automated tests use all Ansible versions that are supported, but not in
-all combinations with all Python versions. See the
-``requirements.txt`` and ``minimum-constraint.txt`` files for details.
+all combinations with all Python versions. Also, not all Python and Ansible
+version combinations are tested on all operating systems. For details, see the
+test matrix in the ``.github/workflows/test.yml`` file.
 
-The following table shows which Ansible versions are tested on which Python
-versions. In addition, this project tests on a well-defined set of minimum
-versions of Python packages, and a set of latest versions of Python packages
-for each Python version.
+The following table shows for the full set of test environments which Ansible
+versions are tested on which Python versions. The 'Packages' column indicates
+whether the latest versions of Python packages are used (i.e. what pip installs
+by default, given the ``requirements.txt`` and ``dev-requirements.txt`` files),
+the minimum versions as defined in the ``minimum-constraint.txt`` file, or
+specific Ansible versions as defined in the ``ansible-constraint.txt`` file:
 
 ======  ========  =======  ============
-Python  Packages  ansible  ansible-core
+Python  Packages  Ansible  Ansible core
 ------  --------  -------  ------------
+2.7     latest    4.x      2.11
+3.5     latest    4.x      2.11
+3.6     latest    4.x      2.11
+3.7     latest    4.x      2.11
+3.8     latest    6.x      2.13
+3.9     latest    8.x      2.15
+3.10    latest    8.x      2.15
+3.11    latest    8.x      2.15
 2.7     minimum   2.9      2.9
 3.5     minimum   2.9      2.9
 3.6     minimum   2.9      2.9
@@ -155,15 +167,53 @@ Python  Packages  ansible  ansible-core
 3.9     minimum   4.0      2.11
 3.10    minimum   5.0      2.12
 3.11    minimum   7.0      2.14
-2.7     latest    2.9      2.9
-3.5     latest    2.9      2.9
-3.6     latest    2.10     2.10
-3.7     latest    4.x      2.11
-3.8     latest    5.x      2.12
-3.9     latest    6.x      2.13
-3.10    latest    7.x      2.14
-3.11    latest    7.x      2.14
+2.7     ansible   2.9      2.9
+3.5     ansible   2.10     2.10
+3.6     ansible   3.x      2.10
+3.7     ansible   4.x      2.11
+3.8     ansible   5.x      2.12
+3.9     ansible   6.x      2.13
+3.10    ansible   7.x      2.14
+3.11    ansible   8.x+     2.15+
 ======  ========  =======  ============
+
+For reference, the following two tables show supported Python versions for
+Ansible versions and vice versa, for the Python and Ansible versions that are
+relevant for this collection. At the time of writing, the latest Python version
+is 3.11 and the latest Ansible version is 8.0.
+
+=======  =================  =========================
+Ansible  Ansible core       Supported Python versions
+-------  -----------------  -------------------------
+2.9      ansible 2.9        2.7, 3.5 - 3.8
+2.10     ansible 2.10       2.7, 3.5 - 3.8
+3        ansible-base 2.10  2.7, 3.5 - 3.8
+4        ansible-core 2.11  2.7, 3.5 - 3.9 (1)
+5        ansible-core 2.12  3.8 - 3.10 (2)
+6        ansible-core 2.13  3.8 - 3.10 (2)
+7        ansible-core 2.14  3.9 - 3.11+
+8        ansible-core 2.15  3.9 - 3.11+
+=======  =================  =========================
+
+======  ==========================
+Python  Supported Ansible versions
+------  --------------------------
+2.7     2.9, 2.10, 3, 4
+3.5     2.9, 2.10, 3, 4
+3.6     2.9, 2.10, 3, 4
+3.7     2.9, 2.10, 3, 4
+3.8     2.9, 2.10, 3 - 6
+3.9     4 - 8+
+3.10    5 - 8+ (1)
+3.11    7 - 8+ (2)
+======  ==========================
+
+Notes:
+
+* (1) The sanity test of Ansible 4 supports Python only up to 3.9, so Python
+  3.10 requires at least Ansible 5.
+* (2) The sanity test of Ansible 5 and 6 supports Python only up to 3.10, so
+  Python 3.11 requires at least Ansible 7.
 
 
 .. _`Releasing a version`:
@@ -328,7 +378,7 @@ local clone of the zhmc-ansible-modules Git repo.
     You need to have an account on https://console.redhat.com, and your
     userid there needs to be authorized to modify the 'ibm' namespace.
 
-    * Buuild the distribution archive locally:
+    * Build the distribution archive locally:
 
     .. code-block:: sh
 

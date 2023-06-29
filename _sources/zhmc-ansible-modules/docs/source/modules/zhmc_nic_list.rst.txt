@@ -1,11 +1,11 @@
 
-:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_user_list.py
+:github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_nic_list.py
 
-.. _zhmc_user_list_module:
+.. _zhmc_nic_list_module:
 
 
-zhmc_user_list -- List HMC users
-================================
+zhmc_nic_list -- List NICs
+==========================
 
 
 
@@ -16,13 +16,13 @@ zhmc_user_list -- List HMC users
 
 Synopsis
 --------
-- List users on the HMC.
+- List NICs on a specific partition of a CPC (Z system).
 
 
 Requirements
 ------------
 
-- The HMC userid must have object-access permission to the target users, or task permission to the 'Manage Users' task.
+- The HMC userid must have object-access permissions to these objects: Target partition, CPC of target partition (only for HMC 2.13.0 and older).
 
 
 
@@ -82,6 +82,20 @@ hmc_auth
 
 
 
+cpc_name
+  Name of the CPC with the partition whose NICs are to be listed.
+
+  | **required**: True
+  | **type**: str
+
+
+partition_name
+  Name of the partition whose NICs are to be listed.
+
+  | **required**: True
+  | **type**: str
+
+
 log_file
   File path of a log file to which the logic flow of this module as well as interactions with the HMC are logged. If null, logging will be propagated to the Python root logger.
 
@@ -100,17 +114,26 @@ Examples
    ---
    # Note: The following examples assume that some variables named 'my_*' are set.
 
-   - name: List users
-     zhmc_user_list:
+   - name: List the NICs of a partition
+     zhmc_nic_list:
        hmc_host: "{{ my_hmc_host }}"
        hmc_auth: "{{ my_hmc_auth }}"
-     register: user_list
+       cpc_name: CPCA
+       partition_name: PART1
+     register: nic_list
 
 
 
 
 
 
+
+See Also
+--------
+
+.. seealso::
+
+   - :ref:`zhmc_nic_module`
 
 
 
@@ -131,8 +154,8 @@ msg
   | **returned**: failure
   | **type**: str
 
-users
-  The list of users, with a subset of their properties.
+nics
+  The list of NICs of the partition, with a subset of their properties.
 
   | **returned**: success
   | **type**: list
@@ -143,22 +166,24 @@ users
 
         [
             {
-                "name": "Standard",
-                "type": "system-defined"
-            },
-            {
-                "name": "User 1",
-                "type": "standard"
+                "cpc_name": "CPC1",
+                "name": "nic1",
+                "partition_name": "partition1"
             }
         ]
 
   name
-    User name
+    NIC name
 
     | **type**: str
 
-  type
-    Type of the user ('standard', 'template', 'pattern-based', 'system-defined')
+  partition_name
+    Name of the parent partition of the NIC
+
+    | **type**: str
+
+  cpc_name
+    Name of the parent CPC of the partition
 
     | **type**: str
 
