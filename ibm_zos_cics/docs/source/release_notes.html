@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Releases &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Releases" href="../../../ibm_zos_ims/docs/source/release_notes.html" />
+    <link rel="prev" title="Releases" href="../../../ibm_zos_core/docs/source/release_notes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/release_notes.html">z/OS core</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS CICS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-5">Version 1.0.5</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-4">Version 1.0.4</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">What’s New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-3">Version 1.0.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">What’s New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/release_notes.html">Z HMC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../release/release.html">Releases</a> &raquo;</li>
+        
+      <li>Releases</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="releases">
+<h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-0-5">
+<h2>Version 1.0.5<a class="headerlink" href="#version-1-0-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-s-new">
+<h3>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug fix that includes the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in the built collection.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-0-4">
+<h2>Version 1.0.4<a class="headerlink" href="#version-1-0-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>What’s New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Provide variables for all modules in one go using Ansible’s <a class="reference external" href="https://docs.ansible.com/ansible/2.8/user_guide/playbooks_module_defaults.html#module-defaults-groups">group module defaults</a> support. The group name for the CMCI modules is <code class="docutils literal notranslate"><span class="pre">cmci_group</span></code>.</p></li>
+<li><p>Prevent <code class="docutils literal notranslate"><span class="pre">cmci_get</span></code> from failing if no records are found via the <code class="docutils literal notranslate"><span class="pre">fail_on_nodata</span></code> option. The default value is true if not specified.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-0-3">
+<h2>Version 1.0.3<a class="headerlink" href="#version-1-0-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>What’s New<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Updated timeout support on requests to be configurable via the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> option. The default value is 30 seconds if not specified</p></li>
+<li><p>Improve sanitisation and validation of parameters.</p></li>
+<li><p>Added support for CMCI Feedback on failed CMCI Requests.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-0-1">
+<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>What’s New<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Initial release of the <strong>IBM® z/OS® CICS® collection</strong>, also referred to as <strong>ibm_zos_cics</strong>, which is part of the broader offering <strong>Red Hat® Ansible® Certified Content for IBM Z®</strong>.</p>
+<p>This collection can manage CICS and CICSPlex® SM resources and definitions by calling the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cmci-how-it-works-rest-api">CMCI REST API</a>, which can be configured in a CICSplex or in a stand-alone region.</p>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmci_create</span></code> - Create definitional CICS and CICSPlex SM resources in CICS regions, by initiating POST requests via the CMCI REST API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmci_delete</span></code> - Remove or discard definitional and installed CICS and CICSPlex SM resources from CICS regions, by initiating DELETE requests via the CMCI REST API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmci_get</span></code> - Retrieve information about installed and definitional CICS and CICSPlex SM resources from CICS regions, by initiating GET requests via the CMCI REST API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmci_action</span></code> - Install CICS and CICSPlex SM resources into CICS regions from definitions, by initiating PUT requests via the CMCI REST API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmci_update</span></code> - Make changes to CICS and CICSPlex SM resources in CICS regions, by initiating PUT requests via the CMCI REST API.</p></li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li><p>Generic documentation is available at <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_cics/docs/ansible_content.html">the documentation site</a>, covering guidance on installation, modules, and other reference.</p></li>
+<li><p>Documentation related to playbook configuration is provided with sample playbooks at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
+</ul>
+</li>
+<li><p>Playbooks</p>
+<ul>
+<li><p>Sample playbooks are available at the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics">samples repository</a>. Each playbook contains a README that explains what configurations must be made to run a sample playbook.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_cics">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_cics">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by IBM CICS V4.2 or later</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

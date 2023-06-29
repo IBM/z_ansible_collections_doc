@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Managed node" href="../../../ibm_zos_sysauto/docs/source/requirements_managed.html" />
+    <link rel="prev" title="Requirements of managed nodes" href="../../../ibm_zos_cics/docs/source/requirements_managed.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../requirements/requirements.html#control-node">Control node</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../requirements/requirements.html#managed-node">Managed node</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS IMS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Python on z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zoau">ZOAU</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../requirements/requirements.html">Requirements</a> &raquo;</li>
+        
+      <li>Managed node</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managed-node">
+<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h1>
+<p>The managed z/OS node is the host that is managed by Ansible, as identified in
+the Ansible inventory. The managed node has dependencies that are specific
+to each release of the <strong>IBM z/OS IMS collection</strong>. Review the details of the
+dependencies before you proceed to install the IBM z/OS IMS collection.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a></p></li>
+<li><p>z/OS <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">V2R3</a> or <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW">later</a></p></li>
+<li><p><a class="reference external" href="requirements_managed.html#zoau">IBM Z Open Automation Utilities</a> (ZOAU)</p>
+<ul>
+<li><p>IBM z/OS IMS collections are dependent on specific versions of ZOAU.
+For information about the required version of ZOAU, review the
+<a class="reference external" href="release_notes.html">release notes</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.2.0/com.ibm.zos.v2r2.e0za100/ch1openssh.htm">z/OS OpenSSH</a></p></li>
+<li><p>The z/OS® shell</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSEPH2_15.1.0/com.ibm.ims15.doc/ims_product_landing_v15.html">IBM IMS V15 or later</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, only <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code> is supported . Using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
+to change the default shell is discouraged. For more information, see
+<a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>.</p>
+<p>Shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code> are not supported because they handle the reading and
+writing of untagged files differently. <code class="docutils literal notranslate"><span class="pre">bash</span></code> added enhanced ASCII support
+in 4.3 and thus differs from 4.2. If <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell is the only shell
+available, you will need to control how the new and existing files are tagged
+and encoded. This can be controlled by
+setting both “_ENCODE_FILE_NEW” and “_ENCODE_FILE_EXISTING”.
+For example,</p>
+<ul class="simple">
+<li><p>_ENCODE_FILE_NEW: “IBM-1047”</p></li>
+<li><p>_ENCODE_FILE_EXISTING: “IBM-1047”</p></li>
+</ul>
+<p>Please review the README.ZOS guide included with the ported <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell
+for further configurations.</p>
+</div>
+<div class="section" id="id1">
+<h2>Python on z/OS<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>If the Ansible target is z/OS, you must install
+<strong>IBM Open Enterprise Python for z/OS</strong> which is ported for the z/OS platform
+and required by <strong>IBM z/OS IMS Collection</strong>.</p>
+<p><strong>Installation</strong></p>
+<ul class="simple">
+<li><p>Visit the <a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a> product page for FMID,
+program directory, fix list, latest PTF, installation and configuration
+instructions.</p></li>
+<li><p>For reference, the Program IDs are:</p>
+<ul>
+<li><p>5655-PYT for the base product</p></li>
+<li><p>5655-PYS for service and support</p></li>
+</ul>
+</li>
+<li><p>Optionally download <strong>IBM Open Enterprise Python for z/OS</strong>, <a class="reference external" href="https://www-01.ibm.com/marketing/iwm/platform/mrs/assets?source=swg-ibmoep">here</a></p></li>
+<li><p>For the Python supported version, refer to the <a class="reference external" href="release_notes.html">release notes</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, IBM Open Enterprise Python for z/OS is the supported and
+recommended Python distribution for use on z/OS with Ansible and ZOAU. If
+Rocket Python is the only available python on the target, review the
+<a class="reference external" href="playbook_group_vars.html">recommended environment variables</a> for Rocket Python.</p>
+</div>
+</div>
+<div class="section" id="zoau">
+<h2>ZOAU<a class="headerlink" href="#zoau" title="Permalink to this headline">¶</a></h2>
+<p>IBM Z Open Automation Utilities provide support for executing automation tasks
+on z/OS. With ZOAU, you can run traditional MVS commands, such as IEBCOPY,
+IDCAMS, and IKJEFT01, as well as perform a number of data set operations
+in the scripting language of your choice.</p>
+<p><strong>Installation</strong></p>
+<ul class="simple">
+<li><p>Visit the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSKFYE">ZOAU</a> product page for the FMID, program directory, fix list,
+latest PTF, installation and configuration instructions.</p></li>
+<li><p>For reference, the Program IDs are:</p>
+<ul>
+<li><p>5698-PA1 for the base product</p></li>
+<li><p>5698-PAS for service and support</p></li>
+</ul>
+</li>
+<li><p>For ZOAU supported version, refer to the <a class="reference external" href="release_notes.html">release notes</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
