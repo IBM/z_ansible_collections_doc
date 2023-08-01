@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">zos_copy – Copy data to z/OS</a><ul>
@@ -120,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
@@ -495,6 +497,113 @@
 </dd>
 </dl>
 </dd>
+<dt>use_template</dt><dd><p>Whether the module should treat <code class="docutils literal notranslate"><span class="pre">src</span></code> as a Jinja2 template and render it before continuing with the rest of the module.</p>
+<p>Only valid when <code class="docutils literal notranslate"><span class="pre">src</span></code> is a local file or directory.</p>
+<p>All variables defined in inventory files, vars files and the playbook will be passed to the template engine, as well as <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables">Ansible special variables</a>, such as <code class="docutils literal notranslate"><span class="pre">playbook_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">ansible_version</span></code>, etc.</p>
+<p>If variables defined in different scopes share the same name, Ansible will apply variable precedence to them. You can see the complete precedence order <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence">in Ansible’s documentation</a></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>template_parameters</dt><dd><p>Options to set the way Jinja2 will process templates.</p>
+<p>Jinja2 already sets defaults for the markers it uses, you can find more information at its <a class="reference external" href="https://jinja.palletsprojects.com/en/latest/templates/">official documentation</a>.</p>
+<p>These options are ignored unless <code class="docutils literal notranslate"><span class="pre">use_template</span></code> is true.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>variable_start_string</dt><dd><p>Marker for the beginning of a statement to print a variable in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {{</div>
+</div>
+</dd>
+<dt>variable_end_string</dt><dd><p>Marker for the end of a statement to print a variable in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: }}</div>
+</div>
+</dd>
+<dt>block_start_string</dt><dd><p>Marker for the beginning of a block in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {%</div>
+</div>
+</dd>
+<dt>block_end_string</dt><dd><p>Marker for the end of a block in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: %}</div>
+</div>
+</dd>
+<dt>comment_start_string</dt><dd><p>Marker for the beginning of a comment in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {#</div>
+</div>
+</dd>
+<dt>comment_end_string</dt><dd><p>Marker for the end of a comment in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: #}</div>
+</div>
+</dd>
+<dt>line_statement_prefix</dt><dd><p>Prefix used by Jinja2 to identify line-based statements.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>line_comment_prefix</dt><dd><p>Prefix used by Jinja2 to identify comment lines.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>lstrip_blocks</dt><dd><p>Whether Jinja2 should strip leading spaces from the start of a line to a block.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>trim_blocks</dt><dd><p>Whether Jinja2 should remove the first newline after a block is removed.</p>
+<p>Setting this option to <code class="docutils literal notranslate"><span class="pre">False</span></code> will result in newlines being added to the rendered template. This could create invalid code when working with JCL templates or empty records in destination data sets.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>keep_trailing_newline</dt><dd><p>Whether Jinja2 should keep the first trailing newline at the end of a template after rendering.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>newline_sequence</dt><dd><p>Sequence that starts a newline in a template.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: \n</div>
+<div class="line"><strong>choices</strong>: \n, \r, \r\n</div>
+</div>
+</dd>
+<dt>auto_reload</dt><dd><p>Whether to reload a template file when it has changed after the task has started.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
 </dl>
 </div>
 <div class="section" id="examples">
@@ -701,6 +810,82 @@
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: SAMPLE.SEQ.DATA.SET</div>
 </div>
+</dd>
+<dt>dest_created</dt><dd><p>Indicates whether the module created the destination.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success and if dest was created by the module.</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>destination_attributes</dt><dd><p>Attributes of a dest created by the module.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success and destination was created by the module.</div>
+<div class="line"><strong>type</strong>: dict</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32760</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;record_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FB&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;record_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;space_primary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;space_secondary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;space_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PDSE&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>block_size</dt><dd><p>Block size of the dataset.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 32760</div>
+</div>
+</dd>
+<dt>record_format</dt><dd><p>Record format of the dataset.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: FB</div>
+</div>
+</dd>
+<dt>record_length</dt><dd><p>Record length of the dataset.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 45</div>
+</div>
+</dd>
+<dt>space_primary</dt><dd><p>Allocated primary space for the dataset.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 2</div>
+</div>
+</dd>
+<dt>space_secondary</dt><dd><p>Allocated secondary space for the dataset.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>space_type</dt><dd><p>Unit of measurement for space.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: K</div>
+</div>
+</dd>
+<dt>type</dt><dd><p>Type of dataset allocated.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: PDSE</div>
+</div>
+</dd>
+</dl>
 </dd>
 <dt>checksum</dt><dd><p>SHA256 checksum of the file after running zos_copy.</p>
 <div class="line-block">

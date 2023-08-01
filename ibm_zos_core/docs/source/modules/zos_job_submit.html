@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
@@ -119,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
@@ -324,6 +326,113 @@
 </dd>
 </dl>
 </dd>
+<dt>use_template</dt><dd><p>Whether the module should treat <code class="docutils literal notranslate"><span class="pre">src</span></code> as a Jinja2 template and render it before continuing with the rest of the module.</p>
+<p>Only valid when <code class="docutils literal notranslate"><span class="pre">src</span></code> is a local file or directory.</p>
+<p>All variables defined in inventory files, vars files and the playbook will be passed to the template engine, as well as <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables">Ansible special variables</a>, such as <code class="docutils literal notranslate"><span class="pre">playbook_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">ansible_version</span></code>, etc.</p>
+<p>If variables defined in different scopes share the same name, Ansible will apply variable precedence to them. You can see the complete precedence order <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence">in Ansible’s documentation</a></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>template_parameters</dt><dd><p>Options to set the way Jinja2 will process templates.</p>
+<p>Jinja2 already sets defaults for the markers it uses, you can find more information at its <a class="reference external" href="https://jinja.palletsprojects.com/en/latest/templates/">official documentation</a>.</p>
+<p>These options are ignored unless <code class="docutils literal notranslate"><span class="pre">use_template</span></code> is true.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>variable_start_string</dt><dd><p>Marker for the beginning of a statement to print a variable in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {{</div>
+</div>
+</dd>
+<dt>variable_end_string</dt><dd><p>Marker for the end of a statement to print a variable in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: }}</div>
+</div>
+</dd>
+<dt>block_start_string</dt><dd><p>Marker for the beginning of a block in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {%</div>
+</div>
+</dd>
+<dt>block_end_string</dt><dd><p>Marker for the end of a block in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: %}</div>
+</div>
+</dd>
+<dt>comment_start_string</dt><dd><p>Marker for the beginning of a comment in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: {#</div>
+</div>
+</dd>
+<dt>comment_end_string</dt><dd><p>Marker for the end of a comment in Jinja2.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: #}</div>
+</div>
+</dd>
+<dt>line_statement_prefix</dt><dd><p>Prefix used by Jinja2 to identify line-based statements.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>line_comment_prefix</dt><dd><p>Prefix used by Jinja2 to identify comment lines.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>lstrip_blocks</dt><dd><p>Whether Jinja2 should strip leading spaces from the start of a line to a block.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>trim_blocks</dt><dd><p>Whether Jinja2 should remove the first newline after a block is removed.</p>
+<p>Setting this option to <code class="docutils literal notranslate"><span class="pre">False</span></code> will result in newlines being added to the rendered template. This could create invalid code when working with JCL templates or empty records in destination data sets.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>keep_trailing_newline</dt><dd><p>Whether Jinja2 should keep the first trailing newline at the end of a template after rendering.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>newline_sequence</dt><dd><p>Sequence that starts a newline in a template.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: \n</div>
+<div class="line"><strong>choices</strong>: \n, \r, \r\n</div>
+</div>
+</dd>
+<dt>auto_reload</dt><dd><p>Whether to reload a template file when it has changed after the task has started.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
 </dl>
 </div>
 <div class="section" id="examples">
@@ -394,8 +503,11 @@
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;asid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;content_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JOB&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;creation_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-05-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;creation_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12:13:00&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;ddnames&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="nt">&quot;byte_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;677&quot;</span><span class="p">,</span><span class="w"></span>
@@ -590,9 +702,13 @@
 <span class="w">                </span><span class="nt">&quot;stepname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DLORD6&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;job_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JOB00361&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;job_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DBDGEN00&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OMVSADM&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;program_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEBGENER&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;queue_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;ret_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC 0000&quot;</span><span class="p">,</span><span class="w"></span>
@@ -605,7 +721,9 @@
 <span class="w">                </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;subsystem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STL1&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;subsystem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STL1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;svc_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;?&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STL1&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">]</span><span class="w"></span>
 </pre></div>
@@ -766,6 +884,53 @@
 </dl>
 </dd>
 </dl>
+</dd>
+<dt>job_class</dt><dd><p>Job class for this job.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: A</div>
+</div>
+</dd>
+<dt>svc_class</dt><dd><p>Service class for this job.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: C</div>
+</div>
+</dd>
+<dt>priority</dt><dd><p>A numeric indicator of the job priority assigned through JES.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 4</div>
+</div>
+</dd>
+<dt>asid</dt><dd><p>The address Space Identifier (ASID) that is a unique descriptor for the job address space. Zero if not active.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>creation_date</dt><dd><p>Date, local to the target system, when the job was created.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2023-05-04</div>
+</div>
+</dd>
+<dt>creation_time</dt><dd><p>Time, local to the target system, when the job was created.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 14:15:00</div>
+</div>
+</dd>
+<dt>queue_position</dt><dd><p>The position within the job queue where the jobs resides.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>program_name</dt><dd><p>The name of the program found in the job’s last completed step found in the PGM parameter. Returned when Z Open Automation Utilities (ZOAU) is 1.2.4 or later.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: IEBGENER</div>
+</div>
 </dd>
 </dl>
 </dd>

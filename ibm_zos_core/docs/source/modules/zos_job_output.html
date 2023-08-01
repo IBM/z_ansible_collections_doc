@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
@@ -118,6 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 </ul>
 </li>
@@ -407,9 +409,14 @@
 <span class="w">                </span><span class="nt">&quot;stepname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STEP0001&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;job_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;job_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JOB00134&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;job_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HELLO&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OMVSADM&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;program_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEBGENER&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;queue_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;ret_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC 0000&quot;</span><span class="p">,</span><span class="w"></span>
@@ -456,6 +463,18 @@
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: JOB</div>
+</div>
+</dd>
+<dt>creation_date</dt><dd><p>Date, local to the target system, when the job was created.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2023-05-04</div>
+</div>
+</dd>
+<dt>creation_time</dt><dd><p>Time, local to the target system, when the job was created.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 14:15:00</div>
 </div>
 </dd>
 <dt>ddnames</dt><dd><p>Data definition names.</p>
@@ -528,6 +547,41 @@
 </div></blockquote>
 </dd>
 </dl>
+</dd>
+<dt>job_class</dt><dd><p>Job class for this job.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: A</div>
+</div>
+</dd>
+<dt>svc_class</dt><dd><p>Service class for this job.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: C</div>
+</div>
+</dd>
+<dt>priority</dt><dd><p>A numeric indicator of the job priority assigned through JES.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 4</div>
+</div>
+</dd>
+<dt>asid</dt><dd><p>The address Space Identifier (ASID) that is a unique descriptor for the job address space. Zero if not active.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>queue_position</dt><dd><p>The position within the job queue where the jobs resides.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>program_name</dt><dd><p>The name of the program found in the job’s last completed step found in the PGM parameter. Returned when Z Open Automation Utilities (ZOAU) is 1.2.4 or later.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: IEBGENER</div>
+</div>
 </dd>
 <dt>ret_code</dt><dd><p>Return code output collected from job log.</p>
 <div class="line-block">
