@@ -22,13 +22,13 @@ bleach-allowlist==1.0.3
 bleach-whitelist==0.0.11
 bracex==2.1.1
 certifi==2020.4.5.1
-cffi==1.14.0
+cffi==1.16.0
 chardet==3.0.4
 click==7.1.2
 colorama==0.4.3
 colorclass==2.2.0
 commonmark==0.9.1
-cryptography==3.3.2
+cryptography==41.0.7
 distlib==0.3.0
 docutils==0.16
 enrich==1.2.6
@@ -54,7 +54,7 @@ Pygments==2.6.1
 pylint==2.3.1
 pyparsing==2.4.7
 pytz==2020.1
-PyYAML==5.4
+PyYAML==5.3.1
 requests==2.23.0
 resolvelib==0.5.4
 rich==10.1.0
@@ -75,7 +75,7 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
 tenacity==7.0.0
-typed-ast==1.4.0
+typed-ast==1.5.5
 typing-extensions==3.7.4.3
 urllib3==1.25.11
 virtualenv==20.0.15
