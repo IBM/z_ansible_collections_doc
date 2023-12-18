@@ -1,54 +1,92 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>zos_archive – Archive files and data sets on z/OS. &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zos_archive – Archive files and data sets on z/OS. &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/js/theme.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_backup_restore – Backup and restore data sets and volumes" href="zos_backup_restore.html" />
     <link rel="prev" title="zos_apf – Add or remove libraries to Authorized Program Facility (APF)" href="zos_apf.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
 
           
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
           
-          <a href="../../../../index.html" class="icon icon-home">
-            Red Hat Ansible Certified Content for IBM Z
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
@@ -80,6 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
@@ -94,16 +133,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -111,40 +150,77 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
+            
+          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../ansible_content.html">z/OS Core</a></li>
-          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
-      <li class="breadcrumb-item active">zos_archive – Archive files and data sets on z/OS.</li>
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS Core</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>zos_archive – Archive files and data sets on z/OS.</li>
+    
+    
 
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="zos-archive-archive-files-and-data-sets-on-z-os">
-<span id="zos-archive-module"></span><h1>zos_archive – Archive files and data sets on z/OS.<a class="headerlink" href="#zos-archive-archive-files-and-data-sets-on-z-os" title="Permalink to this heading"></a></h1>
-<nav class="contents local" id="contents">
+            
+  <div class="section" id="zos-archive-archive-files-and-data-sets-on-z-os">
+<span id="zos-archive-module"></span><h1>zos_archive – Archive files and data sets on z/OS.<a class="headerlink" href="#zos-archive-archive-files-and-data-sets-on-z-os" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
@@ -153,9 +229,9 @@
 <li><p><a class="reference internal" href="#see-also" id="id5">See Also</a></p></li>
 <li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
 </ul>
-</nav>
-<section id="synopsis">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Create or extend an archive on a remote z/OS system.</p></li>
 <li><p>Sources for archiving must be on the remote z/OS system.</p></li>
@@ -163,9 +239,9 @@
 <li><p>The archive remains on the remote z/OS system.</p></li>
 <li><p>For supported archive formats, see option <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p></li>
 </ul>
-</section>
-<section id="parameters">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>src</dt><dd><p>List of names or globs of UNIX System Services (USS) files, PS (sequential data sets), PDS, PDSE to compress or archive.</p>
 <p>USS file paths should be absolute paths.</p>
@@ -398,68 +474,68 @@
 </div>
 </dd>
 </dl>
-</section>
-<section id="examples">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple archive</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Archive file into a tar</span>
-<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_archive_test.tar</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tar</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Archive file into a tar</span>
+  <span class="nt">zos_archive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_archive_test.tar</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tar</span>
 
 <span class="c1"># Archive multiple files</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compress list of files into a zip</span>
-<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/archive/bar.txt</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_bar_archive_test.zip</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zip</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress list of files into a zip</span>
+  <span class="nt">zos_archive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/bar.txt</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_bar_archive_test.zip</span>
+    <span class="nt">format</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zip</span>
 
 <span class="c1"># Archive one data set into terse</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse</span>
-<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse</span>
+  <span class="nt">zos_archive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
 
 <span class="c1"># Use terse with different options</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse, specify pack algorithm and use adrdssu</span>
-<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
-<span class="w">      </span><span class="nt">format_options</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">terse_pack</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SPACK&quot;</span>
-<span class="w">        </span><span class="nt">use_adrdssu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse, specify pack algorithm and use adrdssu</span>
+  <span class="nt">zos_archive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
+      <span class="nt">format_options</span><span class="p">:</span>
+        <span class="nt">terse_pack</span><span class="p">:</span> <span class="s">&quot;SPACK&quot;</span>
+        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
 
 <span class="c1"># Use a pattern to store</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Compress data set pattern using xmit</span>
-<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.*&quot;</span>
-<span class="w">    </span><span class="nt">exclude_sources</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.EXCLUDE.*&quot;</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.XMIT&quot;</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xmit</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set pattern using xmit</span>
+  <span class="nt">zos_archive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.*&quot;</span>
+    <span class="nt">exclude_sources</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.EXCLUDE.*&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.XMIT&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xmit</span>
 </pre></div>
 </div>
-</section>
-<section id="notes">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="notes">
+<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This module does not perform a send or transmit operation to a remote node. If you want to transport the archive you can use zos_fetch to retrieve to the controller and then zos_copy or zos_unarchive for copying to a remote or send to the remote and then unpack the archive respectively.</p>
 <p>When packing and using <code class="docutils literal notranslate"><span class="pre">use_adrdssu</span></code> flag the module will take up to two times the space indicated in <code class="docutils literal notranslate"><span class="pre">dest_data_set</span></code>.</p>
 <p>tar, zip, bz2 and pax are archived using python <code class="docutils literal notranslate"><span class="pre">tarfile</span></code> library which uses the latest version available for each format, for compatibility when opening from system make sure to use the latest available version for the intended format.</p>
 </div>
-</section>
-<section id="see-also">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="see-also">
+<h2><a class="toc-backref" href="#id5">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -467,9 +543,9 @@
 <li><p><a class="reference internal" href="zos_unarchive.html#zos-unarchive-module"><span class="std std-ref">zos_unarchive – Unarchive files and data sets in z/OS.</span></a></p></li>
 </ul>
 </div>
-</section>
-<section id="return-values">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id6">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>state</dt><dd><p>The state of the input <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">absent</span></code> when the source files or data sets were removed.</p>
@@ -521,32 +597,46 @@
 </div>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright IBM Corp. 2020, 2023.</p>
-  </div>
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
 
-   
+    </p>
+  </div> 
 
 </footer>
+
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

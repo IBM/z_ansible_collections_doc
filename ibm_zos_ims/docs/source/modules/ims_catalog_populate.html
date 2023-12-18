@@ -1,54 +1,92 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ims_catalog_populate – Add records to the IMS Catalog &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ims_catalog_populate – Add records to the IMS Catalog &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/js/theme.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="ims_catalog_purge – Purge records from the IMS Catalog" href="ims_catalog_purge.html" />
     <link rel="prev" title="ims_acb_gen – Generate IMS ACB" href="ims_acb_gen.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
 
           
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
           
-          <a href="../../../../index.html" class="icon icon-home">
-            Red Hat Ansible Certified Content for IBM Z
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -67,6 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ims_command.html">ims_command – Submit IMS Commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ims_dbd_gen.html">ims_dbd_gen – Generate IMS DBD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ims_dbrc.html">ims_dbrc – Submit IMS DBRC Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ims_ddl.html">ims_ddl – Submits Data Definition Language (DDL) SQL statements.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ims_psb_gen.html">ims_psb_gen – Generate IMS PSB</a></li>
 </ul>
 </li>
@@ -76,16 +115,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -93,40 +132,77 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
+            
+          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../ansible_content.html">z/OS IMS</a></li>
-          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
-      <li class="breadcrumb-item active">ims_catalog_populate – Add records to the  IMS Catalog</li>
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS IMS</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>ims_catalog_populate – Add records to the  IMS Catalog</li>
+    
+    
 
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="ims-catalog-populate-add-records-to-the-ims-catalog">
-<span id="ims-catalog-populate-module"></span><h1>ims_catalog_populate – Add records to the  IMS Catalog<a class="headerlink" href="#ims-catalog-populate-add-records-to-the-ims-catalog" title="Permalink to this heading"></a></h1>
-<nav class="contents local" id="contents">
+            
+  <div class="section" id="ims-catalog-populate-add-records-to-the-ims-catalog">
+<span id="ims-catalog-populate-module"></span><h1>ims_catalog_populate – Add records to the  IMS Catalog<a class="headerlink" href="#ims-catalog-populate-add-records-to-the-ims-catalog" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
@@ -134,15 +210,15 @@
 <li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
 <li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
 </ul>
-</nav>
-<section id="synopsis">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The IMS Catalog Populate utility DFS3PU00 loads, inserts, or updates DBD and PSB instances into the database data sets of the IMS catalog from ACB library data sets.</p></li>
 </ul>
-</section>
-<section id="parameters">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>mode</dt><dd><p>Indicates the mode in which the Catalog Populate utility must be run.</p>
 <div class="line-block">
@@ -190,6 +266,12 @@
 </div>
 </dd>
 <dt>buffer_pool_param_dataset</dt><dd><p>Defines the buffer pool parameters data set. This option is required if you are running the utility as a DLI.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>dfsdf_member</dt><dd><p>The DFSDFxxx member in the IMS.PROCLIB data set where the CATALOG section is defined. For example, dfsdf_member is “CAT” specifies the DFSDFCAT member of the PROCLIB data set.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -947,78 +1029,81 @@
 </dl>
 </dd>
 </dl>
-</section>
-<section id="examples">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example of a loading the IMS Catalog running as a BMP</span>
-<span class="w">  </span><span class="nt">ims_catalog_populate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">online_batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
-<span class="w">    </span><span class="nt">ims_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMS1</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOAD</span>
-<span class="w">    </span><span class="nt">acb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
-<span class="w">    </span><span class="nt">reslib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">proclib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
-<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
-<span class="w">    </span><span class="nt">psb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
-<span class="w">    </span><span class="nt">buffer_pool_param_dataset</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
-<span class="w">    </span><span class="nt">primary_log_dataset</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">dataset_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.LOG</span>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Example of a loading the IMS Catalog running as a BMP</span>
+  <span class="nt">ims_catalog_populate</span><span class="p">:</span>
+    <span class="nt">online_batch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">ims_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IMS1</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LOAD</span>
+    <span class="nt">acb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
+    <span class="nt">reslib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">steplib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">proclib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
+    <span class="nt">dbd_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
+    <span class="nt">psb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
+    <span class="nt">buffer_pool_param_dataset</span><span class="p">:</span> <span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
+    <span class="nt">dfsdf_member</span><span class="p">:</span> <span class="s">&quot;CAT&quot;</span>
+    <span class="nt">primary_log_dataset</span><span class="p">:</span>
+      <span class="nt">dataset_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.LOG</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example of loading the IMS Catalog and the IMS Directory data sets with MANAGEDACBS enabled</span>
-<span class="w">  </span><span class="nt">ims_catalog_populate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOAD</span>
-<span class="w">    </span><span class="nt">acb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
-<span class="w">    </span><span class="nt">reslib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">proclib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
-<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
-<span class="w">    </span><span class="nt">psb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
-<span class="w">    </span><span class="nt">buffer_pool_param_dataset</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
-<span class="w">    </span><span class="nt">control_statements</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">managed_acbs</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">setup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Example of loading the IMS Catalog and the IMS Directory data sets with MANAGEDACBS enabled</span>
+  <span class="nt">ims_catalog_populate</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LOAD</span>
+    <span class="nt">acb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
+    <span class="nt">reslib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">steplib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">proclib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
+    <span class="nt">dbd_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
+    <span class="nt">psb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
+    <span class="nt">buffer_pool_param_dataset</span><span class="p">:</span> <span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
+    <span class="nt">dfsdf_member</span><span class="p">:</span> <span class="s">&quot;CAT&quot;</span>
+    <span class="nt">control_statements</span><span class="p">:</span>
+      <span class="nt">managed_acbs</span><span class="p">:</span>
+        <span class="nt">setup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example of updating the IMS Catalog and staging libraries into the IMS directory staging data set</span>
-<span class="w">  </span><span class="nt">ims_catalog_populate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UPDATE</span>
-<span class="w">    </span><span class="nt">acb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
-<span class="w">    </span><span class="nt">reslib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">steplib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
-<span class="w">    </span><span class="nt">proclib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
-<span class="w">    </span><span class="nt">dbd_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
-<span class="w">    </span><span class="nt">psb_lib</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
-<span class="w">    </span><span class="nt">buffer_pool_param_dataset</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
-<span class="w">    </span><span class="nt">primary_log_dataset</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">dataset_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.IMS.LOG</span>
-<span class="w">    </span><span class="nt">control_statements</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">managed_acbs</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">stage</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">save_acb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNCOND</span>
-<span class="w">          </span><span class="nt">clean_staging_dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Example of updating the IMS Catalog and staging libraries into the IMS directory staging data set</span>
+  <span class="nt">ims_catalog_populate</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UPDATE</span>
+    <span class="nt">acb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.ACBLIB</span>
+    <span class="nt">reslib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">steplib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.SDFSRESL</span>
+    <span class="nt">proclib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PROCLIB</span>
+    <span class="nt">dbd_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.DBDLIB</span>
+    <span class="nt">psb_lib</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.PSBLIB</span>
+    <span class="nt">buffer_pool_param_dataset</span><span class="p">:</span> <span class="s">&quot;SOME.IMS.PROCLIB(DFSVSMHP)&quot;</span>
+    <span class="nt">dfsdf_member</span><span class="p">:</span> <span class="s">&quot;CAT&quot;</span>
+    <span class="nt">primary_log_dataset</span><span class="p">:</span>
+      <span class="nt">dataset_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.IMS.LOG</span>
+    <span class="nt">control_statements</span><span class="p">:</span>
+      <span class="nt">managed_acbs</span><span class="p">:</span>
+        <span class="nt">stage</span><span class="p">:</span>
+          <span class="nt">save_acb</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UNCOND</span>
+          <span class="nt">clean_staging_dataset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-</section>
-<section id="notes">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="notes">
+<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <em>steplib</em> parameter can also be specified in the target inventory’s environment_vars.</p>
@@ -1026,9 +1111,9 @@
 <p>If only the <em>steplib</em> parameter is specified, then only the <em>steplib</em> concatenation will be used to resolve the IMS RESLIB data set.</p>
 <p>Specifying only <em>reslib</em> without <em>steplib</em> is not supported.</p>
 </div>
-</section>
-<section id="return-values">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>content</dt><dd><p>The standard output returned running the IMS Catalog Populate module.</p>
 <div class="line-block">
@@ -1058,32 +1143,46 @@
 </div>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright IBM Corp. 2020, 2023.</p>
-  </div>
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
 
-   
+    </p>
+  </div> 
 
 </footer>
+
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

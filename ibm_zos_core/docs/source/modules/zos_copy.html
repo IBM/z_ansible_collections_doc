@@ -1,54 +1,92 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>zos_copy – Copy data to z/OS &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zos_copy – Copy data to z/OS &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/js/theme.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_data_set – Manage data sets" href="zos_data_set.html" />
     <link rel="prev" title="zos_blockinfile – Manage block of multi-line textual data on z/OS" href="zos_blockinfile.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
 
           
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
           
-          <a href="../../../../index.html" class="icon icon-home">
-            Red Hat Ansible Certified Content for IBM Z
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
@@ -80,6 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
@@ -94,16 +133,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -111,40 +150,77 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
+            
+          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../ansible_content.html">z/OS Core</a></li>
-          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
-      <li class="breadcrumb-item active">zos_copy – Copy data to z/OS</li>
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS Core</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>zos_copy – Copy data to z/OS</li>
+    
+    
 
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="zos-copy-copy-data-to-z-os">
-<span id="zos-copy-module"></span><h1>zos_copy – Copy data to z/OS<a class="headerlink" href="#zos-copy-copy-data-to-z-os" title="Permalink to this heading"></a></h1>
-<nav class="contents local" id="contents">
+            
+  <div class="section" id="zos-copy-copy-data-to-z-os">
+<span id="zos-copy-module"></span><h1>zos_copy – Copy data to z/OS<a class="headerlink" href="#zos-copy-copy-data-to-z-os" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
@@ -153,16 +229,27 @@
 <li><p><a class="reference internal" href="#see-also" id="id6">See Also</a></p></li>
 <li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
 </ul>
-</nav>
-<section id="synopsis">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id2">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference external" href="./zos_copy.html">zos_copy</a> module copies a file or data set from a local or a remote machine to a location on the remote machine.</p></li>
 </ul>
-</section>
-<section id="parameters">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id3">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
+<dt>asa_text</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that either <code class="docutils literal notranslate"><span class="pre">src</span></code> or <code class="docutils literal notranslate"><span class="pre">dest</span></code> or both contain ASA control characters.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, the copy will preserve ASA control characters in the destination.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">src</span></code> is a data set containing ASA control characters and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a USS file, the copy will put all control characters as plain text in the destination.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a non-existent data set, it will be created with record format Fixed Block with ANSI format (FBA).</p>
+<p>If neither <code class="docutils literal notranslate"><span class="pre">src</span></code> or <code class="docutils literal notranslate"><span class="pre">dest</span></code> have record format Fixed Block with ANSI format (FBA) or Variable Block with ANSI format (VBA), the module will fail.</p>
+<p>This option is only valid for text files. If <code class="docutils literal notranslate"><span class="pre">is_binary</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">executable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> as well, the module will fail.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 <dt>backup</dt><dd><p>Specifies whether a backup of the destination should be created before copying data.</p>
 <p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the module creates a backup file or data set.</p>
 <p>The backup file name will be returned on either success or failure of module execution such that data can be retrieved.</p>
@@ -194,7 +281,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> has missing parent directories, they will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, it will be created following the process outlined here and in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is binary, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>is_binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, precedence rules apply. If <code class="docutils literal notranslate"><span class="pre">dest_data_set</span></code> is set, this will take precedence over an existing data set. If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. Lastly, if no precendent rule has been exercised, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be created with the same attributes of <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (KSDS) or VSAM (ESDS), then source can be an ESDS, a KSDS or an RRDS. The VSAM (KSDS) or VSAM (ESDS) <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and recreated following the process outlined in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (RRDS), then the source must be an RRDS. The VSAM (RRDS) will be deleted and recreated following the process outlined in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
@@ -244,6 +331,15 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
+<dt>force_lock</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> to bypass this check and continue with copy.</p>
+<p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and destination is a MVS data set opened by another process then zos_copy will try to copy using DISP=SHR.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> uses operations that are subject to race conditions and can lead to data loss, use with caution.</p>
+<p>If a data set member has aliases, and is not a program object, copying that member to a dataset that is in use will result in the aliases not being preserved in the target dataset. When this scenario occurs the module will fail.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
 <dt>ignore_sftp_stderr</dt><dd><p>During data transfer through SFTP, the module fails if the SFTP command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by SFTP and continue execution.</p>
 <p>When Ansible verbosity is set to greater than 3, either through the command line interface (CLI) using <strong>-vvvv</strong> or through environment variables such as <strong>verbosity = 4</strong>, then this parameter will automatically be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="line-block">
@@ -251,7 +347,27 @@
 <div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
-<dt>is_binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file/data set.</p>
+<dt>is_binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file or data set.</p>
+<p>When <em>is_binary=true</em>, no encoding conversion is applied to the content, all content transferred retains the original state.</p>
+<p>Use <em>is_binary=true</em> when copying a Database Request Module (DBRM) to retain the original state of the serialized SQL statements of a program.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>executable</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or library to be copied is an executable.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">src</span></code> executable has an alias, the alias information is also copied. If the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is Unix, the alias is not visible in Unix, even though the information is there and will be visible if copied to a library.</p>
+<p>If <em>executable=true</em>, and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, it must be a PDS or PDSE (library).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the library attributes assigned will be Undefined (U) record format with a record length of 0, block size of 32760 and the remaining attributes will be computed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a file, execute permission for the user will be added to the file (<code class="docutils literal notranslate"><span class="pre">u+x</span></code>).</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>aliases</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that any aliases found in the source (USS file, USS dir, PDS/E library or member) are to be preserved during the copy operation.</p>
+<p>Aliases are implicitly preserved when libraries are copied over to USS destinations. That is, when <code class="docutils literal notranslate"><span class="pre">executable=True</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a USS file or directory, this option will be ignored.</p>
+<p>Copying of aliases for text-based data sets from USS sources or to USS destinations is not currently supported.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -322,7 +438,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: KSDS, ESDS, RRDS, LDS, SEQ, PDS, PDSE, MEMBER, BASIC</div>
+<div class="line"><strong>choices</strong>: KSDS, ESDS, RRDS, LDS, SEQ, PDS, PDSE, MEMBER, BASIC, LIBRARY</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
@@ -528,175 +644,197 @@
 </dl>
 </dd>
 </dl>
-</section>
-<section id="examples">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local file to a sequential data set</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/sample_seq_data_set</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file to a sequential data set</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/sample_seq_data_set</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local file to a USS location and validate checksum</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/test.log</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/test.log</span>
-<span class="w">    </span><span class="nt">validate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file to a USS location and validate checksum</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/test.log</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/test.log</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local ASCII encoded file and convert to IBM-1047</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/file.txt</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/file.txt</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local ASCII encoded file and convert to IBM-1047</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/file.txt</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/file.txt</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local directory to a PDSE</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/local/dir/</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.DEST.PDSE</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local directory to a PDSE</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/local/dir/</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DEST.PDSE</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy file with permission details</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/foo.conf</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/foo.conf</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0644</span>
-<span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy file with permission details</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/foo.conf</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/foo.conf</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0644</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Module will follow the symbolic link specified in src</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/link</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/uss/location</span>
-<span class="w">    </span><span class="nt">local_follow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Module will follow the symbolic link specified in src</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/link</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/uss/location</span>
+    <span class="nt">local_follow</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local file to a PDS member and convert encoding</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
-<span class="w">    </span><span class="nt">encoding</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF-8</span>
-<span class="w">      </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file to a PDS member and convert encoding</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
+    <span class="nt">encoding</span><span class="p">:</span>
+      <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTF-8</span>
+      <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a VSAM  (KSDS) to a VSAM  (KSDS)</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SRC.VSAM</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.DEST.VSAM</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a VSAM  (KSDS) to a VSAM  (KSDS)</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SRC.VSAM</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.DEST.VSAM</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy inline content to a sequential dataset and replace existing data</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Inline</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">copied&#39;</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy inline content to a sequential dataset and replace existing data</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">content</span><span class="p">:</span> <span class="s">&#39;Inline</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">copied&#39;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a USS file to sequential data set and convert encoding beforehand</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/remote/uss/file</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a USS file to sequential data set and convert encoding beforehand</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/remote/uss/file</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a USS directory to another USS directory</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/uss/dir</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/dest/dir</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a USS directory to another USS directory</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/uss/dir</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/dest/dir</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local binary file to a PDSE member</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/binary/file</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
-<span class="w">    </span><span class="nt">is_binary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local binary file to a PDSE member</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/binary/file</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
+    <span class="nt">is_binary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a sequential data set to a PDS member</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a sequential data set to a PDS member</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SAMPLE.SEQ.DATA.SET</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local file and take a backup of the existing file</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/dest</span>
-<span class="w">    </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/local_file_backup</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a local file and take a backup of the existing file</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/local/file</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/dest</span>
+    <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/local_file_backup</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a PDS on remote system to a new PDS</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SRC.PDS</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDS</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a PDS on remote system to a new PDS</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SRC.PDS</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDS</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a PDS on remote system to a PDS, replacing the original</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.EXISTING.PDSE</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a PDS on remote system to a PDS, replacing the original</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.EXISTING.PDSE</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">force</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy PDS member to a new PDS member. Replace if it already exists</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(SRCMEM)</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDSE(DESTMEM)</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy PDS member to a new PDS member. Replace if it already exists</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(SRCMEM)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDSE(DESTMEM)</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">force</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a USS file to a PDSE member. If PDSE does not exist, allocate it</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/uss/src</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEST.PDSE.DATA.SET(MEMBER)</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a USS file to a PDSE member. If PDSE does not exist, allocate it</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/uss/src</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DEST.PDSE.DATA.SET(MEMBER)</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a sequential data set to a USS file</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SRC.SEQ.DATA.SET</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a sequential data set to a USS file</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SRC.SEQ.DATA.SET</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a PDSE member to USS file</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SRC.PDSE(MEMBER)</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/member</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a PDSE member to USS file</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SRC.PDSE(MEMBER)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/member</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a PDS to a USS directory (/tmp/SRC.PDS)</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SRC.PDS</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a PDS to a USS directory (/tmp/SRC.PDS)</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SRC.PDS</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy all members inside a PDS to another PDS</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(*)</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy all members inside a PDS to another PDS</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(*)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy all members starting with &#39;ABC&#39; inside a PDS to another PDS</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(ABC*)</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy all members starting with &#39;ABC&#39; inside a PDS to another PDS</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS(ABC*)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Allocate destination in a specific volume</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
-<span class="w">    </span><span class="nt">volume</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;VOL033&#39;</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allocate destination in a specific volume</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SRC.PDS</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.DEST.PDS</span>
+    <span class="nt">volume</span><span class="p">:</span> <span class="s">&#39;VOL033&#39;</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a USS file to a fully customized sequential data set</span>
-<span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/uss/src</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DEST</span>
-<span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">volume</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;222222&#39;</span>
-<span class="w">    </span><span class="nt">dest_data_set</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SEQ</span>
-<span class="w">      </span><span class="nt">space_primary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">      </span><span class="nt">space_secondary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">      </span><span class="nt">space_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span>
-<span class="w">      </span><span class="nt">record_format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VB</span>
-<span class="w">      </span><span class="nt">record_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">150</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a USS file to a fully customized sequential data set</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/uss/src</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DEST</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">volume</span><span class="p">:</span> <span class="s">&#39;222222&#39;</span>
+    <span class="nt">dest_data_set</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SEQ</span>
+      <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+      <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">K</span>
+      <span class="nt">record_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VB</span>
+      <span class="nt">record_length</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a Program Object and its aliases on a remote system to a new PDSE member MYCOBOL</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.COBOLSRC.PDSE(TESTPGM)</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDSE(MYCOBOL)</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">executable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">aliases</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a Load Library from a USS directory /home/loadlib to a new PDSE</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&#39;/home/loadlib/&#39;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.LOADLIB.NEW</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">executable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">aliases</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a file with ASA characters to a new sequential data set.</span>
+  <span class="nt">zos_copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./files/print.txt</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.PRINT.NEW</span>
+    <span class="nt">asa_text</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-</section>
-<section id="notes">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="notes">
+<h2><a class="toc-backref" href="#id5">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Destination data sets are assumed to be in catalog. When trying to copy to an uncataloged data set, the module assumes that the data set does not exist and will create it.</p>
@@ -705,10 +843,11 @@
 <p>VSAM data sets can only be copied to other VSAM data sets.</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 <p><a class="reference external" href="./zos_copy.html">zos_copy</a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on z/OS from using Co:Z thus falling back to using standard SFTP.</p>
+<p>Beginning in version 1.8.x, zos_copy will no longer attempt to autocorrect a copy of a data type member into a PDSE that contains program objects. You can control this behavior using module option executable that will signify an executable is being copied into a PDSE with other executables. Mixing data type members with program objects will be responded with a (FSUM8976,./zos_copy.html) error.</p>
 </div>
-</section>
-<section id="see-also">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="see-also">
+<h2><a class="toc-backref" href="#id6">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -716,9 +855,9 @@
 <li><p><a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set – Manage data sets</span></a></p></li>
 </ul>
 </div>
-</section>
-<section id="return-values">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id7">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>src</dt><dd><p>Source file or data set being copied.</p>
 <div class="line-block">
@@ -754,13 +893,13 @@
 </div>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32760</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;record_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FB&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;record_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;space_primary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;space_secondary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;space_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PDSE&quot;</span>
+    <span class="nt">&quot;block_size&quot;</span><span class="p">:</span> <span class="mi">32760</span><span class="p">,</span>
+    <span class="nt">&quot;record_format&quot;</span><span class="p">:</span> <span class="s2">&quot;FB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;record_length&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+    <span class="nt">&quot;space_primary&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;space_secondary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;space_type&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PDSE&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -812,7 +951,7 @@
 </dd>
 <dt>checksum</dt><dd><p>SHA256 checksum of the file after running zos_copy.</p>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: C(validate) is C(true) and if dest is USS</div>
+<div class="line"><strong>returned</strong>: When <code class="docutils literal notranslate"><span class="pre">validate=true</span></code> and if <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: 8d320d5f68b048fc97559d771ede68b37a71e8374d1d678d96dcfa2b2da7a64e</div>
 </div>
@@ -875,7 +1014,7 @@
 </dd>
 <dt>note</dt><dd><p>A note to the user after module terminates.</p>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: C(force) is C(false) and dest exists</div>
+<div class="line"><strong>returned</strong>: When <code class="docutils literal notranslate"><span class="pre">force=true</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> exists</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: No data was copied</div>
 </div>
@@ -909,7 +1048,7 @@
 </div>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;u\&quot;Copying local file /tmp/foo/src to remote path /tmp/foo/dest..\&quot;&quot;</span>
+    <span class="s2">&quot;u\&quot;Copying local file /tmp/foo/src to remote path /tmp/foo/dest..\&quot;&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -923,9 +1062,9 @@
 </div>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;u\&quot;FileNotFoundError&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No such file or directory \u0027/tmp/foo\u0027\&quot;&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;u\&quot;FileNotFoundError&quot;</span><span class="p">:</span> <span class="s2">&quot;No such file or directory \u0027/tmp/foo\u0027\&quot;&quot;</span>
+    <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -946,32 +1085,46 @@
 </div>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright IBM Corp. 2020, 2023.</p>
-  </div>
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
 
-   
+    </p>
+  </div> 
 
 </footer>
+
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -1,55 +1,94 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managed node &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/js/theme.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Requirements of managed nodes" href="../../../ibm_zos_cics/docs/source/requirements_managed.html" />
     <link rel="prev" title="Control node" href="../../../ibm_zosmf/docs/source/requirements_control.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
 
           
+            <a href="../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
           
-          <a href="../../../index.html" class="icon icon-home">
-            Red Hat Ansible Certified Content for IBM Z
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../requirements/requirements.html#control-node">Control node</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../requirements/requirements.html#managed-node">Managed node</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS core</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Python on z/OS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#zoau">ZOAU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z-os-shell">z/OS shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-enterprise-sdk-for-python">Open Enterprise SDK for Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ibm-z-open-automation-utilities">IBM Z Open Automation Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
@@ -64,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ansible Content</span></p>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -73,16 +112,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/release.html">Releases</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<p class="caption"><span class="caption-text">FAQs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
@@ -90,82 +129,101 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
 </ul>
 
+            
+          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../../requirements/requirements.html">Requirements</a></li>
-      <li class="breadcrumb-item active">Managed node</li>
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../requirements/requirements.html">Requirements</a> &raquo;</li>
+        
+      <li>Managed node</li>
+    
+    
 
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="managed-node">
-<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this heading"></a></h1>
+            
+  <div class="section" id="managed-node">
+<h1>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h1>
 <p>The managed z/OS node is the host that is managed by Ansible, as identified in
-the Ansible inventory.
-The managed node has dependencies that are specific to each release of the
-<strong>IBM z/OS core collection</strong>. Review the details of the dependencies before you
-proceed to install the IBM z/OS core collection.</p>
-<ul>
-<li><p>z/OS <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">V2R3</a> or <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW">later</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.2.0/com.ibm.zos.v2r2.e0za100/ch1openssh.htm">z/OS OpenSSH</a></p></li>
-<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a>
-(previously <a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a>) 3.8.2 or later</p></li>
-<li><p><a class="reference external" href="requirements_managed.html#zoau">IBM Z Open Automation Utilities</a> (ZOAU)</p>
-<blockquote>
-<div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>IBM z/OS core collection is dependent on specific versions of
-Z Open Automation Utilities (ZOAU). For information about the required
-version of ZOAU, review the <a class="reference external" href="release_notes.html">release notes</a>. For detailed instructions on
-installation and configuration of ZOAU,
-<a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSKFYE_1.1.0/install.html">Installing and Configuring ZOA Utilities</a>.</p>
-</div>
-</div></blockquote>
-</li>
-<li><p>The <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p>
-<blockquote>
-<div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently, only <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code> is supported. Using
-<code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code> to change the default shell is discouraged.
-For more information, see <a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>. Shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code>
-are not supported because they handle the reading and writing of untagged
-files differently. Please review the README.ZOS guide included with the
-ported <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell for further configurations.</p>
-</div>
-</div></blockquote>
-</li>
+the Ansible inventory. For the <strong>IBM z/OS core collection</strong> to manage the z/OS node,
+some dependencies are required to be installed on z/OS such as:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=guide-zos-shells">z/OS® shell</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zoau">IBM Z Open Automation Utilities</a></p></li>
 </ul>
-<section id="id1">
-<h2>Python on z/OS<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<p>If the Ansible target is z/OS, you must install
-<strong>IBM Open Enterprise Python for z/OS</strong> which is ported for the z/OS platform
-and required by <strong>IBM z/OS core collection</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each release of the IBM z/OS core collection depends on specific dependency
+versions. For information on the dependencies or the versions, review the
+<a class="reference external" href="release_notes.html">release notes</a> reference section.</p>
+</div>
+<div class="section" id="z-os-shell">
+<h2>z/OS shell<a class="headerlink" href="#z-os-shell" title="Permalink to this headline">¶</a></h2>
+<p>Currently, only the <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=guide-zos-shells">z/OS® shell</a> is supported. Using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
+to change the default shell is discouraged. Shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code> are not supported
+because it handles the reading and writing of untagged files differently.</p>
+</div>
+<div class="section" id="open-enterprise-sdk-for-python">
+<h2>Open Enterprise SDK for Python<a class="headerlink" href="#open-enterprise-sdk-for-python" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>IBM z/OS core collection</strong> requires that the <strong>IBM Open Enterprise SDK for Python</strong>
+be installed on z/OS.</p>
 <p><strong>Installation</strong></p>
 <ul class="simple">
-<li><p>Visit the <a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a> product page for FMID,
+<li><p>Visit the <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> product page for the FMID,
 program directory, fix list, latest PTF, installation and configuration
 instructions.</p></li>
 <li><p>For reference, the Program IDs are:</p>
@@ -174,61 +232,69 @@ instructions.</p></li>
 <li><p>5655-PYS for service and support</p></li>
 </ul>
 </li>
-<li><p>Optionally, download <strong>IBM Open Enterprise Python for z/OS</strong>, <a class="reference external" href="https://www-01.ibm.com/marketing/iwm/platform/mrs/assets?source=swg-ibmoep">here</a></p></li>
-<li><p>For the supported Python version, refer to the <a class="reference external" href="release_notes.html">release notes</a>.</p></li>
+<li><p>Optionally, <a class="reference external" href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-49465">download the IBM Open Enterprise SDK for Python</a> no cost
+addition for installation.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently, IBM Open Enterprise Python for z/OS is the supported and
-recommended Python distribution for use with Ansible and ZOAU. If
-Rocket Python is the only available Python on the target, review the
-<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/configuration_guide.md#variables">recommended environment variables</a> for Rocket Python.</p>
 </div>
-</section>
-<section id="zoau">
-<h2>ZOAU<a class="headerlink" href="#zoau" title="Permalink to this heading"></a></h2>
+<div class="section" id="ibm-z-open-automation-utilities">
+<h2>IBM Z Open Automation Utilities<a class="headerlink" href="#ibm-z-open-automation-utilities" title="Permalink to this headline">¶</a></h2>
 <p>IBM Z Open Automation Utilities provide support for executing automation tasks
-on z/OS. With ZOAU, you can run traditional MVS commands such as IEBCOPY,
-IDCAMS, and IKJEFT01, as well as perform a number of data set operations
-in the scripting language of your choice.</p>
+on z/OS. It can run z/OS programs such as IEBCOPY, IDCAMS and IKJEFT01, perform
+data set operations and much more in the scripting language of your choice.</p>
 <p><strong>Installation</strong></p>
 <ul class="simple">
-<li><p>Visit the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSKFYE">ZOAU</a> product page for the FMID, program directory, fix list,
-latest PTF, installation, and configuration instructions.</p></li>
+<li><p>Visit the <a class="reference external" href="https://www.ibm.com/docs/en/zoau">IBM Z Open Automation Utilities</a> product page for the FMID,
+program directory, fix list, latest PTF, installation, and configuration
+instructions.</p></li>
 <li><p>For reference, the Program IDs are:</p>
 <ul>
 <li><p>5698-PA1 for the base product</p></li>
 <li><p>5698-PAS for service and support</p></li>
 </ul>
 </li>
-<li><p>For ZOAU supported version, refer to the <a class="reference external" href="release_notes.html">release notes</a>.</p></li>
+<li><p>Optionally, <a class="reference external" href="https://ibm.github.io/mainframe-downloads/downloads.html#devops">download the IBM Z Open Automation Utilities</a> no cost
+addition for installation.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright IBM Corp. 2020, 2023.</p>
-  </div>
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
 
-   
+    </p>
+  </div> 
 
 </footer>
+
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
