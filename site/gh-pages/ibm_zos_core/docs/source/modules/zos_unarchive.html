@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zos_unarchive – Unarchive files and data sets in z/OS. &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="zos_volume_init – Initialize volumes or minidisks." href="zos_volume_init.html" />
+    <link rel="prev" title="zos_tso_command – Execute TSO commands" href="zos_tso_command.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zos_unarchive – Unarchive files and data sets in z/OS.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#see-also">See Also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS Core</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>zos_unarchive – Unarchive files and data sets in z/OS.</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zos-unarchive-unarchive-files-and-data-sets-in-z-os">
+<span id="zos-unarchive-module"></span><h1>zos_unarchive – Unarchive files and data sets in z/OS.<a class="headerlink" href="#zos-unarchive-unarchive-files-and-data-sets-in-z-os" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id5">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> module unpacks an archive after optionally transferring it to the remote system.</p></li>
+<li><p>For supported archive formats, see option <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p></li>
+<li><p>Supported sources are USS (UNIX System Services) or z/OS data sets.</p></li>
+<li><p>Mixing MVS data sets with USS files for unarchiving is not supported.</p></li>
+<li><p>The archive is sent to the remote as binary, so no encoding is performed.</p></li>
+</ul>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>src</dt><dd><p>The remote absolute path or data set of the archive to be uncompressed.</p>
+<p><em>src</em> can be a USS file or MVS data set name.</p>
+<p>USS file paths should be absolute paths.</p>
+<p>MVS data sets supported types are <code class="docutils literal notranslate"><span class="pre">SEQ</span></code>, <code class="docutils literal notranslate"><span class="pre">PDS</span></code>, <code class="docutils literal notranslate"><span class="pre">PDSE</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>format</dt><dd><p>The compression type and corresponding options to use when archiving data.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>name</dt><dd><p>The compression format to use.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: bz2, gz, tar, zip, terse, xmit, pax</div>
+</div>
+</dd>
+<dt>format_options</dt><dd><p>Options specific to a compression format.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>xmit_log_data_set</dt><dd><p>Provide the name of a data set to store xmit log output.</p>
+<p>If the data set provided does not exist, the program will create it.</p>
+<p>If the data set provided exists, the data set must have the following attributes: LRECL=255, BLKSIZE=3120, and RECFM=VB</p>
+<p>When providing the <em>xmit_log_data_set</em> name, ensure there is adequate space.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>use_adrdssu</dt><dd><p>If set to true, the <code class="docutils literal notranslate"><span class="pre">zos_archive</span></code> module will use Data Facility Storage Management Subsystem data set services (DFSMSdss) program ADRDSSU to uncompress data sets from a portable format after using <code class="docutils literal notranslate"><span class="pre">xmit</span></code> or <code class="docutils literal notranslate"><span class="pre">terse</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>dest_volumes</dt><dd><p>When <em>use_adrdssu=True</em>, specify the volume the data sets will be written to.</p>
+<p>If no volume is specified, storage management rules will be used to determine the volume where the file will be unarchived.</p>
+<p>If the storage administrator has specified a system default unit name and you do not set a volume name for non-system-managed data sets, then the system uses the volumes associated with the default unit name. Check with your storage administrator to determine whether a default unit name has been specified.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>dest</dt><dd><p>The remote absolute path or data set where the content should be unarchived to.</p>
+<p><em>dest</em> can be a USS file, directory or MVS data set name.</p>
+<p>If dest has missing parent directories, they will not be created.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>group</dt><dd><p>Name of the group that will own the file system objects.</p>
+<p>When left unspecified, it uses the current group of the current user unless you are root, in which case it can preserve the previous ownership.</p>
+<p>This option is only applicable if <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, otherwise ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>mode</dt><dd><p>The permission of the uncompressed files.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, this will act as Unix file mode, otherwise ignored.</p>
+<p>It should be noted that modes are octal numbers. The user must either add a leading zero so that Ansible’s YAML parser knows it is an octal number (like <code class="docutils literal notranslate"><span class="pre">0644</span></code> or <code class="docutils literal notranslate"><span class="pre">01777</span></code>)or quote it (like <code class="docutils literal notranslate"><span class="pre">'644'</span></code> or <code class="docutils literal notranslate"><span class="pre">'1777'</span></code>) so Ansible receives a string and can do its own conversion from string into number. Giving Ansible a number without following one of these rules will end up with a decimal number which will have unexpected results.</p>
+<p>The mode may also be specified as a symbolic mode (for example, <code class="docutils literal notranslate"><span class="pre">u+rwx</span></code> or <code class="docutils literal notranslate"><span class="pre">u=rw,g=r,o=r</span></code>) or a special string <cite>preserve</cite>.</p>
+<p><em>mode=preserve</em> means that the file will be given the same permissions as the source file.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>owner</dt><dd><p>Name of the user that should own the filesystem object, as would be passed to the chown command.</p>
+<p>When left unspecified, it uses the current user unless you are root, in which case it can preserve the previous ownership.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>include</dt><dd><p>A list of directories, files or data set names to extract from the archive.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">include</span></code> is set, only those files will we be extracted leaving the remaining files in the archive.</p>
+<p>Mutually exclusive with exclude.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>exclude</dt><dd><p>List the directory and file or data set names that you would like to exclude from the unarchive action.</p>
+<p>Mutually exclusive with include.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>list</dt><dd><p>Will list the contents of the archive without unpacking.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>dest_data_set</dt><dd><p>Data set attributes to customize a <code class="docutils literal notranslate"><span class="pre">dest</span></code> data set that the archive will be copied into.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>name</dt><dd><p>Desired name for destination dataset.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>type</dt><dd><p>Organization of the destination</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: SEQ</div>
+<div class="line"><strong>choices</strong>: SEQ, PDS, PDSE</div>
+</div>
+</dd>
+<dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
+<p>The unit of space used is set using <em>space_type</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>space_secondary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the secondary space allocated for the data set.</p>
+<p>The unit of space used is set using <em>space_type</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>space_type</dt><dd><p>If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.</p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
+</div>
+</dd>
+<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">FB</span></code>)</p>
+<p>Choices are case-insensitive.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: FB, VB, FBA, VBA, U</div>
+</div>
+</dd>
+<dt>record_length</dt><dd><p>The length of each record in the data set, in bytes.</p>
+<p>For variable data sets, the length must include the 4-byte prefix area.</p>
+<p>Defaults vary depending on format: If FB/FBA 80, if VB/VBA 137, if U 0.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>block_size</dt><dd><p>The block size to use for the data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>directory_blocks</dt><dd><p>The number of directory blocks to allocate to the data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>key_offset</dt><dd><p>The key offset to use when creating a KSDS data set.</p>
+<p><em>key_offset</em> is required when <em>type=KSDS</em>.</p>
+<p><em>key_offset</em> should only be provided when <em>type=KSDS</em></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>key_length</dt><dd><p>The key length to use when creating a KSDS data set.</p>
+<p><em>key_length</em> is required when <em>type=KSDS</em>.</p>
+<p><em>key_length</em> should only be provided when <em>type=KSDS</em></p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>sms_storage_class</dt><dd><p>The storage class for an SMS-managed dataset.</p>
+<p>Required for SMS-managed datasets that do not match an SMS-rule.</p>
+<p>Not valid for datasets that are not SMS-managed.</p>
+<p>Note that all non-linear VSAM datasets are SMS-managed.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>sms_data_class</dt><dd><p>The data class for an SMS-managed dataset.</p>
+<p>Optional for SMS-managed datasets that do not match an SMS-rule.</p>
+<p>Not valid for datasets that are not SMS-managed.</p>
+<p>Note that all non-linear VSAM datasets are SMS-managed.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>sms_management_class</dt><dd><p>The management class for an SMS-managed dataset.</p>
+<p>Optional for SMS-managed datasets that do not match an SMS-rule.</p>
+<p>Not valid for datasets that are not SMS-managed.</p>
+<p>Note that all non-linear VSAM datasets are SMS-managed.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets.</p>
+<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the environment variable value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>force</dt><dd><p>If set to true and the remote file or data set dest exists, the dest will be deleted.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>remote_src</dt><dd><p>If set to true, <code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> retrieves the archive from the remote system.</p>
+<p>If set to false, <code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> searches the local machine (Ansible controller) for the archive.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple extract</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy local tar file and unpack it on the managed z/OS node.</span>
+  <span class="nt">zos_unarchive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;./files/archive_folder_test.tar&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tar</span>
+
+<span class="c1"># use include</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unarchive a bzip file selecting only a file to unpack.</span>
+  <span class="nt">zos_unarchive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;/tmp/test.bz2&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bz2</span>
+    <span class="nt">include</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;foo.txt&#39;</span>
+
+<span class="c1"># Use exclude</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unarchive a terse data set and excluding data sets from unpacking.</span>
+  <span class="nt">zos_unarchive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
+    <span class="nt">exclude</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.ARCHIVE.TEST1</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.ARCHIVE.TEST2</span>
+
+<span class="c1"># List option</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">List content from XMIT</span>
+  <span class="nt">zos_unarchive</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.XMIT&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xmit</span>
+      <span class="nt">format_options</span><span class="p">:</span>
+        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="notes">
+<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VSAMs are not supported.</p>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2><a class="toc-backref" href="#id5">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#zos-unarchive-module"><span class="std std-ref">zos_unarchive – Unarchive files and data sets in z/OS.</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id6">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>path</dt><dd><p>File path or data set name unarchived.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>dest_path</dt><dd><p>Destination path where archive was extracted.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>targets</dt><dd><p>List of files or data sets in the archive.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>missing</dt><dd><p>Any files or data sets not found during extraction.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

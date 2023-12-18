@@ -1,0 +1,1390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Releases &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Releases" href="../../../ibm_zos_cics/docs/source/release_notes.html" />
+    <link rel="prev" title="Releases" href="../../../release/release.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-8-0">Version 1.8.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-modules">New Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-7-0">Version 1.7.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">New Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#major-changes">Major Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Minor Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Bugfixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-6-0">Version 1.6.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">New Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Minor Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Bugfixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-5-0">Version 1.5.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">New Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Major Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Minor Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Bugfixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deprecated-features">Deprecated Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-4-1">Version 1.4.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-4-0">Version 1.4.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deprecation-notices">Deprecation Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-6">Version 1.3.6</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-new">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-5">Version 1.3.5</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id24">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-3">Version 1.3.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id27">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-1">Version 1.3.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id30">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">What’s New</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Known issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/release_notes.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/release_notes.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/release_notes.html">Z HMC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../release/release.html">Releases</a> &raquo;</li>
+        
+      <li>Releases</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="releases">
+<h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-8-0">
+<h2>Version 1.8.0<a class="headerlink" href="#version-1-8-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-modules">
+<h3>New Modules<a class="headerlink" href="#new-modules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_script</span></code> - Run scripts in z/OS</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_archive</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add validation into path joins to detect unauthorized path traversals.</p></li>
+<li><p>Enhanced test cases to use test lines the same length of the record length.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add validation into path joins to detect unauthorized path traversals.</p></li>
+<li><p>Add new option <cite>force_lock</cite> that can copy into data sets that are already in use by other processes (DISP=SHR). User needs to use with caution because this is subject to race conditions and can lead to data loss.</p></li>
+<li><p>Includes a new option <cite>executable</cite> that enables copying of executables such as load modules or program objects to both USS and partitioned data sets. When the <cite>dest</cite> option contains a non-existent data set, <cite>zos_copy</cite> will create a data set with the appropriate attributes for an executable.</p></li>
+<li><p>Introduces a new option ‘aliases’ to enable preservation of member aliases when copying data to partitioned data sets (PDS) destinations from USS or other PDS sources. Copying aliases of text based members to/from USS is not supported.</p></li>
+<li><p>Add support in zos_copy for text files and data sets containing ASA control characters.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - Add validation into path joins to detect unauthorized path traversals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Change action plugin call from copy to zos_copy.</p></li>
+<li><p>Previous code did not return output, but still requested job data from the target system. This changes to honor <cite>return_output=false</cite> by not querying the job dd segments at all.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code> - Changed system to call <cite>wait=true</cite> parameter to zoau call. Requires zoau 1.2.5 or later.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> - Add a max delay of 5 seconds on each part of the operator_action_query. Requires zoau 1.2.5 or later.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add validation into path joins to detect unauthorized path traversals.</p></li>
+<li><p>Enhanced test cases to use test lines the same length of the record length.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils/template</span></code> - Add validation into path joins to detect unauthorized path traversals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_tso_command</span></code> - Add example for executing explicitly a REXX script from a data set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_script</span></code> - Add support for remote_tmp from the Ansible configuration to setup where temporary files will be created, replacing the module option tmp_path.</p></li>
+</ul>
+</div>
+<div class="section" id="bugfixes">
+<h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Update option to include <cite>LIBRARY</cite> as dest_dataset/suboption value. Documentation updated to reflect this change.</p></li>
+<li><p>When copying an executable data set from controller to managed node, copy operation failed with an encoding error. Fix now avoids encoding when <cite>executable</cite> option is selected.</p></li>
+<li><p>When copying an executable data set with aliases and destination did not exist, destination data set was created with wrong attributes. Fix now creates destination data set with the same attributes as the source.</p></li>
+<li><p>When performing a copy operation to an existing file, the copied file resulted in having corrupted contents. Fix now implements a workaround to not use the specific copy routine that corrupts the file contents.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Temporary files were created in tmp directory. Fix now ensures the deletion of files every time the module run.</p></li>
+<li><p>The last line of the jcl was missing in the input. Fix now ensures the presence of the full input in job_submit.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code> - A duplicate entry was made even if line was already present in the target file. Fix now prevents a duplicate entry if the line already exists in the target file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The last line of the operator was missing in the response of the module. The fix now ensures the presence of the full output of the operator.</p></li>
+<li><p>The module was ignoring the wait time argument. The module now passes the wait time argument to ZOAU.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> - The module was ignoring the wait time argument. The module now passes the wait time argument to ZOAU.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> - When zos_unarchive fails during unpack either with xmit or terse it does not clean the temporary data sets created. Fix now removes the temporary data sets.</p></li>
+</ul>
+</div>
+<div class="section" id="known-issues">
+<h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Several modules have reported UTF8 decoding errors when interacting with results that contain non-printable UTF8 characters in the response. This occurs when a module receives content that does not correspond to a UTF-8 value. These include modules <cite>zos_job_submit</cite>, <cite>zos_job_output</cite>, <cite>zos_operator_action_query</cite> but are not limited to this list. This will be addressed in <cite>ibm_zos_core</cite> version 1.10.0-beta.1. Each case is unique, some options to work around the error are below. - Specify that the ASA assembler option be enabled to instruct the assembler to use ANSI control characters instead of machine code control characters. - Add <cite>ignore_errors:true</cite> to the playbook task so the task error will not fail the playbook. - If the error is resulting from a batch job, add <cite>ignore_errors:true</cite> to the task and capture the output into a variable and extract the job ID with a regular expression and then use <cite>zos_job_output</cite> to display the DD without the non-printable character such as the DD <cite>JESMSGLG</cite>.</p></li>
+<li><p>With later versions of <cite>ansible-core</cite> used with <cite>ibm_zos_core</cite> collection a warning has started to appear “Module “ansible.builtin.command” returned non UTF-8 data in the JSON response” that is currently being reviewed. There are no recommendations at this point.</p></li>
+</ul>
+</div>
+<div class="section" id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.4</a> (or later) but prior to version 1.3.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-7-0">
+<h2>Version 1.7.0<a class="headerlink" href="#version-1-7-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>New Modules<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_archive</span></code> - archive files, data sets and extend archives on z/OS. Formats include, <em>bz2</em>, <em>gz</em>, <em>tar</em>, <em>zip</em>, <em>terse</em>, <em>xmit</em> and <em>pax</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> - unarchive files and data sets on z/OS. Formats include, <em>bz2</em>, <em>gz</em>, <em>tar</em>, <em>zip</em>, <em>terse</em>, <em>xmit</em> and <em>pax</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="major-changes">
+<h3>Major Changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h3>
+<p>– <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - supports Jinja2 templating which is essential for handling tasks that require advanced file modifications such as JCL.</p>
+</div>
+<div class="section" id="id2">
+<h3>Minor Changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>displays the data set attributes when the destination does not exist and was created by the module.</p></li>
+<li><p>reverts the logic that would automatically create backups in the event of a module failure leaving it up to the user to decide if a backup is needed.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - supports record format <em>F</em> (fixed) where one physical block on disk is one logical record and all the blocks and records are the same size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code> - displays job information <em>asid</em>, <em>creation date</em>, <em>creation time</em>, <em>job class</em>, <em>priority</em>, <em>queue position</em>, <em>service class</em> and conditionally <em>program name</em> (when ZOAU is v1.2.4 or later).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>displays job information <em>asid</em>, <em>creation date</em>, <em>creation time</em>, <em>job class</em>, <em>priority</em>, <em>queue position</em>, <em>service class</em> and conditionally <em>program name</em> (when ZOAU is v 1.2.4 or later).</p></li>
+<li><p>removes unnecessary queries to find DDs improving the modules performance.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - displays job information <em>asid</em>, <em>creation date</em>, <em>creation time</em>, <em>job class</em>, <em>priority</em>, <em>queue position</em>, <em>service class</em> and conditionally <em>program name</em> (when ZOAU is v1.2.4 or later).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_archive</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When XMIT encounters a space error because of the destination (dest) or log data set has reached capacity, the module raises an appropriate error message.</p></li>
+<li><p>When the destination (dest) data set space is not provided, then the module computes it using the source (src) given the pattern provided.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When copying to the z/OS managed node (remote_src) results in a failure, a proper error message is displayed</p></li>
+<li><p>When copying to the z/OS managed node (remote_src), if the option <em>primary_space</em> is not defined, then it is defaulted to 5M.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Bugfixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - fixes occasionally occurring orphaned VSAM cluster components such as INDEX when <em>present=absent</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - fixes the warning that appeared about the use of <em>_play_context.verbosity</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixes the warning that appeared about the use of <em>_play_context.verbosity</em>.</p></li>
+<li><p>fixes an issue where subdirectories would not be encoded.</p></li>
+<li><p>fixes an issue where when mode was set, the mode was not applied to existing directories and files.</p></li>
+<li><p>displays a error message when copying into a data set that is being accessed by another process and no longer returns with <em>changed=true</em>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code> - displays an appropriate error message for a job is not found in the spool.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code> - fixes the false reports that a command failed when keywords such as <em>error</em> were seen, the module now acts as a passthrough.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_archive</span></code> - Module did not return the proper src state after archiving. Fix now displays the status of the src after the operation.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Availability<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Reference<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.3</a> (or later) but prior to version 1.3.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-6-0">
+<h2>Version 1.6.0<a class="headerlink" href="#version-1-6-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>New Modules<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_volume_init</span></code> - Can initialize volumes or minidisks on target z/OS systems which includes creating a volume label and an entry into the volume table of contents (VTOC).</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Minor Changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_blockinfile</span></code> - Adds an enhancement to allow double quotes within a block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Updates the behavior of the <cite>mode</cite> option so that permissions are applied to existing directories and contents.</p></li>
+<li><p>Adds an enhancement to option <cite>restore_backup</cite> to track modified members in a data set in the event of an error, restoring them to their previous state without reallocating the data set.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - Adds a new option named <em>force</em> to enable deletion of a data member in a PDSE that is simultaneously in use by others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code> - Enables embedded positional wild card placement throughout <em>job_name</em> and <em>job_id</em> parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code> - Adds a new option named <em>force</em> to enable modification of a data member in a data set that is simultaneously in use by others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_tso_command</span></code> - Adds a new option named <em>max_rc</em> to enable non-zero return codes lower than the specified maximum return as succeeded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>job - Adds support for positional wild card placement for <cite>job_name`</cite> and <cite>job_id</cite>.</p></li>
+<li><p>Adds support for import <em>common.text.converters</em> over the deprecated <em>_text</em> import.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Bugfixes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fixes a bug where files not encoded in IBM-1047 would trigger an error while computing the record length for a new destination dataset.</p></li>
+<li><p>Fixes a bug where the module would change the mode for a directory when copying in the contents of another directory.</p></li>
+<li><p>Fixes a bug where the incorrect encoding would be used during normalization, particularly when processing newlines in files.</p></li>
+<li><p>Fixes a bug where binary files were not excluded when normalizing data to remove newlines.</p></li>
+<li><p>Fixes a bug where a <em>_play_context.verbosity</em> deprecation warning would appear.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - Fixes a bug where a <em>_play_context.verbosity</em> deprecation warning would appear.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_encode</span></code> - Fixes a bug where converted files were not tagged with the new code set afterwards.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_find</span></code> - Fixes a bug where the module would stop searching and exit after the first value in a list was not found.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Removes use of Python f-string to ensure support for Python 2.7 on the controller.</p></li>
+<li><p>Fixes a bug where an incorrect error message would be raised when a USS source was not found.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data_set - Fixes an failure caused by cataloging a VSAM data set when the data set is not cataloged.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - Fixes a bug that will leave VSAM data set cluster components behind when instructed to delete the data set (<cite>present=absent</cite>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_gather_facts</span></code> - Fixes a bug that prevented the module from executing with newer versions of ZOAU.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Availability<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Reference<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.2</a> (or later) but prior to version 1.3.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-5-0">
+<h2>Version 1.5.0<a class="headerlink" href="#version-1-5-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>New Modules<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_gather_facts</span></code> - can retrieve variables from target z/OS systems that are then available to playbooks through the ansible_facts dictionary and managed using filters.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Major Changes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code> - Updates the entire collection in that the collection no longer depends on the managed node having installed System Display and Search Facility (SDSF). Remove SDSF dependency from ibm_zos_core collection.</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>Minor Changes<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_apf</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_blockinfile</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixes a bug when using double quotes in the block text of the module. When double quotes appeared in block text, the module would error differently depending on the usage of option insertafter. Examples of this error have return code 1 or 16 along with message “ZOAU dmod return content is NOT in json format” and a varying stderr.</p></li>
+<li><p>updates the module with a new option named force. This allows for a user to specify that the data set can be shared with others during an update which results in the data set you are updating to be simultaneously updated by others.</p></li>
+<li><p>updates the module with a new option named indentation. This allows for a user to specify a number of spaces to prepend to the content before being inserted into the destination.</p></li>
+<li><p>updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - Ensures that temporary datasets created by zos_data_set use the tmp_hlq specified. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_encode</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code> - was updated to leverage the latest changes that removes the REXX code by calling the module utility jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>was updated to leverage the latest changes that removes the REXX code by calling the module utility jobs.</p></li>
+<li><p>was updated to use the jobs module utility.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>architecture changed such that the entire modules execution time now is captured in the duration time which includes job submission and log collection. If a job does not return by the default 10 sec ‘wait_time_s’ value, it can be increased up to 86400 seconds.</p></li>
+<li><p>behavior changed when a volume is defined in the module options such that it will catalog the data set if it is not cataloged and submit the job. In the past, the function did not catalog the data set and instead performed I/O operations and then submitted the job. This behavior aligns to other module behaviors and reduces the possibility to encounter a permissions issue.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_lineinfile</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mount</span></code> - updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ensures that temporary datasets created by DD Statements use the tmp_hlq specified. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p>updates the module with a new option named tmp_hlq. This allows for a user to specify the data set high level qualifier (HLQ) used in any temporary data set created by the module. Often, the defaults are not permitted on systems, this provides a way to override the defaults.</p></li>
+<li><p>updated module documentation on how to use a multi-line string when using the content field option as well as an example.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>added in the response the cmd result.</p></li>
+<li><p>added in the response the elapsed time.</p></li>
+<li><p>added in the response the wait_time_s set.</p></li>
+<li><p>deprecated the wait option, not needed with wait_time_s minor_changes.</p></li>
+<li><p>was updated to remove the usage of REXX and replaced with ZOAU python APIs. This reduces code replication and it removes the need for REXX interpretation which increases performance.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h3>Bugfixes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixes a bug such that the module fails when copying files from a directory needing also to be encoded. The failure would also delete the <cite>src</cite> which was not desirable behavior. Fixes deletion of src on encoding error.</p></li>
+<li><p>module was updated to correct a bug in the case when the destination (dest) is a PDSE and the source (src) is a Unix Systems File (USS). The module would fail in determining if the PDSE actually existed and try to create it when it already existed resulting in an error that would prevent the module from correctly executing.</p></li>
+<li><p>fixes a bug where the computed record length for a new destination dataset would include newline characters.</p></li>
+<li><p>fixes a bug where if a destination has accented characters in its content, the module would fail when trying to determine if it is empty.</p></li>
+<li><p>fixes a bug where copying a member from a loadlib to another loadlib fails.</p></li>
+<li><p>fixed wrongful creation of destination backups when module option <cite>force</cite> is true, creating emergency backups meant to restore the system to its initial state in case of a module failure only when force is false.</p></li>
+<li><p>copy failed from a loadlib member to another loadlib member. Fix now looks for an error in stdout while copying to perform a fallback copy for executables.</p></li>
+<li><p>fixes a bug where the module would change the mode for a directory when copying into it the contents of another.</p></li>
+<li><p>fixes a bug where source files not encoded in IBM-1047 would trigger an encoding error while computing the record length for a new destination dataset.</p></li>
+<li><p>fixes a bug where the code for fixing an issue with newlines in files would use the wrong encoding for normalization.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fixes a bug such that the module will delete a catalogued data set over an uncatalogued data set even though the volume is provided for the uncataloged data set. This is unexpected behavior and does not align to documentation; correct behavior is that when a volume is provided that is the first place the module should look for the data set, whether or not it is cataloged.</p></li>
+<li><p>fixes a bug where the default record format FB was actually never enforced and when enforced it would cause VSAM creation to fail with a Dynalloc failure. This also cleans up some of the options that are set by default when they have no bearing for batch.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - Updates the modules behavior when fetching VSAM data sets such that the maximum record length is now determined when creating a temporary data set to copy the VSAM data into and a variable-length (VB) data set is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code> - fixes a bug that returned all ddname’s when a specific ddnamae was provided. Now a specific ddname can be returned and all others ignored.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code> - was updated to correct a boolean condition that always evaluated to “CANCELLED”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixes the issue when <cite>wait_time_s</cite> was set to 0 that would result in a <cite>type</cite> error and the response would be a stack trace.</p></li>
+<li><p>fixes the issue when a job encounters a security exception, no job log would would result in the response.</p></li>
+<li><p>fixes the issue when a job is configured for a syntax check using TYPRUN=SCAN that it would wait the full duration set by <cite>wait_time_s</cite> to return a response.</p></li>
+<li><p>fixes the issue when a job is configured for a syntax check using TYPRUN=SCAN that no job log would result in the response.</p></li>
+<li><p>fixes the issue when a job is purged by the system that the response would result in a stack trace.</p></li>
+<li><p>fixes the issue when invalid JCL syntax is submitted such that the response would result in a stack trace.</p></li>
+<li><p>fixes the issue when resources (data sets) identified in JCL did not exist such that a response would result in a stack trace.</p></li>
+<li><p>fixes the issue where the response did not include the job log when a non-zero return code would occur.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mount</span></code> - fixed option <cite>tag_ccsid</cite> to correctly allow for type int.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> - module was updated to correct a bug when no DD statements were provided. The module when no option was provided for <cite>dds</cite> would error, a default was provided to correct this behavior.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixed case sensitive error checks, invalid, error &amp; unidentifiable.</p></li>
+<li><p>fixed such that specifying wait_time_s would throw an error.</p></li>
+<li><p>fixed the wait_time_s to default to 1 second.</p></li>
+<li><p>was updated to correct missing verbosity content when the option verbose was set to True. zos_operator - was updated to correct the trailing lines that would appear in the result content.</p></li>
+<li><p>fixed incorrect example descriptions and updated the doc to highlight the deprecated option <cite>wait</cite>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="deprecated-features">
+<h3>Deprecated Features<a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_encode</span></code> - deprecates the module options <cite>from_encoding</cite> and <cite>to_encoding</cite> to use suboptions <cite>from</cite> and <cite>to</cite> in order to remain consistent with all other modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - Response ‘message’ property has been deprecated, all responses are now in response property ‘msg’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - The ‘wait’ option has been deprecated because using option ‘wait_time_s’ implies the job is going to wait.</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>Availability<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>Reference<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.11">3.11</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.2.x">Z Open Automation Utilities 1.2.2</a> (or later) but prior to version 1.3.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-4-1">
+<h2>Version 1.4.1<a class="headerlink" href="#version-1-4-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bug-fixes">
+<h3>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Copy failed from a loadlib member to another loadlib member. Fix
+now looks for error in stdout in the if statement to use -X option.</p></li>
+<li><p>Fixes a bug where files not encoded in IBM-1047 would trigger an
+error while computing the record length for a new destination dataset.</p></li>
+<li><p>Fixes a bug where the code for fixing an issue with newlines in
+files.</p></li>
+<li><p>fixed wrongful creation of destination backups when module option
+<cite>force</cite> is true, creating emergency backups meant to restore the system to
+its initial state in case of a module failure only when force is false.</p></li>
+<li><p>fixes a bug where the computed record length for a new destination
+dataset would include newline characters.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fixes a bug where a boolean was not being properly compared.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>Availability<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h3>Reference<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-4-0">
+<h2>Version 1.4.0<a class="headerlink" href="#version-1-4-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mount</span></code> can manage mount operations for a
+z/OS UNIX System Services (USS) file system data set.</p></li>
+</ul>
+</li>
+<li><p>Plugins</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin has been removed from this release and is no
+longer a dependency for the <code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> module.</p></li>
+</ul>
+</li>
+<li><p>Bug fixes and enhancements</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<ul>
+<li><p>introduced an updated creation policy referred to as precedence rules
+that if <cite>dest_data_set</cite> is set, it will take precedence. If
+<cite>dest</cite> is an empty data set, the empty data set will be written with the
+expectation its attributes satisfy the copy. If no precedent rule
+has been exercised, <cite>dest</cite> will be created with the same attributes of
+<cite>src</cite>.</p></li>
+<li><p>introduced new computation capabilities that if <cite>dest</cite> is a nonexistent
+data set, the attributes assigned will depend on the type of <cite>src</cite>. If
+<cite>src</cite> is a USS file, <cite>dest</cite> will have a Fixed Block (FB) record format
+and the remaining attributes will be computed. If <cite>src</cite> is binary,
+<cite>dest</cite> will have a Fixed Block (FB) record format with a record length
+of 80, block size of 32760, and the remaining attributes will be
+computed.</p></li>
+<li><p>enhanced the force option when <cite>force=true</cite> and the remote file or
+data set <cite>dest`</cite> is NOT empty, the <cite>dest</cite> will be deleted and recreated
+with the <cite>src</cite> data set attributes, otherwise it will be recreated with
+the <cite>dest</cite> data set attributes.</p></li>
+<li><p>was enhanced for when <cite>src</cite> is a directory and ends with “/”,
+the contents of it will be copied into the root of <cite>dest</cite>. It it doesn’t
+end with “/”, the directory itself will be copied.</p></li>
+<li><p>option <cite>dest_dataset</cite> has been deprecated and removed in favor
+of the new option <cite>dest_data_set</cite>.</p></li>
+<li><p>fixes a bug that when a directory is copied from the controller to the
+managed node and a mode is set, the mode is applied to the directory
+on the managed node. If the directory being copied contains files and
+mode is set, mode will only be applied to the files being copied not the
+pre-existing files.</p></li>
+<li><p>fixes a bug that did not create a data set on the specified volume.</p></li>
+<li><p>fixes a bug where a number of attributes were not an option when using
+<cite>dest_data_set</cite>.</p></li>
+<li><p>fixes a bug where options were not defined in the module
+argument spec that will result in error when running <cite>ansible-core</cite>
+v2.11 and using options <cite>force</cite> or <cite>mode</cite>.</p></li>
+<li><p>was enhanced to support the <code class="docutils literal notranslate"><span class="pre">ansible.builtin.ssh</span></code> connection options;
+for further reference refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html">SSH plugin</a> documentation.</p></li>
+<li><p>was enhanced to take into account the record length when the
+source is a USS file and the destination is a data set with a record
+length. This is done by inspecting the destination data set attributes
+and using these attributes to create a new data set.</p></li>
+<li><p>was updated with the capabilities to define destination data sets from
+within the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> module. In the case where you are copying to
+data set destination that does not exist, you can now do so using the
+new <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> module option <code class="docutils literal notranslate"><span class="pre">destination_dataset</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code></p>
+<ul>
+<li><p>enhanced to allow for MVS operator <cite>SET</cite> command, <cite>SET</cite> is
+equivalent to the abbreviated <cite>T</cite> command.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mount</span></code> fixed option <cite>tag_ccsid</cite> to correctly allow for type int.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_utils</span></code></p>
+<ul>
+<li><p>jobs.py - fixes a utility used by module <cite>zos_job_output</cite> that would
+truncate the DD content.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> was enhanced to remove the need for the <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code>
+connection plugin dependency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> was enhanced to support the <code class="docutils literal notranslate"><span class="pre">ansible.builtin.ssh</span></code>
+connection options; for further reference refer to the
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html">SSH plugin</a> documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code></p>
+<ul>
+<li><p>was updated to correct possible truncated responses for
+the <strong>ddname</strong> content. This would occur for jobs with very large amounts
+of content from a <strong>ddname</strong>.</p></li>
+<li><p>was enhanced to to include the completion code (CC) for each individual
+jop step as part of the <code class="docutils literal notranslate"><span class="pre">ret_code</span></code> response.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code></p>
+<ul>
+<li><p>was enhanced to support a 7 digit job number ID for when there are
+greater than 99,999 jobs in the history.</p></li>
+<li><p>was enhanced to handle when an invalid job ID or job name is used with
+the module and returns a proper response.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code></p>
+<ul>
+<li><p>was enhanced to fail fast when a submitted job fails instead of waiting
+a predetermined time.</p></li>
+<li><p>was enhanced to check for ‘JCL ERROR’ when jobs are submitted and result
+in a proper module response.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> response messages were improved with more
+diagnostic information in the event an error is encountered.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Deprecated or removed</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> module option <strong>destination_dataset</strong> has been renamed to
+<strong>dest_data_set</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin has been removed, it is no longer required.
+Remove all playbook references, ie <code class="docutils literal notranslate"><span class="pre">connection:</span> <span class="pre">ibm.ibm_zos_core.zos_ssh</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin has been removed, it is no longer required.
+You must remove the zos_ssh connection plugin from all playbooks that
+reference the plugin, for example connection: ibm.ibm_zos_core.zos_ssh.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> module option <strong>model_ds</strong> has been removed. The model_ds logic
+is now automatically managed and data sets are either created based on the
+<code class="docutils literal notranslate"><span class="pre">src</span></code> data set or overridden by the new option <code class="docutils literal notranslate"><span class="pre">destination_dataset</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> option <strong>sftp_port</strong> has been deprecated. To
+set the SFTP port, use the supported options in the <code class="docutils literal notranslate"><span class="pre">ansible.builtin.ssh</span></code>
+plugin. Refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html#parameter-port">SSH port</a> option to configure the port used during
+the modules SFTP transport.</p></li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li><p>Noteworthy documentation updates have been made to:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> about Co:Z SFTP support.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> removed a duplicate example.</p></li>
+<li><p>all action plugins are documented</p></li>
+<li><p>update hyperlinks embedded in documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code> to explains how to use single quotes in operator commands.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id19">
+<h3>Availability<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>Reference<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> <cite>3.8`_</cite> - <a class="reference external" href="https://www.ibm.com/docs/en/python-zos/3.9">3.9</a></p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>Known Issues<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>If a playbook includes the deprecated <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin, for
+example <code class="docutils literal notranslate"><span class="pre">connection:</span> <span class="pre">ibm.ibm_zos_core.zos_ssh</span></code>, it will
+encounter this error which can corrected by safely removing the plugin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;the connection plugin &#39;ibm.ibm_zos_core.zos_ssh&#39; was not found&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>When using the <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> plugin with <strong>Ansible 2.11</strong> and earlier versions
+of this collection, you will encounter the exception:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="n">module</span> <span class="s1">&#39;ansible.constants&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;ANSIBLE_SSH_CONTROL_PATH_DIR&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This is resolved in this release by deprecating the <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection
+plugin and removing all <code class="docutils literal notranslate"><span class="pre">connection:</span> <span class="pre">ibm.ibm_zos_core.zos_ssh</span></code> references
+from playbooks.</p>
+</li>
+<li><p>When using module <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> and option <code class="docutils literal notranslate"><span class="pre">force</span></code> with ansible versions
+greater than <strong>Ansbile 2.10</strong> and earlier versions of this collection, an
+unsupported option exception would occur. This is resolved in this release.</p></li>
+<li><p>When using the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> or <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules in earlier versions of
+this collection without ‘passwordless’ SSH configured such that you are using
+<code class="docutils literal notranslate"><span class="pre">--ask-pass</span></code> or passing an <code class="docutils literal notranslate"><span class="pre">ansible_password</span></code> in a configuration; during
+the playbook execution a second password prompt for SFTP would appear pausing
+the playbook execution. This is resolved in this release.</p></li>
+<li><p>When using the <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> or <code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> modules, if you tried to use
+Ansible connection options such as <code class="docutils literal notranslate"><span class="pre">host_key_checking</span></code> or <code class="docutils literal notranslate"><span class="pre">port</span></code>, they
+were not included as part of the modules execution. This is resolved in this
+release by ensuring compatibility with the <code class="docutils literal notranslate"><span class="pre">ansible.builtin.ssh</span></code> plugin
+options. Refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html">SSH plugin</a> documentation to enable supported options.</p></li>
+<li><p>Known issues for modules can be found in the <strong>Notes</strong> section of a modules
+documentation.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecation-notices">
+<h3>Deprecation Notices<a class="headerlink" href="#deprecation-notices" title="Permalink to this headline">¶</a></h3>
+<p>Features and functions are marked as deprecated when they are enhanced and an
+alternative is available. In most cases, the deprecated item will remain
+available unless the deprecated function interferes with the offering.
+Deprecated functions are no longer supported, and will be removed in a future
+release.</p>
+</div>
+</div>
+<div class="section" id="version-1-3-6">
+<h2>Version 1.3.6<a class="headerlink" href="#version-1-3-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-s-new">
+<h3>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> fixes a bug that when a directory is copied from the
+controller to the managed node and a mode is set, the mode is now applied
+to the directory on the controller. If the directory being copied contains
+files and mode is set, mode will only be applied to the files being copied
+not the pre-existing files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - fixes a bug where options were not defined in the module
+argument spec that will result in error when running <cite>ansible-core</cite> v2.11
+and using options <cite>force</cite> or <cite>mode</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - was enhanced for when <cite>src</cite> is a directory and ends with “/”,
+the contents of it will be copied into the root of <cite>dest</cite>. It it doesn’t
+end with “/”, the directory itself will be copied.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - fixes a bug where an option was not defined in the module
+argument spec that will result in error when running <cite>ansible-core</cite> v2.11
+and using option <cite>encoding</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - fixes a bug where an option was not defined in the
+module argument spec that will result in error when running
+<cite>ansible-core</cite> v2.11 and using option <cite>encoding</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jobs.py</span></code> - fixes a utility used by module <cite>zos_job_output</cite> that would
+truncate the DD content.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin was updated to correct a bug that causes
+an <cite>ANSIBLE_SSH_CONTROL_PATH_DIR</cite> attribute error only when using
+ansible-core v2.11.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>Availability<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h3>Reference<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> v3.8.2 -
+<a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> v3.9.5</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-5">
+<h2>Version 1.3.5<a class="headerlink" href="#version-1-3-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id24">
+<h3>What’s New<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> connection plugin was updated to correct a bug in Ansible that
+would result in playbook task <code class="docutils literal notranslate"><span class="pre">retries</span></code> overriding the SSH connection
+<code class="docutils literal notranslate"><span class="pre">retries</span></code>. This is resolved by renaming the <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> option
+<code class="docutils literal notranslate"><span class="pre">retries</span></code> to <code class="docutils literal notranslate"><span class="pre">reconnection_retries</span></code>. The update addresses users of
+<code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> v2.9 which continues to use <code class="docutils literal notranslate"><span class="pre">retries</span></code> and users of
+<code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> v2.11 or later which uses <code class="docutils literal notranslate"><span class="pre">reconnection_retries</span></code>. This
+also resolves a bug in the connection that referenced a deprecated
+constant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code> fixes a bug that returned all ddname’s when a specific
+ddname was provided. Now a specific ddname can be returned and all others
+ignored.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> fixes a bug that would not copy subdirectories. If the source
+is a directory with sub directories, all sub directories will now be copied.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h3>Availability<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h3>Reference<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> 3.8.2 or later</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-3">
+<h2>Version 1.3.3<a class="headerlink" href="#version-1-3-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id27">
+<h3>What’s New<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> was updated to correct deletion of all temporary files and
+unwarranted deletes.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When the module would complete, a cleanup routine did not take into
+account that other processes had open temporary files and thus would
+error when trying to remove them.</p></li>
+<li><p>When the module would copy a directory (source) from USS to another
+USS directory (destination), any files currently in the destination
+would be deleted.
+The modules behavior has changed such that files are no longer deleted
+unless the <code class="docutils literal notranslate"><span class="pre">force</span></code> option is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. When <code class="docutils literal notranslate"><span class="pre">force=true</span></code>,
+copying files or a directory to a USS destination will continue if it
+encounters existing files or directories and overwrite any
+corresponding files.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_query</span></code> was updated to correct a boolean condition that always
+evaluated to “CANCELLED”.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When querying jobs that are either <strong>CANCELLED</strong> or have <strong>FAILED</strong>,
+they were always treated as <strong>CANCELLED</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>Availability<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h3>Reference<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> 3.8.2 or later</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-1">
+<h2>Version 1.3.1<a class="headerlink" href="#version-1-3-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id30">
+<h3>What’s New<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p>Connection plugin <code class="docutils literal notranslate"><span class="pre">zos_ssh</span></code> was updated to prioritize the execution of
+modules written in REXX over other implementations such is the case for
+<code class="docutils literal notranslate"><span class="pre">zos_ping</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_ping</span></code> was updated to support Automation Hub documentation
+generation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h3>Availability<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h3>Reference<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> 3.8.2 or later</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h3>Known issues<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p>When executing programs using <code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code>, you may encounter errors
+that originate in the implementation of the programs. Two such known issues
+are noted below of which one has been addressed with an APAR.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking
+Database Image Copy 2 Utility or Database Recovery Utility in conjunction
+with FlashCopy or Fast Replication.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking DFSRRC00 with parm
+“UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is
+addressed by APAR PH28089.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-1-3-0">
+<h2>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h3>What’s New<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_apf</span></code> - Add or remove libraries to and from Authorized Program Facility (APF).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_backup_restore</span></code> - Backup and restore data sets and volumes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_blockinfile</span></code> - Manage block of multi-line textual data on z/OS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_find</span></code> - Find matching data sets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - added support to allocate and format zFS data sets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_operator</span></code> - supports new options <strong>wait</strong> and <strong>wait_time_s</strong> such
+that you can specify that <code class="docutils literal notranslate"><span class="pre">zos_operator</span></code> wait the full <strong>wait_time_s</strong> or
+return as soon as the first operator command executes.</p></li>
+<li><p>All modules support relative paths and remove choice case sensitivity.</p></li>
+</ul>
+</li>
+<li><p>Bug Fixes</p>
+<ul>
+<li><p>Modules</p>
+<ul>
+<li><p>Action plugin <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> was updated to support Python 2.7.</p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> was updated to fail gracefully when a it
+encounters a non-zero return code.</p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> was updated to support copying data set members that
+are program objects to a PDSE. Prior to this update, copying data set
+members would yield an error:
+<strong>FSUM8976 Error writing &lt;src_data_set_member&gt; to PDSE member
+&lt;dest_data_set_member&gt;</strong></p></li>
+<li><p>Job utility is an internal library used by several modules. It has been
+updated to use a custom written parsing routine capable of handling
+special characters to prevent job related reading operations from failing
+when a special character is encountered.</p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> was updated to remove all trailing <strong>r</strong> from
+jobs that are submitted from the controller.</p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> referenced a non-existent option and was
+corrected to <strong>wait_time_s</strong>.</p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">zos_tso_command</span></code> support was added for when the command output
+contained special characters.</p></li>
+</ul>
+</li>
+<li><p>Playbooks</p>
+<ul>
+<li><p>Playbook <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/zos_concepts/zos_operator/zos_operator_basics/zos_operator_basics.yaml">zos_operator_basics.yaml</a>
+has been updated to use <cite>end</cite> in the WTO reply over the previous use of
+<cite>cancel</cite>. Using <cite>cancel</cite> is not a valid reply and results in an execution
+error.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Playbooks</p>
+<ul>
+<li><p>In each release, we continue to expand on use cases and deliver them as
+playbooks in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">playbook repository</a> that can be easily tailored to any
+system.</p>
+<ul>
+<li><p>Authorize and
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_concepts/program_authorization/git_apf">synchronize APF authorized libraries on z/OS from a configuration file cloned from GitHub</a></p></li>
+<li><p>Automate program execution with
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_concepts/data_transfer/copy_sort_fetch">copy, sort and fetch data sets on z/OS playbook</a>.</p></li>
+<li><p>Automate user management with add, remove, grant permission,
+generate passwords, create zFS, mount zFS and send email
+notifications when deployed to Ansible Tower or AWX with the
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_concepts/user_management/add_remove_user">manage z/OS Users Using Ansible</a> playbook.</p></li>
+<li><p>Use the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_administration/host_setup">configure Python and ZOAU Installation</a> playbook to scan the
+<strong>z/OS</strong> target to find the latest supported configuration and generate
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/configuration_guide.md#inventory">inventory</a> and a <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/configuration_guide.md#variables">variables</a> configuration.</p></li>
+<li><p>Automate software management with <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_concepts/software_management">SMP/E Playbooks</a></p></li>
+<li><p>All playbooks have been updated to use our temporary data set feature
+to avoid any concurrent data set name problems.</p></li>
+<li><p>In the prior release, all sample playbooks previously included with the
+collection were migrated to the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">playbook repository</a>. The
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">playbook repository</a> categorizes playbooks into <strong>z/OS concepts</strong> and
+<strong>topics</strong>, it also covers <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/configuration_guide.md">playbook configuration</a> as well as provide
+additional community content such as <strong>blogs</strong> and where to open
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/issues">support tickets</a> for the playbooks.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li><p>All documentation related to <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/configuration_guide.md">playbook configuration</a> has been
+migrated to the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">playbook repository</a>. Each playbook contains a README
+that explains what configurations must be made to run a sample playbook.</p></li>
+<li><p>We have been carefully reviewing our users feedback and over time we have
+compiled a list of information that we feel would help everyone and have
+released this information in our new <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/faqs/faqs.html">FAQs</a>.</p></li>
+<li><p>Learn about the latest features and experience them before you try
+them through the blogs that discuss playbooks, modules, and use cases:</p>
+<ul>
+<li><p><a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/asif-mahmud1/2020/08/04/how-to-run-batch-jobs-on-zos-without-jcl-using-ans">Running Batch Jobs on z/OS using Ansible</a> details how
+to write and execute batch jobs without having to deal with JCL.</p></li>
+<li><p><a class="reference external" href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blake-becker1/2020/09/03/zos-user-management-with-ansible">z/OS User Management With Ansible</a> explains all about the user management
+playbook and its optional integration into AWX.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h3>Availability<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
+</ul>
+</div>
+<div class="section" id="id36">
+<h3>Reference<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS®</a> V2R4 or later</p></li>
+<li><p>Supported by the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS® shell</a></p></li>
+<li><p>Supported by <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a> 3.8.2 or later</p></li>
+<li><p>Supported by IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.x">Z Open Automation Utilities 1.1.0</a> and
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/1.1.1">Z Open Automation Utilities 1.1.1</a></p></li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>Known issues<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modules</p>
+<ul>
+<li><p>When executing programs using <code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code>, you may encounter errors
+that originate in the implementation of the programs. Two such known issues
+are noted below of which one has been addressed with an APAR.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking
+Database Image Copy 2 Utility or Database Recovery Utility in conjunction
+with FlashCopy or Fast Replication.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_mvs_raw</span></code> module execution fails when invoking DFSRRC00 with parm
+“UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is
+addressed by APAR PH28089.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

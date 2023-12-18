@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Playbooks &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="z/OS Core" href="../ibm_zos_core/docs/ansible_content.html" />
+    <link rel="prev" title="Installation" href="../installation/installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Playbooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inventory">Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-a-playbook">Run a playbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Playbooks</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="playbooks">
+<h1>Playbooks<a class="headerlink" href="#playbooks" title="Permalink to this headline">¶</a></h1>
+<p>An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for
+a managed node (host) to be managed with Ansible.</p>
+<p>There are <strong>many</strong> playbooks available in our GitHub <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">samples repository</a>
+contributed by the <strong>Red Hat Ansible Certified Content for IBM Z</strong> team. The
+GitHub samples repository contain playbooks that demonstrate various topics
+such as:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#z-topics">Z Systems Administration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Administration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Basic Operations</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Concepts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Integrating Existing Automation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Provisioning</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Application &amp; Service Deployment</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Subsystems</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples#zos-topics">z/OS Software Installation</a></p></li>
+</ul>
+<p>Playbooks, content, and topics are added to the
+<a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">samples repository</a> regularly. We encourage you to configure your GitHub
+<a class="reference external" href="https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github">activity subscriptions</a> for this repository to get notified by GitHub when there
+are updates.</p>
+<p>The sample playbooks can be run with the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command and with
+a little modification, the included <strong>inventory</strong>, <strong>ansible.cfg</strong>
+and <strong>host_vars</strong> can be tailored to your environment. Each sample will
+include all the necessary content that is needed to run a sample playbook.
+For more information, refer to the documentation included with each sample
+in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">samples repository</a>.</p>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html">basic concepts</a> common to playbooks, the artifacts needed to run a
+playbook such as <strong>inventory</strong> and <strong>variables</strong>, instructions on how
+to run a playbook, and run it in the debug mode are discussed in
+the following sections.</p>
+<div class="section" id="inventory">
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h3>
+<p>Ansible works with multiple managed nodes (hosts) that must be written into a
+list known as <strong>inventory</strong>. After the inventory is defined, you
+can use the patterns to select the hosts or groups that you want Ansible to
+manage. Review the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">inventory section</a> in the corresponding documentation to
+learn more about how inventory is defined.</p>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>Host variables (host_vars) enable you to <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#organizing-host-and-group-variables">manage the variables</a> and organize the
+the variable values easily. Host variables can be stored either in the
+<strong>inventory</strong> file or separate <strong>host_vars</strong> or <strong>group_vars</strong> variable files.
+Each sample in the <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/blob/main/README.md">samples repository</a> can vary on which <strong>host_vars</strong> or
+<strong>group_vars</strong> are required. For more information, review the documentation that is included with
+each sample.</p>
+</div>
+<div class="section" id="run-a-playbook">
+<h3>Run a playbook<a class="headerlink" href="#run-a-playbook" title="Permalink to this headline">¶</a></h3>
+<p>Use the Ansible command <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> to run a playbook.  The
+command syntax is <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">&lt;inventory&gt;</span> <span class="pre">&lt;playbook&gt;</span></code>; for example,
+<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">inventory</span> <span class="pre">sample.yaml</span></code>.</p>
+<p>For further reading, review <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook">run your first command and playbook</a> and follow
+up with <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks">about playbooks</a>.</p>
+</div>
+<div class="section" id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
+<p>Optionally, you can configure the console logging verbosity during playbook
+execution. This is helpful in situations where communication is failing and
+you want to obtain more details. To adjust the logging verbosity, append more
+letter <cite>v</cite>’s; for example, <cite>-v</cite>, <cite>-vv</cite>, <cite>-vvv</cite>, or <cite>-vvvv</cite>. Each letter <cite>v</cite>
+increases logging verbosity similar to traditional logging levels INFO, WARN,
+ERROR, DEBUG.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is a good practice to review the playbook samples before executing them.
+It will help you understand the requirements in terms of space, location,
+names, authority, and the artifacts that will be created and cleaned up. Although
+samples are always written to operate without the need for the user’s
+configuration, flexibility is written into the samples because it is not
+easy to determine if a sample has access to the host’s resources.
+Review the playbook notes sections for additional details and
+configuration.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

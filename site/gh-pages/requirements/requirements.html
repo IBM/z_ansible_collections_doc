@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requirements &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Control node" href="../ibm_zosmf/docs/source/requirements_control.html" />
+    <link rel="prev" title="Red Hat Ansible Certified Content for IBM Z" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#control-node">Control node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#managed-node">Managed node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Requirements</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>Before you install any IBM® z/OS® collection, you must configure a
+<strong>control node</strong> and <strong>managed node</strong> with a minimum set of requirements. The
+following sections detail the specific software requirements for the control and
+managed nodes.</p>
+<div class="section" id="control-node">
+<h2>Control node<a class="headerlink" href="#control-node" title="Permalink to this headline">¶</a></h2>
+<p>A control node is any machine with Ansible® installed. From the control node,
+you can run commands and playbooks from a laptop, desktop, or server. However,
+Windows® is not a supported controller for Ansible collections managing a z/OS
+node.</p>
+<p>All IBM z/OS collections are either <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
+(AAP) or undergoing certification. Thus, the supported versions of Ansible align
+with the <a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP Life Cycle</a> which currently is Ansible versions 2.9 - 2.15. For
+support, the controller must use the supported version of Ansible and when applicable
+the collections dependencies. Review the <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
+to determine which versions of Ansible a collection is supporting.</p>
+<p>IBM z/OS collections minimally require these versions of software, for additional
+supported versions review <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>.</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible version</a>: 2.9</p></li>
+<li><p><a class="reference external" href="https://www.python.org/downloads">Python</a>: 2.7 or later</p></li>
+<li><p><a class="reference external" href="https://www.openssh.com/">OpenSSH</a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Modules which can have Ansible tasks delegated to a localhost need not
+have OpenSSH enabled. Such modules often rely on a REST API for automation.
+Refer to the collections listed in the <strong>Managed node</strong> section
+to review which collections leverage a REST endpoint.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Each offering in the <strong>Red Hat® Ansible Certified Content for IBM Z</strong> offering
+can vary in terms of the requirements for the control node. Select one of the
+following offerings to learn more about the specific dependencies and
+required/supported software versions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="managed-node">
+<h2>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h2>
+<p>A managed node is often referred to as a target node, or host, and it is managed
+by Ansible. Ansible need not be installed on a managed node.
+Each offering in the IBM z/OS collections varies in terms of the requirements for
+the managed node. Select one of the following offerings to learn
+more about the specific dependencies and required/supported software versions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
