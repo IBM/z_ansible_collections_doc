@@ -59,6 +59,13 @@ by building the collections from source available on GitHub.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Help
+
+   help/faqs
+   help/getsupport
+
+.. toctree::
+   :maxdepth: 1
    :caption: Reference
 
    reference/documentation
