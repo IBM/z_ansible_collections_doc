@@ -222,16 +222,16 @@
 <span id="zos-mvs-raw-module"></span><h1>zos_mvs_raw – Run a z/OS program.<a class="headerlink" href="#zos-mvs-raw-run-a-z-os-program" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id4">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id5">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id7">Notes</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id8">See Also</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id9">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id7">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id8">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id9">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id10">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id11">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id12">Return Values</a></p></li>
 </ul>
 </div>
 <div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id4">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Run a z/OS program.</p></li>
 <li><p>This is analogous to a job step in JCL.</p></li>
@@ -239,7 +239,7 @@
 </ul>
 </div>
 <div class="section" id="parameters">
-<h2><a class="toc-backref" href="#id5">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>program_name</dt><dd><p>The name of the z/OS program to run (e.g. IDCAMS, IEFBR14, IEBGENER etc.).</p>
 <div class="line-block">
@@ -259,6 +259,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>verbose</dt><dd><p>Determines if verbose output should be returned from the underlying utility used by this module.</p>
@@ -266,6 +267,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>dds</dt><dd><p>The input data source.</p>
@@ -341,6 +343,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>replace</dt><dd><p>Determines if a data set should be replaced if <em>disposition=NEW</em> and a data set with a matching name already exists.</p>
@@ -352,6 +355,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>backup</dt><dd><p>Determines if a backup should be made of an existing data set when <em>disposition=NEW</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
@@ -359,6 +363,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>space_type</dt><dd><p>The unit of measurement to use when allocating space for a new data set using <em>space_primary</em> and <em>space_secondary</em>.</p>
@@ -721,8 +726,9 @@
 <dt>content</dt><dd><p>The input contents for the DD.</p>
 <p><em>dd_input</em> supports single or multiple lines of input.</p>
 <p>Multi-line input can be provided as a multi-line string or a list of strings with 1 line per list item.</p>
-<p>If a multi-line string is provided make sure to use the proper literal block style indicator “|”.</p>
 <p>If a list of strings is provided, newlines will be added to each of the lines when used as input.</p>
+<p>If a multi-line string is provided, use the proper block scalar style. YAML supports both <a class="reference external" href="https://yaml.org/spec/1.2.2/#literal-style">literal</a> and <a class="reference external" href="https://yaml.org/spec/1.2.2/#line-folding">folded</a> scalars. It is recommended to use the literal style indicator “|” with a block indentation indicator, for example; <em>content: | 2</em> is a literal block style indicator with a 2 space indentation, the entire block will be indented and newlines preserved. The block indentation range is 1 - 9. While generally unnecessary, YAML does support block <a class="reference external" href="https://yaml.org/spec/1.2.2/#8112-block-chomping-indicator">chomping</a> indicators  “+” and “-” as well.</p>
+<p>When using the <em>content</em> option for instream-data, the module will ensure that all lines contain a blank in columns 1 and 2 and add blanks when not present while retaining a maximum length of 80 columns for any line. This is true for all <em>content</em> types; string, list of strings and when using a YAML block indicator.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: raw</div>
@@ -913,6 +919,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>replace</dt><dd><p>Determines if data set should be replaced if <em>disposition=NEW</em> and a data set with matching name already exists.</p>
@@ -924,6 +931,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>backup</dt><dd><p>Determines if a backup should be made of existing data set when <em>disposition=NEW</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
@@ -931,6 +939,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>space_type</dt><dd><p>The unit of measurement to use when allocating space for a new data set using <em>space_primary</em> and <em>space_secondary</em>.</p>
@@ -1281,8 +1290,9 @@
 <dt>content</dt><dd><p>The input contents for the DD.</p>
 <p><em>dd_input</em> supports single or multiple lines of input.</p>
 <p>Multi-line input can be provided as a multi-line string or a list of strings with 1 line per list item.</p>
-<p>If a multi-line string is provided make sure to use the proper literal block style indicator “|”.</p>
 <p>If a list of strings is provided, newlines will be added to each of the lines when used as input.</p>
+<p>If a multi-line string is provided, use the proper block scalar style. YAML supports both <a class="reference external" href="https://yaml.org/spec/1.2.2/#literal-style">literal</a> and <a class="reference external" href="https://yaml.org/spec/1.2.2/#line-folding">folded</a> scalars. It is recommended to use the literal style indicator “|” with a block indentation indicator, for example; <em>content: | 2</em> is a literal block style indicator with a 2 space indentation, the entire block will be indented and newlines preserved. The block indentation range is 1 - 9. While generally unnecessary, YAML does support block <a class="reference external" href="https://yaml.org/spec/1.2.2/#8112-block-chomping-indicator">chomping</a> indicators  “+” and “-” as well.</p>
+<p>When using the <em>content</em> option for instream-data, the module will ensure that all lines contain a blank in columns 1 and 2 and add blanks when not present while retaining a maximum length of 80 columns for any line. This is true for all <em>content</em> types; string, list of strings and when using a YAML block indicator.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: raw</div>
@@ -1340,7 +1350,7 @@
 </dl>
 </div>
 <div class="section" id="examples">
-<h2><a class="toc-backref" href="#id6">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">List data sets matching pattern in catalog,</span>
     <span class="l l-Scalar l-Scalar-Plain">save output to a new sequential data set and return output as text.</span>
   <span class="nt">zos_mvs_raw</span><span class="p">:</span>
@@ -1606,22 +1616,52 @@
         <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
         <span class="nt">return_content</span><span class="p">:</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Define a cluster using a literal block style indicator</span>
+          <span class="l l-Scalar l-Scalar-Plain">with a 2 space indentation.</span>
+      <span class="nt">zos_mvs_raw</span><span class="p">:</span>
+        <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
+        <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">dds</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dd_output</span><span class="p">:</span>
+              <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
+              <span class="nt">return_content</span><span class="p">:</span>
+                <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
+              <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
+              <span class="nt">content</span><span class="p">:</span> <span class="p p-Indicator">|2</span>
+                <span class="no">DEFINE CLUSTER -</span>
+                          <span class="no">(NAME(ANSIBLE.TEST.VSAM) -</span>
+                          <span class="no">CYL(10 10)  -</span>
+                          <span class="no">FREESPACE(20 20) -</span>
+                          <span class="no">INDEXED -</span>
+                          <span class="no">KEYS(32 0) -</span>
+                          <span class="no">NOERASE -</span>
+                          <span class="no">NONSPANNED -</span>
+                          <span class="no">NOREUSE -</span>
+                          <span class="no">SHAREOPTIONS(3 3) -</span>
+                          <span class="no">SPEED -</span>
+                          <span class="no">UNORDERED -</span>
+                          <span class="no">RECORDSIZE(4086 32600) -</span>
+                          <span class="no">VOLUMES(222222) -</span>
+                          <span class="no">UNIQUE)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="notes">
-<h2><a class="toc-backref" href="#id7">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When executing programs using <a class="reference external" href="./zos_mvs_raw.html">zos_mvs_raw</a>, you may encounter errors that originate in the programs implementation. Two such known issues are noted below of which one has been addressed with an APAR.</p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="./zos_mvs_raw.html">zos_mvs_raw</a> module execution fails when invoking Database Image Copy 2 Utility or Database Recovery Utility in conjunction with FlashCopy or Fast Replication.</p></li>
 <li><p><a class="reference external" href="./zos_mvs_raw.html">zos_mvs_raw</a> module execution fails when invoking DFSRRC00 with parm “UPB,PRECOMP”, “UPB, POSTCOMP” or “UPB,PRECOMP,POSTCOMP”. This issue is addressed by APAR PH28089.</p></li>
+<li><p>When executing a program, refer to the programs documentation as each programs requirments can vary fom DDs, instream-data indentation and continuation characters.</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="see-also">
-<h2><a class="toc-backref" href="#id8">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -1630,7 +1670,7 @@
 </div>
 </div>
 <div class="section" id="return-values">
-<h2><a class="toc-backref" href="#id9">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>ret_code</dt><dd><p>The return code.</p>
 <div class="line-block">

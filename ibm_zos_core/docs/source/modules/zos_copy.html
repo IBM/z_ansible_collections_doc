@@ -248,6 +248,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>backup</dt><dd><p>Specifies whether a backup of the destination should be created before copying data.</p>
@@ -256,6 +257,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>backup_name</dt><dd><p>Specify a unique USS file name or data set name for the destination backup.</p>
@@ -329,6 +331,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>force_lock</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> to bypass this check and continue with copy.</p>
@@ -338,6 +341,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>ignore_sftp_stderr</dt><dd><p>During data transfer through SFTP, the module fails if the SFTP command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by SFTP and continue execution.</p>
@@ -345,6 +349,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>is_binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file or data set.</p>
@@ -353,6 +358,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>executable</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or library to be copied is an executable.</p>
@@ -363,6 +369,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>aliases</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that any aliases found in the source (USS file, USS dir, PDS/E library or member) are to be preserved during the copy operation.</p>
@@ -371,6 +378,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>local_follow</dt><dd><p>This flag indicates that any existing filesystem links in the source tree should be followed.</p>
@@ -395,6 +403,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>src</dt><dd><p>Path to a file/directory or name of a data set to copy to remote z/OS system.</p>
@@ -403,6 +412,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dest</span></code> must be a partitioned data set or a USS directory.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file and <code class="docutils literal notranslate"><span class="pre">dest</span></code> ends with “/” or is a directory, the file is copied to the directory with the same filename as <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory and ends with “/”, the contents of it will be copied into the root of <code class="docutils literal notranslate"><span class="pre">dest</span></code>. If it doesn’t end with “/”, the directory itself will be copied.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory or a file, file names will be truncated and/or modified to ensure a valid name for a data set or member.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a VSAM data set, <code class="docutils literal notranslate"><span class="pre">dest</span></code> must also be a VSAM.</p>
 <p>Wildcards can be used to copy multiple PDS/PDSE members to another PDS/PDSE.</p>
 <p>Required unless using <code class="docutils literal notranslate"><span class="pre">content</span></code>.</p>
@@ -416,6 +426,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>volume</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not exist, specify which volume <code class="docutils literal notranslate"><span class="pre">dest</span></code> should be allocated to.</p>
@@ -543,6 +554,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>template_parameters</dt><dd><p>Options to set the way Jinja2 will process templates.</p>
@@ -611,6 +623,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>trim_blocks</dt><dd><p>Whether Jinja2 should remove the first newline after a block is removed.</p>
@@ -625,6 +638,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>newline_sequence</dt><dd><p>Sequence that starts a newline in a template.</p>
@@ -639,6 +653,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 </dl>
