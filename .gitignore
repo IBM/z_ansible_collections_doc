@@ -199,3 +199,5 @@ hosts
 .ansible-test/
 .keep
 shell_exploits.txt
+test/pyvenv.cfg
+requirements.txt

@@ -60,7 +60,7 @@ resolvelib==0.5.4
 rich==10.1.0
 rstcheck==3.3.1
 ruamel.yaml==0.16.12
-ruamel.yaml.clib==0.2.2
+ruamel.yaml.clib==0.2.8
 semantic-version==2.8.5
 six==1.14.0
 snowballstemmer==2.0.0
