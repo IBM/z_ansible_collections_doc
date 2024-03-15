@@ -14,11 +14,11 @@ If you download collections through Ansible Automation Hub
 If you use a Red Hat® Ansible® Certified Content for IBM Z® collection and obtain that collection through Ansible Automation Hub (AAP), you are entitled to support for that collection from Red Hat or IBM® with your customer number.
 
 To get official support, follow these procedures:
-    1. Create a support case with Red Hat through `Red Hat Customer Portal`_.
-    2. Red Hat will determine if the issue is IBM related. If it is, follow Red Hat's instruction to open a support case with IBM for the respective collection.
-    3. Red Hat support will review to determine if the issue is within the ansible-core engine or other Red Hat provided offerings (e.g. Ansible Tower).
-    4. Once the issue is determined to be in the scope of Red Hat® Ansible Certified Content for IBM Z, your interaction with the case will be handed off to IBM support.
-    5. The associated Red Hat case and IBM case will both remain active until the issue is resolved or case closure is agreed upon by both teams.
+#. Create a support case with Red Hat through `Red Hat Customer Portal`_.
+#. Red Hat will determine if the issue is IBM related. If it is, follow Red Hat's instruction to open a support case with IBM for the respective collection.
+#. Red Hat support will review to determine if the issue is within the ansible-core engine or other Red Hat provided offerings (e.g. Ansible Tower).
+#. Once the issue is determined to be in the scope of Red Hat® Ansible Certified Content for IBM Z, your interaction with the case will be handed off to IBM support.
+#. The associated Red Hat case and IBM case will both remain active until the issue is resolved or case closure is agreed upon by both teams.
 
 ------------------------------------------------------------
 If you download collections from Ansible Galaxy NG or GitHub

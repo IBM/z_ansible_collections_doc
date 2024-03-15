@@ -3,9 +3,9 @@
 
 .. _faqs:
 
-==========================
-Frequently asked questions
-==========================
+====
+FAQs
+====
 
 Below is a list of frequently asked questions (FAQ) about Red Hat® Ansible® Certified Content for IBM Z®.
 
@@ -33,3 +33,5 @@ You can install a collection using one of the following options:
   and install the collection.
 
 For detailed instructions on how to install a collection, see the :ref:`installation` doc.
+
+
