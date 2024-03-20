@@ -390,7 +390,7 @@
 <p>All data sets are always assumed to be cataloged. If an uncataloged data set needs to be fetched, it should be cataloged first.</p>
 <p>Fetching HFS or ZFS type data sets is currently not supported.</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
-<p><a class="reference external" href="./zos_fetch.html">zos_fetch</a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on z/OS from using Co:Z thus falling back to using standard SFTP.</p>
+<p>This module uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.</p>
 </div>
 </div>
 <div class="section" id="see-also">

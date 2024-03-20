@@ -222,22 +222,22 @@
 <span id="zos-script-module"></span><h1>zos_script – Run scripts in z/OS<a class="headerlink" href="#zos-script-run-scripts-in-z-os" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id6">See Also</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id5">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
 </ul>
 </div>
 <div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id2">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference external" href="./zos_script.html">zos_script</a> module runs a local or remote script in the remote machine.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
-<h2><a class="toc-backref" href="#id3">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>chdir</dt><dd><p>Change the script’s working directory to this path.</p>
 <p>When not specified, the script will run in the user’s home directory on the remote machine.</p>
@@ -415,7 +415,7 @@
 </dl>
 </div>
 <div class="section" id="examples">
-<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run a local REXX script on the managed z/OS node.</span>
   <span class="nt">zos_script</span><span class="p">:</span>
     <span class="nt">cmd</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./scripts/HELLO</span>
@@ -453,7 +453,7 @@
 </div>
 </div>
 <div class="section" id="notes">
-<h2><a class="toc-backref" href="#id5">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When executing local scripts, temporary storage will be used on the remote z/OS system. The size of the temporary storage will correspond to the size of the file being copied.</p>
@@ -463,14 +463,13 @@
 <p>The module will only add execution permissions for the file owner.</p>
 <p>If executing REXX scripts, make sure to include a newline character on each line of the file. Otherwise, the interpreter may fail and return error <code class="docutils literal notranslate"><span class="pre">BPXW0003I</span></code>.</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
-<p>This module uses <a class="reference external" href="./zos_copy.html">zos_copy</a> to copy local scripts to the remote machine.</p>
-<p><a class="reference external" href="./zos_copy.html">zos_copy</a> uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; Co:Z SFTP is not supported. In the case of Co:z SFTP, you can exempt the Ansible userid on z/OS from using Co:Z thus falling back to using standard SFTP.</p>
+<p>This module uses <a class="reference external" href="./zos_copy.html">zos_copy</a> to copy local scripts to the remote machine which uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.</p>
 <p>This module executes scripts inside z/OS UNIX System Services. For running REXX scripts contained in data sets or CLISTs, consider issuing a TSO command with <a class="reference external" href="./zos_tso_command.html">zos_tso_command</a>.</p>
 <p>The community script module does not rely on Python to execute scripts on a managed node, while this module does. Python must be present on the remote machine.</p>
 </div>
 </div>
 <div class="section" id="see-also">
-<h2><a class="toc-backref" href="#id6">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -480,7 +479,7 @@
 </div>
 </div>
 <div class="section" id="return-values">
-<h2><a class="toc-backref" href="#id7">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>cmd</dt><dd><p>Original command issued by the user.</p>
 <div class="line-block">
