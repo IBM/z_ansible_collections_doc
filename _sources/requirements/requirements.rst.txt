@@ -1,5 +1,5 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2021                                    .
+.. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
 ============
@@ -18,18 +18,12 @@ you can run commands and playbooks from a laptop, desktop, or server. However,
 Windows® is not a supported controller for Ansible collections managing a z/OS
 node.
 
-All IBM z/OS collections are either `Ansible Automation Platform Certified Content`_
-(AAP) or undergoing certification. Thus, the supported versions of Ansible align
-with the `AAP Life Cycle`_ which currently is Ansible versions 2.9 - 2.15. For
-support, the controller must use the supported version of Ansible and when applicable
-the collections dependencies. Review the `Ansible Automation Platform Certified Content`_
-to determine which versions of Ansible a collection is supporting.
+All IBM z/OS collections are either `Ansible Automation Platform Certified Content`_ (AAP) or undergoing certification. Thus, the supported versions of Ansible align with the `AAP Life Cycle`_. For support, the controller must use the supported version of Ansible and when applicable the collections dependencies.
 
-IBM z/OS collections minimally require these versions of software, for additional
-supported versions review `Ansible Automation Platform Certified Content`_.
+The minimum software requirements for IBM z/OS collections are:
 
-* `Ansible version`_: 2.9
-* `Python`_: 2.7 or later
+* `ansible-core`_: 2.15 (AAP 2.4) or later
+* `IBM Open Enterprise SDK for Python`_: 3.11 or later
 * `OpenSSH`_
 
    * Modules which can have Ansible tasks delegated to a localhost need not
@@ -38,19 +32,12 @@ supported versions review `Ansible Automation Platform Certified Content`_.
      to review which collections leverage a REST endpoint.
 
 Each offering in the **Red Hat® Ansible Certified Content for IBM Z** offering
-can vary in terms of the requirements for the control node. Select one of the
-following offerings to learn more about the specific dependencies and
-required/supported software versions.
+can vary in terms of the requirements for the control node. When you install any of them, review the specific dependencies and required/supported software versions, if any.
 
-.. toctree::
-   :maxdepth: 1
-
-   z/OS z/OSMF <../ibm_zosmf/docs/source/requirements_control>
-
-.. _Ansible version:
+.. _ansible-core:
    https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
-.. _Python:
-   https://www.python.org/downloads
+.. _IBM Open Enterprise SDK for Python:
+   https://www.ibm.com/products/open-enterprise-python-zos
 .. _OpenSSH:
    https://www.openssh.com/
 .. _Ansible Automation Platform Certified Content:

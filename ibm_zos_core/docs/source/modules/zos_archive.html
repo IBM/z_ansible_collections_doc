@@ -483,7 +483,7 @@
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple archive</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Archive file into a tar</span>
   <span class="nt">zos_archive</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_archive_test.tar</span>
     <span class="nt">format</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tar</span>
@@ -491,7 +491,7 @@
 <span class="c1"># Archive multiple files</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress list of files into a zip</span>
   <span class="nt">zos_archive</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo.txt</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/bar.txt</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/archive/foo_bar_archive_test.zip</span>
@@ -501,7 +501,7 @@
 <span class="c1"># Archive one data set into terse</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse</span>
   <span class="nt">zos_archive</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
     <span class="nt">format</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
@@ -509,7 +509,7 @@
 <span class="c1"># Use terse with different options</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set into a terse, specify pack algorithm and use adrdssu</span>
   <span class="nt">zos_archive</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
     <span class="nt">format</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
@@ -520,7 +520,7 @@
 <span class="c1"># Use a pattern to store</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set pattern using xmit</span>
   <span class="nt">zos_archive</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.*&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.*&quot;</span>
     <span class="nt">exclude_sources</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.EXCLUDE.*&quot;</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE.RESULT.XMIT&quot;</span>
     <span class="nt">format</span><span class="p">:</span>
