@@ -205,23 +205,13 @@ For more ways of delegating tasks, see <a class="reference external" href="https
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/requests/">requests</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/xmltodict/">xmltodict</a></p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/typing/">typing</a> (For Python versions &lt; 3.5)</p></li>
 </ul>
 <p>If you delegate the tasks to run on your localhost, the Python module dependencies
 need to be installed on your localhost instead.</p>
-<p>You can install them from CLI:</p>
-<ul>
-<li><p>If your Python version is no less than 3.5:</p>
+<p>You can install them from the CLI by using the following command:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install requests xmltodict
 </pre></div>
 </div>
-</li>
-<li><p>If your Python version &lt; 3.5:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install requests xmltodict typing
-</pre></div>
-</div>
-</li>
-</ul>
 <p>You can also install them using the playbook. For example, this <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics/cmci/reporting">CICS
 sample playbook</a> shows how you can ensure the pre-requisites are installed before the module is executed.</p>
 </li>
