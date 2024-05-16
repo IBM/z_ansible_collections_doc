@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Control node" href="../ibm_zosmf/docs/source/requirements_control.html" />
+    <link rel="next" title="Managed node" href="../ibm_zos_core/docs/source/requirements_managed.html" />
     <link rel="prev" title="Red Hat Ansible Certified Content for IBM Z" href="../index.html" /> 
 </head>
 
@@ -83,10 +83,7 @@
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#control-node">Control node</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#control-node">Control node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#managed-node">Managed node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ibm_zos_cics/docs/source/requirements_managed.html">z/OS CICS</a></li>
@@ -201,17 +198,11 @@ managed nodes.</p>
 you can run commands and playbooks from a laptop, desktop, or server. However,
 Windows® is not a supported controller for Ansible collections managing a z/OS
 node.</p>
-<p>All IBM z/OS collections are either <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
-(AAP) or undergoing certification. Thus, the supported versions of Ansible align
-with the <a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP Life Cycle</a> which currently is Ansible versions 2.9 - 2.15. For
-support, the controller must use the supported version of Ansible and when applicable
-the collections dependencies. Review the <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>
-to determine which versions of Ansible a collection is supporting.</p>
-<p>IBM z/OS collections minimally require these versions of software, for additional
-supported versions review <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a>.</p>
+<p>All IBM z/OS collections are either <a class="reference external" href="https://access.redhat.com/articles/3642632">Ansible Automation Platform Certified Content</a> (AAP) or undergoing certification. Thus, the supported versions of Ansible align with the <a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP Life Cycle</a>. For support, the controller must use the supported version of Ansible and when applicable the collections dependencies.</p>
+<p>The minimum software requirements for IBM z/OS collections are:</p>
 <ul>
-<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible version</a>: 2.9</p></li>
-<li><p><a class="reference external" href="https://www.python.org/downloads">Python</a>: 2.7 or later</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">ansible-core</a>: 2.15 (AAP 2.4) or later</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise SDK for Python</a>: 3.11 or later</p></li>
 <li><p><a class="reference external" href="https://www.openssh.com/">OpenSSH</a></p>
 <blockquote>
 <div><ul class="simple">
@@ -224,14 +215,7 @@ to review which collections leverage a REST endpoint.</p></li>
 </li>
 </ul>
 <p>Each offering in the <strong>Red Hat® Ansible Certified Content for IBM Z</strong> offering
-can vary in terms of the requirements for the control node. Select one of the
-following offerings to learn more about the specific dependencies and
-required/supported software versions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ibm_zosmf/docs/source/requirements_control.html">z/OS z/OSMF</a></li>
-</ul>
-</div>
+can vary in terms of the requirements for the control node. When you install any of them, review the specific dependencies and required/supported software versions, if any.</p>
 </div>
 <div class="section" id="managed-node">
 <h2>Managed node<a class="headerlink" href="#managed-node" title="Permalink to this headline">¶</a></h2>

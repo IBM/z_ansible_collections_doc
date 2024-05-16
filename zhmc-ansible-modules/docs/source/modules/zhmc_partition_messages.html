@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zhmc_console – Manage the HMC &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>zhmc_partition_messages – Get console messages for OS in a partition &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="zhmc_user – Create HMC users" href="zhmc_user.html" />
-    <link rel="prev" title="zhmc_session – Manage HMC sessions across tasks" href="zhmc_session.html" /> 
+    <link rel="next" title="zhmc_storage_group – Create storage groups" href="zhmc_storage_group.html" />
+    <link rel="prev" title="zhmc_partition_list – List partitions" href="zhmc_partition_list.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,14 +96,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">Z HMC</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zhmc_session.html">zhmc_session – Manage HMC sessions across tasks</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">zhmc_console – Manage the HMC</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_console.html">zhmc_console – Manage the HMC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_user.html">zhmc_user – Create HMC users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_user_list.html">zhmc_user_list – List HMC users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule.html">zhmc_password_rule – Create HMC password rules</a></li>
@@ -122,7 +115,14 @@
 <li class="toctree-l3"><a class="reference internal" href="zhmc_nic_list.html">zhmc_nic_list – List NICs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_partition.html">zhmc_partition – Create partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_partition_list.html">zhmc_partition_list – List partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_messages.html">zhmc_partition_messages – Get console messages for OS in a partition</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zhmc_partition_messages – Get console messages for OS in a partition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group.html">zhmc_storage_group – Create storage groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group_attachment.html">zhmc_storage_group_attachment – Attach storage groups to partitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_storage_volume.html">zhmc_storage_volume – Create storage volumes</a></li>
@@ -208,7 +208,7 @@
         
           <li><a href="../modules.html">Modules</a> &raquo;</li>
         
-      <li>zhmc_console – Manage the HMC</li>
+      <li>zhmc_partition_messages – Get console messages for OS in a partition</li>
     
     
 
@@ -220,8 +220,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="zhmc-console-manage-the-hmc">
-<span id="zhmc-console-module"></span><h1>zhmc_console – Manage the HMC<a class="headerlink" href="#zhmc-console-manage-the-hmc" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="zhmc-partition-messages-get-console-messages-for-os-in-a-partition">
+<span id="zhmc-partition-messages-module"></span><h1>zhmc_partition_messages – Get console messages for OS in a partition<a class="headerlink" href="#zhmc-partition-messages-get-console-messages-for-os-in-a-partition" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -234,15 +234,16 @@
 <div class="section" id="synopsis">
 <h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Get facts about the targeted HMC.</p></li>
-<li><p>Upgrade the firmware of the targeted HMC.</p></li>
+<li><p>Get the OS console messages for the OS running in an active partition.</p></li>
 </ul>
 </div>
 <div class="section" id="requirements">
 <h2><a class="toc-backref" href="#id2">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>For <code class="docutils literal notranslate"><span class="pre">state=facts</span></code>, no specific task or object-access permissions are required.</p></li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">state=upgrade</span></code>, task permission to the ‘Single Step Console Internal Code’ task is required.</p></li>
+<li><p>The targeted CPC must be in the DPM operational mode.</p></li>
+<li><p>The targeted partition must be active (i.e. running an operating system).</p></li>
+<li><p>The HMC userid must have these task permissions: ‘Operating System Messages’ (view-only is sufficient)</p></li>
+<li><p>The HMC userid must have object-access permissions to these objects: Target CPC, target partition.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
@@ -294,46 +295,30 @@
 </dd>
 </dl>
 </dd>
-<dt>state</dt><dd><p>The action to be performed on the HMC:</p>
-<p>* <code class="docutils literal notranslate"><span class="pre">facts</span></code>: Returns facts about the HMC.</p>
-<p>* <code class="docutils literal notranslate"><span class="pre">upgrade</span></code>: Upgrades the firmware of the HMC and returns the new facts after the upgrade. If the HMC firmware is already at the requested bundle level, nothing is changed and the module succeeds.</p>
+<dt>cpc_name</dt><dd><p>The name of the CPC with the target partition.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: facts, upgrade</div>
 </div>
 </dd>
-<dt>bundle_level</dt><dd><p>Name of the bundle to be installed on the HMC (e.g. ‘H71’)</p>
-<p>Required for <code class="docutils literal notranslate"><span class="pre">state=upgrade</span></code></p>
+<dt>name</dt><dd><p>The name of the target partition.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>upgrade_timeout</dt><dd><p>Timeout in seconds for waiting for completion of upgrade (e.g. 3600)</p>
+<dt>begin</dt><dd><p>A message sequence number to limit returned messages. Messages with a sequence number less than this are omitted from the results.</p>
+<p>If null, no such filtering is performed.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
-<div class="line"><strong>default</strong>: 3600</div>
 </div>
 </dd>
-<dt>backup_location_type</dt><dd><p>Type of backup location for the HMC backup that is performed:</p>
-<p>* ‘ftp’: The FTP server that was used for the last console backup as defined on the ‘Configure Backup Settings’ user interface task in the HMC GUI.</p>
-<p>* ‘usb’: The USB storage device mounted to the HMC.</p>
-<p>Optional for <code class="docutils literal notranslate"><span class="pre">state=upgrade</span></code>, default: ‘usb’</p>
+<dt>end</dt><dd><p>A message sequence number to limit returned messages. Messages with a sequence number greater than this are omitted from the results.</p>
+<p>If null, no such filtering is performed.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: usb</div>
-<div class="line"><strong>choices</strong>: ftp, usb</div>
-</div>
-</dd>
-<dt>accept_firmware</dt><dd><p>Accept the previous bundle level before installing the new level.</p>
-<p>Optional for <code class="docutils literal notranslate"><span class="pre">state=upgrade</span></code>, default: True</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: True</div>
+<div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
 <dt>log_file</dt><dd><p>File path of a log file to which the logic flow of this module as well as interactions with the HMC are logged. If null, logging will be propagated to the Python root logger.</p>
@@ -349,28 +334,20 @@
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="c1"># Note: The following examples assume that some variables named &#39;my_*&#39; are set.</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Gather facts about the HMC</span>
-  <span class="nt">zhmc_console</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get OS console messages for the OS in the partition</span>
+  <span class="nt">zhmc_partition_messages</span><span class="p">:</span>
     <span class="nt">hmc_host</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_host</span> <span class="cp">}}</span><span class="s">&quot;</span>
     <span class="nt">hmc_auth</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_auth</span> <span class="cp">}}</span><span class="s">&quot;</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">facts</span>
-  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hmc1</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Upgrade the HMC firmware and return facts</span>
-  <span class="nt">zhmc_console</span><span class="p">:</span>
-    <span class="nt">hmc_host</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_host</span> <span class="cp">}}</span><span class="s">&quot;</span>
-    <span class="nt">hmc_auth</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_auth</span> <span class="cp">}}</span><span class="s">&quot;</span>
-    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">upgrade</span>
-    <span class="nt">bundle_level</span><span class="p">:</span> <span class="s">&quot;H71&quot;</span>
-    <span class="nt">upgrade_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
-  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hmc1</span>
+    <span class="nt">cpc_name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_cpc_name</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_part_name</span> <span class="cp">}}</span><span class="s">&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part_messages</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="return-values">
 <h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>changed</dt><dd><p>Indicates if any change has been made by the module. For <code class="docutils literal notranslate"><span class="pre">state=facts</span></code>, always will be false.</p>
+<dt>changed</dt><dd><p>Indicates if any change has been made by the module. This will always be false.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -382,39 +359,91 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>hmc</dt><dd><p>The facts about the HMC.</p>
+<dt>messages</dt><dd><p>The list of operating system console messages.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
-<div class="line"><strong>type</strong>: dict</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;api_version&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;{property}&quot;</span><span class="p">:</span> <span class="s2">&quot;... from Query API Version operation ... &quot;</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;is_held&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;is_priority&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="mi">2328551</span><span class="p">,</span>
+        <span class="nt">&quot;message_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Uncompressing Linux... &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;os_name&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;prompt_text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sequence_number&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;sound_alarm&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">},</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HMC1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;{property}&quot;</span><span class="p">:</span> <span class="s2">&quot;... more Console properties ... &quot;</span>
-<span class="p">}</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;is_held&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;is_priority&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="mi">2328552</span><span class="p">,</span>
+        <span class="nt">&quot;message_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Ok, booting the kernel. &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;os_name&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;prompt_text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sequence_number&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;sound_alarm&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 <dl>
-<dt>name</dt><dd><p>HMC name</p>
+<dt>sequence_number</dt><dd><p>The sequence number assigned to this message by the HMC.</p>
+<p>Although sequence numbers may wrap over time, this number can be considered a unique identifier for the message.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>message_text</dt><dd><p>The text of the message</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>{property}</dt><dd><p>Additional properties of the Console object representing the targeted HMC, as described in the data model of the ‘Console’ object in the :term:`HMC API` book. Note that the set of properties has been extended over the past HMC versions, so you will get less properties on older HMC versions. The property names have hyphens (-) as described in that book.</p>
-</dd>
-<dt>api_version</dt><dd><p>Additional facts from the ‘Query API Version’ operation.</p>
+<dt>message_id</dt><dd><p>The message identifier assigned to this message by the operating system.</p>
 <div class="line-block">
-<div class="line"><strong>type</strong>: dict</div>
+<div class="line"><strong>type</strong>: str</div>
 </div>
-<dl class="simple">
-<dt>{property}</dt><dd><p>The properties returned from the ‘Query API Version’ operation, as described in the :term:`HMC API` book. Note that the set of properties has been extended over the past HMC versions, so you will get less properties on older HMC versions. The property names have hyphens (-) as described in that book.</p>
 </dd>
-</dl>
+<dt>timestamp</dt><dd><p>The point in time (as an ISO 8601 date and time value) when the message was created, or null if this information is not available from the operating system.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>sound_alarm</dt><dd><p>Indicates whether the message should cause the alarm to be sounded.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>is_priority</dt><dd><p>Indicates whether the message is a priority message.</p>
+<p>A priority message indicates a critical condition that requires immediate attention.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>is_held</dt><dd><p>Indicates whether the message is a held message.</p>
+<p>A held message is one that requires a response.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>prompt_text</dt><dd><p>The prompt text that is associated with this message, or null indicating that there is no prompt text for this message.</p>
+<p>The prompt text is used when responding to a message. The response is to be sent as an operating system command where the command is prefixed with the prompt text and followed by the response to the message.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>os_name</dt><dd><p>The name of the operating system that generated this omessage, or null indicating there is no operating system name  associated with this message.</p>
+<p>This name is determined by the operating system and may be unrelated to the name of the partition in which the operating system is running.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
 </dd>
 </dl>
 </dd>

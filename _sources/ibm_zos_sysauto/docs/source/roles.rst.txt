@@ -18,7 +18,6 @@ use certain roles in your playbook.
    :glob:
 
    roles/*
-   
+
 .. _IBM Z System Automation:
-   https://www.ibm.com/support/knowledgecenter/SSWRCJ_4.2.0/com.ibm.safos.doc_4.2/kc_welcome-444.html
-   
+   https://www.ibm.com/products/z-system-automation

@@ -104,7 +104,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-4-1">Version 1.4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-8-1">Version 1.8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-8-0">Version 1.8.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-7-0">Version 1.7.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-6-0">Version 1.6.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-5-0">Version 1.5.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-4-0">Version 1.4.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-3-0">Version 1.3.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-2-0">Version 1.2.0</a></li>
@@ -203,15 +207,269 @@
             
   <div class="section" id="releases">
 <span id="id1"></span><h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-4-1">
-<h2>Version 1.4.1<a class="headerlink" href="#version-1-4-1" title="Permalink to this headline">¶</a></h2>
-<p>Released: 2023-06-23</p>
+<div class="section" id="version-1-8-1">
+<h2>Version 1.8.1<a class="headerlink" href="#version-1-8-1" title="Permalink to this headline">¶</a></h2>
+<p>Released: 2024-01-15</p>
 <p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
 <p><strong>Bug fixes:</strong></p>
 <ul class="simple">
-<li><p>Addressed safety issues from 6/23, by increasing ‘requests’ to 2.31.0
-on Python &gt;=3.7.</p></li>
+<li><p>Addressed collection import issues on AutomationHub.</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-8-0">
+<h2>Version 1.8.0<a class="headerlink" href="#version-1-8-0" title="Permalink to this headline">¶</a></h2>
+<p>This version contains all fixes up to version 1.7.4.</p>
+<p>Released: 2024-01-15</p>
+<p>Availability: <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Addressed safety issues up to 2024-01-08.</p></li>
+<li><p>Fixed link to Ansible Galaxy on README page. (issue #785)</p></li>
+<li><p>Fixed that the ‘name’ property was missing in result of the ‘zhmc_nic_list’
+module.</p></li>
+<li><p>Development: Added package level to .done files. (issue #799)</p></li>
+<li><p>Logging: Fixed the result name in the log message for module success.</p></li>
+<li><p>Fixed that the ‘zhmc_lpar’ module with state=reset_normal/clear waited for
+LPAR status “operational” which never happened, by picking up the fix
+in zhmcclient 1.11.3. (issue #801)</p></li>
+<li><p>In the description of the ‘zhmc_lpar’ module, changed incorrect references
+to the “acceptable” status to be “exceptions”.</p></li>
+<li><p>Fixed that the ‘zhmc_lpar’ module with state=set when invoked in check mode
+rejected the property update in status “exceptions”.</p></li>
+<li><p>Fixed and improved the description of the ‘zhmc_lpar’ module for
+state=active/loaded; cleaned up the code without functional changes.</p></li>
+<li><p>Dev: Pinned voluptuous package to &lt;0.14 on Python &lt; 3.6.</p></li>
+<li><p>Fixed “missing required arguments: b, u, n, d, l, e, _, l, e, v, e, l”
+error when using the ‘zhmc_console’ or ‘zhmc_cpc’ modules with ‘state=upgrade’.
+(issue #834)</p></li>
+<li><p>Fixed end2end test for zhmc_cpc_list module that failed when the HMC had
+unmanaged CPCs or had HMC version 2.14.</p></li>
+<li><p>Fixed KeyError in ‘zhmc_storage_group’ module when used with non-FCP storage
+groups, and clarified that the artificial properties ‘candidate-adapter-ports’
+and ‘virtual-storage-resources’ returned by the module will be empty arrays
+for non-FCP storage groups. (e.g. NVMe). (issue #864)</p></li>
+<li><p>Fixed that on HMC versions 2.14 and 2.15, the zhmc_adapter_list module
+failed because it tried to use the “List Permitted Adapters” operation
+that was added in HMC version 2.16 (actually API version 4.10).
+(issue #850)</p></li>
+<li><p>Fixed that on HMC versions 2.14 and 2.15, the zhmc_partition_list module
+failed because it tried to use the ‘additional-properties’ query parameter
+that was added in HMC version 2.16 (actually API version 4.10).
+(issue #850)</p></li>
+<li><p>Clarified that Ansible versions below 7 (ansible-core 2.14) are not officially
+supported, but only supported on a best-can-do basis. As part of that change,
+the Ansible sanity checks are reduced to run only on officially supported
+Ansible versions. (issue #784)</p></li>
+<li><p>Corrected the status reported in the log when zhmc_lpar was called with
+state=active or loaded, and check mode was enabled. (related to issue #851)</p></li>
+<li><p>Clarified in the description of the return parameters of the ‘zhmc_cpc’
+module that for state ‘inactive’, an empty dict is returned.
+(related to issue #851)</p></li>
+<li><p>Clarified in the description of the return parameters of the ‘zhmc_lpar’
+module that for state ‘facts’, properties are returned.
+(related to issue #851)</p></li>
+<li><p>Dev: Fixed the call to pipdeptree in the test workflow to use ‘python -m’
+because otherwise it does not show the correct packages of the virtual env.</p></li>
+<li><p>Docs: Increased minimum Sphinx versions to 7.1.0 on Python 3.8 and to 7.2.0 on
+Python &gt;=3.9 and adjusted dependent package versions in order to fix a version
+incompatibility between sphinxcontrib-applehelp and Sphinx.
+Disabled Sphinx runs on Python &lt;=3.7 in order to no longer having to deal
+with older Sphinx versions. (issue #890)</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Added support for Python 3.12. (issue #796)</p></li>
+<li><p>Added support for Ansible 9.</p></li>
+<li><p>Increased minimum version of zhmcclient to 1.13.0 to pick up fixes and
+functionality.</p></li>
+<li><p>Added new Ansible modules ‘zhmc_lpar_messages’ and ‘zhmc_partition_messages’
+that retrieve and return console messages from the operating system running
+in an LPAR or DPM partition. (issue #565)</p></li>
+<li><p>Added upgrade_timeout parameter to zhmc_console and zhmc_cpc modules.</p></li>
+<li><p>Added a new make target ‘make ansible_lint’ which invokes ansible-lint.
+Fixed some of the warnings reported by ansible-lint.
+(related to issue #784)</p></li>
+<li><p>Increased the minimum versions of the following packages used for installing
+the collection:</p>
+<ul>
+<li><p>packaging to 21.3 (on Python &gt;= 3.6)</p></li>
+<li><p>PyYAML to 6.0.1 (on Python &gt;= 3.6)</p></li>
+<li><p>jsonschema to 4.10.0 (on Python &gt;= 3.7)</p></li>
+</ul>
+</li>
+<li><p>In the ‘zhmc_adapter_list’ module, improved the use of the “Permitted
+Adapters” operation so that it is now also used when the ‘additional_properties’
+module parameter is used and the HMC API version is 4.10 or higher.
+(related to issue #850)</p></li>
+<li><p>Docs: In the ‘zhmc_lpar_list’ module, clarified that the use of the “List
+Permitted Logical Partitions” operation does not affect the module result
+data. (related to issue #850)</p></li>
+<li><p>Docs: In the ‘zhmc_partition_list’ module, clarified that the use of the “List
+Permitted Partitions” operation does not affect the module result data.
+(related to issue #850)</p></li>
+<li><p>Added support for mounting and unmounting ISO images to partitions (DPM mode)
+via new state values ‘iso_mount’ and ‘iso_unmount’ for the ‘zhmc_partition’
+module (issue #551)</p></li>
+<li><p>Support for limiting the properties returned by the ‘zhmc_cpc’, ‘zhmc_lpar’
+and ‘zhmc_partition’ modules by specifying a new ‘select_properties’ input
+parameter. (issue #851)</p></li>
+<li><p>Added support for a new make target ‘authors’ that generates an AUTHORS.md
+file from the git commit history. Added the invocation of ‘make authors’ to
+the description of how to release a version in the development
+documentation. (issue #631)</p></li>
+<li><p>Added support for redundant HMC hosts. The ‘hmc_host’ module input parameter
+can now be specified as a single HMC as before, or as a list of redundant
+HMCs. The HMC list can be specified as a list type or as a Python string
+representation of a list in order to accomodate Ansible expressions.
+(issue #849)</p></li>
+<li><p>The ‘zhmc_session’ module now has an additional module return parameter
+‘hmc_host’ which for ‘action=create’ contains the actually used HMC.
+If you use that module and now start specifying redundant HMCs for
+‘action=create’, you need to also change the ‘hmc_host’ parameter of all
+ibm_zhmc modules that use that session including the ‘zhmc_session’ module
+with ‘action=delete’, to specify the so returned HMC. If you use that
+module with a single HMC, no change is needed. (related to issue #849)</p></li>
+<li><p>Test: Added Python 3.8 with latest package levels to normal tests because
+that is now the minimum version to run Sphinx. (related to issue #890)</p></li>
+<li><p>In the ‘zhmc_lpar_list’ module, added support for the ‘additional_properties’
+input parameter. (issue #853)</p></li>
+</ul>
+<p><strong>Cleanup:</strong></p>
+<ul class="simple">
+<li><p>Removed documentation and test files (except sanity test ignore files) from
+the collection package that is built, for consistency with the other IBM Z
+collections and in order to get rid of the dependency to have the doc extractor
+installed as a dependency to build and install the collection locally.</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-7-0">
+<h2>Version 1.7.0<a class="headerlink" href="#version-1-7-0" title="Permalink to this headline">¶</a></h2>
+<p>This version contains all fixes up to version 1.6.1.</p>
+<p>Released: 2023-10-09</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Incompatible changes:</strong></p>
+<ul class="simple">
+<li><p>zhmc_adapter - Fixed the ‘match’ input parameter to have priority over the
+‘name’ input parameter. Previously, the ‘name’ parameter had priority if
+(and only if) an adapter with that name existed.
+This bug fix changes the behavior if ‘match’ is used and another adapter with
+the new name already exists: Before this change, the other adapter was used
+and other input properties were updated in that adapter, which in all
+likelyhood was not intended because it was not the adapter identified by the
+‘match’ parameter. With this change, the adapter identified by the ‘match’
+parameter is always used regardless of whether another adapter with that name
+exists, i.e. the name change in that case will fail.</p></li>
+<li><p>zhmc_crypto_attachment - Now, one of the ‘adapter_count’ or ‘adapter_names’
+parameters must be specified. Previously, not providing any of them
+resulted in a default of adapter_count = -1 (all adapters of the specified
+crypto type). That made it impossible to properly check for whether both
+had been specified when dapter_count was specified with its default -1.
+To use all adapters now, explicitly specify ‘adapter_count: -1’.</p></li>
+</ul>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Fixed safety issues from 2023-09-15.</p></li>
+<li><p>Test: Circumvented a pip-check-reqs issue by excluding its version 2.5.0.</p></li>
+<li><p>Test: Fixed end2end tests in modules test_zhmc_partition.py,
+test_zhmc_session.py, and test_zhmc_user.py.</p></li>
+<li><p>Docs: Removed incorrect ‘userid’ property from return value documentation of
+zhmc_session module.</p></li>
+<li><p>zhmc_partition: Fixed configuration of boot from storage volume. It can now
+be configured either by setting the ‘boot_storage_volume’ input property to
+the URI of the boot volume, or by setting the ‘boot_storage_volume_name’
+and ‘boot_storage_group_name’ input properties to the name of the boot volume
+and its storage group, respectively. (issue #640)</p></li>
+<li><p>zhmc_partition: Fixed issue that partitions in ‘paused’ status could not be
+stopped. As part of that, redesigned the start_partition(), stop_partition()
+and wait_for_transition_completion() methods to use a simple state machine.
+This will cause any bad statuses that happen on the way to be raised as
+exceptions (they were previously returned). (issue #642)</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Increased minimum version of zhmcclient to 1.11.2 to pick up fixes for
+mock support for LDAP Server Definitions, improved mock support for Adapters,
+and new functionality.</p></li>
+<li><p>Docs: Clarified that firmware upgrades of SE and HMC do nothing and succeed
+if the firmware was already at the desired bundle level.</p></li>
+<li><p>Test: Clarified in make help that coverage data is added by each test.
+Enabled end2end test for test coverage.</p></li>
+<li><p>zhmc_ldap_server_definition - Added support for retrieving, creating and
+deleting LDAP Server Definitions (issue 364).</p></li>
+<li><p>zhmc_ldap_server_definition_list - Added support for listing LDAP Server
+Definitions (issue 364).</p></li>
+<li><p>zhmc_user_role: Added support for user role permissions based on groups.</p></li>
+<li><p>Added support for requesting full properties with a new “full_properties”
+input parameter for the list modules. (issue #651)</p></li>
+<li><p>Added support for requesting specific additional properties with a new
+“additional_properties” input parameter for the zhmc_adapter_list and
+zhmc_partition_list modules. (issue #651)</p></li>
+<li><p>zhmc_adapter - Added new properties for z15 (nvme related) and z16
+(‘network-ports’), and improved the output properties for hipersocket
+create in check mode.</p></li>
+<li><p>zhmc_adapter - Improved the check mode support: It now recognizes if an
+adapter gets renamed to another existing adapter and rejects that just
+as in non-check mode.</p></li>
+<li><p>zhmc_crypto_attachment - The ‘crypto_type’ parameter is now ignored when
+‘adapter_names’ is specified. That allows specifying adapter names without
+having to know their crypto type.</p></li>
+<li><p>Added CHANGELOG.rst file to satisfy requirement for RedHat Automation Hub.
+For now, it includes release_notes.rst. A transition to fragments-based
+creation of CHANGELOG.rst is postponed because the unified documentation
+for the IBM Z set of collections first needs to find a common solution
+for all of its collections.</p></li>
+<li><p>Added new parameters load_address, load_parameter, clear_indicator,
+store_status_indicator and timeout for the zhmc_lpar module with
+state=loaded. (issue #556)</p></li>
+<li><p>Added new parameter timeout for the zhmc_lpar module with state=active.
+(issue #556)</p></li>
+</ul>
+<p><strong>Cleanup:</strong></p>
+<ul class="simple">
+<li><p>Test: Changed identification of adapters in end2end test module
+test_zhmc_adapter_list.py to be based on adapter IDs (PCHIDs) instead of
+adapter names to accomodate a system on the test floor that currently has
+that bug.</p></li>
+<li><p>Test: Always provided optional module input parameters in end2end tests. This
+allows modules to rely on optional parameters being provided with their
+default values by the calling Ansible environent. Changed the modules to rely
+on that.</p></li>
+<li><p>Test: Added a check in the Actions test workflow for the module .rst files
+to be up to date in the PR. (issue #755)</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-6-0">
+<h2>Version 1.6.0<a class="headerlink" href="#version-1-6-0" title="Permalink to this headline">¶</a></h2>
+<p>Released: 2306-08-04</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Added support for upgrading HMC firmware to the zhmc_console module and
+for upgrading the SE firmware to the ibm_cpc module, with a new state value
+‘upgrade’. Increased minimum zhmcclient version to 1.10.0 (issue #719)</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-5-0">
+<h2>Version 1.5.0<a class="headerlink" href="#version-1-5-0" title="Permalink to this headline">¶</a></h2>
+<p>This version contains all fixes up to version 1.4.1.</p>
+<p>Released: 2023-07-18</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Addressed safety issues from 6+7/2023, by increasing ‘requests’ to 2.31.0
+on Python &gt;=3.7, and ‘cryptography’ to 41.0.2 on Python &gt;=3.7, and by
+increasing other packages only needed for development.</p></li>
 <li><p>Fixed issue in the new zhmc_nic_list module that resulted in TypeError.</p></li>
+<li><p>Increased minimum version of cryptography package to 41.0.2 to address an
+issue.</p></li>
+<li><p>Picked up zhmcclient version 1.9.1 to get fixes. This required upgrading
+several other packages.</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Documented the secret variables needed for the Github Actions workflows.</p></li>
+<li><p>Added support for FCP discovery to the zhmc_storage_group module with a new
+state ‘discover’. (issue #704)</p></li>
 </ul>
 </div>
 <div class="section" id="version-1-4-0">

@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="sa_delete_dynamic_resource – Role deletes a dynamic resource" href="sa_delete_dynamic_resource.html" />
+    <link rel="next" title="IBM z/OSMF" href="../../../../ibm_zosmf/docs/ansible_content.html" />
     <link rel="prev" title="Roles" href="../roles.html" /> 
 </head>
 
@@ -100,7 +100,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sa_delete_dynamic_resource.html">sa_delete_dynamic_resource – Role deletes a dynamic resource</a></li>
 </ul>
 </li>
 </ul>
@@ -298,6 +297,22 @@
 </dd>
 <dt>sdesc</dt><dd><p>Specifies a short description of the new resource.</p>
 <p>The maximum length for this value is 40.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>path</dt><dd><p>Specifies the fulll qualified ZFS path to find the application to be started by this new resource.</p>
+<p>The maximum length for this value is 159.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>filter:</dt><dd><blockquote>
+<div><p>Specifies an additional filter criteria to uniquely identify the USS process represented by this new resource.</p>
+<p>The maximum length for this value is 159.</p>
+</div></blockquote>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>

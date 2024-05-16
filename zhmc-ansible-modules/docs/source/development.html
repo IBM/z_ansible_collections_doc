@@ -123,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/community_guides.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#repository">Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secret-variables">Secret variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-the-development-environment">Setting up the development environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-the-documentation">Building the documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
@@ -202,8 +203,28 @@ project are also considered developers for the purpose of this section.</p>
 <p>The repository for the <strong>IBM Z HMC collection</strong> is on GitHub:</p>
 <p><a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules">https://github.com/zhmcclient/zhmc-ansible-modules</a></p>
 </div>
+<div class="section" id="secret-variables">
+<span id="id3"></span><h2>Secret variables<a class="headerlink" href="#secret-variables" title="Permalink to this headline">¶</a></h2>
+<p>This Github repo needs the following secret variables to be set in order
+to run its Github Actions workflows successfully:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">GALAXY_API_KEY</span></code> - API key for the <a class="reference external" href="https://galaxy.ansible.com/">Ansible Galaxy</a>
+service. This variable is set at the repo level.</p>
+<p>To get such an API key, you need to have a user on Ansible Galaxy and then go
+to the user preferences page to view the API key the site has generated for
+your user.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SLACK_HOOK</span></code> - Slack hook URL to send test result messages to the
+<a class="reference external" href="https://ibm-systems-z.slack.com/archives/C01S7JW1FHS">#python-zhmcclient-test-status</a>
+Slack channel. Note that this channel is IBM-internal and looking at it requires
+an IBM ID. This variable is set at the organisation level.</p>
+<p>To get such a URL, follow the instructions in
+<a class="reference external" href="https://api.slack.com/messaging/webhooks">Sending messages using Incoming Webhooks</a></p>
+</li>
+</ul>
+</div>
 <div class="section" id="setting-up-the-development-environment">
-<span id="id3"></span><h2>Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permalink to this headline">¶</a></h2>
 <p>The development environment is pretty easy to set up.</p>
 <p>Besides having a supported operating system with a supported Python version
 (see <span class="xref std std-ref">Supported environments</span>), it is recommended that you set up a
@@ -221,7 +242,7 @@ Python environment. The command <code class="docutils literal notranslate"><span
 list of valid Make targets and a short description of what each target does.</p>
 </div>
 <div class="section" id="building-the-documentation">
-<span id="id4"></span><h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The documentation for the <strong>IBM Z HMC collection</strong> is published
 on GitHub Pages at <a class="reference external" href="https://zhmcclient.github.io/zhmc-ansible-modules/">https://zhmcclient.github.io/zhmc-ansible-modules/</a>.</p>
 <p>That web site represents a defined set of versions of this collection and
@@ -250,7 +271,7 @@ from the content of your Git work directory:</p>
 has been built successfully.</p>
 </div>
 <div class="section" id="testing">
-<span id="id5"></span><h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>Again, an invocation of Make runs against the currently active Python environment.</p>
 <p>There are four kinds of tests currently, available as make targets:</p>
 <ul class="simple">
@@ -329,53 +350,63 @@ specific Ansible versions as defined in the <code class="docutils literal notran
 </tr>
 <tr class="row-even"><td><p>3.10</p></td>
 <td><p>latest</p></td>
-<td><p>8.x</p></td>
-<td><p>2.15</p></td>
+<td><p>9.x</p></td>
+<td><p>2.16</p></td>
 </tr>
 <tr class="row-odd"><td><p>3.11</p></td>
 <td><p>latest</p></td>
-<td><p>8.x</p></td>
-<td><p>2.15</p></td>
+<td><p>9.x</p></td>
+<td><p>2.16</p></td>
 </tr>
-<tr class="row-even"><td><p>2.7</p></td>
+<tr class="row-even"><td><p>3.12</p></td>
+<td><p>latest</p></td>
+<td><p>9.x</p></td>
+<td><p>2.16</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.7</p></td>
 <td><p>minimum</p></td>
 <td><p>2.9</p></td>
 <td><p>2.9</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.5</p></td>
+<tr class="row-even"><td><p>3.5</p></td>
 <td><p>minimum</p></td>
 <td><p>2.9</p></td>
 <td><p>2.9</p></td>
 </tr>
-<tr class="row-even"><td><p>3.6</p></td>
+<tr class="row-odd"><td><p>3.6</p></td>
 <td><p>minimum</p></td>
 <td><p>2.9</p></td>
 <td><p>2.9</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.7</p></td>
+<tr class="row-even"><td><p>3.7</p></td>
 <td><p>minimum</p></td>
 <td><p>2.9</p></td>
 <td><p>2.9</p></td>
 </tr>
-<tr class="row-even"><td><p>3.8</p></td>
+<tr class="row-odd"><td><p>3.8</p></td>
 <td><p>minimum</p></td>
 <td><p>2.9</p></td>
 <td><p>2.9</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.9</p></td>
+<tr class="row-even"><td><p>3.9</p></td>
 <td><p>minimum</p></td>
 <td><p>4.0</p></td>
 <td><p>2.11</p></td>
 </tr>
-<tr class="row-even"><td><p>3.10</p></td>
+<tr class="row-odd"><td><p>3.10</p></td>
 <td><p>minimum</p></td>
 <td><p>5.0</p></td>
 <td><p>2.12</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.11</p></td>
+<tr class="row-even"><td><p>3.11</p></td>
 <td><p>minimum</p></td>
 <td><p>7.0</p></td>
 <td><p>2.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>3.12</p></td>
+<td><p>minimum</p></td>
+<td><p>9.0</p></td>
+<td><p>2.16</p></td>
 </tr>
 <tr class="row-even"><td><p>2.7</p></td>
 <td><p>ansible</p></td>
@@ -414,105 +445,24 @@ specific Ansible versions as defined in the <code class="docutils literal notran
 </tr>
 <tr class="row-odd"><td><p>3.11</p></td>
 <td><p>ansible</p></td>
-<td><p>8.x+</p></td>
-<td><p>2.15+</p></td>
+<td><p>8.x</p></td>
+<td><p>2.15</p></td>
+</tr>
+<tr class="row-even"><td><p>3.12</p></td>
+<td><p>ansible</p></td>
+<td><p>9.x</p></td>
+<td><p>2.16</p></td>
 </tr>
 </tbody>
 </table>
-<p>For reference, the following two tables show supported Python versions for
-Ansible versions and vice versa, for the Python and Ansible versions that are
-relevant for this collection. At the time of writing, the latest Python version
-is 3.11 and the latest Ansible version is 8.0.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 35%" />
-<col style="width: 51%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Ansible</p></td>
-<td><p>Ansible core</p></td>
-<td><p>Supported Python versions</p></td>
-</tr>
-<tr class="row-even"><td><p>2.9</p></td>
-<td><p>ansible 2.9</p></td>
-<td><p>2.7, 3.5 - 3.8</p></td>
-</tr>
-<tr class="row-odd"><td><p>2.10</p></td>
-<td><p>ansible 2.10</p></td>
-<td><p>2.7, 3.5 - 3.8</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>ansible-base 2.10</p></td>
-<td><p>2.7, 3.5 - 3.8</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>ansible-core 2.11</p></td>
-<td><p>2.7, 3.5 - 3.9 (1)</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>ansible-core 2.12</p></td>
-<td><p>3.8 - 3.10 (2)</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>ansible-core 2.13</p></td>
-<td><p>3.8 - 3.10 (2)</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>ansible-core 2.14</p></td>
-<td><p>3.9 - 3.11+</p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>ansible-core 2.15</p></td>
-<td><p>3.9 - 3.11+</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 81%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Python</p></td>
-<td><p>Supported Ansible versions</p></td>
-</tr>
-<tr class="row-even"><td><p>2.7</p></td>
-<td><p>2.9, 2.10, 3, 4</p></td>
-</tr>
-<tr class="row-odd"><td><p>3.5</p></td>
-<td><p>2.9, 2.10, 3, 4</p></td>
-</tr>
-<tr class="row-even"><td><p>3.6</p></td>
-<td><p>2.9, 2.10, 3, 4</p></td>
-</tr>
-<tr class="row-odd"><td><p>3.7</p></td>
-<td><p>2.9, 2.10, 3, 4</p></td>
-</tr>
-<tr class="row-even"><td><p>3.8</p></td>
-<td><p>2.9, 2.10, 3 - 6</p></td>
-</tr>
-<tr class="row-odd"><td><p>3.9</p></td>
-<td><p>4 - 8+</p></td>
-</tr>
-<tr class="row-even"><td><p>3.10</p></td>
-<td><p>5 - 8+ (1)</p></td>
-</tr>
-<tr class="row-odd"><td><p>3.11</p></td>
-<td><p>7 - 8+ (2)</p></td>
-</tr>
-</tbody>
-</table>
-<p>Notes:</p>
-<ul class="simple">
-<li><p>(1) The sanity test of Ansible 4 supports Python only up to 3.9, so Python
-3.10 requires at least Ansible 5.</p></li>
-<li><p>(2) The sanity test of Ansible 5 and 6 supports Python only up to 3.10, so
-Python 3.11 requires at least Ansible 7.</p></li>
-</ul>
+<p>The versions for the ‘latest’ and ‘minimum’ package levels are in sync with the
+latest and minimum Ansible versions supported for a particular Python version,
+as documented in <span class="xref std std-ref">Supported environments</span>.
+The versions for the ‘ansible’ package level are designed to cover all
+Ansible versions.</p>
 </div>
 <div class="section" id="releasing-a-version">
-<span id="id6"></span><h2>Releasing a version<a class="headerlink" href="#releasing-a-version" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Releasing a version<a class="headerlink" href="#releasing-a-version" title="Permalink to this headline">¶</a></h2>
 <p>This section shows the steps for releasing a version to <a class="reference external" href="https://galaxy.ansible.com/">Ansible Galaxy</a>.</p>
 <p>It covers all variants of versions that can be released:</p>
 <ul class="simple">
@@ -589,6 +539,11 @@ understandable by users.</p></li>
 add text for any known issues you want users to know about.</p></li>
 <li><p>Remove all empty list items.</p></li>
 </ul>
+</li>
+<li><p>Update the authors:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make authors
+</pre></div>
+</div>
 </li>
 <li><p>Commit your changes and push the topic branch to the remote repo:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git commit -asm <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">MNU</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -679,7 +634,7 @@ been approved, the new version will be visible on Ansible AutomationHub at
 </ol>
 </div>
 <div class="section" id="starting-a-new-version">
-<span id="id7"></span><h2>Starting a new version<a class="headerlink" href="#starting-a-new-version" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Starting a new version<a class="headerlink" href="#starting-a-new-version" title="Permalink to this headline">¶</a></h2>
 <p>This section shows the steps for starting development of a new version.</p>
 <p>These steps may be performed right after the steps for
 <a class="reference internal" href="#releasing-a-version"><span class="std std-ref">Releasing a version</span></a>, or independently.</p>

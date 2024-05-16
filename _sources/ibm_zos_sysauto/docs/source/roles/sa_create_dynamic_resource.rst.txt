@@ -27,7 +27,7 @@ Parameters
 ----------
 
 
-     
+
 sa_service_hostname
   Specifies the IBM Z System Automation Operations REST server host name.
 
@@ -36,7 +36,7 @@ sa_service_hostname
   | **type**: str
 
 
-     
+
 sa_service_port
   Specifies the port to which the IBM Z Automation Operations REST service is bound.
 
@@ -45,7 +45,7 @@ sa_service_port
   | **type**: str
 
 
-     
+
 sa_service_protocol
   Specifies the protocol that is configured for the IBM Z Automation Operations REST server.
 
@@ -55,7 +55,7 @@ sa_service_protocol
   | **default**: HTTPS
 
 
-     
+
 sa_rest_api_timeout
   Specifies the socket level timeout for the REST API call in seconds.
 
@@ -65,7 +65,7 @@ sa_rest_api_timeout
   | **default**: 30
 
 
-     
+
 username
   Specifies the NetView user.
 
@@ -74,7 +74,7 @@ username
   | **type**: str
 
 
-     
+
 password
   Specifies the password for above user.
 
@@ -83,7 +83,7 @@ password
   | **type**: str
 
 
-     
+
 templateName
   Specifies the name of the template that will be used to create the dynamic resource.
 
@@ -92,7 +92,7 @@ templateName
   | **type**: str
 
 
-     
+
 subsystem
   Specifies the subsystem name of the new resource.
 
@@ -103,7 +103,7 @@ subsystem
   | **type**: str
 
 
-     
+
 system
   Specifies the system where the resource will be created.
 
@@ -114,7 +114,7 @@ system
   | **type**: str
 
 
-     
+
 job
   Specifies the job name of the new resource.
 
@@ -125,7 +125,7 @@ job
   | **type**: str
 
 
-     
+
 procedure
   Specifies the procedure name used by the new resource.
 
@@ -136,7 +136,7 @@ procedure
   | **type**: str
 
 
-     
+
 comment
   Specifies a comment to be associated with the creation of the new resource.
 
@@ -147,7 +147,7 @@ comment
   | **type**: str
 
 
-     
+
 group
   Specifies the automation name of the application group (APG) that will host the new resource.
 
@@ -158,11 +158,29 @@ group
   | **type**: str
 
 
-     
+
 sdesc
   Specifies a short description of the new resource.
 
   The maximum length for this value is 40.
+
+
+  | **required**: False
+  | **type**: str
+
+path
+  Specifies the fulll qualified ZFS path to find the application to be started by this new resource.
+
+  The maximum length for this value is 159.
+
+
+  | **required**: False
+  | **type**: str
+
+filter:
+    Specifies an additional filter criteria to uniquely identify the USS process represented by this new resource.
+
+    The maximum length for this value is 159.
 
 
   | **required**: False
@@ -176,7 +194,7 @@ Examples
 
 .. code-block:: yaml+jinja
 
-   
+
    - name: create and resume a dynamic resource in SA
      hosts: sampleHost
      gather_facts: no
