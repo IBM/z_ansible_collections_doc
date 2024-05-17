@@ -248,24 +248,15 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>location</dt><dd><p>The JCL location. Supported choices are <code class="docutils literal notranslate"><span class="pre">DATA_SET</span></code>, <code class="docutils literal notranslate"><span class="pre">USS</span></code> or <code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>.</p>
-<p>DATA_SET can be a PDS, PDSE, or sequential data set.</p>
-<p>USS means the JCL location is located in UNIX System Services (USS).</p>
-<p>LOCAL means locally to the ansible control node.</p>
+<dt>location</dt><dd><p>The JCL location. Supported choices are <code class="docutils literal notranslate"><span class="pre">data_set</span></code>, <code class="docutils literal notranslate"><span class="pre">uss</span></code> or <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data_set</span></code> can be a PDS, PDSE, or sequential data set.</p>
+<p><code class="docutils literal notranslate"><span class="pre">uss</span></code> means the JCL location is located in UNIX System Services (USS).</p>
+<p><code class="docutils literal notranslate"><span class="pre">local</span></code> means locally to the ansible control node.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: DATA_SET</div>
-<div class="line"><strong>choices</strong>: DATA_SET, USS, LOCAL</div>
-</div>
-</dd>
-<dt>wait</dt><dd><p>Setting this option will yield no change, it is disabled. There is no need to set <em>wait</em>; setting <em>wait_times_s</em> is the correct way to configure the amount of time to wait for a job to execute.</p>
-<p>This option will be removed in ibm.ibm_zos_core collection version 1.10.0</p>
-<p>See option <em>wait_time_s</em>.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: False</div>
+<div class="line"><strong>default</strong>: data_set</div>
+<div class="line"><strong>choices</strong>: data_set, uss, local</div>
 </div>
 </dd>
 <dt>wait_time_s</dt><dd><p>Option <em>wait_time_s</em> is the total time that module <a class="reference external" href="./zos_job_submit.html">zos_job_submit</a> will wait for a submitted job to complete. The time begins when the module is executed on the managed node.</p>
@@ -290,16 +281,16 @@
 <div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
-<dt>volume</dt><dd><p>The volume serial (VOLSER)is where the data set resides. The option is required only when the data set is not cataloged on the system.</p>
+<dt>volume</dt><dd><p>The volume serial (VOLSER) is where the data set resides. The option is required only when the data set is not cataloged on the system.</p>
 <p>When configured, the <a class="reference external" href="./zos_job_submit.html">zos_job_submit</a> will try to catalog the data set for the volume serial. If it is not able to, the module will fail.</p>
-<p>Ignored for <em>location=USS</em> and <em>location=LOCAL</em>.</p>
+<p>Ignored for <em>location=uss</em> and <em>location=local</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>encoding</dt><dd><p>Specifies which encoding the local JCL file should be converted from and to, before submitting the job.</p>
-<p>This option is only supported for when <em>location=LOCAL</em>.</p>
+<p>This option is only supported for when <em>location=local</em>.</p>
 <p>If this parameter is not provided, and the z/OS systems default encoding can not be identified, the JCL file will be converted from UTF-8 to IBM-1047 by default, otherwise the module will detect the z/OS system encoding.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -440,22 +431,22 @@
 </div>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL in a PDSE member</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL in a PDSE member.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ(SAMPLE)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
   <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">response</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL in USS with no DDs in the output.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/tester/demo/sample.jcl</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USS</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uss</span>
     <span class="nt">return_output</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Convert local JCL to IBM-037 and submit the job.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Users/maxy/ansible-playbooks/provision/sample.jcl</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LOCAL</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
     <span class="nt">encoding</span><span class="p">:</span>
       <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
       <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
@@ -463,25 +454,25 @@
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL in an uncataloged PDSE on volume P2SS01.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ(SAMPLE)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">P2SS01</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit a long running PDS job and wait up to 30 seconds for completion.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ(LONGRUN)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
     <span class="nt">wait_time_s</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit a long running PDS job and wait up to 30 seconds for completion.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ(LONGRUN)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
     <span class="nt">wait_time_s</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL and set the max return code the module should fail on to 16.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATA_SET</span>
+    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
     <span class="nt">max_rc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
 </pre></div>
 </div>
@@ -857,24 +848,27 @@
 <p>Job status <cite>SEC</cite> or <cite>SEC ERROR</cite> indicates the job as encountered a security error.</p>
 <p>Job status <cite>SYS</cite> indicates a system failure.</p>
 <p>Job status <cite>?</cite> indicates status can not be determined.</p>
+<p>Jobs where status can not be determined will result in None (NULL).</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: AC</div>
 </div>
 </dd>
 <dt>msg_code</dt><dd><p>The return code from the submitted job as a string.</p>
+<p>Jobs which have no return code will result in None (NULL), such is the case of a job that errors or is active.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>msg_txt</dt><dd><p>Returns additional information related to the submitted job.</p>
+<p>Jobs which have no additional information will result in None (NULL).</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: The job JOB00551 was run with special job processing TYPRUN=SCAN. This will result in no completion, return code or job steps and changed will be false.</div>
 </div>
 </dd>
 <dt>code</dt><dd><p>The return code converted to an integer value when available.</p>
-<p>Jobs which have no return code will return NULL, such is the case of a job that errors or is active.</p>
+<p>Jobs which have no return code will result in None (NULL), such is the case of a job that errors or is active.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: int</div>
 </div>
@@ -948,13 +942,6 @@
 </div>
 </dd>
 </dl>
-</dd>
-<dt>message</dt><dd><p>This option is being deprecated</p>
-<div class="line-block">
-<div class="line"><strong>returned</strong>: success</div>
-<div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: Submit JCL operation succeeded.</div>
-</div>
 </dd>
 </dl>
 </div>

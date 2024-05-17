@@ -258,11 +258,11 @@
 </dd>
 <dt>fs_type</dt><dd><p>The type of file system that will be mounted.</p>
 <p>The physical file systems data set format to perform the logical mount.</p>
-<p>The <em>fs_type</em> is required to be uppercase.</p>
+<p>The <em>fs_type</em> is required to be lowercase.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: HFS, ZFS, NFS, TFS</div>
+<div class="line"><strong>choices</strong>: hfs, zfs, nfs, tfs</div>
 </div>
 </dd>
 <dt>state</dt><dd><p>The desired status of the described mount (choice).</p>
@@ -326,20 +326,20 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: NORMAL</div>
-<div class="line"><strong>choices</strong>: DRAIN, FORCE, IMMEDIATE, NORMAL, REMOUNT, RESET</div>
+<div class="line"><strong>default</strong>: normal</div>
+<div class="line"><strong>choices</strong>: drain, force, immediate, normal, remount, reset</div>
 </div>
 </dd>
 <dt>mount_opts</dt><dd><p>Options available to the mount.</p>
-<p>If <em>mount_opts=RO</em> on a mounted/remount, mount is performed read-only.</p>
-<p>If <em>mount_opts=SAME</em> and (unmount_opts=REMOUNT), mount is opened in the same mode as previously opened.</p>
-<p>If <em>mount_opts=NOWAIT</em>, mount is performed asynchronously.</p>
-<p>If <em>mount_opts=NOSECURITY</em>, security checks are not enforced for files in this file system.</p>
+<p>If <em>mount_opts=ro</em> on a mounted/remount, mount is performed read-only.</p>
+<p>If <em>mount_opts=same</em> and (unmount_opts=remount), mount is opened in the same mode as previously opened.</p>
+<p>If <em>mount_opts=nowait</em>, mount is performed asynchronously.</p>
+<p>If <em>mount_opts=nosecurity</em>, security checks are not enforced for files in this file system.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: RW</div>
-<div class="line"><strong>choices</strong>: RO, RW, SAME, NOWAIT, NOSECURITY</div>
+<div class="line"><strong>default</strong>: rw</div>
+<div class="line"><strong>choices</strong>: ro, rw, same, nowait, nosecurity</div>
 </div>
 </dd>
 <dt>src_params</dt><dd><p>Specifies a parameter string to be passed to the file system type.</p>
@@ -351,13 +351,13 @@
 </dd>
 <dt>tag_untagged</dt><dd><p>If present, tags get written to any untagged file.</p>
 <p>When the file system is unmounted, the tags are lost.</p>
-<p>If <em>tag_untagged=NOTEXT</em> none of the untagged files in the file system are automatically converted during file reading and writing.</p>
-<p>If <em>tag_untagged=TEXT</em> each untagged file is implicitly marked as containing pure text data that can be converted.</p>
+<p>If <em>tag_untagged=notext</em> none of the untagged files in the file system are automatically converted during file reading and writing.</p>
+<p>If <em>tag_untagged=text</em> each untagged file is implicitly marked as containing pure text data that can be converted.</p>
 <p>If this flag is used, use of tag_ccsid is encouraged.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: TEXT, NOTEXT</div>
+<div class="line"><strong>choices</strong>: text, notext</div>
 </div>
 </dd>
 <dt>tag_ccsid</dt><dd><p>Identifies the coded character set identifier (ccsid) to be implicitly set for the untagged file.</p>
@@ -387,17 +387,17 @@
 </div>
 </dd>
 <dt>automove</dt><dd><p>These parameters apply only in a sysplex where systems are exploiting the shared file system capability. They specify what happens to the ownership of a file system when a shutdown, PFS termination, dead system takeover, or file system move occurs. The default setting is AUTOMOVE where the file system will be randomly moved to another system (no system list used).</p>
-<p><em>automove=AUTOMOVE</em> indicates that ownership of the file system can be automatically moved to another system participating in a shared file system.</p>
-<p><em>automove=NOAUTOMOVE</em> prevents movement of the file system’s ownership in some situations.</p>
-<p><em>automove=UNMOUNT</em> allows the file system to be unmounted in some situations.</p>
+<p><em>automove=automove</em> indicates that ownership of the file system can be automatically moved to another system participating in a shared file system.</p>
+<p><em>automove=noautomove</em> prevents movement of the file system’s ownership in some situations.</p>
+<p><em>automove=unmount</em> allows the file system to be unmounted in some situations.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: AUTOMOVE</div>
-<div class="line"><strong>choices</strong>: AUTOMOVE, NOAUTOMOVE, UNMOUNT</div>
+<div class="line"><strong>default</strong>: automove</div>
+<div class="line"><strong>choices</strong>: automove, noautomove, unmount</div>
 </div>
 </dd>
-<dt>automove_list</dt><dd><p>If(automove=AUTOMOVE), this option will be checked.</p>
+<dt>automove_list</dt><dd><p>If(automove=automove), this option will be checked.</p>
 <p>This specifies the list of servers to include or exclude as destinations.</p>
 <p>None is a valid value, meaning ‘move anywhere’.</p>
 <p>Indicator is either INCLUDE or EXCLUDE, which can also be abbreviated as I or E.</p>
@@ -421,14 +421,14 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unmount a filesystem.</span>
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">unmounted</span>
     <span class="nt">unmount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">REMOUNT</span>
     <span class="nt">opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">same</span>
@@ -437,7 +437,7 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">mount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RO</span>
 
@@ -445,37 +445,37 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">persistent</span><span class="p">:</span>
-        <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
-        <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
+      <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
+      <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA after backing up to BPXPRMAB.</span>
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">persistent</span><span class="p">:</span>
-        <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
-        <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Yes</span>
-        <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAB)</span>
-        <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
+      <span class="nt">data_store</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAA)</span>
+      <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SYS1.PARMLIB(BPXPRMAB)</span>
+      <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">For Tape2 project</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem ignoring uid/gid values.</span>
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
-    <span class="nt">allow_uid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+    <span class="nt">allow_uid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mount a filesystem asynchronously (don&#39;t wait for completion).</span>
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nowait</span>
 
@@ -483,7 +483,7 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">mount_opts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NOSECURITY</span>
 
@@ -491,7 +491,7 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">automove</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
     <span class="nt">automove_list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">I,DEV1,DEV2,DEV3,DEV9</span>
@@ -500,7 +500,7 @@
   <span class="nt">zos_mount</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSER.VVV.ZFS</span>
     <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
-    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ZFS</span>
+    <span class="nt">fs_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zfs</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mounted</span>
     <span class="nt">automove</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
     <span class="nt">automove_list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EXCLUDE,DEV4,DEV5,DEV6,DEV7</span>

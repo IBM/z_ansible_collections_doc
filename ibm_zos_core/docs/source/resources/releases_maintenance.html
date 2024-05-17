@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Releases and maintenance &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Resources" href="../../../../ibm_zosmf/docs/source/resources.html" />
+    <link rel="prev" title="Character Sets" href="character_set.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="resources.html">z/OS core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="character_set.html">Character Sets</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Releases and maintenance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#support-matrix">Support Matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/resources.html">z/OS z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/source/bibliography.html">Z HMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../reference/documentation.html">Documentation</a> &raquo;</li>
+        
+          <li><a href="resources.html">Resources</a> &raquo;</li>
+        
+      <li>Releases and maintenance</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="releases-and-maintenance">
+<h1>Releases and maintenance<a class="headerlink" href="#releases-and-maintenance" title="Permalink to this headline">¶</a></h1>
+<p>This table describes the collections release dates, dependency versions and End of Life dates (EOL).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code> collection is developed and released on a flexible release cycle; generally, each quarter
+a beta is released followed by a GA version. Occasionally, the cycle may be extended to properly implement and
+test larger changes before a new release is made available.</p>
+<p>End of Life for this collection is generally a 2-year cycle unless a dependency reaches EOL prior to the 2 years.
+For example, if a collection has released and its dependency reaches EOL 1 year later, then the collection will EOL
+at the same time as the dependency, 1 year later.</p>
+<p>These are the component versions available when the collection was made generally available (GA). The underlying
+component version is likely to change as it reaches EOL, thus components must be a version that is
+currently supported.</p>
+<p>For example, if a collection releases with a minimum version of <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> 2.14.0 (Ansible 7.0) and later this
+enters into EOL, then a newer supported version of <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> (Ansible) must be selected. When choosing a newer
+<code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> (Ansible) version, review the <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core support matrix</a> to select the appropriate dependencies.
+This is important to note, different releases of <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code> can require newer controller and managed node
+dependencies such as is the case with Python.</p>
+<p>If the controller is Ansible Automation Platform (AAP), review the <a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">Red Hat Ansible Automation Platform Life Cycle</a>
+to select a supported AAP version.</p>
+<p>For IBM product lifecycle information, you can search for products using a product name, version or ID. For example,
+to view IBM’s <strong>Open Enterprise SDK for Python</strong> lifecycle, search on product ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5655-PYT">5655-PYT</a>, and for <strong>Z Open Automation Utilities</strong>,
+search on product ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5698-PA1">5698-PA1</a>.</p>
+<div class="section" id="support-matrix">
+<h2>Support Matrix<a class="headerlink" href="#support-matrix" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 24%" />
+<col style="width: 43%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Controller</p></th>
+<th class="head"><p>Managed Node</p></th>
+<th class="head"><p>GA</p></th>
+<th class="head"><p>End of Life</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.10.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.15.x</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=8.0.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.4</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> &gt;=1.3.0</p></li>
+</ul>
+</td>
+<td><p>In preview</p></td>
+<td><p>TBD</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.9.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.5 - 1.2.x</p></li>
+</ul>
+</td>
+<td><p>05 Feb 2024</p></td>
+<td><p>30 April 2025</p></td>
+</tr>
+<tr class="row-even"><td><p>1.8.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.4 - 1.2.x</p></li>
+</ul>
+</td>
+<td><p>13 Dec 2023</p></td>
+<td><p>30 April 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.7.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.3 - 1.2.x</p></li>
+</ul>
+</td>
+<td><p>10 Oct 2023</p></td>
+<td><p>30 April 2025</p></td>
+</tr>
+<tr class="row-even"><td><p>1.6.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.9.x</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=2.9.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=1.2</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R3 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.2 - 1.2.x</p></li>
+</ul>
+</td>
+<td><p>28 June 2023</p></td>
+<td><p>30 April 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.5.x</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.9.x</p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=2.9.x</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=1.2</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R3 - V2Rx</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p>IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.2 - 1.2.x</p></li>
+</ul>
+</td>
+<td><p>25 April 2023</p></td>
+<td><p>25 April 2025</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
