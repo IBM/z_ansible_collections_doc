@@ -20,6 +20,53 @@ Releases
 ========
 
 
+Version 1.8.3
+-------------
+
+Released: 2024-02-29
+
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
+
+**Bug fixes:**
+
+* Fixed safety issues up to 2024-02-18.
+
+* Fixed dependabot issues up to 2024-02-18.
+
+* Fixed readable attribute error when ensuring ISO mounted onto the partition.
+  (related to issue #932)
+
+**Cleanup:**
+
+* Resolved the 'no-log-needed' issue raised by the sanity test and ansible-lint
+  on the 'os_ipl_token' input parameter of the 'zhmc_lpar' module. That
+  allowed to get rid of the corresponding entries in the ignore files.
+  (issue #915)
+
+* Resolved the 'return-syntax-error' issue raised by the sanity test and
+  ansible-lint on all modules that specify generic return properties. That
+  allowed to get rid of the corresponding entries in the ignore files.
+  (issue #915)
+
+
+Version 1.8.2
+-------------
+
+Released: 2024-01-28
+
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
+
+**Bug fixes:**
+
+* Fixed safety issues up to 2024-01-26.
+
+* Fixed a performance issue in the 'zhmc_lpar_list' and 'zhmc_partition_list'
+  modules where the 'se-version' property was fetched from CPCs even if it
+  was already available in the LPAR/partition properties. (issue #904)
+
+* Increased the minimum version of zhmcclient to 1.13.3 to pick up fixes and
+  performance improvements. (related to issue #904)
+
 
 Version 1.8.1
 -------------

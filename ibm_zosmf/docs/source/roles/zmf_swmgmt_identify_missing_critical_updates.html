@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zmf_swmgmt_identify_missing_fixcat_updates – Identify Missing Fixcat Software Updates for a Software Instance" href="zmf_swmgmt_identify_missing_fixcat_updates.html" />
-    <link rel="prev" title="zmf_cpm_remove_software_instance – Role removes a z/OS software instance" href="zmf_cpm_remove_software_instance.html" /> 
+    <link rel="prev" title="zmf_swmgmt_csi_query – Query a SMP/E CSI data set" href="zmf_swmgmt_csi_query.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_manage_software_instance.html">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_provision_software_service.html">zmf_cpm_provision_software_service – Role provisions a z/OS software service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_cpm_remove_software_instance.html">zmf_cpm_remove_software_instance – Role removes a z/OS software instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_csi_query.html">zmf_swmgmt_csi_query – Query a SMP/E CSI data set</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">zmf_swmgmt_identify_missing_critical_updates – Identify Missing Critical Software Updates for a Software Instance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
@@ -110,6 +111,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates – Identify Missing Fixcat Software Updates for a Software Instance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates – Search a Software Instance for Software Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_zos_system_uuid.html">zmf_swmgmt_zos_system_uuid – Retrieve the z/OS system UUID</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_workflow_complete.html">zmf_workflow_complete – Role completes a z/OS workflow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service – Role runs a z/OS management service</a></li>
 </ul>
@@ -228,14 +230,14 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>zmf_port</dt><dd><p>Port number of the z/OSMF server. If z/OSMF is not using the default port, you need to specify value for this parameter in the inventory file or as an argument on the playbook command.</p>
+<dt>zmf_port</dt><dd><p>Port number of the z/OSMF server. If z/OSMF is not using the default port, you need to specify a value for this parameter in the inventory file or as an argument on the playbook command.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: 443</div>
 </div>
 </dd>
-<dt>zmf_user</dt><dd><p>User name to be used for authenticating with the z/OSMF server.</p>
+<dt>zmf_user</dt><dd><p>User ID for authenticating with the z/OSMF server.</p>
 <p>This variable can be specified in the inventory file or as an argument on the playbook command.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -250,16 +252,27 @@
 </div>
 </dd>
 <dt>software_instance_name</dt><dd><p>Name of the software instance.</p>
+<p>A software instance name must be specified when a software instance UUID is not specified. If both a software instance name and UUID are specified, then the software instance UUID is used by default.</p>
 <p>This variable can be specified in the inventory file or as an argument on the playbook command.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>system_nickname</dt><dd><p>Nickname of the z/OSMF host system that has access to the volumes and data sets where the software instance resides.</p>
+<p>A system nickname must be specified when a software instance UUID is not specified. If a software instance UUID is specified in  addition to a software instance and system nickname, then the software instance UUID is used by default.</p>
 <p>This variable can be specified in the inventory file or as an argument on the playbook command.</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>software_instance_uuid</dt><dd><p>A UUID of a software instance. A UUID is assigned to every software instance and  can be obtained using the “List the software instances defined to z/OSMF” REST API.</p>
+<p>A UUID can also be obtained using the zmf_swmgmt_zos_system_uuid Ansible role which retrieves the UUID for the software instance that represents the installed software for the specified z/OSMF host system.</p>
+<p>A software instance UUID must be specified when a software instance name is not specified. If both a software instance UUID and name are specified, then the software instance UUID is used by default.</p>
+<p>This variable can be specified in the inventory file or as an argument on the playbook command.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
@@ -317,7 +330,10 @@
 <p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>The given example assumes you have an inventory file <em>inventory.yml</em> that contains the values for the variables described above, such as z/OSMF host server, userid, password, software instance name and system, and response file name.</p></li>
+<li><p>Command syntax to call a playbook using an inventory file: <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">inventory</span> <span class="pre">software_management_reports_CICDtest1.yml</span></code></p></li>
+<li><p>Command syntax to call a playbook using command arguments: <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">software_management_reports_CICDtest1.yml</span> <span class="pre">-e</span> <span class="pre">zmf_user=zosmf**</span> <span class="pre">-e</span> <span class="pre">zmf_password=zosmf**</span></code></p></li>
 <li><p>When the role is executed, a message shown in following example is displayed, <code class="docutils literal notranslate"><span class="pre">&quot;msg&quot;:</span> <span class="pre">&quot;Output</span> <span class="pre">filename=</span> <span class="pre">/tmp/xxx/missing_critical_updates_response.json&quot;</span></code>. This message includes a file path and file name where the missing critical updates report for the requested software instance is returned.</p></li>
+<li><p>Refer to <a class="reference external" href="https://www.ibm.com/docs/en/zos/3.1.0?topic=services-missing-critical-updates">https://www.ibm.com/docs/en/zos/3.1.0?topic=services-missing-critical-updates</a> for more information on the REST API’s request and response JSON.</p></li>
 </ul>
 </div>
 </div>
