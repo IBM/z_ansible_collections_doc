@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>stop_region – Stop a CICS region &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="td_intrapartition – Create and remove the CICS transient data intrapartition data set" href="td_intrapartition.html" />
+    <link rel="prev" title="region_jcl – Create CICS startup JCL data set" href="region_jcl.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS CICS</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#using-defaults-groups-in-cics-provisioning-modules">Using Defaults Groups in CICS Provisioning Modules</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html#module-reference">Module Reference</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aux_temp_storage.html">aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aux_trace.html">aux_trace – Allocate auxiliary trace data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_action.html">cmci_action – Perform actions on CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_create.html">cmci_create – Create CICS and CICSPlex SM definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_delete.html">cmci_delete – Delete CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_get.html">cmci_get – Query CICS and CICSPlex SM resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_update.html">cmci_update – Update CICS and CICSPlex resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csd.html">csd – Create, remove, and manage the CICS CSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="global_catalog.html">global_catalog – Create, remove, and manage the CICS global catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_catalog.html">local_catalog – Create, remove, and manage the CICS local catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_request_queue.html">local_request_queue – Create and remove the CICS local request queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="region_jcl.html">region_jcl – Create CICS startup JCL data set</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">stop_region – Stop a CICS region</a></li>
+<li class="toctree-l4"><a class="reference internal" href="td_intrapartition.html">td_intrapartition – Create and remove the CICS transient data intrapartition data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transaction_dump.html">transaction_dump – Allocate transaction dump data sets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS CICS</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>stop_region – Stop a CICS region</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stop-region-stop-a-cics-region">
+<span id="stop-region-module"></span><h1>stop_region – Stop a CICS region<a class="headerlink" href="#stop-region-stop-a-cics-region" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Stop a CICS region by issuing a CEMT PERFORM SHUTDOWN command, or by canceling the job through the <code class="docutils literal notranslate"><span class="pre">jobs.cancel</span></code> utility provided by Z Open Automation Utilities (ZOAU). You can choose the shutdown mode from NORMAL, IMMEDIATE, or CANCEL.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">job_id</span></code>, <code class="docutils literal notranslate"><span class="pre">job_name</span></code>, or both can be used to shut down a CICS region. If mulitple jobs are running with the same name, the <code class="docutils literal notranslate"><span class="pre">job_id</span></code> is required.</p></li>
+<li><p>During a NORMAL or IMMEDIATE shutdown, a shutdown assist transaction should run to enable CICS to shut down in a controlled manner. By default, the CICS-supplied shutdown assist transaction, CESD is used. You can specify a custom shutdown assist transaction in the SDTRAN system initialization parameter. The task runs until the region has successfully shut down, or until the shutdown fails.</p></li>
+<li><p>You must have a console installed in the CICS region so that the stop_region module can communicate with CICS. To define a console, you must install a terminal with the CONSNAME attribute set to your TSO user ID. For detailed instructions, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cics-defining-tso-users-as-console-devices">Defining TSO users as console devices</a>. Add your console definition into one of the resource lists defined on the GRPLIST system initialization parameter so that it gets installed into the CICS region. Alternatively, you can use a DFHCSDUP script to update an existing CSD. This function is provided by the csd module.</p></li>
+<li><p>You can specify a timeout, in seconds, for CICS shutdown processing. After a request to stop CICS is issued, if CICS shutdown processing is not completed when this timeout is reached, the module completes in a failed state. By default, the stop_region module does not use a timeout, that is, the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> parameter assumes a value of -1.</p></li>
+</ul>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>job_id</dt><dd><p>Identifies the job ID belonging to the running CICS region.</p>
+<p>The stop_region module uses this job ID to identify the state of the CICS region and shut it down.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>job_name</dt><dd><p>Identifies the job name belonging to the running CICS region.</p>
+<p>The stop_region module uses this job name to identify the state of the CICS region and shut it down.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">job_name</span></code> must be unique; if multiple jobs with the same name are running, use <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>mode</dt><dd><p>Specify the type of shutdown to be executed on the CICS region.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">normal</span></code> to perform a normal shutdown. This instructs the stop_region module to issue a CEMT PERFORM SHUTDOWN command.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">immediate</span></code> to perform an immediate shutdown. This instructs the stop_region module to issue a CEMT PERFORM SHUTDOWN IMMEDIATE command.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">cancel</span></code> to cancel the CICS region. This instructs the stop_region module to use ZOAU’s <code class="docutils literal notranslate"><span class="pre">jobs.cancel</span></code> utility to process the request.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: normal</div>
+<div class="line"><strong>choices</strong>: normal, immediate, cancel</div>
+</div>
+</dd>
+<dt>no_sdtran</dt><dd><p>No shutdown assist transaction is to be run at CICS shutdown.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>sdtran</dt><dd><p>The 4-character identifier of the shutdown assist transaction.</p>
+<p>The default shutdown transaction, if neither SDTRAN nor NOSDTRAN is specified, is CESD.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>timeout</dt><dd><p>The maximum time, in seconds, to wait for CICS shutdown processing to complete.</p>
+<p>Specify -1 to exclude a timeout.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: -1</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Stop</span><span class="nv"> </span><span class="s">CICS</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">ID&quot;</span>
+  <span class="nt">ibm.ibm_zos_cics.stop_region</span><span class="p">:</span>
+    <span class="nt">job_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">JOB12345</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Stop</span><span class="nv"> </span><span class="s">CICS</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">immediately</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">ID&quot;</span>
+  <span class="nt">ibm.ibm_zos_cics.stop_region</span><span class="p">:</span>
+    <span class="nt">job_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">JOB12354</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">immediate</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Stop</span><span class="nv"> </span><span class="s">CICS</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">ID&quot;</span>
+  <span class="nt">ibm.ibm_zos_cics.stop_region</span><span class="p">:</span>
+    <span class="nt">job_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">JOB12354</span>
+    <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYREG01</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Stop</span><span class="nv"> </span><span class="s">CICS</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">name&quot;</span>
+  <span class="nt">ibm.ibm_zos_cics.stop_region</span><span class="p">:</span>
+    <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ANS1234</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">normal</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Cancel</span><span class="nv"> </span><span class="s">CICS</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">name&quot;</span>
+  <span class="nt">ibm.ibm_zos_cics.stop_region</span><span class="p">:</span>
+    <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ANS1234</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cancel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>changed</dt><dd><div class="line-block">
+<div class="line">True if the PERFORM SHUTDOWN or CANCEL command was executed.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>failed</dt><dd><div class="line-block">
+<div class="line">True if the Ansible task failed, otherwise False.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>executions</dt><dd><div class="line-block">
+<div class="line">A list of program executions performed during the Ansible task.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+<dl>
+<dt>name</dt><dd><div class="line-block">
+<div class="line">A human-readable name for the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>rc</dt><dd><div class="line-block">
+<div class="line">The return code for the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>return</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line">The standard output returned by the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+</div></blockquote>
+<dl>
+<dt>changed</dt><dd><div class="line-block">
+<div class="line">True if the state was changed, otherwise False.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>failed</dt><dd><div class="line-block">
+<div class="line">True if the module failed, otherwise False.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>jobs</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line">The output information for a list of jobs matching the specified criteria.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_job_query module execution</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</div></blockquote>
+<dl>
+<dt>job_id</dt><dd><div class="line-block">
+<div class="line">Unique job identifier assigned to the job by JES.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>job_name</dt><dd><div class="line-block">
+<div class="line">The name of the batch job.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>owner</dt><dd><div class="line-block">
+<div class="line">The owner who ran the job.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>ret_code</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line">Return code output collected from the job log.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+</div></blockquote>
+<dl>
+<dt>msg</dt><dd><div class="line-block">
+<div class="line">Return code or abend resulting from the job submission.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>msg_code</dt><dd><div class="line-block">
+<div class="line">Return code extracted from the <cite>msg</cite> so that it can be evaluated. For example, ABEND(S0C4) yields “S0C4”.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>msg_txt</dt><dd><div class="line-block">
+<div class="line">Returns additional information related to the job.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>code</dt><dd><div class="line-block">
+<div class="line">Return code converted to an integer value (when possible).</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>steps</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line">Series of JCL steps that were executed and their return codes.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</div></blockquote>
+<dl>
+<dt>step_name</dt><dd><div class="line-block">
+<div class="line">Name of the step shown as “was executed” in the DD section.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>step_cc</dt><dd><div class="line-block">
+<div class="line">The CC returned for this step in the DD section.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>message</dt><dd><div class="line-block">
+<div class="line">Message returned on failure.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_job_query module execution</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>content</dt><dd><div class="line-block">
+<div class="line">The resulting text from the command submitted.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_operator module execution</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>cmd</dt><dd><div class="line-block">
+<div class="line">The operator command that has been executed</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_operator module execution</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>rc</dt><dd><div class="line-block">
+<div class="line">The return code from the operator command</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_operator module execution</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_rc</dt><dd><div class="line-block">
+<div class="line">The maximum return code from the TSO status command</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_tso_command module execution</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>output</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line">The output from the TSO command.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: on zos_tso_command module execution</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</div></blockquote>
+<dl>
+<dt>command</dt><dd><div class="line-block">
+<div class="line">The executed TSO command.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>rc</dt><dd><div class="line-block">
+<div class="line">The return code from the executed TSO command.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>content</dt><dd><div class="line-block">
+<div class="line">The response resulting from the execution of the TSO command.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>lines</dt><dd><div class="line-block">
+<div class="line">The line number of the content.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>msg</dt><dd><div class="line-block">
+<div class="line">A string containing an error message if applicable.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

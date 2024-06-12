@@ -180,16 +180,19 @@
   <div class="section" id="z-os-cics">
 <h1>z/OS CICS<a class="headerlink" href="#z-os-cics" title="Permalink to this headline">¶</a></h1>
 <p>The <strong>IBM® z/OS® CICS® collection</strong>, also represented as
-ibm_zos_cics in this document, is  part of the broader
+ibm_zos_cics in this document, is part of the broader
 initiative to bring Ansible® Automation to IBM Z® through the offering
 <strong>Red Hat® Ansible Certified Content for IBM Z</strong>.</p>
-<p>The <strong>IBM® z/OS® CICS® collection</strong> supports automation tasks that can
-define, install, and perform actions on CICS definitions and resources such as
-creating a PROGRAM definition, installing and updating it, and deleting the
-definition.</p>
-<p>The Ansible modules in this collection are written in Python and interact with
-the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cmci-how-it-works-rest-api">CMCI REST API</a> of the CICS® management client interface (CMCI) for system
-management.</p>
+<p>The <strong>IBM® z/OS® CICS® collection</strong> provides modules for automation tasks that
+perform operations on CICS and CICSPlex SM resources and definitions, for example,
+creating and installing a PROGRAM definition, then updating or deleting the definition.
+These modules interact with the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cmci-how-it-works-rest-api">CMCI REST API</a> of the CICS® management client
+interface (CMCI) for system management.</p>
+<p>The <strong>IBM® z/OS® CICS® collection</strong> also provides modules for provisioning and managing
+CICS TS data sets and utilities. You can use these Ansible modules to create automation
+tasks that provision or deprovision a CICS region and tasks for CICS startup and
+shutdown.</p>
+<p>The Ansible modules in this collection are written in Python.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Collection Content</span></p>
 <ul>

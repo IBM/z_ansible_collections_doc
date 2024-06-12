@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="aux_trace – Allocate auxiliary trace data sets" href="aux_trace.html" />
+    <link rel="prev" title="Modules" href="../modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS CICS</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#using-defaults-groups-in-cics-provisioning-modules">Using Defaults Groups in CICS Provisioning Modules</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html#module-reference">Module Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aux_trace.html">aux_trace – Allocate auxiliary trace data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_action.html">cmci_action – Perform actions on CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_create.html">cmci_create – Create CICS and CICSPlex SM definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_delete.html">cmci_delete – Delete CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_get.html">cmci_get – Query CICS and CICSPlex SM resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_update.html">cmci_update – Update CICS and CICSPlex resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csd.html">csd – Create, remove, and manage the CICS CSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="global_catalog.html">global_catalog – Create, remove, and manage the CICS global catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_catalog.html">local_catalog – Create, remove, and manage the CICS local catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_request_queue.html">local_request_queue – Create and remove the CICS local request queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="region_jcl.html">region_jcl – Create CICS startup JCL data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stop_region.html">stop_region – Stop a CICS region</a></li>
+<li class="toctree-l4"><a class="reference internal" href="td_intrapartition.html">td_intrapartition – Create and remove the CICS transient data intrapartition data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transaction_dump.html">transaction_dump – Allocate transaction dump data sets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">z/OS CICS</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aux-temp-storage-create-and-remove-the-cics-auxiliary-temporary-storage-data-set">
+<span id="aux-temp-storage-module"></span><h1>aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set<a class="headerlink" href="#aux-temp-storage-create-and-remove-the-cics-auxiliary-temporary-storage-data-set" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Create and remove the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=sets-defining-auxiliary-temporary-storage-data-set">auxiliary temporary storage</a> data set used by a CICS® region.</p></li>
+<li><p>You can use this module when provisioning or de-provisioning a CICS region.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">state</span></code> option to specify the intended state for the auxiliary temporary storage data set. For example, use <code class="docutils literal notranslate"><span class="pre">state=initial</span></code> to create an auxiliary temporary storage data set if it doesn’t exist.</p></li>
+</ul>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>region_data_sets</dt><dd><p>The location of the region data sets to be created by using a template, for example, <code class="docutils literal notranslate"><span class="pre">REGIONS.ABCD0001.&lt;&lt;</span> <span class="pre">data_set_name</span> <span class="pre">&gt;&gt;</span></code>.</p>
+<p>If you want to use a data set that already exists, ensure that the data set is an auxiliary temporary storage data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>dfhtemp</dt><dd><p>Overrides the templated location for the auxiliary temporary storage data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>dsn</dt><dd><p>The data set name of the auxiliary temporary storage to override the template.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>template</dt><dd><p>The base location of the region data sets with a template.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>space_primary</dt><dd><p>The size of the primary space allocated to the auxiliary temporary storage data set. Note that this is just the value; the unit is specified with <code class="docutils literal notranslate"><span class="pre">space_type</span></code>.</p>
+<p>This option takes effect only when the auxiliary temporary storage data set is being created. If the data set already exists, the option has no effect.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 200</div>
+</div>
+</dd>
+<dt>space_secondary</dt><dd><p>The size of the secondary space allocated to the auxiliary temporary storage data set. Note that this is just the value; the unit is specified with <code class="docutils literal notranslate"><span class="pre">space_type</span></code>.</p>
+<p>This option takes effect only when the auxiliary temporary storage data set is being created. If the data set already exists, the option has no effect.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 10</div>
+</div>
+</dd>
+<dt>space_type</dt><dd><p>The unit portion of the auxiliary temporary storage data set size. Note that this is just the unit; the value for the primary space is specified with <code class="docutils literal notranslate"><span class="pre">space_primary</span></code> and the value for the secondary space is specified with <code class="docutils literal notranslate"><span class="pre">space_secondary</span></code>.</p>
+<p>This option takes effect only when the auxiliary temporary storage data set is being created. If the data set already exists, the option has no effect.</p>
+<p>The size can be specified in megabytes (<code class="docutils literal notranslate"><span class="pre">M</span></code>), kilobytes (<code class="docutils literal notranslate"><span class="pre">K</span></code>), records (<code class="docutils literal notranslate"><span class="pre">REC</span></code>), cylinders (<code class="docutils literal notranslate"><span class="pre">CYL</span></code>), or tracks (<code class="docutils literal notranslate"><span class="pre">TRK</span></code>).</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: REC</div>
+<div class="line"><strong>choices</strong>: M, K, REC, CYL, TRK</div>
+</div>
+</dd>
+<dt>state</dt><dd><p>The intended state for the auxiliary temporary storage data set, which the module aims to achieve.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">absent</span></code> to remove the auxiliary temporary storage data set entirely, if it already exists.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">initial</span></code> to create the auxiliary temporary storage data set, if it does not exist. If the specified data set exists but is empty, the module leaves the data set as is. If the specified data set exists and has contents, the module deletes the data set and then creates a new, empty data set.</p>
+<p>Specify <code class="docutils literal notranslate"><span class="pre">warm</span></code> to retain an existing auxiliary temporary storage data set in its current state. The module checks whether the specified data set exists, and if it does, leaves the data set as is. If the data set does not exist, the operation fails.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: initial, absent, warm</div>
+</div>
+</dd>
+<dt>volumes</dt><dd><p>The volume(s) where the data set is created. Use a string to define a singular volume or a list of strings for multiple volumes.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: raw</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize an auxiliary temporary storage data set by using the templated location</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">template</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.&lt;&lt;</span><span class="nv"> </span><span class="s">data_set_name</span><span class="nv"> </span><span class="s">&gt;&gt;&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;initial&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize a user specified auxiliary temporary storage data set</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">dfhtemp</span><span class="p">:</span>
+        <span class="nt">dsn</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.DFHTEMP&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;initial&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize a large auxiliary temporary storage data set by using the templated location</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">template</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.&lt;&lt;</span><span class="nv"> </span><span class="s">data_set_name</span><span class="nv"> </span><span class="s">&gt;&gt;&quot;</span>
+    <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="s">&quot;M&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;initial&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Retain the existing state of an auxiliary temporary storage data set defined by the template</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">template</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.&lt;&lt;</span><span class="nv"> </span><span class="s">data_set_name</span><span class="nv"> </span><span class="s">&gt;&gt;&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;warm&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Retain the existing state of a user specified auxiliary temporary storage data set</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">dfhtemp</span><span class="p">:</span>
+        <span class="nt">dsn</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.DFHTEMP&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;warm&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Delete an existing auxiliary temporary storage data set defined by the template</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">template</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.&lt;&lt;</span><span class="nv"> </span><span class="s">data_set_name</span><span class="nv"> </span><span class="s">&gt;&gt;&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;absent&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Delete an existing user specified auxiliary temporary storage data set</span>
+  <span class="nt">ibm.ibm_zos_cics.aux_temp_storage</span><span class="p">:</span>
+    <span class="nt">region_data_sets</span><span class="p">:</span>
+      <span class="nt">dfhtemp</span><span class="p">:</span>
+        <span class="nt">dsn</span><span class="p">:</span> <span class="s">&quot;REGIONS.ABCD0001.DFHTEMP&quot;</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;absent&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>changed</dt><dd><div class="line-block">
+<div class="line">True if the state was changed, otherwise False.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>failed</dt><dd><div class="line-block">
+<div class="line">True if the Ansible task failed, otherwise False.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>start_state</dt><dd><div class="line-block">
+<div class="line">The state of the auxiliary temporary storage data set before the Ansible task runs.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>data_set_organization</dt><dd><div class="line-block">
+<div class="line">The organization of the data set at the start of the Ansible task.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: VSAM</div>
+</div>
+</dd>
+<dt>exists</dt><dd><div class="line-block">
+<div class="line">True if the specified auxiliary temporary storage data set exists.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>end_state</dt><dd><div class="line-block">
+<div class="line">The state of the auxiliary temporary storage data set at the end of the Ansible task.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>data_set_organization</dt><dd><div class="line-block">
+<div class="line">The organization of the data set at the end of the Ansible task.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: VSAM</div>
+</div>
+</dd>
+<dt>exists</dt><dd><div class="line-block">
+<div class="line">True if the specified auxiliary temporary storage data set exists.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>executions</dt><dd><div class="line-block">
+<div class="line">A list of program executions performed during the Ansible task.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+<dl>
+<dt>name</dt><dd><div class="line-block">
+<div class="line">A human-readable name for the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>rc</dt><dd><div class="line-block">
+<div class="line">The return code for the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>stdout</dt><dd><div class="line-block">
+<div class="line">The standard output stream returned from the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>stderr</dt><dd><div class="line-block">
+<div class="line">The standard error stream returned from the program execution.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>msg</dt><dd><div class="line-block">
+<div class="line">A string containing an error message if applicable</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

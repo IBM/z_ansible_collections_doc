@@ -86,7 +86,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../requirements/requirements.html#control-node">Control node</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../requirements/requirements.html#managed-node">Managed node</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_core/docs/source/requirements_managed.html">z/OS core</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS CICS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">z/OS CICS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cmci-tasks">CMCI tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provisioning-tasks">Provisioning tasks</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/requirements_managed.html">z/OS Sys Auto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ibm_zosmf/docs/source/requirements_managed.html">z/OS z/OSMF</a></li>
@@ -190,6 +194,11 @@
             
   <div class="section" id="requirements-of-managed-nodes">
 <h1>Requirements of managed nodes<a class="headerlink" href="#requirements-of-managed-nodes" title="Permalink to this headline">¶</a></h1>
+<p>The tasks in the <strong>IBM® z/OS® CICS® collection</strong> can be classified into two types,
+<strong>CMCI tasks</strong> and <strong>provisioning tasks</strong>, that have different requirements of the managed
+node.</p>
+<div class="section" id="cmci-tasks">
+<h2>CMCI tasks<a class="headerlink" href="#cmci-tasks" title="Permalink to this headline">¶</a></h2>
 <p>The CMCI tasks in the <strong>IBM® z/OS® CICS® collection</strong> interact
 with the managed node over an HTTP connection by leveraging the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cmci-how-it-works-rest-api">CMCI REST API</a>.
 Therefore, an SSH connection is not required. Instead, you can delegate
@@ -199,7 +208,8 @@ install dependencies on your localhost instead of the managed node.
 For more ways of delegating tasks, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegating-tasks">Controlling where tasks run</a>.</p>
 <p>The requirements of the managed node are as follows:</p>
 <ul>
-<li><p>IBM CICS V4.2 or later</p></li>
+<li><p>z/OS Version 2.3 or later</p></li>
+<li><p>All IBM CICS TS releases that are in service</p></li>
 <li><p>A <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=configuring-setting-up-cmci">CMCI connection</a> must be set up in either a CICSplex or a stand-alone CICS region</p></li>
 <li><p>Python module dependencies:</p>
 <ul class="simple">
@@ -213,12 +223,31 @@ need to be installed on your localhost instead.</p>
 </pre></div>
 </div>
 <p>You can also install them using the playbook. For example, this <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics/cmci/reporting">CICS
-sample playbook</a> shows how you can ensure the pre-requisites are installed before the module is executed.</p>
+sample playbook</a> shows how you can ensure that the prerequisites are installed before the module is executed.</p>
 </li>
 </ul>
-<p>If you use the CICS collection in conjunction with other IBM z/OS collections,
-your managed node must also follow the requirements of those collections, for example, <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html">IBM z/OS core managed node requirements</a>.</p>
-<p>If you use the CICS collection alone but don’t delegate the CICS tasks to your localhost, your managed node must also follow the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html">IBM z/OS core managed node requirements</a> except that IBM Z Open Automation Utilities (ZOAU) is not required.</p>
+<p>If you use the CMCI tasks in the CICS collection but don’t delegate the CMCI tasks to your localhost, your
+managed node must also follow the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html">IBM z/OS core managed node requirements</a> except that IBM Z Open Automation Utilities (ZOAU) is not required.</p>
+</div>
+<div class="section" id="provisioning-tasks">
+<h2>Provisioning tasks<a class="headerlink" href="#provisioning-tasks" title="Permalink to this headline">¶</a></h2>
+<p>The provisioning tasks in the <strong>IBM® z/OS® CICS® collection</strong> interact with a
+z/OS managed node over SSH, and therefore have different requirements to the
+CMCI tasks. The provisioning modules follow the requirements of the other z/OS
+collections as documented in <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html">IBM z/OS core managed node requirements</a>. These
+requirements include installation of the following components:</p>
+<ul class="simple">
+<li><p>z/OS Version 2.3 or later</p></li>
+<li><p>z/OS OpenSSH</p></li>
+<li><p>IBM Open Enterprise SDK for Python (previously IBM Open Enterprise Python for z/OS)</p></li>
+<li><p>IBM Z Open Automation Utilities (ZOAU) 1.2.x</p></li>
+<li><p>The z/OS shell</p></li>
+</ul>
+<p>For specific versions of these dependencies and additional information, review
+the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html">IBM z/OS core managed node requirements</a> page.</p>
+<p>Note that you must have z/OS core collection 1.5.0 or later installed in the control node
+if you want to run the provisioning tasks.</p>
+</div>
 </div>
 
 

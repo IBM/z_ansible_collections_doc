@@ -91,17 +91,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS CICS</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cmci_action.html">cmci_action – Perform actions on CICS and CICSPlex SM resources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmci_create.html">cmci_create – Create CICS and CICSPlex SM definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmci_delete.html">cmci_delete – Delete CICS and CICSPlex SM resources</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">cmci_get – Query CICS and CICSPlex SM resources and definitions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#using-defaults-groups-in-cics-provisioning-modules">Using Defaults Groups in CICS Provisioning Modules</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html#module-reference">Module Reference</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aux_temp_storage.html">aux_temp_storage – Create and remove the CICS auxiliary temporary storage data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aux_trace.html">aux_trace – Allocate auxiliary trace data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_action.html">cmci_action – Perform actions on CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_create.html">cmci_create – Create CICS and CICSPlex SM definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_delete.html">cmci_delete – Delete CICS and CICSPlex SM resources</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">cmci_get – Query CICS and CICSPlex SM resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmci_update.html">cmci_update – Update CICS and CICSPlex resources and definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csd.html">csd – Create, remove, and manage the CICS CSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="global_catalog.html">global_catalog – Create, remove, and manage the CICS global catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_catalog.html">local_catalog – Create, remove, and manage the CICS local catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local_request_queue.html">local_request_queue – Create and remove the CICS local request queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="region_jcl.html">region_jcl – Create CICS startup JCL data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stop_region.html">stop_region – Stop a CICS region</a></li>
+<li class="toctree-l4"><a class="reference internal" href="td_intrapartition.html">td_intrapartition – Create and remove the CICS transient data intrapartition data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transaction_dump.html">transaction_dump – Allocate transaction dump data sets</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cmci_update.html">cmci_update – Update CICS and CICSPlex resources and definitions</a></li>
 </ul>
 </li>
 </ul>
@@ -200,25 +208,25 @@
 <span id="cmci-get-module"></span><h1>cmci_get – Query CICS and CICSPlex SM resources and definitions<a class="headerlink" href="#cmci-get-query-cics-and-cicsplex-sm-resources-and-definitions" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id4">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id5">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
 </ul>
 </div>
 <div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id4">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Get information about installed and definitional CICS® and CICSPlex® SM resources from CICS regions, by initiating GET requests via the CMCI REST API. The CMCI REST API can be configured in CICSPlex SM or stand-alone regions (SMSS). For information about the API, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/cmci/clientapi_overview.html">CMCI REST API</a>. For information about how to compose GET requests, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/cmci/clientapi_get.html">CMCI GET requests</a>.</p></li>
+<li><p>Get information about installed and definitional CICS® and CICSPlex® SM resources from CICS regions, by initiating GET requests via the CMCI REST API. The CMCI REST API can be configured in CICSPlex SM or stand-alone regions (SMSS). For information about the API, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=programming-cmci-rest-api-reference">CMCI REST API</a>. For information about how to compose GET requests, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=requests-cmci-get">CMCI GET requests</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
-<h2><a class="toc-backref" href="#id5">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>cmci_cert</dt><dd><p>Location of the PEM-formatted certificate chain file to be used for HTTPS client authentication.</p>
 <p>Can also be specified using the environment variable CMCI_CERT.</p>
 <p>Required if <em>cmci_key</em> is specified.</p>
-<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and (cmci_password) are provided, and then unauthenticated if none is provided.</p>
+<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and <em>cmci_password</em> are provided, and then unauthenticated if none is provided.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -233,7 +241,7 @@
 <dt>cmci_key</dt><dd><p>Location of the PEM-formatted file storing your private key to be used for HTTPS client authentication.</p>
 <p>Can also be specified using the environment variable CMCI_KEY.</p>
 <p>Required if <em>cmci_cert</em> is specified.</p>
-<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and (cmci_password) are provided, and then unauthenticated if none is provided.</p>
+<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and <em>cmci_password</em> are provided, and then unauthenticated if none is provided.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -242,7 +250,7 @@
 <dt>cmci_password</dt><dd><p>The password of <em>cmci_user</em> to pass HTTP basic authentication.</p>
 <p>Can also be specified using the environment variable CMCI_PASSWORD.</p>
 <p>Required if <em>cmci_user</em> is specified.</p>
-<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and (cmci_password) are provided, and then unauthenticated if none is provided.</p>
+<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and <em>cmci_password</em> are provided, and then unauthenticated if none is provided.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: false</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -257,18 +265,26 @@
 <dt>cmci_user</dt><dd><p>The user ID under which the CMCI request will run.</p>
 <p>Can also be specified using the environment variable CMCI_USER.</p>
 <p>Required if <em>cmci_password</em> is specified.</p>
-<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and (cmci_password) are provided, and then unauthenticated if none is provided.</p>
+<p>Authentication prioritises certificate authentication if <em>cmci_cert</em> and <em>cmci_key</em> are provided, then basic authentication if <em>cmci_user</em> and <em>cmci_password</em> are provided, and then unauthenticated if none is provided.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: false</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>context</dt><dd><p>If CMCI is installed in a CICSPlex® SM environment, <em>context</em> is the name of the CICSplex or CMAS associated with the request, for example, <code class="docutils literal notranslate"><span class="pre">PLEX1</span></code>. To determine whether a CMAS can be specified as <em>context</em>, see the <strong>CMAS context</strong> entry in the CICSPlex SM resource table reference of a resource. For example, according to the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.6.0/reference-cpsm-restables/cpsm-restables/PROGRAMtab.html">PROGRAM resource table</a>, CMAS context is not supported for PROGRAM.</p>
+<dt>context</dt><dd><p>If CMCI is installed in a CICSPlex® SM environment, <em>context</em> is the name of the CICSplex or CMAS associated with the request, for example, <code class="docutils literal notranslate"><span class="pre">PLEX1</span></code>. To determine whether a CMAS can be specified as <em>context</em>, see the <strong>CMAS context</strong> entry in the CICSPlex SM resource table reference of a resource. For example, according to the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=tables-program-resource-table">PROGRAM resource table</a>, CMAS context is not supported for PROGRAM.</p>
 <p>If CMCI is installed in a single region (SMSS), <em>context</em> is the APPLID of the CICS region associate with the request.</p>
 <p>The value of <em>context</em> must contain no spaces. <em>context</em> is not case-sensitive.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>fail_on_nodata</dt><dd><p>Specifies whether the module should fail if no data is returned by the query. If set to true, the module will fail if no data is returned.</p>
+<p>Default behaviour is for the module to fail if no data is returned. When set to false, the module will return OK, just with no records.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
 <dt>insecure</dt><dd><p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, disables SSL certificate trust chain verification when using HTTPS.</p>
@@ -296,7 +312,7 @@
 <p>Can contain one or more filters. Multiple filters must be combined using <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">or</span></code> logical operators.</p>
 <p>Filters can be nested.</p>
 <p>When supplying the <code class="docutils literal notranslate"><span class="pre">attribute</span></code> option, you must also supply a <code class="docutils literal notranslate"><span class="pre">value</span></code> for the filter. You can also override the default operator of <code class="docutils literal notranslate"><span class="pre">=</span></code> with the <code class="docutils literal notranslate"><span class="pre">operator</span></code> option.</p>
-<p>For examples, see “Examples” in <a class="reference internal" href="#cmci-get-module"><span class="std std-ref">cmci_get</span></a>.</p>
+<p>For examples, see “Examples” in <span class="xref std std-ref">ibm.ibm_zos_cics.cmci_get</span>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
@@ -310,7 +326,7 @@
 </div>
 </dd>
 <dt>attribute</dt><dd><p>The name of a resource table attribute on which to filter.</p>
-<p>For supported attributes of different resource types, see their resource table reference, for example, <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.6.0/reference-cpsm-restables/cpsm-restables/PROGDEFtab.html">PROGDEF resource table reference</a>.</p>
+<p>For supported attributes of different resource types, see their resource table reference, for example, <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=tables-progdef-resource-table">PROGDEF resource table reference</a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -331,7 +347,7 @@
 </div>
 </dd>
 <dt>value</dt><dd><p>The value by which you are to filter the resource attributes.</p>
-<p>The value must be a valid one for the resource table attribute as documented in the resource table reference, for example, <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.6.0/reference-cpsm-restables/cpsm-restables/PROGDEFtab.html">PROGDEF resource table reference</a>.</p>
+<p>The value must be a valid one for the resource table attribute as documented in the resource table reference, for example, <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=tables-progdef-resource-table">PROGDEF resource table reference</a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -345,15 +361,15 @@
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> is a wildcard representing an unknown number of characters, and must appear at the end of the value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code> is a wildcard representing a single character, and can appear in any place in the value, potentially multiple times.</p>
 <p>To use more complicated filter expressions, including a range of different filter operators, and the ability to compose filters with <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> operators, see the <code class="docutils literal notranslate"><span class="pre">complex_filter</span></code> parameter.</p>
-<p>For more details, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/system-programming/cpsm/eyup1a0.html">How to build a filter expression</a>.</p>
-<p>For examples, see <a class="reference internal" href="#cmci-get-module"><span class="std std-ref">cmci_get</span></a></p>
-<p>For supported attributes of different resource types, see their resource table reference, for example, <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.6.0/reference-cpsm-restables/cpsm-restables/PROGDEFtab.html">PROGDEF resource table reference</a>.</p>
+<p>For more details, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=expressions-how-build-filter-expression">How to build a filter expression</a>.</p>
+<p>For examples, see <span class="xref std std-ref">ibm.ibm_zos_cics.cmci_get</span>.</p>
+<p>For supported attributes of different resource types, see their resource table reference, for example, <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=tables-progdef-resource-table">PROGDEF resource table reference</a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 </dd>
-<dt>get_parameters</dt><dd><p>A list of one or more parameters with optional values used to identify the resources for this request. Eligible parameters for identifying the target resources can be found in the resource table reference for the target resource type, as valid parameters for the GET operation in the “Valid CPSM operations” table. For example, the valid parameters for identifying a PROGDEF resource are CICSSYS, CSDGROUP and RESGROUP, as found in the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.6.0/reference-cpsm-restables/cpsm-restables/PROGDEFtab.html">PROGDEF resource table reference</a>.</p>
+<dt>get_parameters</dt><dd><p>A list of one or more parameters with optional values used to identify the resources for this request. Eligible parameters for identifying the target resources can be found in the resource table reference for the target resource type, as valid parameters for the GET operation in the “Valid CPSM operations” table. For example, the valid parameters for identifying a PROGDEF resource are CICSSYS, CSDGROUP and RESGROUP, as found in the <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=tables-progdef-resource-table">PROGDEF resource table reference</a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -392,7 +408,14 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>type</dt><dd><p>The CMCI external resource name that maps to the target CICS or CICSPlex SM resource type. For a list of CMCI external resource names, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/cmci/clientapi_resources.html">CMCI resource names</a>.</p>
+<dt>timeout</dt><dd><p>HTTP request timeout in seconds</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 30</div>
+</div>
+</dd>
+<dt>type</dt><dd><p>The CMCI external resource name that maps to the target CICS or CICSPlex SM resource type. For a list of CMCI external resource names, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=reference-cmci-resource-names">CMCI resource names</a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -401,41 +424,41 @@
 </dl>
 </div>
 <div class="section" id="examples">
-<h2><a class="toc-backref" href="#id6">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get 2 LOCFILEs from a CICSplex</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&#39;winmvs2c.hursley.ibm.com&#39;</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
     <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
-    <span class="nt">cmci_user</span><span class="p">:</span> <span class="s">&#39;ibmuser&#39;</span>
-    <span class="nt">cmci_password</span><span class="p">:</span> <span class="s">&#39;123456&#39;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&#39;iyk3z0r9&#39;</span>
-    <span class="nt">type</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">CICSLocalFile</span>
+    <span class="nt">cmci_user</span><span class="p">:</span> <span class="s">&quot;ibmuser&quot;</span>
+    <span class="nt">cmci_password</span><span class="p">:</span> <span class="s">&quot;123456&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CICSLocalFile</span>
     <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
     <span class="nt">resource</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
-        <span class="nt">dsname</span><span class="p">:</span> <span class="s">&#39;CTS*&#39;</span>
+        <span class="nt">dsname</span><span class="p">:</span> <span class="s">&quot;CTS*&quot;</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get a localfile in a CICS region</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&#39;winmvs2c.hursley.ibm.com&#39;</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
     <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
-    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.pem&#39;</span>
-    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.key&#39;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&#39;iyk3z0r9&#39;</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;CICSLocalFile&#39;</span>
+    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
+    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;CICSLocalFile&quot;</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
-        <span class="nt">dsname</span><span class="p">:</span> <span class="s">&#39;XIAOPIN*&#39;</span>
-        <span class="nt">file</span><span class="p">:</span> <span class="s">&#39;DFH*&#39;</span>
+        <span class="nt">dsname</span><span class="p">:</span> <span class="s">&quot;XIAOPIN*&quot;</span>
+        <span class="nt">file</span><span class="p">:</span> <span class="s">&quot;DFH*&quot;</span>
     <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get a progdef from a CSD</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&#39;winmvs2c.hursley.ibm.com&#39;</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
     <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
-    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.pem&#39;</span>
-    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.key&#39;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&#39;iyk3z0r9&#39;</span>
+    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
+    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cicsdefinitionprogram</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
@@ -445,31 +468,44 @@
           <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYGRP</span>
     <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pass module even if bundle definition is not found</span>
+  <span class="nt">cmci_get</span><span class="p">:</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
+    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cicsdefinitionbundle</span>
+    <span class="nt">resources</span><span class="p">:</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYBUNDLE</span>
+      <span class="nt">get_parameters</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">csdgroup</span>
+          <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYGRP</span>
+    <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">fail_on_nodata</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Using complex_filter to combine filter expressions and change operators</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&#39;winmvs2c.hursley.ibm.com&#39;</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
     <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
-    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.pem&#39;</span>
-    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&#39;./sec/ansible.key&#39;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&#39;iyk3z0r9&#39;</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;CICSRegion&#39;</span>
+    <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
+    <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;CICSRegion&quot;</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">complex_filter</span><span class="p">:</span>
-        <span class="nt">or</span><span class="p">:</span> <span class="p p-Indicator">[{</span>
-<span class="nt">          attribute</span><span class="p">:</span> <span class="s">&#39;currtasks&#39;</span><span class="p p-Indicator">,</span>
-<span class="nt">          value</span><span class="p">:</span> <span class="s">&#39;10&#39;</span><span class="p p-Indicator">,</span>
-<span class="nt">          operator</span><span class="p">:</span> <span class="s">&#39;&lt;&#39;</span>
-        <span class="p p-Indicator">},</span> <span class="p p-Indicator">{</span>
-<span class="nt">          attribute</span><span class="p">:</span> <span class="s">&#39;currtasks&#39;</span><span class="p p-Indicator">,</span>
-<span class="nt">          value</span><span class="p">:</span> <span class="s">&#39;100&#39;</span><span class="p p-Indicator">,</span>
-<span class="nt">          operator</span><span class="p">:</span> <span class="s">&#39;&gt;&#39;</span>
-        <span class="p p-Indicator">}]</span>
+        <span class="nt">or</span><span class="p">:</span>
+          <span class="p p-Indicator">[</span>
+            <span class="p p-Indicator">{</span><span class="nt"> attribute</span><span class="p">:</span> <span class="s">&quot;currtasks&quot;</span><span class="p p-Indicator">,</span><span class="nt"> value</span><span class="p">:</span> <span class="s">&quot;10&quot;</span><span class="p p-Indicator">,</span><span class="nt"> operator</span><span class="p">:</span> <span class="s">&quot;&lt;&quot;</span> <span class="p p-Indicator">},</span>
+            <span class="p p-Indicator">{</span><span class="nt"> attribute</span><span class="p">:</span> <span class="s">&quot;currtasks&quot;</span><span class="p p-Indicator">,</span><span class="nt"> value</span><span class="p">:</span> <span class="s">&quot;100&quot;</span><span class="p p-Indicator">,</span><span class="nt"> operator</span><span class="p">:</span> <span class="s">&quot;&gt;&quot;</span> <span class="p p-Indicator">},</span>
+          <span class="p p-Indicator">]</span>
     <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="return-values">
-<h2><a class="toc-backref" href="#id7">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl>
 <dt>changed</dt><dd><div class="line-block">
@@ -497,7 +533,7 @@
 </div>
 </dd>
 <dt>cpsm_reason</dt><dd><div class="line-block">
-<div class="line">The character value of the REASON code returned by each CICSPlex SM API command. For a list of REASON character values, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2ky.html">https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2ky.html</a>.</div>
+<div class="line">The character value of the REASON code returned by each CICSPlex SM API command. For a list of REASON character values, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-reason-in-alphabetical-order">https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-reason-in-alphabetical-order</a>.</div>
 </div>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
@@ -505,7 +541,7 @@
 </div>
 </dd>
 <dt>cpsm_reason_code</dt><dd><div class="line-block">
-<div class="line">The numeric value of the REASON code returned by each CICSPlex SM API command. For a list of REASON numeric values, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kw.html">https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kw.html</a>.</div>
+<div class="line">The numeric value of the REASON code returned by each CICSPlex SM API command. For a list of REASON numeric values, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-reason-in-numerical-order">https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-reason-in-numerical-order</a>.</div>
 </div>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
@@ -513,7 +549,7 @@
 </div>
 </dd>
 <dt>cpsm_response</dt><dd><div class="line-block">
-<div class="line">The character value of the RESPONSE code returned by each CICSPlex SM API command. For a list of RESPONSE character values, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kx.html">https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kx.html</a>.</div>
+<div class="line">The character value of the RESPONSE code returned by each CICSPlex SM API command. For a list of RESPONSE character values, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-response-in-alphabetical-order">https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-response-in-alphabetical-order</a>.</div>
 </div>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
@@ -521,7 +557,7 @@
 </div>
 </dd>
 <dt>cpsm_response_code</dt><dd><div class="line-block">
-<div class="line">The numeric value of the RESPONSE code returned by each CICSPlex SM API command. For a list of RESPONSE numeric values, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kv.html">https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/reference-system-programming/commands-cpsm/eyup2kv.html</a>.</div>
+<div class="line">The numeric value of the RESPONSE code returned by each CICSPlex SM API command. For a list of RESPONSE numeric values, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-response-in-numerical-order">https://www.ibm.com/docs/en/cics-ts/latest?topic=values-eyuda-response-in-numerical-order</a>.</div>
 </div>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
