@@ -14,6 +14,7 @@ select a specific release version to view its corresponding details.
 .. toctree::
    :maxdepth: 1
 
+   z/OS core roadmap <roadmap>
    z/OS core </../ibm_zos_core/docs/source/release_notes>
    z/OS CICS </../ibm_zos_cics/docs/source/release_notes>
    z/OS IMS </../ibm_zos_ims/docs/source/release_notes>

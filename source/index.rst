@@ -24,6 +24,7 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Getting Started
 
+   requirements/requirements(new)
    requirements/requirements
    installation/installation
    playbooks/playbooks
