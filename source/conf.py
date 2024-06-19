@@ -16,7 +16,7 @@
 ##############################################################################
 
 project = 'Red Hat Ansible Certified Content for IBM Z'
-copyright = 'IBM Corp. 2020, 2023'
+copyright = 'IBM Corp. 2020, 2024'
 author = 'IBM'
 
 # Disable the Copyright footer for Read the docs at the bottom of the page
@@ -139,6 +139,13 @@ html_theme_options = {
     #'includehidden': True,
     #'titles_only': False
 }
+
+# Add the following function so the width of the page in display adapts to the user's screen
+def setup(app):
+    app.add_css_file('my_theme.css')
+
+html_static_path = ['_static'] 
+
 
 
 ##############################################################################
