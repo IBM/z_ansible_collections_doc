@@ -24,7 +24,7 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Getting Started
 
-   requirements/requirements
+   requirements/requirements_new
    installation/installation
    playbooks/playbooks
 
@@ -43,6 +43,7 @@ by building the collections from source available on GitHub.
    :maxdepth: 1
    :caption: Release Notes
 
+   release/roadmap
    release/release
 
 .. toctree::
