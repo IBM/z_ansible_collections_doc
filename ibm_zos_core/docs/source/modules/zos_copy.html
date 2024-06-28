@@ -876,6 +876,8 @@
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 <p>This module uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.</p>
 <p>Beginning in version 1.8.x, zos_copy will no longer attempt to correct a copy of a data type member into a PDSE that contains program objects. You can control this behavior using module option <code class="docutils literal notranslate"><span class="pre">executable</span></code> that will signify an executable is being copied into a PDSE with other executables. Mixing data type members with program objects will result in a (FSUM8976,./zos_copy.html) error.</p>
+<p>It is the playbook author or user’s responsibility to ensure they have appropriate authority to the RACF FACILITY resource class. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.</p>
+<p>To use this module, you must define the RACF FACILITY class profile and allow READ access to RACF FACILITY profile MVS.MCSOPER.ZOAU. If your system uses a different security product, consult that product’s documentation to configure the required security classes.</p>
 </div>
 </div>
 <div class="section" id="see-also">

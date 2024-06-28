@@ -99,7 +99,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../release/release.html">Releases</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-10-0-beta-1">Version 1.10.0-beta.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-10-0">Version 1.10.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#major-changes">Major Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
@@ -250,8 +250,8 @@
             
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-1-10-0-beta-1">
-<h2>Version 1.10.0-beta.1<a class="headerlink" href="#version-1-10-0-beta-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-10-0">
+<h2>Version 1.10.0<a class="headerlink" href="#version-1-10-0" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="major-changes">
 <h3>Major Changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -346,6 +346,7 @@ It is intended to assist in updating your playbooks so this collection will cont
 <div class="section" id="availability">
 <h3>Availability<a class="headerlink" href="#availability" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
@@ -358,11 +359,14 @@ controller and z/OS managed node dependencies.</p>
 <div class="section" id="known-issues">
 <h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when setting ‘location’ to ‘local’ and not specifying the from and to encoding, the modules defaults are not read leaving the file in its original encoding; explicitly set the encodings instead of relying on the default.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when submitting JCL, the response value returned for <strong>byte_count</strong> is incorrect.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> - encounters UTF-8 decoding errors when interacting with results that contain non-printable UTF-8 characters in the response.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_data_set</span></code> - When data set creation fails, exception can throw a bad import error instead of data set creation error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - To use this module, you must define the RACF FACILITY class profile and allow READ access to RACF FACILITY profile MVS.MCSOPER.ZOAU. If your system uses a different security product, consult that product’s documentation to configure the required security classes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> - encounters JSON decoding (DecodeError, TypeError, KeyError) errors when interacting with results that contain non-printable UTF-8 characters in the response. This will be addressed in <strong>ZOAU version 1.3.2</strong> and later.</p>
 <blockquote>
 <div><ul>
-<li><p>If you encounter this, some options are to:</p>
+<li><p>Some options to work around this known issue are:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Specify that the ASA assembler option be enabled to instruct the assembler to use ANSI control characters instead of machine code control characters.</p></li>
@@ -376,6 +380,8 @@ job ID with a regular expression. Then use <code class="docutils literal notrans
 </ul>
 </div></blockquote>
 </li>
+<li><p>In the past, choices could be defined in either lower or upper case. Now, only the case that is identified in the docs can be set, this is so that the collection can continue to maintain certified status.</p></li>
+<li><p>Use of special characters (#, &#64;, $, - ) in different options like data set names and commands is not fully supported, some modules support them but is the user responsibility to escape them. Read each module documentation for further details.</p></li>
 </ul>
 </div>
 </div>
@@ -404,7 +410,7 @@ controller and z/OS managed node dependencies.</p>
 <div class="section" id="id4">
 <h3>Known Issues<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when setting ‘location’ to ‘LOCAL’ and not specifying the from and to encoding, the modules defaults are not read leaving the file in its original encoding; explicitly set the encodings instead of relying on the default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when setting ‘location’ to ‘local’ and not specifying the from and to encoding, the modules defaults are not read leaving the file in its original encoding; explicitly set the encodings instead of relying on the default.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when submitting JCL, the response value returned for <strong>byte_count</strong> is incorrect.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_job_output</span></code>, <code class="docutils literal notranslate"><span class="pre">zos_operator_action_query</span></code> - encounters UTF-8 decoding errors when interacting with results that contain non-printable UTF-8 characters in the response. This has been addressed in this release and corrected with <strong>ZOAU version 1.2.5.6</strong> or later.</p>
 <blockquote>
@@ -564,8 +570,6 @@ job ID with a regular expression. Then use <code class="docutils literal notrans
 </ul>
 <p>An undocumented option <strong>size</strong> was defined in module <strong>zos_data_set</strong>, this has been removed to satisfy collection certification, use the intended
 and documented <strong>space_primary</strong> option.</p>
-<p>In the past, choices could be defined in either lower or upper case. Now, only the case that is identified in the docs can be set,
-this is so that the collection can continue to maintain certified status.</p>
 </div>
 <div class="section" id="id9">
 <h3>Availability<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
