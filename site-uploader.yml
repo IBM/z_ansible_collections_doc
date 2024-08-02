@@ -8,7 +8,7 @@
 #    at least 20 minutes to complete. See comments below for improvements.
 #
 #    Note: This has been extracted from the original build because escalated
-#    privalages have been problmatice with Ansible versions greater than 2.10.
+#    privileges have been problematic with Ansible versions greater than 2.10.
 #    Run this playbook using Ansible 2.9.x
 #
 #   Ideas for improvement:
