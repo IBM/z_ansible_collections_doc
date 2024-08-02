@@ -13,8 +13,8 @@
 #
 #   Ideas for improvement:
 #   - Ping the webserver
-#   - Check that this plabybook is run from the same domain the server is located
-#   - Upload the documentation as a tar and unzip to increse performance
+#   - Check that this playbook is run from the same domain the server is located
+#   - Upload the documentation as a tar and unzip to increase performance
 # Usage:
 #    ansible-playbook -i inventory site-uploader.yml --ask-vault-pass
 ################################################################################
@@ -25,7 +25,7 @@
 
   tasks:
     ############################################################################
-    # Confirm that the conent should be uploaded (its a slow process)
+    # Confirm that the content should be uploaded (its a slow process)
     ############################################################################
     #- name: Confirm continuing to upload HTML to private Apache server
     #  pause:
