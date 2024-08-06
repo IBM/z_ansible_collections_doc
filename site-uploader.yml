@@ -8,13 +8,13 @@
 #    at least 20 minutes to complete. See comments below for improvements.
 #
 #    Note: This has been extracted from the original build because escalated
-#    privalages have been problmatice with Ansible versions greater than 2.10.
+#    privileges have been problematic with Ansible versions greater than 2.10.
 #    Run this playbook using Ansible 2.9.x
 #
 #   Ideas for improvement:
 #   - Ping the webserver
-#   - Check that this plabybook is run from the same domain the server is located
-#   - Upload the documentation as a tar and unzip to increse performance
+#   - Check that this playbook is run from the same domain the server is located
+#   - Upload the documentation as a tar and unzip to increase performance
 # Usage:
 #    ansible-playbook -i inventory site-uploader.yml --ask-vault-pass
 ################################################################################
@@ -25,7 +25,7 @@
 
   tasks:
     ############################################################################
-    # Confirm that the conent should be uploaded (its a slow process)
+    # Confirm that the content should be uploaded (its a slow process)
     ############################################################################
     #- name: Confirm continuing to upload HTML to private Apache server
     #  pause:
