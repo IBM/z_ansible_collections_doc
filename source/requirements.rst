@@ -6,9 +6,9 @@
 
 .. _requirements:
 
-=============================
-Requirements and dependencies
-=============================
+=============
+Prerequisites
+=============
 
 Before you install any IBM z/OS® collection, you must configure a **control node** and a **managed node** with a minimum set of requirements. 
 

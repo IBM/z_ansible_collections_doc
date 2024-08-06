@@ -2,11 +2,11 @@
 .. © Copyright IBM Corporation 2024                                          .
 .. ...........................................................................
 
-.. _zos-core-support-matrix:
-
 ===================================
 The ``ibm_zos_core`` support matrix
 ===================================
+
+.. _zos-core-support-matrix:
 
 This table describes the dependencies information for the ``ibm_zos_core`` collection.
 

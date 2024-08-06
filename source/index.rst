@@ -6,6 +6,8 @@
 Red Hat Ansible Certified Content for IBM Z Documentation
 =========================================================
 
+(Jenny - this page is still under development. Not the final version.)
+
 Welcome to the Ansible for IBM Z docs site! Here you will find step-by-step user walkthroughs, best practices, resources and use cases to aid in your Ansible on IBM Z journey.
 
 .. Maybe outline how the Ansible for IBM Z bundle is constructed and how each collection is maintained
@@ -73,24 +75,40 @@ Other resources
 
 .. toctree::
    :maxdepth: 1
-   :caption: Welcome (new)
+   :caption: Welcome
    :hidden:
 
    overview
    basic-concepts
    sample-repo
+   ztrial-intro
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Roadmap
+   :hidden:
+
+   z/OS core<release/zoscoreroadmap>
 
 .. toctree::
    :maxdepth: 2
-   :caption: Installation guide
+   :caption: Getting Started
    :hidden:
 
    requirements
-   installation
+   installation/installation-index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Release Notes
+   :hidden:
+
+   release/release
 
 .. toctree::
    :maxdepth: 1
    :caption: Ansible Content
+   :hidden:
 
    z/OS core<ibm_zos_core/docs/ansible_content>
    z/OS CICS<ibm_zos_cics/docs/ansible_content>
@@ -101,14 +119,6 @@ Other resources
 
 .. toctree::
    :maxdepth: 1
-   :caption: Release Notes
-   :hidden:
-
-   release/roadmap
-   release/release
-
-.. toctree::
-   :maxdepth: 1
    :caption: Troubleshooting
    :hidden:
 
@@ -116,18 +126,11 @@ Other resources
 
 .. toctree::
    :maxdepth: 1
-   :caption: FAQs
+   :caption: Support
    :hidden:
 
+   support/support-flow
    faqs/faqs
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Help
-   :hidden:
-
-   help/faqs
-   help/getsupport
 
 .. toctree::
    :maxdepth: 1
