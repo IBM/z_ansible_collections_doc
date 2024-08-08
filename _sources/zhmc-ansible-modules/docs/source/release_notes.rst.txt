@@ -20,23 +20,156 @@ Releases
 ========
 
 
-Version 1.8.3
+Version 1.9.1
 -------------
 
-Released: 2024-02-29
+Released: 2024-07-18
 
 Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
 
 **Bug fixes:**
 
-* Fixed safety issues up to 2024-02-18.
+* Sanity test: Fixed the sanity test on AutomationHub which failed because the
+  "compile" and "import" tests were run for all target node Python versions,
+  which includes Python 2.7. As we had dropped support for Python < 3.8 in
+  collection version 1.9.0, the source code now uses Python 3-only features
+  such as f-strings.
+
+  This was done by adding a file tests/config.yml to the distribution archive
+  that is consumed by the sanity test if present and that declares that the
+  modules of this collection run only on the controller node, so the additional
+  Python versions for the target node are no longer used for these sanity tests.
+
+**Cleanup:**
+
+* Removed the unnecessary .pylintrc file from the distribution archive of the
+  collection.
+
+* Dev: Brought the list of dependent files for the distribution archive in the
+  Makefile back in sync with its content.
+
+
+Version 1.9.0
+-------------
+
+This version contains all fixes up to version 1.8.3.
+
+Released: 2024-07-18
+
+Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
+
+**Incompatible changes:**
+
+* Value of 'password' property will be replaced with '\*\*\*\*\*\*\*\*' in log messages and
+  'result' dictionary returned by zhmc_user.ensure_present().
+
+* Dropped support for Python 2.7, 3.5, 3.6, and 3.7.
+
+* Increased minimum officially supported Ansible version to Ansible 8 /
+  ansible-core 2.15. (issue #988)
+
+**Bug fixes:**
+
+* Fixed safety issues up to 2024-06-24.
 
 * Fixed dependabot issues up to 2024-02-18.
 
-* Fixed readable attribute error when ensuring ISO mounted onto the partition.
-  (related to issue #932)
+* Fixed a performance issue in the 'zhmc_lpar_list' and 'zhmc_partition_list'
+  modules where the 'se-version' property was fetched from CPCs even if it
+  was already available in the LPAR/partition properties. (issue #904)
+
+* Increased the minimum version of zhmcclient to 1.17.0 to pick up fixes,
+  performance improvements and new functions. (related to issue #904 and others)
+
+* Fixed readable attribute error when ensuring ISO mounted onto the partition. (related to issue #932)
+
+* In the Github Actions test workflow for Python 3.5, 3.6 and 3.7, changed
+  macos-latest back to macos-12 because macos-latest got upgraded from macOS 12
+  to macOS 14 which no longer supports these Python versions.
+
+* In the Github Actions test workflow for Python 3.5, added a circumvention
+  for the Pip certificate issue.
+
+* Fixed that the 'timeout' parameter of the zhmc_lpar module was not used for
+  'state=inactive'. (related to issue #986)
+
+* Test: Fixed that coverage was calculated only for the Ansible module
+  source files, but not for the utility files in module_utils. (issue #1020)
+
+* Test: Fixed exception handling in end2end tests for password rules.
+
+**Enhancements:**
+
+* Test: Added tests for Ansible 10. The testing of Ansible 3 was dropped
+  because we can test only one Ansible version on each Python version and
+  we ran out of Python versions.
+
+* Added a new make target 'end2end_show' to show the HMCs defined for end2end
+  tests. (issue #888)
+
+* Changed safety run for install dependencies to use the exact minimum versions
+  of the dependent packages, by moving them into a separate
+  minimum-constraints-install.txt file that is included by the existing
+  minimum-constraints.txt file. (issue #939)
+
+* The safety run for all dependencies now must succeed when the test workflow
+  is run for a release (i.e. branch name 'release\_...').
+
+* Aded check to the test workflow when running on macos or Ubuntu for whether
+  the 'xz' tool is at a version that is affected by CVE-2024-3094.
+
+* Added support for running the 'bandit' checker with a new make target
+  'bandit', and added that to the GitHub Actions test workflow.
+
+* Dev: Added a final run of the "safety" and "bandit" tools to the "publish"
+  workflow, to ensure that a release cannot happen with any findings.
+
+* Docs: Improved the short descriptions of the modules. (issue #998)
+
+* Added a new module zhmc_versions that retrieves facts for HMC/CPC versions
+  and features.
+
+* Added a new 'status_timeout' parameter to the zhmc_lpar module for
+  'state=inactive,active,loaded'. (issue #986)
+
+* Added a new 'allow_status_exceptions' parameters to the zhmc_lpar module for
+  'state=active,loaded'. For backwards compatibility, its default value is True.
+  (issue #986)
+
+* Test: Added a separate pylint run (in addition to the one in the Ansible
+  sanity test), because it can be run on the test sources as well, and because
+  the santy test pylint has important checks disabled. (issue #1007)
+
+* Test: Added virtual storage resource objects to the mocked end2end test
+  environments.
+
+* Docs: Added a chapter 'Installing a development version' that describes
+  how to build and install a development version of the collection from
+  the repo. (issue #1008)
+
+* Added new Ansible modules 'zhmc_user_pattern_list' and 'zhmc_user_pattern'
+  for listing and managing user patterns on the HMC. (issue #361)
+
+* Test: Added end2end tests for adding and removing user roles to/from existing
+  users. (related to issue #716)
+
+* Added a new Ansible module 'zhmc_cpc_capacity' for managing the temporary
+  processor capacity of a CPC. (issue #243)
+
+* Added new modules 'zhmc_lpar_command' and 'zhmc_partition_command' for
+  executing an OS consosle command in the OS running in an LPAR or
+  partition. (issue #938)
+
+* Enabled notification logging via the 'zhmcclient.jms' Python logger.
+  (related to issue #938)
 
 **Cleanup:**
+
+* Modernized the code to match the minimum Python version 3.8 (use of f-strings,
+  no Python 2 compatibility, 'mock' is used from 'unittest').
+
+* Increased versions of GitHub Actions plugins to increase node.js runtime
+  to version 20.
 
 * Resolved the 'no-log-needed' issue raised by the sanity test and ansible-lint
   on the 'os_ipl_token' input parameter of the 'zhmc_lpar' module. That
@@ -48,24 +181,19 @@ Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
   allowed to get rid of the corresponding entries in the ignore files.
   (issue #915)
 
+* Test: Upgraded Githubb Actionb plugins that used the deprecated node version
+  16. (issue #974)
 
-Version 1.8.2
--------------
+* Docs: Reduced the number of versions in the generated documentaion to only the
+  latest fix version of each minor version starting with version 1.0.x.
+  (issue #1000)
 
-Released: 2024-01-28
+* Dev: Suppressed the errors in the Makefile when ansible is not yet installed
+  but the Makefile sets variables that depend on ansible being installed.
+  That situation was handled correctly, but the error messages were confusing.
 
-Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
-
-**Bug fixes:**
-
-* Fixed safety issues up to 2024-01-26.
-
-* Fixed a performance issue in the 'zhmc_lpar_list' and 'zhmc_partition_list'
-  modules where the 'se-version' property was fetched from CPCs even if it
-  was already available in the LPAR/partition properties. (issue #904)
-
-* Increased the minimum version of zhmcclient to 1.13.3 to pick up fixes and
-  performance improvements. (related to issue #904)
+* Docs: Adjusted README file to new Ansible Automation Hub requirements.
+  (issue #993)
 
 
 Version 1.8.1

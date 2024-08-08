@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zhmc_storage_group_attachment – Attach storage groups to partitions &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  <title>zhmc_storage_group_attachment – Manage attachment of a storage group to a partition (DPM mode) &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="zhmc_storage_volume – Create storage volumes" href="zhmc_storage_volume.html" />
-    <link rel="prev" title="zhmc_storage_group – Create storage groups" href="zhmc_storage_group.html" /> 
+    <link rel="next" title="zhmc_storage_volume – Manage a storage volume (DPM mode)" href="zhmc_storage_volume.html" />
+    <link rel="prev" title="zhmc_storage_group – Manage a storage group (DPM mode)" href="zhmc_storage_group.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,28 +96,33 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">Z HMC</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="zhmc_session.html">zhmc_session – Manage HMC sessions across tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_versions.html">zhmc_versions – Retrieve HMC/CPC version and feature facts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_console.html">zhmc_console – Manage the HMC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_user.html">zhmc_user – Create HMC users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user.html">zhmc_user – Manage an HMC user</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_user_list.html">zhmc_user_list – List HMC users</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule.html">zhmc_password_rule – Create HMC password rules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule_list.html">zhmc_password_rule_list – List Password Rules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role.html">zhmc_user_role – Create HMC user roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule.html">zhmc_password_rule – Manage an HMC password rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule_list.html">zhmc_password_rule_list – List HMC password rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role.html">zhmc_user_role – Manage an HMC user role</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_user_role_list.html">zhmc_user_role_list – List HMC user roles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition.html">zhmc_ldap_server_definition – Manage LDAP Server Definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition_list.html">zhmc_ldap_server_definition_list – List LDAP Server Definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc.html">zhmc_cpc – Manage CPCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_pattern.html">zhmc_user_pattern – Manage an HMC user pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_pattern_list.html">zhmc_user_pattern_list – List HMC user patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition.html">zhmc_ldap_server_definition – Manage an LDAP Server Definition on the HMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition_list.html">zhmc_ldap_server_definition_list – List LDAP Server Definitions on the HMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc.html">zhmc_cpc – Manage a CPC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zhmc_cpc_list.html">zhmc_cpc_list – List CPCs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter.html">zhmc_adapter – Update adapters and create Hipersocket adapters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter_list.html">zhmc_adapter_list – List adapters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_crypto_attachment.html">zhmc_crypto_attachment – Attach crypto resources to partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_hba.html">zhmc_hba – Create HBAs in partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_nic.html">zhmc_nic – Create NICs in partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_nic_list.html">zhmc_nic_list – List NICs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_partition.html">zhmc_partition – Create partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_list.html">zhmc_partition_list – List partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_messages.html">zhmc_partition_messages – Get console messages for OS in a partition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group.html">zhmc_storage_group – Create storage groups</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">zhmc_storage_group_attachment – Attach storage groups to partitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc_capacity.html">zhmc_cpc_capacity – Manage temporary processor capacity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter.html">zhmc_adapter – Manage an adapter (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter_list.html">zhmc_adapter_list – List adapters (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_crypto_attachment.html">zhmc_crypto_attachment – Manage the crypto configuration of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_hba.html">zhmc_hba – Manage an HBA of a partition (z13 only, DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_nic.html">zhmc_nic – Manage a NIC of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_nic_list.html">zhmc_nic_list – List NICs of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition.html">zhmc_partition – Manage a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_command.html">zhmc_partition_command – Execute OS console command in a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_list.html">zhmc_partition_list – List partitions (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_messages.html">zhmc_partition_messages – Get console messages for OS in a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group.html">zhmc_storage_group – Manage a storage group (DPM mode)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zhmc_storage_group_attachment – Manage attachment of a storage group to a partition (DPM mode)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
@@ -126,11 +131,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_volume.html">zhmc_storage_volume – Create storage volumes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_virtual_function.html">zhmc_virtual_function – Create virtual functions in partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar.html">zhmc_lpar – Manage LPARs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_list.html">zhmc_lpar_list – List LPARs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_messages.html">zhmc_lpar_messages – Get console messages for OS in an LPAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_volume.html">zhmc_storage_volume – Manage a storage volume (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_virtual_function.html">zhmc_virtual_function – Manage a virtual function of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar.html">zhmc_lpar – Manage an LPAR (classic mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_command.html">zhmc_lpar_command – Execute OS console command in an LPAR (classic mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_list.html">zhmc_lpar_list – List LPARs (classic mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_messages.html">zhmc_lpar_messages – Get console messages for OS in an LPAR (classic mode)</a></li>
 </ul>
 </li>
 </ul>
@@ -209,7 +215,7 @@
         
           <li><a href="../modules.html">Modules</a> &raquo;</li>
         
-      <li>zhmc_storage_group_attachment – Attach storage groups to partitions</li>
+      <li>zhmc_storage_group_attachment – Manage attachment of a storage group to a partition (DPM mode)</li>
     
     
 
@@ -221,8 +227,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="zhmc-storage-group-attachment-attach-storage-groups-to-partitions">
-<span id="zhmc-storage-group-attachment-module"></span><h1>zhmc_storage_group_attachment – Attach storage groups to partitions<a class="headerlink" href="#zhmc-storage-group-attachment-attach-storage-groups-to-partitions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="zhmc-storage-group-attachment-manage-attachment-of-a-storage-group-to-a-partition-dpm-mode">
+<span id="zhmc-storage-group-attachment-module"></span><h1>zhmc_storage_group_attachment – Manage attachment of a storage group to a partition (DPM mode)<a class="headerlink" href="#zhmc-storage-group-attachment-manage-attachment-of-a-storage-group-to-a-partition-dpm-mode" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -264,31 +270,31 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
-<dt>userid</dt><dd><p>The userid (username) for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">session_id</span></code>.</p>
+<dt>userid</dt><dd><p>The userid (username) for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.session_id</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>password</dt><dd><p>The password for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">session_id</span></code>.</p>
+<dt>password</dt><dd><p>The password for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.session_id</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>session_id</dt><dd><p>HMC session ID to be used. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">userid</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> and can be created as described in :ref:`zhmc_session_module`.</p>
+<dt>session_id</dt><dd><p>HMC session ID to be used. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.userid</span></code> and <code class="docutils literal notranslate"><span class="pre">hmc_auth.password</span></code> and can be created as described in the <a class="reference internal" href="zhmc_session.html#zhmc-session-module"><span class="std std-ref">zhmc_session module</span></a>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>ca_certs</dt><dd><p>Path name of certificate file or certificate directory to be used for verifying the HMC certificate. If null (default), the path name in the ‘REQUESTS_CA_BUNDLE’ environment variable or the path name in the ‘CURL_CA_BUNDLE’ environment variable is used, or if neither of these variables is set, the certificates in the Mozilla CA Certificate List provided by the ‘certifi’ Python package are used for verifying the HMC certificate.</p>
+<dt>ca_certs</dt><dd><p>Path name of certificate file or certificate directory to be used for verifying the HMC certificate. If null (default), the path name in the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">REQUESTS_CA_BUNDLE</span></code> environment variable or the path name in the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CURL_CA_BUNDLE</span></code> environment variable is used, or if neither of these variables is set, the certificates in the Mozilla CA Certificate List provided by the ‘certifi’ Python package are used for verifying the HMC certificate.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>verify</dt><dd><p>If True (default), verify the HMC certificate as specified in the <code class="docutils literal notranslate"><span class="pre">ca_certs</span></code> parameter. If False, ignore what is specified in the <code class="docutils literal notranslate"><span class="pre">ca_certs</span></code> parameter and do not verify the HMC certificate.</p>
+<dt>verify</dt><dd><p>If True (default), verify the HMC certificate as specified in the <code class="docutils literal notranslate"><span class="pre">hmc_auth.ca_certs</span></code> parameter. If False, ignore what is specified in the <code class="docutils literal notranslate"><span class="pre">hmc_auth.ca_certs</span></code> parameter and do not verify the HMC certificate.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>

@@ -21,6 +21,8 @@ Resources
 
 .. glossary::
 
+.. _`HMC API`:
+
    HMC API
        The Web Services API of the z Systems Hardware Management Console, described in the following books:
 
@@ -48,3 +50,13 @@ Resources
    HMC API 2.15.0
        `IBM SC27-2638, IBM Z Hardware Management Console Web Services API (Version 2.15.0) <https://www.ibm.com/support/pages/node/6019720>`_
        (covers both GA1 and GA2)
+
+.. _`Java regular expressions`:
+
+   Java regular expressions
+       `Java class java.util.regex.Pattern <https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_
+
+.. _`CoD Users Guide`:
+
+   Capacity on Demand User's Guide
+       `IBM SC28-6985, IBM Z Capacity on Demand User's Guide <https://www.ibm.com/support/pages/node/6018790>`_

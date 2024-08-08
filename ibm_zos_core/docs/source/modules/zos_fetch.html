@@ -233,19 +233,17 @@
 <div class="section" id="synopsis">
 <h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>This module fetches a UNIX System Services (USS) file, PS (sequential data set), PDS, PDSE, member of a PDS or PDSE, generation data set (GDS), generation data group (GDG), or KSDS (VSAM data set) from a remote z/OS system.</p></li>
+<li><p>This module fetches a UNIX System Services (USS) file, PS (sequential data set), PDS, PDSE, member of a PDS or PDSE, or KSDS (VSAM data set) from a remote z/OS system.</p></li>
 <li><p>When fetching a sequential data set, the destination file name will be the same as the data set name.</p></li>
 <li><p>When fetching a PDS or PDSE, the destination will be a directory with the same name as the PDS or PDSE.</p></li>
 <li><p>When fetching a PDS/PDSE member, destination will be a file.</p></li>
 <li><p>Files that already exist at <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be overwritten if they are different than <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p></li>
-<li><p>When fetching a GDS, the relative name will be resolved to its absolute one.</p></li>
-<li><p>When fetching a generation data group, the destination will be a directory with the same name as the GDG.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
 <h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
-<dt>src</dt><dd><p>Name of a UNIX System Services (USS) file, PS (sequential data set), PDS, PDSE, member of a PDS, PDSE, GDS, GDG or KSDS (VSAM data set).</p>
+<dt>src</dt><dd><p>Name of a UNIX System Services (USS) file, PS (sequential data set), PDS, PDSE, member of a PDS, PDSE or KSDS (VSAM data set).</p>
 <p>USS file paths should be absolute paths.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -379,24 +377,6 @@
     <span class="nt">encoding</span><span class="p">:</span>
       <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IBM-037</span>
       <span class="nt">to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
-    <span class="nt">flat</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fetch the current generation data set from a GDG</span>
-  <span class="nt">zos_fetch</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USERHLQ.DATA.SET(0)</span>
-    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/</span>
-    <span class="nt">flat</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fetch a previous generation data set from a GDG</span>
-  <span class="nt">zos_fetch</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USERHLQ.DATA.SET(-3)</span>
-    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/</span>
-    <span class="nt">flat</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fetch a generation data group</span>
-  <span class="nt">zos_fetch</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USERHLQ.TEST.GDG</span>
-    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/</span>
     <span class="nt">flat</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>

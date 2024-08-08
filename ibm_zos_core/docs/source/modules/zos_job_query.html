@@ -242,7 +242,7 @@
 <dt>job_name</dt><dd><p>The job name to query.</p>
 <p>A job name can be up to 8 characters long.</p>
 <p>The <em>job_name</em> can contain include multiple wildcards.</p>
-<p>The asterisk (`*`) wildcard will match zero or more specified characters.</p>
+<p>The asterisk (<cite>*</cite>) wildcard will match zero or more specified characters.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -257,10 +257,10 @@
 </div>
 </dd>
 <dt>job_id</dt><dd><p>The job id that has been assigned to the job.</p>
-<p>A job id must begin with `STC`, `JOB`, `TSU` and are followed by up to 5 digits.</p>
-<p>When a job id is greater than 99,999, the job id format will begin with `S`, `J`, `T` and are followed by 7 digits.</p>
+<p>A job id must begin with <cite>STC</cite>, <cite>JOB</cite>, <cite>TSU</cite> and are followed by up to 5 digits.</p>
+<p>When a job id is greater than 99,999, the job id format will begin with <cite>S</cite>, <cite>J</cite>, <cite>T</cite> and are followed by 7 digits.</p>
 <p>The <em>job_id</em> can contain include multiple wildcards.</p>
-<p>The asterisk (`*`) wildcard will match zero or more specified characters.</p>
+<p>The asterisk (<cite>*</cite>) wildcard will match zero or more specified characters.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -398,7 +398,7 @@
 <div class="line"><strong>sample</strong>: CC 0000</div>
 </div>
 </dd>
-<dt>msg_code</dt><dd><p>Return code extracted from the `msg` so that it can be evaluated. For example, ABEND(S0C4) would yield “S0C4”.</p>
+<dt>msg_code</dt><dd><p>Return code extracted from the <cite>msg</cite> so that it can be evaluated. For example, ABEND(S0C4) would yield “S0C4”.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: S0C4</div>

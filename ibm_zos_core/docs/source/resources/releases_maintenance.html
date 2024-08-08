@@ -118,8 +118,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="resources.html">z/OS core</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="character_set.html">Character Sets</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Releases and maintenance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#life-cycle-phase">Life Cycle Phase</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#severities">Severities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#support-matrix">Support Matrix</a></li>
 </ul>
 </li>
@@ -194,65 +192,13 @@
             
   <div class="section" id="releases-and-maintenance">
 <h1>Releases and maintenance<a class="headerlink" href="#releases-and-maintenance" title="Permalink to this headline">¶</a></h1>
-<p>This section describes the collections release dates, dependency versions and End of Life dates (EOL)
-and support coverage.</p>
+<p>This table describes the collections release dates, dependency versions and End of Life dates (EOL).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ibm_zos_core</span></code> collection is developed and released on a flexible release cycle; generally, each quarter
 a beta is released followed by a GA version. Occasionally, the cycle may be extended to properly implement and
 test larger changes before a new release is made available.</p>
 <p>End of Life for this collection is generally a 2-year cycle unless a dependency reaches EOL prior to the 2 years.
-For example, if a collection has released and a dependency reaches EOL 1 year later, then the collection will EOL
+For example, if a collection has released and its dependency reaches EOL 1 year later, then the collection will EOL
 at the same time as the dependency, 1 year later.</p>
-<div class="section" id="life-cycle-phase">
-<h2>Life Cycle Phase<a class="headerlink" href="#life-cycle-phase" title="Permalink to this headline">¶</a></h2>
-<p>To encourage the adoption of new features while keeping the high standard of stability inherent,
-support is divided into life cycle phases; <strong>full support</strong> which covers the first year
-and <strong>maintenance support</strong> which covers the second year.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 40%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Life Cycle Phase</p></th>
-<th class="head"><p>Full Support</p></th>
-<th class="head"><p>Maintenance Support</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Critical security fixes</p></td>
-<td><p>Yes</p></td>
-<td><p>Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Bug fixes by severity</p></td>
-<td><p>Critical and high severity issues</p></td>
-<td><p>Critical severity issues</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="severities">
-<h2>Severities<a class="headerlink" href="#severities" title="Permalink to this headline">¶</a></h2>
-<p>Severity 1 (Critical):
-A problem that severely impacts your use of the software in a production environment (such as loss
-of production data or in which your production systems are not functioning). The situation halts
-your business operations and no procedural workaround exists.</p>
-<p>Severity 2 (high):
-A problem where the software is functioning but your use in a production environment is severely
-reduced. The situation is causing a high impact to portions of your business operations and no
-procedural workaround exists.</p>
-<p>Severity 3 (medium):
-A problem that involves partial, non-critical loss of use of the software in a production environment
-or development environment and your business continues to function, including by using a procedural
-workaround.</p>
-<p>Severity 4 (low):
-A general usage question, reporting of a documentation error, or recommendation for a future product
-enhancement or modification.</p>
-<p>Severities 3 and 4 are generally addressed in subsequent releases to ensure a high standard of stability
-remains available for production environments.</p>
-</div>
-<div class="section" id="support-matrix">
-<h2>Support Matrix<a class="headerlink" href="#support-matrix" title="Permalink to this headline">¶</a></h2>
 <p>These are the component versions available when the collection was made generally available (GA). The underlying
 component version is likely to change as it reaches EOL, thus components must be a version that is
 currently supported.</p>
@@ -266,12 +212,8 @@ to select a supported AAP version.</p>
 <p>For IBM product lifecycle information, you can search for products using a product name, version or ID. For example,
 to view IBM’s <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5655-PYT">Open Enterprise SDK for Python lifecycle</a>, search on product ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5655-PYT">5655-PYT</a>, and for
 <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5698-PA1">Z Open Automation Utilities lifecycle</a>, search on product ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5698-PA1">5698-PA1</a>.</p>
-<p>The z/OS managed node includes several shells, currently the only supported shell is the z/OS Shell located in path
-<a class="reference external" href="https://www.ibm.com/docs/en/zos/3.1.0?topic=descriptions-sh-invoke-shell">/bin/sh</a>. To configure which shell the ansible control node will use on the target machine, set inventory variable
-<strong>ansible_shell_executable</strong>.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible_shell_executable: /bin/sh
-</pre></div>
-</div>
+<div class="section" id="support-matrix">
+<h2>Support Matrix<a class="headerlink" href="#support-matrix" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 8%" />

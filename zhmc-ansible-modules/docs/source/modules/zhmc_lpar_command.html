@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zhmc_lpar_command – Execute OS console command in an LPAR (classic mode) &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="zhmc_lpar_list – List LPARs (classic mode)" href="zhmc_lpar_list.html" />
+    <link rel="prev" title="zhmc_lpar – Manage an LPAR (classic mode)" href="zhmc_lpar.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OS z/OSMF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">Z HMC</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zhmc_session.html">zhmc_session – Manage HMC sessions across tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_versions.html">zhmc_versions – Retrieve HMC/CPC version and feature facts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_console.html">zhmc_console – Manage the HMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user.html">zhmc_user – Manage an HMC user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_list.html">zhmc_user_list – List HMC users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule.html">zhmc_password_rule – Manage an HMC password rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_password_rule_list.html">zhmc_password_rule_list – List HMC password rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role.html">zhmc_user_role – Manage an HMC user role</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_role_list.html">zhmc_user_role_list – List HMC user roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_pattern.html">zhmc_user_pattern – Manage an HMC user pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_user_pattern_list.html">zhmc_user_pattern_list – List HMC user patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition.html">zhmc_ldap_server_definition – Manage an LDAP Server Definition on the HMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_ldap_server_definition_list.html">zhmc_ldap_server_definition_list – List LDAP Server Definitions on the HMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc.html">zhmc_cpc – Manage a CPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc_list.html">zhmc_cpc_list – List CPCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_cpc_capacity.html">zhmc_cpc_capacity – Manage temporary processor capacity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter.html">zhmc_adapter – Manage an adapter (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_adapter_list.html">zhmc_adapter_list – List adapters (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_crypto_attachment.html">zhmc_crypto_attachment – Manage the crypto configuration of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_hba.html">zhmc_hba – Manage an HBA of a partition (z13 only, DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_nic.html">zhmc_nic – Manage a NIC of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_nic_list.html">zhmc_nic_list – List NICs of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition.html">zhmc_partition – Manage a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_command.html">zhmc_partition_command – Execute OS console command in a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_list.html">zhmc_partition_list – List partitions (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_partition_messages.html">zhmc_partition_messages – Get console messages for OS in a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group.html">zhmc_storage_group – Manage a storage group (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_group_attachment.html">zhmc_storage_group_attachment – Manage attachment of a storage group to a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_storage_volume.html">zhmc_storage_volume – Manage a storage volume (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_virtual_function.html">zhmc_virtual_function – Manage a virtual function of a partition (DPM mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar.html">zhmc_lpar – Manage an LPAR (classic mode)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">zhmc_lpar_command – Execute OS console command in an LPAR (classic mode)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-values">Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_list.html">zhmc_lpar_list – List LPARs (classic mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zhmc_lpar_messages.html">zhmc_lpar_messages – Get console messages for OS in an LPAR (classic mode)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../ansible_content.html">Z HMC</a> &raquo;</li>
+        
+          <li><a href="../modules.html">Modules</a> &raquo;</li>
+        
+      <li>zhmc_lpar_command – Execute OS console command in an LPAR (classic mode)</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zhmc-lpar-command-execute-os-console-command-in-an-lpar-classic-mode">
+<span id="zhmc-lpar-command-module"></span><h1>zhmc_lpar_command – Execute OS console command in an LPAR (classic mode)<a class="headerlink" href="#zhmc-lpar-command-execute-os-console-command-in-an-lpar-classic-mode" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#requirements" id="id2">Requirements</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Execute a command in the console of the OS running in an LPAR and get back the command output.</p></li>
+<li><p>Note: The OS console interface provided by the HMC WS-API does not allow separating multiple concurrent interactions. For example, when OS console commands are executed via the HMC GUI at the same time when executing this Ansible module, the command output returned by the Ansible module may be mixed with output from the concurrently executed command.</p></li>
+<li><p>Note: The logic for determining which lines on the OS console belong to the executed command is as follows: The OS console messages are started to be captured just before the console command is sent. The captured console messages are then searched for the occurrence of the command. The command itself and all messages following the command are considered part of the command output, until there are no more new messages for 2 seconds. If there is a lot of traffic on the OS console, that may lead to other messages being included in the command output.</p></li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2><a class="toc-backref" href="#id2">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The targeted CPC must be in the classic operational mode.</p></li>
+<li><p>The targeted LPAR must be loaded (i.e. running an operating system).</p></li>
+<li><p>The HMC userid must have these task permissions: ‘Operating System Messages’ (view-only is sufficient)</p></li>
+<li><p>The HMC userid must have object-access permissions to these objects: Target CPC, target LPAR.</p></li>
+</ul>
+</div>
+<div class="section" id="parameters">
+<h2><a class="toc-backref" href="#id3">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>hmc_host</dt><dd><p>The hostnames or IP addresses of a single HMC or of a list of redundant HMCs. A single HMC can be specified as a string type or as an HMC list with one item. An HMC list can be specified as a list type or as a string type containing a Python list representation.</p>
+<p>The first available HMC of a list of redundant HMCs is used for the entire execution of the module.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: raw</div>
+</div>
+</dd>
+<dt>hmc_auth</dt><dd><p>The authentication credentials for the HMC.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>userid</dt><dd><p>The userid (username) for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.session_id</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>password</dt><dd><p>The password for authenticating with the HMC. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.session_id</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>session_id</dt><dd><p>HMC session ID to be used. This is mutually exclusive with providing <code class="docutils literal notranslate"><span class="pre">hmc_auth.userid</span></code> and <code class="docutils literal notranslate"><span class="pre">hmc_auth.password</span></code> and can be created as described in the <a class="reference internal" href="zhmc_session.html#zhmc-session-module"><span class="std std-ref">zhmc_session module</span></a>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>ca_certs</dt><dd><p>Path name of certificate file or certificate directory to be used for verifying the HMC certificate. If null (default), the path name in the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">REQUESTS_CA_BUNDLE</span></code> environment variable or the path name in the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CURL_CA_BUNDLE</span></code> environment variable is used, or if neither of these variables is set, the certificates in the Mozilla CA Certificate List provided by the ‘certifi’ Python package are used for verifying the HMC certificate.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>verify</dt><dd><p>If True (default), verify the HMC certificate as specified in the <code class="docutils literal notranslate"><span class="pre">hmc_auth.ca_certs</span></code> parameter. If False, ignore what is specified in the <code class="docutils literal notranslate"><span class="pre">hmc_auth.ca_certs</span></code> parameter and do not verify the HMC certificate.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>cpc_name</dt><dd><p>The name of the CPC with the target LPAR.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>name</dt><dd><p>The name of the target LPAR.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>command</dt><dd><p>The OS console command to be executed.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>is_priority</dt><dd><p>Controls whether the command is executed as a priority command.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>log_file</dt><dd><p>File path of a log file to which the logic flow of this module as well as interactions with the HMC are logged. If null, logging will be propagated to the Python root logger.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># Note: The following examples assume that some variables named &#39;my_*&#39; are set.</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get z/OS system time via OS console command</span>
+  <span class="nt">zhmc_lpar_command</span><span class="p">:</span>
+    <span class="nt">hmc_host</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_host</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="nt">hmc_auth</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_hmc_auth</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="nt">cpc_name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_cpc_name</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_lpar_name</span> <span class="cp">}}</span><span class="s">&quot;</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="s">&quot;D</span><span class="nv"> </span><span class="s">T&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zos_time_output</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>changed</dt><dd><p>Indicates if any change has been made by the module.</p>
+<p>This will always be true, because it is not clear whether the command has performed a change. Note that a playbook using this module with a command that does not perform a change can override that by specifying <code class="docutils literal notranslate"><span class="pre">changed_when:</span> <span class="pre">false</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>msg</dt><dd><p>An error message that describes the failure.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: failure</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>output</dt><dd><p>The command and its output, as one item per line, without any trailing newlines.</p>
+<p>The format of each message text depends on the type of OS. Typical formats are, showing the message with the command:</p>
+<p>z/VM: <code class="docutils literal notranslate"><span class="pre">04:30:02</span> <span class="pre">Q</span> <span class="pre">CPLEVEL</span></code></p>
+<p>z/OS: <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">T</span></code></p>
+<p>Linux: <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code></p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;D T&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RESPONSE=GR1       IEE136I LOCAL: TIME=09.25.08 DATE=2024.194  UTC:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RESPONSE=TIME=07.25.08 DATE=2024.194&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright IBM Corp. 2020, 2023
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -221,15 +221,15 @@
 <span id="zos-job-submit-module"></span><h1>zos_job_submit – Submit JCL<a class="headerlink" href="#zos-job-submit-submit-jcl" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
 </ul>
 </div>
 <div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Submit JCL in a data set, USS file, or file on the controller.</p></li>
 <li><p>Submit a job and monitor for completion.</p></li>
@@ -237,22 +237,21 @@
 </ul>
 </div>
 <div class="section" id="parameters">
-<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>src</dt><dd><p>The source file or data set containing the JCL to submit.</p>
-<p>It could be a physical sequential data set, a partitioned data set qualified by a member or a path (e.g. <code class="docutils literal notranslate"><span class="pre">USER.TEST</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.JCL(TEST)</span></code>), or a generation data set from a generation data group (for example, <code class="docutils literal notranslate"><span class="pre">USER.TEST.GDG(-2)</span></code>).</p>
-<p>Or a USS file. (e.g <code class="docutils literal notranslate"><span class="pre">/u/tester/demo/sample.jcl</span></code>)</p>
-<p>Or a LOCAL file in ansible control node. (e.g <code class="docutils literal notranslate"><span class="pre">/User/tester/ansible-playbook/sample.jcl</span></code>)</p>
-<p>When using a generation data set, only already created generations are valid. If either the relative name is positive, or negative but not found, the module will fail.</p>
+<p>It could be a physical sequential data set, a partitioned data set qualified by a member or a path. (e.g “USER.TEST”,”USER.JCL(TEST)”)</p>
+<p>Or a USS file. (e.g “/u/tester/demo/sample.jcl”)</p>
+<p>Or a LOCAL file in ansible control node. (e.g “/User/tester/ansible-playbook/sample.jcl”)</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
 <dt>location</dt><dd><p>The JCL location. Supported choices are <code class="docutils literal notranslate"><span class="pre">data_set</span></code>, <code class="docutils literal notranslate"><span class="pre">uss</span></code> or <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">data_set</span></code> can be a PDS, PDSE, sequential data set, or a generation data set.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data_set</span></code> can be a PDS, PDSE, or sequential data set.</p>
 <p><code class="docutils literal notranslate"><span class="pre">uss</span></code> means the JCL location is located in UNIX System Services (USS).</p>
-<p><code class="docutils literal notranslate"><span class="pre">local</span></code> means locally to the Ansible control node.</p>
+<p><code class="docutils literal notranslate"><span class="pre">local</span></code> means locally to the ansible control node.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -431,7 +430,7 @@
 </dl>
 </div>
 <div class="section" id="examples">
-<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL in a PDSE member.</span>
   <span class="nt">zos_job_submit</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ(SAMPLE)</span>
@@ -475,21 +474,11 @@
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.LLQ</span>
     <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
     <span class="nt">max_rc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL from the latest generation data set in a generation data group.</span>
-  <span class="nt">zos_job_submit</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.GDG(0)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Submit JCL from a previous generation data set in a generation data group.</span>
-  <span class="nt">zos_job_submit</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HLQ.DATA.GDG(-2)</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data_set</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="notes">
-<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
@@ -497,7 +486,7 @@
 </div>
 </div>
 <div class="section" id="return-values">
-<h2><a class="toc-backref" href="#id5">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>jobs</dt><dd><p>List of jobs output. If no job status is found, this will return an empty ret_code with msg_txt explanation.</p>
 <div class="line-block">
@@ -849,16 +838,16 @@
 </div></blockquote>
 <dl>
 <dt>msg</dt><dd><p>Job status resulting from the job submission.</p>
-<p>Job status `ABEND` indicates the job ended abnormally.</p>
-<p>Job status `AC` indicates the job is active, often a started task or job taking long.</p>
-<p>Job status `CAB` indicates a converter abend.</p>
-<p>Job status `CANCELED` indicates the job was canceled.</p>
-<p>Job status `CNV` indicates a converter error.</p>
-<p>Job status `FLU` indicates the job was flushed.</p>
-<p>Job status `JCLERR` or `JCL ERROR` indicates the JCL has an error.</p>
-<p>Job status `SEC` or `SEC ERROR` indicates the job as encountered a security error.</p>
-<p>Job status `SYS` indicates a system failure.</p>
-<p>Job status `?` indicates status can not be determined.</p>
+<p>Job status <cite>ABEND</cite> indicates the job ended abnormally.</p>
+<p>Job status <cite>AC</cite> indicates the job is active, often a started task or job taking long.</p>
+<p>Job status <cite>CAB</cite> indicates a converter abend.</p>
+<p>Job status <cite>CANCELED</cite> indicates the job was canceled.</p>
+<p>Job status <cite>CNV</cite> indicates a converter error.</p>
+<p>Job status <cite>FLU</cite> indicates the job was flushed.</p>
+<p>Job status <cite>JCLERR</cite> or <cite>JCL ERROR</cite> indicates the JCL has an error.</p>
+<p>Job status <cite>SEC</cite> or <cite>SEC ERROR</cite> indicates the job as encountered a security error.</p>
+<p>Job status <cite>SYS</cite> indicates a system failure.</p>
+<p>Job status <cite>?</cite> indicates status can not be determined.</p>
 <p>Jobs where status can not be determined will result in None (NULL).</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>

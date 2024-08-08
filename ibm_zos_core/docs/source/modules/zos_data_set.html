@@ -220,21 +220,21 @@
 <span id="zos-data-set-module"></span><h1>zos_data_set – Manage data sets<a class="headerlink" href="#zos-data-set-manage-data-sets" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id4">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id5">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
 </ul>
 </div>
 <div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Create, delete and set attributes of data sets.</p></li>
 <li><p>When forcing data set replacement, contents will not be preserved.</p></li>
 </ul>
 </div>
 <div class="section" id="parameters">
-<h2><a class="toc-backref" href="#id2">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>name</dt><dd><p>The name of the data set being managed. (e.g <code class="docutils literal notranslate"><span class="pre">USER.TEST</span></code>)</p>
 <p>If <em>name</em> is not provided, a randomized data set name will be generated with the HLQ matching the module-runners username.</p>
@@ -251,7 +251,6 @@
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog is successful, then the data set is removed. Module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is not found in the catalog, the module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, then no action is taken. Module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=absent</em> and <em>volumes</em> is provided, and the data set is found in the catalog, the module compares the catalog volume attributes to the provided <em>volumes</em>. If the volume attributes are different, the cataloged data set will be uncataloged temporarily while the requested data set be deleted is cataloged. The module will catalog the original data set on completion, if the attempts to catalog fail, no action is taken. Module completes successfully with <em>changed=False</em>.</p>
-<p>If <em>state=absent</em> and <em>type=gdg</em> and the GDG base has active generations the module will complete successfully with <em>changed=False</em>. To remove it option <em>force</em> needs to be used. If the GDG base does not have active generations the module will complete successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and the data set does not exist on the managed node, create and catalog the data set, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=True</em> and the data set is present on the managed node the existing data set is deleted, and a new data set is created and cataloged with the desired attributes, module completes successfully with <em>changed=True</em>.</p>
 <p>If <em>state=present</em> and <em>replace=False</em> and the data set is present on the managed node, no action taken, module completes successfully with <em>changed=False</em>.</p>
@@ -275,7 +274,7 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: pds</div>
-<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, library, basic, large, member, hfs, zfs, gdg</div>
+<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, library, basic, large, member, hfs, zfs</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>The amount of primary space to allocate for the dataset.</p>
@@ -376,55 +375,6 @@
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
-<dt>empty</dt><dd><p>Sets the <em>empty</em> attribute for Generation Data Groups.</p>
-<p>If false, removes only the oldest GDS entry when a new GDS is created that causes GDG limit to be exceeded.</p>
-<p>If true, removes all GDS entries from a GDG base when a new GDS is created that causes the GDG limit to be exceeded.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>extended</dt><dd><p>Sets the <em>extended</em> attribute for Generation Data Groups.</p>
-<p>If false, allow up to 255 generation data sets (GDSs) to be associated with the GDG.</p>
-<p>If true, allow up to 999 generation data sets (GDS) to be associated with the GDG.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>fifo</dt><dd><p>Sets the <em>fifo</em> attribute for Generation Data Groups.</p>
-<p>If false, the order is the newest GDS defined to the oldest GDS. This is the default value.</p>
-<p>If true, the order is the oldest GDS defined to the newest GDS.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>limit</dt><dd><p>Sets the <em>limit</em> attribute for Generation Data Groups.</p>
-<p>Specifies the maximum number, from 1 to 255(up to 999 if extended), of GDS that can be associated with the GDG being defined.</p>
-<p><em>limit</em> is required when <em>type=gdg</em>.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
-</dd>
-<dt>purge</dt><dd><p>Sets the <em>purge</em> attribute for Generation Data Groups.</p>
-<p>Specifies whether to override expiration dates when a generation data set (GDS) is rolled off and the <code class="docutils literal notranslate"><span class="pre">scratch</span></code> option is set.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>scratch</dt><dd><p>Sets the <em>scratch</em> attribute for Generation Data Groups.</p>
-<p>Specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
 <dt>volumes</dt><dd><p>If cataloging a data set, <em>volumes</em> specifies the name of the volume(s) where the data set is located.</p>
 <p>If creating a data set, <em>volumes</em> specifies the volume(s) where the data set should be created.</p>
 <p>If <em>volumes</em> is provided when <em>state=present</em>, and the data set is not found in the catalog, <a class="reference external" href="./zos_data_set.html">zos_data_set</a> will check the volume table of contents to see if the data set exists. If the data set does exist, it will be cataloged.</p>
@@ -455,8 +405,7 @@
 <dt>force</dt><dd><p>Specifies that the data set can be shared with others during a member delete operation which results in the data set you are updating to be simultaneously updated by others.</p>
 <p>This is helpful when a data set is being used in a long running process such as a started task and you are wanting to delete a member.</p>
 <p>The <em>force=True</em> option enables sharing of data sets through the disposition <em>DISP=SHR</em>.</p>
-<p>The <em>force=True</em> only applies to data set members when <em>state=absent</em> and <em>type=member</em> and when removing a GDG base with active generations.</p>
-<p>If <em>force=True</em>, <em>type=gdg</em> and <em>state=absent</em> it will force remove a GDG base with active generations.</p>
+<p>The <em>force=True</em> only applies to data set members when <em>state=absent</em> and <em>type=member</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -508,7 +457,7 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: pds</div>
-<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, library, basic, large, member, hfs, zfs, gdg</div>
+<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, library, basic, large, member, hfs, zfs</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>The amount of primary space to allocate for the dataset.</p>
@@ -609,55 +558,6 @@
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
-<dt>empty</dt><dd><p>Sets the <em>empty</em> attribute for Generation Data Groups.</p>
-<p>If false, removes only the oldest GDS entry when a new GDS is created that causes GDG limit to be exceeded.</p>
-<p>If true, removes all GDS entries from a GDG base when a new GDS is created that causes the GDG limit to be exceeded.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>extended</dt><dd><p>Sets the <em>extended</em> attribute for Generation Data Groups.</p>
-<p>If false, allow up to 255 generation data sets (GDSs) to be associated with the GDG.</p>
-<p>If true, allow up to 999 generation data sets (GDS) to be associated with the GDG.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>fifo</dt><dd><p>Sets the <em>fifo</em> attribute for Generation Data Groups.</p>
-<p>If false, the order is the newest GDS defined to the oldest GDS. This is the default value.</p>
-<p>If true, the order is the oldest GDS defined to the newest GDS.</p>
-<p>Default is false.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>limit</dt><dd><p>Sets the <em>limit</em> attribute for Generation Data Groups.</p>
-<p>Specifies the maximum number, from 1 to 255(up to 999 if extended), of GDS that can be associated with the GDG being defined.</p>
-<p><em>limit</em> is required when <em>type=gdg</em>.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: int</div>
-</div>
-</dd>
-<dt>purge</dt><dd><p>Sets the <em>purge</em> attribute for Generation Data Groups.</p>
-<p>Specifies whether to override expiration dates when a generation data set (GDS) is rolled off and the <code class="docutils literal notranslate"><span class="pre">scratch</span></code> option is set.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
-<dt>scratch</dt><dd><p>Sets the <em>scratch</em> attribute for Generation Data Groups.</p>
-<p>Specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: bool</div>
-</div>
-</dd>
 <dt>volumes</dt><dd><p>If cataloging a data set, <em>volumes</em> specifies the name of the volume(s) where the data set is located.</p>
 <p>If creating a data set, <em>volumes</em> specifies the volume(s) where the data set should be created.</p>
 <p>If <em>volumes</em> is provided when <em>state=present</em>, and the data set is not found in the catalog, <a class="reference external" href="./zos_data_set.html">zos_data_set</a> will check the volume table of contents to see if the data set exists. If the data set does exist, it will be cataloged.</p>
@@ -693,7 +593,7 @@
 </dl>
 </div>
 <div class="section" id="examples">
-<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a sequential data set if it does not exist</span>
   <span class="nt">zos_data_set</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">someds.name.here</span>
@@ -822,7 +722,7 @@
 </div>
 </div>
 <div class="section" id="return-values">
-<h2><a class="toc-backref" href="#id4">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Return Values</a><a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>names</dt><dd><p>The data set names, including temporary generated data set names, in the order provided to the module.</p>
 <div class="line-block">

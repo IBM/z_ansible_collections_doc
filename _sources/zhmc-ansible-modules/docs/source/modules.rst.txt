@@ -39,6 +39,7 @@ Modules targeting the HMC (i.e. not a specific CPC):
    :maxdepth: 1
    :glob:
 
+   modules/zhmc_versions
    modules/zhmc_console
    modules/zhmc_user
    modules/zhmc_user_list
@@ -46,6 +47,8 @@ Modules targeting the HMC (i.e. not a specific CPC):
    modules/zhmc_password_rule_list
    modules/zhmc_user_role
    modules/zhmc_user_role_list
+   modules/zhmc_user_pattern
+   modules/zhmc_user_pattern_list
    modules/zhmc_ldap_server_definition
    modules/zhmc_ldap_server_definition_list
 
@@ -57,6 +60,7 @@ Modules supported with CPCs in any operational mode:
 
    modules/zhmc_cpc
    modules/zhmc_cpc_list
+   modules/zhmc_cpc_capacity
 
 Modules supported only with CPCs in DPM operational mode:
 
@@ -71,6 +75,7 @@ Modules supported only with CPCs in DPM operational mode:
    modules/zhmc_nic
    modules/zhmc_nic_list
    modules/zhmc_partition
+   modules/zhmc_partition_command
    modules/zhmc_partition_list
    modules/zhmc_partition_messages
    modules/zhmc_storage_group
@@ -85,6 +90,7 @@ Modules supported only with CPCs in classic operational mode:
    :glob:
 
    modules/zhmc_lpar
+   modules/zhmc_lpar_command
    modules/zhmc_lpar_list
    modules/zhmc_lpar_messages
 

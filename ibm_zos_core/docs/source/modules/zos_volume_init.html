@@ -236,7 +236,7 @@
 <li><p>Volumes are used for storing data and executable programs.</p></li>
 <li><p>A minidisk is a portion of a disk that is linked to your virtual machine.</p></li>
 <li><p>A VTOC lists the data sets that reside on a volume, their location, size, and other attributes.</p></li>
-<li><p><em>zos_volume_init</em> uses the ICKDSF command INIT to initialize a volume. In some cases the command could be protected by facility class `STGADMIN.ICK.INIT`. Protection occurs when the class is active, and the class profile is defined. Ensure the user executing the Ansible task is permitted to execute ICKDSF command INIT, otherwise, any user can use the command.</p></li>
+<li><p><em>zos_volume_init</em> uses the ICKDSF command INIT to initialize a volume. In some cases the command could be protected by facility class <cite>STGADMIN.ICK.INIT</cite>. Protection occurs when the class is active, and the class profile is defined. Ensure the user executing the Ansible task is permitted to execute ICKDSF command INIT, otherwise, any user can use the command.</p></li>
 <li><p>ICKDSF is an Authorized Program Facility (APF) program on z/OS, <em>zos_volume_init</em> will run in authorized mode but if the program ICKDSF is not APF authorized, the task will end.</p></li>
 <li><p>Note that defaults set on target z/OS systems may override ICKDSF parameters.</p></li>
 <li><p>If is recommended that data on the volume is backed up as the <em>zos_volume_init</em> module will not perform any backups. You can use the <a class="reference external" href="./zos_backup_restore.html">zos_backup_restore</a> module to backup a volume.</p></li>

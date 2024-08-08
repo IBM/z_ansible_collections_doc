@@ -319,7 +319,7 @@
 <dt>mode</dt><dd><p>The permission of the uncompressed files.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, this will act as Unix file mode, otherwise ignored.</p>
 <p>It should be noted that modes are octal numbers. The user must either add a leading zero so that Ansible’s YAML parser knows it is an octal number (like <code class="docutils literal notranslate"><span class="pre">0644</span></code> or <code class="docutils literal notranslate"><span class="pre">01777</span></code>)or quote it (like <code class="docutils literal notranslate"><span class="pre">'644'</span></code> or <code class="docutils literal notranslate"><span class="pre">'1777'</span></code>) so Ansible receives a string and can do its own conversion from string into number. Giving Ansible a number without following one of these rules will end up with a decimal number which will have unexpected results.</p>
-<p>The mode may also be specified as a symbolic mode (for example, ``u+rwx`` or ``u=rw,g=r,o=r``) or a special string `preserve`.</p>
+<p>The mode may also be specified as a symbolic mode (for example, <code class="docutils literal notranslate"><span class="pre">u+rwx</span></code> or <code class="docutils literal notranslate"><span class="pre">u=rw,g=r,o=r</span></code>) or a special string <cite>preserve</cite>.</p>
 <p><em>mode=preserve</em> means that the file will be given the same permissions as the source file.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
