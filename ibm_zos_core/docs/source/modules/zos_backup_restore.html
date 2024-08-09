@@ -349,23 +349,16 @@
 </div>
 </dd>
 <dt>space_type</dt><dd><p>The unit of measurement to use when defining data set space.</p>
-<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl</span></code>, and <code class="docutils literal notranslate"><span class="pre">trk</span></code>.</p>
-<p>When <em>full_volume=True</em>, <em>space_type</em> defaults to <code class="docutils literal notranslate"><span class="pre">g</span></code>, otherwise default is <code class="docutils literal notranslate"><span class="pre">m</span></code></p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
+<p>When <em>full_volume=True</em>, <em>space_type</em> defaults to <code class="docutils literal notranslate"><span class="pre">G</span></code>, otherwise default is <code class="docutils literal notranslate"><span class="pre">M</span></code></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
+<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
 </div>
 </dd>
 <dt>hlq</dt><dd><p>Specifies the new HLQ to use for the data sets being restored.</p>
 <p>Defaults to running user’s username.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
-<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary and backup data sets.</p>
-<p>The default HLQ is the Ansible user that executes the module and if that is not available, then the value of <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -399,7 +392,7 @@
     <span class="nt">data_sets</span><span class="p">:</span>
       <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.**</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
-    <span class="nt">recover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">recover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** to data set MY.BACKUP.DZP,</span>
     <span class="l l-Scalar l-Scalar-Plain">allocate 100MB for data sets used in backup process.</span>
@@ -409,7 +402,7 @@
       <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.**</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">m</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">M</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>
     <span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** that are present on the volume MYVOL1 to data set MY.BACKUP.DZP,</span>
@@ -421,7 +414,7 @@
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL1</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">m</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">M</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup an entire volume, MYVOL1, to the UNIX file /tmp/temp_backup.dzp,</span>
     <span class="l l-Scalar l-Scalar-Plain">allocate 1GB for data sets used in backup process.</span>
@@ -429,9 +422,9 @@
     <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backup</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL1</span>
-    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">g</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">G</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
     <span class="l l-Scalar l-Scalar-Plain">Use z/OS username as new HLQ.</span>
@@ -472,10 +465,10 @@
   <span class="nt">zos_backup_restore</span><span class="p">:</span>
     <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restore</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL2</span>
-    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">g</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">G</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
     <span class="l l-Scalar l-Scalar-Plain">Specify DB2SMS10 for the SMS storage and management classes to use for the restored</span>

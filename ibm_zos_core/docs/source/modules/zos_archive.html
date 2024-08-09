@@ -280,7 +280,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: pack, spack</div>
+<div class="line"><strong>choices</strong>: PACK, SPACK</div>
 </div>
 </dd>
 <dt>xmit_log_data_set</dt><dd><p>Provide the name of a data set to store xmit log output.</p>
@@ -377,8 +377,8 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: seq</div>
-<div class="line"><strong>choices</strong>: seq</div>
+<div class="line"><strong>default</strong>: SEQ</div>
+<div class="line"><strong>choices</strong>: SEQ</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
@@ -396,19 +396,19 @@
 </div>
 </dd>
 <dt>space_type</dt><dd><p>If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.</p>
-<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl</span></code>, and <code class="docutils literal notranslate"><span class="pre">trk</span></code>.</p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
+<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
 </div>
 </dd>
 <dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">FB</span></code>)</p>
-<p>Choices are case-sensitive.</p>
+<p>Choices are case-insensitive.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: fb, vb, fba, vba, u</div>
+<div class="line"><strong>choices</strong>: FB, VB, FBA, VBA, U</div>
 </div>
 </dd>
 <dt>record_length</dt><dd><p>The length of each record in the data set, in bytes.</p>
@@ -514,8 +514,8 @@
     <span class="nt">format</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
       <span class="nt">format_options</span><span class="p">:</span>
-        <span class="nt">terse_pack</span><span class="p">:</span> <span class="s">&quot;spack&quot;</span>
-        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">terse_pack</span><span class="p">:</span> <span class="s">&quot;SPACK&quot;</span>
+        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
 
 <span class="c1"># Use a pattern to store</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Compress data set pattern using xmit</span>

@@ -282,7 +282,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">dest</span></code> can be a USS file, directory or MVS data set name.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> has missing parent directories, they will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a new USS file or replacement, the file will be appropriately tagged with either the system’s default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the module will fail.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a new USS file or replacement, the file will be appropriately tagged with either the system’s default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the copy will fail.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, it will be created following the process outlined here and in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>is_binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, precedence rules apply. If <code class="docutils literal notranslate"><span class="pre">dest_data_set</span></code> is set, this will take precedence over an existing data set. If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. Lastly, if no precendent rule has been exercised, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be created with the same attributes of <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
@@ -311,7 +311,7 @@
 </dd>
 <dt>to</dt><dd><p>The encoding to be converted to</p>
 <div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
@@ -389,27 +389,11 @@
 <div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
-<dt>group</dt><dd><p>Name of the group that will own the file system objects.</p>
-<p>When left unspecified, it uses the current group of the current user unless you are root, in which case it can preserve the previous ownership.</p>
-<p>This option is only applicable if <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, otherwise ignored.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
 <dt>mode</dt><dd><p>The permission of the destination file or directory.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, this will act as Unix file mode, otherwise ignored.</p>
 <p>It should be noted that modes are octal numbers. The user must either add a leading zero so that Ansible’s YAML parser knows it is an octal number (like <code class="docutils literal notranslate"><span class="pre">0644</span></code> or <code class="docutils literal notranslate"><span class="pre">01777</span></code>)or quote it (like <code class="docutils literal notranslate"><span class="pre">'644'</span></code> or <code class="docutils literal notranslate"><span class="pre">'1777'</span></code>) so Ansible receives a string and can do its own conversion from string into number. Giving Ansible a number without following one of these rules will end up with a decimal number which will have unexpected results.</p>
 <p>The mode may also be specified as a symbolic mode (for example, <code class="docutils literal notranslate"><span class="pre">u+rwx</span></code> or <code class="docutils literal notranslate"><span class="pre">u=rw,g=r,o=r</span></code>) or a special string <cite>preserve</cite>.</p>
 <p><em>mode=preserve</em> means that the file will be given the same permissions as the source file.</p>
-<div class="line-block">
-<div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
-</div>
-</dd>
-<dt>owner</dt><dd><p>Name of the user that should own the filesystem object, as would be passed to the chown command.</p>
-<p>When left unspecified, it uses the current user unless you are root, in which case it can preserve the previous ownership.</p>
-<p>This option is only applicable if <code class="docutils literal notranslate"><span class="pre">dest</span></code> is USS, otherwise ignored.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -466,7 +450,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, member, basic, library</div>
+<div class="line"><strong>choices</strong>: KSDS, ESDS, RRDS, LDS, SEQ, PDS, PDSE, MEMBER, BASIC, LIBRARY</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
@@ -484,19 +468,19 @@
 </div>
 </dd>
 <dt>space_type</dt><dd><p>If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.</p>
-<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl</span></code>, and <code class="docutils literal notranslate"><span class="pre">trk</span></code>.</p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
+<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
 </div>
 </dd>
-<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">fb</span></code>)</p>
-<p>Choices are case-sensitive.</p>
+<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">FB</span></code>)</p>
+<p>Choices are case-insensitive.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: fb, vb, fba, vba, u</div>
+<div class="line"><strong>choices</strong>: FB, VB, FBA, VBA, U</div>
 </div>
 </dd>
 <dt>record_length</dt><dd><p>The length of each record in the data set, in bytes.</p>
@@ -520,16 +504,16 @@
 </div>
 </dd>
 <dt>key_offset</dt><dd><p>The key offset to use when creating a KSDS data set.</p>
-<p><em>key_offset</em> is required when <em>type=ksds</em>.</p>
-<p><em>key_offset</em> should only be provided when <em>type=ksds</em></p>
+<p><em>key_offset</em> is required when <em>type=KSDS</em>.</p>
+<p><em>key_offset</em> should only be provided when <em>type=KSDS</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
 <dt>key_length</dt><dd><p>The key length to use when creating a KSDS data set.</p>
-<p><em>key_length</em> is required when <em>type=ksds</em>.</p>
-<p><em>key_length</em> should only be provided when <em>type=ksds</em></p>
+<p><em>key_length</em> is required when <em>type=KSDS</em>.</p>
+<p><em>key_length</em> should only be provided when <em>type=KSDS</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -704,7 +688,7 @@
   <span class="nt">zos_copy</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/foo.conf</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/foo.conf</span>
-    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;0644&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0644</span>
     <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
     <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
 
@@ -834,11 +818,11 @@
     <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="s">&#39;222222&#39;</span>
     <span class="nt">dest_data_set</span><span class="p">:</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seq</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SEQ</span>
       <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
       <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-      <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">k</span>
-      <span class="nt">record_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vb</span>
+      <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">K</span>
+      <span class="nt">record_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VB</span>
       <span class="nt">record_length</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy a Program Object and its aliases on a remote system to a new PDSE member MYCOBOL</span>
@@ -876,8 +860,6 @@
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 <p>This module uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.</p>
 <p>Beginning in version 1.8.x, zos_copy will no longer attempt to correct a copy of a data type member into a PDSE that contains program objects. You can control this behavior using module option <code class="docutils literal notranslate"><span class="pre">executable</span></code> that will signify an executable is being copied into a PDSE with other executables. Mixing data type members with program objects will result in a (FSUM8976,./zos_copy.html) error.</p>
-<p>It is the playbook author or user’s responsibility to ensure they have appropriate authority to the RACF FACILITY resource class. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.</p>
-<p>To use this module, you must define the RACF FACILITY class profile and allow READ access to RACF FACILITY profile MVS.MCSOPER.ZOAU. If your system uses a different security product, consult that product’s documentation to configure the required security classes.</p>
 </div>
 </div>
 <div class="section" id="see-also">
@@ -928,12 +910,12 @@
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;block_size&quot;</span><span class="p">:</span> <span class="mi">32760</span><span class="p">,</span>
-    <span class="nt">&quot;record_format&quot;</span><span class="p">:</span> <span class="s2">&quot;fb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;record_format&quot;</span><span class="p">:</span> <span class="s2">&quot;FB&quot;</span><span class="p">,</span>
     <span class="nt">&quot;record_length&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
     <span class="nt">&quot;space_primary&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="nt">&quot;space_secondary&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;space_type&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pdse&quot;</span>
+    <span class="nt">&quot;space_type&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PDSE&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -948,7 +930,7 @@
 <dt>record_format</dt><dd><p>Record format of the dataset.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: fb</div>
+<div class="line"><strong>sample</strong>: FB</div>
 </div>
 </dd>
 <dt>record_length</dt><dd><p>Record length of the dataset.</p>
@@ -972,13 +954,13 @@
 <dt>space_type</dt><dd><p>Unit of measurement for space.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: k</div>
+<div class="line"><strong>sample</strong>: K</div>
 </div>
 </dd>
 <dt>type</dt><dd><p>Type of dataset allocated.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: pdse</div>
+<div class="line"><strong>sample</strong>: PDSE</div>
 </div>
 </dd>
 </dl>

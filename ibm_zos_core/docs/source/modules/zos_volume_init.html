@@ -341,14 +341,14 @@
   <span class="nt">zos_volume_init</span><span class="p">:</span>
     <span class="nt">address</span><span class="p">:</span> <span class="s">&quot;1234&quot;</span>
     <span class="nt">volid</span><span class="p">:</span> <span class="s">&quot;DEMO01&quot;</span>
-    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize non-SMS managed target volume with all the default options and</span>
         <span class="l l-Scalar l-Scalar-Plain">override the default high level qualifier (HLQ).</span>
   <span class="nt">zos_volume_init</span><span class="p">:</span>
     <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1234</span>
     <span class="nt">volid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DEMO01</span>
-    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
     <span class="nt">tmp_hlq</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TESTUSR</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize a new SMS managed DASD volume with new volume serial &#39;e8d8&#39; with 30 track VTOC, an index, as long as</span>
@@ -357,12 +357,12 @@
   <span class="nt">zos_volume_init</span><span class="p">:</span>
     <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">e8d8</span>
     <span class="nt">vtoc_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">sms_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">volid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ine8d8</span>
     <span class="nt">verify_volid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ine8d8</span>
-    <span class="nt">verify_volume_empty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">verify_offline</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">verify_volume_empty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">verify_offline</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Initialize 3 new DASD volumes (0901, 0902, 0903) for use on a z/OS system as &#39;DEMO01&#39;, &#39;DEMO02&#39;, &#39;DEMO03&#39;</span>
         <span class="l l-Scalar l-Scalar-Plain">using Ansible loops.</span>

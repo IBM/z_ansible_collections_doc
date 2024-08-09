@@ -78,7 +78,7 @@ format
 
       | **required**: False
       | **type**: str
-      | **choices**: pack, spack
+      | **choices**: PACK, SPACK
 
 
     xmit_log_data_set
@@ -203,8 +203,8 @@ dest_data_set
 
     | **required**: False
     | **type**: str
-    | **default**: seq
-    | **choices**: seq
+    | **default**: SEQ
+    | **choices**: SEQ
 
 
   space_primary
@@ -228,21 +228,21 @@ dest_data_set
   space_type
     If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.
 
-    Valid units of size are ``k``, ``m``, ``g``, ``cyl``, and ``trk``.
+    Valid units of size are ``K``, ``M``, ``G``, ``CYL``, and ``TRK``.
 
     | **required**: False
     | **type**: str
-    | **choices**: k, m, g, cyl, trk
+    | **choices**: K, M, G, CYL, TRK
 
 
   record_format
     If the destination data set does not exist, this sets the format of the data set. (e.g ``FB``)
 
-    Choices are case-sensitive.
+    Choices are case-insensitive.
 
     | **required**: False
     | **type**: str
-    | **choices**: fb, vb, fba, vba, u
+    | **choices**: FB, VB, FBA, VBA, U
 
 
   record_length
@@ -373,8 +373,8 @@ Examples
        format:
          name: terse
          format_options:
-           terse_pack: "spack"
-           use_adrdssu: true
+           terse_pack: "SPACK"
+           use_adrdssu: True
 
    # Use a pattern to store
    - name: Compress data set pattern using xmit

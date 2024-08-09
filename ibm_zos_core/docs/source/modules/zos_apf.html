@@ -266,7 +266,7 @@
 <dt>volume</dt><dd><p>The identifier for the volume containing the library specified in the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one the following.</p>
 <ol class="arabic simple">
 <li><p>The volume serial number.</p></li>
-<li><p>Six asterisks <code class="docutils literal notranslate"><span class="pre">******</span></code>, indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
+<li><p>Six asterisks (<strong>**</strong>), indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
 <li><p><em>MCAT</em>, indicating that the system must use the volume serial number of the volume containing the master catalog.</p></li>
 </ol>
 <p>If <code class="docutils literal notranslate"><span class="pre">volume</span></code> is not specified, <code class="docutils literal notranslate"><span class="pre">library</span></code> has to be cataloged.</p>
@@ -363,7 +363,7 @@
 <dt>volume</dt><dd><p>The identifier for the volume containing the library specified on the <code class="docutils literal notranslate"><span class="pre">library</span></code> parameter. The values must be one of the following.</p>
 <ol class="arabic simple">
 <li><p>The volume serial number</p></li>
-<li><p>Six asterisks <code class="docutils literal notranslate"><span class="pre">******</span></code>, indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
+<li><p>Six asterisks (<strong>**</strong>), indicating that the system must use the volume serial number of the current system residence (SYSRES) volume.</p></li>
 <li><p><em>MCAT</em>, indicating that the system must use the volume serial number of the volume containing the master catalog.</p></li>
 </ol>
 <p>If <code class="docutils literal notranslate"><span class="pre">volume</span></code> is not specified, <code class="docutils literal notranslate"><span class="pre">library</span></code> has to be cataloged.</p>
@@ -393,7 +393,7 @@
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add a library (cataloged) to the APF list and persistence</span>
   <span class="nt">zos_apf</span><span class="p">:</span>
     <span class="nt">library</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SEQUENTIAL.DATASET</span>
-    <span class="nt">force_dynamic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">force_dynamic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
     <span class="nt">persistent</span><span class="p">:</span>
       <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATASET(MEM)</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Remove a library from the APF list and persistence</span>
@@ -411,7 +411,7 @@
     <span class="nt">batch</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">library</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DS1</span>
       <span class="p p-Indicator">-</span> <span class="nt">library</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DS2</span>
-        <span class="nt">sms</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">sms</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
       <span class="p p-Indicator">-</span> <span class="nt">library</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DS3</span>
         <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">T12345</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print the APF list matching library pattern or volume serial number</span>

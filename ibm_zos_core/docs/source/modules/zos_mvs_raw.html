@@ -325,32 +325,32 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catalog, uncatalog</div>
+<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
 </div>
 </dd>
 <dt>disposition_abnormal</dt><dd><p><em>disposition_abnormal</em> indicates what to do with the data set after an abnormal termination of the program.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catalog, uncatalog</div>
+<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
 </div>
 </dd>
-<dt>reuse</dt><dd><p>Determines if a data set should be reused if <em>disposition=new</em> and if a data set with a matching name already exists.</p>
+<dt>reuse</dt><dd><p>Determines if a data set should be reused if <em>disposition=NEW</em> and if a data set with a matching name already exists.</p>
 <p>If <em>reuse=true</em>, <em>disposition</em> will be automatically switched to <code class="docutils literal notranslate"><span class="pre">SHR</span></code>.</p>
 <p>If <em>reuse=false</em>, and a data set with a matching name already exists, allocation will fail.</p>
 <p>Mutually exclusive with <em>replace</em>.</p>
-<p><em>reuse</em> is only considered when <em>disposition=new</em></p>
+<p><em>reuse</em> is only considered when <em>disposition=NEW</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>replace</dt><dd><p>Determines if a data set should be replaced if <em>disposition=new</em> and a data set with a matching name already exists.</p>
+<dt>replace</dt><dd><p>Determines if a data set should be replaced if <em>disposition=NEW</em> and a data set with a matching name already exists.</p>
 <p>If <em>replace=true</em>, the original data set will be deleted, and a new data set created.</p>
 <p>If <em>replace=false</em>, and a data set with a matching name already exists, allocation will fail.</p>
 <p>Mutually exclusive with <em>reuse</em>.</p>
-<p><em>replace</em> is only considered when <em>disposition=new</em></p>
+<p><em>replace</em> is only considered when <em>disposition=NEW</em></p>
 <p><em>replace</em> will result in loss of all data in the original data set unless <em>backup</em> is specified.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -358,7 +358,7 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>backup</dt><dd><p>Determines if a backup should be made of an existing data set when <em>disposition=new</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
+<dt>backup</dt><dd><p>Determines if a backup should be made of an existing data set when <em>disposition=NEW</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
 <p><em>backup</em> is only used when <em>replace=true</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -459,7 +459,7 @@
 </div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
-<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">l</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">h</span></code> for hash encoding.</p>
+<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
 <p>Maps to KEYCD1 on z/OS.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -486,7 +486,7 @@
 </div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
-<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">l</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">h</span></code> for hash encoding.</p>
+<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
 <p>Maps to KEYCD2 on z/OS.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -515,7 +515,7 @@
 <dt>record_length</dt><dd><p>The logical record length. (e.g <code class="docutils literal notranslate"><span class="pre">80</span></code>).</p>
 <p>For variable data sets, the length must include the 4-byte prefix area.</p>
 <p>Defaults vary depending on format: If FB/FBA 80, if VB/VBA 137, if U 0.</p>
-<p>Valid values are (1-32760 for non-VSAM,  1-32761 for VSAM).</p>
+<p>Valid values are (1-32760 for non-vsam,  1-32761 for vsam).</p>
 <p>Maps to LRECL on z/OS.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -901,32 +901,32 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catalog, uncatalog</div>
+<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
 </div>
 </dd>
 <dt>disposition_abnormal</dt><dd><p><em>disposition_abnormal</em> indicates what to do with the data set after abnormal termination of the program.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: delete, keep, catalog, uncatalog</div>
+<div class="line"><strong>choices</strong>: delete, keep, catlg, catalog, uncatlg, uncatalog</div>
 </div>
 </dd>
-<dt>reuse</dt><dd><p>Determines if data set should be reused if <em>disposition=new</em> and a data set with matching name already exists.</p>
+<dt>reuse</dt><dd><p>Determines if data set should be reused if <em>disposition=NEW</em> and a data set with matching name already exists.</p>
 <p>If <em>reuse=true</em>, <em>disposition</em> will be automatically switched to <code class="docutils literal notranslate"><span class="pre">SHR</span></code>.</p>
 <p>If <em>reuse=false</em>, and a data set with a matching name already exists, allocation will fail.</p>
 <p>Mutually exclusive with <em>replace</em>.</p>
-<p><em>reuse</em> is only considered when <em>disposition=new</em></p>
+<p><em>reuse</em> is only considered when <em>disposition=NEW</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>replace</dt><dd><p>Determines if data set should be replaced if <em>disposition=new</em> and a data set with matching name already exists.</p>
+<dt>replace</dt><dd><p>Determines if data set should be replaced if <em>disposition=NEW</em> and a data set with matching name already exists.</p>
 <p>If <em>replace=true</em>, the original data set will be deleted, and a new data set created.</p>
 <p>If <em>replace=false</em>, and a data set with a matching name already exists, allocation will fail.</p>
 <p>Mutually exclusive with <em>reuse</em>.</p>
-<p><em>replace</em> is only considered when <em>disposition=new</em></p>
+<p><em>replace</em> is only considered when <em>disposition=NEW</em></p>
 <p><em>replace</em> will result in loss of all data in the original data set unless <em>backup</em> is specified.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -934,7 +934,7 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>backup</dt><dd><p>Determines if a backup should be made of existing data set when <em>disposition=new</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
+<dt>backup</dt><dd><p>Determines if a backup should be made of existing data set when <em>disposition=NEW</em>, <em>replace=true</em>, and a data set with the desired name is found.</p>
 <p><em>backup</em> is only used when <em>replace=true</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -1035,7 +1035,7 @@
 </div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
-<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">l</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">h</span></code> for hash encoding.</p>
+<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
 <p>Maps to KEYCD1 on z/OS.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -1062,7 +1062,7 @@
 </div>
 </dd>
 <dt>encoding</dt><dd><p>How the label for the key encrypting key specified by <em>label</em> is encoded by the Encryption Key Manager.</p>
-<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">l</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">h</span></code> for hash encoding.</p>
+<p><em>encoding</em> can either be set to <code class="docutils literal notranslate"><span class="pre">L</span></code> for label encoding, or <code class="docutils literal notranslate"><span class="pre">H</span></code> for hash encoding.</p>
 <p>Maps to KEYCD2 on z/OS.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -1147,7 +1147,7 @@
 </div>
 <dl>
 <dt>path</dt><dd><p>The path to an existing UNIX file.</p>
-<p>Or provide the path to an new created UNIX file when <em>status_group=ocreat</em>.</p>
+<p>Or provide the path to an new created UNIX file when <em>status_group=OCREAT</em>.</p>
 <p>The provided path must be absolute.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
@@ -1361,7 +1361,7 @@
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
           <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypgm.output.ds</span>
           <span class="nt">disposition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">new</span>
-          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seq</span>
           <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
           <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1385,7 +1385,7 @@
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
           <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypgm.output.ds</span>
           <span class="nt">disposition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">new</span>
-          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seq</span>
           <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
           <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1430,7 +1430,7 @@
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
           <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypgm.output.ds</span>
           <span class="nt">disposition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">new</span>
-          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">reuse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seq</span>
           <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
           <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1458,8 +1458,8 @@
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
           <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypgm.output.ds</span>
           <span class="nt">disposition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">new</span>
-          <span class="nt">replace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-          <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">replace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+          <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
           <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seq</span>
           <span class="nt">space_primary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
           <span class="nt">space_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1530,7 +1530,7 @@
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Take a set of data sets and write them to an archive.</span>
   <span class="nt">zos_mvs_raw</span><span class="p">:</span>
     <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">adrdssu</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">dds</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">archive</span>
@@ -1546,7 +1546,7 @@
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Merge two sequential data sets and write them to new data set</span>
   <span class="nt">zos_mvs_raw</span><span class="p">:</span>
     <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sort</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
     <span class="nt">parm</span><span class="p">:</span> <span class="s">&quot;MSGPRT=CRITICAL,LIST&quot;</span>
     <span class="nt">dds</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
@@ -1577,7 +1577,7 @@
     <span class="l l-Scalar l-Scalar-Plain">files.</span>
   <span class="nt">zos_mvs_raw</span><span class="p">:</span>
     <span class="nt">pgm</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">dds</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">dd_concat</span><span class="p">:</span>
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
@@ -1594,56 +1594,57 @@
           <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
           <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SYS1.*&#39;)&quot;</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Drop the contents of input dataset into output dataset using REPRO command.</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Drop the contents of input dataset into output dataset</span>
+      <span class="l l-Scalar l-Scalar-Plain">using REPRO command.</span>
   <span class="nt">zos_mvs_raw</span><span class="p">:</span>
     <span class="nt">pgm</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">dds</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INPUT</span>
-          <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.input</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OUTPUT</span>
-          <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.output</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
-          <span class="nt">content</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
+        <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INPUT</span>
+        <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.input</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dd_data_set</span><span class="p">:</span>
+        <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OUTPUT</span>
+        <span class="nt">data_set_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.output</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
+        <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
+        <span class="nt">content</span><span class="p">:</span> <span class="p p-Indicator">|</span>
             <span class="no">&quot; REPRO -</span>
               <span class="no">INFILE(INPUT) -</span>
               <span class="no">OUTFILE(OUTPUT)&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_output</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
-          <span class="nt">return_content</span><span class="p">:</span>
-            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dd_output</span><span class="p">:</span>
+        <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
+        <span class="nt">return_content</span><span class="p">:</span>
+          <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Define a cluster using a literal block style indicator</span>
-      <span class="l l-Scalar l-Scalar-Plain">with a 2 space indentation.</span>
-  <span class="nt">zos_mvs_raw</span><span class="p">:</span>
-    <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
-    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">dds</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_output</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
-          <span class="nt">return_content</span><span class="p">:</span>
-            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
-      <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
-          <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
-          <span class="nt">content</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-            <span class="l l-Scalar l-Scalar-Plain">DEFINE CLUSTER -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">(NAME(ANSIBLE.TEST.VSAM) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">CYL(10 10)  -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">FREESPACE(20 20) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">INDEXED -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">KEYS(32 0) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">NOERASE -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">NONSPANNED -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">NOREUSE -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">SHAREOPTIONS(3 3) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">SPEED -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">UNORDERED -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">RECORDSIZE(4086 32600) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">VOLUMES(222222) -</span>
-                      <span class="l l-Scalar l-Scalar-Plain">UNIQUE)</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Define a cluster using a literal block style indicator</span>
+          <span class="l l-Scalar l-Scalar-Plain">with a 2 space indentation.</span>
+      <span class="nt">zos_mvs_raw</span><span class="p">:</span>
+        <span class="nt">program_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">idcams</span>
+        <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">dds</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dd_output</span><span class="p">:</span>
+              <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysprint</span>
+              <span class="nt">return_content</span><span class="p">:</span>
+                <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dd_input</span><span class="p">:</span>
+              <span class="nt">dd_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sysin</span>
+              <span class="nt">content</span><span class="p">:</span> <span class="p p-Indicator">|2</span>
+                <span class="no">DEFINE CLUSTER -</span>
+                          <span class="no">(NAME(ANSIBLE.TEST.VSAM) -</span>
+                          <span class="no">CYL(10 10)  -</span>
+                          <span class="no">FREESPACE(20 20) -</span>
+                          <span class="no">INDEXED -</span>
+                          <span class="no">KEYS(32 0) -</span>
+                          <span class="no">NOERASE -</span>
+                          <span class="no">NONSPANNED -</span>
+                          <span class="no">NOREUSE -</span>
+                          <span class="no">SHAREOPTIONS(3 3) -</span>
+                          <span class="no">SPEED -</span>
+                          <span class="no">UNORDERED -</span>
+                          <span class="no">RECORDSIZE(4086 32600) -</span>
+                          <span class="no">VOLUMES(222222) -</span>
+                          <span class="no">UNIQUE)</span>
 </pre></div>
 </div>
 </div>
