@@ -307,11 +307,12 @@
 <dt>resource_type</dt><dd><p>The type of resource to search.</p>
 <p><code class="docutils literal notranslate"><span class="pre">nonvsam</span></code> refers to one of SEQ, LIBRARY (PDSE), PDS, LARGE, BASIC, EXTREQ, or EXTPREF.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cluster</span></code> refers to a VSAM cluster. The <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code> are the data and index components of a VSAM cluster.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gdg</span></code> refers to Generation Data Groups. The module searches based on the GDG base name.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>default</strong>: nonvsam</div>
-<div class="line"><strong>choices</strong>: nonvsam, cluster, data, index</div>
+<div class="line"><strong>choices</strong>: nonvsam, cluster, data, index, gdg</div>
 </div>
 </dd>
 <dt>volume</dt><dd><p>If provided, only the data sets allocated in the specified list of volumes will be searched.</p>
@@ -319,6 +320,48 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
 <div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>empty</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>empty</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>extended</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>extended</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>fifo</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>fifo</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>limit</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>limit</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>purge</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>purge</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>scratch</dt><dd><p>A GDG attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=gdg</span></code>.</p>
+<p>If provided, will search for data sets with <em>scratch</em> attribute set as provided.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
 </div>
 </dd>
 </dl>
@@ -366,6 +409,15 @@
     <span class="nt">patterns</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.*</span>
     <span class="nt">resource_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cluster</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Find all Generation Data Groups starting with the word &#39;USER&#39; and specific GDG attributes.</span>
+  <span class="nt">zos_find</span><span class="p">:</span>
+    <span class="nt">patterns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.*</span>
+    <span class="nt">resource_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gdg</span>
+    <span class="nt">limit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+    <span class="nt">scratch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">purge</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </div>

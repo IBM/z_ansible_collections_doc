@@ -67,6 +67,8 @@ backup_name
 
   If ``dest`` is a data set member and ``backup_name`` is not provided, the data set member will be backed up to the same partitioned data set with a randomly generated member name.
 
+  If *backup_name* is a generation data set (GDS), it must be a relative positive name (for example, V(HLQ.USER.GDG(+1\))).
+
   | **required**: False
   | **type**: str
 
@@ -91,11 +93,13 @@ dest
 
   If ``dest`` is a nonexistent USS file, it will be created.
 
-  If ``dest`` is a new USS file or replacement, the file will be appropriately tagged with either the system's default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the copy will fail.
+  If ``dest`` is a new USS file or replacement, the file will be appropriately tagged with either the system's default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the module will fail.
 
   If ``dest`` is a nonexistent data set, it will be created following the process outlined here and in the ``volume`` option.
 
   If ``dest`` is a nonexistent data set, the attributes assigned will depend on the type of ``src``. If ``src`` is a USS file, ``dest`` will have a Fixed Block (FB) record format and the remaining attributes will be computed. If *is_binary=true*, ``dest`` will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. If *executable=true*,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.
+
+  If ``src`` is a file and ``dest`` a partitioned data set, ``dest`` does not need to include a member in its value, the module can automatically compute the resulting member name from ``src``.
 
   When ``dest`` is a data set, precedence rules apply. If ``dest_data_set`` is set, this will take precedence over an existing data set. If ``dest`` is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. Lastly, if no precendent rule has been exercised, ``dest`` will be created with the same attributes of ``src``.
 
@@ -104,6 +108,10 @@ dest
   When the ``dest`` is an existing VSAM (RRDS), then the source must be an RRDS. The VSAM (RRDS) will be deleted and recreated following the process outlined in the ``volume`` option.
 
   When ``dest`` is and existing VSAM (LDS), then source must be an LDS. The VSAM (LDS) will be deleted and recreated following the process outlined in the ``volume`` option.
+
+  ``dest`` can be a previously allocated generation data set (GDS) or a new GDS.
+
+  When ``dest`` is a generation data group (GDG), ``src`` must be a GDG too. The copy will allocate successive new generations in ``dest``, the module will verify it has enough available generations before starting the copy operations.
 
   When ``dest`` is a data set, you can override storage management rules by specifying ``volume`` if the storage class being used has GUARANTEED_SPACE=YES specified, otherwise, the allocation will fail. See ``volume`` for more volume related processes.
 
@@ -132,7 +140,7 @@ encoding
   to
     The encoding to be converted to
 
-    | **required**: True
+    | **required**: False
     | **type**: str
 
 
@@ -234,6 +242,17 @@ local_follow
   | **default**: True
 
 
+group
+  Name of the group that will own the file system objects.
+
+  When left unspecified, it uses the current group of the current user unless you are root, in which case it can preserve the previous ownership.
+
+  This option is only applicable if ``dest`` is USS, otherwise ignored.
+
+  | **required**: False
+  | **type**: str
+
+
 mode
   The permission of the destination file or directory.
 
@@ -244,6 +263,17 @@ mode
   The mode may also be specified as a symbolic mode (for example, ``u+rwx`` or ``u=rw,g=r,o=r``) or a special string `preserve`.
 
   *mode=preserve* means that the file will be given the same permissions as the source file.
+
+  | **required**: False
+  | **type**: str
+
+
+owner
+  Name of the user that should own the filesystem object, as would be passed to the chown command.
+
+  When left unspecified, it uses the current user unless you are root, in which case it can preserve the previous ownership.
+
+  This option is only applicable if ``dest`` is USS, otherwise ignored.
 
   | **required**: False
   | **type**: str
@@ -275,6 +305,10 @@ src
   If ``src`` is a directory or a file, file names will be truncated and/or modified to ensure a valid name for a data set or member.
 
   If ``src`` is a VSAM data set, ``dest`` must also be a VSAM.
+
+  If ``src`` is a generation data set (GDS), it must be a previously allocated one.
+
+  If ``src`` is a generation data group (GDG), ``dest`` can be another GDG or a USS directory.
 
   Wildcards can be used to copy multiple PDS/PDSE members to another PDS/PDSE.
 
@@ -312,6 +346,8 @@ volume
 dest_data_set
   Data set attributes to customize a ``dest`` data set to be copied into.
 
+  Some attributes only apply when ``dest`` is a generation data group (GDG).
+
   | **required**: False
   | **type**: dict
 
@@ -321,7 +357,7 @@ dest_data_set
 
     | **required**: True
     | **type**: str
-    | **choices**: KSDS, ESDS, RRDS, LDS, SEQ, PDS, PDSE, MEMBER, BASIC, LIBRARY
+    | **choices**: ksds, esds, rrds, lds, seq, pds, pdse, member, basic, library, gdg
 
 
   space_primary
@@ -345,21 +381,21 @@ dest_data_set
   space_type
     If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.
 
-    Valid units of size are ``K``, ``M``, ``G``, ``CYL``, and ``TRK``.
+    Valid units of size are ``k``, ``m``, ``g``, ``cyl``, and ``trk``.
 
     | **required**: False
     | **type**: str
-    | **choices**: K, M, G, CYL, TRK
+    | **choices**: k, m, g, cyl, trk
 
 
   record_format
-    If the destination data set does not exist, this sets the format of the data set. (e.g ``FB``)
+    If the destination data set does not exist, this sets the format of the data set. (e.g ``fb``)
 
-    Choices are case-insensitive.
+    Choices are case-sensitive.
 
     | **required**: False
     | **type**: str
-    | **choices**: FB, VB, FBA, VBA, U
+    | **choices**: fb, vb, fba, vba, u
 
 
   record_length
@@ -390,9 +426,9 @@ dest_data_set
   key_offset
     The key offset to use when creating a KSDS data set.
 
-    *key_offset* is required when *type=KSDS*.
+    *key_offset* is required when *type=ksds*.
 
-    *key_offset* should only be provided when *type=KSDS*
+    *key_offset* should only be provided when *type=ksds*
 
     | **required**: False
     | **type**: int
@@ -401,9 +437,9 @@ dest_data_set
   key_length
     The key length to use when creating a KSDS data set.
 
-    *key_length* is required when *type=KSDS*.
+    *key_length* is required when *type=ksds*.
 
-    *key_length* should only be provided when *type=KSDS*
+    *key_length* should only be provided when *type=ksds*
 
     | **required**: False
     | **type**: int
@@ -446,6 +482,68 @@ dest_data_set
 
     | **required**: False
     | **type**: str
+
+
+  limit
+    Sets the *limit* attribute for a GDG.
+
+    Specifies the maximum number, from 1 to 255(up to 999 if extended), of generations that can be associated with the GDG being defined.
+
+    *limit* is required when *type=gdg*.
+
+    | **required**: False
+    | **type**: int
+
+
+  empty
+    Sets the *empty* attribute for a GDG.
+
+    If false, removes only the oldest GDS entry when a new GDS is created that causes GDG limit to be exceeded.
+
+    If true, removes all GDS entries from a GDG base when a new GDS is created that causes the GDG limit to be exceeded.
+
+    | **required**: False
+    | **type**: bool
+
+
+  scratch
+    Sets the *scratch* attribute for a GDG.
+
+    Specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.
+
+    | **required**: False
+    | **type**: bool
+
+
+  purge
+    Sets the *purge* attribute for a GDG.
+
+    Specifies whether to override expiration dates when a generation data set (GDS) is rolled off and the ``scratch`` option is set.
+
+    | **required**: False
+    | **type**: bool
+
+
+  extended
+    Sets the *extended* attribute for a GDG.
+
+    If false, allow up to 255 generation data sets (GDSs) to be associated with the GDG.
+
+    If true, allow up to 999 generation data sets (GDS) to be associated with the GDG.
+
+    | **required**: False
+    | **type**: bool
+
+
+  fifo
+    Sets the *fifo* attribute for a GDG.
+
+    If false, the order is the newest GDS defined to the oldest GDS. This is the default value.
+
+    If true, the order is the oldest GDS defined to the newest GDS.
+
+    | **required**: False
+    | **type**: bool
 
 
 
@@ -613,7 +711,7 @@ Examples
      zos_copy:
        src: /path/to/foo.conf
        dest: /etc/foo.conf
-       mode: 0644
+       mode: "0644"
        group: foo
        owner: bar
 
@@ -743,11 +841,11 @@ Examples
        remote_src: true
        volume: '222222'
        dest_data_set:
-         type: SEQ
+         type: seq
          space_primary: 10
          space_secondary: 3
-         space_type: K
-         record_format: VB
+         space_type: k
+         record_format: vb
          record_length: 150
 
    - name: Copy a Program Object and its aliases on a remote system to a new PDSE member MYCOBOL
@@ -772,6 +870,19 @@ Examples
        dest: HLQ.PRINT.NEW
        asa_text: true
 
+   - name: Copy a file to a new generation data set.
+     zos_copy:
+       src: /path/to/uss/src
+       dest: HLQ.TEST.GDG(+1)
+       remote_src: true
+
+   - name: Copy a local file and take a backup of the existing file with a GDS.
+     zos_copy:
+       src: /path/to/local/file
+       dest: /path/to/dest
+       backup: true
+       backup_name: HLQ.BACKUP.GDG(+1)
+
 
 
 
@@ -792,6 +903,10 @@ Notes
    This module uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.
 
    Beginning in version 1.8.x, zos_copy will no longer attempt to correct a copy of a data type member into a PDSE that contains program objects. You can control this behavior using module option ``executable`` that will signify an executable is being copied into a PDSE with other executables. Mixing data type members with program objects will result in a (FSUM8976,./zos_copy.html) error.
+
+   It is the playbook author or user's responsibility to ensure they have appropriate authority to the RACF FACILITY resource class. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.
+
+   To use this module, you must define the RACF FACILITY class profile and allow READ access to RACF FACILITY profile MVS.MCSOPER.ZOAU. If your system uses a different security product, consult that product's documentation to configure the required security classes.
 
 
 
@@ -846,12 +961,12 @@ destination_attributes
 
         {
             "block_size": 32760,
-            "record_format": "FB",
+            "record_format": "fb",
             "record_length": 45,
             "space_primary": 2,
             "space_secondary": 1,
-            "space_type": "K",
-            "type": "PDSE"
+            "space_type": "k",
+            "type": "pdse"
         }
 
   block_size
@@ -864,7 +979,7 @@ destination_attributes
     Record format of the dataset.
 
     | **type**: str
-    | **sample**: FB
+    | **sample**: fb
 
   record_length
     Record length of the dataset.
@@ -888,13 +1003,13 @@ destination_attributes
     Unit of measurement for space.
 
     | **type**: str
-    | **sample**: K
+    | **sample**: k
 
   type
     Type of dataset allocated.
 
     | **type**: str
-    | **sample**: PDSE
+    | **sample**: pdse
 
 
 checksum

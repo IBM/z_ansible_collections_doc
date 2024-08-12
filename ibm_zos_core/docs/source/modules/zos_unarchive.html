@@ -247,6 +247,7 @@
 <p><em>src</em> can be a USS file or MVS data set name.</p>
 <p>USS file paths should be absolute paths.</p>
 <p>MVS data sets supported types are <code class="docutils literal notranslate"><span class="pre">SEQ</span></code>, <code class="docutils literal notranslate"><span class="pre">PDS</span></code>, <code class="docutils literal notranslate"><span class="pre">PDSE</span></code>.</p>
+<p>GDS relative names are supported <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">USER.GDG(-1)</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -334,6 +335,7 @@
 </div>
 </dd>
 <dt>include</dt><dd><p>A list of directories, files or data set names to extract from the archive.</p>
+<p>GDS relative names are supported <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">USER.GDG(-1)</span></code>.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">include</span></code> is set, only those files will we be extracted leaving the remaining files in the archive.</p>
 <p>Mutually exclusive with exclude.</p>
 <div class="line-block">
@@ -343,6 +345,7 @@
 </div>
 </dd>
 <dt>exclude</dt><dd><p>List the directory and file or data set names that you would like to exclude from the unarchive action.</p>
+<p>GDS relative names are supported <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">USER.GDG(-1)</span></code>.</p>
 <p>Mutually exclusive with include.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -373,8 +376,8 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>default</strong>: SEQ</div>
-<div class="line"><strong>choices</strong>: SEQ, PDS, PDSE</div>
+<div class="line"><strong>default</strong>: seq</div>
+<div class="line"><strong>choices</strong>: seq, pds, pdse</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
@@ -392,19 +395,19 @@
 </div>
 </dd>
 <dt>space_type</dt><dd><p>If the destination data set does not exist, this sets the unit of measurement to use when defining primary and secondary space.</p>
-<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl</span></code>, and <code class="docutils literal notranslate"><span class="pre">trk</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
+<div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
 </div>
 </dd>
-<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">FB</span></code>)</p>
-<p>Choices are case-insensitive.</p>
+<dt>record_format</dt><dd><p>If the destination data set does not exist, this sets the format of the data set. (e.g <code class="docutils literal notranslate"><span class="pre">fb</span></code>)</p>
+<p>Choices are case-sensitive.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: FB, VB, FBA, VBA, U</div>
+<div class="line"><strong>choices</strong>: fb, vb, fba, vba, u</div>
 </div>
 </dd>
 <dt>record_length</dt><dd><p>The length of each record in the data set, in bytes.</p>
@@ -428,16 +431,16 @@
 </div>
 </dd>
 <dt>key_offset</dt><dd><p>The key offset to use when creating a KSDS data set.</p>
-<p><em>key_offset</em> is required when <em>type=KSDS</em>.</p>
-<p><em>key_offset</em> should only be provided when <em>type=KSDS</em></p>
+<p><em>key_offset</em> is required when <em>type=ksds</em>.</p>
+<p><em>key_offset</em> should only be provided when <em>type=ksds</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
 </div>
 </dd>
 <dt>key_length</dt><dd><p>The key length to use when creating a KSDS data set.</p>
-<p><em>key_length</em> is required when <em>type=KSDS</em>.</p>
-<p><em>key_length</em> should only be provided when <em>type=KSDS</em></p>
+<p><em>key_length</em> is required when <em>type=ksds</em>.</p>
+<p><em>key_length</em> should only be provided when <em>type=ksds</em></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -524,6 +527,13 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.ARCHIVE.TEST1</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER.ARCHIVE.TEST2</span>
 
+<span class="c1"># Unarchive a GDS</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unarchive a terse data set and excluding data sets from unpacking.</span>
+  <span class="nt">zos_unarchive</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;USER.ARCHIVE(0)&quot;</span>
+    <span class="nt">format</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terse</span>
+
 <span class="c1"># List option</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">List content from XMIT</span>
   <span class="nt">zos_unarchive</span><span class="p">:</span>
@@ -531,8 +541,8 @@
     <span class="nt">format</span><span class="p">:</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xmit</span>
       <span class="nt">format_options</span><span class="p">:</span>
-        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-    <span class="nt">list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+        <span class="nt">use_adrdssu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">list</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </div>

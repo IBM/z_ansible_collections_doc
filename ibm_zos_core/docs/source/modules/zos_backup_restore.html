@@ -252,6 +252,7 @@
 </div>
 <dl>
 <dt>include</dt><dd><p>When <em>operation=backup</em>, specifies a list of data sets or data set patterns to include in the backup.</p>
+<p>When <em>operation=backup</em> GDS relative names are supported.</p>
 <p>When <em>operation=restore</em>, specifies a list of data sets or data set patterns to include when restoring from a backup.</p>
 <p>The single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used in place of exactly one qualifier. In addition, it can be used to indicate to DFSMSdss that only part of a qualifier has been specified.</p>
 <p>When used with other qualifiers, the double asterisk, <code class="docutils literal notranslate"><span class="pre">**</span></code>, indicates either the nonexistence of leading, trailing, or middle qualifiers, or the fact that they play no role in the selection process.</p>
@@ -263,6 +264,7 @@
 </div>
 </dd>
 <dt>exclude</dt><dd><p>When <em>operation=backup</em>, specifies a list of data sets or data set patterns to exclude from the backup.</p>
+<p>When <em>operation=backup</em> GDS relative names are supported.</p>
 <p>When <em>operation=restore</em>, specifies a list of data sets or data set patterns to exclude when restoring from a backup.</p>
 <p>The single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used in place of exactly one qualifier. In addition, it can be used to indicate that only part of a qualifier has been specified.”</p>
 <p>When used with other qualifiers, the double asterisk, <code class="docutils literal notranslate"><span class="pre">**</span></code>, indicates either the nonexistence of leading, trailing, or middle qualifiers, or the fact that they play no role in the selection process.</p>
@@ -303,6 +305,7 @@
 <dt>backup_name</dt><dd><p>When <em>operation=backup</em>, the destination data set or UNIX file to hold the backup.</p>
 <p>When <em>operation=restore</em>, the destination data set or UNIX file backup to restore.</p>
 <p>There are no enforced conventions for backup names. However, using a common extension like <code class="docutils literal notranslate"><span class="pre">.dzp</span></code> for UNIX files and <code class="docutils literal notranslate"><span class="pre">.DZP</span></code> for data sets will improve readability.</p>
+<p>GDS relative names are supported when <em>operation=restore</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -349,16 +352,23 @@
 </div>
 </dd>
 <dt>space_type</dt><dd><p>The unit of measurement to use when defining data set space.</p>
-<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">K</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">CYL</span></code>, and <code class="docutils literal notranslate"><span class="pre">TRK</span></code>.</p>
-<p>When <em>full_volume=True</em>, <em>space_type</em> defaults to <code class="docutils literal notranslate"><span class="pre">G</span></code>, otherwise default is <code class="docutils literal notranslate"><span class="pre">M</span></code></p>
+<p>Valid units of size are <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl</span></code>, and <code class="docutils literal notranslate"><span class="pre">trk</span></code>.</p>
+<p>When <em>full_volume=True</em>, <em>space_type</em> defaults to <code class="docutils literal notranslate"><span class="pre">g</span></code>, otherwise default is <code class="docutils literal notranslate"><span class="pre">m</span></code></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: K, M, G, CYL, TRK</div>
+<div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
 </div>
 </dd>
 <dt>hlq</dt><dd><p>Specifies the new HLQ to use for the data sets being restored.</p>
 <p>Defaults to running user’s username.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary and backup data sets.</p>
+<p>The default HLQ is the Ansible user that executes the module and if that is not available, then the value of <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -386,13 +396,22 @@
       <span class="nt">exclude</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.private.*</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
 
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup a list of GDDs to data set my.backup.dzp</span>
+  <span class="nt">zos_backup_restore</span><span class="p">:</span>
+    <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backup</span>
+    <span class="nt">data_sets</span><span class="p">:</span>
+      <span class="nt">include</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user.gdg(-1)</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user.gdg(0)</span>
+    <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my.backup.dzp</span>
+
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** to UNIX file /tmp/temp_backup.dzp, ignore recoverable errors.</span>
   <span class="nt">zos_backup_restore</span><span class="p">:</span>
     <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backup</span>
     <span class="nt">data_sets</span><span class="p">:</span>
       <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.**</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
-    <span class="nt">recover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">recover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** to data set MY.BACKUP.DZP,</span>
     <span class="l l-Scalar l-Scalar-Plain">allocate 100MB for data sets used in backup process.</span>
@@ -402,7 +421,7 @@
       <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.**</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">M</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">m</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>
     <span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** that are present on the volume MYVOL1 to data set MY.BACKUP.DZP,</span>
@@ -414,7 +433,7 @@
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL1</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">M</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">m</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Backup an entire volume, MYVOL1, to the UNIX file /tmp/temp_backup.dzp,</span>
     <span class="l l-Scalar l-Scalar-Plain">allocate 1GB for data sets used in backup process.</span>
@@ -422,9 +441,9 @@
     <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backup</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL1</span>
-    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">G</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">g</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
     <span class="l l-Scalar l-Scalar-Plain">Use z/OS username as new HLQ.</span>
@@ -465,10 +484,10 @@
   <span class="nt">zos_backup_restore</span><span class="p">:</span>
     <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restore</span>
     <span class="nt">volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MYVOL2</span>
-    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">full_volume</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
     <span class="nt">space</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">G</span>
+    <span class="nt">space_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">g</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
     <span class="l l-Scalar l-Scalar-Plain">Specify DB2SMS10 for the SMS storage and management classes to use for the restored</span>

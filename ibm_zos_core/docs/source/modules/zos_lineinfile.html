@@ -241,6 +241,7 @@
 <dl>
 <dt>src</dt><dd><p>The location can be a UNIX System Services (USS) file, PS (sequential data set), member of a PDS or PDSE, PDS, PDSE.</p>
 <p>The USS file must be an absolute pathname.</p>
+<p>Generation data set (GDS) relative name of generation already created. <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">SOME.CREATION(-1.)</span></code></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -313,6 +314,7 @@
 <dt>backup</dt><dd><p>Creates a backup file or backup data set for <em>src</em>, including the timestamp information to ensure that you retrieve the original file.</p>
 <p><em>backup_name</em> can be used to specify a backup file name if <em>backup=true</em>.</p>
 <p>The backup file name will be return on either success or failure of module execution such that data can be retrieved.</p>
+<p>Use generation data set (GDS) relative positive name SOME.CREATION(+1)</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -396,14 +398,28 @@
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/src/somefile</span>
     <span class="nt">regexp</span><span class="p">:</span> <span class="s">&#39;^(.*)User(\d+)m(.*)$&#39;</span>
     <span class="nt">line</span><span class="p">:</span> <span class="s">&#39;\1APPUser\3&#39;</span>
-    <span class="nt">backrefs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">backrefs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add a line to a member while a task is in execution</span>
   <span class="nt">zos_lineinfile</span><span class="p">:</span>
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATA.SET(DATA)</span>
     <span class="nt">insertafter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EOF</span>
     <span class="nt">line</span><span class="p">:</span> <span class="s">&#39;Should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">working</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">now&#39;</span>
-    <span class="nt">force</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">force</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add a line to a gds</span>
+  <span class="nt">zos_lineinfile</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.CREATION(-2)</span>
+    <span class="nt">insertafter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EOF</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&#39;Should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">working</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">now&#39;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add a line to dataset and backup in a new generation of gds</span>
+  <span class="nt">zos_lineinfile</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME.CREATION.TEST</span>
+    <span class="nt">insertafter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EOF</span>
+    <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">backup_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CREATION.GDS(+1)</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&#39;Should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">working</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">now&#39;</span>
 </pre></div>
 </div>
 </div>
