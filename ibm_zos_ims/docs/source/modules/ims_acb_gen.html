@@ -232,15 +232,14 @@
 </div>
 </dd>
 <dt>compression</dt><dd><p>PRECOMP,POSTCOMP, in any combination, cause the required in-place compression.</p>
-<p>The choices are not mutually exclusive – PRECOMP or POSTCOMP or PRECOMP,POSTCOMP can be used</p>
 <p>The default is none.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: PRECOMP, POSTCOMP</div>
+<div class="line"><strong>choices</strong>: precomp, postcomp, precomp,postcomp, PRECOMP, POSTCOMP, PRECOMP,POSTCOMP</div>
 </div>
 </dd>
-<dt>psb_name</dt><dd><p>The name of the PS**s**. Specifies that blocks are built or deleted for all PSBs that are named on this control statement.</p>
+<dt>psb_name</dt><dd><p>The name of the PSB(s). Specifies that blocks are built or deleted for all PSBs that are named on this control statement.</p>
 <p>This field requires “ALL” or a list of psb names to be specified.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -263,7 +262,7 @@
 </div>
 </dd>
 <dt>psb_lib</dt><dd><p>The ACB Maintenance utility receives input from the IMS PSBLIB data set.</p>
-<p>The ACB Maintenance utility does not change the PS**s** in PSBLIB. If changes are made in PSBs or DBDs that require changes in the associated PSB, make these changes before running the module.</p>
+<p>The ACB Maintenance utility does not change the PSB(s) in PSBLIB. If changes are made in PSBs or DBDs that require changes in the associated PSB, make these changes before running the module.</p>
 <p>Changes in PSBs might also require modifications to the affected application programs. For example, if a DBD has a segment name changed, all PSBs which are sensitive to that segment must have their SENSEG statements changed.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
