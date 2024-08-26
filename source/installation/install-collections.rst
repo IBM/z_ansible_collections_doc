@@ -22,7 +22,14 @@ To install ZOAU Python wheel, see `Python wheel installtion method`_.
 Install with Ansible Galaxy
 ---------------------------
 
-Before using an IBM z/OS collection, you need to install it with the Ansible Galaxy command-line tool:
+.. Ansible Galaxy includes the command to install the collection.
+.. Users can either use the provided command from link xxx or follow the general flow.
+.. After installation, verify with the command: ansible-galaxy collection list.
+.. To delete a collection, navigate to the collection directory and run the command: rm -rf <path_to_collection_directory>/<collection_name>
+.. Some collections have dependencies on other collections (e.g. IMS and core), if you install ims, ansible will install core for you as well
+.. that's all for configuring control nodes. you also need to configure managed nodes before running ansible playbooks
+
+Ansible Galaxy is the community repository for Ansible for IBM Z collections. Before using an IBM z/OS collection, you need to install it with the Ansible Galaxy command-line tool:
 
 .. code-block:: sh
 

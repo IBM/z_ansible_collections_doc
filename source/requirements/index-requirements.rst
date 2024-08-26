@@ -4,7 +4,7 @@
 
 .. JH, Jul 2024: Draft content
 
-.. _requirements:
+.. _requirements-index:
 
 =============
 Prerequisites
@@ -17,4 +17,4 @@ Each IBM z/OS collection, or each version of a certain collection may have diffe
 .. toctree::
    :maxdepth: 1
 
-   requirements/supportmatrix
+   z/OS core<zos-core-requirements>

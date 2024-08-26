@@ -8,7 +8,7 @@ The ``ibm_zos_core`` support matrix
 
 .. _zos-core-support-matrix:
 
-This table describes the dependencies information for the ``ibm_zos_core`` collection.
+This table describes the dependencies for controllers and managed nodes, and the lifecycle information for each version of the ``ibm_zos_core`` collection.
 
 +---------+----------------------------+---------------------------------------------------+---------------+---------------+
 | Version | Controller                 | Managed Node                                      | GA            | End of Life   |

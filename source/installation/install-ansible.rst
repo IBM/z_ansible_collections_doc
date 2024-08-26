@@ -7,7 +7,15 @@
 Install Ansible
 ===============
 
-Before installing an IBM z/OS® collection, you must make sure the required version of Ansible® is installed on your control node. You can check which Ansible version needs to be installed from :ref:`requirements`. Ansible's community packages are distributed in two ways: ``ansible`` or ``ansible-core``. For more information about which package to choose, see `Selecting an Ansible package and version to install`_.
+Prerequisites
+-------------
+.. Python is required.
+.. pip install ansible.
+.. use ansible --version to verify.
+
+Before installing an IBM z/OS® collection, you must make sure the required version of Ansible® is installed on your control node. You can check which Ansible version needs to be installed from :ref:`requirements`. 
+
+Ansible's community packages are distributed in two ways: ``ansible`` or ``ansible-core``. For more information about which package to choose, see `Selecting an Ansible package and version to install`_.
 
 The available installation options include:
 

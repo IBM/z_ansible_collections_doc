@@ -2,43 +2,43 @@
 .. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
-=========================================================
-Red Hat Ansible Certified Content for IBM Z Documentation
-=========================================================
+================================================================
+Red Hat Ansible Certified Content for IBM Z Documentation (test)
+================================================================
 
-(Jenny - this page is still under development. Not the final version.)
+**(JH: this page is still under development. Not the final version.)**
 
-Welcome to the Ansible for IBM Z docs site! Here you will find step-by-step user walkthroughs, best practices, resources and use cases to aid in your Ansible on IBM Z journey.
+Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation! Here you will find step-by-step user walkthroughs, best practices, resources and use cases to aid in your Ansible on IBM Z journey.
 
-.. Maybe outline how the Ansible for IBM Z bundle is constructed and how each collection is maintained
+Intro to Ansible for IBM Z
+==========================
 
-The Ansible for IBM Z advantage
-===============================
+**Red Hat Ansible Certified Content for IBM Z** (also known as **Ansible for IBM Z**) provides the ability to connect IBM Z to your wider enterprise automation strategy through the Ansible Automation Platform ecosystem. This enables development and operations automation on IBM Z through a seamless, unified workflow orchestration with configuration management, provisioning, and application deployment in one easy-to-use platform.
 
-**Red Hat® Ansible Certified Content for IBM Z** (also known as Ansible for IBM Z) provides the ability to connect IBM Z to clients' wider enterprise automation strategy through the Ansible Automation Platform ecosystem. This enables development and operations automation on Z through a seamless, unified workflow orchestration with configuration management, provisioning, and application deployment in one easy-to-use platform.
+This solution comes together as one bundle through the coordinated effort of various offerings. Each offering is represented in a distribution format known as collections that can include playbooks, roles, modules, and plugins.
 
-This solution comes together as one offering through the coordinated effort of all the offerings. Each offering is represented in a distribution format known as collections that can include playbooks, roles, modules, and plugins.
+Getting started with Ansible for IBM Z
+======================================
 
-The Ansible for IBM Z ultimate guide
-====================================
+**(JH: this is a mock-up. more details to come...)**
 
-Follow this 10-step installation walkthrough to get started with Ansible for IBM Z.
+If you're new to Ansible for IBM Z, follow the guide to start your journey:
 
 .. 1- Ansible basic concepts
-:ref:`1. Ansible basic concepts<basic-concepts>` (30 minutes)
+:doc:`1. Ansible basic concepts<basic-concepts>` (30 minutes)
    Common Ansible concepts that you should understand before using Ansible for IBM Z or reading the documentation.
 
 .. 2- Prerequisites for installation
-:doc:`2. Install required dependencies<requirements/supportmatrix>`
+:doc:`2. Install required dependencies<installation/installation-index>` (30 minutes)
    Before installing Ansible, you need to ensure that the required dependencies are installed.
 
 .. 3- Installation guides
-:doc:`3. Install Ansible<installation/installation>`
+:doc:`3. Install Ansible<installation/installation>` (30 minutes)
    Find avilable options for installing Ansible on your local machine.
 
 .. I need to check the steps in Ansible z trial
 .. 4- Configure the Ansible inventory
-:doc:`4. Configure the Ansible inventory`
+:doc:`4. Configure the Ansible inventory` (30 minutes)
    Do this, do that.
 
 :doc:`5. Create an Ansible playbook`
@@ -48,13 +48,14 @@ Z trial
 =======
 
 Drive automation via Ansible playbooks from the Ansible for IBM Z Playbook Repository utilizing Red Hat Ansible Certified Content for IBM Z and learn how to:
+
 - Acquire z/OS status.
 - Handle basic dataset operations.
 - Perform job management.
 - Explore additional sample playbooks.
 
 
-Other resources
+Other Resources
 ===============
 
 :ref:`Sample playbook repository`
@@ -78,32 +79,28 @@ Other resources
    :caption: Welcome
    :hidden:
 
-   overview
-   basic-concepts
-   sample-repo
-   ztrial-intro
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Roadmap
-   :hidden:
-
-   z/OS core<release/zoscoreroadmap>
+   welcome/overview
+   welcome/basic-concepts
+   welcome/sample-repo
+   welcome/ztrial-intro
 
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
    :hidden:
 
-   requirements
-   installation/installation-index
+   requirements/index-requirements
+   installation/index-installation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Release Notes
+   :caption: Roadmaps and Releases
    :hidden:
 
-   release/release
+   z/OS core<release/zos-core-release-overview>
+   .. z/OS CICS and its release overview page
+   .. z/OS IMS and its release overview page
+   .. and so on
 
 .. toctree::
    :maxdepth: 1
@@ -129,8 +126,9 @@ Other resources
    :caption: Support
    :hidden:
 
-   support/support-flow
-   faqs/faqs
+   support/get-support
+   support/index-life-cycle
+   support/faqs
 
 .. toctree::
    :maxdepth: 1

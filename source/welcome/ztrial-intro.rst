@@ -4,8 +4,9 @@
 
 .. JH, Jul 2024 - Draft content.
 
-Explore with IBM Z Trial
-========================
+===========
+IBM Z Trial
+===========
 
 If you are new to Ansible for IBM Z, the IBM Z Trial for Red Hat Ansible Certified Content for IBM is a great tool for you to try out some features and get yourself familarized with hands-on experience at no cost. 
 

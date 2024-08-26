@@ -2,17 +2,15 @@
 .. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
-.. JH, Jul 2024 - Draft content.
+.. _zos-core-release-overview:
 
-Installation
-============
+=========================================
+The z/OS core collection release overview
+=========================================
 
-Find step-by-step instructions on installing Ansible and installing collections on your control nodes.
 
 .. toctree::
    :maxdepth: 1
 
-   install-ansible
-   install-collections
-
-   
+   Roadmap<zos-core-roadmap.rst>
+   Release notes<../ibm_zos_core/docs/source/release_notes.rst>

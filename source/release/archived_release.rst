@@ -2,9 +2,9 @@
 .. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
-========
-Releases
-========
+==============
+Releases Notes
+==============
 
 Navigate to the release notes of a specific collection to learn about the release of new
 modules, their availability in Ansible Galaxy or Automation Hub, the required dependencies,
