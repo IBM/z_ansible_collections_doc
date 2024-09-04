@@ -2,18 +2,19 @@
 .. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
-.. JH, Jul 2024 - Draft content.
-
+===============
 Install Ansible
 ===============
 
+You must install the correct version of Ansible before you download and install any IBM® z/OS® collection.
+
 Prerequisites
 -------------
-.. Python is required.
-.. pip install ansible.
-.. use ansible --version to verify.
 
-Before installing an IBM z/OS® collection, you must make sure the required version of Ansible® is installed on your control node. You can check which Ansible version needs to be installed from :ref:`requirements`. 
+Before installing Ansible®, make sure the required versions of Python is installed on your control node. You can check which version needs to be installed from :ref:`requirements-index`. 
+
+Procedures
+----------
 
 Ansible's community packages are distributed in two ways: ``ansible`` or ``ansible-core``. For more information about which package to choose, see `Selecting an Ansible package and version to install`_.
 
@@ -23,6 +24,9 @@ The available installation options include:
 - `Install Ansible with pip`_
 
 Additionally, you can Install Ansible to containers or Install Ansible for development. For more information, see `Install Ansible`_.
+
+Verify installation
+-------------------
 
 After you installed Ansible on the control node, make sure the installation is successful by `Confirm your installation`_.
 

@@ -4,13 +4,16 @@
 
 .. _zos-core-release-overview:
 
-=========================================
-The z/OS core collection release overview
-=========================================
+==========================
+z/OS core release overview
+==========================
 
+This section includes information about the collection's release notes, release roadmap, and development life cycles. You can check the details to learn about new modules, bug fixes, the status of each version, and support policies on different versions.
 
 .. toctree::
    :maxdepth: 1
 
-   Roadmap<zos-core-roadmap.rst>
-   Release notes<../ibm_zos_core/docs/source/release_notes.rst>
+   Release notes<../ibm_zos_core/docs/source/release_notes>
+   Release roadmap<zos-core-roadmap>
+   Life cycle<zos-core-life-cycle>
+

@@ -4,8 +4,11 @@
 
 .. JH, Jul 2024 - Draft content.
 
+============================
 Install IBM z/OS collections
 ============================
+
+After you've installed Ansible, you can install IBM z/OS collections with several options.
 
 -------------
 Prerequisites

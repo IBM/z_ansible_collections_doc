@@ -2,8 +2,9 @@
 .. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
-Roadmap
-=======
+============================
+z/OS core collection roadmap
+============================
 
 The ``ibm_zos_core`` collection is developed and released on a flexible release cycle. Generally, a beta version is released in each quarter, followed by a Generally Available (GA) version. Occasionally, the cycle may be extended to properly implement and test larger changed before a new release is made available.
 

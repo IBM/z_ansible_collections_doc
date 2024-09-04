@@ -1,9 +1,12 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2021                                          .
+.. © Copyright IBM Corporation 2020, 2024                                          .
 .. ...........................................................................
 
-Errors and Messages
-===================
+.. _errorsandmessages:
+
+==========================
+Common errors and messages
+==========================
 
 How can I test if an Ansible or z/OS module is able to reach the target (host)?
 -------------------------------------------------------------------------------
@@ -158,8 +161,6 @@ which ``zos_copy`` interprets as a failure. You can bypass this behavior and
 ignore stderr content by setting **ignore_sftp_stderr** parameter of
 ``zos_copy`` to **true**.
 
-Troubleshooting Collections
-===========================
 
 If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?
 ----------------------------------------------------------------------------------------------
