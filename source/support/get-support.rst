@@ -15,7 +15,7 @@ If you obtain a collection from Ansible Galaxy or GitHub, you are **NOT** entitl
 Support from Red Hat and IBM
 ----------------------------
 
-We encourage you to check GitHub issues or GitHub discussions to see if similar issues were raised before you open a support ticket. To get support from Red Hat and IBM, follow these procedures:
+We encourage you to check GitHub issues or GitHub discussions to see if similar issues were raised before you open a support ticket. To get support from Red Hat and IBM®, follow these procedures:
 
 #. Open a support case with Red Hat through `Red Hat Customer Portal`_. Red Hat Support will check your enitlement for support and decide if the issue belongs to IBM.
 

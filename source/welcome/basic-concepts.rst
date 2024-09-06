@@ -2,15 +2,13 @@
 .. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
-.. JH, Jul 2024 - Draft content.
-
-.. _basic-concept:
+.. _basic-concepts:
 
 ======================
-Ansible Basic Concepts
+Ansible basic concepts
 ======================
 
-These concepts are common to all uses of Ansible. You should understand them before using Ansible for IBM Z or reading the documentation.
+These concepts are common to all uses of Ansible®. You should understand them before using Ansible for IBM Z® or reading the documentation.
 
 .. glossary::
     

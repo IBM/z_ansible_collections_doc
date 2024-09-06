@@ -8,7 +8,7 @@
 z/OS core release and life cycle
 ================================
 
-The z/OS core (``ibm_zos_core``) collection is developed and released on a flexible release cycle; generally, each quarter a beta is released followed by a GA version. Occasionally, the cycle may be extended to properly implement and test larger changes before a new release is made available.
+The IBM z/OS® core (``ibm_zos_core``) collection is developed and released on a flexible release cycle; generally, each quarter a beta is released followed by a GA version. Occasionally, the cycle may be extended to properly implement and test larger changes before a new release is made available.
 
 End of Life for this collection is generally a 2-year cycle unless a dependency reaches EOL prior to the 2 years. For example, if a collection has released and its dependency reaches EOL 1 year later, then the collection will EOL at the same time as the dependency, 1 year later.
 
@@ -37,23 +37,23 @@ Release and life cycle matrix
 
 Check this matrix for the status of a z/OS core collection version, its critical dates, and which type of support it's currently eligible for.
 
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| Version    | Status          | Changelogs              | GA Date       | EOL Date             | Support Eligibility     | 
-+============+=================+=========================+===============+======================+=========================+
-| 1.11.x     | Current         |                         |               |                      |                         |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.10.x     | Released        | `1.10.x changelogs`_    | 21 June 2024  | 21 June 2026         | Full support            |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.9.x      | Released        | `1.9.x changelogs`_     | 05 Feb 2024   | 30 April 2025        | Full support            |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.8.x      | Released        | `1.8.x changelogs`_     | 13 Dec 2023   | 30 April 2025        | Full support            |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.7.x      | Released        | `1.7.x changelogs`_     | 10 Oct 2023   | 30 April 2025        | Full support            |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.6.x      | Released        | `1.6.x changelogs`_     | 28 June 2023  | 30 April 2025        | Maintenance support     |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
-| 1.5.x      | Released        | `1.5.x changelogs`_     | 25 April 2023 | 30 April 2025        | Maintenance support     |
-+------------+-----------------+-------------------------+---------------+----------------------+-------------------------+
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| Version    | Status      | Changelogs              | GA Date       | EOL Date       | Support Phase         | 
++============+=============+=========================+===============+================+=======================+
+| 1.11.x     | Current     |                         |               |                |                       |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.10.x     | Released    | `1.10.x changelogs`_    | 21 June 2024  | 21 June 2026   | Full support          |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.9.x      | Released    | `1.9.x changelogs`_     | 05 Feb 2024   | 30 April 2025  | Full support          |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.8.x      | Released    | `1.8.x changelogs`_     | 13 Dec 2023   | 30 April 2025  | Full support          |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.7.x      | Released    | `1.7.x changelogs`_     | 10 Oct 2023   | 30 April 2025  | Full support          |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.6.x      | Released    | `1.6.x changelogs`_     | 28 June 2023  | 30 April 2025  | Maintenance support   |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
+| 1.5.x      | Released    | `1.5.x changelogs`_     | 25 April 2023 | 30 April 2025  | Maintenance support   |
++------------+-------------+-------------------------+---------------+----------------+-----------------------+
 
 
 Category of severities

@@ -5,10 +5,10 @@
 .. JH, Jul 2024 - Draft content.
 
 ==========================
-Ansible for IBM Z Overview
+Ansible for IBM Z overview
 ==========================
 
-**Red Hat® Ansible® Certified Content for IBM Z®** (also known as **Ansible for IBM Z**) is a suite of collections designed to automate and manage IBM Z environments using Ansible, an open-source automation platform. It provides a wide range of Ansible collections that are developed by IBM and certified by Red Hat.
+**Red Hat® Ansible® Certified Content for IBM Z®** (also known as **Ansible for IBM Z**) is a suite of collections designed to automate and manage IBM Z environments using Ansible, an open-source automation platform. It provides a wide range of Ansible collections that are developed by IBM® and certified by Red Hat.
 
 It enables development and operations automation on z/OS®, z/OS middleware products, and other IBM Z systems and resources. The collections in Ansible for IBM Z offer seamless, unified workflow orchestration with configuration management, provisioning, and application deployment in one easy-to-use platform.
 

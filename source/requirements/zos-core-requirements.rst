@@ -13,7 +13,7 @@ The following table shows the required component versions when an ``ibm_zos_core
 Control node
 ------------
 
-When you choose a newer ``ansible-core (Ansible)`` version, review the `ansible-core support matrix`_ to select the appropriate dependencies. Different releases of `ansible-core``` can require different control node and managed node dependencies such as is the case with Python. For example, if a collection is released with a minimum version of ``ansible-core 2.14.0 (Ansible 7.0)`` and later that ansible-core (Ansible) goes EOL, a newer supported version of ansible-core (Ansible) must be selected. 
+When you choose a newer ``ansible-core (Ansible)`` version, review the `ansible-core support matrix`_ to select the appropriate dependencies. Different releases of ``ansible-core`` can require different control node and managed node dependencies such as is the case with Python. For example, if a collection is released with a minimum version of ``ansible-core 2.14.0 (Ansible 7.0)`` and later that ansible-core (Ansible) goes EOL, a newer supported version of ansible-core (Ansible) must be selected. 
 
 If you use control nodes with Ansible Automation Platform (AAP), review the `Red Hat Ansible Automation Platform Life Cycle`_ to select a supported AAP version.
 
