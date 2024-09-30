@@ -2,68 +2,68 @@
 .. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
-===========================================
-Red Hat Ansible Certified Content for IBM Z
-===========================================
+.. v2
 
-**Red Hat® Ansible Certified Content for IBM Z** provides the ability to
-connect IBM Z® to clients' wider enterprise automation strategy through the
-Ansible Automation Platform ecosystem. This enables development and operations
-automation on Z through a seamless, unified workflow orchestration with
-configuration management, provisioning, and application deployment in one
-easy-to-use platform.
+=========================================================
+Red Hat Ansible Certified Content for IBM Z documentation
+=========================================================
 
-This solution comes together as one offering through the coordinated effort of
-all the offerings. Each offering is represented in a distribution format known
-as collections that can include playbooks, roles, modules, and plugins.
+Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation! Here you will find step-by-step user walkthroughs, best practices, resources and use cases to aid in your Ansible on IBM Z journey.
 
-You can install and use collections through Automation Hub, Ansible Galaxy and
-by building the collections from source available on GitHub.
+Intro to Ansible for IBM Z
+==========================
+
+**Red Hat Ansible Certified Content for IBM Z** (also known as **Ansible for IBM Z**) provides the ability to connect IBM Z to your wider enterprise automation strategy through the Ansible Automation Platform ecosystem. This enables development and operations automation on IBM Z through a seamless, unified workflow orchestration with configuration management, provisioning, and application deployment in one easy-to-use platform.
+
+This solution comes together as one bundle through the coordinated effort of various offerings. Each offering is represented in a distribution format known as collections that can include playbooks, roles, modules, and plugins.
+
+.. Hidden TOCs
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started
+   :caption: Overview
+   :hidden:
+
+   welcome/overview
+   welcome/basic-concepts
+   welcome/sample-repo
+   welcome/ztrial-intro
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Installation & Execution
+   :hidden:
 
    requirements/requirements
    installation/installation
-   playbooks/playbooks
 
 .. toctree::
    :maxdepth: 1
-   :caption: Ansible Content
-
-   z/OS core<ibm_zos_core/docs/ansible_content>
-   z/OS CICS<ibm_zos_cics/docs/ansible_content>
-   z/OS IMS<ibm_zos_ims/docs/ansible_content>
-   z/OS Sys Auto<ibm_zos_sysauto/docs/ansible_content>
-   z/OS z/OSMF<ibm_zosmf/docs/ansible_content>
-   Z HMC<zhmc-ansible-modules/docs/ansible_content>
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Release Notes
+   :caption: Development & Maintenance
+   :hidden:
 
    release/release
+   release/cycles
+   ansible-content/ansible-content
 
 .. toctree::
    :maxdepth: 1
-   :caption: Troubleshooting
+   :caption: Help & Troubleshooting
+   :hidden:
 
+   support/get-support
    troubleshooting/errorsandmessages
-
-.. toctree::
-   :maxdepth: 1
-   :caption: FAQs
-
    faqs/faqs
+   reference/helpful_links
+   reference/documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Reference
+   :caption: Contribution
+   :hidden:
 
-   reference/documentation
    reference/community
-   reference/helpful_links
+   
 
 .. ..........................................................................
 .. . TODO

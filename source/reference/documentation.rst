@@ -2,9 +2,9 @@
 .. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
-=============
-Documentation
-=============
+============================
+Supplementary documentations
+============================
 
 In addition to the common reference material included in `Helpful Links`_,
 each collection in the **Red Hat® Ansible Certified Content for IBM Z**

@@ -3,7 +3,7 @@
 .. ...........................................................................
 
 =============
-Helpful Links
+Helpful links
 =============
 
 Here is a list of useful resources to understand the most common Ansible use

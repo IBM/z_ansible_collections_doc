@@ -2,8 +2,11 @@
 .. © Copyright IBM Corporation 2020, 2021                                          .
 .. ...........................................................................
 
-Errors and Messages
-===================
+.. _errorsandmessages:
+
+==========================
+Common errors and messages
+==========================
 
 How can I test if an Ansible or z/OS module is able to reach the target (host)?
 -------------------------------------------------------------------------------
