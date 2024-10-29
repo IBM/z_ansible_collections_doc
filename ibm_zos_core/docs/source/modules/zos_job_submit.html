@@ -240,7 +240,7 @@
 <h2><a class="toc-backref" href="#id3">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt>src</dt><dd><p>The source file or data set containing the JCL to submit.</p>
-<p>It could be a physical sequential data set, a partitioned data set qualified by a member or a path (e.g. <code class="docutils literal notranslate"><span class="pre">USER.TEST</span></code>, V(USER.JCL(TEST))), or a generation data set from a generation data group (for example, V(USER.TEST.GDG(-2))).</p>
+<p>It could be a physical sequential data set, a partitioned data set qualified by a member or a path (e.g. <code class="docutils literal notranslate"><span class="pre">USER.TEST</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.JCL(TEST)</span></code>), or a generation data set from a generation data group (for example, <code class="docutils literal notranslate"><span class="pre">USER.TEST.GDG(-2)</span></code>).</p>
 <p>Or a USS file. (e.g <code class="docutils literal notranslate"><span class="pre">/u/tester/demo/sample.jcl</span></code>)</p>
 <p>Or a LOCAL file in ansible control node. (e.g <code class="docutils literal notranslate"><span class="pre">/User/tester/ansible-playbook/sample.jcl</span></code>)</p>
 <p>When using a generation data set, only already created generations are valid. If either the relative name is positive, or negative but not found, the module will fail.</p>
@@ -746,6 +746,18 @@
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: HELLO</div>
+</div>
+</dd>
+<dt>content_type</dt><dd><p>Type of address space used by the job, can be one of the following types.</p>
+<p>APPC for a APPC Initiator.</p>
+<p>JGRP for a JOBGROUP.</p>
+<p>JOB for a Batch job.</p>
+<p>STC for a Started task.</p>
+<p>TSU for a Time sharing user.</p>
+<p>? for an unknown or pending.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: STC</div>
 </div>
 </dd>
 <dt>duration</dt><dd><p>The total lapsed time the JCL ran for.</p>

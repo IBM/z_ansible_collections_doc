@@ -295,6 +295,7 @@
 </div>
 </dd>
 <dt>marker_begin</dt><dd><p>This will be inserted at <code class="docutils literal notranslate"><span class="pre">{mark}</span></code> in the opening ansible block marker.</p>
+<p>Value needs to be different from <em>marker_end</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -302,6 +303,7 @@
 </div>
 </dd>
 <dt>marker_end</dt><dd><p>This will be inserted at <code class="docutils literal notranslate"><span class="pre">{mark}</span></code> in the closing ansible block marker.</p>
+<p>Value must be different from <em>marker_begin</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -311,7 +313,7 @@
 <dt>backup</dt><dd><p>Specifies whether a backup of destination should be created before editing the source <em>src</em>.</p>
 <p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the module creates a backup file or data set.</p>
 <p>The backup file name will be returned on either success or failure of module execution such that data can be retrieved.</p>
-<p>Use generation data set (GDS) relative positive name. <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">SOME.CREATION(+1</span></code>)</p>
+<p>Use generation data set (GDS) relative positive name. e.g. <em>SOME.CREATION(+1</em>).</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>

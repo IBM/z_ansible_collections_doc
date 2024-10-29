@@ -323,12 +323,12 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through sftp, the module fails if the sftp command directs any content to stderr. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By doing so, the module would essentially ignore the stderr stream produced by sftp and continue execution.</p>
+<dt>ignore_sftp_stderr</dt><dd><p>During data transfer through SFTP, the SFTP command directs content to stderr. By default, the module essentially ignores the stderr stream produced by SFTP and continues execution. The user is able to override this behavior by setting this parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>. By doing so, any content written to stderr is considered an error by Ansible and will cause the module to fail.</p>
 <p>When Ansible verbosity is set to greater than 3, either through the command line interface (CLI) using <strong>-vvvv</strong> or through environment variables such as <strong>verbosity = 4</strong>, then this parameter will automatically be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: False</div>
+<div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
 </dl>
