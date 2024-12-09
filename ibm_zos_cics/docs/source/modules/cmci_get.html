@@ -427,11 +427,11 @@
 <h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get 2 LOCFILEs from a CICSplex</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
-    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
     <span class="nt">cmci_user</span><span class="p">:</span> <span class="s">&quot;ibmuser&quot;</span>
     <span class="nt">cmci_password</span><span class="p">:</span> <span class="s">&quot;123456&quot;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;plex_or_applid&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CICSLocalFile</span>
     <span class="nt">record_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
     <span class="nt">resource</span><span class="p">:</span>
@@ -440,11 +440,11 @@
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get a localfile in a CICS region</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
-    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
     <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
     <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;plex_or_applid&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;CICSLocalFile&quot;</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
@@ -454,11 +454,11 @@
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get a progdef from a CSD</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
-    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
     <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
     <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;plex_or_applid&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cicsdefinitionprogram</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
@@ -470,11 +470,11 @@
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pass module even if bundle definition is not found</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
-    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
     <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
     <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;plex_or_applid&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cicsdefinitionbundle</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">filter</span><span class="p">:</span>
@@ -487,11 +487,11 @@
 
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Using complex_filter to combine filter expressions and change operators</span>
   <span class="nt">cmci_get</span><span class="p">:</span>
-    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;winmvs2c.hursley.ibm.com&quot;</span>
-    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10080</span>
+    <span class="nt">cmci_host</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span>
+    <span class="nt">cmci_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
     <span class="nt">cmci_cert</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.pem&quot;</span>
     <span class="nt">cmci_key</span><span class="p">:</span> <span class="s">&quot;./sec/ansible.key&quot;</span>
-    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;iyk3z0r9&quot;</span>
+    <span class="nt">context</span><span class="p">:</span> <span class="s">&quot;plex_or_applid&quot;</span>
     <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;CICSRegion&quot;</span>
     <span class="nt">resources</span><span class="p">:</span>
       <span class="nt">complex_filter</span><span class="p">:</span>
