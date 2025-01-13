@@ -78,7 +78,7 @@ tenacity==7.0.0
 typed-ast==1.5.5
 typing-extensions==3.7.4.3
 urllib3==1.25.11
-virtualenv==20.0.15
+virtualenv==20.26.6
 voluptuous==0.11.7
 wcmatch==8.1.2
 webencodings==0.5.1
