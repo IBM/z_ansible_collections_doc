@@ -1,21 +1,24 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2024                                    .
+.. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
-.. JH, Jul 2024: Draft content
+.. _requirements:
 
 =====================
 Software requirements
 =====================
 
-Before you install any IBM z/OS® collection, you must configure a **control node** and a **managed node** with a minimum set of requirements. 
+Before you install an Ansible for IBM Z collection, you must configure a
+**control node** and a **managed node** with a minimum set of requirements.
 
-Each IBM z/OS collection, or each version of a certain collection have different requirements ordependencies on control nodes and managed nodes. To find out more details, check the following links for the specific collection.
+Each Ansible for IBM Z collection, or each version of a collection can have
+different requirements or dependencies. To find out more details, check the
+following links for the specific collection.
 
 .. toctree::
    :maxdepth: 1
 
-   z/OS core <zos-core-requirements>
+   z/OS core <collection-requirements>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
    z/OS IMS <../ibm_zos_ims/docs/source/requirements>
    z/OS Sys Auto <../ibm_zos_sysauto/docs/source/requirements>
