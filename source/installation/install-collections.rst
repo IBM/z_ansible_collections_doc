@@ -30,10 +30,14 @@ below will install the latest version of a collection.
       $ ansible-galaxy collection install <namespace>.<collection name>
 
    .. note::
-      The namespace for all Ansible for IBM Z collections is ``ibm``.
-      You can select the collection name from: ``ibm_zos_core``,
-      ``ibm_zos_ims``, ``ibm_zos_cics``, ``ibm_zhmc``,
-      ``ibm_zos_sysauto``, and ``ibm_zosmf``.
+      The namespace for all Ansible for IBM Z collections is ``ibm``. |br|
+      The following are the available collection names you can select from:
+         - ``ibm_zos_core``
+         - ``ibm_zos_ims``
+         - ``ibm_zos_cics``
+         - ``ibm_zhmc``
+         - ``ibm_zos_sysauto``
+         - ``ibm_zosmf``
 
 #. Enter the ``ansible-galaxy`` command in the terminal to install the
    collection on your control node.
@@ -201,6 +205,12 @@ For example, to build and install the IBM z/OS core collection from the Git repo
 .. _Creating the API token in automation hub:
     https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/getting_started_with_automation_hub/hub-create-api-token#hub-create-api-token
 
+.. ...........................................................................
+.. # HTML line break
+.. ...........................................................................
+.. |br| raw:: html
+
+   <br/>
 
 
 Prerequisites
