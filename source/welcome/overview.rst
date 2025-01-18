@@ -12,9 +12,9 @@ automate and manage IBM Z environments using Ansible, an open-source automation
 platform. It provides a wide range of Ansible collections that are developed by
 IBM® and certified by Red Hat.
 
-It enables development and operations automation on z/OS®, z/OS middleware
+It enables development, operations and automation on z/OS®, z/OS middleware
 products, and other IBM Z systems and resources. The collections in
-Ansible for IBM Z offer seamless, unified workflow orchestration with
+Ansible for IBM Z offer a seamless, unified workflow, orchestration with
 configuration management, provisioning, and application deployment in
 one easy-to-use platform.
 
