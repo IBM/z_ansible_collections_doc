@@ -46,14 +46,14 @@ the version with command:
 
    .. code-block:: sh
 
-      $ ansible --version
+      ansible --version
 
 If you have installed **ansible**, you can test this by checking
 the version with command:
 
    .. code-block:: sh
 
-      $ ansible-community --version
+      ansible-community --version
 
 
  To learn more about configuration, see `Confirm your installation`_.
@@ -67,7 +67,7 @@ the installation.
 
    .. code-block:: sh
 
-      $ ansible localhost -m ping
+      ansible localhost -m ping
 
 .. ...........................................................................
 .. External links

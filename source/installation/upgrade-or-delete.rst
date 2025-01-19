@@ -32,28 +32,28 @@ collection by using this command:
 
    .. code-block:: sh
 
-      $ rm -rf <path_to_collection_directory>/<collection name>
+      rm -rf <path_to_collection_directory>/<collection name>
 
 If you you do not know where Ansible is installed, you can use the ``--version``
-option to show the installation path. 
+option to show the installation path.
 
 If you have installed **ansible-core**, you can test this by checking
 the version with command:
 
    .. code-block:: sh
 
-      $ ansible --version
+      ansible --version
 
 If you have installed **ansible**, you can test this by checking
 the version with command:
 
    .. code-block:: sh
 
-      $ ansible-community --version
+      ansible-community --version
 
 
 #. Verify the uninstallation by running this command:
 
    .. code-block:: sh
 
-      $ ansible-galaxy collection list
+      ansible-galaxy collection list

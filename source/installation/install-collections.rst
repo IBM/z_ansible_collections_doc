@@ -27,7 +27,7 @@ below will install the latest version of a collection.
 
    .. code-block:: sh
 
-      $ ansible-galaxy collection install <namespace>.<collection name>
+      ansible-galaxy collection install <namespace>.<collection name>
 
    .. note::
       The namespace for all Ansible for IBM Z collections is ``ibm``. |br|
@@ -47,7 +47,7 @@ below will install the latest version of a collection.
 
    .. code-block:: sh
 
-      $ ansible-galaxy collection list
+      ansible-galaxy collection list
 
    .. note::
       **About collection dependencies:** Some collections are dependent on
@@ -165,19 +165,19 @@ For example, to build and install the IBM z/OS core collection from the Git repo
 
       .. code-block:: sh
 
-         $ ansible-galaxy collection install -f git@github.com:ansible-collections/ibm_zos_core.git,v1.9.0
+         ansible-galaxy collection install -f git@github.com:ansible-collections/ibm_zos_core.git,v1.9.0
 
    #. Install from the **dev** branch:
 
       .. code-block:: sh
 
-         $ ansible-galaxy collection install git@github.com:ansible-collections/ibm_zos_core.git,dev
+         ansible-galaxy collection install git@github.com:ansible-collections/ibm_zos_core.git,dev
 
    #. Install from the **dev** branch using SSH authentication by including the prefix **git+**:
 
       .. code-block:: sh
 
-         $ ansible-galaxy collection install git+https://github.com/ansible-collections/ibm_zos_core.git,dev
+         ansible-galaxy collection install git+https://github.com/ansible-collections/ibm_zos_core.git,dev
 
     For more information, see `Installing a collection from a git repository (Ansible Documentation)`_.
 
