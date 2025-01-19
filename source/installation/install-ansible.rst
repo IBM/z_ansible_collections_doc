@@ -61,8 +61,9 @@ the version with command:
 Test installation
 -----------------
 
-After you have verified the installation, you can run a simple adhoc
-ping command to test the installation with command:
+After you have verified the installation, you can run a simple Ansible
+adhoc command utilizing the `ansible.builtin.ping module`_ module to test
+the installation.
 
    .. code-block:: sh
 
@@ -83,3 +84,6 @@ ping command to test the installation with command:
     https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#confirming-your-installation
 .. _Set up your Ansible control node for getting started with Ansible for IBM Z:
     https://mediacenter.ibm.com/media/Set%20up%20your%20Ansible%20control%20node%20for%20getting%20started%20with%20Ansible%20for%20IBM%20Z/1_r9g0duq3
+
+.. _ansible.builtin.ping module:
+   https://ansible.builtin.ping/
