@@ -1,57 +1,79 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2025                                          .
+.. This file (collections-requirements.rxt) should be contributed by all
+.. collections discussing their particular requirements. For the most part,
+.. I have kept this general but each team will need to identify their
+.. collection versions, control & managed node dependencies and create a unique
+.. reference, for example the reference I am using is `ibm-zos-core-dependency-matrix`
 .. ...........................................................................
 
-.. _collection-requirements:
+.. _ibm-zos-core-collection-requirements:
 
 ==========================================
-z/OS core collection software requirements
+Collection software requirements
 ==========================================
 
-The following table shows the required component versions when an
-``ibm_zos_core`` collection becomes generally available (GA). You should use
-them as the minimum requirements because the underlying component version is
-likely to change when it reaches end of life (EOL). When a component version
-goes EOL, you need to update to a supported new version.
+The :ref:`dependency matrix<ibm-zos-core-dependency-matrix>`
+lists the minimum required component versions for each version of the
+collection when they became generally available (GA) for both,
+the control node and managed node.
+
+The minimum required component versions can reach end of life (EOL) before
+the collection reaches EOL, when this happens, you must update the
+component to a supported version.
+
+For example, if a collection is released that minimally requires
+**ansible-core** version **2.14.0** (Ansible 7.0) and later reaches EOL,
+a newer supported version of **ansible-core** must be installed.
 
 Control node
 ------------
 
-When you choose a newer `ansible-core`_ (Ansible) version, review the
-`ansible-core support matrix`_ to select the appropriate dependencies.
-Different releases of **ansible-core** can require different control node
-and managed node dependencies such as is the case with Python. For example,
-if a collection is released with a minimum version of **ansible-core**
-version **2.14.0** (Ansible 7.0) and later this release reaches EOL, a
-newer supported version of **ansible-core** must be installed.
+.. dropdown:: When you choose an ...
 
-Optionally, you can upgrade the **ansible_core** version, review the
-`installing Ansible`_ guide and select the appropriate option. 
+   When you choose an `ansible-core`_ (Ansible) version, review the communities
+   `ansible-core support matrix`_ to select the appropriate dependencies.
+   Different releases of **ansible-core** can require different dependencies
+   such as is the case with Python.
 
-If the control node is Ansible Automation Platform (AAP), review the
-`Red Hat Ansible Automation Platform Life Cycle`_ to select a supported
-AAP version.
+   Optionally, you can upgrade the **ansible_core** version, review the
+   `installing Ansible`_ guide and select the appropriate option.
+
+   If the control node is Ansible Automation Platform (AAP), review the
+   `Red Hat Ansible Automation Platform Life Cycle`_ to select a supported
+   AAP version.
 
 Managed node
 ------------
 
-The managed node (the machine that Ansible is managing) does require that
-**IBM Open Enterprise SDK for Python** and **IBM Z Open Automation Utilities**
-(ZOAU) be installed to run modules included with the ``ibm_zos_core``
-collection.
+.. dropdown:: The :term:`managed node<Managed node>` requires ...
+
+   The :term:`managed node<Managed node>` requires that
+   **IBM Open Enterprise SDK for Python** and **IBM Z Open Automation Utilities**
+   (ZOAU) be installed for this collection. Different releases of **ansible-core**
+   and the collection can require different dependencies such as is the case with
+   Python, IBM Open Enterprise SDK for Python and ZOAU.
 
 Dependency lifecycle
 --------------------
-For IBM product lifecycle information, you can search for products using the
-product's name, version or ID on `IBM Support product lifecycle`_.
 
-- For the lifecycle of **IBM Open Enterprise SDK for Python**, search on product ID `5655-PYT`_.
-- For **IBM Z Open Automation Utilities**, search on product ID `5698-PA1`_.
+.. dropdown:: Over time, dependencies ...
+
+   Over time, dependencies will reach EOL, for IBM product lifecycle information,
+   you can search for products using the product's name, version or ID on
+   the `IBM Support product lifecycle`_ page.
+
+   For the lifecycle of **IBM Open Enterprise SDK for Python**, search on product
+   ID `5655-PYT`_ and for **IBM Z Open Automation Utilities**, search on product
+   ID `5698-PA1`_.
+
+.. _ibm-zos-core-dependency-matrix:
 
 Dependency matrix
 -----------------
 
-This table shows a complete list of dependencies for control nodes and managed nodes:
+This table shows a complete list of dependencies for the :term:`control node<Control node>`
+and :term:`managed node<Managed node>`.
 
 +---------+----------------------------+---------------------------------------------------+
 | Version | Control Node               | Managed Node                                      |
