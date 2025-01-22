@@ -121,7 +121,8 @@ html_context = {
 # https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/
 html_theme_options = {
-    'prev_next_buttons_location': None
+    'prev_next_buttons_location': None,
+    'body_max_width': None
     # 'canonical_url': '',
     #'analytics_id': 'UA-XXXXXXX-1',
     #'logo_only': False,
@@ -143,6 +144,10 @@ def setup(app):
     app.add_css_file('my_theme.css')
 
 html_static_path = ['_static'] 
+
+html_css_files = [
+    'css/table.css',
+]
 
 ##############################################################################
 #                          sphinx-versioning                                 #
