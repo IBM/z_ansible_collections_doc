@@ -23,25 +23,47 @@ You can install a collection using one of the following options:
   You need to configure the ``auth_url`` option and the API ``token``  in
   **ansible.cfg** for each server name.
 
-* Local installation: You can use the ``ansible-galaxy`` collection install
-  command to install a collection built from source. To build your own
-  collection, you must clone the Git repository, build the collection archive,
-  and install the collection.
+* Git repository: You can use the ``ansible-galaxy`` collection install
+  command with the URI of the repository to install a collection from source.
 
-For detailed instructions on how to install a collection, see our
-`installation doc`_.
+For detailed instructions on how to install a collection,
+see :ref:`Install a collection<install-collections>` 
 
-What do I require to install a collection?
-------------------------------------------
-All **IBM z/OS collections** require **Ansible 2.9 or later**,
-**Python 2.7 or later** and **Open SSH** on the Ansible controller.
+What is required to install an Ansible Z collection?
+----------------------------------------------------
+Each **Ansible for IBM Z collection**, or each version of a collection can have
+different requirements or dependencies. To find out more details, check the
+following links for the specific collection.
 
-On the z/OS managed node, a particular **IBM z/OS collection** or release can
-have a different set of requirements. Before you install any
-**IBM z/OS collection**, review the collection `requirements`_.
+For detailed instructions on how to install an Ansible Z collection,
+see :ref:`requirements`
 
-.. .. _requirements:
-..    https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html
+How can I test if Ansible is able to reach the managed node (host)?
+-------------------------------------------------------------------
+You can test if a collection is installed and is working correctly by executing
+the command illustrated in the example below. Ensure that you change the host
+name to your remote z/OS host, as well as the user and Python binary path.
+
+With the ansible.builtin.ping module from the command line:
+
+.. code-block:: sh
+
+   ansible all \
+   -i '<zos-host-name>,' \
+   -u '<user>' \
+   -m 'ansible.builtin.ping' \
+   -e 'ansible_python_interpreter=</path/to/zos/python/python3>' \
+   -k
+
+With the ibm.ibm_zos_core.zos_ping module from the command line:
+
+.. code-block:: sh
+
+   ansible all \
+   -i '<zos-host-name>,' \
+   -u '<user>' \
+   -m 'ibm.ibm_zos_core.zos_ping' \
+   --scp-extra-args='-O'
 
 Where can I download the latest version of Python?
 --------------------------------------------------
