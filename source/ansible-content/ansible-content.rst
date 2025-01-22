@@ -2,11 +2,14 @@
 .. © Copyright IBM Corporation 2020, 2024                                    .
 .. ...........................................................................
 
-==================
-Collection content
-==================
+===========
+Collections
+===========
 
-Each collection of the Red Hat® Ansible® Certified Content for IBM Z® serves different functionalities depending on the IBM Z offering it targets for. The components each collection supports, including modules, plugins, filters, roles, are specific to its own use cases.
+Each collection of the Red Hat® Ansible® Certified Content for IBM Z® serves
+different functionalities depending on the IBM Z offering it targets for. The
+components each collection supports, including modules, plugins, filters,
+roles, are specific to its own use cases.
 
 Check the following topics for further explanations on collection content.
 
