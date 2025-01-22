@@ -1,5 +1,5 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2021                                          .
+.. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
 .. _errorsandmessages:
@@ -7,47 +7,6 @@
 ==========================
 Common errors and messages
 ==========================
-
-How can I test if an Ansible or z/OS module is able to reach the target (host)?
--------------------------------------------------------------------------------
-You can test if a collection is installed and is working correctly by executing
-the command illustrated in the example below. Ensure that you change the host
-name to your remote z/OS host, as well as the user and Python binary path.
-
-.. note::
-   The following example illustrates testing the installation of the
-   z/OS core collection.
-
-.. code-block:: sh
-
-    ansible all \
-    -i '<zos-host-name>,' \
-    -c 'ibm.ibm_zos_core.zos_ssh' \
-    -u 'user-name' \
-    -m 'ibm.ibm_zos_core.zos_ping' \
-    -e 'ansible_python_interpreter=/path/to/zos/python/binary'
-
-
-The above command executes the ``zos_ping`` module against your remote
-z/OS host. If the command succeeds and returns the following output,
-the collection was installed correctly.
-
-.. code-block:: sh
-
-    <zos-host-name> | SUCCESS => {
-        "changed": false,
-        "ping": "pong"
-    }
-
-Which modules are affected when using ``askpass`` instead of SSH authentication?
----------------------------------------------------------------------------------
-Data transfer modules such as ``zos_copy`` and ``zos_fetch`` depend on the
-authenticated ``SSH`` connection from the control node to the managed node. When
-using these modules, ensure that the connection from the controller to the
-managed node is authenticated using an SSH key. Both
-``zos_copy`` and ``zos_fetch`` modules do not support Ansible ad-hoc
-``--ask-pass``.
-
 
 Does a user running Ansible on USS need to have any special privileges?
 -------------------------------------------------------------------------
@@ -97,8 +56,8 @@ What causes this error during the playbook execution? How do I fix it?
 
 
 ``mvscmdauth`` is a **ZOAU** shell utility. This error tends to happen when
-**ZOAU** installation is not added to the system **PATH**. Modify your host
-variables and add the ``bin`` directory of the **ZOAU** installation. for
+the **ZOAU** installation is not added to the system **PATH**. Modify your
+host variables and add the ``bin`` directory of the **ZOAU** installation. for
 example, if **ZOAU** was installed in ``/usr/lpp/IBM/zoau``, you should add
 ``/usr/lpp/IBM/zoau/bin`` to **PATH**.
 
@@ -160,27 +119,3 @@ By default, ``SFTP`` redirects **pre-login** prompts to system **stderr**,
 which ``zos_copy`` interprets as a failure. You can bypass this behavior and
 ignore stderr content by setting **ignore_sftp_stderr** parameter of
 ``zos_copy`` to **true**.
-
-Troubleshooting Collections
-===========================
-
-If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?
-----------------------------------------------------------------------------------------------
-* For issues related to the Ansible collections, raise a GitHub issue against the appropriate collection repository:
-
-  * `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
-  * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
-  * `IBM z/OS IMS  <https://github.com/ansible-collections/ibm_zos_ims/issues/new/choose>`_
-  * `IBM z/OS Sys Auto <https://github.com/ansible-collections/ibm_zos_sysauto/issues/new/choose>`_
-  * `IBM z/OSMF <https://github.com/IBM/ibm_zosmf/issues>`_
-  * `IBM Z HMC <https://github.com/zhmcclient/zhmc-ansible-modules/issues>`_
-
-* If you encounter a specific **CICS server-related issue**, raise a case against the CICS team
-  as you would normally do with other CICS products.
-
-  * For CICS collection-related issues, gather the CICS `MustGather`_ data before contacting
-    the support team.
-
-
-.. _Mustgather:
-   https://www.ibm.com/docs/en/cics-ts/5.6?topic=support-ansible-zos-cics-collection
