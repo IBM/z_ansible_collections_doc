@@ -2,13 +2,20 @@
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
-===========
-IBM Z Trial
-===========
+=======================
+Ansible for IBM Z Trial
+=======================
 
-If you are new to Ansible for IBM Z, IBM Z Trial is a great tool for you to
+If you are new to **Ansible for IBM Z**, IBM Z Trial is a great tool for you to
 try out some features and get yourself familiarized with hands-on experience
-at no cost. 
+at no cost.
+
+The IBM Z Trial is completely free. Once registered, you will be provided
+with a link to a sandbox environment where no extra installation is required.
+The link will be accessible for 3 days including weekends.
+
+z/OS core
+---------
 
 In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
 scenarios, including:
@@ -18,6 +25,12 @@ scenarios, including:
 - Perform job management
 - Work with sample playbooks
 
+To request the IBM z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
+- `IBM z/OS® IMS collection Z Trial`_
+
+z/OS IMS
+--------
+
 In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
 scenarios, including:
 
@@ -25,14 +38,7 @@ scenarios, including:
 - Explore the IBM z/OS® IMS Ansible collection
 - Automate IMS managed ACBs and catalog with Ansible
 
-The IBM Z Trial is completely free. Once registered, you will be provided
-with a link to a sandbox environment where no extra installation is required.
-The link will be accessible for 3 days including weekends.
-
-To request an IBM Z Trial, go to:
-
-- `IBM z/OS® core collection Z Trial`_
-- `IBM z/OS® IMS collection Z Trial`_
+To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
 
 .. .............................................................................
 .. External links
