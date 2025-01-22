@@ -2,12 +2,12 @@
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
-===============
-Install Ansible
-===============
+=======
+Ansible
+=======
 
-You must install the correct version of **Ansible**® before you download and
-install any IBM Z collection.
+You must install the correct version of **Ansible®** before you download and
+install any **IBM Ansible for Z** collection.
 
 If you prefer watching videos, you can follow the steps discussed in the guide,
 `Set up your Ansible control node for getting started with Ansible for IBM Z`_.
@@ -67,7 +67,7 @@ the installation.
 
    .. code-block:: sh
 
-      ansible localhost -m ping
+      ansible localhost -m ansible.builtin.ping
 
 .. ...........................................................................
 .. External links
