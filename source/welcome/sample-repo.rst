@@ -4,9 +4,9 @@
 
 .. _sample-repo:
 
-==========================
-Sample playbook repository
-==========================
+=================
+Ansible playbooks
+=================
 
 To help you use Ansible® for IBM Z® more easily, we provide a wide range of
 ready-to-use sample playbooks in our `Ansible for IBM Z sample playbook repository`_
