@@ -1,6 +1,10 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2020, 2025                                    .
+.. Navigation: Project >Installation & Execution > Software requirements     .
+.. Note: Each collection will need to update the requirements to a generic
+..       name/file and ensure it's included as collection-requirement.rst
 .. ...........................................................................
+
 
 .. _requirements:
 
@@ -8,8 +12,9 @@
 Software requirements
 =====================
 
-Before you install an Ansible for IBM Z collection, you must configure a
-**control node** and a **managed node** with a minimum set of requirements.
+Before you install an **Ansible for IBM Z** collection, you must configure
+the :term:`control node<Control node>` and depending on the collection,
+the :term:`managed node<Managed node>` with a minimum set of requirements.
 
 Each Ansible for IBM Z collection, or each version of a collection can have
 different requirements or dependencies. To find out more details, check the
