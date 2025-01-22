@@ -2,9 +2,9 @@
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
-============
-Installation
-============
+=====================
+Software Installation
+=====================
 
 Ansible is agentless automation software that you install on a single host,
 referred to as the control node. Ansible enables cross-platform Automation
@@ -24,4 +24,5 @@ configure Ansible Z and perform a simple module test.
 
    install-ansible
    install-collections
-   upgrade-or-delete
+   upgrade-collections
+   remove-collections
