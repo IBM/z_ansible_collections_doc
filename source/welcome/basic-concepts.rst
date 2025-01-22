@@ -4,20 +4,20 @@
 
 .. _basic-concepts:
 
-======================
-Ansible basic concepts
-======================
+================
+Ansible glossary
+================
 
 These concepts are common to all uses of Ansible®. You should understand them
 before using Ansible for IBM Z® or reading the documentation.
 
 .. glossary::
 
-    Collection
-        A structured format that packages multiple related Ansible content, such
-        as roles, modules, plugins, and playbooks, into a single distributable
-        unit. Collections privode a way to simplify the distribution and reuse
-        of Ansible content. To learn more, see `Using Ansible collections`_.
+    ansible-core
+        The installable package that contains the command-line tools and the
+        code for basic features and functions that initiate the interaction with
+        the managed node. The ansible-core package includes a few modules and
+        plugins and allows you to add others by installing collections.
 
     Control node
         The machine from which you run Ansible commands, manage playbooks, and
@@ -25,30 +25,16 @@ before using Ansible for IBM Z® or reading the documentation.
         software requirements - laptops, shared desktops, or servers. Multiple
         control nodes are possible.
 
-    Handlers
-        A special type of task that only executes in response to changes triggered
-        by other tasks within a playbook.
-
-    Inventory
-        A configuration file or directory that specifies the hosts and group of
-        hosts on which Ansible commands, modules, and playbooks will operate. It
-        also defines varilables and connection details for those hosts, such as
-        IP address. For more information, see `Building Ansible inventories`_.
-
-    Play
-        The basic unit of Ansible execution. It is a key component of a playbook
-        that maps managed nodes to tasks. It contains variables, roles, and an
-        ordered list of tasks. It can be run repeatedly.
-
-    Playbook
-        A YAML file that contains one or more plays, each of which defines a set
-        of tasks to be executed on specified hosts. Playbook orchestrate the
-        execution of these tasks. To learn more, see `Ansible playbooks`_.
-
     Managed node
         Also known as a host, is any device or system that Ansible manages through
         automation tasks. It is the endpoint where Ansible modules are executed to
         perform various configurations and operations.
+
+    Collection
+        A structured format that packages multiple related Ansible content, such
+        as roles, modules, plugins, and playbooks, into a single distributable
+        unit. Collections provide a way to simplify the distribution and reuse
+        of Ansible content. To learn more, see `Using Ansible collections`_.
 
     Module
         The code in Ansible that performs a particular operation on a managed node.
@@ -64,10 +50,31 @@ before using Ansible for IBM Z® or reading the documentation.
         templates, and handlers) into a reusable format. To use any role, the role
         must first be imported into the play.
 
+    Playbook
+        A YAML file that contains one or more plays, each of which defines a set
+        of tasks to be executed on specified hosts. Playbook orchestrate the
+        execution of these tasks. To learn more, see `Ansible playbooks`_.
+
+    Play
+        The basic unit of Ansible execution. It is a key component of a playbook
+        that maps managed nodes to tasks. It contains variables, roles, and an
+        ordered list of tasks. It can be run repeatedly.
+
     Task
         The definition of an action to be executed on managed nodes. Tasks use modules
         with specific parameters to perform specific operations, such as installing
         packages or copying files.
+
+    Inventory
+        A configuration file or directory that specifies the hosts and group of
+        hosts on which Ansible commands, modules, and playbooks will operate. It
+        also defines variables and connection details for those hosts, such as
+        IP address. For more information, see `Building Ansible inventories`_.
+
+    Ansible Galaxy
+        An online distribution server for hosting Ansible community content.
+        It is also the command-line utility that lets users install individual
+        Ansible Collections.
 
 .. ...........................................................................
 .. External links:
