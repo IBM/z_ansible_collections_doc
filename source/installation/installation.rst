@@ -16,8 +16,9 @@ systems, subsystems, instances and devices remotely with SSH and REST from
 a command-line interface or optionally, advanced orchestration with
 Ansible Automation Platform.
 
-Here you will find instructions on how to install Ansible, IBM Z collections,
-configure Ansible Z and perform a simple module test.
+Here you will find instructions on how to install Ansible,
+Ansible for IBM Z, configure Ansible for IBM Z and perform a simple module
+test.
 
 .. toctree::
    :maxdepth: 1

@@ -39,6 +39,7 @@ Install a collection
 
       The namespace for Ansible for IBM Z collections is ``ibm``. The following
       are the available collection names you can select from:
+
          - ibm_zos_core
          - ibm_zos_ims
          - ibm_zos_cics
@@ -77,7 +78,7 @@ Install a specific version
 
 .. dropdown:: You can install a specific version ...
 
-   * You can install a specific version of the collection. For example, you
+   You can install a specific version of the collection. For example, you
    can use the following command to install version 1.0.0 for the
    IBM z/OS core collection:
 
@@ -85,7 +86,7 @@ Install a specific version
 
          ansible-galaxy collection install ibm.ibm_zos_core:1.0.0
 
-   * A **beta version** is only available on Ansible Galaxy and is only supported
+   A **beta version** is only available on Ansible Galaxy and is only supported
    by the community, once it is General Availability (GA), it will be  promoted
    to Ansible Automation Platform and eligible for entitlement. A beta is not
    considered the latest version by Ansible Galaxy, to install a beta of the

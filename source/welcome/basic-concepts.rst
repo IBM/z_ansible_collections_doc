@@ -28,7 +28,8 @@ before using Ansible for IBM Z® or reading the documentation.
     Managed node
         Also known as a host, is any device or system that Ansible manages through
         automation tasks. It is the endpoint where Ansible modules are executed to
-        perform various configurations and operations.
+        perform various configurations and operations identified
+        in :term:`inventory<Inventory>`
 
     Collection
         A structured format that packages multiple related Ansible content, such
@@ -75,6 +76,21 @@ before using Ansible for IBM Z® or reading the documentation.
         An online distribution server for hosting Ansible community content.
         It is also the command-line utility that lets users install individual
         Ansible Collections.
+
+    Group Vars
+        The group_vars/ files are files that live in a directory alongside an
+        inventory file, with an optional file name named after each group. This
+        is a convenient place to put variables that are provided to a given group,
+        especially complex data structures, so that these variables do not have to
+        be embedded in the inventory file or :term:`playbook<Playbook>`.
+
+    Host Vars
+        Just like Group Vars, a directory alongside the inventory file named
+        ``host_vars/`` can contain a file named after each hostname in the inventory
+        file, in YAML format. This provides a convenient place to assign variables
+        to the host without having to embed them in the inventory file. The
+        Host Vars file can also be used to define complex data structures that
+        can't be represented in the inventory file.
 
 .. ...........................................................................
 .. External links:

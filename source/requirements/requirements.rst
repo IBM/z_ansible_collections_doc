@@ -25,7 +25,7 @@ following links for the specific collection.
 
    z/OS core <collection-requirements>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
-   z/OS IMS <../ibm_zos_ims/docs/source/requirements>
+   z/OS IMS <../ibm_zos_ims/docs/source/requirements_managed>
    z/OS Sys Auto <../ibm_zos_sysauto/docs/source/requirements>
    z/OSMF <../ibm_zosmf/docs/source/requirements>
    Z HMC <../zhmc-ansible-modules/docs/source/requirements_managed>
