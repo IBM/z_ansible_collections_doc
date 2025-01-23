@@ -1,7 +1,7 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2025                                          .
-.. This file (collections-requirements.rxt) should be contributed by all
-.. collections discussing their particular requirements. For the most part,
+.. This files (collections-requirements.rxt) contents should be contributed by
+.. all collections discussing their particular requirements. For the most part,
 .. I have kept this general but each team will need to identify their
 .. collection versions, control & managed node dependencies and create a unique
 .. reference, for example the reference I am using is `ibm-zos-core-dependency-matrix`
