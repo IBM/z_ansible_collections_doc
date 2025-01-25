@@ -206,58 +206,60 @@ Strep 4: Inventory
 Step 5: User
 ============
 
-This collection connects to the managed node over SSH via the ansible user defined in inventory or
-optionally the command line, thus requiring access to z/OS UNIX System Services (USS). From a security
-perspective, the collection will require both an OMVS segment and TSO segment in the users profile.
+.. dropdown:: This collection connects to the managed node over SSH ...
 
-With the ADDGROUP command you can:
+    This collection connects to the managed node over SSH via the ansible user defined in inventory or
+    optionally the command line, thus requiring access to z/OS UNIX System Services (USS). From a security
+    perspective, the collection will require both an OMVS segment and TSO segment in the users profile.
 
-- define a new group to RACF.
-- add a profile for the new group to the RACF database.
-- specify z/OS® UNIX System Services information for the group being defined to RACF.
-- specify that RACF is to automatically assign an unused GID value to the group.
+    With the **ADDGROUP** command you can:
 
-With the ADDUSER command you can:
+    - define a new group to RACF.
+    - add a profile for the new group to the RACF database.
+    - specify z/OS® UNIX System Services information for the group being defined to RACF.
+    - specify that RACF is to automatically assign an unused GID value to the group.
 
-- define a new user to RACF.
-- add a profile for the new user to the RACF database.
-- create a connect profile that connects the user to the default group.
-- create an OMVS segment.
-- create a TSO segment.
+    With the **ADDUSER** command you can:
 
- Operands explained:
+    - define a new user to RACF.
+    - add a profile for the new user to the RACF database.
+    - create a connect profile that connects the user to the default group.
+    - create an OMVS segment.
+    - create a TSO segment.
 
-- *uuuuuuuu* Specifies the user to be defined to RACF. 1 - 8 alphanumeric characters.
-  A user id can contain any of the supported symbols A-Z, 0-9, #, $, or @.
-- *gggggggg* Specifies the name of a RACF-defined group to be used as the default
-  group for the user. If you do not specify a group, RACF uses your current connect
-  group as the default. 1 - 8 alphanumeric characters, beginning with an alphabetic
-  character. A group name can contain any of the supported symbols A-Z, 0-9, #, $, or @.
-- *nnnnnnnn* Specifies a RACF-defined user or group to be assigned as the owner of the
-  new group. If you do not specify an owner, you are defined as the owner of the group.
-- *pppppppp* Specifies the user's initial logon password. This password is always set
-  expired, thus requiring the user to change the password at initial logon.
-- *aaaaaaaa* Specifies the user's default TSO account number. The account number you
-  specify must be protected by a profile in the ACCTNUM general resource class, and
-  the user must be granted READ access to the profile.
+    **Operands explained**:
 
-When issuing these RACF commands, you might require sufficient authority to the proper
-resources. It is recommended you review the `RACF language reference`_.
+    - *uuuuuuuu* Specifies the user to be defined to RACF. 1 - 8 alphanumeric characters.
+      A user id can contain any of the supported symbols A-Z, 0-9, #, $, or @.
+    - *gggggggg* Specifies the name of a RACF-defined group to be used as the default
+      group for the user. If you do not specify a group, RACF uses your current connect
+      group as the default. 1 - 8 alphanumeric characters, beginning with an alphabetic
+      character. A group name can contain any of the supported symbols A-Z, 0-9, #, $, or @.
+    - *nnnnnnnn* Specifies a RACF-defined user or group to be assigned as the owner of the
+      new group. If you do not specify an owner, you are defined as the owner of the group.
+    - *pppppppp* Specifies the user's initial logon password. This password is always set
+      expired, thus requiring the user to change the password at initial logon.
+    - *aaaaaaaa* Specifies the user's default TSO account number. The account number you
+      specify must be protected by a profile in the ACCTNUM general resource class, and
+      the user must be granted READ access to the profile.
 
-You can define a new group to RACF with command:
+    When issuing these RACF commands, you might require sufficient authority to the proper
+    resources. It is recommended you review the `RACF language reference`_.
 
-.. code-block:
+    You can define a new group to RACF with command:
 
-    ADDGROUP gggggggg OMVS(AUTOGID)
+    .. code-block:: sh
 
-You can add a new user with RACF command:
+       ADDGROUP gggggggg OMVS(AUTOGID)
 
-.. code-block:
+    You can add a new user with RACF command:
 
-   ADDUSER uuuuuuuu DFLTGRP(gggggggg) OWNER(nnnnnnnn) PASSWORD(pppppppp) TSO(ACCTNUM(aaaaaaaa) PROC(pppppppp)) OMVS(HOME(/u/uuuuuuuu) PROGRAM('/bin/sh')) AUTOUID
+    .. code-block:: sh
+
+       ADDUSER uuuuuuuu DFLTGRP(gggggggg) OWNER(nnnnnnnn) PASSWORD(pppppppp) TSO(ACCTNUM(aaaaaaaa) PROC(pppppppp)) OMVS(HOME(/u/uuuuuuuu) PROGRAM('/bin/sh')) AUTOUID
 
 
-To learn more about creating users with RACF, see `RACF command syntax`_.
+    To learn more about creating users with RACF, see `RACF command syntax`_.
 
 
 Step 6: Security
