@@ -1,8 +1,7 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2025                                          .
-.. References:
-.. - requirements: Project > Installation & Execution > Software requirements.
-.. - Ansible Z life cycles: Project > ?
+.. File needs to be contributed by a collection, likely the ref's won't work
+.. since the source will be in another, so need to create an external link.
 .. ...........................................................................
 
 ================================

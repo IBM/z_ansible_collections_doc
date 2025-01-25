@@ -9,9 +9,9 @@
 
 .. _ibm-zos-core-collection-requirements:
 
-================================
-Collection software requirements
-================================
+=======================
+Collection requirements
+=======================
 
 The :ref:`dependency matrix<ibm-zos-core-dependency-matrix>`
 lists the minimum required component versions for each version of the

@@ -12,7 +12,6 @@ at no cost.
 
 The IBM Z Trial is completely free. Once registered, you will be provided
 with a link to a sandbox environment where no extra installation is required.
-The link will be accessible for 3 days including weekends.
 
 z/OS core
 ---------
