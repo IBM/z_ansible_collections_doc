@@ -12,11 +12,14 @@ run modules on the managed node.
 Step 1: Directory Structure
 ===========================
 
-.. dropdown:: To configure the collection ...
+.. dropdown:: The following section discusses configuring the collection ...
+    :color: primary
+    :icon: info
 
-    To configure the collection, it is best to begin by creating the directory
-    structure that will combine the various elements; playbooks, inventory,
-    variables (group_vars & host_vars) as well as environment variables.
+    The following section discusses configuring the collection,
+    it is best to begin by creating the directory structure that will combine
+    the various elements; playbooks, inventory, variables (group_vars & host_vars)
+    as well as environment variables.
 
     In this example, we are using the alternative directory layout that places
     inventory with ``group_vars`` and ``host_vars`` which is particularly useful
@@ -24,7 +27,7 @@ Step 1: Directory Structure
     much in common with other systems, eg Linux, Windows, etc.
 
     This directory structure complete with playbook and configurations is
-    available in our samples repository.
+    available in `Ansible Z Playbook Repository`_.
 
     The directory structure should be created on the control node, that is
     where Ansible is running.
@@ -63,9 +66,11 @@ Step 1: Directory Structure
 Step 2: Host variables (host_vars)
 ==================================
 
-.. dropdown:: In the following section we will discuss the ``host_vars`` ...
+.. dropdown:: The following section discusses *host_vars* ...
+    :color: primary
+    :icon: file-code
 
-    In the following section we will discuss the ``host_vars`` that will
+    The following section discusses ``host_vars`` that will
     automatically be expanded into environment variables. These variables
     are used to instruct the collection on where it can find IBM
     `Open Enterprise SDK for Python`_ and IBM `Z Open Automation Utilities`_
@@ -108,10 +113,10 @@ Step 2: Host variables (host_vars)
     that was created in a previous step. You will need to configure the following
     properties:
 
-    - PYZ - the python installation home path on the z/OS manage node
-    - PYZ_VERSION - the version of python on the z/OS managed node
-    - ZOAU - the ZOAU installation home on the z/OS managed node
-    - ZOAU_PYTHON_LIBRARY_PATH - the path to the ZOAU python library 'zoautil_py'
+    - *PYZ* - the python installation home path on the z/OS manage node
+    - *PYZ_VERSION* - the version of python on the z/OS managed node
+    - *ZOAU* - the ZOAU installation home on the z/OS managed node
+    - *ZOAU_PYTHON_LIBRARY_PATH* - the path to the ZOAU python library 'zoautil_py'
 
     If you have installed the ZOAU python package using ``pip3``, enter this into
     ``zos_host.yml`` and update only the first 4 properties with dependency information
@@ -137,13 +142,19 @@ Step 2: Host variables (host_vars)
         ZOAU_PYTHON_LIBRARY_PATH: "{{ ZOAU }}/lib/{{ PYZ_VERSION }}"
         ansible_python_interpreter: "{{ PYZ }}/bin/python3"
 
+    .. admonition:: Use environment variables in a playbook
+
+        If you are testing a configuration, it can be helpful to set the environment variables
+        in a playbook. For this option, see: `How to put environment variables in a playbook`_.
 
 Step 3: Group variables (group_vars)
 ====================================
 
-.. dropdown:: In the following section we will discus ``group_vars`` ...
+.. dropdown:: The following section discusses *group_vars* ...
+    :color: primary
+    :icon: file-code
 
-    In the following section we will discus ``group_vars``, part of the
+    The following section discusses ``group_vars``, part of the
     environment variables which instruct the collection where it can find
     IBM `Open Enterprise SDK for Python`_ and IBM
     `Z Open Automation Utilities`_ (ZOAU) dependencies.
@@ -158,29 +169,56 @@ Step 3: Group variables (group_vars)
     .. code-block:: sh
 
         environment_vars:
-        _BPXK_AUTOCVT: "ON"
-        ZOAU_HOME: "{{ ZOAU }}"
-        PYTHONPATH: "{{ ZOAU_PYTHON_LIBRARY_PATH }}"
-        LIBPATH: "{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:."
-        PATH: "{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin"
-        _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
-        _TAG_REDIR_ERR: "txt"
-        _TAG_REDIR_IN: "txt"
-        _TAG_REDIR_OUT: "txt"
-        LANG: "C"
-        PYTHONSTDINENCODING: "cp1047"
+          _BPXK_AUTOCVT: "ON"
+          ZOAU_HOME: "{{ ZOAU }}"
+          PYTHONPATH: "{{ ZOAU_PYTHON_LIBRARY_PATH }}"
+          LIBPATH: "{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:."
+          PATH: "{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin"
+          _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
+          _TAG_REDIR_ERR: "txt"
+          _TAG_REDIR_IN: "txt"
+          _TAG_REDIR_OUT: "txt"
+          LANG: "C"
+          PYTHONSTDINENCODING: "cp1047"
 
 
-Strep 4: Inventory
+    .. dropdown:: The following section explains the environment variables ...
+        :icon: info
+
+        The following section explains the environment variables.
+
+        - *BPXK_AUTOCVT* - Activate automatic file conversion of tagged files including
+           I/O for regular, pipe, and character-special files that are tagged.
+        - *ZOAU_HOME*  - the Z Open Automation Utilities (ZOAU) install root path.
+        - *PYTHONPATH* - the ZOAU Python library path.
+        - *LIBPATH* - the Python libraries  path on the managed node and the ZOAU python
+          library path separated by semi-colons.
+        - *PATH* - the ZOAU `/bin` path and Python interpreter path.
+        - *_CEE_RUNOPTS* - the invocation Language Environment runtime options for programs.
+        - *_TAG_REDIR_IN* - enables tagging of the shell's stdin redirection based on the
+          existing file tags. It must be set to txt.
+        - *_TAG_REDIR_OUT* - enables tagging of the shell's stdout redirection based on the
+          existing file tags. It must be set to txt.
+        - *_TAG_REDIR_ERR* - enables tagging of the shell's stderr redirection based on the
+          existing file tags. It must be set to txt.
+        - *LANG* -  the name of the default locale. The C value specifies the Portable Operating
+          System Interface (POSIX) locale.
+        - *PYTHONSTDINENCODING* - instructs Ansible which encoding it will pipe content to
+          Python's stdin when pipelining=true the encoding Unix System Services is configured as,
+          supported encodings are ASCII or EBCDIC. 
+
+Step 4: Inventory
 ==================
 
-.. dropdown:: Ansible interacts with managed nodes (hosts) ...
+.. dropdown:: The following section discusses how Ansible interacts with managed node ...
+    :color: primary
+    :icon: file-code
 
-    Ansible interacts with managed nodes (hosts) using a list known as `inventory`_.
-    It is a configuration file that specifies the hosts and group of hosts
-    on which Ansible commands, modules, and playbooks will operate. It also defines
-    variables and connection details for those hosts, such as IP address. For more
-    information, see `Building Ansible inventories`_.
+    The following section discusses how Ansible interacts with managed
+    node (hosts) using a list known as `inventory`_. It is a configuration file that
+    specifies the hosts and group of hosts on which Ansible commands, modules, and playbooks
+    will operate. It also defines variables and connection details for those hosts, such as
+    IP address. For more information, see `Building Ansible inventories`_.
 
     The following inventory is explained.
 
@@ -206,11 +244,15 @@ Strep 4: Inventory
 Step 5: User
 ============
 
-.. dropdown:: This collection connects to the managed node over SSH ...
+.. dropdown:: The following section discusses how the collection connects to the managed node over SSH  ...
+    :color: primary
+    :icon: command-palette
 
-    This collection connects to the managed node over SSH via the ansible user defined in inventory or
-    optionally the command line, thus requiring access to z/OS UNIX System Services (USS). From a security
-    perspective, the collection will require both an OMVS segment and TSO segment in the users profile.
+    The following section discusses how the collection connects to the
+    managed node over SSH via the ansible user defined in inventory or optionally
+    the command line, thus requiring access to z/OS UNIX System Services (USS).
+    From a security perspective, the collection will require both an OMVS segment
+    and TSO segment in the users profile.
 
     With the **ADDGROUP** command you can:
 
@@ -258,61 +300,281 @@ Step 5: User
 
        ADDUSER uuuuuuuu DFLTGRP(gggggggg) OWNER(nnnnnnnn) PASSWORD(pppppppp) TSO(ACCTNUM(aaaaaaaa) PROC(pppppppp)) OMVS(HOME(/u/uuuuuuuu) PROGRAM('/bin/sh')) AUTOUID
 
-
     To learn more about creating users with RACF, see `RACF command syntax`_.
-
 
 Step 6: Security
 ================
 
-Some of the modules in the collection will perform operations that require the playbook user to
-have appropriate authority with various RACF resource classes. Each module documents which access
-is needed in the **note** section. A user is described as the remote SSH user executing playbook
-tasks, who can also obtain escalated privileges to execute as another user.
+.. dropdown:: The following section discusses how the collection secures interaction using RACF ...
+    :color: primary
+    :icon: command-palette
 
-Prerequisites
-=============
-Before installing any collection, ensure the collection requirements are met through the use of `environment variables`_. The preferred configuration is to place the environment variables in ``group_vars`` and ``host_vars``, you can find examples of this configuration under **Configuration** of any project in the `Ansible Z Playbook Repository`_.
+    The following section discusses how the collection secures interaction using RACF.
+    Some of the modules in the collection will perform operations that require the
+    playbook user to have appropriate authority with various RACF resource classes.
+    Each module documents which access is needed in the **notes** section. A user
+    is described as the remote SSH user executing playbook tasks, who can also
+    obtain escalated privileges to execute as another user.
 
-.. note::
-    If you are testing a configuration, it can be helpful to set the environment variables in a playbook. See `How to put environment variables in a playbook`_.
+    In RACF, a *class* refers to a collection of resources that share similar
+    characteristics, while a *resource class profile* is a set of access controls
+    belonging a class. In other words, a class is a group of related things, and a
+    resource class profile are rules managing access to those things within that group.
 
-To install ZOAU Python wheel, see `Python wheel installation method`_.
+    .. dropdown:: Enabling RACF resource classes for module *zos_apf* ...
+        :color: info
+        :icon: command-palette
 
+        Enabling RACF resource classes for module ``zos_apf`` requires that
+        library *libname*, you have **UPDATE** authority to the RACF **FACILITY**
+        resource class entity **CSVAPF.libname**, or there must be no **FACILITY**
+        class profile that protects that entity. Once access for **CSVAPF.libname**
+        has been determined:
+
+        .. dropdown:: To control who can make the APF list dynamic ...
+            :icon: command-palette
+
+            To control who can make the **APF list dynamic** using module ``zos_apf``,
+            the RACF security administrator can:
+
+            Establish a profile for the following FACILITY class with command:
+
+            .. code-block:: sh
+
+                RDEFINE FACILITY CSVAPF.MVS.SETPROG.FORMAT.DYNAMIC UACC(NONE)
+
+            Then permit the RACF-defined user or group profile *iiiiiiii* to use the class
+            with command:
+
+            .. code-block:: sh
+
+                PERMIT CSVAPF.MVS.SETPROG.FORMAT.DYNAMIC CLASS(FACILITY) ID(iiiiiiii) ACCESS(UPDATE)
+
+
+            If the FACILITY class is not active, issue the command:
+
+            .. code-block:: sh
+
+                SETROPTS CLASSACT(FACILITY)
+
+
+            To verify the FACILITY class is active, issue command:
+
+            .. code-block:: sh
+
+                SETROPTS LIST
+
+            To refresh the FACILITY resource class, issue command:
+
+            .. code-block:: sh
+
+                SETROPTS RACLIST(FACILITY) REFRESH
+
+        .. dropdown:: To control who can make the APF list static ...
+            :icon: command-palette
+
+            To control who can make the **APF list dynamic** using module ``zos_apf``,
+            the RACF security administrator can:
+
+            Establish a profile for the following FACILITY class with command:
+
+            .. code-block:: sh
+
+                RDEFINE FACILITY CSVAPF.MVS.SETPROG.FORMAT.STATIC UACC(NONE)
+
+            Then permit the RACF-defined user or group profile *iiiiiiii* to use the class
+            with command:
+
+            .. code-block:: sh
+
+                PERMIT CSVAPF.MVS.SETPROG.FORMAT.STATIC CLASS(FACILITY) ID(iiiiiiii) ACCESS(UPDATE)
+
+
+            If the FACILITY class is not active, issue the command:
+
+            .. code-block:: sh
+
+                SETROPTS CLASSACT(FACILITY)
+
+
+            To verify the FACILITY class is active, issue command:
+
+            .. code-block:: sh
+
+                SETROPTS LIST
+
+            To refresh the FACILITY resource class, issue command:
+
+            .. code-block:: sh
+
+                SETROPTS RACLIST(FACILITY) REFRESH
+
+
+        To learn more about enabling users APF dynamic and static access, see
+        controlling `static and dynamic access`_.
+
+    .. dropdown:: Enabling RACF resource class for module *zos_backup_restore* ...
+        :color: info
+        :icon: command-palette
+
+        Enabling RACF resource class for module ``zos_backup_restore`` requires that
+        library **STGADMIN.ADR.DUMP.TOLERATE.ENQF** have **READ** authority or there
+        must be no **FACILITY** class profile that protects that entity to use the
+        module option recover=true.
+
+        Establish a profile for the following FACILITY class with command:
+
+        .. code-block:: sh
+
+            RDEFINE FACILITY STGADMIN.ADR.DUMP.TOLERATE.ENQF UACC(NONE)
+
+        Then permit the RACF-defined user or group profile *iiiiiiii* to use the class
+        with command:
+
+        .. code-block:: sh
+
+            PERMIT STGADMIN.ADR.DUMP.TOLERATE.ENQF CLASS(FACILITY) ID(iiiiiiii) ACCESS(READ)
+
+        If the FACILITY class is not active, issue the command:
+
+        .. code-block:: sh
+
+            SETROPTS CLASSACT(FACILITY)
+
+        To verify the FACILITY class is active, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS LIST
+
+        To refresh the FACILITY resource class, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS RACLIST(FACILITY) REFRESH
+
+    .. dropdown:: Enabling RACF resource class for module *zos_copy* ...
+        :color: info
+        :icon: command-palette
+
+        Enabling RACF resource class for module ``zos_copy`` requires that library
+        **MVS.MCSOPER.ZOAU** have **READ** authority or there must be no **OPERCMDS**
+        class profile that protects that entity to use the module.
+
+        Establish a profile for the following OPERCMDS class with command:
+
+        .. code-block:: sh
+
+            RDEFINE OPERCMDS MVS.MCSOPER.ZOAU UACC(NONE)
+
+        Then permit the RACF-defined user or group profile *iiiiiiii* to use the class
+        with command:
+
+        .. code-block:: sh
+
+            PERMIT MVS.MCSOPER.ZOAU CLASS(OPERCMDS) ID(iiiiiiii) ACCESS(READ)
+
+        If the OPERCMDS class is not active, issue the command:
+
+        .. code-block:: sh
+
+            SETROPTS CLASSACT(OPERCMDS)
+
+        To verify the OPERCMDS class is active, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS LIST
+
+        To refresh the OPERCMDS resource class, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS RACLIST(OPERCMDS) REFRESH
+
+    .. dropdown:: Enabling RACF resource class for module *zos_volume_init* ...
+        :color: info
+        :icon: command-palette
+
+        Enabling RACF resource class for module ``zos_volume_init`` requires
+        that library **STGADMIN.ICK.INIT** have **READ** authority or there must
+        be no **FACILITY** class profile that protects that entity to use the module.
+
+        Establish a profile for the following FACILITY class with command:
+
+        .. code-block:: sh
+
+            RDEFINE FACILITY STGADMIN.ICK.INIT UACC(NONE)
+
+        Then permit the RACF-defined user or group profile *iiiiiiii* to use the class
+        with command:
+
+        .. code-block:: sh
+
+            PERMIT STGADMIN.ICK.INIT CLASS(FACILITY) ID(iiiiiiii) ACCESS(READ)
+
+        If the FACILITY class is not active, issue the command:
+
+        .. code-block:: sh
+
+            SETROPTS CLASSACT(FACILITY)
+
+        To verify the FACILITY class is active, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS LIST
+
+        To refresh the FACILITY resource class, issue command:
+
+        .. code-block:: sh
+
+            SETROPTS RACLIST(FACILITY) REFRESH
+
+
+    .. dropdown:: Use the RLIST command to display information on resources ...
+        :color: success
+        :icon: info
+
+        Use the RLIST command to display information on resources belonging to RACF classes.
+
+        To see information on class OPERCMDS, resource class profile MVS.MCSOPER.ZOAU,
+        issue command:
+
+        .. code-block:: sh
+
+            RLIST OPERCMDS MVS.MCSOPER.ZOAU
+
+        RLIST command result:
+
+        .. code-block:: sh
+
+            CLASS      NAME
+            -----      ----
+            OPERCMDS   MVS.MCSOPER.ZOAU
+
+            LEVEL  OWNER      UNIVERSAL ACCESS  YOUR ACCESS  WARNING
+            -----  --------   ----------------  -----------  -------
+            00     RACEC      READ              READ         NO
 
 .. ...........................................................................
 .. External links
 .. ...........................................................................
-.. _environment variables:
-   https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md#environment-variables
 .. _Ansible Z Playbook Repository:
    https://github.com/IBM/z_ansible_collections_samples
 .. _How to put environment variables in a playbook:
    https://github.com/ansible-collections/ibm_zos_core/discussions/657
-.. _Python wheel installation method:
-   https://www.ibm.com/docs/en/zoau/1.3.x?topic=installing-zoau#python-wheel-installation-method
-.. _Installing collections (Ansible Documentation):
-   https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#installing-collections
-.. _Configuring the ansible-galaxy client (Ansible Documentation):
-   https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#configuring-the-ansible-galaxy-client
-.. _Ansible Configuration Settings (Ansible Documentation):
-   https://docs.ansible.com/ansible/latest/reference_appendices/config.html
-.. _Installing a collection from a git repository (Ansible Documentation):
-   https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#installing-a-collection-from-a-git-repository
-.. _Connect to Hub:
-   https://cloud.redhat.com/ansible/automation-hub/token/
-.. _Creating the API token in automation hub:
-    https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/getting_started_with_automation_hub/hub-create-api-token#hub-create-api-token
-
-
 .. _Open Enterprise SDK for Python:
    https://www.ibm.com/products/open-enterprise-python-zos
 .. _Z Open Automation Utilities:
    https://www.ibm.com/docs/en/zoau/latest
 .. _inventory:
    https://ibm.github.io/z_ansible_collections_doc/welcome/basic-concepts.html#term-Inventory
-.. _Building Ansible inventories: https://docs.ansible.com/ansible/latest/inventory_guide/index.html#
+.. _Building Ansible inventories:
+   https://docs.ansible.com/ansible/latest/inventory_guide/index.html#
 .. _RACF command syntax:
    https://www.ibm.com/docs/en/zos/3.1.0?topic=syntax-addgroup-add-group-profile
 .. _RACF language reference:
    https://www.ibm.com/docs/en/zos/3.1.0?topic=racf-zos-security-server-command-language-reference
+.. _static and dynamic access:
+   https://www.ibm.com/docs/en/zos/3.1.0?topic=lists-controlling-how-change-apf-list-format
