@@ -13,31 +13,30 @@ at no cost.
 The IBM Z Trial is completely free. Once registered, you will be provided
 with a link to a sandbox environment where no extra installation is required.
 
-z/OS core
----------
+.. grid:: 2
 
-In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
-scenarios, including:
+    .. grid-item-card::  :bdg-primary:`z/OS core`
 
-- Acquire z/OS status
-- Handle basic data set operations
-- Perform job management
-- Work with sample playbooks
+         In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
+         scenarios, including:
 
-To request the IBM z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
-- `IBM z/OS® IMS collection Z Trial`_
+         - Acquire z/OS status
+         - Handle basic data set operations
+         - Perform job management
+         - Work with sample playbooks
 
-z/OS IMS
---------
+         To request the z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
 
-In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
-scenarios, including:
+    .. grid-item-card::  :bdg-primary:`z/OS IMS`
 
-- Access the IMS catalog and database with SQL using IMS Explorer
-- Explore the IBM z/OS® IMS Ansible collection
-- Automate IMS managed ACBs and catalog with Ansible
+         In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
+         scenarios, including:
 
-To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
+         - Access the IMS catalog and database with SQL using IMS Explorer
+         - Explore the IBM z/OS® IMS Ansible collection
+         - Automate IMS managed ACBs and catalog with Ansible
+
+         To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
 
 .. .............................................................................
 .. External links
