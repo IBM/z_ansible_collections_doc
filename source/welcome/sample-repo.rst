@@ -26,17 +26,36 @@ and get community support.
 
 For example, you can find playbooks that demonstrate various topics such as:
 
-* `Z Systems Administration <https://github.com/IBM/z_ansible_collections_samples#z-topics>`_
-* `z/OS Administration <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Basic Operations <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Concepts <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Integrating Existing Automation <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Provisioning <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Application & Service Deployment <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Subsystems <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
-* `z/OS Software Installation <https://github.com/IBM/z_ansible_collections_samples#zos-topics>`_
+* `Z Systems Administration`_
+* `z/OS Administration`_
+* `z/OS Basic Operations`_
+* `z/OS Concepts`_
+* `z/OS Integrating Existing Automation`_
+* `z/OS Provisioning`_
+* `z/OS Application & Service Deployment`_
+* `z/OS Subsystems`_
+* `z/OS Software Installation`_
 
 .. ...........................................................................
 .. External links
 .. ...........................................................................
 .. _Ansible for IBM Z sample playbook repository: https://github.com/IBM/z_ansible_collections_samples
+
+.. _Z Systems Administration:
+   https://github.com/IBM/z_ansible_collections_samples#z-topics
+.. _z/OS Administration:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Basic Operations:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Concepts:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Integrating Existing Automation:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Provisioning:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Application & Service Deployment:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Subsystems:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics
+.. _z/OS Software Installation:
+   https://github.com/IBM/z_ansible_collections_samples#zos-topics

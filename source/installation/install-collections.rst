@@ -13,192 +13,192 @@ Git repository.
 This guide will discuss installing the IBM Ansible Z collections, for installing
 Ansible see, xxxx, for collection dependencies see yyy.
 
+.. _install-collections:
+
 Option 1: Install from Ansible Galaxy
 =====================================
 
-Ansible Galaxy is the community repository for Ansible for IBM Z® collections.
-You can find various details such as collection information and collection
-content in the Ansible Galaxy page of a collection.
+.. dropdown:: Ansible **Galaxy** is the community repository for Ansible ...
+    :color: primary
+    :icon: command-palette
 
-.. _install-collections:
+    Ansible **Galaxy** is the community repository for Ansible for IBM Z collections.
+    You can find various details such as collection information and collection
+    content in the Ansible Galaxy page of a collection.
 
-Install a collection
---------------------
+    .. dropdown:: Install a collection from Ansible **Galaxy** ...
+        :icon: command-palette
 
-.. dropdown:: In a collection's Ansible Galaxy page ...
+        Install a collection from Ansible Galaxy, you can find the installation
+        command for installing a specific collection.
 
-   In a collection's Ansible Galaxy page, you can find the installation
-   command for installing a specific collection.
+        #. Using the ``ansible-galaxy`` command, the general command form below will
+           install the latest version of a collection.
 
-   #. Using the ``ansible-galaxy`` command, the general command form below will
-      install the latest version of a collection.
+           .. code-block:: sh
 
-      .. code-block:: sh
+              ansible-galaxy collection install <namespace>.<collection name>
 
-         ansible-galaxy collection install <namespace>.<collection name>
+           The namespace for Ansible for IBM Z collections is ``ibm``. The following
+           are the available collection names you can select from:
 
-      The namespace for Ansible for IBM Z collections is ``ibm``. The following
-      are the available collection names you can select from:
+              - ibm_zos_core
+              - ibm_zos_ims
+              - ibm_zos_cics
+              - ibm_zhmc
+              - ibm_zos_sysauto
+              - ibm_zosmf
 
-         - ibm_zos_core
-         - ibm_zos_ims
-         - ibm_zos_cics
-         - ibm_zhmc
-         - ibm_zos_sysauto
-         - ibm_zosmf
+        #. Verify the location of the collection by running the following command.
+           You'll see the name, version, and location of the installed collection.
 
-   #. Verify the location of the collection by running the following command.
-      You'll see the name, version, and location of the installed collection.
+           .. code-block:: sh
 
-      .. code-block:: sh
+              ansible-galaxy collection list
 
-         ansible-galaxy collection list
+           .. note::
+              Ansible collection dependencies, some collections are dependent on
+              other collections, such as the IBM z/OS IMS collection, which has a
+              dependency on the IBM z/OS core collection. The collections
+              dependencies will be automatically installed, even if you don't
+              selectively install them.
 
-      .. note::
-         Ansible collection dependencies, some collections are dependent on
-         other collections, such as the IBM z/OS IMS collection, which has a
-         dependency on the IBM z/OS core collection. The collections
-         dependencies will be automatically installed, even if you don't
-         selectively install them.
+           If you have multiple collections to install, you can enter the collection
+           names into a **requirements.yml** file and install them with
+           ``ansible-galaxy collection install -r requirements.yml``.
 
-      If you have multiple collections to install, you can enter the collection
-      names into a **requirements.yml** file and install them with
-      ``ansible-galaxy collection install -r requirements.yml``.
+           The **requirements.yml** is a YAML file with the format:
 
-      The **requirements.yml** is a YAML file with the format:
+           .. code-block:: sh
 
-      .. code-block:: sh
+              collections:
+                 - name: <namespace>.<collection name>
 
-         collections:
-            - name: <namespace>.<collection name>
+    ..   dropdown:: Install a specific collection version from Ansible Galaxy ...
+         :icon: command-palette
 
+         Install a specific collection version from Ansible Galaxy. For example,
+         you can use the following command to install version 1.0.0 for the
+         IBM z/OS core collection:
 
-Install a specific version
---------------------------
+            .. code-block:: sh
 
-.. dropdown:: You can install a specific version ...
+               ansible-galaxy collection install ibm.ibm_zos_core:1.0.0
 
-   You can install a specific version of the collection. For example, you
-   can use the following command to install version 1.0.0 for the
-   IBM z/OS core collection:
+         A **beta version** is only available on Ansible Galaxy and is only supported
+         by the community, once it is General Availability (GA), it will be  promoted
+         to Ansible Automation Platform and eligible for entitlement. A beta is not
+         considered the latest version by Ansible Galaxy, to install a beta of the
+         IBM z/OS core collection, run the following command:
 
-      .. code-block:: sh
+            .. code-block:: sh
 
-         ansible-galaxy collection install ibm.ibm_zos_core:1.0.0
+               ansible-galaxy collection install ibm.ibm_zos_core:1.10.0-beta.1
 
-   A **beta version** is only available on Ansible Galaxy and is only supported
-   by the community, once it is General Availability (GA), it will be  promoted
-   to Ansible Automation Platform and eligible for entitlement. A beta is not
-   considered the latest version by Ansible Galaxy, to install a beta of the
-   IBM z/OS core collection, run the following command:
-
-      .. code-block:: sh
-
-         ansible-galaxy collection install ibm.ibm_zos_core:1.10.0-beta.1
-
-   For more information about installing Ansible collections,
-   see `Installing collections (Ansible Documentation)`_.
-
+         For more information about installing Ansible collections,
+         see `Installing collections (Ansible Documentation)`_.
 
 Option 2: Install from Automation Hub
 =====================================
 
-The procedure of configuring access to a **Ansible Automation Platform** is the
-same as that of connecting a client to a **private Galaxy server**. You can use
-the ``ansible-galaxy collection install`` command to install a collection on the
-control node hosted in Ansible Automation Platform or a private Galaxy server.
+.. dropdown:: Configuring access to a **Ansible Automation Platform** ...
+    :color: primary
+    :icon: command-palette
 
-Configuration
--------------
+    Configuring access to a **Ansible Automation Platform** is the same as that of
+    connecting a client to a **private Galaxy server**. You can use the
+    ``ansible-galaxy collection install`` command to install a collection on the
+    control node hosted in Ansible Automation Platform or a private Galaxy server.
 
-.. dropdown:: By default, the ``ansible-galaxy`` command ...
+    .. dropdown:: By default, the **ansible-galaxy** command ...
+       :icon: file-code
 
-   By default, the ``ansible-galaxy`` command uses ``https://galaxy.ansible.com`` as the
-   Galaxy server, but you can configure the ``ansible-galaxy collection`` command to use
-   other servers by editing the configuration file, **ansible.cfg**.
+       By default, the ``ansible-galaxy`` command uses ``https://galaxy.ansible.com`` as the
+       Galaxy server, but you can configure the ``ansible-galaxy collection`` command to use
+       other servers by editing the configuration file, **ansible.cfg**.
 
-   For more information, see `Configuring the ansible-galaxy client (Ansible Documentation)`_.
+       For more information, see `Configuring the ansible-galaxy client (Ansible Documentation)`_.
 
-   To configure:
+       To configure:
 
-   * Set the **auth_url** option for each server name.
-   * Set the API token for each server name. To obtain an API token from Automation Hub,
-      select the Offline token from `Connect to Hub`_.
+       * Set the **auth_url** option for each server name.
+       * Set the API token for each server name. To obtain an API token from Automation Hub,
+          select the Offline token from `Connect to Hub`_.
 
-   The automation hub API token authenticates your ansible-galaxy client to the Red Hat
-   automation hub server. To learn more about configuration,
-   see `Creating the API token in automation hub`_.
+       The automation hub API token authenticates your ansible-galaxy client to the Red Hat
+       automation hub server. To learn more about configuration,
+       see `Creating the API token in automation hub`_.
 
-   The following example shows an **ansible.cfg** configuration for Ansible Automation
-   Platform, a private Galaxy server, and Ansible Galaxy. The search order is managed
-   with the **server_list** option contained in the configuration. The configuration will
-   be accessed in this ordering:
+       The following example shows an **ansible.cfg** configuration for Ansible Automation
+       Platform, a private Galaxy server, and Ansible Galaxy. The search order is managed
+       with the **server_list** option contained in the configuration. The configuration will
+       be accessed in this ordering:
 
-      - ANSIBLE_CONFIG (environment variable if set)
-      - ansible.cfg (in the current directory)
-      - ~/.ansible.cfg (in the home directory)
-      - /etc/ansible/ansible.cfg
+          - ANSIBLE_CONFIG (environment variable if set)
+          - ansible.cfg (in the current directory)
+          - ~/.ansible.cfg (in the home directory)
+          - /etc/ansible/ansible.cfg
 
-      .. code-block:: yaml
+          .. code-block:: yaml
 
-         [galaxy]
-         server_list = automation_hub, galaxy, private_galaxy
+             [galaxy]
+             server_list = automation_hub, galaxy, private_galaxy
 
-         [galaxy_server.automation_hub]
-         url=https://cloud.redhat.com/api/automation-hub/
-         auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
-         token=<hub_token>
+             [galaxy_server.automation_hub]
+             url=https://cloud.redhat.com/api/automation-hub/
+             auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+             token=<hub_token>
 
-         [galaxy_server.galaxy]
-         url=https://galaxy.ansible.com/
+             [galaxy_server.galaxy]
+             url=https://galaxy.ansible.com/
 
-         [galaxy_server.private_galaxy]
-         url=https://galaxy-dev.ansible.com/
-         token=<private_token>
+             [galaxy_server.private_galaxy]
+             url=https://galaxy-dev.ansible.com/
+             token=<private_token>
 
-   To learn more about configuration, see `Ansible Configuration Settings (Ansible Documentation)`_.
+       To learn more about configuration, see `Ansible Configuration Settings (Ansible Documentation)`_.
 
-Install a collection
---------------------
+    .. dropdown:: By default, the ``ansible-galaxy`` command ...
+       :icon: file-code
 
-   After having updated the configuration, return to the :ref:`Install a collection<install-collections>` reference and
-   follow along to install a collection.
+        Install a collection from Ansible Automation Hub after having updated the configuration
+        (ansible.cfg), return to the :ref:`Install a collection<install-collections>` reference and
+        follow along to install a collection.
 
 
 Option 3: Install from Git repository
 =====================================
 
-You can install a collection from a Git repository using the URI of the repository
-and the ``ansible-galaxy collection install`` command. You can also specify a branch,
-commit, or tag using the comma-separated git commit-ish syntax.
+.. dropdown:: Install a collection from a **Git** repository using the URI ...
+    :color: primary
+    :icon: command-palette
 
-Install a collection
---------------------
+    Install a collection from a Git repository using the URI of the repository
+    and the ``ansible-galaxy collection install`` command. You can also specify a branch,
+    commit, or tag using the comma-separated git commit-ish syntax.
 
-.. dropdown:: To build and install a collection ...
+    To build and install a collection from a Git repository, for example, the IBM z/OS core
+    collection, use the below commands.
 
-   To build and install a collection from the Git repository, for example, the IBM z/OS core
-   collection use the below commands.
+       #. Install a specific GitHub release (v1.12.0):
 
-      #. Install release version 1.12.0:
+          .. code-block:: sh
 
-         .. code-block:: sh
+             ansible-galaxy collection install -f git@github.com:ansible-collections/ibm_zos_core.git,v1.12.0
 
-            ansible-galaxy collection install -f git@github.com:ansible-collections/ibm_zos_core.git,v1.12.0
+       #. Install the collection from the **dev** branch:
 
-      #. Install from the **dev** branch:
+          .. code-block:: sh
 
-         .. code-block:: sh
+             ansible-galaxy collection install git@github.com:ansible-collections/ibm_zos_core.git,dev
 
-            ansible-galaxy collection install git@github.com:ansible-collections/ibm_zos_core.git,dev
+       #. Install from the **dev** branch using SSH authentication by including the prefix **git+**:
 
-      #. Install from the **dev** branch using SSH authentication by including the prefix **git+**:
+          .. code-block:: sh
 
-         .. code-block:: sh
+             ansible-galaxy collection install git+https://github.com/ansible-collections/ibm_zos_core.git,dev
 
-            ansible-galaxy collection install git+https://github.com/ansible-collections/ibm_zos_core.git,dev
-
-   For more information, see `Installing a collection from a git repository (Ansible Documentation)`_.
+    For more information, see `Installing a collection from a git repository (Ansible Documentation)`_.
 
 .. ...........................................................................
 .. External links

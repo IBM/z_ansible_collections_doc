@@ -1,6 +1,11 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
+.. TODO:
+..    1) Request all contributors provide a reference (ref) back to the
+..       collections ansible_content page like the ibm_zos_core collection.
+..       For now, static links are used (which might actually be safer :) )
+.. ...........................................................................
 
 =================
 Ansible for IBM Z
@@ -18,96 +23,109 @@ Ansible for IBM Z offer a seamless, unified workflow, orchestration with
 configuration management, provisioning, and application deployment in
 one easy-to-use platform.
 
-Today, the available collections include:
-
-- IBM z/OS core collection
-- IBM z/OS CICS collection
-- IBM z/OS IMS collection
-- IBM Z System Automation collection
-- IBM z/OS Management Facility collection
-- IBM Z HMC collection
-
 The Ansible for IBM Z teams are actively expanding the collections to
 automate other common configuration and management tasks for software
 in the broader IBM Z community.
 
-.. grid:: 2
+Today, the available collections include:
 
-    .. grid-item-card::  :bdg-primary:`IBM z/OS core collection`
+.. grid:: 1 1 2 2
+    :gutter: 1
 
-         In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
-         scenarios, including:
+    .. grid-item::
 
-         - Acquire z/OS status
-         - Handle basic data set operations
-         - Perform job management
-         - Work with sample playbooks
+        .. grid:: 1 1 1 1
+            :gutter: 1
 
-         To request the z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
+            .. grid-item-card:: :bdg-ref-primary:`ibm-zos_core-collection`
+                  :padding: 0
 
-    .. grid-item-card::  :bdg-primary:`IBM z/OS CICS collection`
+                  With the `IBM z/OS core collection`_, you will be able to:
 
-         In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
-         scenarios, including:
+                  - Submit and access output for batch jobs.
+                  - Create, edit, archive and unarchive data sets.
+                  - Run operator commands, REXX and shell scripts.
+                  - Initialize volumes.
+                  - Backup and restore data sets and volumes.
 
-         - Access the IMS catalog and database with SQL using IMS Explorer
-         - Explore the IBM z/OS® IMS Ansible collection
-         - Automate IMS managed ACBs and catalog with Ansible
+            .. grid-item-card:: :bdg-link-primary:`IBM z/OS IMS collection<../ibm_zos_ims/docs/ansible_content.html>`
+                  :padding: 0
 
-         To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
+                  With the `IBM z/OS IMS collection`_, you will be able to:
 
-.. grid:: 2
+                  - Generate IMS Database Descriptors (DBD).
+                  - Generate Program Specification Blocks (PSB).
+                  - Generate Application Control Blocks (ACB).
+                  - Run IMS type-1 commands.
+                  - Run IMS IMS type-2 commands.
 
-    .. grid-item-card::  :bdg-primary:`IBM z/OS IMS collection`
+            .. grid-item-card:: :bdg-link-primary:`IBM z/OS CICS collection<../ibm_zos_cics/docs/ansible_content.html>`
+                  :padding: 0
 
-         In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
-         scenarios, including:
+                  With the `IBM z/OS CICS collection`_, you will be able to:
 
-         - Acquire z/OS status
-         - Handle basic data set operations
-         - Perform job management
-         - Work with sample playbooks
+                  - Manage CICS resources.
+                  - Manage CICS definitions.
+                  - Provision CICS regions.
+                  - Deprovision CICS regions.
+                  - Start or stop a CICS region.
 
-         To request the z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
+    .. grid-item::
 
-    .. grid-item-card::  :bdg-primary:`IBM Z System Automation collection`
+        .. grid:: 1 1 1 1
+            :gutter: 1
 
-         In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
-         scenarios, including:
+            .. grid-item-card:: :bdg-link-primary:`IBM z/OS Management Facility collection<../ibm_zosmf/docs/ansible_content.html>`
+                  :padding: 0
 
-         - Access the IMS catalog and database with SQL using IMS Explorer
-         - Explore the IBM z/OS® IMS Ansible collection
-         - Automate IMS managed ACBs and catalog with Ansible
+                  With the `IBM z/OS Management Facility collection`_, you will be able to:
 
-         To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
+                  - Create z/OSMF workflows.
+                  - Run z/OSMF workflows.
+                  - Delete z/OSMF workflows.
+                  - Provisioning and managing z/OS software.
+                  - Validate and provision security requirements.
 
-.. grid:: 2
+            .. grid-item-card:: :bdg-link-primary:`IBM Z HMC collection<../zhmc-ansible-modules/docs/ansible_content.html>`
+                  :padding: 0
 
-    .. grid-item-card::  :bdg-primary:`IBM z/OS Management Facility collection`
+                  With the `IBM Z HMC collection`_, you will be able to:
 
-         In the **IBM z/OS Core focused Z Trial**, you will be able to explore some
-         scenarios, including:
+                  - Create, update and delete partitions.
+                  - Access operating system messages.
+                  - Configure adapters.
+                  - Manage HMC users.
+                  - Update SE and HMC firmware.
 
-         - Acquire z/OS status
-         - Handle basic data set operations
-         - Perform job management
-         - Work with sample playbooks
+            .. grid-item-card:: :bdg-link-primary:`IBM Z System Automation collection<../ibm_zos_sysauto/docs/ansible_content.html>`
+                  :padding: 0
 
-         To request the z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
+                  With the `IBM Z System Automation collection`_, you will be able to:
 
-    .. grid-item-card::  :bdg-primary:`IBM Z HMC collection`
+                  - Create dynamic resources from a template.
+                  - Delete dynamic resources from a template.
+                  |br|
+                  |br|
+                  |br|
 
-         In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
-         scenarios, including:
-
-         - Access the IMS catalog and database with SQL using IMS Explorer
-         - Explore the IBM z/OS® IMS Ansible collection
-         - Automate IMS managed ACBs and catalog with Ansible
-
-         To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|
 .. ...........................................................................
+
 .. |br| raw:: html
 
    <br/>
+
+
+.. _IBM z/OS core collection:
+   ../ibm_zos_core/docs/ansible_content.html
+.. _IBM z/OS CICS collection:
+   ../ibm_zos_cics/docs/ansible_content.html
+.. _IBM z/OS IMS collection:
+   ../ibm_zos_ims/docs/ansible_content.html
+.. _IBM Z System Automation collection:
+   ../ibm_zos_sysauto/docs/ansible_content.html
+.. _IBM z/OS Management Facility collection:
+   ../ibm_zosmf/docs/ansible_content.html
+.. _IBM Z HMC collection:
+   ../zhmc-ansible-modules/docs/ansible_content.html
