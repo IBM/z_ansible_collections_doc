@@ -23,9 +23,8 @@ Ansible for IBM Z offer a seamless, unified workflow, orchestration with
 configuration management, provisioning, and application deployment in
 one easy-to-use platform.
 
-The Ansible for IBM Z teams are actively expanding the collections to
-automate other common configuration and management tasks for software
-in the broader IBM Z community.
+The Ansible for IBM Z offerings are actively expanding to automate other common
+configuration and management tasks for software in the broader IBM Z community.
 
 Today, the available collections include:
 
@@ -40,7 +39,7 @@ Today, the available collections include:
             .. grid-item-card:: :bdg-ref-primary:`ibm-zos_core-collection`
                   :padding: 0
 
-                  With the `IBM z/OS core collection`_, you will be able to:
+                  With the `IBM z/OS core`_ collection, you will be able to:
 
                   - Submit and access output for batch jobs.
                   - Create, edit, archive and unarchive data sets.
@@ -48,10 +47,10 @@ Today, the available collections include:
                   - Initialize volumes.
                   - Backup and restore data sets and volumes.
 
-            .. grid-item-card:: :bdg-link-primary:`IBM z/OS IMS collection<../ibm_zos_ims/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS<../ibm_zos_ims/docs/ansible_content.html>`
                   :padding: 0
 
-                  With the `IBM z/OS IMS collection`_, you will be able to:
+                  With the `IBM z/OS IMS`_ collection, you will be able to:
 
                   - Generate IMS Database Descriptors (DBD).
                   - Generate Program Specification Blocks (PSB).
@@ -59,10 +58,10 @@ Today, the available collections include:
                   - Run IMS type-1 commands.
                   - Run IMS IMS type-2 commands.
 
-            .. grid-item-card:: :bdg-link-primary:`IBM z/OS CICS collection<../ibm_zos_cics/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS CICS<../ibm_zos_cics/docs/ansible_content.html>`
                   :padding: 0
 
-                  With the `IBM z/OS CICS collection`_, you will be able to:
+                  With the `IBM z/OS CICS`_ collection, you will be able to:
 
                   - Manage CICS resources.
                   - Manage CICS definitions.
@@ -75,10 +74,10 @@ Today, the available collections include:
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`IBM z/OS Management Facility collection<../ibm_zosmf/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Management Facility<../ibm_zosmf/docs/ansible_content.html>`
                   :padding: 0
 
-                  With the `IBM z/OS Management Facility collection`_, you will be able to:
+                  With the `IBM z/OS Management Facility`_ collection, you will be able to:
 
                   - Create z/OSMF workflows.
                   - Run z/OSMF workflows.
@@ -86,10 +85,10 @@ Today, the available collections include:
                   - Provisioning and managing z/OS software.
                   - Validate and provision security requirements.
 
-            .. grid-item-card:: :bdg-link-primary:`IBM Z HMC collection<../zhmc-ansible-modules/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`Z HMC<../zhmc-ansible-modules/docs/ansible_content.html>`
                   :padding: 0
 
-                  With the `IBM Z HMC collection`_, you will be able to:
+                  With the `IBM Z HMC`_ collection, you will be able to:
 
                   - Create, update and delete partitions.
                   - Access operating system messages.
@@ -97,10 +96,10 @@ Today, the available collections include:
                   - Manage HMC users.
                   - Update SE and HMC firmware.
 
-            .. grid-item-card:: :bdg-link-primary:`IBM Z System Automation collection<../ibm_zos_sysauto/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`Z System Automation<../ibm_zos_sysauto/docs/ansible_content.html>`
                   :padding: 0
 
-                  With the `IBM Z System Automation collection`_, you will be able to:
+                  With the `IBM Z System Automation`_ collection, you will be able to:
 
                   - Create dynamic resources from a template.
                   - Delete dynamic resources from a template.
@@ -117,15 +116,15 @@ Today, the available collections include:
    <br/>
 
 
-.. _IBM z/OS core collection:
+.. _IBM z/OS core:
    ../ibm_zos_core/docs/ansible_content.html
-.. _IBM z/OS CICS collection:
+.. _IBM z/OS CICS:
    ../ibm_zos_cics/docs/ansible_content.html
-.. _IBM z/OS IMS collection:
+.. _IBM z/OS IMS:
    ../ibm_zos_ims/docs/ansible_content.html
-.. _IBM Z System Automation collection:
+.. _IBM Z System Automation:
    ../ibm_zos_sysauto/docs/ansible_content.html
-.. _IBM z/OS Management Facility collection:
+.. _IBM z/OS Management Facility:
    ../ibm_zosmf/docs/ansible_content.html
-.. _IBM Z HMC collection:
+.. _IBM Z HMC:
    ../zhmc-ansible-modules/docs/ansible_content.html

@@ -4,9 +4,9 @@
 .. since the source will be in another, so need to create an external link.
 .. ...........................................................................
 
-================================
-z/OS core release and life cycle
-================================
+==========
+Life cycle
+==========
 
 The IBM z/OS® core (``ibm_zos_core``) collection is developed and released on
 a flexible release cycle; generally, each quarter a beta is released followed
@@ -18,18 +18,14 @@ dependency reaches EOL prior to the 2 years. For example, if a collection has
 released and its dependency reaches EOL 1 year later, then the collection will
 EOL at the same time as the dependency, 1 year later.
 
-| For **Ansible for IBM Z** life cycle information, see :ref:`life cycle<Ansible Z life cycles>`.
-| For collection **dependencies**, see :ref:`software requirements<requirements>`.
-| For collection **release notes**, see :ref:`releases<collection releases>`.
-
-Life cycle matrix
-=================
+Product life cycle
+==================
 
 Review this matrix for the status of the IBM z/OS core collection version,
 its critical dates, and which type of support it's currently eligible for.
 
 +------------+----------------+-----------------------+------------------+-------------------+-----------------------------------------------------------+
-| Version    | Status         | Changelogs            | GA Date          | EOL Date          | Support Phase                                             |
+| Version    | Status         | Changelogs            | GA Date          | EOL Date          | Life Cycle Phase                                          |
 +============+================+=======================+==================+===================+===========================================================+
 | 1.14.x     | In Development | N/A                   | TBD              | TBD               | N/A                                                       |
 +------------+----------------+-----------------------+------------------+-------------------+-----------------------------------------------------------+

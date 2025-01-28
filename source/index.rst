@@ -57,7 +57,7 @@ plugins.
 
    ansible-content/ansible-content
    release/release
-   release/cycles
+   release/collection-life-cycles
 
 .. toctree::
    :maxdepth: 1
