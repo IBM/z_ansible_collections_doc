@@ -12,13 +12,15 @@ SSH and REST from a command-line interface or optionally, advanced
 orchestration with Ansible Automation Platform.
 
 The **Ansible for IBM Z** collections will require additional configuration
-such that SSH or REST endpoints be available and configured for communication.
+such that **SSH** or **REST** endpoints be available and configured for
+communication.
 
 Here you will find instructions on how to configure Ansible for IBM Z
 collections and perform a simple module test.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    z/OS core<collection-configuration>
    z/OS CICS<coming_soon>
@@ -26,3 +28,46 @@ collections and perform a simple module test.
    z/OS Sys Auto<coming_soon>
    z/OSMF<coming_soon>
    Z HMC<coming_soon>
+
+.. grid:: 1 1 2 2
+    :gutter: 1
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. card:: z/OS core software configuration
+               :link: collection-configuration.html
+
+               Click to review the collection configuration.
+
+            .. card:: z/OS IMS software configuration
+               :link: coming_soon.html
+
+               Click to review the collection configuration.
+
+            .. card:: z/OS CICS software configuration
+               :link: coming_soon.html
+
+               Click to review the collection configuration.
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. card:: z/OSMF software configuration
+               :link: coming_soon.html
+
+               Click to review the collection configuration.
+
+            .. card:: Z HMC software configuration
+               :link: coming_soon.html
+
+               Click to review the collection configuration.
+
+            .. card:: z/OS System Automation software configuration
+               :link: coming_soon.html
+
+               Click to review the collection configuration.
