@@ -2,18 +2,18 @@
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
+.. _install-collections:
+
 =================
 Ansible for IBM Z
 =================
 
-There are several options for installing **IBM Ansible for Z** collections,
+There are several options for installing **Ansible for IBM Z** collections,
 including Ansible Galaxy, Automation Hub, private Galaxy server, or from a
 Git repository.
 
-This guide will discuss installing the IBM Ansible Z collections, for installing
-Ansible see, xxxx, for collection dependencies see yyy.
-
-.. _install-collections:
+This guide will discuss installing **Ansible for IBM Z** collections; for all
+software requirements, see :ref:`software-requirements`.
 
 Option 1: Install from Ansible Galaxy
 =====================================

@@ -29,27 +29,28 @@ Option 1: Support from Red Hat and IBM
 
     For support from Red Hat and IBM, we first encourage you to check GitHub issues
     or GitHub discussions to see if similar issues were raised before you open a support
-    ticket. To get support from Red Hat and IBM, follow these procedures:
+    ticket.
 
-    #. Open a support case with Red Hat through `Red Hat Customer Portal`_.
-    Red Hat Support will check your entitlement for support and decide if
-    the issue belongs to IBM.
+    To get support from Red Hat and IBM, follow these procedures:
 
-    #. If the issue requires IBM involvement, follow Red Hat's guidance to
-    open a support case with IBM and provide the cross reference
-    information to both, IBM and Red Hat.
+        1. Open a support case with Red Hat through `Red Hat Customer Portal`_.
+            Red Hat Support will check your entitlement for support and decide if
+            the issue belongs to IBM.
 
-    #. Both Red Hat and IBM will investigate the issue.
+        2. If the issue requires IBM involvement, follow Red Hat's guidance to
+            open a support case with IBM and provide the cross reference
+            information to both, IBM and Red Hat.
 
-        - Red Hat Support will check if the issue is related to any AAP offering.
-        - IBM Support will work with you to solve issues that are related to
-        the collection.
+        3. Both Red Hat and IBM will investigate the issue.
 
-    #. Your support cases with both teams are closed when the issue is resolved
-    or a case closure is agreed upon by both teams.
+            - Red Hat Support will check if the issue is related to any AAP offering.
+            - IBM Support will work with you to solve issues that are related to the collection.
 
-    .. Note:: Do not open a support case with IBM without submitting a support request
-        with Red Hat first.
+        4. Your support cases with both teams are closed when the issue is resolved
+            or a case closure is agreed upon by both teams.
+
+        .. Note:: Do not open a support case with IBM without submitting a support request
+            with Red Hat first.
 
     For a list of currently supported versions of each collection,
     see :ref:`Ansible Z life cycles`

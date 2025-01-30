@@ -22,8 +22,46 @@ test.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    install-ansible
    install-collections
    upgrade-collections
    remove-collections
+
+.. grid:: 1 1 2 2
+    :gutter: 1
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. card:: Ansible
+               :link: install-ansible
+               :link-type: ref
+
+               Click to learn more on how to install Ansible.
+
+            .. card:: Ansible for IBM Z
+               :link: install-collections
+               :link-type: ref
+
+               Click to learn more on how to the Ansible for IBM Z collections.
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. card:: Upgrade Ansible for IBM Z
+               :link: upgrade-collections
+               :link-type: ref
+
+               Click to learn how to upgrade the Ansible for IBM Z collections.
+
+            .. card:: Remove Ansible for IBM Z
+               :link: remove-collections
+               :link-type: ref
+
+               Click to learn how to remove ans Ansible for IBM Z collection.

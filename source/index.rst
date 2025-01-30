@@ -46,8 +46,8 @@ plugins.
    :caption: Installation & Execution
    :hidden:
 
-   requirements/requirements
-   installation/installation
+   requirements/software-requirements
+   installation/software-installation
    configuration/configuration
 
 .. toctree::

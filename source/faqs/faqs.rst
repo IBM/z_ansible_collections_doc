@@ -9,42 +9,41 @@ Frequently Asked Questions
 General
 =======
 
-How do I install a collection?
-------------------------------
+How do I install an Ansible for IBM Z collection?
+-------------------------------------------------
+There are several options for installing **Ansible for IBM Z** collections,
+including Ansible Galaxy, Automation Hub, private Galaxy server, or from a
+Git repository.
 
-You can install a collection using one of the following options:
+For detailed instructions on how to install a collection, review
+*Software Installation's* topic :ref:`Ansible for IBM Z<install-collections>`.
 
-* Ansible Galaxy : Use the ``ansible-galaxy`` command with the **install**
-  option to install a collection hosted in Galaxy on your control node
+What are the requirements for Ansible for IBM Z collections?
+------------------------------------------------------------
+Each **Ansible for IBM Z** collection, or version of a collection will have
+different requirements and dependencies.
 
-* Automation Hub and Private Galaxy server:  You can use the ``ansible-galaxy``
-  command with the **install** option to install a collection on your
-  control node hosted in Automation Hub or a private Galaxy server.
-  You need to configure the ``auth_url`` option and the API ``token``  in
-  **ansible.cfg** for each server name.
 
-* Git repository: You can use the ``ansible-galaxy`` collection install
-  command with the URI of the repository to install a collection from source.
+To find out more details, review th :ref:`Software Requirements<software-requirements>.
 
-For detailed instructions on how to install a collection,
-see :ref:`Install a collection<install-collections>` 
+How can I test if Ansible can reach a z/OS managed node (host)?
+---------------------------------------------------------------
+If you have installed the IBM z/OS core collection, you can use the ``zos_ping``
+module, otherwise you can use the ``ansible.builtin.ping`` module that is included
+Ansible.
 
-What is required to install an Ansible Z collection?
-----------------------------------------------------
-Each **Ansible for IBM Z collection**, or each version of a collection can have
-different requirements or dependencies. To find out more details, check the
-following links for the specific collection.
+With the *ibm.ibm_zos_core.zos_ping* module from the command line:
 
-For detailed instructions on how to install an Ansible Z collection,
-see :ref:`requirements`
+.. code-block:: sh
 
-How can I test if Ansible is able to reach the managed node (host)?
--------------------------------------------------------------------
-You can test if a collection is installed and is working correctly by executing
-the command illustrated in the example below. Ensure that you change the host
-name to your remote z/OS host, as well as the user and Python binary path.
+   ansible all \
+   -i '<zos-host-name>,' \
+   -u '<user>' \
+   -m 'ibm.ibm_zos_core.zos_ping' \
+   --scp-extra-args='-O' \
+   -k
 
-With the ansible.builtin.ping module from the command line:
+With the *ansible.builtin.ping* module from the command line:
 
 .. code-block:: sh
 
@@ -55,140 +54,55 @@ With the ansible.builtin.ping module from the command line:
    -e 'ansible_python_interpreter=</path/to/zos/python/python3>' \
    -k
 
-With the ibm.ibm_zos_core.zos_ping module from the command line:
-
-.. code-block:: sh
-
-   ansible all \
-   -i '<zos-host-name>,' \
-   -u '<user>' \
-   -m 'ibm.ibm_zos_core.zos_ping' \
-   --scp-extra-args='-O'
-
-Where can I download the latest version of Python?
---------------------------------------------------
-
-Refer to `IBM Open Enterprise SDK for Python product page`_ to find out how to get
-access to Python.
-
-.. _IBM Open Enterprise SDK for Python product page:
-   https://www.ibm.com/products/open-enterprise-python-zos
-
 How much memory and RAM do I need to install a collection?
 ----------------------------------------------------------
+Requirements may vary based on how many hosts Ansible will manage
+simultaneously (which is controlled by the forks parameter in the ansible.cfg file).
 
-For **Ansible Tower/AWX**, Ansible recommends a minimum of 4GB RAM for for
-Tower installation.
-
-Additional RAM requirements may vary based on how many hosts Tower will manage
-simultaneously (which is controlled by the forks parameter in the job template
-or the system ansible.cfg file).
-
-To avoid resource conflicts, Ansible recommends 1 GB of memory per
-10 forks + 2GB reservation for Tower. For example, if forks is set to 400,
-40 GB of memory is recommended. See the capacity algorithm to determine resource requirements.
-
-For more information about the requirements, see `system requirements`_.
-
-.. _system requirements:
-   https://docs.ansible.com/ansible-tower/latest/html/installandreference/requirements_refguide.html
-
-For individual **playbooks**, the memory usage is dependent on a few factors:
-
-   * The number of z/OS hosts managed by the playbook and the number of forks created by
-     Ansible
-   * The number of tasks within the playbook
-   * The modules used within the playbook
-   * The number of tasks that are delegated to the local host
-   * Whether fact gathering is turned on or off in the playbook
-
-Are there any additional installation requirements for z/OS?
-------------------------------------------------------------
-
-Different collections as part of the offering will have different requirements.
-Refer to the `release notes`_ of a collection to determine the specific
-requirements.
-
-What z/OS collections are required to be installed before installing the IBM z/OS CICS collection?
---------------------------------------------------------------------------------------------------
-
-`cmci_` tasks in the CICS collection issue API request to remote CICS servers over
-an HTTP connection. If you are only using the `cmci_` tasks from the CICS collection,
-you can delegate the tasks to run on the Ansible control node. This means that you
-won't need to configure an SSH connection to the target system.
-
-However, if you use the CICS modules in conjunction with other z/OS modules that
-require an SSH connection to the managed nodes, you must make sure you've installed
-those modules' pre-reqs on z/OS. For instance, if you're using the `ibm_zos_core` collection,
-you will need to have installed ZOAU as described in the `requirements`_.
-
-.. _requirements:
-   https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html
-
+To avoid resource conflicts, Ansible recommends 1 GB of memory per 10 forks.
 
 Do I have to upgrade to the latest version of a collection when there is a new release?
 ---------------------------------------------------------------------------------------
-
-Although it is not required, we recommended that you upgrade to the
+Although it is not required, it is recommended that you upgrade to the
 latest release as they often contain bugfixes to existing modules and plugins.
 
 If you are currently facing issues with any of the modules, upgrading to the
 latest release could likely resolve the problem.
 
-
-How can I know which version of a collection I am using?
---------------------------------------------------------
-
-Navigate to the directory where you have installed your collection. The default
-installation directory is:
+How can I determine which version of a collection I am using?
+------------------------------------------------------------
+Using the *ansible-galaxy* command, you can list the collections version and path
+to where the  collection is located.
 
 .. code-block:: sh
 
-   ~/.ansible/collections/ansible_collections/ibm/<collection-name>
+   ansible-galaxy collection list
 
-After you have navigated to that directory, run the following command:
-``cat MANIFEST.json | grep version``
+For detailed instructions on how to check a collection version, review
+*Software Installation's* topic :ref:`Ansible for IBM Z<install-collections>`.
 
-How do I update a collection to the latest version?
----------------------------------------------------
+How do I upgrade a collection to the latest version?
+----------------------------------------------------
 
-The easiest and recommended way to update your collection is by using the
-``ansible-galaxy`` command:
+To upgrade the collection to the latest available version, use the `ansible-galaxy`` command.
 
 .. code-block:: sh
 
-   ansible-galaxy collection install <collection-name:version> --force
+   ansible-galaxy collection install <namespace>.<collection name> --upgrade
 
-How do I install and configure ZOAU?
-------------------------------------
-
-* For a brief overview of **ZOAU**, review our `ZOAU documentation`_.
-* Configuring Ansible host or group vars, review our `variable configuration`_.
-* For configuration information, visit the `ZOAU product page`_ and select a
-  version and review **Installing and configuring ZOA Utilities**.
-
-.. _ZOAU documentation:
-   https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/requirements_managed.html#zoau
-
-.. _ZOAU product page:
-   https://www.ibm.com/support/knowledgecenter/en/SSKFYE
-
-.. _variable configuration:
-   https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md#environment-variables
+For detailed instructions on how to upgrade a collection, review
+*Software Installation's* topic :ref:`Upgrade Ansible for IBM Z<install-collections>`.
 
 How frequently are the collections updated?
 -------------------------------------------
-We follow Agile methodologies to continuously deliver new features. The
-complexity of the features drives the release cadence. We encourage you to
-review the release notes to learn about our latest release.
 
-What collections are offered as part of RedHat certified content?
------------------------------------------------------------------
-Currently, we offer collections for z/OS core and z/OS IMS under the Red Hat
-Ansible Certified Content available in Ansible Automation Hub and Galaxy. These
-collections offer a seamless, unified workflow orchestration with configuration
-management, provisioning, and application deployment in one easy-to-use
-platform.
+The Ansible for IBM Z collections are released on a flexible cycle. Each
+collection manages the release cadence which can vary depending on the complexity
+of the features being developed.
+
+For detailed explanation of a collections release cycle, review
+the collections :ref:`collections life cycle<collection-life-cycles>`.
+
 
 Where can I find the documentation for a particular collection?
 ---------------------------------------------------------------

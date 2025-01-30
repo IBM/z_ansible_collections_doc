@@ -29,27 +29,28 @@ Option 1: Support from Red Hat and IBM
 
     For support from Red Hat and IBM, we first encourage you to check GitHub issues
     or GitHub discussions to see if similar issues were raised before you open a support
-    ticket. To get support from Red Hat and IBM, follow these procedures:
+    ticket.
+
+    To get support from Red Hat and IBM, follow these procedures:
 
     #. Open a support case with Red Hat through `Red Hat Customer Portal`_.
-    Red Hat Support will check your entitlement for support and decide if
-    the issue belongs to IBM.
+       Red Hat Support will check your entitlement for support and decide if
+       the issue belongs to IBM.
 
     #. If the issue requires IBM involvement, follow Red Hat's guidance to
-    open a support case with IBM and provide the cross reference
-    information to both, IBM and Red Hat.
+       open a support case with IBM and provide the cross reference
+       information to both, IBM and Red Hat.
 
     #. Both Red Hat and IBM will investigate the issue.
 
         - Red Hat Support will check if the issue is related to any AAP offering.
-        - IBM Support will work with you to solve issues that are related to
-        the collection.
+        - IBM Support will work with you to solve issues that are related to the collection.
 
     #. Your support cases with both teams are closed when the issue is resolved
-    or a case closure is agreed upon by both teams.
+       or a case closure is agreed upon by both teams.
 
     .. Note:: Do not open a support case with IBM without submitting a support request
-        with Red Hat first.
+       with Red Hat first.
 
     For a list of currently supported versions of each collection,
     see :ref:`Ansible Z life cycles`
@@ -84,4 +85,12 @@ Option 2: Support from the community
 .. ...........................................................................
 .. _opening an GitHub issue: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _GitHub discussions: https://github.com/ansible-collections/ibm_zos_core/discussions
-.. _Red Hat Customer Portal: https://access.redhat.com/support/
+.. _Red Hat Customer Portal: https://access.redhat.com/support
+
+.. ...........................................................................
+.. # Forced HTML line break, use this at the end of a sentence like.... |br|
+.. ...........................................................................
+
+.. |br| raw:: html
+
+   <br/>
