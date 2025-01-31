@@ -2,7 +2,7 @@
 .. © Copyright IBM Corporation 2020, 2025                                    .
 .. TODO: Contributors need to provide references or we need to build once to
 ..       figure out the URLs to use over references. These references must be
-..       in a file named requirements/collection-requirements.rst 
+..       in a file named requirements/collection-requirements.rst
 .. ...........................................................................
 
 .. _software-requirements:

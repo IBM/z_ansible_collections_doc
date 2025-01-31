@@ -75,7 +75,7 @@ plugins.
    :caption: Contribution
    :hidden:
 
-   reference/community
+   reference/community-contributions
 
 .. ..........................................................................
 .. . TODO
