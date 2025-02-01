@@ -64,10 +64,10 @@ plugins.
    :caption: Help & Troubleshooting
    :hidden:
 
-   support/get-support
+   support/getting-support
    troubleshooting/errorsandmessages
    faqs/faqs
-   reference/helpful_links
+   reference/helpful-links
    reference/documentation
 
 .. toctree::

@@ -83,7 +83,6 @@ For detailed instructions on how to check a collection version, review
 
 How do I upgrade a collection to the latest version?
 ----------------------------------------------------
-
 To upgrade the collection to the latest available version, use the `ansible-galaxy`` command.
 
 .. code-block:: sh
@@ -95,8 +94,7 @@ For detailed instructions on how to upgrade a collection, review
 
 How frequently are the collections updated?
 -------------------------------------------
-
-The Ansible for IBM Z collections are released on a flexible cycle. Each
+The **Ansible for IBM Z** collections are released on a flexible cycle. Each
 collection manages the release cadence which can vary depending on the complexity
 of the features being developed.
 
@@ -104,119 +102,36 @@ For detailed explanation of a collections release cycle, review
 the collections :ref:`collections life cycle<collection-life-cycles>`.
 
 
-Where can I find the documentation for a particular collection?
----------------------------------------------------------------
-Collections certified with Red Hat Automation Hub will have integrated
-documentation. If you have entitlement to Automation Hub, you can
-view the `collections documentation`_. You can also navigate to
-**Ansible Automation Hub** --> **Collections** --> **enter a collection name in the
-Filter by keywords field** --> **Documentation**.
+Where can I find the documentation for an Ansible for IBM Z collection?
+-----------------------------------------------------------------------
+Documentation for all collections can be accessed in:
 
-Optionally, you can access documentation under **Ansible Content** in the
-Red Hat Ansible Certified Content for IBM Z collection documentation site.
+- `Ansible Automation Hub IBM Z collections`_.
+- `Ansible Galaxy IBM Z collections`_.
+- `Red Hat Ansible Certified Content for Z`_ site.
+- ansible-doc command, e.g. ```ansible-doc zos_copy``
 
+.. _Ansible Automation Hub IBM Z collections:
+   https://console.redhat.com/ansible/automation-hub/?page_size=12&view_type=list&tags=zos
+.. _Ansible Galaxy IBM Z collections:
+   https://galaxy.ansible.com/ui/collections/?page_size=10&view_type=null&sort=namespace&page=1&keywords=ibm_z*&namespace=ibm&tags=infrastructure
+.. _Red Hat Ansible Certified Content for Z:
+   https://ibm.github.io/z_ansible_collections_doc/index.html
 .. _collections documentation:
    https://cloud.redhat.com/ansible/automation-hub/?page_size=12&view_type=list&tags=zos
 
-Modules, Playbooks
-==================
+Can I make a request for a new module or enhancement?
+-----------------------------------------------------
+Absolutely, if you have an idea you would like to share, there are several ways to
+communicate this to IBM. Before creating a request in any of the recommended processes
+we recommend you look over the current open requests to see if its already been
+requested.
 
-What are the best practices for module development and testing z/OS Ansible modules?
-------------------------------------------------------------------------------------
+To request a new module or enhancement, you can do so by suggesting an idea
+in the `IBM Ideas portal`_.
 
-For recommendations on module development and testing, see the
-`community guides`_.
-
-.. _community guides:
-   https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/community_guides.html#development
-
-
-Do the modules leave any objects or files behind after a playbook completes running?
-------------------------------------------------------------------------------------
-
-The modules create temporary files and folders on the managed z/OS system
-(usually in the ``/tmp`` directory), which are then cleaned up after the module
-execution.
-
-The only other instance where objects are left behind is when a
-module option has been configured to perform a backup.
-
-
-Are the modules idempotent?
----------------------------
-
-.. Yes, they are idempotent. Repeated execution of the modules included in
-.. **Red Hat Ansible Certified Content for IBM Z** does not produce different
-.. behavior.
-
-Repeated execution of the modules included in **Red Hat Ansible Certified Content
-for IBM Z** does not produce different behavior. To check if a module is idempotent,
-please review the module **Notes** that you intend to use in the playbook.
-
-Which modules support check mode?
----------------------------------
-
-Modules that currently support check mode:  ``zos_data_set``, ``zos_job_query``,
-and ``zos_mvs_raw``.
-
-Can I customize when my module should fail?
--------------------------------------------
-Yes, you can override the default failure condition by using the built-in mechanisms
-for overriding module failures that Ansible provides. For example, we have published a
-`sample playbook`_ which shows how you can customize the failure condition of the
-cmci_get module so that it ignores failures due to finding no programs.
-
-.. _sample playbook:
-   https://github.com/IBM/z_ansible_collections_samples/tree/main/zos_subsystems/cics/cmci/override_failure
-
-Where can I find a sample playbook?
------------------------------------
-
-You can find many sample playbooks, links to blogs, and other community
-resources in the
-`Samples repository for Red Hat Ansible Certified Content for IBM Z`_.
-
-.. _Samples repository for Red Hat Ansible Certified Content for IBM Z:
-   https://github.com/IBM/z_ansible_collections_samples
-
-
-Are there any specific requirements for running a playbook?
------------------------------------------------------------
-Running a playbook has a few requirements that could be dependent on the
-included collections as well as space, location, names, and authority. A
-few artifacts will be created and cleaned up to enable running a playbook. To
-review the requirements, see `playbooks`_.
-
-.. _playbooks:
-   https://ibm.github.io/z_ansible_collections_doc/playbooks/playbooks.html
-
-
-How can I customize how Ansible operates in my environment?
------------------------------------------------------------
-
-You can specify what configuration Ansible uses when running playbooks by
-modifying the ``ansible.cfg`` file or defining the **ANSIBLE_CONFIG** environment
-variable. For more information, refer to the `configuration guide for Ansible`_.
-
-.. _configuration guide for Ansible:
-   https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html
-
-How do I test my playbooks?
----------------------------
-
-There a couple of testing strategies you can follow to test your playbooks.
-Refer to the official testing  `strategies recommended by Ansible`_.
-
-.. _strategies recommended by Ansible:
-  https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html
-
-Support
-=======
-
-If I run into a problem when using an Ansible collection for IBM Z, how should I seek support?
-----------------------------------------------------------------------------------------------
-For issues related to the Ansible collections, raise a GitHub issue against the
-appropriate collection repository:
+Optionally, you can go directly to the collections repository and create an issue
+describing your request.
 
 * `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
 * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
@@ -225,75 +140,166 @@ appropriate collection repository:
 * `IBM z/OSMF <https://github.com/IBM/ibm_zosmf/issues>`_
 * `IBM Z HMC <https://github.com/zhmcclient/zhmc-ansible-modules/issues>`_
 
-Community
+.. _IBM Ideas portal:
+   https://ideas.ibm.com
+
+Playbooks
 =========
 
-Where can I open issues and track them?
-----------------------------------------------
-You can track open issues and raise new issues for bugs, feature issues, or
-comments in our `contributing topic`_.
+Where can I learn about the best practices to use when developing playbooks?
+----------------------------------------------------------------------------
+There are several resources we recommend developers review when they are creating
+playbooks, see:
 
-.. _contributing topic:
-    https://ibm.github.io/z_ansible_collections_doc/reference/community.html
+* `Ansible tips and tricks<https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html>`_
+* `Playbook contribution guidelines from IBM<https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/contribution-guidelines.md#playbook-development-guidelines>`_
 
-Can I contribute new modules to the collection?
------------------------------------------------
-We are currently not accepting community contributions. We do encourage you to
-open git issues for bugs, comments or feature requests. To learn more about how
-to contribute to a collection, see our `contributing topic`_.
+In general, some of the foundational practices are that:
 
-Others
-======
+* Playbooks use whitespace and comments for maintainability.
+* Playbooks use variables and assign them descriptive names.
+* Groups tasks logically with blocks.
+* Use strategic debug messages to demonstrate progress.
+* Use *group_vars* and *host_vars* in projects which is particularly useful if the variables contained
+  in groups_vars and host_vars don't have much in common with other systems.
+* Use modules and roles from multiple collections to achieve results.
+* Plan `keywords`_ accordingly to control execution, for example; `Asynchronous, polling`_, `serial`_, etc
 
-How are precedence rules defined in Ansible?
+.. _keywords:
+   https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#playbook-keywords
+.. _Asynchronous, polling:
+   https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_async.html
+.. _serial:
+   https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_strategies.html#setting-the-batch-size-with-serial
+
+
+Does the user running the Ansible playbook need to have any special privileges?
+-------------------------------------------------------------------------------
+Some of the modules in Ansible for IBM Z will perform operations that require the
+playbook user to have appropriate authority with various RACF resource classes.
+Each module documents which access is needed in the notes section. A user is
+described as the remote SSH user executing playbook tasks, who can also obtain
+escalated privileges to execute as another user.
+
+For module documentation, review :ref:`collections<ansible-content>`
+
+Modules
+=======
+
+Can I contribute or modify the source for the Ansible for IBM Z collections?
+----------------------------------------------------------------------------
+Yes, currently the collections don't offer publicly accessible pipelines to test
+changes you contribute, but the development teams can review the changes, provide feedback
+and run the changes in the development pipelines so that the changes can be accepted.
+
+Several of the collections offer detailed instructions on how to develop, test and
+contribute changes, for this content, review the :ref:`contributing<community_contributions>`
+topic.
+
+
+Do the Ansible for IBM Z modules leave any files behind after a playbook completes?
+-----------------------------------------------------------------------------------
+Modules only leave files behind when configured to do so, for example, when copying files
+or performing a backup. During execution, modules create temporary files and folders on the
+managed node, usually in the ``/tmp`` directory, which are then removed after the module
+has completed execution.
+
+The remote ``/tmp`` directory used by Ansible can be changed by updating the Ansible environment
+variable `ANSIBLE_REMOTE_TEMP`_or configuration `remote_tmp`_.
+
+.. _ANSIBLE_REMOTE_TEMP:
+   https://docs.ansible.com/ansible/latest/collections/environment_variables.html#envvar-ANSIBLE_REMOTE_TEMP
+.. _remote_tmp:
+   https://docs.ansible.com/ansible/latest/collections/ansible/builtin/sh_shell.html#parameter-remote_tmp
+
+
+Are the Ansible for IBM Z modules idempotent?
+---------------------------------------------
+Some modules according to their documentation will not produce different results executed multiple times,
+but other modules can be idempotent when the playbook tasks included Ansible conditionals such as
+`changed`_ and `_changed_when`_.
+
+.. _changed:
+   https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#basic-conditionals-with-when
+.. _changed_when:
+   https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_error_handling.html#defining-changed
+
+Do the Ansible for IBM Z modules support check mode?
+----------------------------------------------------
+Please refer to the modules :ref: `documentation<ansible-content>` to understand how the module
+supports check mode.
+
+Where can I find a sample playbooks that are using the Ansible for IBM Z collections?
+-------------------------------------------------------------------------------------
+You can find many sample playbooks, links to blogs, and other community
+resources in the
+`Samples repository for Red Hat Ansible Certified Content for IBM Z`_.
+
+.. _Samples repository for Red Hat Ansible Certified Content for IBM Z:
+   https://github.com/IBM/z_ansible_collections_samples
+
+
+How can I customize how Ansible operates in my environment?
+-----------------------------------------------------------
+You can specify what configuration Ansible uses when running playbooks by
+modifying the ``ansible.cfg`` file or defining the **ANSIBLE_CONFIG** environment
+variable. For more information, refer to the `configuration guide for Ansible`_.
+
+.. _configuration guide for Ansible:
+   https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html
+
+How can I test the playbooks I have written?
 --------------------------------------------
+There are testing strategies you can follow to test your playbooks.
+Refer to the official testing `strategies recommended by Ansible`_.
 
-Ansible offers four sources for controlling its behavior. In order of precedence
-from lowest (most easily overridden) to highest (overrides all others), the
-categories are:
+.. _strategies recommended by Ansible:
+  https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html
 
-* Configuration settings
-* Command-line options
-* Playbook keywords
-* Variables
+Support
+=======
+
+If I encounter a problem with an Ansible for IBM Z collection, how can I obtain support?
+----------------------------------------------------------------------------------------
+There are two paths to obtaining support, for entitled Ansible Automation platform customers,
+you can open support cases on any Ansible for IBM Z collection, otherwise, you create a GitHub
+issue on the collections repository.
+
+For detailed instructions on how to obtain support, see section :ref:`getting-support`.
+
+========
+Messages
+========
+
+What causes the *unsupported parameter* error?
+----------------------------------------------
+This happens when you specify a module option that either does not exist or
+is deprecated. Carefully examine the module documentation to understand what
+parameters it supports.
+
+   https://ibm.github.io/z_ansible_collections_doc/release/release.html
 
 
-For a more detailed explanation of precedence rules, refer to both the
-`official documentation`_ and `reference`_.
+What causes the *utf-8 codec can't decode byte* error?
+------------------------------------------------------
+The most likely cause of this error is that you have not properly set up your
+environment variables for your managed node. Refer to the following
+`configuration guide`_ to understand which environment variables need to be
+defined.
 
-.. _official documentation:
-   https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html
+.. code-block::
 
-.. _reference:
-   https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file>>
-
-
-.. ..........................................................................
-.. . Global doc links
-.. ..........................................................................
+   UnicodeDecodeError: 'utf-8' codec can't decode byte in position 0: invalid continuation byte"
 
 .. _configuration guide:
     https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/zos_core/configuration_guide.md
 
-.. _installation doc:
-   https://ibm.github.io/z_ansible_collections_doc/installation/installation.html
 
-.. _release notes:
-   https://ibm.github.io/z_ansible_collections_doc/release/release.html
+What causes the *IOError* during playbook execution?
+----------------------------------------------------
+It is likely that the ``/tmp`` directory of the managed node is full and cannot
+store any more data. Clear the ``/tmp`` directory and re-run the playbook.
 
-.. _contributing topic:
-    https://ibm.github.io/z_ansible_collections_doc/reference/community.html
+.. code-block:: sh
 
-
-.. ..........................................................................
-.. . Disabled for the time being, when the collections can contribute content
-.. . enable this feature
-.. ..........................................................................
-.. Offerings
-.. =========
-..
-.. .. toctree::
-..    :maxdepth: 1
-..
-..    z/OS core </../ibm_zos_core/docs/source/faqs.rst>
-..    z/OS IMS </../ibm_zos_ims/docs/source/faqs.rst>
+   IOError: [Errno 21] Is a directory: u'/tmp/xxx'

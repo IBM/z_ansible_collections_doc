@@ -1,5 +1,10 @@
 .. ...........................................................................
 .. © Copyright IBM Corporation 2020, 2021                                    .
+.. These should be removed by the contributors as they are no longer         .
+.. referenced.                                                               .
+.. z/OS CICS </../ibm_zos_cics/docs/source/community_guides>                 .
+.. z/OS Sys Auto <../ibm_zos_sysauto/docs/source/community_guides>           .
+.. z/OS z/OSMF <../ibm_zosmf/docs/source/community_guides>                   .
 .. ...........................................................................
 
 .. _community_contributions:
@@ -8,17 +13,42 @@
 Contributing
 ============
 
-Contributing to collections as a member of the open source community varies for
-each collection. Although the collections come together as a unified solution,
-each offering operates on its own; therefore, review the individual collections to learn 
-how to contribute.
+Currently the collections don't offer publicly accessible pipelines to test
+changes you contribute, but the development teams can review the changes, provide feedback
+and run the changes in the development pipelines so that the changes can be accepted.
+
+Several of the collections offer detailed instructions on how to develop, test and
+contribute changes, for this content, review the :ref:`contributing<community_contributions>`
+topic.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
-   z/OS core </../ibm_zos_core/docs/source/community_guides>
-   z/OS IMS </../ibm_zos_ims/docs/source/community_guides>
-   z/OS CICS </../ibm_zos_cics/docs/source/community_guides>
-   z/OS Sys Auto <../ibm_zos_sysauto/docs/source/community_guides>
-   z/OS z/OSMF <../ibm_zosmf/docs/source/community_guides>
-   Z HMC </../zhmc-ansible-modules/docs/source/development>
+   z/OS core <../ibm_zos_core/docs/source/community_guides>
+   z/OS IMS <../ibm_zos_ims/docs/source/community_guides>
+   Z HMC <../zhmc-ansible-modules/docs/source/development>
+
+   
+.. grid:: 3
+
+    .. card:: z/OS core
+       :link: ../ibm_zos_core/docs/source/community_guides.html
+       :margin: 1
+       :width: 25%
+
+       Click for more on contributing.
+
+    .. card:: z/OS IMS
+       :link: ../ibm_zos_ims/docs/source/community_guides.html
+       :margin: 1
+       :width: 25%
+
+       Click for more on contributing.
+
+    .. card:: z HMC
+       :link: ../zhmc-ansible-modules/docs/source/development.html
+       :margin: 1
+       :width: 25%
+
+       Click for more on contributing.
