@@ -13,11 +13,11 @@ Collections
 ===========
 
 The **Ansible for IBM Z** collections are designed to automate and manage
-IBM Z environments using Ansible, an open-source automation platform.
+IBM Z environments using **Ansible**, an open-source automation platform.
 They provides a wide range of Ansible collections that are developed by
 IBM® and certified by Red Hat.
 
-They enable development, operations and automation on z/OS®, z/OS middleware
+They enable development, operations and automation on z/OS, middleware
 products, and other IBM Z systems and resources. The collections in
 Ansible for IBM Z offer a seamless, unified workflow, orchestration with
 configuration management, provisioning, and application deployment in

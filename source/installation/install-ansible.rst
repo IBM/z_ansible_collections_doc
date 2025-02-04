@@ -18,7 +18,7 @@ Before installing Ansible, it is recommended you review the **Ansible for IBM Z*
 collections requirements to align the Ansible version to a supported version.
 
 For **Ansible for IBM Z** requirements, review the topic
-:ref"`software requirements<software-requirements>`.
+:ref:`software requirements<software-requirements>`.
 
 If you prefer watching videos, you can follow the steps discussed in the guide,
 `Set up your Ansible control node for getting started with Ansible for IBM Z`_.

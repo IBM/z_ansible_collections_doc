@@ -16,15 +16,12 @@ for both the :term:`control node<Control node>` and the
 :term:`managed node<Managed node>`.
 
 Each **Ansible for IBM Z** collection, or version of a collection can have
-different requirements or dependencies. To find out more details, click the
-following collection links.
+different requirements or dependencies. To find out more details, click on
+any of the following collection links.
 
-..
-   Commenting out the navigation index till its decided it is beneficial.
-   Because it is using the same coming soon target, it will cause
-   duplicated entry found in toctree.
 
-   toctree::
+
+.. toctree::
    :maxdepth: 1
    :hidden:
 

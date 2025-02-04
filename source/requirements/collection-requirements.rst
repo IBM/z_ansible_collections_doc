@@ -43,7 +43,7 @@ Control node
    Different releases of **ansible-core** can require different dependencies
    such as is the case with Python.
 
-   Optionally, you can upgrade the **ansible_core** version, review the
+   Optionally, you can upgrade the **ansible-core** version, review the
    `installing Ansible`_ guide and select the appropriate option.
 
    If the control node is Ansible Automation Platform (AAP), review the
@@ -68,8 +68,8 @@ Managed node
       - IBM `Z Open Automation Utilities`_ (ZOAU)
 
    Different releases of **ansible-core** and the collection can require different
-   dependencies such as is the case with Python, IBM Open Enterprise SDK for Python
-   and ZOAU.
+   dependencies such as is the case with **Python**, **IBM Open Enterprise SDK for Python**
+   and **ZOAU**.
 
    .. note::
 

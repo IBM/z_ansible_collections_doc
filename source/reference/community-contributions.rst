@@ -21,12 +21,7 @@ Several of the collections offer detailed instructions on how to develop, test a
 contribute changes, for this content, review the :ref:`contributing<community_contributions>`
 topic.
 
-..
-   Commenting out the navigation index till its decided it is beneficial.
-   Because it is using the same coming soon target, it will cause
-   duplicated entry found in toctree.
-
-   toctree::
+.. toctree::
    :maxdepth: 1
    :hidden:
 

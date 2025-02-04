@@ -13,13 +13,13 @@ Collection configurations
 =========================
 
 After installing the IBM z/OS core collection, you will need to configure
-some files so that the collection can locate the dependencies it needs to
+some files so that the collection can locate the dependencies needed to
 run modules on the managed node.
 
 Step 1: Directory Structure
 ===========================
 
-.. dropdown:: The following section discusses configuring the collection ...
+.. dropdown:: The following section discusses configuring the collection ... (expand for more)
     :color: primary
     :icon: info
 
@@ -73,7 +73,7 @@ Step 1: Directory Structure
 Step 2: Host variables (host_vars)
 ==================================
 
-.. dropdown:: The following section discusses *host_vars* ...
+.. dropdown:: The following section discusses *host_vars* ... (expand for more)
     :color: primary
     :icon: file-code
 
@@ -158,7 +158,7 @@ Step 2: Host variables (host_vars)
 Step 3: Group variables (group_vars)
 ====================================
 
-.. dropdown:: The following section discusses *group_vars* ...
+.. dropdown:: The following section discusses *group_vars* ... (expand for more)
     :color: primary
     :icon: file-code
 
@@ -190,7 +190,7 @@ Step 3: Group variables (group_vars)
           PYTHONSTDINENCODING: "cp1047"
 
 
-    .. dropdown:: The following section explains the environment variables ...
+    .. dropdown:: The following section explains the environment variables ... (expand for more)
         :icon: info
 
         The following section explains the environment variables.
@@ -218,7 +218,7 @@ Step 3: Group variables (group_vars)
 Step 4: Inventory
 ==================
 
-.. dropdown:: The following section discusses how Ansible interacts with managed node ...
+.. dropdown:: The following section discusses how Ansible interacts with managed node ... (expand for more)
     :color: primary
     :icon: file-code
 
@@ -252,7 +252,7 @@ Step 4: Inventory
 Step 5: User
 ============
 
-.. dropdown:: The following section discusses how the collection connects to the managed node over SSH  ...
+.. dropdown:: The following section discusses how the collection connects to the managed node over SSH  ... (expand for more)
     :color: primary
     :icon: command-palette
 
@@ -313,7 +313,7 @@ Step 5: User
 Step 6: Security
 ================
 
-.. dropdown:: The following section discusses how the collection secures interaction using RACF ...
+.. dropdown:: The following section discusses how the collection secures interaction using RACF ... (expand for more)
     :color: primary
     :icon: command-palette
 
@@ -329,7 +329,7 @@ Step 6: Security
     belonging a class. In other words, a class is a group of related things, and a
     resource class profile are rules managing access to those things within that group.
 
-    .. dropdown:: Enabling RACF resource classes for module *zos_apf* ...
+    .. dropdown:: Enabling RACF resource classes for module *zos_apf* ... (expand for more)
         :color: info
         :icon: command-palette
 
@@ -339,7 +339,7 @@ Step 6: Security
         class profile that protects that entity. Once access for **CSVAPF.libname**
         has been determined:
 
-        .. dropdown:: To control who can make the APF list dynamic ...
+        .. dropdown:: To control who can make the APF list dynamic ... (expand for more)
             :icon: command-palette
 
             To control who can make the **APF list dynamic** using module ``zos_apf``,
@@ -378,7 +378,7 @@ Step 6: Security
 
                 SETROPTS RACLIST(FACILITY) REFRESH
 
-        .. dropdown:: To control who can make the APF list static ...
+        .. dropdown:: To control who can make the APF list static ... (expand for more)
             :icon: command-palette
 
             To control who can make the **APF list dynamic** using module ``zos_apf``,
@@ -421,7 +421,7 @@ Step 6: Security
         To learn more about enabling users APF dynamic and static access, see
         controlling `static and dynamic access`_.
 
-    .. dropdown:: Enabling RACF resource class for module *zos_backup_restore* ...
+    .. dropdown:: Enabling RACF resource class for module *zos_backup_restore* ... (expand for more)
         :color: info
         :icon: command-palette
 
@@ -461,7 +461,7 @@ Step 6: Security
 
             SETROPTS RACLIST(FACILITY) REFRESH
 
-    .. dropdown:: Enabling RACF resource class for module *zos_copy* ...
+    .. dropdown:: Enabling RACF resource class for module *zos_copy* ... (expand for more)
         :color: info
         :icon: command-palette
 
@@ -500,7 +500,7 @@ Step 6: Security
 
             SETROPTS RACLIST(OPERCMDS) REFRESH
 
-    .. dropdown:: Enabling RACF resource class for module *zos_volume_init* ...
+    .. dropdown:: Enabling RACF resource class for module *zos_volume_init* ... (expand for more)
         :color: info
         :icon: command-palette
 
@@ -540,7 +540,7 @@ Step 6: Security
             SETROPTS RACLIST(FACILITY) REFRESH
 
 
-    .. dropdown:: Use the RLIST command to display information on resources ...
+    .. dropdown:: Use the RLIST command to display information on resources ... (expand for more)
         :color: success
         :icon: info
 
@@ -565,6 +565,83 @@ Step 6: Security
             -----  --------   ----------------  -----------  -------
             00     RACEC      READ              READ         NO
 
+Step 7: Run a playbook
+======================
+
+.. dropdown:: The following section discusses how to run an run an Ansible playbook ... (expand for more)
+    :color: primary
+    :icon: command-palette
+
+    The following section discusses how to use an IBM z/OS core collection in an Ansible playbook.
+    An `Ansible playbook`_ consists of organized instructions that define work for a managed
+    node (host) to be managed with Ansible.
+
+    If you have completed steps 1 - 6 above, then you are ready to run a playbook. In the
+    folllowing playbook, there are two tasks, the first one will perform a simple ping
+    operation using `ibm_zos_core.zos_ping`_ and the following operation will use the
+    `ibm_zos_core.zos_operator`_ command to display the local time of day and the date.
+
+    .. code-block:: yml
+
+        ---
+        - hosts: all
+          environment: "{{ environment_vars }}"
+
+          tasks:
+            - name: Ping host - {{ inventory_hostname }}
+              ibm.ibm_zos_core.zos_ping:
+              register: result
+            - name: Response
+              debug:
+                msg: "{{ result.ping }}"
+
+            - name: Display system limits
+            zos_operator:
+                cmd: 'D OMVS,LIMITS'
+            register: result
+            tags: sys_limit_info
+
+            - name: Result display system limits
+            debug:
+                msg: "{{result}}"
+            tags: sys_limit_info
+
+
+    Copy the above playbook into a file, call it **sample.yml** and to run it,
+    use he Ansible command ``ansible-playbook`` with the inventory you definewd
+    in step 4 along with a reqeust for a password using opiton ``--ask-pass``.
+
+    The command syntax is ``ansible-playbook -i <inventory> <playbook> --ask-pass``;
+    for example;
+
+    .. code-block:: sh
+
+        ansible-playbook -i inventory sample.yaml
+
+    You can avoid a password prompt by configuring SSH keys, see `setting-up-ssh-keys`_.
+
+    For further reading, review `run your first command and playbook`_ and follow up
+    with `Ansible playbooks`_.
+
+
+    .. dropdown:: Optionally, you can configure the console logging verbosity ... (expand for more)
+        :color: success
+        :icon: info
+
+        Optionally, you can configure the console logging verbosity during playbook
+        execution. This is helpful in situations where communication is failing and
+        you want to obtain more details. To adjust the logging verbosity, append more
+        letter `v`'s; for example, `-v`, `-vv`, `-vvv`, or `-vvvv`. Each letter `v`
+        increases logging verbosity similar to traditional logging levels INFO, WARN,
+        ERROR, DEBUG.
+
+        Using the previous example, the following will set the highest level of
+        verbosity.
+
+        .. code-block:: sh
+
+            ansible-playbook -i inventory sample.yaml -vvvv
+
 .. ...........................................................................
 .. External links
 .. ...........................................................................
@@ -586,3 +663,15 @@ Step 6: Security
    https://www.ibm.com/docs/en/zos/3.1.0?topic=racf-zos-security-server-command-language-reference
 .. _static and dynamic access:
    https://www.ibm.com/docs/en/zos/3.1.0?topic=lists-controlling-how-change-apf-list-format
+.. _Ansible playbook:
+   https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
+.. _ibm_zos_core.zos_ping:
+    https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/modules/zos_ping.html
+.. _ibm_zos_core.zos_operator:
+   https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/modules/zos_operator.html
+.. _setting up SSH keys:
+   https://docs.ansible.com/ansible/latest/inventory_guide/connection_details.html#setting-up-ssh-keys
+.. _Ansible playbooks:
+   https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks
+.. _run your first command and playbook:
+   https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook

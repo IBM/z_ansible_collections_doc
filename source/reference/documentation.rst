@@ -14,10 +14,49 @@ testing the modules, offering-specific reading, etc.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    z/OS core <../ibm_zos_core/docs/source/resources/resources>
    z/OS z/OSMF <../ibm_zosmf/docs/source/resources>
    Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
+
+.. grid:: 3
+    :gutter: 1
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: z/OS core
+               :link: ../ibm_zos_core/docs/source/resources/resources.html
+
+               Click for more on contributing.
+
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: z/OSMF
+               :link: ../ibm_zosmf/docs/source/resources.html
+
+               Click for more on contributing.
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: z HMC
+               :link: ../zhmc-ansible-modules/docs/source/bibliography.html
+
+               Click for more on contributing.
+
+.. ...........................................................................
+.. External links
+.. ...........................................................................
 
 .. _Helpful Links:
    helpful_links.html

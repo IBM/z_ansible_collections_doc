@@ -19,12 +19,7 @@ communication.
 Here you will find instructions on how to configure **Ansible for IBM Z**
 collections and perform a simple module test.
 
-..
-   Commenting out the navigation index till its decided it is beneficial.
-   Because it is using the same coming soon target, it will cause
-   duplicated entry found in toctree.
-
-   toctree::
+.. toctree::
    :maxdepth: 1
    :hidden:
 

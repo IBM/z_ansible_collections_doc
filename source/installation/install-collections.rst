@@ -29,14 +29,13 @@ Option 1: Install from Ansible Galaxy
     :color: primary
     :icon: command-palette
 
-    Ansible **Galaxy** is the community repository for Ansible for IBM Z collections.
-    You can find various details such as collection information and collection
-    content in the Ansible Galaxy page of a collection.
+    Ansible **Galaxy** is the community repository for **Ansible for IBM Z** collections where
+    can find more details on the various collections by visiting `Ansible Galaxy`_
 
     .. dropdown:: Install a collection from Ansible **Galaxy** ... (expand for more)
         :icon: command-palette
 
-        Install a collection from Ansible Galaxy, you can find the installation
+        Install a collection from Ansible Galaxy, here you can find the installation
         command for installing a specific collection.
 
         #. Using the ``ansible-galaxy`` command, the general command form below will
@@ -230,6 +229,8 @@ Option 3: Install from Git repository
    https://cloud.redhat.com/ansible/automation-hub/token/
 .. _Creating the API token in automation hub:
     https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/getting_started_with_automation_hub/hub-create-api-token#hub-create-api-token
+.. _Ansible Galaxy:
+   https://galaxy.ansible.com/ui/collections/?page_size=10&view_type=null&sort=name&keywords=ibm_z&page=1&tags=infrastructure
 
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|
