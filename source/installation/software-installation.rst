@@ -20,7 +20,12 @@ Here you will find instructions on how to install Ansible,
 Ansible for IBM Z, configure Ansible for IBM Z and perform a simple module
 test.
 
-.. toctree::
+..
+   Commenting out the navigation index till its decided it is beneficial.
+   Because it is using the same coming soon target, it will cause
+   duplicated entry found in toctree.
+
+   toctree::
    :maxdepth: 1
    :hidden:
 

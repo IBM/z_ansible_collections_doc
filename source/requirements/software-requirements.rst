@@ -19,8 +19,12 @@ Each **Ansible for IBM Z** collection, or version of a collection can have
 different requirements or dependencies. To find out more details, check the
 following links for the specific collection.
 
+..
+   Commenting out the navigation index till its decided it is beneficial.
+   Because it is using the same coming soon target, it will cause
+   duplicated entry found in toctree.
 
-.. toctree::
+   toctree::
    :maxdepth: 1
    :hidden:
 

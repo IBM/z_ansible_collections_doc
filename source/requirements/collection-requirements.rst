@@ -1,19 +1,24 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2025                                          .
+.. © Copyright IBM Corporation 2025
 .. This files (collections-requirements.rxt) contents should be contributed by
 .. all collections discussing their particular requirements. For the most part,
 .. I have kept this general but each team will need to identify their
 .. collection versions, control & managed node dependencies and create a unique
 .. reference, for example the reference I am using is `ibm-zos-core-dependency-matrix`
+..
+.. This is an orphaned page because its not included in any toctree
+.. 'orphan' if set, warnings about this file not being included in any toctree
+..  will be suppressed.
 .. ...........................................................................
+
+:orphan:
 
 =======================
 Collection requirements
 =======================
 
-The :ref:`IBM z/OS core dependency matrix<ibm-zos-core-collection-requirements-dependency-matrix>`
-lists the minimum required component versions for each version of the
-collection when they became generally available (GA) for both,
+The **dependency matrix** below, lists the minimum required component versions for each
+version of the collection when they became generally available (GA) for both,
 the control node and managed node.
 
 The minimum required component versions can reach end of life (EOL) before

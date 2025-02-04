@@ -1,6 +1,12 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2025                                          .
+.. © Copyright IBM Corporation 2025
+..
+.. This is an orphaned page because its not included in any toctree
+.. 'orphan' if set, warnings about this file not being included in any toctree
+..  will be suppressed.
 .. ...........................................................................
+
+:orphan:
 
 .. _upgrade-collections:
 
