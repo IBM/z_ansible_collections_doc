@@ -16,16 +16,16 @@ Ansible for IBM Z
 =================
 
 There are several options for installing **Ansible for IBM Z** collections,
-including Ansible Galaxy, Automation Hub, private Galaxy server, or from a
-Git repository.
+including **Ansible Galaxy**, **Automation Hub**, **private Galaxy server**,
+or from a **Git** repository.
 
-This guide will discuss installing **Ansible for IBM Z** collections; for all
-software requirements, see :ref:`software-requirements`.
+This guide will discuss installing **Ansible for IBM Z** collections; for
+collection requirements, see :ref:`software-requirements`.
 
 Option 1: Install from Ansible Galaxy
 =====================================
 
-.. dropdown:: Ansible **Galaxy** is the community repository for Ansible ...
+.. dropdown:: Ansible **Galaxy** is the community repository for Ansible ... (expand for more)
     :color: primary
     :icon: command-palette
 
@@ -33,7 +33,7 @@ Option 1: Install from Ansible Galaxy
     You can find various details such as collection information and collection
     content in the Ansible Galaxy page of a collection.
 
-    .. dropdown:: Install a collection from Ansible **Galaxy** ...
+    .. dropdown:: Install a collection from Ansible **Galaxy** ... (expand for more)
         :icon: command-palette
 
         Install a collection from Ansible Galaxy, you can find the installation
@@ -81,7 +81,7 @@ Option 1: Install from Ansible Galaxy
               collections:
                  - name: <namespace>.<collection name>
 
-    ..   dropdown:: Install a specific collection version from Ansible Galaxy ...
+    ..   dropdown:: Install a specific collection version from Ansible Galaxy ... (expand for more)
          :icon: command-palette
 
          Install a specific collection version from Ansible Galaxy. For example,
@@ -108,7 +108,7 @@ Option 1: Install from Ansible Galaxy
 Option 2: Install from Automation Hub
 =====================================
 
-.. dropdown:: Configuring access to a **Ansible Automation Platform** ...
+.. dropdown:: Configuring access to a **Ansible Automation Platform** ... (expand for more)
     :color: primary
     :icon: command-palette
 

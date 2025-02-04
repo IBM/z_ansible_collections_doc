@@ -6,16 +6,17 @@
 Software Configuration
 ======================
 
-Ansible is agentless automation software installed on the control node. From
-the control node, Ansible will interact with the managed node remotely using
-SSH and REST from a command-line interface or optionally, advanced
+Ansible is agentless automation software installed on the
+:term:`control node<Control node>`. From the control node, Ansible will interact
+with the :term:`managed node<Managed node>` remotely using
+*SSH* and *REST* from a command-line interface or optionally, advanced
 orchestration with Ansible Automation Platform.
 
 The **Ansible for IBM Z** collections will require additional configuration
-such that **SSH** or **REST** endpoints be available and configured for
+to ensure that **SSH** or **REST** endpoints are available and configured for
 communication.
 
-Here you will find instructions on how to configure Ansible for IBM Z
+Here you will find instructions on how to configure **Ansible for IBM Z**
 collections and perform a simple module test.
 
 ..
@@ -45,17 +46,17 @@ collections and perform a simple module test.
             .. grid-item-card:: z/OS core software configuration
                :link: collection-configuration.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS IMS software configuration
                :link: coming_soon.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS CICS software configuration
                :link: coming_soon.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.
 
     .. grid-item::
 
@@ -65,14 +66,14 @@ collections and perform a simple module test.
             .. grid-item-card:: z/OSMF software configuration
                :link: coming_soon.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.
 
             .. grid-item-card:: Z HMC software configuration
                :link: coming_soon.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS System Automation software configuration
                :link: coming_soon.html
 
-               Click to review the collection configuration.
+               **Click** to review the collection configuration.

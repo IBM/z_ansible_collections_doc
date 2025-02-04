@@ -11,13 +11,13 @@
 Software requirements
 =====================
 
-Before you install an **Ansible for IBM Z** collection, you must configure
-the :term:`control node<Control node>` and depending on the collection,
-the :term:`managed node<Managed node>` with a minimum set of requirements.
+Before you install an **Ansible for IBM Z** collection, review the requirements
+for both the :term:`control node<Control node>` and the
+:term:`managed node<Managed node>`.
 
 Each **Ansible for IBM Z** collection, or version of a collection can have
-different requirements or dependencies. To find out more details, check the
-following links for the specific collection.
+different requirements or dependencies. To find out more details, click the
+following collection links.
 
 ..
    Commenting out the navigation index till its decided it is beneficial.

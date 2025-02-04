@@ -17,7 +17,7 @@
 Collection requirements
 =======================
 
-The **dependency matrix** below, lists the minimum required component versions for each
+The **dependency matrix** lists the minimum required component versions for each
 version of the collection when they became generally available (GA) for both,
 the control node and managed node.
 
@@ -34,7 +34,7 @@ a newer supported version of **ansible-core** must be installed.
 Control node
 ------------
 
-.. dropdown:: When you install an Ansible version, review the ...
+.. dropdown:: When you install an Ansible version, review the ... (expand for more)
    :color: primary
    :icon: info
 
@@ -55,7 +55,7 @@ Control node
 Managed node
 ------------
 
-.. dropdown:: The managed requires the following to be installed ...
+.. dropdown:: The managed requires the following to be installed ... (expand for more)
    :color: primary
    :icon: info
 
@@ -82,7 +82,7 @@ Managed node
 Dependency matrix
 -----------------
 
-.. dropdown:: The dependency matrix lists the dependencies for both, the control node and managed node ...
+.. dropdown:: The dependency matrix lists the dependencies for both, the control node and managed node ... (expand for more)
    :color: primary
    :icon: info
 
