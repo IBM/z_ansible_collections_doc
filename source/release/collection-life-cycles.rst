@@ -24,6 +24,8 @@ supported version of the product in a timely fashion. Features and bug
 fixes target only the latest versions of the product, though some allowance
 may be given for high security risk items.
 
+.. _Ansible Z life cycles - phase:
+
 Life cycle phase
 ----------------
 

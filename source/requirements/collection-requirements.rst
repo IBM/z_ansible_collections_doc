@@ -11,7 +11,7 @@
 Collection requirements
 =======================
 
-The :ref:`dependency matrix<ibm-zos-core-dependency-matrix>`
+The :ref:`IBM z/OS core dependency matrix<ibm-zos-core-collection-requirements-dependency-matrix>`
 lists the minimum required component versions for each version of the
 collection when they became generally available (GA) for both,
 the control node and managed node.

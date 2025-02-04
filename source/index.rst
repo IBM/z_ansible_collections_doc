@@ -65,7 +65,6 @@ plugins.
    :hidden:
 
    support/getting-support
-   troubleshooting/errorsandmessages
    faqs/faqs
    reference/helpful-links
    reference/documentation

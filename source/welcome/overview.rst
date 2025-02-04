@@ -103,6 +103,7 @@ Today, the available collections include:
 
                   - Create dynamic resources from a template.
                   - Delete dynamic resources from a template.
+                  
                   |br|
                   |br|
                   |br|

@@ -1,5 +1,9 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2024                                    .
+.. © Copyright IBM Corporation 2020, 2024
+.. Note:
+..    Use of anonymous references in the hyperlinks
+..    (double ending underscores) else RST will error with a
+..    'Duplicate explicit target name'
 .. ...........................................................................
 
 .. _ansible-content:
@@ -41,23 +45,23 @@ one easy-to-use platform.
             .. grid-item-card:: :bdg-link-primary:`z/OS core collection<../ibm_zos_core/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_core>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_core>`_
-                  - `GitHub <https://github.com/ansible-collections/ibm_zos_core>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_core>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_core>`__
+                  - `GitHub <https://github.com/ansible-collections/ibm_zos_core>`__
 
             .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_ims>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_ims>`_
-                  - `GitHub <https://github.com/ansible-collections/ibm_zos_ims>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_ims>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_ims>`__
+                  - `GitHub <https://github.com/ansible-collections/ibm_zos_ims>`__
 
             .. grid-item-card:: :bdg-link-primary:`z/OS CICS collection<../ibm_zos_cics/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_cics>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_cics>`_
-                  - `GitHub <https://github.com/ansible-collections/ibm_zos_cics>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_cics>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_cics>`__
+                  - `GitHub <https://github.com/ansible-collections/ibm_zos_cics>`__
 
     .. grid-item::
 
@@ -67,23 +71,23 @@ one easy-to-use platform.
             .. grid-item-card:: :bdg-link-primary:`z/OSMF collection<../ibm_zosmf/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zosmf>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zosmf>`_
-                  - `GitHub <https://github.com/IBM/ibm_zosmf>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zosmf>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zosmf>`__
+                  - `GitHub <https://github.com/IBM/ibm_zosmf>`__
 
             .. grid-item-card:: :bdg-link-primary:`Z HMC collection<../zhmc-ansible-modules/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zhmc>`_
-                  - `GitHub <https://github.com/zhmcclient/zhmc-ansible-modules>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zhmc>`__
+                  - `GitHub <https://github.com/zhmcclient/zhmc-ansible-modules>`__
 
             .. grid-item-card:: :bdg-link-primary:`System Automation collection<../ibm_zos_sysauto/docs/ansible_content.html>`
                   :padding: 0
 
-                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_sysauto>`_
-                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_sysauto>`_
-                  - `GitHub <https://github.com/ansible-collections/ibm_zos_sysauto>`_
+                  - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_sysauto>`__
+                  - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zos_sysauto>`__
+                  - `GitHub <https://github.com/ansible-collections/ibm_zos_sysauto>`__
 
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|

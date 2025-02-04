@@ -21,7 +21,12 @@ Several of the collections offer detailed instructions on how to develop, test a
 contribute changes, for this content, review the :ref:`contributing<community_contributions>`
 topic.
 
-.. toctree::
+..
+   Commenting out the navigation index till its decided it is beneficial.
+   Because it is using the same coming soon target, it will cause
+   duplicated entry found in toctree.
+
+   toctree::
    :maxdepth: 1
    :hidden:
 
@@ -29,26 +34,36 @@ topic.
    z/OS IMS <../ibm_zos_ims/docs/source/community_guides>
    Z HMC <../zhmc-ansible-modules/docs/source/development>
 
-   
 .. grid:: 3
+    :gutter: 1
 
-    .. card:: z/OS core
-       :link: ../ibm_zos_core/docs/source/community_guides.html
-       :margin: 1
-       :width: 25%
+    .. grid-item::
 
-       Click for more on contributing.
+        .. grid:: 1 1 1 1
+            :gutter: 1
 
-    .. card:: z/OS IMS
-       :link: ../ibm_zos_ims/docs/source/community_guides.html
-       :margin: 1
-       :width: 25%
+            .. grid-item-card:: z/OS core
+               :link: ../ibm_zos_core/docs/source/community_guides.html
 
-       Click for more on contributing.
+               Click for more on contributing.
 
-    .. card:: z HMC
-       :link: ../zhmc-ansible-modules/docs/source/development.html
-       :margin: 1
-       :width: 25%
 
-       Click for more on contributing.
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: z/OS IMS
+               :link: ../ibm_zos_ims/docs/source/community_guides.html
+
+               Click for more on contributing.
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: z HMC
+               :link: ../zhmc-ansible-modules/docs/source/development.html
+
+               Click for more on contributing.

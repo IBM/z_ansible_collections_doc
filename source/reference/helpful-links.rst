@@ -18,8 +18,8 @@ Ansible
 Playbooks
 ---------
 * Getting started with `Ansible playbooks`_.
-* Index of all community `modules and plugins`_
-* Ansible `IBM for Z playbook repository`_
+* `Ansible for IBM Z playbook repository`_.
+* Index of all community `modules and plugins`_.
 
 Communication
 -------------
@@ -39,7 +39,7 @@ Communication
    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro
 .. _modules and plugins:
    https://docs.ansible.com/ansible/latest/collections/all_plugins.html
-.. _IBM Z playbook repository:
+.. _Ansible for IBM Z playbook repository:
    https://github.com/IBM/z_ansible_collections_samples/
 .. _Bullhorn newsletter:
    https://forum.ansible.com/c/news/bullhorn/17

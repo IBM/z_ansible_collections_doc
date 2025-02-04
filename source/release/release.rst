@@ -33,17 +33,17 @@ select a specific release version to view its corresponding details.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: z/OS core release notes
+            .. grid-item-card:: z/OS core release notes
                :link: ../ibm_zos_core/docs/source/release_notes.html
 
                Click to review the collections release notes.
 
-            .. card:: z/OS IMS release notes
+            .. grid-item-card:: z/OS IMS release notes
                :link: ../ibm_zos_ims/docs/source/release_notes
 
                Click to review the collections release notes.
 
-            .. card:: z/OS CICS release notes
+            .. grid-item-card:: z/OS CICS release notes
                :link: ../ibm_zos_cics/docs/source/release_notes
 
                Click to review the collections release notes.
@@ -53,17 +53,17 @@ select a specific release version to view its corresponding details.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: z/OSMF release notes
+            .. grid-item-card:: z/OSMF release notes
                :link: ../ibm_zosmf/docs/source/release_notes
 
                Click to review the collections release notes.
 
-            .. card:: Z HMC release notes.
+            .. grid-item-card:: Z HMC release notes.
                :link: ../zhmc-ansible-modules/docs/source/release_notes
 
                Click to review the collections release notes.
 
-            .. card:: z/OS System Automation release notes.
+            .. grid-item-card:: z/OS System Automation release notes.
                :link: ../ibm_zos_sysauto/docs/source/release_notes
 
                Click to review the collections release notes.

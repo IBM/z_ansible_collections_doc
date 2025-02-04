@@ -37,13 +37,13 @@ test.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: Ansible
+            .. grid-item-card:: Ansible
                :link: install-ansible
                :link-type: ref
 
                Click to learn more on how to install Ansible.
 
-            .. card:: Ansible for IBM Z
+            .. grid-item-card:: Ansible for IBM Z
                :link: install-collections
                :link-type: ref
 
@@ -54,13 +54,13 @@ test.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: Upgrade Ansible for IBM Z
+            .. grid-item-card:: Upgrade Ansible for IBM Z
                :link: upgrade-collections
                :link-type: ref
 
                Click to learn how to upgrade the Ansible for IBM Z collections.
 
-            .. card:: Remove Ansible for IBM Z
+            .. grid-item-card:: Remove Ansible for IBM Z
                :link: remove-collections
                :link-type: ref
 

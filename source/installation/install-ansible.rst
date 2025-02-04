@@ -8,8 +8,11 @@
 Ansible
 =======
 
-You must install the correct version of **Ansible®** before you download and
-install any **IBM Ansible for Z** collection.
+Before installing Ansible, it is recommended you review the **Ansible for IBM Z**
+collections requirements to align the Ansible version to a supported version.
+
+For **Ansible for IBM Z** requirements, review the topic
+:ref"`software requirements<software-requirements>`.
 
 If you prefer watching videos, you can follow the steps discussed in the guide,
 `Set up your Ansible control node for getting started with Ansible for IBM Z`_.
@@ -17,9 +20,9 @@ If you prefer watching videos, you can follow the steps discussed in the guide,
 Prerequisites
 -------------
 
-Before installing Ansible, ensure the required version of Python is
-installed on your control node. You can check which version needs to be
-installed from the Ansible Z :ref:`requirements`.
+After you have decided on an Ansible version, ensure the required version of Python
+is installed on the control node. You can review which version of Python is required
+by reviewing the `ansible-core support matrix`_.
 
 Procedures
 ----------
@@ -86,6 +89,7 @@ the installation.
     https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#confirming-your-installation
 .. _Set up your Ansible control node for getting started with Ansible for IBM Z:
     https://mediacenter.ibm.com/media/Set%20up%20your%20Ansible%20control%20node%20for%20getting%20started%20with%20Ansible%20for%20IBM%20Z/1_r9g0duq3
-
 .. _ansible.builtin.ping module:
    https://ansible.builtin.ping/
+.. _ansible-core support matrix:
+   https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix

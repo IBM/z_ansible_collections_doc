@@ -24,7 +24,7 @@ Each **Ansible for IBM Z** collection, or version of a collection will have
 different requirements and dependencies.
 
 
-To find out more details, review th :ref:`Software Requirements<software-requirements>.
+To find out more details, review th :ref:`Software Requirements<software-requirements>`.
 
 How can I test if Ansible can reach a z/OS managed node (host)?
 ---------------------------------------------------------------
@@ -70,7 +70,7 @@ If you are currently facing issues with any of the modules, upgrading to the
 latest release could likely resolve the problem.
 
 How can I determine which version of a collection I am using?
-------------------------------------------------------------
+-------------------------------------------------------------
 Using the *ansible-galaxy* command, you can list the collections version and path
 to where the  collection is located.
 
@@ -151,8 +151,8 @@ Where can I learn about the best practices to use when developing playbooks?
 There are several resources we recommend developers review when they are creating
 playbooks, see:
 
-* `Ansible tips and tricks<https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html>`_
-* `Playbook contribution guidelines from IBM<https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/contribution-guidelines.md#playbook-development-guidelines>`_
+* `Ansible tips and tricks <https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html>`_
+* `Playbook contribution guidelines from IBM <https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/contribution-guidelines.md#playbook-development-guidelines>`_
 
 In general, some of the foundational practices are that:
 
@@ -205,7 +205,7 @@ managed node, usually in the ``/tmp`` directory, which are then removed after th
 has completed execution.
 
 The remote ``/tmp`` directory used by Ansible can be changed by updating the Ansible environment
-variable `ANSIBLE_REMOTE_TEMP`_or configuration `remote_tmp`_.
+variable `ANSIBLE_REMOTE_TEMP`_ or configuration `remote_tmp`_.
 
 .. _ANSIBLE_REMOTE_TEMP:
    https://docs.ansible.com/ansible/latest/collections/environment_variables.html#envvar-ANSIBLE_REMOTE_TEMP
@@ -217,7 +217,7 @@ Are the Ansible for IBM Z modules idempotent?
 ---------------------------------------------
 Some modules according to their documentation will not produce different results executed multiple times,
 but other modules can be idempotent when the playbook tasks included Ansible conditionals such as
-`changed`_ and `_changed_when`_.
+`changed`_ and `changed_when`_.
 
 .. _changed:
    https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#basic-conditionals-with-when
@@ -267,7 +267,6 @@ issue on the collections repository.
 
 For detailed instructions on how to obtain support, see section :ref:`getting-support`.
 
-========
 Messages
 ========
 

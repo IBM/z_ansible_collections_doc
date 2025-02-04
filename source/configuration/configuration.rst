@@ -18,7 +18,12 @@ communication.
 Here you will find instructions on how to configure Ansible for IBM Z
 collections and perform a simple module test.
 
-.. toctree::
+..
+   Commenting out the navigation index till its decided it is beneficial.
+   Because it is using the same coming soon target, it will cause
+   duplicated entry found in toctree.
+
+   toctree::
    :maxdepth: 1
    :hidden:
 
@@ -37,17 +42,17 @@ collections and perform a simple module test.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: z/OS core software configuration
+            .. grid-item-card:: z/OS core software configuration
                :link: collection-configuration.html
 
                Click to review the collection configuration.
 
-            .. card:: z/OS IMS software configuration
+            .. grid-item-card:: z/OS IMS software configuration
                :link: coming_soon.html
 
                Click to review the collection configuration.
 
-            .. card:: z/OS CICS software configuration
+            .. grid-item-card:: z/OS CICS software configuration
                :link: coming_soon.html
 
                Click to review the collection configuration.
@@ -57,17 +62,17 @@ collections and perform a simple module test.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. card:: z/OSMF software configuration
+            .. grid-item-card:: z/OSMF software configuration
                :link: coming_soon.html
 
                Click to review the collection configuration.
 
-            .. card:: Z HMC software configuration
+            .. grid-item-card:: Z HMC software configuration
                :link: coming_soon.html
 
                Click to review the collection configuration.
 
-            .. card:: z/OS System Automation software configuration
+            .. grid-item-card:: z/OS System Automation software configuration
                :link: coming_soon.html
 
                Click to review the collection configuration.

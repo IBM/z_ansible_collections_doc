@@ -1,6 +1,13 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2025                                    .
+.. © Copyright IBM Corporation 2020, 2025
+..
+.. This is an orphaned page because its not included in any toctree
+.. 'orphan' if set, warnings about this file not being included in any toctree
+..  will be suppressed.
 .. ...........................................................................
+
+:orphan:
+
 =========================
 Collection configurations
 =========================
@@ -86,11 +93,12 @@ Step 2: Host variables (host_vars)
         #. the IBM Open Enterprise SDK for Python **version** installed, eg 3.12
         #. the absolute path of where **Z Open Automation Utilities** (ZOAU) is installed.
         #. the absolute path of the **ZOAU python package** (zoautil-py) which can vary
-        depending if ``pip3`` was used to install the python package.
+           depending if ``pip3`` was used to install the python package.
+
             - If ``pip3`` was **not** used to install the python package, you can find
               the package under ${ZOAU_HOME}/lib/${python_version}
             - If ``pip3`` was used to install the package, the following command can
-            aid in finding the absolute path to the package.
+              aid in finding the absolute path to the package.
 
             .. code-block:: sh
 
