@@ -581,7 +581,7 @@ Step 7: Run a playbook
     operation using `ibm_zos_core.zos_ping`_ and the following operation will use the
     `ibm_zos_core.zos_operator`_ command to display the local time of day and the date.
 
-    .. code-block:: yml
+    .. code-block:: sh
 
         ---
         - hosts: all
@@ -618,7 +618,7 @@ Step 7: Run a playbook
 
         ansible-playbook -i inventory sample.yaml
 
-    You can avoid a password prompt by configuring SSH keys, see `setting-up-ssh-keys`_.
+    You can avoid a password prompt by configuring SSH keys, see `setting up SSH keys`_.
 
     For further reading, review `run your first command and playbook`_ and follow up
     with `Ansible playbooks`_.
