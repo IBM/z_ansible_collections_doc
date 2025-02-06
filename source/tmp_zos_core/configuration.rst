@@ -8,9 +8,9 @@
 
 :orphan:
 
-=========================
-Collection configurations
-=========================
+=============
+Configuration
+=============
 
 After installing the IBM z/OS core collection, you will need to configure
 some files so that the collection can locate the dependencies needed to

@@ -23,12 +23,12 @@ collections and perform a simple module test.
    :maxdepth: 1
    :hidden:
 
-   z/OS core<collection-configuration>
-   z/OS CICS<coming_soon>
-   z/OS IMS<coming_soon>
-   z/OS Sys Auto<coming_soon>
-   z/OSMF<coming_soon>
-   Z HMC<coming_soon>
+   z/OS core<../tmp_zos_core/configuration>
+   z/OS CICS<../coming_soon>
+   z/OS IMS<../coming_soon>
+   z/OS Sys Auto<../coming_soon>
+   z/OSMF<../coming_soon>
+   Z HMC<../coming_soon>
 
 .. grid:: 1 1 2 2
     :gutter: 1
@@ -39,17 +39,17 @@ collections and perform a simple module test.
             :gutter: 1
 
             .. grid-item-card:: z/OS core software configuration
-               :link: collection-configuration.html
+               :link: ../tmp_zos_core/configuration.html
 
                **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS IMS software configuration
-               :link: coming_soon.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS CICS software configuration
-               :link: coming_soon.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
 
@@ -59,16 +59,16 @@ collections and perform a simple module test.
             :gutter: 1
 
             .. grid-item-card:: z/OSMF software configuration
-               :link: coming_soon.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
 
             .. grid-item-card:: Z HMC software configuration
-               :link: coming_soon.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS System Automation software configuration
-               :link: coming_soon.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
