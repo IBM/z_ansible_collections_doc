@@ -30,7 +30,7 @@ How can I test if Ansible can reach a z/OS managed node (host)?
 ---------------------------------------------------------------
 If you have installed the IBM z/OS core collection, you can use the ``zos_ping``
 module, otherwise you can use the ``ansible.builtin.ping`` module that is included
-Ansible.
+with Ansible.
 
 With the *ibm.ibm_zos_core.zos_ping* module from the command line:
 
@@ -109,7 +109,7 @@ Documentation for all collections can be accessed in:
 - `Ansible Automation Hub IBM Z collections`_.
 - `Ansible Galaxy IBM Z collections`_.
 - `Red Hat Ansible Certified Content for Z`_ site.
-- ansible-doc command, e.g. ```ansible-doc zos_copy``
+- ansible-doc command, e.g. ``ansible-doc zos_copy``
 
 .. _Ansible Automation Hub IBM Z collections:
    https://console.redhat.com/ansible/automation-hub/?page_size=12&view_type=list&tags=zos
