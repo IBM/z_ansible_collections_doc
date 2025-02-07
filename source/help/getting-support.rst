@@ -9,7 +9,7 @@ Getting Support
 ===============
 
 If you encounter issues while using Ansible for IBM Z collections,
-you can access for enterprise support from Red Hat and IBM or community support.
+you can access enterprise support from Red Hat and IBM or community support.
 
 As certified content, the collections are entitled to enterprise support
 from Red Hat to users of Ansible Automation Platform (AAP). If you obtain the
