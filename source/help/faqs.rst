@@ -154,7 +154,7 @@ playbooks, see:
 * `Ansible tips and tricks <https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html>`_
 * `Playbook contribution guidelines from IBM <https://github.com/IBM/z_ansible_collections_samples/blob/main/docs/share/contribution-guidelines.md#playbook-development-guidelines>`_
 
-In general, some of the foundational practices are that:
+In general, some of the foundational practices are:
 
 * Playbooks use whitespace and comments for maintainability.
 * Playbooks use variables and assign them descriptive names.
