@@ -57,7 +57,7 @@ Severity Descriptions
 ---------------------
 
 Severity descriptions describe the impact to the customer. Severity
-assignment is only applicable to customers who obtain IBM Ansible Z
+assignment is only applicable to customers who obtain Ansible for IBM Z
 collections from Ansible Automation Platform and entitled for Z.
 
 For community issues, severity is decided on by team who triages the issue
