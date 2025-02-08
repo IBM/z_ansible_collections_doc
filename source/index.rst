@@ -19,26 +19,32 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. |prov| image:: shared_images/provision.svg
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. |cicd| image:: shared_images/cicd.svg
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. |mig| image:: shared_images/migration.png
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. |orch| image:: shared_images/orchestrate.svg
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. |sec| image:: shared_images/security.svg
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. |fact| image:: shared_images/facts.svg
    :scale: 50%
    :align: middle
+   :class: no-scaled-link
 
 .. grid:: 3
 

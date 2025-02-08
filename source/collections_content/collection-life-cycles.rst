@@ -103,4 +103,4 @@ Life cycles
 .. toctree::
    :maxdepth: 1
 
-   z/OS core<../tmp_zos_core/life-cycle>
+   z/OS core<../ibm_zos_core/docs/source/life-cycle>

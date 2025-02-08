@@ -23,7 +23,7 @@ collections and perform a simple module test.
    :maxdepth: 1
    :hidden:
 
-   z/OS core<../tmp_zos_core/configuration>
+   z/OS core<../ibm_zos_core/docs/source/configuration>
    z/OS CICS<../coming_soon>
    z/OS IMS<../coming_soon>
    z/OS Sys Auto<../coming_soon>
@@ -39,7 +39,7 @@ collections and perform a simple module test.
             :gutter: 1
 
             .. grid-item-card:: z/OS core software configuration
-               :link: ../tmp_zos_core/configuration.html
+               :link: ../ibm_zos_core/docs/configuration.html
 
                **Click** to review the collection configuration.
 
