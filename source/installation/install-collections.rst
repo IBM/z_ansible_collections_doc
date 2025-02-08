@@ -105,7 +105,7 @@ Option 1: Install from Ansible Galaxy
          see `Installing collections (Ansible Documentation)`_.
 
 Option 2: Install from Ansible Automation Hub
-=====================================
+=============================================
 
 .. dropdown:: Configuring access to a **Ansible Automation Platform** ... (expand for more)
     :color: primary
@@ -173,7 +173,7 @@ Option 2: Install from Ansible Automation Hub
 
 
 Option 3: Install from a Git repository
-=====================================
+=======================================
 
 .. dropdown:: Install a collection from a **Git** repository using the URI ...
     :color: primary
