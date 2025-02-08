@@ -8,7 +8,7 @@
 Collection Life Cycles
 ======================
 
-As part of Red Hat **Ansible Certified Content for Z**, customers have
+As part of **Red Hat Ansible Certified Content for IBM Z**, customers have
 access to supported versions. This offering publishes a product life
 cycle for all **Ansible for IBM Z** collections so that customers and
 partners can properly plan, deploy, support, and maintain the automation
@@ -57,7 +57,7 @@ Severity Descriptions
 ---------------------
 
 Severity descriptions describe the impact to the customer. Severity
-assignment is only applicable to customers who obtain IBM Ansible Z
+assignment is only applicable to customers who obtain Ansible for IBM Z
 collections from Ansible Automation Platform and entitled for Z.
 
 For community issues, severity is decided on by team who triages the issue

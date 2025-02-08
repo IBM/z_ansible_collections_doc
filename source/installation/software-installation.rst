@@ -8,7 +8,7 @@ Software Installation
 
 Ansible is agentless automation software that you install on a single host,
 referred to as the :term:`control node<Control node>`. Ansible enables
-cross-platform Automation and orchestration at scale and IBM's recommendation
+cross-platform Automation and orchestration at scale and is IBM's recommendation
 for enterprise automation.
 
 From the :term:`control node<Control node>`, Ansible can manage any number and

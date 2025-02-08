@@ -8,7 +8,7 @@
 Ansible playbooks
 =================
 
-To help you get started Ansible® for IBM Z®, we provide a wide range of
+To help you get started with Ansible® for IBM Z®, we provide a wide range of
 ready-to-use sample playbooks in our `Ansible for IBM Z sample playbook repository`_
 on GitHub. You can explore the sample playbooks in the repository and customize
 them for your own use cases.
@@ -16,7 +16,7 @@ them for your own use cases.
 The playbook repository contains various playbooks catering to different
 aspects of IBM Z. All the playbooks in the repository can run
 independently from any other playbook. We provide detailed README files and
-documentation in each playbook, you can configure the playbook by following
+documentation in each playbook, and you can configure the playbook by following
 the instructions in them.
 
 The playbook repository is an open-source project, and the playbooks are

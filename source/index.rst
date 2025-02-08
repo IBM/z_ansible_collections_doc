@@ -10,7 +10,7 @@ Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation,
 also referred to as Ansible for IBM Z. |br|
 
 Here you will find step-by-step user walkthroughs, best practices and resources
-to aid in your Ansible on IBM Z journey. **Ansible for IBM Z** provides the ability
+to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
 to connect IBM Z to your wider enterprise automation strategy through the Ansible
 Automation Platform ecosystem. This enables development and operations automation
 on IBM Z through a seamless, unified workflow orchestration with configuration

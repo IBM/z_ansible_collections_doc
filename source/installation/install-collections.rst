@@ -16,7 +16,7 @@ Ansible for IBM Z
 =================
 
 There are several options for installing **Ansible for IBM Z** collections,
-including **Ansible Galaxy**, **Automation Hub**, **private Galaxy server**,
+including **Ansible Galaxy**, **Ansible Automation Hub**, **private Galaxy server**,
 or from a **Git** repository.
 
 This guide will discuss installing **Ansible for IBM Z** collections; for
@@ -104,7 +104,7 @@ Option 1: Install from Ansible Galaxy
          For more information about installing Ansible collections,
          see `Installing collections (Ansible Documentation)`_.
 
-Option 2: Install from Automation Hub
+Option 2: Install from Ansible Automation Hub
 =====================================
 
 .. dropdown:: Configuring access to a **Ansible Automation Platform** ... (expand for more)
@@ -172,7 +172,7 @@ Option 2: Install from Automation Hub
         follow along to install a collection.
 
 
-Option 3: Install from Git repository
+Option 3: Install from a Git repository
 =====================================
 
 .. dropdown:: Install a collection from a **Git** repository using the URI ...

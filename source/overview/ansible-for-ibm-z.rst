@@ -82,7 +82,7 @@ Today, the available collections include:
                   - Create z/OSMF workflows.
                   - Run z/OSMF workflows.
                   - Delete z/OSMF workflows.
-                  - Provisioning and managing z/OS software.
+                  - Provision and manage z/OS software.
                   - Validate and provision security requirements.
 
             .. grid-item-card:: :bdg-link-primary:`Z HMC<../zhmc-ansible-modules/docs/ansible_content.html>`
