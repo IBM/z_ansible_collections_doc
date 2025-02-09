@@ -147,6 +147,7 @@ html_static_path = ['_static']
 
 html_css_files = [
     'css/table.css',
+    'css/custom.css'
 ]
 
 ##############################################################################

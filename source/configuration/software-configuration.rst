@@ -39,7 +39,7 @@ collections and perform a simple module test.
             :gutter: 1
 
             .. grid-item-card:: z/OS core software configuration
-               :link: ../ibm_zos_core/docs/configuration.html
+               :link: ../ibm_zos_core/docs/source/configuration.html
 
                **Click** to review the collection configuration.
 

@@ -8,9 +8,9 @@
 
 .. _ansible-content:
 
-===========
-Collections
-===========
+==============================
+Collections  :octicon:`rocket`
+==============================
 
 The **Ansible for IBM Z** collections are designed to automate and manage
 IBM Z environments using **Ansible**, an open-source automation platform.
