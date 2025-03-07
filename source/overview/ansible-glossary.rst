@@ -4,9 +4,9 @@
 
 .. _basic-concepts:
 
-================
-Ansible glossary
-================
+==========================
+Ansible for IBM Z Glossary
+==========================
 
 These concepts are common to all uses of Ansible®. You should understand them
 before using Ansible for IBM Z® or reading the documentation.

@@ -1,12 +1,13 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2025                                   .
+.. © Copyright IBM Corporation 2020, 2021                                    .
 .. ...........................................................................
 
 ===========================================
 Red Hat Ansible Certified Content for IBM Z
 ===========================================
 
-Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation. |br|
+Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation,
+also referred to as Ansible for IBM Z. |br|
 
 Here you will find step-by-step user walkthroughs, best practices and resources
 to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
@@ -45,89 +46,43 @@ management, provisioning, and application deployment in one easy-to-use platform
    :align: middle
    :class: no-scaled-link
 
-.. ..........................................................................
-.. Overview
-.. ..........................................................................
+.. grid:: 3
 
-.. _Ansible for IBM Z:
-   overview/ansible-for-ibm-z.html
-.. _Ansible for IBM Z Glossary:
-   overview/ansible-glossary.html
-.. _Ansible for IBM Z Playbooks:
-   overview/ansible-playbooks.html
-.. _Ansible for IBM Z Trial:
-   overview/ansible-for-ztrial.html
+   .. grid-item:: |prov| Provisioning, Maintenance & Configuration
 
-.. ..........................................................................
-.. Installation & Execution
-.. ..........................................................................
+      * Build and provision middleware
+      * Roll out fix packs to thousand of servers
+      * Self-service provisioning portals
+      * Middleware configuration
+      * Network and security configuration
 
-.. _Software Requirements:
-   requirements/software-requirements.html
-.. _Software Installation:
-   installation/software-installation.html
-.. _Software Configuration:
-   configuration/software-configuration.html
+   .. grid-item:: |orch| Orchestration
 
-.. ..........................................................................
-.. Collections & Content
-.. ..........................................................................
+      * Orchestrate and replace existing siloed in-house automation
+      * Integrate existing automation into overall workflow
+      * Job verification programs
 
-.. _Collections:
-   collections_content/collections.html
-.. _Collection Releases:
-   collections_content/collection-releases.html
-.. _Collection Life Cycles:
-   collections_content/collection-life-cycles.html
+   .. grid-item:: |cicd| CI/CD and Application Deployment
 
-.. ..........................................................................
-.. Help & Troubleshooting
-.. ..........................................................................
-
-.. _Getting Support:
-   help/getting-support.html
-.. _Frequently Asked Questions:
-   help/faqs.html
-.. _Supplementary Documentation:
-   help/supplementary-doc.html
-.. _Helpful Links:
-   help/helpful-links.html
-.. _Contributing:
-   contribution/contributing.html
+      * Integrate IBM Z application deployment into pipelines
+      * Integrate pipelines with ServiceNow, Github and more
 
 .. grid:: 3
 
-   .. grid-item:: |prov| Overview
+   .. grid-item:: |mig| Migration and Recovery
 
-      * `Ansible for IBM Z`_
-      * `Ansible for IBM Z Glossary`_
-      * `Ansible for IBM Z Playbooks`_
-      * `Ansible for IBM Z Trial`_
+      * Disaster recovery information collection
+      * Moving data and application across systems
 
-   .. grid-item:: |orch| Installation & Execution
+   .. grid-item:: |sec| Security Automation
 
-      * `Software Requirements`_
-      * `Software Installation`_
-      * `Collection Life Cycles`_
+      * SSL certification renewal process
+      * Password resets, create new users
 
-.. grid:: 3
+   .. grid-item:: |fact| Mainframe Fact Collection
 
-   .. grid-item:: |mig| Collections & Content
-
-      * `Collections`_
-      * `Collection Releases`_
-      * `Collection Life Cycles`_
-
-   .. grid-item:: |sec| Help & Troubleshooting
-
-      * `Getting Support`_
-      * `Frequently Asked Questions`_
-      * `Helpful Links`_
-      * `Contributing`_
-
-.. ..........................................................................
-.. The `Supplementary Documentation`_ has been moved to the collections page.
-.. ..........................................................................
+      * Install verification programs
+      * Collect auditable details
 
 .. ..........................................................................
 .. Site table of contents (TOC)

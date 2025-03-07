@@ -24,11 +24,11 @@ collections and perform a simple module test.
    :hidden:
 
    z/OS core<../ibm_zos_core/docs/source/configuration>
-   z/OS CICS<../coming_soon>
-   z/OS IMS<../coming_soon>
-   z/OS Sys Auto<../coming_soon>
-   z/OSMF<../coming_soon>
-   Z HMC<../coming_soon>
+   z/OS IMS<coming_soon_ims>
+   z/OS CICS<coming_soon_cics>
+   z/OS Sys Auto<coming_soon_sys_auto>
+   z/OSMF<coming_soon_zosmf>
+   Z HMC<coming_soon_zhmc>
 
 .. grid:: 1 1 2 2
     :gutter: 1
@@ -72,3 +72,8 @@ collections and perform a simple module test.
                :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
+
+.. ...........................................................................
+.. Internal links
+.. ...........................................................................
+

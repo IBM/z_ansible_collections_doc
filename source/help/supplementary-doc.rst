@@ -16,9 +16,9 @@ testing the modules, offering-specific reading, etc.
    :maxdepth: 1
    :hidden:
 
-   z/OS core <../ibm_zos_core/docs/source/resources/resources>
+   z/OS core <../ibm_zos_core/docs/source/character_set>
    z/OS z/OSMF <../ibm_zosmf/docs/source/resources>
-   Z HMC </../zhmc-ansible-modules/docs/source/bibliography>
+   Z HMC <../zhmc-ansible-modules/docs/source/bibliography>
 
 .. grid:: 3
     :gutter: 1
@@ -29,7 +29,7 @@ testing the modules, offering-specific reading, etc.
             :gutter: 1
 
             .. grid-item-card:: z/OS core
-               :link: ../ibm_zos_core/docs/source/resources/resources.html
+               :link: ../ibm_zos_core/docs/source/character_set.html
 
                Click for more on contributing.
 
@@ -55,7 +55,7 @@ testing the modules, offering-specific reading, etc.
                Click for more on contributing.
 
 .. ...........................................................................
-.. External links
+.. Internal links
 .. ...........................................................................
 
 .. _Helpful Links:
