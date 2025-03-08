@@ -116,12 +116,14 @@ Option 2: Install from Ansible Automation Hub
     ``ansible-galaxy collection install`` command to install a collection on the
     control node hosted in Ansible Automation Platform or a private Galaxy server.
 
-    .. dropdown:: By default, the **ansible-galaxy** command ...
+    .. dropdown:: By default, the **ansible-galaxy** command uses the Galaxy server ... (expand for more)
+       :color: info
        :icon: file-code
 
-       By default, the ``ansible-galaxy`` command uses ``https://galaxy.ansible.com`` as the
-       Galaxy server, but you can configure the ``ansible-galaxy collection`` command to use
-       other servers by editing the configuration file, **ansible.cfg**.
+       By default, the ``ansible-galaxy`` command uses the Galaxy server
+       (``https://galaxy.ansible.com``) to install collections, but you can configure
+       the ``ansible-galaxy collection`` command to use other servers by editing the
+       configuration file, **ansible.cfg**.
 
        For more information, see `Configuring the ansible-galaxy client (Ansible Documentation)`_.
 
@@ -129,7 +131,7 @@ Option 2: Install from Ansible Automation Hub
 
        * Set the **auth_url** option for each server name.
        * Set the API token for each server name. To obtain an API token from Automation Hub,
-          select the Offline token from `Connect to Hub`_.
+         select the Offline token from `Connect to Hub`_.
 
        The automation hub API token authenticates your ansible-galaxy client to the Red Hat
        automation hub server. To learn more about configuration,
@@ -164,12 +166,26 @@ Option 2: Install from Ansible Automation Hub
 
        To learn more about configuration, see `Ansible Configuration Settings (Ansible Documentation)`_.
 
-    .. dropdown:: By default, the ``ansible-galaxy`` command ...
+    .. dropdown:: Install a specific collection version from Ansible Automation Hub ... (expand for more)
+       :color: info
        :icon: file-code
 
-        Install a collection from Ansible Automation Hub after having updated the configuration
-        (ansible.cfg), return to the :ref:`Install a collection<install-collections>` reference and
-        follow along to install a collection.
+         After having configured access to **Ansible Automation Platform**, you can
+         install a specific collection version from Ansible Automation Hub. For example,
+         you can use the following command to install version 1.0.0 for the
+         IBM z/OS Core collection:
+
+            .. code-block:: sh
+
+               ansible-galaxy collection install ibm.ibm_zos_core:1.0.0
+
+         For more information on installing and browsing collections, see
+         `Installing collections (Ansible Documentation)`_ and `certified collections`_.
+
+         .. note::
+
+            A **beta version** of a collection is only available on Ansible Galaxy, you will
+             not find any beta versions on Ansible Automation Hub.
 
 
 Option 3: Install from a Git repository
@@ -231,7 +247,8 @@ Option 3: Install from a Git repository
     https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/getting_started_with_automation_hub/hub-create-api-token#hub-create-api-token
 .. _Ansible Galaxy:
    https://galaxy.ansible.com/ui/collections/?page_size=10&view_type=null&sort=name&keywords=ibm_z&page=1&tags=infrastructure
-
+.. _certified collections:
+   https://catalog.redhat.com/search?searchType=software
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|
 .. ...........................................................................
