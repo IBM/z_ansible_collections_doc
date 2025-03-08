@@ -11,8 +11,6 @@
 
 :orphan:
 
-.. _coming-soon:
-
 =============
 Configuration
 =============

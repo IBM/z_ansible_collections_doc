@@ -25,7 +25,7 @@ or its accompanying links.
    :maxdepth: 1
    :hidden:
 
-   z/OS Core <collection-requirements>
+   z/OS Core <../ibm_zos_core/docs/source/collection-requirements>
    z/OS IMS <../ibm_zos_ims/docs/source/requirements_managed>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
    z/OSMF <../ibm_zosmf/docs/source/requirements>
@@ -41,7 +41,7 @@ or its accompanying links.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<collection-requirements.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<../ibm_zos_core/docs/source/collection-requirements.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`

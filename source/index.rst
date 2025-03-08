@@ -6,7 +6,7 @@
 Red Hat Ansible Certified Content for IBM Z
 ===========================================
 
-Welcome to the Red Hat® Ansible® Certified Content for IBM Z® documentation. |br|
+Welcome to the Red Hat® Ansible Certified Content for IBM Z documentation. |br|
 
 Here you will find step-by-step user walkthroughs, best practices and resources
 to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
@@ -15,8 +15,8 @@ Automation Platform ecosystem. This enables development and operations automatio
 on IBM Z through a seamless, unified workflow orchestration with configuration
 management, provisioning, and application deployment in one easy-to-use platform.
 
-.. |prov| image:: shared_images/provision.svg
-   :scale: 50%
+.. |build| image:: shared_images/build.png
+   :scale: 30%
    :align: middle
    :class: no-scaled-link
 
@@ -25,26 +25,70 @@ management, provisioning, and application deployment in one easy-to-use platform
    :align: middle
    :class: no-scaled-link
 
-.. |mig| image:: shared_images/migration.png
+.. |collection| image:: shared_images/collection.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |facts| image:: shared_images/facts.svg
    :scale: 50%
    :align: middle
    :class: no-scaled-link
 
-.. |orch| image:: shared_images/orchestrate.svg
+.. |hourglass| image:: shared_images/hourglass.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |install| image:: shared_images/install.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |magnifying-glass| image:: shared_images/magnifying-glass.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |mainframe| image:: shared_images/mainframe.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |migration| image:: shared_images/migration.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |orchestrate| image:: shared_images/orchestrate.svg
    :scale: 50%
    :align: middle
    :class: no-scaled-link
 
-.. |sec| image:: shared_images/security.svg
+.. |provision| image:: shared_images/provision.svg
    :scale: 50%
    :align: middle
    :class: no-scaled-link
 
-.. |fact| image:: shared_images/facts.svg
+.. |question-mark| image:: shared_images/question-mark.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |security| image:: shared_images/security.svg
    :scale: 50%
    :align: middle
    :class: no-scaled-link
 
+.. |share| image:: shared_images/share.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
+
+.. |topology| image:: shared_images/topology.png
+   :scale: 30%
+   :align: middle
+   :class: no-scaled-link
 .. ..........................................................................
 .. Overview
 .. ..........................................................................
@@ -97,14 +141,14 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. grid:: 3
 
-   .. grid-item:: |prov| Overview
+   .. grid-item:: |topology| Overview
 
       * `Ansible for IBM Z`_
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
 
-   .. grid-item:: |orch| Installation & Execution
+   .. grid-item:: |mainframe| Installation & Execution
 
       * `Software Requirements`_
       * `Software Installation`_
@@ -112,13 +156,13 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. grid:: 3
 
-   .. grid-item:: |mig| Collections & Content
+   .. grid-item:: |collection| Collections & Content
 
       * `Collections`_
       * `Collection Releases`_
       * `Collection Life Cycles`_
 
-   .. grid-item:: |sec| Help & Troubleshooting
+   .. grid-item:: |hourglass| Help & Troubleshooting
 
       * `Getting Support`_
       * `Frequently Asked Questions`_
