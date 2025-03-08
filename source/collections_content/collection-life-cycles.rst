@@ -26,7 +26,7 @@ may be given for high security risk items.
 
 .. _Ansible Z life cycles - phase:
 
-Life cycle phase
+Life Cycle Phase
 ----------------
 
 To encourage the adoption of new features while keeping the high standard of
@@ -92,15 +92,15 @@ which will also be used for planning the change.
 
 .. note::
 
-   Currently the IBM z/OS core collection is the only collection with a
-   documented life cycle, others to follow soon.
+   Currently, the IBM z/OS Core collection is the only collection
+   with a documented life cycle, others to follow soon.
 
 .. _Ansible Z life cycles - collections:
 
-Life cycles
+Life Cycles
 -----------
 
 .. toctree::
    :maxdepth: 1
 
-   z/OS core<../ibm_zos_core/docs/source/life-cycle>
+   z/OS Core collection<../ibm_zos_core/docs/source/life-cycle>

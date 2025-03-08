@@ -10,8 +10,8 @@ If you are new to **Ansible for IBM Z**, IBM Z Trial is a great tool for you to
 try out some features and get yourself familiarized with hands-on experience
 at no cost.
 
-The IBM Z Trial is completely free. Once registered, you will be provided
-with a link to a sandbox environment where no extra installation is required.
+Once registered, you will be provided with a link to a completely configured environment
+where from that moment forward, you can immediately begin experience Ansible for IBM Z.
 
 .. grid:: 2
     :gutter: 1
@@ -21,40 +21,39 @@ with a link to a sandbox environment where no extra installation is required.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS core<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS core Z Trial<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1>` :octicon:`link-external`
                   :padding: 0
 
-                  In the **IBM z/OS core focused Z Trial**, you will be able to explore some
-                  scenarios, including:
+                  In the **Ansible for IBM Z - z/OS Core** Z Trial, some of the scenarios you will explore include:
 
-                  - Acquire z/OS status
-                  - Handle basic data set operations
-                  - Perform job management
+                  - Acquiring z/OS status
+                  - Handling data set operations
+                  - Performing job management
 
-                  To request the z/OS core Z Trial, go to `IBM z/OS® core collection Z Trial`_
+                  To request this Z Trial, visit `Ansible for IBM Z - z/OS Core Z Trial`_
 
     .. grid-item::
 
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=2047&tabId=5718&w=1>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS Z Trial<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=2047&tabId=5718&w=1>` :octicon:`link-external`
                   :padding: 0
 
-                  In the **IBM z/OS IMS focused Z Trial**, you will be able to explore some
+                  In the **Ansible for IBM Z - z/OS IMS** Z Trial, you will be able to explore some
                   scenarios, including:
 
                   - Access the IMS catalog and database with SQL using IMS Explorer
                   - Explore the IBM z/OS® IMS Ansible collection
                   - Automate IMS managed ACBs and catalog with Ansible
 
-                  To request the IMS Z Trial, go to `IBM z/OS® IMS collection Z Trial`_
+                  To request this Z Trial, visit `Ansible for IBM Z - z/OS Core Z Trial`_
 
 .. .............................................................................
 .. External links
 .. .............................................................................
 
-.. _IBM z/OS® core collection Z Trial:
+.. _Ansible for IBM Z - z/OS Core Z Trial:
    https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1
-.. _IBM z/OS® IMS collection Z Trial:
+.. _Ansible for IBM Z - z/OS IMS Z Trial:
    https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=2047&tabId=5718&w=1

@@ -1,9 +1,16 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2021                                    .
+.. © Copyright IBM Corporation 2020, 2025                                    .
 .. ...........................................................................
 
+.. ...........................................................................
+.. Supplementary documentation has been moved to ansible_content as a bullet
+.. which you can view here: collections_content/collections.html
+.. ...........................................................................
+
+:orphan:
+
 ===========================
-Supplementary documentation
+Supplementary Documentation
 ===========================
 
 In addition to the common reference material included in `Helpful Links`_,

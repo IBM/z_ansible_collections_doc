@@ -16,7 +16,7 @@ IBM Z environments using Ansible, an open-source automation platform. It provide
 a wide range of Ansible collections that are developed by IBM and certified
 by Red Hat.
 
-It enables development, operations and automation on z/OS®, middleware
+It enables development, operations and automation on z/OS, middleware
 products, and other IBM Z systems and resources. The collections in
 Ansible for IBM Z offer a seamless, unified workflow, orchestration with
 configuration management, provisioning, and application deployment in
@@ -35,7 +35,7 @@ Today, the available collections include:
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-ref-primary:`ibm-zos_core-collection`
+            .. grid-item-card:: :bdg-ref-primary:`ibm-zos_core-collection` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM z/OS core`_ collection, you will be able to:
@@ -46,7 +46,7 @@ Today, the available collections include:
                   - Initialize volumes.
                   - Backup and restore data sets and volumes.
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS<../ibm_zos_ims/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS<../ibm_zos_ims/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM z/OS IMS`_ collection, you will be able to:
@@ -57,7 +57,7 @@ Today, the available collections include:
                   - Run IMS type-1 commands.
                   - Run IMS IMS type-2 commands.
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS CICS<../ibm_zos_cics/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS CICS<../ibm_zos_cics/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM z/OS CICS`_ collection, you will be able to:
@@ -73,7 +73,7 @@ Today, the available collections include:
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS Management Facility<../ibm_zosmf/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Management Facility<../ibm_zosmf/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM z/OS Management Facility`_ collection, you will be able to:
@@ -84,7 +84,7 @@ Today, the available collections include:
                   - Provision and manage z/OS software.
                   - Validate and provision security requirements.
 
-            .. grid-item-card:: :bdg-link-primary:`Z HMC<../zhmc-ansible-modules/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`Z HMC<../zhmc-ansible-modules/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM Z HMC`_ collection, you will be able to:
@@ -95,7 +95,7 @@ Today, the available collections include:
                   - Manage HMC users.
                   - Update SE and HMC firmware.
 
-            .. grid-item-card:: :bdg-link-primary:`Z System Automation<../ibm_zos_sysauto/docs/ansible_content.html>`
+            .. grid-item-card:: :bdg-link-primary:`Z System Automation<../ibm_zos_sysauto/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   With the `IBM Z System Automation`_ collection, you will be able to:
@@ -115,9 +115,12 @@ Today, the available collections include:
 
    <br/>
 
+.. ...........................................................................
+.. # Site content links
+.. ...........................................................................
 
 .. _IBM z/OS core:
-   ../ibm_zos_core/docs/ansible_content.html
+   ../ibm_zos_core/docs/source/ansible_content.html
 .. _IBM z/OS CICS:
    ../ibm_zos_cics/docs/ansible_content.html
 .. _IBM z/OS IMS:

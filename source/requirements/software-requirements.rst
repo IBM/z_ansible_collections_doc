@@ -8,7 +8,7 @@
 .. _software-requirements:
 
 =====================
-Software requirements
+Software Requirements
 =====================
 
 Before you install an **Ansible for IBM Z** collection, review the requirements
@@ -16,8 +16,8 @@ for both the :term:`control node<Control node>` and the
 :term:`managed node<Managed node>`.
 
 Each **Ansible for IBM Z** collection, or version of a collection can have
-different requirements or dependencies. To find out more details, click on
-any of the following collection links.
+different requirements or dependencies. To learn more, select a collection
+or its accompanying links.
 
 
 
@@ -41,21 +41,21 @@ any of the following collection links.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS core collection<collection-requirements.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<collection-requirements.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/requirements_managed.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/requirements_managed.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS CICS collection<../ibm_zos_cics/docs/source/requirements.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OS CICS collection<../ibm_zos_cics/docs/source/requirements.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
@@ -67,21 +67,21 @@ any of the following collection links.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OSMF collection<../ibm_zosmf/docs/source/requirements.html>`
+            .. grid-item-card:: :bdg-link-primary:`z/OSMF collection<../ibm_zosmf/docs/source/requirements.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`Z HMC collection<../zhmc-ansible-modules/docs/source/requirements_managed.html>`
+            .. grid-item-card:: :bdg-link-primary:`Z HMC collection<../zhmc-ansible-modules/docs/source/requirements_managed.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`System Automation collection<../ibm_zos_sysauto/docs/source/requirements.html>`
+            .. grid-item-card:: :bdg-link-primary:`System Automation collection<../ibm_zos_sysauto/docs/source/requirements.html>` :octicon:`link-external`
                   :padding: 0
 
                   - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`

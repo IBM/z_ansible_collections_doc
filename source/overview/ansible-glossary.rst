@@ -8,8 +8,8 @@
 Ansible for IBM Z Glossary
 ==========================
 
-These concepts are common to all uses of Ansible®. You should understand them
-before using Ansible for IBM Z® or reading the documentation.
+These terms are used often when with Ansible, familiarizing yourself with them
+will help you understand the Ansible for IBM Z documentation and communicate effectively.
 
 .. glossary::
 
@@ -22,8 +22,8 @@ before using Ansible for IBM Z® or reading the documentation.
     Control node
         The machine from which you run Ansible commands, manage playbooks, and
         control the automation process. It can be any machine that meets the
-        software requirements - laptops, shared desktops, or servers. Multiple
-        control nodes are possible.
+        software requirements - laptops, shared desktops, servers or
+        Ansible Automation Platform. Multiple control nodes are possible.
 
     Managed node
         Also known as a host, is any device or system that Ansible manages through
@@ -32,19 +32,21 @@ before using Ansible for IBM Z® or reading the documentation.
         in :term:`inventory<Inventory>`
 
     Collection
-        A structured format that packages multiple related Ansible content, such
-        as roles, modules, plugins, and playbooks, into a single distributable
+        A structured format that packages multiple sources of related Ansible content,
+        such as roles, modules, plugins, and playbooks, into a single distributable
         unit. Collections provide a way to simplify the distribution and reuse
         of Ansible content. To learn more, see `Using Ansible collections`_.
 
     Module
         The code in Ansible that performs a particular operation on a managed node.
-        Modules are invoked by tasks within Ansible playbooks.
+        Modules are invoked by tasks within Ansible playbooks. They generally execute
+        on the :term:`managed node<Managed node>` unless delegated to execute on
+        ``localhost``.
 
     Plugin
         A piece of reusable code that extends the functionality of Ansible. Plugins
-        enable additional features and customization. For more information,
-        see `Working with plugins`_.
+        enable additional features and customization, they execute on the
+        :term:`control node<Control node>`. For more information,see `Working with plugins`_.
 
     Role
         A way to package and organize related Ansible content (tasks, variables, files,

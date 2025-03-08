@@ -154,7 +154,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. toctree::
    :maxdepth: 1
-   :caption: Collections & content
+   :caption: Collections & Content
    :hidden:
 
    collections_content/collections
@@ -168,7 +168,6 @@ management, provisioning, and application deployment in one easy-to-use platform
 
    help/getting-support
    help/faqs
-   help/supplementary-doc
    help/helpful-links
 
 .. toctree::
