@@ -23,7 +23,7 @@ testing the modules, offering-specific reading, etc.
    :maxdepth: 1
    :hidden:
 
-   z/OS core <../ibm_zos_core/docs/source/character_set>
+   z/OS Core <../ibm_zos_core/docs/source/character_set>
    z/OS z/OSMF <../ibm_zosmf/docs/source/resources>
    Z HMC <../zhmc-ansible-modules/docs/source/bibliography>
 
@@ -35,7 +35,7 @@ testing the modules, offering-specific reading, etc.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: z/OS core
+            .. grid-item-card:: z/OS Core
                :link: ../ibm_zos_core/docs/source/character_set.html
 
                Click for more on contributing.

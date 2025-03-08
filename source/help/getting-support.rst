@@ -75,7 +75,7 @@ Option 2: Support from the community
     For issues related to the Ansible for IBM Z collections, raise a GitHub issue against the
     appropriate collection repository:
 
-    * `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
+    * `IBM z/OS Core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
     * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
     * `IBM z/OS IMS  <https://github.com/ansible-collections/ibm_zos_ims/issues/new/choose>`_
     * `IBM z/OS Sys Auto <https://github.com/ansible-collections/ibm_zos_sysauto/issues/new/choose>`_

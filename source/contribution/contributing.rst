@@ -25,7 +25,7 @@ topic.
    :maxdepth: 1
    :hidden:
 
-   z/OS core <../ibm_zos_core/docs/source/community_guides>
+   z/OS Core <../ibm_zos_core/docs/source/community_guides>
    z/OS IMS <../ibm_zos_ims/docs/source/community_guides>
    Z HMC <../zhmc-ansible-modules/docs/source/development>
 
@@ -37,7 +37,7 @@ topic.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: z/OS core
+            .. grid-item-card:: z/OS Core
                :link: ../ibm_zos_core/docs/source/community_guides.html
 
                Click for more on contributing.

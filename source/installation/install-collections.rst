@@ -65,7 +65,7 @@ Option 1: Install from Ansible Galaxy
            .. note::
               Ansible collection dependencies, some collections are dependent on
               other collections, such as the IBM z/OS IMS collection, which has a
-              dependency on the IBM z/OS core collection. The collections
+              dependency on the IBM z/OS Core collection. The collections
               dependencies will be automatically installed, even if you don't
               selectively install them.
 
@@ -85,7 +85,7 @@ Option 1: Install from Ansible Galaxy
 
          Install a specific collection version from Ansible Galaxy. For example,
          you can use the following command to install version 1.0.0 for the
-         IBM z/OS core collection:
+         IBM z/OS Core collection:
 
             .. code-block:: sh
 
@@ -95,7 +95,7 @@ Option 1: Install from Ansible Galaxy
          by the community, once it is General Availability (GA), it will be  promoted
          to Ansible Automation Platform and eligible for entitlement. A beta is not
          considered the latest version by Ansible Galaxy, to install a beta of the
-         IBM z/OS core collection, run the following command:
+         IBM z/OS Core collection, run the following command:
 
             .. code-block:: sh
 
@@ -183,7 +183,7 @@ Option 3: Install from a Git repository
     and the ``ansible-galaxy collection install`` command. You can also specify a branch,
     commit, or tag using the comma-separated git commit-ish syntax.
 
-    To build and install a collection from a Git repository, for example, the IBM z/OS core
+    To build and install a collection from a Git repository, for example, the IBM z/OS Core
     collection, use the below commands.
 
        #. Install a specific GitHub release (v1.12.0):

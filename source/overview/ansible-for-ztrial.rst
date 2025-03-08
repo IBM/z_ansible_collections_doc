@@ -21,7 +21,7 @@ where from that moment forward, you can immediately begin experience Ansible for
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS core Z Trial<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core Z Trial<https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1>` :octicon:`link-external`
                   :padding: 0
 
                   In the **Ansible for IBM Z - z/OS Core** Z Trial, some of the scenarios you will explore include:

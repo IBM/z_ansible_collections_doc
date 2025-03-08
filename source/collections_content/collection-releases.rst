@@ -40,7 +40,7 @@ notes that include:
    :maxdepth: 1
    :hidden:
 
-   z/OS core </../ibm_zos_core/docs/source/release_notes>
+   z/OS Core </../ibm_zos_core/docs/source/release_notes>
    z/OS CICS </../ibm_zos_cics/docs/source/release_notes>
    z/OS IMS </../ibm_zos_ims/docs/source/release_notes>
    z/OS Sys Auto <../ibm_zos_sysauto/docs/source/release_notes>

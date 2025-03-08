@@ -38,7 +38,7 @@ Today, the available collections include:
             .. grid-item-card:: :bdg-ref-primary:`ibm-zos_core-collection` :octicon:`link-external`
                   :padding: 0
 
-                  With the `IBM z/OS core`_ collection, you will be able to:
+                  With the `IBM z/OS Core`_ collection, you will be able to:
 
                   - Submit and access output for batch jobs.
                   - Create, edit, archive and unarchive data sets.
@@ -119,7 +119,7 @@ Today, the available collections include:
 .. # Site content links
 .. ...........................................................................
 
-.. _IBM z/OS core:
+.. _IBM z/OS Core:
    ../ibm_zos_core/docs/source/ansible_content.html
 .. _IBM z/OS CICS:
    ../ibm_zos_cics/docs/ansible_content.html

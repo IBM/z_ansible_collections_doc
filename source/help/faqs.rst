@@ -28,7 +28,7 @@ To find out more details, review th :ref:`Software Requirements<software-require
 
 How can I test if Ansible can reach a z/OS managed node (host)?
 ---------------------------------------------------------------
-If you have installed the IBM z/OS core collection, you can use the ``zos_ping``
+If you have installed the IBM z/OS Core collection, you can use the ``zos_ping``
 module, otherwise you can use the ``ansible.builtin.ping`` module that is included
 with Ansible.
 
@@ -133,7 +133,7 @@ in the `IBM Ideas portal`_.
 Optionally, you can go directly to the collections repository and create an issue
 describing your request.
 
-* `IBM z/OS core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
+* `IBM z/OS Core <https://github.com/ansible-collections/ibm_zos_core/issues/new/choose>`_
 * `IBM z/OS CICS <https://github.com/ansible-collections/ibm_zos_cics/issues/new/choose>`_
 * `IBM z/OS IMS  <https://github.com/ansible-collections/ibm_zos_ims/issues/new/choose>`_
 * `IBM z/OS Sys Auto <https://github.com/ansible-collections/ibm_zos_sysauto/issues/new/choose>`_

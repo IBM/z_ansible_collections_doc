@@ -42,7 +42,7 @@ one easy-to-use platform.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS core collection<../ibm_zos_core/docs/ansible_content.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<../ibm_zos_core/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_core>`__

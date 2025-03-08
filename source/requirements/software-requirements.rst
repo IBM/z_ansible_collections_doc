@@ -25,7 +25,7 @@ or its accompanying links.
    :maxdepth: 1
    :hidden:
 
-   z/OS core <collection-requirements>
+   z/OS Core <collection-requirements>
    z/OS IMS <../ibm_zos_ims/docs/source/requirements_managed>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
    z/OSMF <../ibm_zosmf/docs/source/requirements>
