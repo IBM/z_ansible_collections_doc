@@ -276,9 +276,6 @@ This happens when you specify a module option that either does not exist or
 is deprecated. Carefully examine the module documentation to understand what
 parameters it supports.
 
-   https://ibm.github.io/z_ansible_collections_doc/release/release.html
-
-
 What causes the *utf-8 codec can't decode byte* error?
 ------------------------------------------------------
 The most likely cause of this error is that you have not properly set up your
