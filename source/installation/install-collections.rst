@@ -25,15 +25,16 @@ collection requirements, see :ref:`software-requirements`.
 Option 1: Install from Ansible Galaxy
 =====================================
 
-.. dropdown:: Ansible **Galaxy** is the community repository for Ansible ... (expand for more)
+.. dropdown:: Ansible Galaxy is the community repository where Ansible for IBM Z ... (expand for more)
     :color: primary
     :icon: command-palette
 
-    Ansible **Galaxy** is the community repository for **Ansible for IBM Z** collections where
-    can find more details on the various collections by visiting `Ansible Galaxy`_
+    Ansible **Galaxy** is the community repository where **Ansible for IBM Z** collections are
+    available, for more details on the various collections visit `Ansible Galaxy`_.
 
-    .. dropdown:: Install a collection from Ansible **Galaxy** ... (expand for more)
-        :icon: command-palette
+    .. dropdown:: Install a collection from Ansible Galaxy ... (expand for more)
+       :color: info
+       :icon: command-palette
 
         Install a collection from Ansible Galaxy, here you can find the installation
         command for installing a specific collection.
@@ -63,11 +64,11 @@ Option 1: Install from Ansible Galaxy
               ansible-galaxy collection list
 
            .. note::
-              Ansible collection dependencies, some collections are dependent on
-              other collections, such as the IBM z/OS IMS collection, which has a
-              dependency on the IBM z/OS Core collection. The collections
-              dependencies will be automatically installed, even if you don't
-              selectively install them.
+              Some collections Ansible for IBM Z collections are dependent on
+              other collections, such as the case for IBM z/OS IMS collection
+              which has a dependency on the IBM z/OS Core collection. The
+              collections dependencies will be automatically installed, even
+              if you don't selectively install them.
 
            If you have multiple collections to install, you can enter the collection
            names into a **requirements.yml** file and install them with
@@ -81,6 +82,7 @@ Option 1: Install from Ansible Galaxy
                  - name: <namespace>.<collection name>
 
     ..   dropdown:: Install a specific collection version from Ansible Galaxy ... (expand for more)
+         :color: info
          :icon: command-palette
 
          Install a specific collection version from Ansible Galaxy. For example,
@@ -92,10 +94,11 @@ Option 1: Install from Ansible Galaxy
                ansible-galaxy collection install ibm.ibm_zos_core:1.0.0
 
          A **beta version** is only available on Ansible Galaxy and is only supported
-         by the community, once it is General Availability (GA), it will be  promoted
-         to Ansible Automation Platform and eligible for entitlement. A beta is not
-         considered the latest version by Ansible Galaxy, to install a beta of the
-         IBM z/OS Core collection, run the following command:
+         by the community, once it is General Availability (GA), it will be promoted
+         to Ansible Automation Platform and eligible for entitlement from Red Hat and
+         IBM. When installing a beta from Galaxy, you must precisely indicate the
+         beta version, for example to install a beta of the IBM z/OS Core collection,
+         run the following command:
 
             .. code-block:: sh
 

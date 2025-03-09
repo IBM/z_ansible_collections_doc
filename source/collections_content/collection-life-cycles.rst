@@ -8,13 +8,11 @@
 Collection Life Cycles
 ======================
 
-As part of **Red Hat Ansible Certified Content for IBM Z**, customers have
-access to supported versions. This offering publishes a product life
-cycle for all **Ansible for IBM Z** collections so that customers and
-partners can properly plan, deploy, support, and maintain the automation
-that they use.
+This offering publishes a product life cycle for all **Ansible for IBM Z**
+collections so that customers and partners can properly plan, deploy,
+support, and maintain the automation that they use.
 
-This product life cycle encompasses serviceable periods for each version, the
+The product life cycle encompasses serviceable periods for each version, the
 life cycle phase which identifies the various levels of maintenance over a
 period of time from the initial release date and an explanation of the
 severities.
@@ -47,9 +45,8 @@ stability inherent, support is divided into life cycle phases:
 Critical and high severities are included in **year 1**, while
 critical severities are included only in **year 2**.
 
-Medium and low severities generally addressed in subsequent releases
-to ensure a high standard of stability remains available for production
-environments.
+Medium and low severities are generally addressed in subsequent releases
+to ensure stability and quality persists for production environments.
 
 .. _Ansible Z life cycles - severity:
 
@@ -58,10 +55,10 @@ Severity Descriptions
 
 Severity descriptions describe the impact to the customer. Severity
 assignment is only applicable to customers who obtain Ansible for IBM Z
-collections from Ansible Automation Platform and entitled for Z.
+collections from Ansible Automation Platform and are entitled for IBM Z.
 
-For community issues, severity is decided on by team who triages the issue
-which will also be used for planning the change.
+For community issues, the severity and delivery is set by the team who
+triages the issue.
 
 +----------+----------------------------------------------------+
 | Severity | Description                                        |
