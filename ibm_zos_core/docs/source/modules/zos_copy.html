@@ -92,6 +92,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -264,7 +265,7 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>force_lock</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> to bypass this check and continue with copy.</p>
+<dt>force_lock</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> to bypass DISP=SHR and continue with the copy operation.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and destination is a MVS data set opened by another process then zos_copy will try to copy using DISP=SHR.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> uses operations that are subject to race conditions and can lead to data loss, use with caution.</p>
 <p>If a data set member has aliases, and is not a program object, copying that member to a dataset that is in use will result in the aliases not being preserved in the target dataset. When this scenario occurs the module will fail.</p>

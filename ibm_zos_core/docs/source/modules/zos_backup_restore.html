@@ -92,6 +92,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -296,7 +297,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets used in the modules operation.</p>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets used in the module’s operation.</p>
 <p>If <em>tmp_hlq</em> is set, this value will be applied to all temporary data sets.</p>
 <p>If <em>tmp_hlq</em> is not set, the value will be the username who submits the ansible task, this is the default behavior. If the username can not be identified, the value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
 <div class="line-block">

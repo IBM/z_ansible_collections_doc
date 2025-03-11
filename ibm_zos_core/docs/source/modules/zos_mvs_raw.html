@@ -92,6 +92,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -193,6 +194,13 @@
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
 <div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>max_rc</dt><dd><p>Specifies the maximum return code allowed for the program output. If the program generates a return code higher than the specified maximum, the module will fail.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 0</div>
 </div>
 </dd>
 <dt>dds</dt><dd><p>The input data source.</p>

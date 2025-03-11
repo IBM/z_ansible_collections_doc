@@ -194,7 +194,7 @@ Option 2: Install from Ansible Automation Hub
 Option 3: Install from a Git repository
 =======================================
 
-.. dropdown:: Install a collection from a **Git** repository using the URI ...
+.. dropdown:: Install a collection from a **Git** repository using the URI ... (expand for more)
     :color: primary
     :icon: command-palette
 

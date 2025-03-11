@@ -92,6 +92,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
@@ -397,7 +398,7 @@
 <p>When executing local scripts, temporary storage will be used on the remote z/OS system. The size of the temporary storage will correspond to the size of the file being copied.</p>
 <p>The location in the z/OS system where local scripts will be copied to can be configured through Ansible’s <code class="docutils literal notranslate"><span class="pre">remote_tmp</span></code> option. Refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/sh_shell.html#parameter-remote_tmp">Ansible’s documentation</a> for more information.</p>
 <p>All local scripts copied to a remote z/OS system  will be removed from the managed node before the module finishes executing.</p>
-<p>Execution permissions for the group assigned to the script will be added to remote scripts. The original permissions for remote scripts will be restored by the module before the task ends.</p>
+<p>Execution permissions for the group assigned to the script will be added to remote scripts if they are missing. The original permissions for remote scripts will be restored by the module before the task ends.</p>
 <p>The module will only add execution permissions for the file owner.</p>
 <p>If executing REXX scripts, make sure to include a newline character on each line of the file. Otherwise, the interpreter may fail and return error <code class="docutils literal notranslate"><span class="pre">BPXW0003I</span></code>.</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
