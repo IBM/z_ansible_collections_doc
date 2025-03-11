@@ -1,230 +1,157 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=4182aadc" />
 
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zmf_cpm_provision_software_service – Role provisions a z/OS software service" href="zmf_cpm_provision_software_service.html" />
     <link rel="prev" title="zmf_cpm_list_software_templates – Role lists all published z/OS software templates" href="zmf_cpm_list_software_templates.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> Red Hat Ansible Certified Content for IBM Z
           
-
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../playbooks/playbooks.html">Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Ansible Content</span></p>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_core/docs/ansible_content.html">z/OS core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../ansible_content.html">z/OS z/OSMF</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../modules.html">Modules</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../roles.html">Roles</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance – Role creates a z/OS software instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance – Role get specific z/OS software instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates – Role lists all published z/OS software templates</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#synopsis">Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_provision_software_service.html">zmf_cpm_provision_software_service – Role provisions a z/OS software service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_cpm_remove_software_instance.html">zmf_cpm_remove_software_instance – Role removes a z/OS software instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_csi_query.html">zmf_swmgmt_csi_query – Query a SMP/E CSI data set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates – Identify Missing Critical Software Updates for a Software Instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates – Identify Missing Fixcat Software Updates for a Software Instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates – Search a Software Instance for Software Updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_swmgmt_zos_system_uuid.html">zmf_swmgmt_zos_system_uuid – Retrieve the z/OS system UUID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_workflow_complete.html">zmf_workflow_complete – Role completes a z/OS workflow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service – Role runs a z/OS management service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_core/docs/source/ansible_content.html">z/OS Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../ansible_content.html">z/OSMF</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../modules.html">Modules</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../roles.html">Roles</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="zmf_cpm_create_software_instance.html">zmf_cpm_create_software_instance – Role creates a z/OS software instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_cpm_get_software_instance.html">zmf_cpm_get_software_instance – Role get specific z/OS software instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_cpm_list_software_templates.html">zmf_cpm_list_software_templates – Role lists all published z/OS software templates</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_cpm_provision_software_service.html">zmf_cpm_provision_software_service – Role provisions a z/OS software service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_cpm_remove_software_instance.html">zmf_cpm_remove_software_instance – Role removes a z/OS software instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_swmgmt_csi_query.html">zmf_swmgmt_csi_query – Query a SMP/E CSI data set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_swmgmt_identify_missing_critical_updates.html">zmf_swmgmt_identify_missing_critical_updates – Identify Missing Critical Software Updates for a Software Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_swmgmt_identify_missing_fixcat_updates.html">zmf_swmgmt_identify_missing_fixcat_updates – Identify Missing Fixcat Software Updates for a Software Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_swmgmt_search_software_updates.html">zmf_swmgmt_search_software_updates – Search a Software Instance for Software Updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_swmgmt_zos_system_uuid.html">zmf_swmgmt_zos_system_uuid – Retrieve the z/OS system UUID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_workflow_complete.html">zmf_workflow_complete – Role completes a z/OS workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zmf_zmsc_run_management_service.html">zmf_zmsc_run_management_service – Role runs a z/OS management service</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Release Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release/release.html">Releases</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Troubleshooting</span></p>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html">Errors and Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/errorsandmessages.html#troubleshooting-collections">Troubleshooting Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/helpful-links.html">Helpful links</a></li>
 </ul>
-<p class="caption"><span class="caption-text">FAQs</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#modules-playbooks">Modules, Playbooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#support">Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#community">Community</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faqs/faqs.html#others">Others</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../reference/documentation.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../reference/community.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../reference/helpful_links.html">Helpful Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribution/contributing.html">Contributing</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../ansible_content.html">IBM z/OSMF</a> &raquo;</li>
-        
-          <li><a href="../roles.html">Roles</a> &raquo;</li>
-        
-      <li>zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+          <li class="breadcrumb-item"><a href="../../ansible_content.html">IBM z/OSMF</a></li>
+          <li class="breadcrumb-item"><a href="../roles.html">Roles</a></li>
+      <li class="breadcrumb-item active">zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance</li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="zmf-cpm-manage-software-instance-role-manages-a-provisioned-z-os-software-instance">
-<span id="zmf-cpm-manage-software-instance-module"></span><h1>zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance<a class="headerlink" href="#zmf-cpm-manage-software-instance-role-manages-a-provisioned-z-os-software-instance" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+             
+  <section id="zmf-cpm-manage-software-instance-role-manages-a-provisioned-z-os-software-instance">
+<span id="zmf-cpm-manage-software-instance-module"></span><h1>zmf_cpm_manage_software_instance – Role manages a provisioned z/OS software instance<a class="headerlink" href="#zmf-cpm-manage-software-instance-role-manages-a-provisioned-z-os-software-instance" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#variables" id="id2">Variables</a></p></li>
 <li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
 <li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
 </ul>
-</div>
-<div class="section" id="synopsis">
-<h2><a class="toc-backref" href="#id1">Synopsis</a><a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The <strong>IBM z/OSMF collection</strong> provides an Ansible role, referred to as <strong>zmf_cpm_manage_software_instance</strong>, to manage a provisioned instance of z/OS middleware such as IBM Customer Information Control System (CICS®), IBM Db2®, IBM Information Management System (IMS™), IBM MQ, and IBM WebSphere Application Server or any other software service.</p></li>
 <li><p>Depending on actions supported by z/OS middleware or software, various management such as starting or stopping the instance can be performed by using this role.</p></li>
 <li><p>When software service instance is not required any more, it can be deprovisioned by using this role.</p></li>
 </ul>
-</div>
-<div class="section" id="variables">
-<h2><a class="toc-backref" href="#id2">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="variables">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Link to this heading"></a></h2>
 <dl>
 <dt>zmf_host</dt><dd><p>Hostname of the z/OSMF server, specified in the inventory file or vars file.</p>
 <div class="line-block">
@@ -291,72 +218,58 @@
 </div>
 </dd>
 </dl>
-</div>
-<div class="section" id="examples">
-<h2><a class="toc-backref" href="#id3">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Perform action on provisioned instance of z/OS Middleware</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sampleHost</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-  <span class="nt">collections</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zosmf</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">include_module</span><span class="p">:</span>
-        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zmf_cpm_manage_software_instance</span>
-      <span class="nt">vars</span><span class="p">:</span>
-        <span class="nt">instance_action_name</span><span class="p">:</span> <span class="s">&quot;&lt;action-name&gt;&quot;</span>
-        <span class="nt">instance_info_json_path</span><span class="p">:</span> <span class="s">&quot;&lt;full-instance-json-file-path&gt;&quot;</span>
-        <span class="nt">input_vars</span><span class="p">:</span> <span class="s">&#39;&lt;optional-fill-me-input-vars&gt;&#39;</span>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Perform action on provisioned instance of z/OS Middleware</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sampleHost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="w">  </span><span class="nt">collections</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm.ibm_zosmf</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include_module</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zmf_cpm_manage_software_instance</span>
+<span class="w">      </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">instance_action_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;action-name&gt;&quot;</span>
+<span class="w">        </span><span class="nt">instance_info_json_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;full-instance-json-file-path&gt;&quot;</span>
+<span class="w">        </span><span class="nt">input_vars</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;optional-fill-me-input-vars&gt;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="notes">
-<h2><a class="toc-backref" href="#id4">Notes</a><a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>The given example assumes that you have an inventory file <em>inventory.yml</em> and host vars <em>sampleHost.yml</em> with appropriate values to identify the target z/OSMF server end point.</p></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright IBM Corp. 2020, 2023
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

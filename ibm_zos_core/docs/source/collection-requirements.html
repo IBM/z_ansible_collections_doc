@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collection Requirements &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Managed node" href="../../../ibm_zos_ims/docs/source/requirements_managed.html" />
+    <link rel="prev" title="Software Requirements" href="../../../requirements/software-requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../requirements/software-requirements.html">Software Requirements</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#control-node">Control Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managed-node">Managed Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-matrix">Dependency Matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_ims/docs/source/requirements_managed.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/source/requirements.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/requirements.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zhmc-ansible-modules/docs/source/requirements_managed.html">Z HMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/requirements.html">z/OS Sys Auto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../requirements/software-requirements.html">Software Requirements</a></li>
+      <li class="breadcrumb-item active">Collection Requirements</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="collection-requirements">
+<h1>Collection Requirements<a class="headerlink" href="#collection-requirements" title="Link to this heading"></a></h1>
+<p>The <strong>dependency matrix</strong> lists the minimum required component versions for each
+version of the collection when they became generally available (GA) for both,
+the control node and managed node.</p>
+<p>The minimum required component versions can reach end of life (EOL) before
+the collection reaches EOL, when this happens, you must update the
+component to a supported version.</p>
+<p>For example, if a collection is released that minimally requires
+<strong>ansible-core</strong> version <strong>2.14.0</strong> (Ansible 7.0) and later reaches EOL,
+a newer supported version of <strong>ansible-core</strong> must be installed.</p>
+<section id="control-node">
+<span id="ibm-zos-core-collection-requirements-control-node"></span><h2>Control Node<a class="headerlink" href="#control-node" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">When you install an Ansible version, review the … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">When you install an Ansible (<a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a>) version, review the communities
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core support matrix</a> to select the appropriate dependencies.
+Different releases of <strong>ansible-core</strong> can require different dependencies
+such as is the case with Python.</p>
+<p class="sd-card-text">Optionally, you can upgrade the <strong>ansible-core</strong> version, review the
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible">installing Ansible</a> guide and select the appropriate option.</p>
+<p class="sd-card-text">If the control node is Ansible Automation Platform (AAP), review the
+<a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">Red Hat Ansible Automation Platform Life Cycle</a> to select a supported
+AAP version.</p>
+</div>
+</details></section>
+<section id="managed-node">
+<span id="ibm-zos-core-collection-requirements-managed-node"></span><h2>Managed Node<a class="headerlink" href="#managed-node" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">The managed requires the following to be installed … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The <a class="reference internal" href="../../../overview/ansible-glossary.html#term-Managed-node"><span class="xref std std-term">managed node</span></a> requires the following be installed and
+configured:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> (ZOAU)</p></li>
+</ul>
+</div></blockquote>
+<p class="sd-card-text">Different releases of <strong>ansible-core</strong> and the collection can require different
+dependencies such as is the case with <strong>Python</strong>, <strong>IBM Open Enterprise SDK for Python</strong>
+and <strong>ZOAU</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text">Only the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a> is supported, using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
+to change the default shell is unsupported. Other shells are not supported
+because they handle the reading and writing of untagged files differently.</p>
+</div>
+</div>
+</details></section>
+<section id="dependency-matrix">
+<span id="ibm-zos-core-collection-requirements-dependency-matrix"></span><h2>Dependency Matrix<a class="headerlink" href="#dependency-matrix" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">The dependency matrix lists the dependencies for both, the control node and managed node … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The dependency matrix lists the dependencies for both, the <a class="reference internal" href="../../../overview/ansible-glossary.html#term-Control-node"><span class="xref std std-term">control node</span></a>
+and <a class="reference internal" href="../../../overview/ansible-glossary.html#term-Managed-node"><span class="xref std std-term">managed node</span></a>.</p>
+<p class="sd-card-text">Over time, dependencies will reach EOL, for IBM product lifecycle information,
+you can search for products using the product’s name, version or ID on
+the <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search/">IBM Support product lifecycle</a> page.</p>
+<p class="sd-card-text">For the lifecycle of <strong>IBM Open Enterprise SDK for Python</strong>, search on product
+ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5655-PYT">5655-PYT</a> and for <strong>IBM Z Open Automation Utilities</strong>, search on product
+ID <a class="reference external" href="https://www.ibm.com/support/pages/lifecycle/search?q=5698-PA1">5698-PA1</a>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Version</p></th>
+<th class="head"><p class="sd-card-text">Control Node</p></th>
+<th class="head"><p class="sd-card-text">Managed Node</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">1.13.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.15.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=8.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.4</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R5 - V3Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> &gt;=1.3.3</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">1.12.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.15.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=8.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.4</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R5 - V3Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> &gt;=1.3.2</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">1.11.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.15.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=8.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.4</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> &gt;=1.3.1</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">1.10.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.15.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=8.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.4</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> &gt;=1.3.0</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">1.9.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.5 - 1.2.x</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">1.8.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.4 - 1.2.x</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">1.7.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.14</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=7.0.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=2.3</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R4 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.3 - 1.2.x</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">1.6.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.9.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=2.9.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=1.2</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R3 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.2 - 1.2.x</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">1.5.x</p></td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core</a> &gt;=2.9.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">Ansible</a> &gt;=2.9.x</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://access.redhat.com/support/policy/updates/ansible-automation-platform">AAP</a> &gt;=1.2</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R3 - V2Rx</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh">z/OS OpenSSH</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a></p></li>
+<li><p class="sd-card-text">IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> 1.2.2 - 1.2.x</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</details></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,3741 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplementary Content &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Supplementary Content</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="supplementary-content">
+<h1>Supplementary Content<a class="headerlink" href="#supplementary-content" title="Link to this heading"></a></h1>
+<section id="character-sets">
+<h2>Character sets<a class="headerlink" href="#character-sets" title="Link to this heading"></a></h2>
+<p>The IBM z/OS core modules that offer encoding conversion will require that a
+string representation of the encoding be provided as a value to the modules
+option for both the source encoding and target encoding.The supported
+encodings can be found in the following table under <em>CHARACTER SETS</em>.</p>
+<p>For example, you might have a source encoding in <em>ISO-8859-1</em> and want it to
+be written to the managed z/OS node as <em>IBM-1047</em>, use the following table
+to identify which character sets are supported. Optionally, in z/OS UNIX
+System Services, you can run the <cite>iconv -l</cite> command to view the supported
+character sets.</p>
+<p>A character set is an element of internationalization that defines how an
+alphabet or characters are represented in a particular language. A character
+set is made up of a series of code points, the numeric representation of a
+character. For example, the code point for the letter <em>A</em> in international
+<em>EBCDIC</em> is <em>0xC1</em>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Expand to view supported character sets.</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">CCSID</p></th>
+<th class="head"><p class="sd-card-text">CHARACTER SETS</p></th>
+<th class="head"><p class="sd-card-text">ENCODING SCHEME</p></th>
+<th class="head"><p class="sd-card-text">DESCRIPTION</p></th>
+<th class="head"><p class="sd-card-text">SUFFIX</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">00037</p></td>
+<td><p class="sd-card-text">IBM-037</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">USA, CANADA, BRAZIL, AND COMMON EUROPE</p></td>
+<td><p class="sd-card-text">AA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00256</p></td>
+<td><p class="sd-card-text">00256</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">NETHERLAND</p></td>
+<td><p class="sd-card-text">AJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00259</p></td>
+<td><p class="sd-card-text">00259</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SYMBOLS SET 7</p></td>
+<td><p class="sd-card-text">AP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00273</p></td>
+<td><p class="sd-card-text">IBM-273</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY</p></td>
+<td><p class="sd-card-text">AV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00274</p></td>
+<td><p class="sd-card-text">IBM-274</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BELGIUM</p></td>
+<td><p class="sd-card-text">AX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00275</p></td>
+<td><p class="sd-card-text">IBM-275</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BRAZIL</p></td>
+<td><p class="sd-card-text">AZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00277</p></td>
+<td><p class="sd-card-text">IBM-277</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY</p></td>
+<td><p class="sd-card-text">A2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00278</p></td>
+<td><p class="sd-card-text">IBM-278</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FINLAND, SWEDEN</p></td>
+<td><p class="sd-card-text">A4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00280</p></td>
+<td><p class="sd-card-text">IBM-280</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ITALIAN</p></td>
+<td><p class="sd-card-text">A6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00281</p></td>
+<td><p class="sd-card-text">IBM-281</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">A8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00282</p></td>
+<td><p class="sd-card-text">IBM-282</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGAL</p></td>
+<td><p class="sd-card-text">A9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00284</p></td>
+<td><p class="sd-card-text">IBM-284</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SPANISH</p></td>
+<td><p class="sd-card-text">BB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00285</p></td>
+<td><p class="sd-card-text">IBM-285</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM</p></td>
+<td><p class="sd-card-text">BE</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00286</p></td>
+<td><p class="sd-card-text">00286</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY 3279</p></td>
+<td><p class="sd-card-text">BG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00290</p></td>
+<td><p class="sd-card-text">IBM-290</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPANESE</p></td>
+<td><p class="sd-card-text">BH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00293</p></td>
+<td><p class="sd-card-text">00293</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">APL (A PROGRAMMING LANGUAGE) USA</p></td>
+<td><p class="sd-card-text">BL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00297</p></td>
+<td><p class="sd-card-text">IBM-297</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FRENCH</p></td>
+<td><p class="sd-card-text">BN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00300</p></td>
+<td><p class="sd-card-text">IBM-300</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00301</p></td>
+<td><p class="sd-card-text">IBM-301</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BV</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00367</p></td>
+<td><p class="sd-card-text">00367</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">USA, ANSI X3.4 ASCII STANDARD</p></td>
+<td><p class="sd-card-text">B0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00420</p></td>
+<td><p class="sd-card-text">IBM-420</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">B1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00421</p></td>
+<td><p class="sd-card-text">00421</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">MAGHREB/FRENCH</p></td>
+<td><p class="sd-card-text">B6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00423</p></td>
+<td><p class="sd-card-text">00423</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">B8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00424</p></td>
+<td><p class="sd-card-text">IBM-424</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">CA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00425</p></td>
+<td><p class="sd-card-text">IBM-425</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC/LATIN</p></td>
+<td><p class="sd-card-text">SR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00437</p></td>
+<td><p class="sd-card-text">IBM-437</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">USA</p></td>
+<td><p class="sd-card-text">CE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00500</p></td>
+<td><p class="sd-card-text">IBM-500</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL</p></td>
+<td><p class="sd-card-text">CR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00720</p></td>
+<td><p class="sd-card-text">00720</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MICROSOFT-DOS ARABIC</p></td>
+<td><p class="sd-card-text">C5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00737</p></td>
+<td><p class="sd-card-text">00737</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MICROSOFT-DOS GREEK</p></td>
+<td><p class="sd-card-text">C6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00775</p></td>
+<td><p class="sd-card-text">00775</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MICROSOFT-DOS BALTIC</p></td>
+<td><p class="sd-card-text">C8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00803</p></td>
+<td><p class="sd-card-text">00803</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">DA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00806</p></td>
+<td><p class="sd-card-text">00806</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">PC-ISCII-91</p></td>
+<td><p class="sd-card-text">DC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00808</p></td>
+<td><p class="sd-card-text">IBM-808</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">D5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00813</p></td>
+<td><p class="sd-card-text">ISO8859-7</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK/LATIN</p></td>
+<td><p class="sd-card-text">DF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00819</p></td>
+<td><p class="sd-card-text">ISO8859-1</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO 8859-1</p></td>
+<td><p class="sd-card-text">DH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00833</p></td>
+<td><p class="sd-card-text">IBM-833</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">DI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00834</p></td>
+<td><p class="sd-card-text">IBM-834</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">DM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00835</p></td>
+<td><p class="sd-card-text">IBM-835</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">DR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00836</p></td>
+<td><p class="sd-card-text">IBM-836</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00837</p></td>
+<td><p class="sd-card-text">IBM-837</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00838</p></td>
+<td><p class="sd-card-text">IBM-838</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">THAILAND</p></td>
+<td><p class="sd-card-text">D1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00848</p></td>
+<td><p class="sd-card-text">IBM-848</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE</p></td>
+<td><p class="sd-card-text">D7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00849</p></td>
+<td><p class="sd-card-text">00849</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BELARUS</p></td>
+<td><p class="sd-card-text">D9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00850</p></td>
+<td><p class="sd-card-text">IBM-850</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1</p></td>
+<td><p class="sd-card-text">EB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00851</p></td>
+<td><p class="sd-card-text">00851</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">EG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00852</p></td>
+<td><p class="sd-card-text">IBM-852</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2</p></td>
+<td><p class="sd-card-text">EL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00853</p></td>
+<td><p class="sd-card-text">00853</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKISH</p></td>
+<td><p class="sd-card-text">ES</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00855</p></td>
+<td><p class="sd-card-text">IBM-855</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">EX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00856</p></td>
+<td><p class="sd-card-text">IBM-856</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">E4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00857</p></td>
+<td><p class="sd-card-text">00857</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKISH</p></td>
+<td><p class="sd-card-text">FC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00858</p></td>
+<td><p class="sd-card-text">IBM-858</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1E</p></td>
+<td><p class="sd-card-text">FI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00859</p></td>
+<td><p class="sd-card-text">IBM-859</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-9</p></td>
+<td><p class="sd-card-text">FK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00860</p></td>
+<td><p class="sd-card-text">00860</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGESE</p></td>
+<td><p class="sd-card-text">FM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00861</p></td>
+<td><p class="sd-card-text">IBM-861</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND</p></td>
+<td><p class="sd-card-text">FP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00862</p></td>
+<td><p class="sd-card-text">IBM-862</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">FS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00863</p></td>
+<td><p class="sd-card-text">00863</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CANADA</p></td>
+<td><p class="sd-card-text">FV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00864</p></td>
+<td><p class="sd-card-text">IBM-864</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">FY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00865</p></td>
+<td><p class="sd-card-text">00865</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY</p></td>
+<td><p class="sd-card-text">GA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00866</p></td>
+<td><p class="sd-card-text">IBM-866</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">GD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00867</p></td>
+<td><p class="sd-card-text">IBM-867</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">GF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00868</p></td>
+<td><p class="sd-card-text">00868</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU</p></td>
+<td><p class="sd-card-text">GH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00869</p></td>
+<td><p class="sd-card-text">IBM-869</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">GP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00870</p></td>
+<td><p class="sd-card-text">IBM-870</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2</p></td>
+<td><p class="sd-card-text">GW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00871</p></td>
+<td><p class="sd-card-text">IBM-871</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND</p></td>
+<td><p class="sd-card-text">GY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00872</p></td>
+<td><p class="sd-card-text">IBM-872</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">G0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00874</p></td>
+<td><p class="sd-card-text">TIS-620</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI PC-DATA</p></td>
+<td><p class="sd-card-text">G3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00875</p></td>
+<td><p class="sd-card-text">IBM-875</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">G8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00876</p></td>
+<td><p class="sd-card-text">00876</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">OCR (OPTICAL CHARACTER RECOGNITION)</p></td>
+<td><p class="sd-card-text">UF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00878</p></td>
+<td><p class="sd-card-text">00878</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOI8-R CYRILLIC</p></td>
+<td><p class="sd-card-text">HA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00880</p></td>
+<td><p class="sd-card-text">IBM-880</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">HB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00891</p></td>
+<td><p class="sd-card-text">00891</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">HD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00895</p></td>
+<td><p class="sd-card-text">00895</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN 7-BIT LATIN</p></td>
+<td><p class="sd-card-text">HH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00896</p></td>
+<td><p class="sd-card-text">00896</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN 7-BIT KATAKANA</p></td>
+<td><p class="sd-card-text">HI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00897</p></td>
+<td><p class="sd-card-text">00897</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">HK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00899</p></td>
+<td><p class="sd-card-text">00899</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SYMBOLS - PC</p></td>
+<td><p class="sd-card-text">HR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00901</p></td>
+<td><p class="sd-card-text">IBM-901</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BALTIC ISO-8</p></td>
+<td><p class="sd-card-text">HS</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00902</p></td>
+<td><p class="sd-card-text">IBM-902</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ESTONIA ISO-8</p></td>
+<td><p class="sd-card-text">HU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00903</p></td>
+<td><p class="sd-card-text">00903</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">HW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00904</p></td>
+<td><p class="sd-card-text">IBM-904</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">HY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00905</p></td>
+<td><p class="sd-card-text">00905</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY</p></td>
+<td><p class="sd-card-text">H0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00912</p></td>
+<td><p class="sd-card-text">ISO8859-2</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN 2, ISO 8859-2</p></td>
+<td><p class="sd-card-text">H1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00913</p></td>
+<td><p class="sd-card-text">00913</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO LATIN 3, ISO 8859-3</p></td>
+<td><p class="sd-card-text">SZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00914</p></td>
+<td><p class="sd-card-text">ISO8859-4</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN 4, ISO 8859-4</p></td>
+<td><p class="sd-card-text">H3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00915</p></td>
+<td><p class="sd-card-text">ISO8859-5</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC, 8-BIT, ISO 8859-5</p></td>
+<td><p class="sd-card-text">H4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00916</p></td>
+<td><p class="sd-card-text">ISO8859-8</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO 8859-8 HEBREW STRING TYPE 5</p></td>
+<td><p class="sd-card-text">H6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00918</p></td>
+<td><p class="sd-card-text">00918</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">URDU</p></td>
+<td><p class="sd-card-text">H8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00920</p></td>
+<td><p class="sd-card-text">ISO8859-9</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO 8859-9 LATIN 5</p></td>
+<td><p class="sd-card-text">IA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00921</p></td>
+<td><p class="sd-card-text">ISO8859-13</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BALTIC, 8-BIT(ISO 8859-13)</p></td>
+<td><p class="sd-card-text">IB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00922</p></td>
+<td><p class="sd-card-text">IBM-922</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ESTONIA ISO-8</p></td>
+<td><p class="sd-card-text">ID</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00923</p></td>
+<td><p class="sd-card-text">ISO8859-15</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO 8859-15</p></td>
+<td><p class="sd-card-text">IF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00924</p></td>
+<td><p class="sd-card-text">IBM-924</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN 9</p></td>
+<td><p class="sd-card-text">IG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00926</p></td>
+<td><p class="sd-card-text">00926</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">IH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00927</p></td>
+<td><p class="sd-card-text">IBM-927</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">IJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00928</p></td>
+<td><p class="sd-card-text">IBM-928</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">IM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00930</p></td>
+<td><p class="sd-card-text">IBM-930</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE KATAKANA- KANJI</p></td>
+<td><p class="sd-card-text">IQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00931</p></td>
+<td><p class="sd-card-text">00931</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE LATIN-KANJI</p></td>
+<td><p class="sd-card-text">IW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00932</p></td>
+<td><p class="sd-card-text">IBM-eucJC</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00933</p></td>
+<td><p class="sd-card-text">IBM-933</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">I5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00934</p></td>
+<td><p class="sd-card-text">00934</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">JA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00935</p></td>
+<td><p class="sd-card-text">IBM-935</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">JC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00936</p></td>
+<td><p class="sd-card-text">IBM-936</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">JG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00937</p></td>
+<td><p class="sd-card-text">IBM-937</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">JI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00938</p></td>
+<td><p class="sd-card-text">IBM-938</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">JK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00939</p></td>
+<td><p class="sd-card-text">IBM-939</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE LATIN - KANJI</p></td>
+<td><p class="sd-card-text">JM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00941</p></td>
+<td><p class="sd-card-text">00941</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE PC FOR OPEN ENVIRONMENT</p></td>
+<td><p class="sd-card-text">JP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00942</p></td>
+<td><p class="sd-card-text">IBM-942</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">JU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00943</p></td>
+<td><p class="sd-card-text">IBM-943</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN OPEN</p></td>
+<td><p class="sd-card-text">JY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00944</p></td>
+<td><p class="sd-card-text">00944</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">J3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00946</p></td>
+<td><p class="sd-card-text">IBM-946</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S- CH)</p></td>
+<td><p class="sd-card-text">J6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00947</p></td>
+<td><p class="sd-card-text">IBM-947</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">J9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00948</p></td>
+<td><p class="sd-card-text">IBM-948</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">KF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00949</p></td>
+<td><p class="sd-card-text">IBM-949</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS</p></td>
+<td><p class="sd-card-text">KI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00950</p></td>
+<td><p class="sd-card-text">BIG5</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">KO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00951</p></td>
+<td><p class="sd-card-text">IBM-951</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">IBM KS</p></td>
+<td><p class="sd-card-text">KS</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00952</p></td>
+<td><p class="sd-card-text">00952</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">KW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00953</p></td>
+<td><p class="sd-card-text">00953</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">KY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00954</p></td>
+<td><p class="sd-card-text">00954</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">K1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00955</p></td>
+<td><p class="sd-card-text">00955</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">K6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00956</p></td>
+<td><p class="sd-card-text">IBM-956</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">K7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00957</p></td>
+<td><p class="sd-card-text">IBM-957</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">K9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00958</p></td>
+<td><p class="sd-card-text">IBM-958</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">LB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00959</p></td>
+<td><p class="sd-card-text">IBM-959</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">LD</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00960</p></td>
+<td><p class="sd-card-text">00960</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) EUC</p></td>
+<td><p class="sd-card-text">LF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00961</p></td>
+<td><p class="sd-card-text">00961</p></td>
+<td><p class="sd-card-text">ASCII, TBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) EUC</p></td>
+<td><p class="sd-card-text">LG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00963</p></td>
+<td><p class="sd-card-text">00963</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) TCP</p></td>
+<td><p class="sd-card-text">LI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00964</p></td>
+<td><p class="sd-card-text">IBM-eucTW</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) EUC</p></td>
+<td><p class="sd-card-text">LJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00965</p></td>
+<td><p class="sd-card-text">00965</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) TCP</p></td>
+<td><p class="sd-card-text">LL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00966</p></td>
+<td><p class="sd-card-text">00966</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) TCP</p></td>
+<td><p class="sd-card-text">LN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">00970</p></td>
+<td><p class="sd-card-text">IBM-eucKR</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN EUC</p></td>
+<td><p class="sd-card-text">LO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">00971</p></td>
+<td><p class="sd-card-text">00971</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN EUC</p></td>
+<td><p class="sd-card-text">LT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01002</p></td>
+<td><p class="sd-card-text">01002</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DCF RELEASE 2 COMPATIBILITY</p></td>
+<td><p class="sd-card-text">LV</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01004</p></td>
+<td><p class="sd-card-text">01004</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1</p></td>
+<td><p class="sd-card-text">LW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01006</p></td>
+<td><p class="sd-card-text">01006</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU ISO-8</p></td>
+<td><p class="sd-card-text">LZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01008</p></td>
+<td><p class="sd-card-text">01008</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC ISO/ASCII</p></td>
+<td><p class="sd-card-text">L0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01009</p></td>
+<td><p class="sd-card-text">01009</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 IRV (INTERNATIONAL REFERENCE VERSION)</p></td>
+<td><p class="sd-card-text">L2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01010</p></td>
+<td><p class="sd-card-text">01010</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 FRENCH</p></td>
+<td><p class="sd-card-text">L3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01011</p></td>
+<td><p class="sd-card-text">01011</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 GERMANY</p></td>
+<td><p class="sd-card-text">L4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01012</p></td>
+<td><p class="sd-card-text">01012</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 ITALY</p></td>
+<td><p class="sd-card-text">L5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01013</p></td>
+<td><p class="sd-card-text">01013</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 UNITED KINGDOM</p></td>
+<td><p class="sd-card-text">L6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01014</p></td>
+<td><p class="sd-card-text">01014</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 SPAIN</p></td>
+<td><p class="sd-card-text">L7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01015</p></td>
+<td><p class="sd-card-text">01015</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 PORTUGAL</p></td>
+<td><p class="sd-card-text">L8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01016</p></td>
+<td><p class="sd-card-text">01016</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 NORWAY</p></td>
+<td><p class="sd-card-text">L9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01017</p></td>
+<td><p class="sd-card-text">01017</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 DENMARK</p></td>
+<td><p class="sd-card-text">MA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01018</p></td>
+<td><p class="sd-card-text">01018</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 FINLAND AND SWEDEN</p></td>
+<td><p class="sd-card-text">MB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01019</p></td>
+<td><p class="sd-card-text">01019</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 BELGIUM AND NETHERLANDS</p></td>
+<td><p class="sd-card-text">MC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01020</p></td>
+<td><p class="sd-card-text">01020</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 CANADA</p></td>
+<td><p class="sd-card-text">MD</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01021</p></td>
+<td><p class="sd-card-text">01021</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 SWITZERLAND VARIANT</p></td>
+<td><p class="sd-card-text">ME</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01023</p></td>
+<td><p class="sd-card-text">01023</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO-7 SPAIN</p></td>
+<td><p class="sd-card-text">MF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01025</p></td>
+<td><p class="sd-card-text">IBM-1025</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC MULTILINGUAL</p></td>
+<td><p class="sd-card-text">MG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01026</p></td>
+<td><p class="sd-card-text">IBM-1026</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY LATIN-5</p></td>
+<td><p class="sd-card-text">MH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01027</p></td>
+<td><p class="sd-card-text">IBM-1027</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN LATIN</p></td>
+<td><p class="sd-card-text">MI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01040</p></td>
+<td><p class="sd-card-text">01040</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">MK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01041</p></td>
+<td><p class="sd-card-text">01041</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">MN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01042</p></td>
+<td><p class="sd-card-text">01042</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">MR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01043</p></td>
+<td><p class="sd-card-text">01043</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">MU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01046</p></td>
+<td><p class="sd-card-text">IBM-1046</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC - PC</p></td>
+<td><p class="sd-card-text">MX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01047</p></td>
+<td><p class="sd-card-text">IBM-1047</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN 1 / OPEN SYSTEM</p></td>
+<td><p class="sd-card-text">M0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01051</p></td>
+<td><p class="sd-card-text">01051</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HP EMULATION</p></td>
+<td><p class="sd-card-text">M2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01088</p></td>
+<td><p class="sd-card-text">IBM-1088</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA KS</p></td>
+<td><p class="sd-card-text">M3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01089</p></td>
+<td><p class="sd-card-text">ISO8859-6</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC ISO 8859-6</p></td>
+<td><p class="sd-card-text">M6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01097</p></td>
+<td><p class="sd-card-text">01097</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FARSI</p></td>
+<td><p class="sd-card-text">M7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01098</p></td>
+<td><p class="sd-card-text">01098</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">FARSI PC</p></td>
+<td><p class="sd-card-text">M8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01100</p></td>
+<td><p class="sd-card-text">01100</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MULTI EMULATION</p></td>
+<td><p class="sd-card-text">M9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01101</p></td>
+<td><p class="sd-card-text">01101</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BRITISH ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01102</p></td>
+<td><p class="sd-card-text">01102</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DUTCH ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01103</p></td>
+<td><p class="sd-card-text">01103</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">FINNISH ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01104</p></td>
+<td><p class="sd-card-text">01104</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">FRENCH ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">ND</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01105</p></td>
+<td><p class="sd-card-text">01105</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">NOR/DAN ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01106</p></td>
+<td><p class="sd-card-text">01106</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SWEDISH ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01107</p></td>
+<td><p class="sd-card-text">01107</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">NOR/DAN ISO-7 NRC SET</p></td>
+<td><p class="sd-card-text">NG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01112</p></td>
+<td><p class="sd-card-text">IBM-1112</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BALTIC</p></td>
+<td><p class="sd-card-text">NH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01114</p></td>
+<td><p class="sd-card-text">01114</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">NI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01115</p></td>
+<td><p class="sd-card-text">IBM-1115</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">NM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01122</p></td>
+<td><p class="sd-card-text">IBM-1122</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ESTONIA</p></td>
+<td><p class="sd-card-text">NP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01123</p></td>
+<td><p class="sd-card-text">IBM-1123</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE</p></td>
+<td><p class="sd-card-text">NQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01124</p></td>
+<td><p class="sd-card-text">IBM-1124</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE ISO-8</p></td>
+<td><p class="sd-card-text">NR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01125</p></td>
+<td><p class="sd-card-text">IBM-1125</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE</p></td>
+<td><p class="sd-card-text">NS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01126</p></td>
+<td><p class="sd-card-text">IBM-1126</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREAN MS-WIN</p></td>
+<td><p class="sd-card-text">NT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01129</p></td>
+<td><p class="sd-card-text">01129</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">VIETNAMESE ISO-8</p></td>
+<td><p class="sd-card-text">NY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01130</p></td>
+<td><p class="sd-card-text">01130</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">VIETNAMESE</p></td>
+<td><p class="sd-card-text">NZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01131</p></td>
+<td><p class="sd-card-text">01131</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BELARUS</p></td>
+<td><p class="sd-card-text">N0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01132</p></td>
+<td><p class="sd-card-text">01132</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LAO</p></td>
+<td><p class="sd-card-text">N1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01133</p></td>
+<td><p class="sd-card-text">01133</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LAO     ISO-8</p></td>
+<td><p class="sd-card-text">N2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01137</p></td>
+<td><p class="sd-card-text">01137</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DEVANAGARI</p></td>
+<td><p class="sd-card-text">N3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01140</p></td>
+<td><p class="sd-card-text">IBM-1140</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">COMMON EUROPE ECECP</p></td>
+<td><p class="sd-card-text">N5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01141</p></td>
+<td><p class="sd-card-text">IBM-1141</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY ECECP</p></td>
+<td><p class="sd-card-text">N6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01142</p></td>
+<td><p class="sd-card-text">IBM-1142</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY ECECP</p></td>
+<td><p class="sd-card-text">N7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01143</p></td>
+<td><p class="sd-card-text">IBM-1143</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FINLAND, SWEDEN ECECP</p></td>
+<td><p class="sd-card-text">N8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01144</p></td>
+<td><p class="sd-card-text">IBM-1144</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ITALIAN ECECP</p></td>
+<td><p class="sd-card-text">N9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01145</p></td>
+<td><p class="sd-card-text">IBM-1145</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SPANISH ECECP</p></td>
+<td><p class="sd-card-text">OA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01146</p></td>
+<td><p class="sd-card-text">IBM-1146</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM ECECP</p></td>
+<td><p class="sd-card-text">OB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01147</p></td>
+<td><p class="sd-card-text">IBM-1147</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FRENCH ECECP</p></td>
+<td><p class="sd-card-text">OC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01148</p></td>
+<td><p class="sd-card-text">IBM-1148</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL ECECP</p></td>
+<td><p class="sd-card-text">OD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01149</p></td>
+<td><p class="sd-card-text">IBM-1149</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND ECECP</p></td>
+<td><p class="sd-card-text">OE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01153</p></td>
+<td><p class="sd-card-text">IBM-1153</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2</p></td>
+<td><p class="sd-card-text">OF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01154</p></td>
+<td><p class="sd-card-text">IBM-1154</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">OG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01155</p></td>
+<td><p class="sd-card-text">IBM-1155</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY LATIN-5</p></td>
+<td><p class="sd-card-text">OH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01156</p></td>
+<td><p class="sd-card-text">IBM-1156</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BALTIC</p></td>
+<td><p class="sd-card-text">OI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01157</p></td>
+<td><p class="sd-card-text">IBM-1157</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ESTONIA</p></td>
+<td><p class="sd-card-text">OJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01158</p></td>
+<td><p class="sd-card-text">IBM-1158</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE</p></td>
+<td><p class="sd-card-text">OK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01159</p></td>
+<td><p class="sd-card-text">IBM-1159</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">OL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01160</p></td>
+<td><p class="sd-card-text">IBM-1160</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">OM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01161</p></td>
+<td><p class="sd-card-text">IBM-1161</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">ON</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01162</p></td>
+<td><p class="sd-card-text">01162</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI WINDOWS</p></td>
+<td><p class="sd-card-text">OO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01163</p></td>
+<td><p class="sd-card-text">01163</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">VIETNAMESE ISO8</p></td>
+<td><p class="sd-card-text">OP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01164</p></td>
+<td><p class="sd-card-text">01164</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">VIETNAMESE</p></td>
+<td><p class="sd-card-text">OQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01165</p></td>
+<td><p class="sd-card-text">IBM-1165</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2 OPEN SYSTEM</p></td>
+<td><p class="sd-card-text">SV</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01166</p></td>
+<td><p class="sd-card-text">01166</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC MULTILINGUAL - KAZAKHSTAN</p></td>
+<td><p class="sd-card-text">TN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01167</p></td>
+<td><p class="sd-card-text">01167</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BELARUSIAN / UKRAINIAN KOI8-RU</p></td>
+<td><p class="sd-card-text">TO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01168</p></td>
+<td><p class="sd-card-text">01168</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINIAN KO18-U</p></td>
+<td><p class="sd-card-text">TP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01200</p></td>
+<td><p class="sd-card-text">01200</p></td>
+<td><p class="sd-card-text">UTF-16   UTF-</p></td>
+<td><p class="sd-card-text">16 BE with IBM PUA</p></td>
+<td><p class="sd-card-text">PF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01202</p></td>
+<td><p class="sd-card-text">01202</p></td>
+<td><p class="sd-card-text">UTF-16 LE</p></td>
+<td><p class="sd-card-text">UTF-16 LE WITH IBM PUA</p></td>
+<td><p class="sd-card-text">T7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01208</p></td>
+<td><p class="sd-card-text">UTF-8</p></td>
+<td><p class="sd-card-text">UTF-8    UTF-</p></td>
+<td><p class="sd-card-text">8 WITH IBM PUA</p></td>
+<td><p class="sd-card-text">PK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01210</p></td>
+<td><p class="sd-card-text">01210</p></td>
+<td><p class="sd-card-text">UTF-EBCDIC</p></td>
+<td><p class="sd-card-text">UTF-EBCDIC with IBM PUA</p></td>
+<td><p class="sd-card-text">UH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01232</p></td>
+<td><p class="sd-card-text">01232</p></td>
+<td><p class="sd-card-text">UTF-32   UTF-</p></td>
+<td><p class="sd-card-text">32 BE WITH IBM PUA</p></td>
+<td><p class="sd-card-text">J1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01250</p></td>
+<td><p class="sd-card-text">IBM-1250</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN LATIN-2</p></td>
+<td><p class="sd-card-text">PO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01251</p></td>
+<td><p class="sd-card-text">IBM-1251</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN CYRILLIC</p></td>
+<td><p class="sd-card-text">PQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01252</p></td>
+<td><p class="sd-card-text">IBM-1252</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN LATIN-1</p></td>
+<td><p class="sd-card-text">PS</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01253</p></td>
+<td><p class="sd-card-text">IBM-1253</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN GREEK</p></td>
+<td><p class="sd-card-text">PU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01254</p></td>
+<td><p class="sd-card-text">IBM-1254</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN TURKEY</p></td>
+<td><p class="sd-card-text">PW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01255</p></td>
+<td><p class="sd-card-text">IBM-1255</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN HEBREW</p></td>
+<td><p class="sd-card-text">PY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01256</p></td>
+<td><p class="sd-card-text">IBM-1256</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN ARABIC</p></td>
+<td><p class="sd-card-text">P0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01257</p></td>
+<td><p class="sd-card-text">01257</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN BALTIC</p></td>
+<td><p class="sd-card-text">P2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01258</p></td>
+<td><p class="sd-card-text">01258</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN VIETNAM</p></td>
+<td><p class="sd-card-text">P4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01275</p></td>
+<td><p class="sd-card-text">01275</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE LATIN-1</p></td>
+<td><p class="sd-card-text">P6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01276</p></td>
+<td><p class="sd-card-text">01276</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ADOBE STANDARD</p></td>
+<td><p class="sd-card-text">P7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01277</p></td>
+<td><p class="sd-card-text">01277</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ADOBE LATIN-1</p></td>
+<td><p class="sd-card-text">P8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01280</p></td>
+<td><p class="sd-card-text">01280</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE GREEK</p></td>
+<td><p class="sd-card-text">QA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01281</p></td>
+<td><p class="sd-card-text">01281</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE TURKEY</p></td>
+<td><p class="sd-card-text">QB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01282</p></td>
+<td><p class="sd-card-text">01282</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE LATIN2</p></td>
+<td><p class="sd-card-text">QC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01283</p></td>
+<td><p class="sd-card-text">01283</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE CYRILLIC</p></td>
+<td><p class="sd-card-text">QD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01284</p></td>
+<td><p class="sd-card-text">01284</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE CROATIAN</p></td>
+<td><p class="sd-card-text">QE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01285</p></td>
+<td><p class="sd-card-text">01285</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">APPLE ROMANIAN</p></td>
+<td><p class="sd-card-text">QF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01287</p></td>
+<td><p class="sd-card-text">01287</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DEC (DIGITAL EQUIPMENT CORPORATION) GREEK 8-BIT</p></td>
+<td><p class="sd-card-text">SX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01288</p></td>
+<td><p class="sd-card-text">01288</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DEC (DIGITAL EQUIPMENT CORPORATION) TURKISH 8-BIT</p></td>
+<td><p class="sd-card-text">SY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01350</p></td>
+<td><p class="sd-card-text">01350</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JIS JAPANESE EUC</p></td>
+<td><p class="sd-card-text">QH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01351</p></td>
+<td><p class="sd-card-text">01351</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN OPEN</p></td>
+<td><p class="sd-card-text">QI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01362</p></td>
+<td><p class="sd-card-text">IBM-1362</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN MS-WIN</p></td>
+<td><p class="sd-card-text">QJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01363</p></td>
+<td><p class="sd-card-text">IBM-1363</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN MS- WIN</p></td>
+<td><p class="sd-card-text">QN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01364</p></td>
+<td><p class="sd-card-text">IBM-1364</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">QR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01370</p></td>
+<td><p class="sd-card-text">IBM-1370</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">QT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01371</p></td>
+<td><p class="sd-card-text">IBM-1371</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">QU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01374</p></td>
+<td><p class="sd-card-text">01374</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">IBM BIG-5 EXTENSION FOR HKSCS</p></td>
+<td><p class="sd-card-text">TZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01375</p></td>
+<td><p class="sd-card-text">01375</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">IBM BIG-5 EXTENSION FOR HKSCS</p></td>
+<td><p class="sd-card-text">TY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01380</p></td>
+<td><p class="sd-card-text">IBM-1380</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">QV</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01381</p></td>
+<td><p class="sd-card-text">IBM-1381</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">QY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01382</p></td>
+<td><p class="sd-card-text">01382</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) EUC</p></td>
+<td><p class="sd-card-text">Q0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01383</p></td>
+<td><p class="sd-card-text">IBM-eucCN</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) EUC TO GB 2312</p></td>
+<td><p class="sd-card-text">Q2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01385</p></td>
+<td><p class="sd-card-text">01385</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GBK</p></td>
+<td><p class="sd-card-text">Q6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01386</p></td>
+<td><p class="sd-card-text">IBM-1386</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GBK</p></td>
+<td><p class="sd-card-text">Q8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01388</p></td>
+<td><p class="sd-card-text">IBM-1388</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">RA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01390</p></td>
+<td><p class="sd-card-text">IBM-1390</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">RC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01391</p></td>
+<td><p class="sd-card-text">01391</p></td>
+<td><p class="sd-card-text">ASCII, QBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)-GROWING FOR GB18030</p></td>
+<td><p class="sd-card-text">TF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">01392</p></td>
+<td><p class="sd-card-text">01392</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)-GROWING FOR GB18030</p></td>
+<td><p class="sd-card-text">TG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">01399</p></td>
+<td><p class="sd-card-text">IBM-1399</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">RD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04133</p></td>
+<td><p class="sd-card-text">04133</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">USA</p></td>
+<td><p class="sd-card-text">AB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04369</p></td>
+<td><p class="sd-card-text">04369</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY</p></td>
+<td><p class="sd-card-text">AW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04370</p></td>
+<td><p class="sd-card-text">04370</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BELGIUM</p></td>
+<td><p class="sd-card-text">AY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04371</p></td>
+<td><p class="sd-card-text">04371</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BRAZIL</p></td>
+<td><p class="sd-card-text">A0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04373</p></td>
+<td><p class="sd-card-text">04373</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY</p></td>
+<td><p class="sd-card-text">A3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04374</p></td>
+<td><p class="sd-card-text">04374</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FINLAND, SWEDEN</p></td>
+<td><p class="sd-card-text">A5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04376</p></td>
+<td><p class="sd-card-text">04376</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ITALY</p></td>
+<td><p class="sd-card-text">A7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04378</p></td>
+<td><p class="sd-card-text">04378</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGAL</p></td>
+<td><p class="sd-card-text">BA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04380</p></td>
+<td><p class="sd-card-text">04380</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN</p></td>
+<td><p class="sd-card-text">BC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04381</p></td>
+<td><p class="sd-card-text">04381</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM</p></td>
+<td><p class="sd-card-text">BF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04386</p></td>
+<td><p class="sd-card-text">04386</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04393</p></td>
+<td><p class="sd-card-text">04393</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FRANCE</p></td>
+<td><p class="sd-card-text">BO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04396</p></td>
+<td><p class="sd-card-text">IBM-4396</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04397</p></td>
+<td><p class="sd-card-text">04397</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04516</p></td>
+<td><p class="sd-card-text">04516</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">B2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04517</p></td>
+<td><p class="sd-card-text">04517</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">MAGHREB/FRENCH</p></td>
+<td><p class="sd-card-text">B7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04519</p></td>
+<td><p class="sd-card-text">04519</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GREEK 3174</p></td>
+<td><p class="sd-card-text">B9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04520</p></td>
+<td><p class="sd-card-text">04520</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">CB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04533</p></td>
+<td><p class="sd-card-text">04533</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SWISS</p></td>
+<td><p class="sd-card-text">CF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04596</p></td>
+<td><p class="sd-card-text">04596</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN AMERICA</p></td>
+<td><p class="sd-card-text">CS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04899</p></td>
+<td><p class="sd-card-text">04899</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">DB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04904</p></td>
+<td><p class="sd-card-text">04904</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04909</p></td>
+<td><p class="sd-card-text">IBM-4909</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK/LATIN</p></td>
+<td><p class="sd-card-text">DG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04929</p></td>
+<td><p class="sd-card-text">04929</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">DJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04930</p></td>
+<td><p class="sd-card-text">IBM-4930</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">DN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04931</p></td>
+<td><p class="sd-card-text">04931</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">DS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04932</p></td>
+<td><p class="sd-card-text">04932</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04933</p></td>
+<td><p class="sd-card-text">IBM-4933</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04934</p></td>
+<td><p class="sd-card-text">04934</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">D2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04944</p></td>
+<td><p class="sd-card-text">04944</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UKRAINE (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04945</p></td>
+<td><p class="sd-card-text">04945</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">BELARUS (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04946</p></td>
+<td><p class="sd-card-text">IBM-4946</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1</p></td>
+<td><p class="sd-card-text">EC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04947</p></td>
+<td><p class="sd-card-text">04947</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">EH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04948</p></td>
+<td><p class="sd-card-text">04948</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2</p></td>
+<td><p class="sd-card-text">EM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04949</p></td>
+<td><p class="sd-card-text">04949</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY</p></td>
+<td><p class="sd-card-text">ET</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04951</p></td>
+<td><p class="sd-card-text">04951</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">EY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04952</p></td>
+<td><p class="sd-card-text">04952</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">E5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04953</p></td>
+<td><p class="sd-card-text">04953</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY</p></td>
+<td><p class="sd-card-text">FD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04954</p></td>
+<td><p class="sd-card-text">04954</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1E (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04955</p></td>
+<td><p class="sd-card-text">04955</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-9 (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04956</p></td>
+<td><p class="sd-card-text">04956</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGESE (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04957</p></td>
+<td><p class="sd-card-text">04957</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04958</p></td>
+<td><p class="sd-card-text">04958</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04959</p></td>
+<td><p class="sd-card-text">04959</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CANADA (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04960</p></td>
+<td><p class="sd-card-text">04960</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">FZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04961</p></td>
+<td><p class="sd-card-text">04961</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY</p></td>
+<td><p class="sd-card-text">O4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04962</p></td>
+<td><p class="sd-card-text">04962</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04963</p></td>
+<td><p class="sd-card-text">04963</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04964</p></td>
+<td><p class="sd-card-text">04964</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU</p></td>
+<td><p class="sd-card-text">GI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04965</p></td>
+<td><p class="sd-card-text">04965</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">GQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04966</p></td>
+<td><p class="sd-card-text">04966</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ROECE LATIN-2</p></td>
+<td><p class="sd-card-text">GX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04967</p></td>
+<td><p class="sd-card-text">04967</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND</p></td>
+<td><p class="sd-card-text">GZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04970</p></td>
+<td><p class="sd-card-text">04970</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">G4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04971</p></td>
+<td><p class="sd-card-text">IBM-4971</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">G9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04976</p></td>
+<td><p class="sd-card-text">04976</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">HC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">04992</p></td>
+<td><p class="sd-card-text">04992</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP-2022</p></td>
+<td><p class="sd-card-text">HJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">04993</p></td>
+<td><p class="sd-card-text">04993</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">HL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05012</p></td>
+<td><p class="sd-card-text">05012</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ISO 8859-8</p></td>
+<td><p class="sd-card-text">H7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05014</p></td>
+<td><p class="sd-card-text">05014</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">URDU</p></td>
+<td><p class="sd-card-text">H9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05023</p></td>
+<td><p class="sd-card-text">05023</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">IK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05026</p></td>
+<td><p class="sd-card-text">IBM-5026</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05028</p></td>
+<td><p class="sd-card-text">05028</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">I0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05029</p></td>
+<td><p class="sd-card-text">05029</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">I6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05031</p></td>
+<td><p class="sd-card-text">IBM-5031</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">JD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05033</p></td>
+<td><p class="sd-card-text">05033</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">JJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05035</p></td>
+<td><p class="sd-card-text">IBM-5035</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN MIX</p></td>
+<td><p class="sd-card-text">JN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05038</p></td>
+<td><p class="sd-card-text">05038</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN HP15-J (DEFINED BY HEWLETT PACKARD)</p></td>
+<td><p class="sd-card-text">JV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05039</p></td>
+<td><p class="sd-card-text">05039</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN OPEN</p></td>
+<td><p class="sd-card-text">JZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05043</p></td>
+<td><p class="sd-card-text">05043</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05045</p></td>
+<td><p class="sd-card-text">05045</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS</p></td>
+<td><p class="sd-card-text">KJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05046</p></td>
+<td><p class="sd-card-text">05046</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05047</p></td>
+<td><p class="sd-card-text">05047</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC DATA</p></td>
+<td><p class="sd-card-text">KT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05048</p></td>
+<td><p class="sd-card-text">05048</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">KX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05049</p></td>
+<td><p class="sd-card-text">05049</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">KZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05050</p></td>
+<td><p class="sd-card-text">05050</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">K2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05052</p></td>
+<td><p class="sd-card-text">ISO-2022-JP</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">K8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05053</p></td>
+<td><p class="sd-card-text">IBM-5053</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">LA</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05054</p></td>
+<td><p class="sd-card-text">IBM-5054</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">LC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05055</p></td>
+<td><p class="sd-card-text">IBM-5055</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP</p></td>
+<td><p class="sd-card-text">LE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05056</p></td>
+<td><p class="sd-card-text">05056</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) TCP-2022</p></td>
+<td><p class="sd-card-text">SS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05067</p></td>
+<td><p class="sd-card-text">05067</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN EUC</p></td>
+<td><p class="sd-card-text">LU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05100</p></td>
+<td><p class="sd-card-text">05100</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1</p></td>
+<td><p class="sd-card-text">LX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05104</p></td>
+<td><p class="sd-card-text">05104</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC ISO/ASCII</p></td>
+<td><p class="sd-card-text">L1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05123</p></td>
+<td><p class="sd-card-text">IBM-5123</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN LATIN</p></td>
+<td><p class="sd-card-text">MJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05137</p></td>
+<td><p class="sd-card-text">05137</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">MO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05142</p></td>
+<td><p class="sd-card-text">05142</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC - PC</p></td>
+<td><p class="sd-card-text">MY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05143</p></td>
+<td><p class="sd-card-text">05143</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">LATIN OPEN SYS</p></td>
+<td><p class="sd-card-text">M1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05210</p></td>
+<td><p class="sd-card-text">05210</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) SB</p></td>
+<td><p class="sd-card-text">NJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05211</p></td>
+<td><p class="sd-card-text">05211</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">NN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05346</p></td>
+<td><p class="sd-card-text">IBM-5346</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN LATIN-2</p></td>
+<td><p class="sd-card-text">PP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05347</p></td>
+<td><p class="sd-card-text">IBM-5347</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN CYRILLIC</p></td>
+<td><p class="sd-card-text">PR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05348</p></td>
+<td><p class="sd-card-text">IBM-5348</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN LATIN-1</p></td>
+<td><p class="sd-card-text">PT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05349</p></td>
+<td><p class="sd-card-text">IBM-5349</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN GREEK</p></td>
+<td><p class="sd-card-text">PV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05350</p></td>
+<td><p class="sd-card-text">IBM-5350</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN TURKEY</p></td>
+<td><p class="sd-card-text">PX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05351</p></td>
+<td><p class="sd-card-text">IBM-5351</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN HEBREW</p></td>
+<td><p class="sd-card-text">PZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05352</p></td>
+<td><p class="sd-card-text">IBM-5352</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN ARABIC</p></td>
+<td><p class="sd-card-text">P1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05353</p></td>
+<td><p class="sd-card-text">05353</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN BALTIC</p></td>
+<td><p class="sd-card-text">P3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05354</p></td>
+<td><p class="sd-card-text">05354</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN VIETNAM</p></td>
+<td><p class="sd-card-text">P5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05470</p></td>
+<td><p class="sd-card-text">05470</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">BIG-5 EXTENSION FOR HKSCS 2001</p></td>
+<td><p class="sd-card-text">T2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05471</p></td>
+<td><p class="sd-card-text">05471</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">IBM BIG-5 EXTENSION FOR HKSCS</p></td>
+<td><p class="sd-card-text">T1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05472</p></td>
+<td><p class="sd-card-text">05472</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">HOST HKSCS-2001</p></td>
+<td><p class="sd-card-text">T4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05473</p></td>
+<td><p class="sd-card-text">05473</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">T-CHINESE MIXED HOST FOR HKSCS</p></td>
+<td><p class="sd-card-text">T3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05476</p></td>
+<td><p class="sd-card-text">05476</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">QW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05477</p></td>
+<td><p class="sd-card-text">05477</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">QZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05478</p></td>
+<td><p class="sd-card-text">05478</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) EUC</p></td>
+<td><p class="sd-card-text">Q1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05479</p></td>
+<td><p class="sd-card-text">05479</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) EUC</p></td>
+<td><p class="sd-card-text">Q3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05486</p></td>
+<td><p class="sd-card-text">05486</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN MIXED EBCDIC</p></td>
+<td><p class="sd-card-text">UM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05487</p></td>
+<td><p class="sd-card-text">05487</p></td>
+<td><p class="sd-card-text">ASCII, QBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)- FOR GB 18030</p></td>
+<td><p class="sd-card-text">TC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">05488</p></td>
+<td><p class="sd-card-text">IBM-5488</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) - GB18030</p></td>
+<td><p class="sd-card-text">TB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">05495</p></td>
+<td><p class="sd-card-text">05495</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN MIXED EBCDIC</p></td>
+<td><p class="sd-card-text">UN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">08229</p></td>
+<td><p class="sd-card-text">08229</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL</p></td>
+<td><p class="sd-card-text">AC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">08448</p></td>
+<td><p class="sd-card-text">08448</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL</p></td>
+<td><p class="sd-card-text">AK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">08482</p></td>
+<td><p class="sd-card-text">IBM-8482</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">08492</p></td>
+<td><p class="sd-card-text">08492</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">08493</p></td>
+<td><p class="sd-card-text">08493</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN HP15-J (DEFINED BY HEWLETT PACKARD)</p></td>
+<td><p class="sd-card-text">BX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">08612</p></td>
+<td><p class="sd-card-text">08612</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">B3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">08629</p></td>
+<td><p class="sd-card-text">08629</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY PC-DATA</p></td>
+<td><p class="sd-card-text">CG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">08692</p></td>
+<td><p class="sd-card-text">08692</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY</p></td>
+<td><p class="sd-card-text">CT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09025</p></td>
+<td><p class="sd-card-text">09025</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">DK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09026</p></td>
+<td><p class="sd-card-text">09026</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">DO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09027</p></td>
+<td><p class="sd-card-text">IBM-9027</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">DT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09028</p></td>
+<td><p class="sd-card-text">09028</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09030</p></td>
+<td><p class="sd-card-text">09030</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">D3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09042</p></td>
+<td><p class="sd-card-text">09042</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1 (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OV</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09044</p></td>
+<td><p class="sd-card-text">IBM-9044</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2</p></td>
+<td><p class="sd-card-text">EN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09047</p></td>
+<td><p class="sd-card-text">09047</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC</p></td>
+<td><p class="sd-card-text">EZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09048</p></td>
+<td><p class="sd-card-text">09048</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">E6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09049</p></td>
+<td><p class="sd-card-text">09049</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKISH</p></td>
+<td><p class="sd-card-text">FE</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09056</p></td>
+<td><p class="sd-card-text">09056</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">F0</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09060</p></td>
+<td><p class="sd-card-text">09060</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU</p></td>
+<td><p class="sd-card-text">GJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09061</p></td>
+<td><p class="sd-card-text">IBM-9061</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK</p></td>
+<td><p class="sd-card-text">GR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09064</p></td>
+<td><p class="sd-card-text">09064</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09066</p></td>
+<td><p class="sd-card-text">09066</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI</p></td>
+<td><p class="sd-card-text">G5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09088</p></td>
+<td><p class="sd-card-text">09088</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC, G2-JIS</p></td>
+<td><p class="sd-card-text">S0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09089</p></td>
+<td><p class="sd-card-text">09089</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">HM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09122</p></td>
+<td><p class="sd-card-text">09122</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09124</p></td>
+<td><p class="sd-card-text">09124</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">I1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09125</p></td>
+<td><p class="sd-card-text">09125</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">I7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09127</p></td>
+<td><p class="sd-card-text">09127</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">JE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09131</p></td>
+<td><p class="sd-card-text">09131</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">JO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09139</p></td>
+<td><p class="sd-card-text">09139</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09142</p></td>
+<td><p class="sd-card-text">09142</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09144</p></td>
+<td><p class="sd-card-text">09144</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP-2022, G1</p></td>
+<td><p class="sd-card-text">S1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09145</p></td>
+<td><p class="sd-card-text">09145</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">K0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09146</p></td>
+<td><p class="sd-card-text">09146</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">K3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09163</p></td>
+<td><p class="sd-card-text">09163</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN EUC, G1</p></td>
+<td><p class="sd-card-text">S2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09238</p></td>
+<td><p class="sd-card-text">IBM-9238</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC - PC</p></td>
+<td><p class="sd-card-text">MZ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09306</p></td>
+<td><p class="sd-card-text">09306</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">PA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09444</p></td>
+<td><p class="sd-card-text">09444</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) - PART OF GB 18030</p></td>
+<td><p class="sd-card-text">TE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09447</p></td>
+<td><p class="sd-card-text">09447</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN HEBREW-2001</p></td>
+<td><p class="sd-card-text">TM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09448</p></td>
+<td><p class="sd-card-text">09448</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN ARABIC-2001</p></td>
+<td><p class="sd-card-text">TT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09449</p></td>
+<td><p class="sd-card-text">09449</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">MS-WIN BALTIC-2001</p></td>
+<td><p class="sd-card-text">TU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09572</p></td>
+<td><p class="sd-card-text">09572</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">QX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09574</p></td>
+<td><p class="sd-card-text">09574</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) EUC</p></td>
+<td><p class="sd-card-text">S9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09575</p></td>
+<td><p class="sd-card-text">09575</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) TCP</p></td>
+<td><p class="sd-card-text">Q4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">09577</p></td>
+<td><p class="sd-card-text">09577</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GBK</p></td>
+<td><p class="sd-card-text">TD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">09580</p></td>
+<td><p class="sd-card-text">09580</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) HOST FOR GBK</p></td>
+<td><p class="sd-card-text">TI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">12544</p></td>
+<td><p class="sd-card-text">12544</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FRANCE</p></td>
+<td><p class="sd-card-text">AL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">12588</p></td>
+<td><p class="sd-card-text">12588</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">12712</p></td>
+<td><p class="sd-card-text">IBM-12712</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW</p></td>
+<td><p class="sd-card-text">CD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">12725</p></td>
+<td><p class="sd-card-text">12725</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">FRANCE</p></td>
+<td><p class="sd-card-text">CH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">12788</p></td>
+<td><p class="sd-card-text">12788</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ITALY</p></td>
+<td><p class="sd-card-text">CU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13121</p></td>
+<td><p class="sd-card-text">IBM-13121</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">DL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13124</p></td>
+<td><p class="sd-card-text">IBM-13124</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">DX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13125</p></td>
+<td><p class="sd-card-text">13125</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)-HOST-FOR GBK</p></td>
+<td><p class="sd-card-text">TJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13140</p></td>
+<td><p class="sd-card-text">13140</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2 (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">PB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13143</p></td>
+<td><p class="sd-card-text">13143</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13145</p></td>
+<td><p class="sd-card-text">13145</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKISH (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">PC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13152</p></td>
+<td><p class="sd-card-text">13152</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">F1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13156</p></td>
+<td><p class="sd-card-text">13156</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13157</p></td>
+<td><p class="sd-card-text">13157</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREEK (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">PD</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13162</p></td>
+<td><p class="sd-card-text">13162</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAI (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">O9</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13184</p></td>
+<td><p class="sd-card-text">13184</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN 7-BIT KATAKANA</p></td>
+<td><p class="sd-card-text">S5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13185</p></td>
+<td><p class="sd-card-text">13185</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">HN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13218</p></td>
+<td><p class="sd-card-text">13218</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13219</p></td>
+<td><p class="sd-card-text">13219</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13221</p></td>
+<td><p class="sd-card-text">13221</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">KOREA</p></td>
+<td><p class="sd-card-text">I8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13223</p></td>
+<td><p class="sd-card-text">13223</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">JF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13235</p></td>
+<td><p class="sd-card-text">13235</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KC</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13238</p></td>
+<td><p class="sd-card-text">13238</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13240</p></td>
+<td><p class="sd-card-text">13240</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP-2022</p></td>
+<td><p class="sd-card-text">S6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13241</p></td>
+<td><p class="sd-card-text">13241</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP-2022</p></td>
+<td><p class="sd-card-text">S3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13242</p></td>
+<td><p class="sd-card-text">13242</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">K4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13488</p></td>
+<td><p class="sd-card-text">UCS-2</p></td>
+<td><p class="sd-card-text">UTF-16</p></td>
+<td><p class="sd-card-text">UCS-2 (VERSION 2.0)</p></td>
+<td><p class="sd-card-text">PG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">13671</p></td>
+<td><p class="sd-card-text">13671</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S- CH) TCP</p></td>
+<td><p class="sd-card-text">Q5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">13676</p></td>
+<td><p class="sd-card-text">13676</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)-HOST FOR GBK</p></td>
+<td><p class="sd-card-text">TK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">16421</p></td>
+<td><p class="sd-card-text">16421</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">CANADA</p></td>
+<td><p class="sd-card-text">AE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">16684</p></td>
+<td><p class="sd-card-text">IBM-16684</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">16804</p></td>
+<td><p class="sd-card-text">IBM-16804</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">B5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">16821</p></td>
+<td><p class="sd-card-text">16821</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ITALY</p></td>
+<td><p class="sd-card-text">CI</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">16884</p></td>
+<td><p class="sd-card-text">16884</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">FINLAND, SWEDEN</p></td>
+<td><p class="sd-card-text">CV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">17221</p></td>
+<td><p class="sd-card-text">17221</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)-HOST FOR GBK</p></td>
+<td><p class="sd-card-text">TL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">17240</p></td>
+<td><p class="sd-card-text">17240</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">17248</p></td>
+<td><p class="sd-card-text">IBM-17248</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC</p></td>
+<td><p class="sd-card-text">F2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">17314</p></td>
+<td><p class="sd-card-text">17314</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">IU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">17331</p></td>
+<td><p class="sd-card-text">17331</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KD</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">17337</p></td>
+<td><p class="sd-card-text">17337</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE TCP-2022 G3-JIS</p></td>
+<td><p class="sd-card-text">S4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">17354</p></td>
+<td><p class="sd-card-text">17354</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN TCP</p></td>
+<td><p class="sd-card-text">LQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">17584</p></td>
+<td><p class="sd-card-text">17584</p></td>
+<td><p class="sd-card-text">UTF-16</p></td>
+<td><p class="sd-card-text">UCS-2 (VERSION 3.0)</p></td>
+<td><p class="sd-card-text">PH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">20517</p></td>
+<td><p class="sd-card-text">20517</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGAL</p></td>
+<td><p class="sd-card-text">AF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">20780</p></td>
+<td><p class="sd-card-text">20780</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">TQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">20917</p></td>
+<td><p class="sd-card-text">20917</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM PC-DATA</p></td>
+<td><p class="sd-card-text">CJ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">20980</p></td>
+<td><p class="sd-card-text">20980</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY</p></td>
+<td><p class="sd-card-text">CW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">21314</p></td>
+<td><p class="sd-card-text">21314</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">KOREAN</p></td>
+<td><p class="sd-card-text">TW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">21317</p></td>
+<td><p class="sd-card-text">21317</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH)</p></td>
+<td><p class="sd-card-text">TX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">21344</p></td>
+<td><p class="sd-card-text">21344</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">PE</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">21427</p></td>
+<td><p class="sd-card-text">21427</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)-IBM BIG-5</p></td>
+<td><p class="sd-card-text">KE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">21433</p></td>
+<td><p class="sd-card-text">21433</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPANESE EUC</p></td>
+<td><p class="sd-card-text">S7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">21450</p></td>
+<td><p class="sd-card-text">21450</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN TCP</p></td>
+<td><p class="sd-card-text">LR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">21680</p></td>
+<td><p class="sd-card-text">21680</p></td>
+<td><p class="sd-card-text">UTF-16</p></td>
+<td><p class="sd-card-text">UCS-2 (VERSION 4.0)</p></td>
+<td><p class="sd-card-text">TH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">24613</p></td>
+<td><p class="sd-card-text">24613</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL</p></td>
+<td><p class="sd-card-text">AG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">24876</p></td>
+<td><p class="sd-card-text">24876</p></td>
+<td><p class="sd-card-text">EBCDIC, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">UG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">24877</p></td>
+<td><p class="sd-card-text">24877</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">BY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25013</p></td>
+<td><p class="sd-card-text">25013</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">USA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25076</p></td>
+<td><p class="sd-card-text">25076</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">DENMARK, NORWAY                                         CX</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25426</p></td>
+<td><p class="sd-card-text">25426</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1 PC-DISPLAY</p></td>
+<td><p class="sd-card-text">ED</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25427</p></td>
+<td><p class="sd-card-text">25427</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25428</p></td>
+<td><p class="sd-card-text">25428</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2 PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25429</p></td>
+<td><p class="sd-card-text">25429</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25431</p></td>
+<td><p class="sd-card-text">25431</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25432</p></td>
+<td><p class="sd-card-text">25432</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25433</p></td>
+<td><p class="sd-card-text">25433</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FF</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25436</p></td>
+<td><p class="sd-card-text">25436</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGAL PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25437</p></td>
+<td><p class="sd-card-text">25437</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25438</p></td>
+<td><p class="sd-card-text">25438</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25439</p></td>
+<td><p class="sd-card-text">25439</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CANADA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25440</p></td>
+<td><p class="sd-card-text">25440</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25441</p></td>
+<td><p class="sd-card-text">25441</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DEN/NOR PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25442</p></td>
+<td><p class="sd-card-text">25442</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25444</p></td>
+<td><p class="sd-card-text">25444</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25445</p></td>
+<td><p class="sd-card-text">25445</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GS</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25450</p></td>
+<td><p class="sd-card-text">25450</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAILAND PC-DISPLAY</p></td>
+<td><p class="sd-card-text">G6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25467</p></td>
+<td><p class="sd-card-text">25467</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HE</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25473</p></td>
+<td><p class="sd-card-text">25473</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25479</p></td>
+<td><p class="sd-card-text">25479</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HX</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25480</p></td>
+<td><p class="sd-card-text">25480</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25502</p></td>
+<td><p class="sd-card-text">25502</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREA DB PC-DISPLAY</p></td>
+<td><p class="sd-card-text">II</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25503</p></td>
+<td><p class="sd-card-text">25503</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">IL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25504</p></td>
+<td><p class="sd-card-text">25504</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">IN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25508</p></td>
+<td><p class="sd-card-text">25508</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">I2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25510</p></td>
+<td><p class="sd-card-text">25510</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">JB</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25512</p></td>
+<td><p class="sd-card-text">25512</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S- CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">JH</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25514</p></td>
+<td><p class="sd-card-text">25514</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">JL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25518</p></td>
+<td><p class="sd-card-text">25518</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">JW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25520</p></td>
+<td><p class="sd-card-text">25520</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">J4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25522</p></td>
+<td><p class="sd-card-text">25522</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S- CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">J7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25524</p></td>
+<td><p class="sd-card-text">25524</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25525</p></td>
+<td><p class="sd-card-text">25525</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25527</p></td>
+<td><p class="sd-card-text">25527</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25546</p></td>
+<td><p class="sd-card-text">25546</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREAN TCP</p></td>
+<td><p class="sd-card-text">LS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25580</p></td>
+<td><p class="sd-card-text">25580</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1</p></td>
+<td><p class="sd-card-text">LY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25616</p></td>
+<td><p class="sd-card-text">25616</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">ML</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25617</p></td>
+<td><p class="sd-card-text">25617</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MP</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25618</p></td>
+<td><p class="sd-card-text">25618</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S- CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25619</p></td>
+<td><p class="sd-card-text">25619</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25664</p></td>
+<td><p class="sd-card-text">25664</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">M4</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">25690</p></td>
+<td><p class="sd-card-text">25690</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)PC-DISPLAY</p></td>
+<td><p class="sd-card-text">NK</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">25691</p></td>
+<td><p class="sd-card-text">25691</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) GB</p></td>
+<td><p class="sd-card-text">NO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">28709</p></td>
+<td><p class="sd-card-text">IBM-28709</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH)</p></td>
+<td><p class="sd-card-text">AH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29109</p></td>
+<td><p class="sd-card-text">29109</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">USA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29172</p></td>
+<td><p class="sd-card-text">29172</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BRAZIL</p></td>
+<td><p class="sd-card-text">CY</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29522</p></td>
+<td><p class="sd-card-text">29522</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1 PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EE</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29523</p></td>
+<td><p class="sd-card-text">29523</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EJ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29524</p></td>
+<td><p class="sd-card-text">29524</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-2 PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29525</p></td>
+<td><p class="sd-card-text">29525</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29527</p></td>
+<td><p class="sd-card-text">29527</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29528</p></td>
+<td><p class="sd-card-text">29528</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29529</p></td>
+<td><p class="sd-card-text">29529</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FG</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29532</p></td>
+<td><p class="sd-card-text">29532</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">PORTUGAL PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29533</p></td>
+<td><p class="sd-card-text">29533</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ICELAND PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29534</p></td>
+<td><p class="sd-card-text">29534</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29535</p></td>
+<td><p class="sd-card-text">29535</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CANADA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29536</p></td>
+<td><p class="sd-card-text">29536</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29537</p></td>
+<td><p class="sd-card-text">29537</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">DEN/NOR PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GC</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29540</p></td>
+<td><p class="sd-card-text">29540</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GL</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29541</p></td>
+<td><p class="sd-card-text">29541</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29546</p></td>
+<td><p class="sd-card-text">29546</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">THAILAND PC-DISPLAY</p></td>
+<td><p class="sd-card-text">G7</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29614</p></td>
+<td><p class="sd-card-text">29614</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">JX</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29616</p></td>
+<td><p class="sd-card-text">29616</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">J5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29618</p></td>
+<td><p class="sd-card-text">29618</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">J8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29620</p></td>
+<td><p class="sd-card-text">29620</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KH</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29621</p></td>
+<td><p class="sd-card-text">29621</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC</p></td>
+<td><p class="sd-card-text">KL</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29623</p></td>
+<td><p class="sd-card-text">29623</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29712</p></td>
+<td><p class="sd-card-text">29712</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29713</p></td>
+<td><p class="sd-card-text">29713</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29714</p></td>
+<td><p class="sd-card-text">29714</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SIMPLIFIED CHINESE (S-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MT</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">29715</p></td>
+<td><p class="sd-card-text">29715</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TRADITIONAL CHINESE (T-CH) PC-DISPLAY</p></td>
+<td><p class="sd-card-text">MW</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">29760</p></td>
+<td><p class="sd-card-text">29760</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">M5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">32805</p></td>
+<td><p class="sd-card-text">32805</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN LATIN</p></td>
+<td><p class="sd-card-text">AI</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33058</p></td>
+<td><p class="sd-card-text">33058</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN</p></td>
+<td><p class="sd-card-text">BK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33205</p></td>
+<td><p class="sd-card-text">33205</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">SWISS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33268</p></td>
+<td><p class="sd-card-text">33268</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM / PORTUGAL</p></td>
+<td><p class="sd-card-text">CZ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33618</p></td>
+<td><p class="sd-card-text">33618</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">LATIN-1 PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EF</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33619</p></td>
+<td><p class="sd-card-text">33619</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EK</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33620</p></td>
+<td><p class="sd-card-text">33620</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ROECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33621</p></td>
+<td><p class="sd-card-text">33621</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">TURKEY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">EW</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33623</p></td>
+<td><p class="sd-card-text">33623</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33624</p></td>
+<td><p class="sd-card-text">33624</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">HEBREW PC-DISPLAY</p></td>
+<td><p class="sd-card-text">FA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33632</p></td>
+<td><p class="sd-card-text">33632</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33636</p></td>
+<td><p class="sd-card-text">33636</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33637</p></td>
+<td><p class="sd-card-text">33637</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GREECE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GU</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33665</p></td>
+<td><p class="sd-card-text">33665</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33698</p></td>
+<td><p class="sd-card-text">33698</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN KATAKANA/KANJI</p></td>
+<td><p class="sd-card-text">IV</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33699</p></td>
+<td><p class="sd-card-text">33699</p></td>
+<td><p class="sd-card-text">EBCDIC, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN LATIN/KANJI</p></td>
+<td><p class="sd-card-text">IY</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33700</p></td>
+<td><p class="sd-card-text">33700</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">I3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">33717</p></td>
+<td><p class="sd-card-text">33717</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KM</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">33722</p></td>
+<td><p class="sd-card-text">EUCJP</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">IBM EUC JAPANESE</p></td>
+<td><p class="sd-card-text">K5</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">37301</p></td>
+<td><p class="sd-card-text">37301</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">AUSTRIA AND GERMANY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">37719</p></td>
+<td><p class="sd-card-text">37719</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">CYRILLIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">E3</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">37728</p></td>
+<td><p class="sd-card-text">37728</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">37732</p></td>
+<td><p class="sd-card-text">37732</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">37761</p></td>
+<td><p class="sd-card-text">37761</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">JAPAN PC-DISPLAY</p></td>
+<td><p class="sd-card-text">HQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">37813</p></td>
+<td><p class="sd-card-text">37813</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">KOREA KS PC-DISPLAY</p></td>
+<td><p class="sd-card-text">KN</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">41397</p></td>
+<td><p class="sd-card-text">41397</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">FRANCE PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CO</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">41460</p></td>
+<td><p class="sd-card-text">41460</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SWISS</p></td>
+<td><p class="sd-card-text">C1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">41824</p></td>
+<td><p class="sd-card-text">41824</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F7</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">41828</p></td>
+<td><p class="sd-card-text">41828</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">URDU PC-DISPLAY</p></td>
+<td><p class="sd-card-text">GO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">45493</p></td>
+<td><p class="sd-card-text">45493</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ITALY PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CP</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">45556</p></td>
+<td><p class="sd-card-text">45556</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">SWISS</p></td>
+<td><p class="sd-card-text">C2</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">45920</p></td>
+<td><p class="sd-card-text">45920</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC PC-DISPLAY</p></td>
+<td><p class="sd-card-text">F8</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">49589</p></td>
+<td><p class="sd-card-text">49589</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">UNITED KINGDOM PC-DISPLAY</p></td>
+<td><p class="sd-card-text">CQ</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">49652</p></td>
+<td><p class="sd-card-text">49652</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">BELGIUM</p></td>
+<td><p class="sd-card-text">C3</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">53668</p></td>
+<td><p class="sd-card-text">IBM-53668</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">ARABIC EBCDIC - SPECIAL</p></td>
+<td><p class="sd-card-text">T8</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">53685</p></td>
+<td><p class="sd-card-text">53685</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">USA (WITH MS CONTROLS)</p></td>
+<td><p class="sd-card-text">OR</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">53748</p></td>
+<td><p class="sd-card-text">53748</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">INTERNATIONAL</p></td>
+<td><p class="sd-card-text">C4</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">54189</p></td>
+<td><p class="sd-card-text">54189</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN DB PC-DATA</p></td>
+<td><p class="sd-card-text">UB</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">54191</p></td>
+<td><p class="sd-card-text">IBM-54191</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN OPEN</p></td>
+<td><p class="sd-card-text">T9</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">54289</p></td>
+<td><p class="sd-card-text">54289</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN SB PC-DATA</p></td>
+<td><p class="sd-card-text">UA</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">61696</p></td>
+<td><p class="sd-card-text">61696</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL</p></td>
+<td><p class="sd-card-text">AM</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">61697</p></td>
+<td><p class="sd-card-text">61697</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL</p></td>
+<td><p class="sd-card-text">AN</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">61698</p></td>
+<td><p class="sd-card-text">61698</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL PC-DISPLAY</p></td>
+<td><p class="sd-card-text">AO</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">61699</p></td>
+<td><p class="sd-card-text">61699</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GLBL ISO-8</p></td>
+<td><p class="sd-card-text">AQ</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">61700</p></td>
+<td><p class="sd-card-text">61700</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GLBL ISO-7</p></td>
+<td><p class="sd-card-text">AR</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">61710</p></td>
+<td><p class="sd-card-text">61710</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL USE</p></td>
+<td><p class="sd-card-text">AS</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">61711</p></td>
+<td><p class="sd-card-text">61711</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL USE</p></td>
+<td><p class="sd-card-text">AT</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">61712</p></td>
+<td><p class="sd-card-text">61712</p></td>
+<td><p class="sd-card-text">EBCDIC, SBCS</p></td>
+<td><p class="sd-card-text">GLOBAL USE</p></td>
+<td><p class="sd-card-text">AU</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">61953</p></td>
+<td><p class="sd-card-text">61953</p></td>
+<td><p class="sd-card-text">UCS-2, DBCS</p></td>
+<td><p class="sd-card-text">UNICODE 1.0</p></td>
+<td><p class="sd-card-text">RG</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">61956</p></td>
+<td><p class="sd-card-text">61956</p></td>
+<td><p class="sd-card-text">UTF-16</p></td>
+<td><p class="sd-card-text">WITH MAPPING OF PUA CHARACTERS AS PRESCRIBED BY MICROSOFT</p></td>
+<td><p class="sd-card-text">T0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">62337</p></td>
+<td><p class="sd-card-text">62337</p></td>
+<td><p class="sd-card-text">ASCII, SBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN SB PC-DATA</p></td>
+<td><p class="sd-card-text">UD</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">62381</p></td>
+<td><p class="sd-card-text">62381</p></td>
+<td><p class="sd-card-text">ASCII, DBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN DB PC-DATA</p></td>
+<td><p class="sd-card-text">UE</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">62383</p></td>
+<td><p class="sd-card-text">IBM-62383</p></td>
+<td><p class="sd-card-text">ASCII, MBCS</p></td>
+<td><p class="sd-card-text">Special - JAPAN OPEN</p></td>
+<td><p class="sd-card-text">UC</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

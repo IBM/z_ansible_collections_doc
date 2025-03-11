@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ansible for IBM Z &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrade Ansible for IBM Z" href="upgrade-collections.html" />
+    <link rel="prev" title="Ansible" href="install-ansible.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="software-installation.html">Software Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install-ansible.html">Ansible</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ansible for IBM Z</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-install-from-ansible-galaxy">Option 1: Install from Ansible Galaxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-install-from-ansible-automation-hub">Option 2: Install from Ansible Automation Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-3-install-from-a-git-repository">Option 3: Install from a Git repository</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-collections.html">Upgrade Ansible for IBM Z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remove-collections.html">Remove Ansible for IBM Z</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="software-installation.html">Software Installation</a></li>
+      <li class="breadcrumb-item active">Ansible for IBM Z</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ansible-for-ibm-z">
+<span id="install-collections"></span><h1>Ansible for IBM Z<a class="headerlink" href="#ansible-for-ibm-z" title="Link to this heading"></a></h1>
+<p>There are several options for installing <strong>Ansible for IBM Z</strong> collections,
+including <strong>Ansible Galaxy</strong>, <strong>Ansible Automation Hub</strong>, <strong>private Galaxy server</strong>,
+or from a <strong>Git</strong> repository.</p>
+<p>This guide will discuss installing <strong>Ansible for IBM Z</strong> collections; for
+collection requirements, see <a class="reference internal" href="../requirements/software-requirements.html#software-requirements"><span class="std std-ref">Software Requirements</span></a>.</p>
+<section id="option-1-install-from-ansible-galaxy">
+<h2>Option 1: Install from Ansible Galaxy<a class="headerlink" href="#option-1-install-from-ansible-galaxy" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Ansible Galaxy is the community repository where Ansible for IBM Z … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Ansible <strong>Galaxy</strong> is the community repository where <strong>Ansible for IBM Z</strong> collections are
+available, for more details on the various collections visit <a class="reference external" href="https://galaxy.ansible.com/ui/collections/?page_size=10&amp;view_type=null&amp;sort=name&amp;keywords=ibm_z&amp;page=1&amp;tags=infrastructure">Ansible Galaxy</a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Install a collection from Ansible Galaxy … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<blockquote>
+<div><p class="sd-card-text">Install a collection from Ansible Galaxy, here you can find the installation
+command for installing a specific collection.</p>
+<ol class="arabic">
+<li><p class="sd-card-text">Using the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command, the general command form below will
+install the latest version of a collection.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>&lt;namespace&gt;.&lt;collection<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+<p class="sd-card-text">The namespace for Ansible for IBM Z collections is <code class="docutils literal notranslate"><span class="pre">ibm</span></code>. The following
+are the available collection names you can select from:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="sd-card-text">ibm_zos_core</p></li>
+<li><p class="sd-card-text">ibm_zos_ims</p></li>
+<li><p class="sd-card-text">ibm_zos_cics</p></li>
+<li><p class="sd-card-text">ibm_zhmc</p></li>
+<li><p class="sd-card-text">ibm_zos_sysauto</p></li>
+<li><p class="sd-card-text">ibm_zosmf</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="sd-card-text">Verify the location of the collection by running the following command.
+You’ll see the name, version, and location of the installed collection.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>list
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text">Some collections Ansible for IBM Z collections are dependent on
+other collections, such as the case for IBM z/OS IMS collection
+which has a dependency on the IBM z/OS Core collection. The
+collections dependencies will be automatically installed, even
+if you don’t selectively install them.</p>
+</div>
+<p class="sd-card-text">If you have multiple collections to install, you can enter the collection
+names into a <strong>requirements.yml</strong> file and install them with
+<code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.yml</span></code>.</p>
+<p class="sd-card-text">The <strong>requirements.yml</strong> is a YAML file with the format:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>collections:
+<span class="w">   </span>-<span class="w"> </span>name:<span class="w"> </span>&lt;namespace&gt;.&lt;collection<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Install a specific collection version from Ansible Galaxy … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Install a specific collection version from Ansible Galaxy. For example,
+you can use the following command to install version 1.0.0 for the
+IBM z/OS Core collection:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>ibm.ibm_zos_core:1.0.0
+</pre></div>
+</div>
+</div></blockquote>
+<p class="sd-card-text">A <strong>beta version</strong> is only available on Ansible Galaxy and is only supported
+by the community, once it is General Availability (GA), it will be promoted
+to Ansible Automation Platform and eligible for entitlement from Red Hat and
+IBM. When installing a beta from Galaxy, you must precisely indicate the
+beta version, for example to install a beta of the IBM z/OS Core collection,
+run the following command:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>ibm.ibm_zos_core:1.10.0-beta.1
+</pre></div>
+</div>
+</div></blockquote>
+<p class="sd-card-text">For more information about installing Ansible collections,
+see <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#installing-collections">Installing collections (Ansible Documentation)</a>.</p>
+</div>
+</details></div>
+</details></section>
+<section id="option-2-install-from-ansible-automation-hub">
+<h2>Option 2: Install from Ansible Automation Hub<a class="headerlink" href="#option-2-install-from-ansible-automation-hub" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Configuring access to a <strong>Ansible Automation Platform</strong> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Configuring access to a <strong>Ansible Automation Platform</strong> is the same as that of
+connecting a client to a <strong>private Galaxy server</strong>. You can use the
+<code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span></code> command to install a collection on the
+control node hosted in Ansible Automation Platform or a private Galaxy server.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">By default, the <strong>ansible-galaxy</strong> command uses the Galaxy server … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">By default, the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command uses the Galaxy server
+(<code class="docutils literal notranslate"><span class="pre">https://galaxy.ansible.com</span></code>) to install collections, but you can configure
+the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span></code> command to use other servers by editing the
+configuration file, <strong>ansible.cfg</strong>.</p>
+<p class="sd-card-text">For more information, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#configuring-the-ansible-galaxy-client">Configuring the ansible-galaxy client (Ansible Documentation)</a>.</p>
+<p class="sd-card-text">To configure:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Set the <strong>auth_url</strong> option for each server name.</p></li>
+<li><p class="sd-card-text">Set the API token for each server name. To obtain an API token from Automation Hub,
+select the Offline token from <a class="reference external" href="https://cloud.redhat.com/ansible/automation-hub/token/">Connect to Hub</a>.</p></li>
+</ul>
+<p class="sd-card-text">The automation hub API token authenticates your ansible-galaxy client to the Red Hat
+automation hub server. To learn more about configuration,
+see <a class="reference external" href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/getting_started_with_automation_hub/hub-create-api-token#hub-create-api-token">Creating the API token in automation hub</a>.</p>
+<p class="sd-card-text">The following example shows an <strong>ansible.cfg</strong> configuration for Ansible Automation
+Platform, a private Galaxy server, and Ansible Galaxy. The search order is managed
+with the <strong>server_list</strong> option contained in the configuration. The configuration will
+be accessed in this ordering:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="sd-card-text">ANSIBLE_CONFIG (environment variable if set)</p></li>
+<li><p class="sd-card-text">ansible.cfg (in the current directory)</p></li>
+<li><p class="sd-card-text">~/.ansible.cfg (in the home directory)</p></li>
+<li><p class="sd-card-text">/etc/ansible/ansible.cfg</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">galaxy</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">server_list = automation_hub, galaxy, private_galaxy</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.automation_hub]</span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://cloud.redhat.com/api/automation-hub/</span>
+<span class="l l-Scalar l-Scalar-Plain">auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token</span>
+<span class="l l-Scalar l-Scalar-Plain">token=&lt;hub_token&gt;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.galaxy]</span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy.ansible.com/</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[galaxy_server.private_galaxy]</span>
+<span class="l l-Scalar l-Scalar-Plain">url=https://galaxy-dev.ansible.com/</span>
+<span class="l l-Scalar l-Scalar-Plain">token=&lt;private_token&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p class="sd-card-text">To learn more about configuration, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html">Ansible Configuration Settings (Ansible Documentation)</a>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">Install a specific collection version from Ansible Automation Hub … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<blockquote>
+<div><p class="sd-card-text">After having configured access to <strong>Ansible Automation Platform</strong>, you can
+install a specific collection version from Ansible Automation Hub. For example,
+you can use the following command to install version 1.0.0 for the
+IBM z/OS Core collection:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>ibm.ibm_zos_core:1.0.0
+</pre></div>
+</div>
+</div></blockquote>
+<p class="sd-card-text">For more information on installing and browsing collections, see
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#installing-collections">Installing collections (Ansible Documentation)</a> and <a class="reference external" href="https://catalog.redhat.com/search?searchType=software">certified collections</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>A <strong>beta version</strong> of a collection is only available on Ansible Galaxy, you will</dt><dd><p class="sd-card-text">not find any beta versions on Ansible Automation Hub.</p>
+</dd>
+</dl>
+</div>
+</div></blockquote>
+</div>
+</details></div>
+</details></section>
+<section id="option-3-install-from-a-git-repository">
+<h2>Option 3: Install from a Git repository<a class="headerlink" href="#option-3-install-from-a-git-repository" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Install a collection from a <strong>Git</strong> repository using the URI …</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Install a collection from a Git repository using the URI of the repository
+and the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span></code> command. You can also specify a branch,
+commit, or tag using the comma-separated git commit-ish syntax.</p>
+<p class="sd-card-text">To build and install a collection from a Git repository, for example, the IBM z/OS Core
+collection, use the below commands.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="sd-card-text">Install a specific GitHub release (v1.12.0):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>git@github.com:ansible-collections/ibm_zos_core.git,v1.12.0
+</pre></div>
+</div>
+</li>
+<li><p class="sd-card-text">Install the collection from the <strong>dev</strong> branch:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>git@github.com:ansible-collections/ibm_zos_core.git,dev
+</pre></div>
+</div>
+</li>
+<li><p class="sd-card-text">Install from the <strong>dev</strong> branch using SSH authentication by including the prefix <strong>git+</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ansible-collections/ibm_zos_core.git,dev
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+<p class="sd-card-text">For more information, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#installing-a-collection-from-a-git-repository">Installing a collection from a git repository (Ansible Documentation)</a>.</p>
+</div>
+</details></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

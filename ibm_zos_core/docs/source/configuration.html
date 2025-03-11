@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration" href="../../../configuration/coming_soon_ims.html" />
+    <link rel="prev" title="Software Configuration" href="../../../configuration/software-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../configuration/software-configuration.html">Software Configuration</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-directory-structure">Step 1: Directory Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-host-variables-host-vars">Step 2: Host variables (host_vars)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-group-variables-group-vars">Step 3: Group variables (group_vars)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-inventory">Step 4: Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-user">Step 5: User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-6-security">Step 6: Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-7-run-a-playbook">Step 7: Run a playbook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/coming_soon_ims.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/coming_soon_cics.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/coming_soon_sys_auto.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/coming_soon_zosmf.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/coming_soon_zhmc.html">Z HMC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../configuration/software-configuration.html">Software Configuration</a></li>
+      <li class="breadcrumb-item active">Configuration</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h1>
+<p>After installing the IBM z/OS core collection, you will need to configure
+some files so that the collection can locate the dependencies needed to
+run modules on the managed node.</p>
+<section id="step-1-directory-structure">
+<h2>Step 1: Directory Structure<a class="headerlink" href="#step-1-directory-structure" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">The following section discusses configuring the collection … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses configuring the collection,
+it is best to begin by creating the directory structure that will combine
+the various elements; playbooks, inventory, variables (group_vars &amp; host_vars)
+as well as environment variables.</p>
+<p class="sd-card-text">In this example, we are using the alternative directory layout that places
+inventory with <code class="docutils literal notranslate"><span class="pre">group_vars</span></code> and <code class="docutils literal notranslate"><span class="pre">host_vars</span></code> which is particularly useful
+if the variables contained in <code class="docutils literal notranslate"><span class="pre">groups_vars</span></code> and <code class="docutils literal notranslate"><span class="pre">host_vars</span></code> don’t have
+much in common with other systems, eg Linux, Windows, etc.</p>
+<p class="sd-card-text">This directory structure complete with playbook and configurations is
+available in <a class="reference external" href="https://github.com/IBM/z_ansible_collections_samples">Ansible Z Playbook Repository</a>.</p>
+<p class="sd-card-text">The directory structure should be created on the control node, that is
+where Ansible is running.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/playbooks/
+<span class="w">        </span>├──<span class="w"> </span>my_playbook.yml<span class="w">       </span><span class="c1"># A playbook</span>
+<span class="w">        </span>├──<span class="w"> </span>another_playbook.yml<span class="w">  </span><span class="c1"># Another playbook</span>
+<span class="w">        </span>├──<span class="w"> </span>ansible.cfg<span class="w">           </span><span class="c1"># Custom Ansible configuration</span>
+<span class="w">        </span>├──<span class="w"> </span>inventories/
+<span class="w">            </span>└──<span class="w"> </span>host_vars/<span class="w">        </span><span class="c1"># Assign variables to particular systems</span>
+<span class="w">                </span>└──<span class="w"> </span>zos_host.yml
+<span class="w">            </span>└──<span class="w"> </span>group_vars/<span class="w">       </span><span class="c1"># Assign variables to particular groups</span>
+<span class="w">                </span>└──<span class="w"> </span>all.yml
+<span class="w">            </span>└──<span class="w"> </span>inventory.yml<span class="w">     </span><span class="c1"># Inventory file for production systems</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The following commands will also create this directory structure in the <cite>/tmp</cite>
+directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/playbooks<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/my_playbook.yml<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/another_playbook.yml<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/ansible.cfg<span class="p">;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/playbooks/inventories<span class="p">;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/playbooks/inventories/host_vars<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/inventories/host_vars/zos_host.yml<span class="p">;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/playbooks/inventories/group_vars<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/inventories/group_vars/all.yml<span class="p">;</span>
+touch<span class="w"> </span>/tmp/playbooks/inventories/inventory.yml<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="step-2-host-variables-host-vars">
+<h2>Step 2: Host variables (host_vars)<a class="headerlink" href="#step-2-host-variables-host-vars" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">The following section discusses <em>host_vars</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses <code class="docutils literal notranslate"><span class="pre">host_vars</span></code> that will
+automatically be expanded into environment variables. These variables
+are used to instruct the collection on where it can find IBM
+<a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a> and IBM <a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a>
+(ZOAU) dependencies.</p>
+<p class="sd-card-text">If you have not installed either dependency, please review the
+<a class="reference external" href="collection-requirements.html#control-node">managed node requirements</a> for this collection.</p>
+<p class="sd-card-text">Before continuing, you must have the following information:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="sd-card-text">The absolute path of where <strong>IBM Open Enterprise SDK for Python</strong> is installed.</p></li>
+<li><p class="sd-card-text">The IBM Open Enterprise SDK for Python <strong>version</strong> installed, eg 3.12</p></li>
+<li><p class="sd-card-text">The absolute path of where <strong>Z Open Automation Utilities</strong> (ZOAU) is installed.</p></li>
+<li><p class="sd-card-text">The absolute path of the <strong>ZOAU python package</strong> (zoautil-py) which can vary
+depending if <code class="docutils literal notranslate"><span class="pre">pip3</span></code> was used to install the python package.</p>
+<blockquote>
+<div><ul>
+<li><p class="sd-card-text">If <code class="docutils literal notranslate"><span class="pre">pip3</span></code> was <strong>not</strong> used to install the ZOAU python package, you can find
+the compiled package under <strong>&lt;path to zoau&gt;/lib/&lt;python version&gt;</strong>, for
+example <strong>/usr/lpp/IBM/zoautil/1.12</strong>.</p></li>
+<li><p class="sd-card-text">If <code class="docutils literal notranslate"><span class="pre">pip3</span></code> was used to install the ZOAU python package, the following command
+can aid in finding the absolute path to the package.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>show<span class="w"> </span>zoautil-py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p class="sd-card-text">This will result in showing the ‘<strong>Location</strong>’ of the package, for example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Name:<span class="w"> </span>zoautil-py
+Version:<span class="w"> </span><span class="m">1</span>.3.0.1
+Summary:<span class="w"> </span>Automation<span class="w"> </span>utilities<span class="w"> </span><span class="k">for</span><span class="w"> </span>z/OS
+Home-page:<span class="w"> </span>https://www.ibm.com/docs/en/zoau/latest
+Author:<span class="w"> </span>IBM
+Author-email:<span class="w"> </span>csosoft@us.ibm.com
+Location:<span class="w"> </span>/zstack/zpm/python/3.10.0.0/lib/python3.10/site-packages
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p class="sd-card-text">Now that you have gathered the required dependency details, edit the file
+<code class="docutils literal notranslate"><span class="pre">zos_host.yml</span></code> located at <code class="docutils literal notranslate"><span class="pre">/tmp/playbooks/inventories/host_vars/zos_host.yml</span></code>
+that was created in ‘<strong>Step 1: Directory Structure</strong>’.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">You will need to configure the following properties … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You will need to configure the following properties.</p>
+<dl class="simple">
+<dt>PYZ</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The python installation home path on the z/OS manage node.</p></li>
+</ul>
+</dd>
+<dt>PYZ_VERSION</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The version of python on the z/OS managed node.</p></li>
+</ul>
+</dd>
+<dt>ZOAU</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The ZOAU installation home on the z/OS managed node.</p></li>
+</ul>
+</dd>
+<dt>ZOAU_PYTHON_LIBRARY_PATH</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The path to the ZOAU python library ‘zoautil_py’.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">If you have installed the ZOAU python package using <em>pip3</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If you have installed the ZOAU python package using <code class="docutils literal notranslate"><span class="pre">pip3</span></code>, enter this into
+<code class="docutils literal notranslate"><span class="pre">zos_host.yml</span></code> and update only the environment variables <cite>PYZ</cite>, <cite>PYZ_VERSION</cite>,
+<cite>ZOAU</cite>, <cite>ZOAU_PYTHON_LIBRARY_PATH</cite> with the dependency paths.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PYZ:<span class="w"> </span><span class="s2">&quot;/usr/lpp/IBM/cyp/v3r12/pyz&quot;</span>
+PYZ_VERSION:<span class="w"> </span><span class="s2">&quot;3.12&quot;</span>
+ZOAU:<span class="w"> </span><span class="s2">&quot;/usr/lpp/IBM/zoautil&quot;</span>
+ZOAU_PYTHON_LIBRARY_PATH:<span class="w"> </span><span class="s2">&quot;/usr/lpp/IBM/cyp/v3r12/pyz/lib/python3.12/site-packages/&quot;</span>
+ansible_python_interpreter:<span class="w"> </span><span class="s2">&quot;{{ PYZ }}/bin/python3&quot;</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">If you are using the included pre-compiled ZOAU python binaries … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If you are using the included pre-compiled ZOAU python binaries, enter this
+into <code class="docutils literal notranslate"><span class="pre">zos_host.yml`</span></code> and update only the environment variables
+<cite>PYZ</cite>, <cite>PYZ_VERSION</cite>, <cite>ZOAU</cite> with the dependency paths.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PYZ:<span class="w"> </span><span class="s2">&quot;/usr/lpp/IBM/cyp/v3r12/pyz&quot;</span>
+PYZ_VERSION:<span class="w"> </span><span class="s2">&quot;3.12&quot;</span>
+ZOAU:<span class="w"> </span><span class="s2">&quot;/usr/lpp/IBM/zoautil&quot;</span>
+ZOAU_PYTHON_LIBRARY_PATH:<span class="w"> </span><span class="s2">&quot;{{ ZOAU }}/lib/{{ PYZ_VERSION }}&quot;</span>
+ansible_python_interpreter:<span class="w"> </span><span class="s2">&quot;{{ PYZ }}/bin/python3&quot;</span>
+</pre></div>
+</div>
+</div>
+</details><div class="admonition-use-environment-variables-in-a-playbook admonition">
+<p class="admonition-title">Use environment variables in a playbook</p>
+<p class="sd-card-text">If you are testing a configuration, it can be helpful to set the environment variables
+in a playbook. For this option, see: <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/discussions/657">How to put environment variables in a playbook</a>.</p>
+</div>
+</div>
+</details></section>
+<section id="step-3-group-variables-group-vars">
+<h2>Step 3: Group variables (group_vars)<a class="headerlink" href="#step-3-group-variables-group-vars" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">The following section discusses <em>group_vars</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses <code class="docutils literal notranslate"><span class="pre">group_vars</span></code>, part of the
+environment variables which instruct the collection where it can find
+IBM <a class="reference external" href="https://www.ibm.com/products/open-enterprise-python-zos">Open Enterprise SDK for Python</a> and IBM
+<a class="reference external" href="https://www.ibm.com/docs/en/zoau/latest">Z Open Automation Utilities</a> (ZOAU) dependencies.</p>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">all.yml</span></code> file located at <code class="docutils literal notranslate"><span class="pre">/tmp/playbooks/inventories/group_vars/all.yml</span></code>,
+paste the following below, there is no need to edit this content. The <code class="docutils literal notranslate"><span class="pre">host_vars</span></code>
+variables from the previous step will be automatically substituted into the
+environment variables (below) by ansible.</p>
+<p class="sd-card-text">Notice the indentation, ensure it is retained before you save the file.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>environment_vars:
+<span class="w">  </span>_BPXK_AUTOCVT:<span class="w"> </span><span class="s2">&quot;ON&quot;</span>
+<span class="w">  </span>ZOAU_HOME:<span class="w"> </span><span class="s2">&quot;{{ ZOAU }}&quot;</span>
+<span class="w">  </span>PYTHONPATH:<span class="w"> </span><span class="s2">&quot;{{ ZOAU_PYTHON_LIBRARY_PATH }}&quot;</span>
+<span class="w">  </span>LIBPATH:<span class="w"> </span><span class="s2">&quot;{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:.&quot;</span>
+<span class="w">  </span>PATH:<span class="w"> </span><span class="s2">&quot;{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin&quot;</span>
+<span class="w">  </span>_CEE_RUNOPTS:<span class="w"> </span><span class="s2">&quot;FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)&quot;</span>
+<span class="w">  </span>_TAG_REDIR_ERR:<span class="w"> </span><span class="s2">&quot;txt&quot;</span>
+<span class="w">  </span>_TAG_REDIR_IN:<span class="w"> </span><span class="s2">&quot;txt&quot;</span>
+<span class="w">  </span>_TAG_REDIR_OUT:<span class="w"> </span><span class="s2">&quot;txt&quot;</span>
+<span class="w">  </span>LANG:<span class="w"> </span><span class="s2">&quot;C&quot;</span>
+<span class="w">  </span>PYTHONSTDINENCODING:<span class="w"> </span><span class="s2">&quot;cp1047&quot;</span>
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">The following section explains the environment variables … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section explains the environment variables.</p>
+<dl class="simple">
+<dt>BPXK_AUTOCVT</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Activate automatic file conversion of tagged files
+including I/O for regular, pipe, and character-special files that are tagged.</p></li>
+</ul>
+</dd>
+<dt>ZOAU_HOME</dt><dd><ul class="simple">
+<li><p class="sd-card-text">the Z Open Automation Utilities (ZOAU) install root path.</p></li>
+</ul>
+</dd>
+<dt>PYTHONPATH</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The ZOAU Python library path.</p></li>
+</ul>
+</dd>
+<dt>LIBPATH</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The Python libraries  path on the managed node and the ZOAU python
+library path separated by semi-colons.</p></li>
+</ul>
+</dd>
+<dt>PATH</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The ZOAU <cite>/bin</cite> path and Python interpreter path.</p></li>
+</ul>
+</dd>
+<dt>_CEE_RUNOPTS</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The invocation Language Environment runtime options for programs.</p></li>
+</ul>
+</dd>
+<dt>_TAG_REDIR_IN</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Enables tagging of the shell’s stdin redirection based on the
+existing file tags. It must be set to txt.</p></li>
+</ul>
+</dd>
+<dt>_TAG_REDIR_OUT</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Enables tagging of the shell’s stdout redirection based on the
+existing file tags. It must be set to txt.</p></li>
+</ul>
+</dd>
+<dt>_TAG_REDIR_ERR</dt><dd><ul class="simple">
+<li><p class="sd-card-text">enables tagging of the shell’s stderr redirection based on the
+existing file tags. It must be set to txt.</p></li>
+</ul>
+</dd>
+<dt>LANG</dt><dd><ul class="simple">
+<li><p class="sd-card-text">The name of the default locale. The C value specifies the Portable Operating
+System Interface (POSIX) locale.</p></li>
+</ul>
+</dd>
+<dt>PYTHONSTDINENCODING</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Instructs Ansible which encoding it will pipe content to Python’s stdin
+when <code class="docutils literal notranslate"><span class="pre">pipelining=true</span></code> the encoding Unix System Services is configured as,
+supported encodings are ASCII or EBCDIC.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</details></div>
+</details></section>
+<section id="step-4-inventory">
+<h2>Step 4: Inventory<a class="headerlink" href="#step-4-inventory" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">The following section discusses how Ansible interacts with managed node … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses how Ansible interacts with managed
+nodes (hosts) using a list known as <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/welcome/basic-concepts.html#term-Inventory">inventory</a>. It is a configuration file that
+specifies the hosts and group of hosts on which Ansible commands, modules, and playbooks
+will operate. It also defines variables and connection details for those hosts, such as
+IP address. For more information, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/inventory_guide/index.html#">Building Ansible inventories</a>.</p>
+<p class="sd-card-text">The following inventory is explained.</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>systems</strong> is a group that contains one managed host, <strong>zos1</strong>.</p></li>
+<li><p class="sd-card-text"><strong>zos1</strong> is the name chosen for managed node, you can choose any name. </p></li>
+<li><p class="sd-card-text"><strong>ansible_host</strong> is an ansible reserved keyword that is the hostname ansible
+will connect to and run automated tasks on, it can be an LPAR, ZVM, etc.</p></li>
+<li><p class="sd-card-text"><strong>ansible_user</strong> is an ansible reserved keyword that is the user Ansible will
+use to connect to the managed node, generally and OMVS segment.</p></li>
+</ul>
+<p class="sd-card-text">Edit the file <code class="docutils literal notranslate"><span class="pre">inventory.yml</span></code> located at <code class="docutils literal notranslate"><span class="pre">/tmp/playbooks/inventories/inventory.yml</span></code>
+and paste the following below. You will need to update the properties
+<strong>ansible_host</strong> and <strong>ansible_user</strong>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>systems:
+<span class="w">    </span>hosts:
+<span class="w">        </span>zos1:
+<span class="w">        </span>ansible_host:<span class="w"> </span>zos_managed_node_host_name_or_ip
+<span class="w">        </span>ansible_user:<span class="w"> </span>zos_managed_node_ssh_user
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="step-5-user">
+<h2>Step 5: User<a class="headerlink" href="#step-5-user" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">The following section discusses how the collection connects to the managed node over SSH … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses how the collection connects to the
+managed node over SSH via the ansible user defined in inventory or optionally
+the command line, thus requiring access to z/OS UNIX System Services (USS).
+From a security perspective, the collection will require both an OMVS segment
+and TSO segment in the users profile.</p>
+<p class="sd-card-text">With the RACF <strong>ADDGROUP</strong> command you can:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Define a new group to RACF.</p></li>
+<li><p class="sd-card-text">Add a profile for the new group to the RACF database.</p></li>
+<li><p class="sd-card-text">Specify z/OS UNIX System Services information for the group being defined to RACF.</p></li>
+<li><p class="sd-card-text">specify that RACF is to automatically assign an unused GID value to the group.</p></li>
+</ul>
+<p class="sd-card-text">With the RACF <strong>ADDUSER</strong> command you can:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Define a new user to RACF.</p></li>
+<li><p class="sd-card-text">Add a profile for the new user to the RACF database.</p></li>
+<li><p class="sd-card-text">Create a connect profile that connects the user to the default group.</p></li>
+<li><p class="sd-card-text">Create an OMVS segment.</p></li>
+<li><p class="sd-card-text">Create a TSO segment.</p></li>
+</ul>
+<p class="sd-card-text">When issuing RACF commands, you might require sufficient authority to the proper
+resources. It is recommended you review the <a class="reference external" href="https://www.ibm.com/docs/en/zos/3.1.0?topic=racf-zos-security-server-command-language-reference">RACF language reference</a>.</p>
+<p class="sd-card-text">You can define a new group to RACF with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ADDGROUP<span class="w"> </span>gggggggg<span class="w"> </span>OMVS<span class="o">(</span>AUTOGID<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">You can add a new user with RACF command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ADDUSER<span class="w"> </span>uuuuuuuu<span class="w"> </span>DFLTGRP<span class="o">(</span>gggggggg<span class="o">)</span><span class="w"> </span>OWNER<span class="o">(</span>nnnnnnnn<span class="o">)</span><span class="w"> </span>PASSWORD<span class="o">(</span>pppppppp<span class="o">)</span><span class="w"> </span>TSO<span class="o">(</span>ACCTNUM<span class="o">(</span>aaaaaaaa<span class="o">)</span><span class="w"> </span>PROC<span class="o">(</span>pppppppp<span class="o">))</span><span class="w"> </span>OMVS<span class="o">(</span>HOME<span class="o">(</span>/u/uuuuuuuu<span class="o">)</span><span class="w"> </span>PROGRAM<span class="o">(</span><span class="s1">&#39;/bin/sh&#39;</span><span class="o">))</span><span class="w"> </span>AUTOUID
+</pre></div>
+</div>
+<p class="sd-card-text">To learn more about creating users with RACF, see <a class="reference external" href="https://www.ibm.com/docs/en/zos/3.1.0?topic=syntax-addgroup-add-group-profile">RACF command syntax</a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-file-code" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg></span><span class="sd-summary-text">The following section explains the RACF operands … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section explains the RACF operands used in the above RACF commands.</p>
+<dl class="simple">
+<dt>uuuuuuuu</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Specifies the user to be defined to RACF. 1 - 8 alphanumeric characters. A
+user id can contain any of the supported symbols A-Z, 0-9, #, $, or &#64;.</p></li>
+</ul>
+</dd>
+<dt>gggggggg</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Specifies the name of a RACF-defined group to be used as the default
+group for the user. If you do not specify a group, RACF uses your current connect
+group as the default. 1 - 8 alphanumeric characters, beginning with an alphabetic
+character. A group name can contain any of the supported symbols A-Z, 0-9, #, $, or &#64;.</p></li>
+</ul>
+</dd>
+<dt>nnnnnnnn</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Specifies a RACF-defined user or group to be assigned as the owner of the
+new group. If you do not specify an owner, you are defined as the owner of the group.</p></li>
+</ul>
+</dd>
+<dt>pppppppp</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Specifies the user’s initial logon password. This password is always set
+expired, thus requiring the user to change the password at initial logon.</p></li>
+</ul>
+</dd>
+<dt>aaaaaaaa</dt><dd><ul class="simple">
+<li><p class="sd-card-text">Specifies the user’s default TSO account number. The account number you
+specify must be protected by a profile in the ACCTNUM general resource class, and
+the user must be granted READ access to the profile.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</details></div>
+</details></section>
+<section id="step-6-security">
+<h2>Step 6: Security<a class="headerlink" href="#step-6-security" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">The following section discusses how the collection secures interaction using RACF … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses how the collection secures interaction using RACF.
+Some of the modules in the collection will perform operations that require the
+playbook user to have appropriate authority with various RACF resource classes.
+Each module documents which access is needed in the <strong>notes</strong> section. A user
+is described as the remote SSH user executing playbook tasks, who can also
+obtain escalated privileges to execute as another user.</p>
+<p class="sd-card-text">In RACF, a <em>class</em> refers to a collection of resources that share similar
+characteristics, while a <em>resource class profile</em> is a set of access controls
+belonging a class. In other words, a class is a group of related things, and a
+resource class profile are rules managing access to those things within that group.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Enabling RACF resource classes for module <em>zos_apf</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Enabling RACF resource classes for module <code class="docutils literal notranslate"><span class="pre">zos_apf</span></code> requires that
+library <em>libname</em>, you have <strong>UPDATE</strong> authority to the RACF <strong>FACILITY</strong>
+resource class entity <strong>CSVAPF.libname</strong>, or there must be no <strong>FACILITY</strong>
+class profile that protects that entity. Once access for <strong>CSVAPF.libname</strong>
+has been determined:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">To control who can make the APF list dynamic … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To control who can make the <strong>APF list dynamic</strong> using module <code class="docutils literal notranslate"><span class="pre">zos_apf</span></code>,
+the RACF security administrator can:</p>
+<p class="sd-card-text">Establish a profile for the following FACILITY class with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RDEFINE<span class="w"> </span>FACILITY<span class="w"> </span>CSVAPF.MVS.SETPROG.FORMAT.DYNAMIC<span class="w"> </span>UACC<span class="o">(</span>NONE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Then permit the RACF-defined user or group profile <em>iiiiiiii</em> to use the class
+with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PERMIT<span class="w"> </span>CSVAPF.MVS.SETPROG.FORMAT.DYNAMIC<span class="w"> </span>CLASS<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>ID<span class="o">(</span>iiiiiiii<span class="o">)</span><span class="w"> </span>ACCESS<span class="o">(</span>UPDATE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If the FACILITY class is not active, issue the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>CLASSACT<span class="o">(</span>FACILITY<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To verify the FACILITY class is active, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>LIST
+</pre></div>
+</div>
+<p class="sd-card-text">To refresh the FACILITY resource class, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>RACLIST<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>REFRESH
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">To control who can make the APF list static … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To control who can make the <strong>APF list dynamic</strong> using module <code class="docutils literal notranslate"><span class="pre">zos_apf</span></code>,
+the RACF security administrator can:</p>
+<p class="sd-card-text">Establish a profile for the following FACILITY class with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RDEFINE<span class="w"> </span>FACILITY<span class="w"> </span>CSVAPF.MVS.SETPROG.FORMAT.STATIC<span class="w"> </span>UACC<span class="o">(</span>NONE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Then permit the RACF-defined user or group profile <em>iiiiiiii</em> to use the class
+with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PERMIT<span class="w"> </span>CSVAPF.MVS.SETPROG.FORMAT.STATIC<span class="w"> </span>CLASS<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>ID<span class="o">(</span>iiiiiiii<span class="o">)</span><span class="w"> </span>ACCESS<span class="o">(</span>UPDATE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If the FACILITY class is not active, issue the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>CLASSACT<span class="o">(</span>FACILITY<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To verify the FACILITY class is active, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>LIST
+</pre></div>
+</div>
+<p class="sd-card-text">To refresh the FACILITY resource class, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>RACLIST<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>REFRESH
+</pre></div>
+</div>
+</div>
+</details><p class="sd-card-text">To learn more about enabling users APF dynamic and static access, see
+controlling <a class="reference external" href="https://www.ibm.com/docs/en/zos/3.1.0?topic=lists-controlling-how-change-apf-list-format">static and dynamic access</a>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Enabling RACF resource class for module <em>zos_backup_restore</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Enabling RACF resource class for module <code class="docutils literal notranslate"><span class="pre">zos_backup_restore</span></code> requires that
+library <strong>STGADMIN.ADR.DUMP.TOLERATE.ENQF</strong> have <strong>READ</strong> authority or there
+must be no <strong>FACILITY</strong> class profile that protects that entity to use the
+module option recover=true.</p>
+<p class="sd-card-text">Establish a profile for the following FACILITY class with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RDEFINE<span class="w"> </span>FACILITY<span class="w"> </span>STGADMIN.ADR.DUMP.TOLERATE.ENQF<span class="w"> </span>UACC<span class="o">(</span>NONE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Then permit the RACF-defined user or group profile <em>iiiiiiii</em> to use the class
+with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PERMIT<span class="w"> </span>STGADMIN.ADR.DUMP.TOLERATE.ENQF<span class="w"> </span>CLASS<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>ID<span class="o">(</span>iiiiiiii<span class="o">)</span><span class="w"> </span>ACCESS<span class="o">(</span>READ<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If the FACILITY class is not active, issue the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>CLASSACT<span class="o">(</span>FACILITY<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To verify the FACILITY class is active, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>LIST
+</pre></div>
+</div>
+<p class="sd-card-text">To refresh the FACILITY resource class, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>RACLIST<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>REFRESH
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Enabling RACF resource class for module <em>zos_copy</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Enabling RACF resource class for module <code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> requires that library
+<strong>MVS.MCSOPER.ZOAU</strong> have <strong>READ</strong> authority or there must be no <strong>OPERCMDS</strong>
+class profile that protects that entity to use the module.</p>
+<p class="sd-card-text">Establish a profile for the following OPERCMDS class with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RDEFINE<span class="w"> </span>OPERCMDS<span class="w"> </span>MVS.MCSOPER.ZOAU<span class="w"> </span>UACC<span class="o">(</span>NONE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Then permit the RACF-defined user or group profile <em>iiiiiiii</em> to use the class
+with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PERMIT<span class="w"> </span>MVS.MCSOPER.ZOAU<span class="w"> </span>CLASS<span class="o">(</span>OPERCMDS<span class="o">)</span><span class="w"> </span>ID<span class="o">(</span>iiiiiiii<span class="o">)</span><span class="w"> </span>ACCESS<span class="o">(</span>READ<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If the OPERCMDS class is not active, issue the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>CLASSACT<span class="o">(</span>OPERCMDS<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To verify the OPERCMDS class is active, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>LIST
+</pre></div>
+</div>
+<p class="sd-card-text">To refresh the OPERCMDS resource class, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>RACLIST<span class="o">(</span>OPERCMDS<span class="o">)</span><span class="w"> </span>REFRESH
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">Enabling RACF resource class for module <em>zos_volume_init</em> … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Enabling RACF resource class for module <code class="docutils literal notranslate"><span class="pre">zos_volume_init</span></code> requires
+that library <strong>STGADMIN.ICK.INIT</strong> have <strong>READ</strong> authority or there must
+be no <strong>FACILITY</strong> class profile that protects that entity to use the module.</p>
+<p class="sd-card-text">Establish a profile for the following FACILITY class with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RDEFINE<span class="w"> </span>FACILITY<span class="w"> </span>STGADMIN.ICK.INIT<span class="w"> </span>UACC<span class="o">(</span>NONE<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Then permit the RACF-defined user or group profile <em>iiiiiiii</em> to use the class
+with command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>PERMIT<span class="w"> </span>STGADMIN.ICK.INIT<span class="w"> </span>CLASS<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>ID<span class="o">(</span>iiiiiiii<span class="o">)</span><span class="w"> </span>ACCESS<span class="o">(</span>READ<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If the FACILITY class is not active, issue the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>CLASSACT<span class="o">(</span>FACILITY<span class="o">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To verify the FACILITY class is active, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>LIST
+</pre></div>
+</div>
+<p class="sd-card-text">To refresh the FACILITY resource class, issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SETROPTS<span class="w"> </span>RACLIST<span class="o">(</span>FACILITY<span class="o">)</span><span class="w"> </span>REFRESH
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Use the RLIST command to display information on resources … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Use the RLIST command to display information on resources belonging to RACF classes.</p>
+<p class="sd-card-text">To see information on class OPERCMDS, resource class profile MVS.MCSOPER.ZOAU,
+issue command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>RLIST<span class="w"> </span>OPERCMDS<span class="w"> </span>MVS.MCSOPER.ZOAU
+</pre></div>
+</div>
+<p class="sd-card-text">RLIST command result:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>CLASS<span class="w">      </span>NAME
+-----<span class="w">      </span>----
+OPERCMDS<span class="w">   </span>MVS.MCSOPER.ZOAU
+
+LEVEL<span class="w">  </span>OWNER<span class="w">      </span>UNIVERSAL<span class="w"> </span>ACCESS<span class="w">  </span>YOUR<span class="w"> </span>ACCESS<span class="w">  </span>WARNING
+-----<span class="w">  </span>--------<span class="w">   </span>----------------<span class="w">  </span>-----------<span class="w">  </span>-------
+<span class="m">00</span><span class="w">     </span>RACEC<span class="w">      </span>READ<span class="w">              </span>READ<span class="w">         </span>NO
+</pre></div>
+</div>
+</div>
+</details></div>
+</details></section>
+<section id="step-7-run-a-playbook">
+<h2>Step 7: Run a playbook<a class="headerlink" href="#step-7-run-a-playbook" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-command-palette" viewBox="0 0 16 16" aria-hidden="true"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Z"></path></svg></span><span class="sd-summary-text">The following section discusses how to run an run an Ansible playbook … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following section discusses how to use the IBM z/OS Core collection in an Ansible playbook.
+An <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbooks-intro">Ansible playbook</a> consists of organized instructions that define work for a managed
+node (host) to be managed with Ansible.</p>
+<p class="sd-card-text">If you have completed steps 1 - 6 above, then you are ready to run a playbook. In the
+folllowing playbook, there are two tasks, the first one will perform a simple ping
+operation using <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/modules/zos_ping.html">ibm_zos_core.zos_ping</a> and the following operation will use the
+<a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/modules/zos_operator.html">ibm_zos_core.zos_operator</a> command to display the local time of day and the date.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>---
+-<span class="w"> </span>hosts:<span class="w"> </span>all
+<span class="w">  </span>environment:<span class="w"> </span><span class="s2">&quot;{{ environment_vars }}&quot;</span>
+
+<span class="w">  </span>tasks:
+<span class="w">    </span>-<span class="w"> </span>name:<span class="w"> </span>Ping<span class="w"> </span>host<span class="w"> </span>-<span class="w"> </span><span class="o">{{</span><span class="w"> </span>inventory_hostname<span class="w"> </span><span class="o">}}</span>
+<span class="w">      </span>ibm.ibm_zos_core.zos_ping:
+<span class="w">      </span>register:<span class="w"> </span>result
+<span class="w">    </span>-<span class="w"> </span>name:<span class="w"> </span>Response
+<span class="w">      </span>debug:
+<span class="w">        </span>msg:<span class="w"> </span><span class="s2">&quot;{{ result.ping }}&quot;</span>
+
+<span class="w">    </span>-<span class="w"> </span>name:<span class="w"> </span>Display<span class="w"> </span>system<span class="w"> </span>limits
+<span class="w">    </span>zos_operator:
+<span class="w">        </span>cmd:<span class="w"> </span><span class="s1">&#39;D OMVS,LIMITS&#39;</span>
+<span class="w">    </span>register:<span class="w"> </span>result
+<span class="w">    </span>tags:<span class="w"> </span>sys_limit_info
+
+<span class="w">    </span>-<span class="w"> </span>name:<span class="w"> </span>Result<span class="w"> </span>display<span class="w"> </span>system<span class="w"> </span>limits
+<span class="w">    </span>debug:
+<span class="w">        </span>msg:<span class="w"> </span><span class="s2">&quot;{{result}}&quot;</span>
+<span class="w">    </span>tags:<span class="w"> </span>sys_limit_info
+</pre></div>
+</div>
+<p class="sd-card-text">Copy the above playbook into a file, call it <strong>sample.yml</strong> and to run it,
+use he Ansible command <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> with the inventory you definewd
+in step 4 along with a reqeust for a password using opiton <code class="docutils literal notranslate"><span class="pre">--ask-pass</span></code>.</p>
+<p class="sd-card-text">The command syntax is <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">&lt;inventory&gt;</span> <span class="pre">&lt;playbook&gt;</span> <span class="pre">--ask-pass</span></code>,
+for example;</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory<span class="w"> </span>sample.yaml
+</pre></div>
+</div>
+<p class="sd-card-text">You can avoid a password prompt by configuring SSH keys, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/inventory_guide/connection_details.html#setting-up-ssh-keys">setting up SSH keys</a>.</p>
+<p class="sd-card-text">For further reading, review <a class="reference external" href="https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html#run-your-first-command-and-playbook">run your first command and playbook</a> and follow up
+with <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#about-playbooks">Ansible playbooks</a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Optionally, you can configure the console logging verbosity … (expand for more)</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Optionally, you can configure the console logging verbosity during playbook
+execution. This is helpful in situations where communication is failing and
+you want to obtain more details. To adjust the logging verbosity, append more
+letter <code class="docutils literal notranslate"><span class="pre">v</span></code>’s; for example, <code class="docutils literal notranslate"><span class="pre">-v</span></code>, <code class="docutils literal notranslate"><span class="pre">-vv</span></code>, <code class="docutils literal notranslate"><span class="pre">-vvv</span></code>, or <code class="docutils literal notranslate"><span class="pre">-vvvv</span></code>. Each letter
+<code class="docutils literal notranslate"><span class="pre">v</span></code> increases logging verbosity similar to traditional logging levels <strong>INFO</strong>,
+<strong>WARN</strong>, <strong>ERROR</strong>, <strong>DEBUG</strong>.</p>
+<p class="sd-card-text">Using the previous example, the following will set the highest level of
+verbosity.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory<span class="w"> </span>sample.yaml<span class="w"> </span>-vvvv
+</pre></div>
+</div>
+</div>
+</details></div>
+</details></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

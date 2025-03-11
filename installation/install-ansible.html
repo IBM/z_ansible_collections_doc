@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ansible &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ansible for IBM Z" href="install-collections.html" />
+    <link rel="prev" title="Software Installation" href="software-installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="software-installation.html">Software Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ansible</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procedures">Procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-installation">Verify installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-installation">Test installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install-collections.html">Ansible for IBM Z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-collections.html">Upgrade Ansible for IBM Z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remove-collections.html">Remove Ansible for IBM Z</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="software-installation.html">Software Installation</a></li>
+      <li class="breadcrumb-item active">Ansible</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ansible">
+<span id="install-ansible"></span><h1>Ansible<a class="headerlink" href="#ansible" title="Link to this heading"></a></h1>
+<p>Before installing Ansible, it is recommended you review the <strong>Ansible for IBM Z</strong>
+collections requirements to align the Ansible version to a supported version.</p>
+<p>For <strong>Ansible for IBM Z</strong> requirements, review the topic
+<a class="reference internal" href="../requirements/software-requirements.html#software-requirements"><span class="std std-ref">software requirements</span></a>.</p>
+<p>If you prefer watching videos, you can follow the steps discussed in the guide,
+<a class="reference external" href="https://mediacenter.ibm.com/media/Set%20up%20your%20Ansible%20control%20node%20for%20getting%20started%20with%20Ansible%20for%20IBM%20Z/1_r9g0duq3">Set up your Ansible control node for getting started with Ansible for IBM Z</a>.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>After you have decided on an Ansible version, ensure the required version of Python
+is installed on the control node. You can review which version of Python is required
+by reviewing the <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix">ansible-core support matrix</a>.</p>
+</section>
+<section id="procedures">
+<h2>Procedures<a class="headerlink" href="#procedures" title="Link to this heading"></a></h2>
+<p>Ansible’s community packages are distributed in two ways: <code class="docutils literal notranslate"><span class="pre">ansible</span></code>
+or <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>. To find out which package to use, see
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#selecting-an-ansible-package-and-version-to-install">Selecting an Ansible package and version to install</a>.</p>
+<p>You can install Ansible with <code class="docutils literal notranslate"><span class="pre">pipx</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pipx">Install Ansible with pipx</a></p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pip">Install Ansible with pip</a></p></li>
+</ul>
+</div></blockquote>
+<p>Additionally, you can install Ansible to containers or upgrade the
+Ansible version. For detailed information, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible">Install Ansible</a>
+and select the appropriate option.</p>
+</section>
+<section id="verify-installation">
+<h2>Verify installation<a class="headerlink" href="#verify-installation" title="Link to this heading"></a></h2>
+<p>After you installed Ansible on the control node, ensure the installation
+is successful.</p>
+<p>If you have installed <strong>ansible-core</strong>, you can test this by checking
+the version with command:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible<span class="w"> </span>--version
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you have installed <strong>ansible</strong>, you can test this by checking
+the version with command:</p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible-community<span class="w"> </span>--version
+</pre></div>
+</div>
+</div></blockquote>
+<p>To learn more about configuration, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#confirming-your-installation">Confirm your installation</a>.</p>
+</div></blockquote>
+</section>
+<section id="test-installation">
+<h2>Test installation<a class="headerlink" href="#test-installation" title="Link to this heading"></a></h2>
+<p>After you have verified the installation, you can run a simple Ansible
+adhoc command utilizing the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html">ansible.builtin.ping module</a> module to test
+the installation.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ansible<span class="w"> </span>localhost<span class="w"> </span>-m<span class="w"> </span>ansible.builtin.ping
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

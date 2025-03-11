@@ -20,58 +20,6 @@ Releases
 ========
 
 
-Version 1.9.3
--------------
-
-Released: 2024-11-29
-
-Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
-
-**Bug fixes:**
-
-* Increased zhmcclient version to 1.18.2 to pick up fixes. (issue #1074)
-
-* Fixed that all password-like input parameters that were written in clear text
-  to the module entry log are now blanked out. This affected the following
-  modules: zhmc_ldap_server_definition, zhmc_lpar, zhmc_partition, zhmc_user.
-
-* Fixed that all password-like input parameters that were added to the
-  module return value in clear text for 'state' values that created or updated
-  the resource are now removed from the return value. This affected the
-  following modules: zhmc_ldap_server_definition, zhmc_lpar, zhmc_partition.
-
-* Docs: Ignored www.ansible.com in linkcheck, because it occasionally times out.
-
-
-Version 1.9.2
--------------
-
-Released: 2024-11-22
-
-Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
-
-**Bug fixes:**
-
-* Fixed safety issues up to 2024-11-21.
-
-* Dev: Fixed removal of some files in the Makefile.
-
-* Fixed that the zhmc_user module blanked out the 'password' property in
-  the input params before passing them on to the zhmcclient
-  'User.update_properties()' method. (issue #1081)
-
-* Docs: Fixed broken links to IBM documentation and updated permanently
-  redirected links.
-
-**Enhancements:**
-
-* Support for ansible-core 2.18, by adding an ignore file for the sanity tests.
-
-* The 'hmc_auth' input parameter is no longer completely removed from the
-  module entry log, but instead its sensitive items 'password' and 'session_id'
-  are now blanked out.
-
-
 Version 1.9.1
 -------------
 
@@ -80,8 +28,6 @@ Released: 2024-07-18
 Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
 
 **Bug fixes:**
-
-* Fixed safety issues up to 20024-07-19.
 
 * Sanity test: Fixed the sanity test on AutomationHub which failed because the
   "compile" and "import" tests were run for all target node Python versions,
@@ -93,8 +39,6 @@ Availability: `AutomationHub`_, `Galaxy`_, `GitHub`_
   that is consumed by the sanity test if present and that declares that the
   modules of this collection run only on the controller node, so the additional
   Python versions for the target node are no longer used for these sanity tests.
-
-* Dev: Fixed new issue 'too-many-positional-arguments' reported by Pylint 3.3.0.
 
 **Cleanup:**
 
