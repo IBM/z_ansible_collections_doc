@@ -25,7 +25,7 @@ the issue will be triaged and handled by the development teams.
 Option 1: Support from Red Hat and IBM
 --------------------------------------
 
-.. dropdown:: For support from Red Hat and IBM ...
+.. dropdown:: For support from Red Hat and IBM ... (expand for more)
     :color: primary
     :icon: info
 
@@ -60,7 +60,7 @@ Option 1: Support from Red Hat and IBM
 Option 2: Support from the community
 ------------------------------------
 
-.. dropdown:: For support from the community ...
+.. dropdown:: For support from the community ... (expand for more)
     :color: primary
     :icon: info
 
