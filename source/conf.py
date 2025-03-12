@@ -1,5 +1,5 @@
 ##############################################################################
-# © Copyright IBM Corporation 2020, 2021                                     #
+# © Copyright IBM Corporation 2020, 2025                                     #
 ##############################################################################
 
 ##############################################################################
@@ -16,7 +16,7 @@
 ##############################################################################
 
 project = 'Red Hat Ansible Certified Content for IBM Z'
-copyright = 'IBM Corp. 2020, 2023'
+copyright = 'IBM Corp. 2020, 2025'
 author = 'IBM'
 
 # Disable the Copyright footer for Read the docs at the bottom of the page
@@ -34,7 +34,9 @@ html_show_sphinx = False
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
-    "sphinx_rtd_theme"
+    "sphinx_rtd_theme",
+    'sphinx_copybutton',
+    "sphinx_design"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -48,7 +50,6 @@ exclude_patterns = exclude_patterns = [
     'ibm_zos_cics/docs/source/index.rst',
     'ibm_zos_cics/docs/source/installation.rst',
     'ibm_zos_cics/docs/source/playbooks.rst',
-    'ibm_zos_cics/docs/source/requirements.rst',
     'ibm_zos_cics/docs/zos-collection-index.rst',
     'ibm_zos_core/docs/files/role_sample/roles.rst',
     'ibm_zos_core/docs/source/index.rst',
@@ -68,12 +69,10 @@ exclude_patterns = exclude_patterns = [
     'ibm_zos_ims/docs/source/playbooks-single.rst',
     'ibm_zos_ims/docs/source/playbooks.rst',
     'ibm_zos_ims/docs/source/requirements-single.rst',
-    'ibm_zos_ims/docs/source/requirements.rst',
     'ibm_zos_sysauto/docs/source/index.rst',
     'ibm_zos_sysauto/docs/source/installation.rst',
     'ibm_zos_sysauto/docs/source/license.rst',
     'ibm_zos_sysauto/docs/source/playbooks.rst',
-    'ibm_zos_sysauto/docs/source/requirements.rst',
     'ibm_zos_sysauto/docs/source/playbooks/sample_pb_create_dynres.rst',
     'ibm_zos_sysauto/docs/source/playbooks/sample_pb_delete_dynres.rst',
     'zhmc-ansible-modules/docs/source/community_guides.rst',
@@ -84,7 +83,6 @@ exclude_patterns = exclude_patterns = [
     'zhmc-ansible-modules/docs/source/versioning.rst',
     'howdoi/howdoi.rst',
     'ibm_zosmf/docs/source/index.rst',
-    'ibm_zosmf/docs/source/requirements.rst',
     'ibm_zosmf/docs/source/installation.rst',
     'ibm_zosmf/docs/source/license.rst',
     'ibm_zosmf/docs/source/playbooks.rst',
@@ -123,7 +121,8 @@ html_context = {
 # https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/
 html_theme_options = {
-    'prev_next_buttons_location': None
+    'prev_next_buttons_location': None,
+    'body_max_width': None
     # 'canonical_url': '',
     #'analytics_id': 'UA-XXXXXXX-1',
     #'logo_only': False,
@@ -140,6 +139,16 @@ html_theme_options = {
     #'titles_only': False
 }
 
+# Add the following function so the width of the page in display adapts to the user's screen
+def setup(app):
+    app.add_css_file('my_theme.css')
+
+html_static_path = ['_static'] 
+
+html_css_files = [
+    'css/table.css',
+    'css/custom.css'
+]
 
 ##############################################################################
 #                          sphinx-versioning                                 #
