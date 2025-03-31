@@ -68,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../collections_content/collection-releases.html">Collection Releases</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS Core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-13-0-beta-1">Version 1.13.0-beta.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-13-0">Version 1.13.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#new-modules">New Modules</a></li>
@@ -222,8 +222,8 @@
              
   <section id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Link to this heading"></a></h1>
-<section id="version-1-13-0-beta-1">
-<h2>Version 1.13.0-beta.1<a class="headerlink" href="#version-1-13-0-beta-1" title="Link to this heading"></a></h2>
+<section id="version-1-13-0">
+<h2>Version 1.13.0<a class="headerlink" href="#version-1-13-0" title="Link to this heading"></a></h2>
 <section id="minor-changes">
 <h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Link to this heading"></a></h3>
 <ul>
@@ -251,7 +251,16 @@
 <section id="bugfixes">
 <h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Link to this heading"></a></h3>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - Improve module zos_copy error handling when the user does not have universal access authority set to UACC(READ) for SAF Profile ‘MVS.MCSOPER.ZOAU’ and SAF Class OPERCMDS. The module now handles the exception and returns an informative message.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Improve module zos_copy error handling when the user does not have universal access authority set to UACC(READ) for SAF Profile ‘MVS.MCSOPER.ZOAU’ and SAF Class OPERCMDS. The module now handles the exception and returns an informative message.</p></li>
+<li><p>Previously, if the dataset name included special characters such as $, validation would fail when force_lock was false. This has been changed to allow the use of special characters when force_lock option is false.</p></li>
+<li><p>Previously, if the dataset name included special characters such as <code class="docutils literal notranslate"><span class="pre">$</span></code> and <code class="docutils literal notranslate"><span class="pre">asa_text</span></code> option is true, the module would fail. Fix now allows the use of special characters in the data set name when <code class="docutils literal notranslate"><span class="pre">asa_text</span></code> option is true.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">asa_text</span></code> was set to true at the same time as <code class="docutils literal notranslate"><span class="pre">force_lock</span></code>, a copy would fail saying the destination was already in use. Fix now opens destination data sets up with disposition SHR when <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> and <code class="docutils literal notranslate"><span class="pre">asa_text</span></code> are set to true.</p></li>
+</ul>
+</div></blockquote>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_fetch</span></code> - Some relative paths were not accepted as a parameter e.g. C(files/fetched_file). Change now allows the user to use different types of relative paths as a parameter.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_find</span></code></p>
 <blockquote>
@@ -285,6 +294,7 @@
 <section id="availability">
 <h3>Availability<a class="headerlink" href="#availability" title="Link to this heading"></a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://www.ansible.com/products/automation-hub">Ansible Automation Platform</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zos_core">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core">GitHub</a></p></li>
 </ul>
@@ -294,7 +304,8 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when setting ‘location’ to ‘local’ and not specifying the from and to encoding, the modules defaults are not read leaving the file in its original encoding; explicitly set the encodings instead of relying on the default.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zos_job_submit</span></code> - when submitting JCL, the response value returned for <strong>byte_count</strong> is incorrect.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zos_apf</span></code> - When trying to remove a library that contains the ‘$’ character in the name for an APF(authorized program facility), the operation will fail.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_apf</span></code> - When trying to remove a library that contains the ‘$’ character in the name for an APF(authorized program facility), the operation might fail.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zos_copy</span></code> - Copying from a sequential data set that is in use will result in a false positive and destination data set will be empty. The same is true when <code class="docutils literal notranslate"><span class="pre">type=gdg</span></code> and source GDS is a sequential data set in use.</p></li>
 </ul>
 </section>
 </section>

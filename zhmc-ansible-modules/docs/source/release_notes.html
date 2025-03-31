@@ -73,6 +73,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-9-3">Version 1.9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-9-2">Version 1.9.2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-9-1">Version 1.9.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-9-0">Version 1.9.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-8-1">Version 1.8.1</a></li>
@@ -136,12 +138,52 @@
              
   <section id="releases">
 <span id="id1"></span><h1>Releases<a class="headerlink" href="#releases" title="Link to this heading"></a></h1>
+<section id="version-1-9-3">
+<h2>Version 1.9.3<a class="headerlink" href="#version-1-9-3" title="Link to this heading"></a></h2>
+<p>Released: 2024-11-29</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Increased zhmcclient version to 1.18.2 to pick up fixes. (issue #1074)</p></li>
+<li><p>Fixed that all password-like input parameters that were written in clear text
+to the module entry log are now blanked out. This affected the following
+modules: zhmc_ldap_server_definition, zhmc_lpar, zhmc_partition, zhmc_user.</p></li>
+<li><p>Fixed that all password-like input parameters that were added to the
+module return value in clear text for ‘state’ values that created or updated
+the resource are now removed from the return value. This affected the
+following modules: zhmc_ldap_server_definition, zhmc_lpar, zhmc_partition.</p></li>
+<li><p>Docs: Ignored www.ansible.com in linkcheck, because it occasionally times out.</p></li>
+</ul>
+</section>
+<section id="version-1-9-2">
+<h2>Version 1.9.2<a class="headerlink" href="#version-1-9-2" title="Link to this heading"></a></h2>
+<p>Released: 2024-11-22</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Fixed safety issues up to 2024-11-21.</p></li>
+<li><p>Dev: Fixed removal of some files in the Makefile.</p></li>
+<li><p>Fixed that the zhmc_user module blanked out the ‘password’ property in
+the input params before passing them on to the zhmcclient
+‘User.update_properties()’ method. (issue #1081)</p></li>
+<li><p>Docs: Fixed broken links to IBM documentation and updated permanently
+redirected links.</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Support for ansible-core 2.18, by adding an ignore file for the sanity tests.</p></li>
+<li><p>The ‘hmc_auth’ input parameter is no longer completely removed from the
+module entry log, but instead its sensitive items ‘password’ and ‘session_id’
+are now blanked out.</p></li>
+</ul>
+</section>
 <section id="version-1-9-1">
 <h2>Version 1.9.1<a class="headerlink" href="#version-1-9-1" title="Link to this heading"></a></h2>
 <p>Released: 2024-07-18</p>
 <p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
 <p><strong>Bug fixes:</strong></p>
 <ul>
+<li><p>Fixed safety issues up to 20024-07-19.</p></li>
 <li><p>Sanity test: Fixed the sanity test on AutomationHub which failed because the
 “compile” and “import” tests were run for all target node Python versions,
 which includes Python 2.7. As we had dropped support for Python &lt; 3.8 in
@@ -152,6 +194,7 @@ that is consumed by the sanity test if present and that declares that the
 modules of this collection run only on the controller node, so the additional
 Python versions for the target node are no longer used for these sanity tests.</p>
 </li>
+<li><p>Dev: Fixed new issue ‘too-many-positional-arguments’ reported by Pylint 3.3.0.</p></li>
 </ul>
 <p><strong>Cleanup:</strong></p>
 <ul class="simple">
