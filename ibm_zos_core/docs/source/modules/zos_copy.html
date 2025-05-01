@@ -89,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
@@ -150,10 +151,11 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id5">See Also</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id3">Attributes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id6">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
 </ul>
 </nav>
 <section id="synopsis">
@@ -293,10 +295,10 @@
 </div>
 </dd>
 <dt>executable</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or library to be copied is an executable.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">src</span></code> executable has an alias, the alias information is also copied. If the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is Unix, the alias is not visible in Unix, even though the information is there and will be visible if copied to a library.</p>
 <p>If <em>executable=true</em>, and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, it must be a PDS or PDSE (library).</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the library attributes assigned will be Undefined (U) record format with a record length of 0, block size of 32760 and the remaining attributes will be computed.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a file, execute permission for the user will be added to the file (<code class="docutils literal notranslate"><span class="pre">u+x</span></code>).</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">src</span></code> executable has an alias, the alias will not be copied unless <code class="docutils literal notranslate"><span class="pre">aliases=true</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -306,6 +308,7 @@
 <dt>aliases</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that any aliases found in the source (USS file, USS dir, PDS/E library or member) are to be preserved during the copy operation.</p>
 <p>Aliases are implicitly preserved when libraries are copied over to USS destinations. That is, when <code class="docutils literal notranslate"><span class="pre">executable=True</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a USS file or directory, this option will be ignored.</p>
 <p>Copying of aliases for text-based data sets from USS sources or to USS destinations is not currently supported.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is Unix, the alias is not visible in Unix, even though the information is there and will be visible if copied to a library.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -363,7 +366,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a VSAM data set, <code class="docutils literal notranslate"><span class="pre">dest</span></code> must also be a VSAM.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a generation data set (GDS), it must be a previously allocated one.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a generation data group (GDG), <code class="docutils literal notranslate"><span class="pre">dest</span></code> can be another GDG or a USS directory.</p>
-<p>Wildcards can be used to copy multiple PDS/PDSE members to another PDS/PDSE.</p>
+<p>Wildcards can be used to copy multiple PDS/PDSE members to another PDS/PDSE. i.e. Using SOME.TEST.PDS(*) will copy all members from one PDS/E to another without removing the destination PDS/E.</p>
 <p>Required unless using <code class="docutils literal notranslate"><span class="pre">content</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -399,7 +402,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, member, basic, library, gdg</div>
+<div class="line"><strong>choices</strong>: ksds, esds, rrds, lds, seq, pds, pdse, member, basic, large, library, gdg</div>
 </div>
 </dd>
 <dt>space_primary</dt><dd><p>If the destination <em>dest</em> data set does not exist , this sets the primary space allocated for the data set.</p>
@@ -663,8 +666,28 @@
 </dd>
 </dl>
 </section>
+<section id="attributes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Attributes</a><a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl>
+<dt>action</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Indicates this has a corresponding action plugin so some parts of the options can be executed on the controller.</div>
+</div>
+</dd>
+<dt>async</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Supports being used with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword.</div>
+</div>
+</dd>
+<dt>check_mode</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Can run in check_mode and return changed status prediction without modifying target. If not supported, the action will be skipped.</div>
+</div>
+</dd>
+</dl>
+</section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a local file to a sequential data set</span>
 <span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/sample_seq_data_set</span>
@@ -865,7 +888,7 @@
 </div>
 </section>
 <section id="notes">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Destination data sets are assumed to be in catalog. When trying to copy to an uncataloged data set, the module assumes that the data set does not exist and will create it.</p>
@@ -880,7 +903,7 @@
 </div>
 </section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
@@ -890,7 +913,7 @@
 </div>
 </section>
 <section id="return-values">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
 <dl>
 <dt>src</dt><dd><p>Source file or data set being copied.</p>
 <div class="line-block">

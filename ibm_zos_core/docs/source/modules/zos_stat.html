@@ -1,0 +1,1386 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="zos_tso_command – Execute TSO commands" href="zos_tso_command.html" />
+    <link rel="prev" title="zos_script – Run scripts in z/OS" href="zos_script.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/software-configuration.html">Software Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../ansible_content.html">z/OS Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+          <li class="breadcrumb-item"><a href="../ansible_content.html">z/OS Core</a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
+      <li class="breadcrumb-item active">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zos-stat-retrieve-facts-from-mvs-data-sets-uss-files-aggregates-and-generation-data-groups">
+<span id="zos-stat-module"></span><h1>zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups<a class="headerlink" href="#zos-stat-retrieve-facts-from-mvs-data-sets-uss-files-aggregates-and-generation-data-groups" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id3">Attributes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id6">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <a class="reference external" href="./zos_stat.html">zos_stat</a> module retrieves facts from resources stored in a z/OS system.</p></li>
+<li><p>Resources that can be queried are UNIX System Services files, data sets, generation data groups and aggregates.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl>
+<dt>name</dt><dd><p>Name of a data set, generation data group (GDG), aggregate, or a UNIX System Services file path, to query.</p>
+<p>Data sets can be sequential, partitioned (PDS), partitioned extended (PDSE), VSAMs or generation data sets (GDS).</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>volumes</dt><dd><p>Name(s) of the volume(s) where the data set will be searched on.</p>
+<p>If omitted, the module will look up the master catalog to find all volumes where a data set is allocated.</p>
+<p>When used, if the data set is not found in at least one volume from the list, the module will fail with a “data set not found” message.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>type</dt><dd><p>Type of resource to query.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: data_set</div>
+<div class="line"><strong>choices</strong>: data_set, file, aggregate, gdg</div>
+</div>
+</dd>
+<dt>sms_managed</dt><dd><p>Whether the data set is managed by the Storage Management Subsystem.</p>
+<p>It will cause the module to retrieve additional information, may take longer to query all attributes of a data set.</p>
+<p>If the data set is a PDSE and the Ansible user has RACF READ authority on it, retrieving SMS information will update the last referenced date of the data set.</p>
+<p>If the system finds the data set is not actually managed by SMS, the rest of the attributes will still be queried and this will be noted in the output from the task.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets.</p>
+<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the environment variable value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>follow</dt><dd><p>Whether to follow symlinks when querying files.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>get_mime</dt><dd><p>Whether to get information about the nature of a file, such as the charset and type of media it represents.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>get_checksum</dt><dd><p>Whether to compute a file’s checksum and return it. Otherwise ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>checksum_algorithm</dt><dd><p>Algorithm used to compute a file’s checksum.</p>
+<p>Will throw an error if the managed node is unable to use the specified algorithm.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: sha1</div>
+<div class="line"><strong>choices</strong>: md5, sha1, sha224, sha256, sha384, sha512</div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Attributes</a><a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl>
+<dt>action</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Indicates this has a corresponding action plugin so some parts of the options can be executed on the controller.</div>
+</div>
+</dd>
+<dt>async</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Supports being used with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword.</div>
+</div>
+</dd>
+<dt>check_mode</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Can run in check_mode and return changed status prediction without modifying target. If not supported, the action will be skipped.</div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a sequential data set.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.SEQ.DATA</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a sequential data set on volume &#39;000000&#39;.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.SEQ.DATA</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+<span class="w">    </span><span class="nt">volume</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;000000&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a sequential data set allocated on multiple volumes.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.SEQ.DATA</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;000000&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;222222&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a PDSE managed by SMS.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.PDSE.DATA</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+<span class="w">    </span><span class="nt">sms_managed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a sequential data set with a non-default temporary HLQ.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.SEQ.DATA</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+<span class="w">    </span><span class="nt">tmp_hlq</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;RESTRICT&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a generation data group.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.GDG.DATA&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gdg</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a generation data set.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.GDG.DATA(-1)&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_set</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of an aggregate.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HLQ.USER.ZFS.DATA&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aggregate</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get the attributes of a file inside Unix System Services.</span>
+<span class="w">  </span><span class="nt">zos_stat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/u/user/file.txt&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">    </span><span class="nt">get_checksum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When querying data sets, the module will create two temporary data sets. One requires around 4 kilobytes of available space on the managed node. The second one, around 1 kilobyte of available space. Both data sets will be removed before the module finishes execution.</p>
+<p>Sometimes, the system could be unable to properly determine the organization or record format of the data set or the space units used to represent its allocation. When this happens, the values for these fields will be null.</p>
+<p>When querying a partitioned data set (PDS), if the Ansible user has RACF READ authority on it, the last referenced date will be updated by the query operation.</p>
+</div>
+</section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">ansible.builtin.stat_module</span></p></li>
+<li><p><a class="reference internal" href="zos_find.html#zos-find-module"><span class="std std-ref">zos_find – Find matching data sets</span></a></p></li>
+<li><p><a class="reference internal" href="zos_gather_facts.html#zos-gather-facts-module"><span class="std std-ref">zos_gather_facts – Gather z/OS system facts.</span></a></p></li>
+</ul>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<dl>
+<dt>stat</dt><dd><p>Dictionary containing information about the resource.</p>
+<p>Attributes that don’t apply to the current resource will still be present on the dictionary with null values, so as to not break automation that relies on certain fields to be available.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>name</dt><dd><p>Name of the resource queried.</p>
+<p>For Generation Data Sets (GDSs), this will be the absolute name.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: USER.SEQ.DATA.SET</div>
+</div>
+</dd>
+<dt>resource_type</dt><dd><p>One of ‘data_set’, ‘gdg’, ‘file’ or ‘aggregate’.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: data_set</div>
+</div>
+</dd>
+<dt>attributes</dt><dd><p>Dictionary containing all the stat data.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>dsorg</dt><dd><p>Data set organization.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: ps</div>
+</div>
+</dd>
+<dt>type</dt><dd><p>Type of the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: library</div>
+</div>
+</dd>
+<dt>record_format</dt><dd><p>Record format of a data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: vb</div>
+</div>
+</dd>
+<dt>record_length</dt><dd><p>Record length of a data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 80</div>
+</div>
+</dd>
+<dt>block_size</dt><dd><p>Block size of a data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 27920</div>
+</div>
+</dd>
+<dt>has_extended_attrs</dt><dd><p>Whether a data set has extended attributes set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>extended_attrs_bits</dt><dd><p>Current values of the EATTR bits for a data set.</p>
+<p>For files, it shows the current values of the extended attributes bits as a group of 4 characters.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: opt</div>
+</div>
+</dd>
+<dt>creation_date</dt><dd><p>Date a data set was created.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-01-27</div>
+</div>
+</dd>
+<dt>creation_time</dt><dd><p>Time at which a data set was created.</p>
+<p>Only available when a data set has extended attributes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 11:25:52</div>
+</div>
+</dd>
+<dt>expiration_date</dt><dd><p>Expiration date of a data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2030-12-31</div>
+</div>
+</dd>
+<dt>last_reference</dt><dd><p>Date where the data set was last referenced.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-01-28</div>
+</div>
+</dd>
+<dt>updated_since_backup</dt><dd><p>Whether the data set has been updated since its last backup.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>jcl_attrs</dt><dd><p>Dictionary containing the names of the JCL job and step that created a data set.</p>
+<p>Only available for data sets with extended attributes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>creation_job</dt><dd><p>JCL job that created the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: DSALLOC</div>
+</div>
+</dd>
+<dt>creation_step</dt><dd><p>JCL job step that created the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: ALLOC</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>volser</dt><dd><p>Name of the volume containing the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 000000</div>
+</div>
+</dd>
+<dt>num_volumes</dt><dd><p>Number of volumes where the data set resides.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>volumes</dt><dd><p>Names of the volumes where the data set resides.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;000000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;SCR03&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>missing_volumes</dt><dd><p>When using the <code class="docutils literal notranslate"><span class="pre">volumes</span></code> option, this field will contain every volume specified in a task where the data set was missing. Will be an empty list in any other case.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;222222&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;AUXVOL&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>device_type</dt><dd><p>Generic device type where the data set resides.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 3390</div>
+</div>
+</dd>
+<dt>space_units</dt><dd><p>Units used to describe sizes for the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: track</div>
+</div>
+</dd>
+<dt>primary_space</dt><dd><p>Primary allocation.</p>
+<p>Uses the space units defined in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 93</div>
+</div>
+</dd>
+<dt>secondary_space</dt><dd><p>Secondary allocation.</p>
+<p>Uses the space units defined in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 56</div>
+</div>
+</dd>
+<dt>allocation_available</dt><dd><p>Total allocation of the data set.</p>
+<p>Uses the space units defined in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 93</div>
+</div>
+</dd>
+<dt>allocation_used</dt><dd><p>Total allocation used by the data set.</p>
+<p>Uses the space units defined in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>extents_allocated</dt><dd><p>Number of extents allocated for the data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>extents_used</dt><dd><p>Number of extents used by the data set.</p>
+<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>blocks_per_track</dt><dd><p>Blocks per track for the unit contained in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 2</div>
+</div>
+</dd>
+<dt>tracks_per_cylinder</dt><dd><p>Tracks per cylinder for the unit contained in space_units.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 15</div>
+</div>
+</dd>
+<dt>sms_data_class</dt><dd><p>The SMS data class name.</p>
+<p>Only returned when the data set is managed by SMS and sms_managed is set to true.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: standard</div>
+</div>
+</dd>
+<dt>sms_mgmt_class</dt><dd><p>The SMS management class name.</p>
+<p>Only returned when the data set is managed by SMS and sms_managed is set to true.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: vsam</div>
+</div>
+</dd>
+<dt>sms_storage_class</dt><dd><p>The SMS storage class name.</p>
+<p>Only returned when the data set is managed by SMS and sms_managed is set to true.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: fast</div>
+</div>
+</dd>
+<dt>encrypted</dt><dd><p>Whether the data set is encrypted.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>key_status</dt><dd><p>Whether the data set has a password set to read/write.</p>
+<p>Value can be either one of ‘none’, ‘read’ or ‘write’.</p>
+<p>For VSAMs, the value can also be ‘supp’, when the module is unable to query its security attributes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: none</div>
+</div>
+</dd>
+<dt>racf</dt><dd><p>Whether there is RACF protection set on the data set.</p>
+<p>Value can be either one of ‘none’, ‘generic’ or ‘discrete’ for non-VSAM data sets.</p>
+<p>For VSAMs, the value can be either ‘yes’ or ‘no’.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: none</div>
+</div>
+</dd>
+<dt>key_label</dt><dd><p>The encryption key label for an encrypted data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: keydsn</div>
+</div>
+</dd>
+<dt>dir_blocks_allocated</dt><dd><p>Number of directory blocks allocated for a PDS.</p>
+<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 5</div>
+</div>
+</dd>
+<dt>dir_blocks_used</dt><dd><p>Number of directory blocks used by a PDS.</p>
+<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 2</div>
+</div>
+</dd>
+<dt>members</dt><dd><p>Number of members inside a partitioned data set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>pages_allocated</dt><dd><p>Number of pages allocated to a PDSE.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1116</div>
+</div>
+</dd>
+<dt>pages_used</dt><dd><p>Number of pages used by a PDSE. The pages are 4K in size.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 5</div>
+</div>
+</dd>
+<dt>perc_pages_used</dt><dd><p>Percentage of pages used by a PDSE.</p>
+<p>Gets rounded down to the nearest integer value.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 10</div>
+</div>
+</dd>
+<dt>pdse_version</dt><dd><p>PDSE data set version.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>max_pdse_generation</dt><dd><p>Maximum number of generations of a member that can be maintained in a PDSE.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>seq_type</dt><dd><p>Type of sequential data set (when it applies).</p>
+<p>Value can be either one of ‘basic’, ‘large’ or ‘extended’.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: basic</div>
+</div>
+</dd>
+<dt>data</dt><dd><p>Dictionary containing attributes for the DATA component of a VSAM.</p>
+<p>For the rest of the attributes of this data set, query it directly with this module.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>key_length</dt><dd><p>Key length for data records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 4</div>
+</div>
+</dd>
+<dt>key_offset</dt><dd><p>Key offset for data records.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>max_record_length</dt><dd><p>Maximum length of data records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 80</div>
+</div>
+</dd>
+<dt>avg_record_length</dt><dd><p>Average length of data records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 80</div>
+</div>
+</dd>
+<dt>bufspace</dt><dd><p>Minimum buffer space in bytes to be provided by a processing program.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 37376</div>
+</div>
+</dd>
+<dt>total_records</dt><dd><p>Total number of records.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 50</div>
+</div>
+</dd>
+<dt>spanned</dt><dd><p>Whether the data set allows records to be spanned across control intervals.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>volser</dt><dd><p>Name of the volume containing the DATA component.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 000000</div>
+</div>
+</dd>
+<dt>device_type</dt><dd><p>Generic device type where the DATA component resides.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 3390</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>index</dt><dd><p>Dictionary containing attributes for the INDEX component of a VSAM.</p>
+<p>For the rest of the attributes of this data set, query it directly with this module.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>key_length</dt><dd><p>Key length for index records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 4</div>
+</div>
+</dd>
+<dt>key_offset</dt><dd><p>Key offset for index records.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>max_record_length</dt><dd><p>Maximum length of index records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>avg_record_length</dt><dd><p>Average length of index records, in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 505</div>
+</div>
+</dd>
+<dt>bufspace</dt><dd><p>Minimum buffer space in bytes to be provided by a processing program.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>total_records</dt><dd><p>Total number of records.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>volser</dt><dd><p>Name of the volume containing the INDEX component.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 000000</div>
+</div>
+</dd>
+<dt>device_type</dt><dd><p>Generic device type where the INDEX component resides.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 3390</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>limit</dt><dd><p>Maximum amount of active generations allowed in a GDG.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 10</div>
+</div>
+</dd>
+<dt>scratch</dt><dd><p>Whether the GDG has the SCRATCH attribute set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>empty</dt><dd><p>Whether the GDG has the EMPTY attribute set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>order</dt><dd><p>Allocation order of new Generation Data Sets for a GDG.</p>
+<p>Value can be either ‘lifo’ or ‘fifo’.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: lifo</div>
+</div>
+</dd>
+<dt>purge</dt><dd><p>Whether the GDG has the PURGE attribute set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>extended</dt><dd><p>Whether the GDG has the EXTENDED attribute set.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>active_gens</dt><dd><p>List of the names of the currently active generations of a GDG.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;USER.GDG.G0001V00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;USER.GDG.G0002V00&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>auditfid</dt><dd><p>File system identification string for an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: C3C6C3F0 F0F3000E 0000</div>
+</div>
+</dd>
+<dt>bitmap_file_size</dt><dd><p>Size in K of an aggregate’s bitmap file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 8</div>
+</div>
+</dd>
+<dt>converttov5</dt><dd><p>Value of the converttov5 flag of an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>filesystem_table_size</dt><dd><p>Size in K of an aggregate’s filesystem table.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 16</div>
+</div>
+</dd>
+<dt>free</dt><dd><p>Kilobytes still free in an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 559</div>
+</div>
+</dd>
+<dt>free_1k_fragments</dt><dd><p>Number of free 1-KB fragments in an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 7</div>
+</div>
+</dd>
+<dt>free_8k_blocks</dt><dd><p>Number of free 8-KB blocks in an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 69</div>
+</div>
+</dd>
+<dt>log_file_size</dt><dd><p>Size in K of an aggregate’s log file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 112</div>
+</div>
+</dd>
+<dt>sysplex_aware</dt><dd><p>Value of the sysplex_aware flag of an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>total_size</dt><dd><p>Total K available in an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 648000</div>
+</div>
+</dd>
+<dt>version</dt><dd><p>Version of an aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 1.5</div>
+</div>
+</dd>
+<dt>quiesced</dt><dd><p>Attributes available when an aggregate has been quiesced.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>job</dt><dd><p>Name of the job that quiesced the aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: USERJOB</div>
+</div>
+</dd>
+<dt>system</dt><dd><p>Name of the system that quiesced the aggregate.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: GENSYS</div>
+</div>
+</dd>
+<dt>timestamp</dt><dd><p>Timestamp of the quiesce operation.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-02-01T18:02:05</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>mode</dt><dd><p>Octal representation of a file’s permissions.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 0755</div>
+</div>
+</dd>
+<dt>atime</dt><dd><p>Time of last access for a file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-02-23T13:03:45</div>
+</div>
+</dd>
+<dt>mtime</dt><dd><p>Time of last modification of a file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-02-23T13:03:45</div>
+</div>
+</dd>
+<dt>ctime</dt><dd><p>Time of last metadata update or creation for a file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-02-23T13:03:45</div>
+</div>
+</dd>
+<dt>checksum</dt><dd><p>Checksum of the file computed by the hashing algorithm specified in <code class="docutils literal notranslate"><span class="pre">checksum_algorithm</span></code>.</p>
+<p>Will be null if <code class="docutils literal notranslate"><span class="pre">get_checksum=false</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2025-02-23T13:03:45</div>
+</div>
+</dd>
+<dt>uid</dt><dd><p>ID of the file’s owner.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>gid</dt><dd><p>ID of the file’s group.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>size</dt><dd><p>Size of the file in bytes.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 9840</div>
+</div>
+</dd>
+<dt>inode</dt><dd><p>Inode number of the path.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1671</div>
+</div>
+</dd>
+<dt>dev</dt><dd><p>Device the inode resides on.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>nlink</dt><dd><p>Number of links to the inode.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>isdir</dt><dd><p>Whether the path is a directory.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>ischr</dt><dd><p>Whether the path is a character device.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>isblk</dt><dd><p>Whether the path is a block device.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>isreg</dt><dd><p>Whether the path is a regular file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>isfifo</dt><dd><p>Whether the path is a named pipe.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>islnk</dt><dd><p>Whether the file is a symbolic link.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>issock</dt><dd><p>Whether the file is a Unix domain socket.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>isuid</dt><dd><p>Whether the Ansible user’s ID matches the owner’s ID.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>isgid</dt><dd><p>Whether the Ansible user’s group matches the owner’s group.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>wusr</dt><dd><p>Whether the file’s owner has write permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>rusr</dt><dd><p>Whether the file’s owner has read permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>xusr</dt><dd><p>Whether the file’s owner has execute permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>wgrp</dt><dd><p>Whether the file’s group has write permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>rgrp</dt><dd><p>Whether the file’s group has read permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>xgrp</dt><dd><p>Whether the file’s group has execute permission.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>woth</dt><dd><p>Whether others have write permission over the file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>roth</dt><dd><p>Whether others have read permission over the file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>xoth</dt><dd><p>Whether others have execute permission over the file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>writeable</dt><dd><p>Whether the Ansible user can write to the path.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>readable</dt><dd><p>Whether the Ansible user can read the path.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>executable</dt><dd><p>Whether the Ansible user can execute the path.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>pw_name</dt><dd><p>User name of the file’s owner.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: username</div>
+</div>
+</dd>
+<dt>gr_name</dt><dd><p>Group name of the file’s owner.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: group</div>
+</div>
+</dd>
+<dt>lnk_source</dt><dd><p>Absolute path to the target of a symlink.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: /etc/foobar/file</div>
+</div>
+</dd>
+<dt>lnk_target</dt><dd><p>Target of a symlink.</p>
+<p>Preserves relative paths.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: ../foobar/file</div>
+</div>
+</dd>
+<dt>charset</dt><dd><p>Current encoding tag associated with the file.</p>
+<p>This tag does not necessarily correspond with the actual encoding of the file.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: IBM-1047</div>
+</div>
+</dd>
+<dt>mimetype</dt><dd><p>Output from the file utility describing the content.</p>
+<p>Will be null if <code class="docutils literal notranslate"><span class="pre">get_mime=false</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: commands text</div>
+</div>
+</dd>
+<dt>audit_bits</dt><dd><p>Audit bits for the file. Contains two sets of 3 bits.</p>
+<p>First 3 bits describe the user-requested audit information.</p>
+<p>Last 3 bits describe the auditor-requested audit information.</p>
+<p>For each set, the bits represent read, write and execute/search audit options.</p>
+<p>An ‘s’ means to audit successful access attempts.</p>
+<p>An ‘f’ means to audit failed access attempts.</p>
+<p>An ‘a’ means to audit all access attempts.</p>
+<p>An ‘-’ means to not audit accesses.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: fff—</div>
+</div>
+</dd>
+<dt>file_format</dt><dd><p>File format (for regular files). One of “null”, “bin” or “rec”.</p>
+<p>Text data delimiter for a file. One of “nl”, “cr”, “lf”, “crlf”, “lfcr” or “crnl”.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: bin</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

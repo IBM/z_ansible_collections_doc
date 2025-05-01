@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="zos_unarchive – Unarchive files and data sets in z/OS." href="zos_unarchive.html" />
-    <link rel="prev" title="zos_script – Run scripts in z/OS" href="zos_script.html" /> 
+    <link rel="prev" title="zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups" href="zos_stat.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -89,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
@@ -150,8 +151,9 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id3">Attributes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
 </ul>
 </nav>
 <section id="synopsis">
@@ -181,8 +183,28 @@
 </dd>
 </dl>
 </section>
+<section id="attributes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Attributes</a><a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl>
+<dt>action</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Indicates this has a corresponding action plugin so some parts of the options can be executed on the controller.</div>
+</div>
+</dd>
+<dt>async</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Supports being used with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword.</div>
+</div>
+</dd>
+<dt>check_mode</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Can run in check_mode and return changed status prediction without modifying target. If not supported, the action will be skipped.</div>
+</div>
+</dd>
+</dl>
+</section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execute TSO commands to allocate a new dataset.</span>
 <span class="w">  </span><span class="nt">zos_tso_command</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">commands</span><span class="p">:</span>
@@ -215,7 +237,7 @@
 </div>
 </section>
 <section id="return-values">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
 <dl>
 <dt>output</dt><dd><p>List of each TSO command output.</p>
 <div class="line-block">

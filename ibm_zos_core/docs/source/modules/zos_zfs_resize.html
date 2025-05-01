@@ -89,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
@@ -150,9 +151,10 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id4">Notes</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id3">Attributes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
 </ul>
 </nav>
 <section id="synopsis">
@@ -206,8 +208,9 @@
 </dd>
 <dt>trace_destination</dt><dd><p>Specify a unique USS file name or data set name for <code class="docutils literal notranslate"><span class="pre">trace_destination</span></code>.</p>
 <p>If the destination <code class="docutils literal notranslate"><span class="pre">trace_destination</span></code> is a USS file or path, the <code class="docutils literal notranslate"><span class="pre">trace_destination</span></code> must be an absolute path name.</p>
-<p>Support MVS data set type SEQ, PDS, PDS/E(MEMBER)</p>
-<p>If the destination is an MVS data set name, the <code class="docutils literal notranslate"><span class="pre">trace_destination</span></code> provided must meet data set naming conventions of one or more qualifiers, each from one to eight characters long, that are delimited by periods.</p>
+<p>Support MVS data set type PDS, PDS/E(MEMBER)</p>
+<p>If the destination is an MVS data set name, the <code class="docutils literal notranslate"><span class="pre">trace_destination</span></code> provided must meet data set naming conventions of one or more qualifiers, each from one to eight characters long, that are delimited by periods</p>
+<p>Recommended characteristics for MVS data set are record length of 200, record format as vb and space primary 42000 kilobytes.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -215,8 +218,28 @@
 </dd>
 </dl>
 </section>
+<section id="attributes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Attributes</a><a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl>
+<dt>action</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Indicates this has a corresponding action plugin so some parts of the options can be executed on the controller.</div>
+</div>
+</dd>
+<dt>async</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Supports being used with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword.</div>
+</div>
+</dd>
+<dt>check_mode</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Can run in check_mode and return changed status prediction without modifying target. If not supported, the action will be skipped.</div>
+</div>
+</dd>
+</dl>
+</section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resize an aggregate data set to 2500 kilobytes.</span>
 <span class="w">  </span><span class="nt">zos_zfs_resize</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TEST.ZFS.DATA</span>
@@ -268,7 +291,7 @@
 </div>
 </section>
 <section id="notes">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If needed, allocate the zFS trace output data set as a PDSE with RECFM=VB, LRECL=133 with a primary allocation of at least 50 cylinders and a secondary allocation of 30 cylinders.</p>
@@ -276,7 +299,7 @@
 </div>
 </section>
 <section id="return-values">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
 <dl>
 <dt>cmd</dt><dd><p>The zfsadm command executed on the remote node.</p>
 <div class="line-block">
