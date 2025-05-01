@@ -135,7 +135,7 @@
 <ul class="simple">
 <li><p>Stop a CICS region by issuing a CEMT PERFORM SHUTDOWN command, or by canceling the job through the <code class="docutils literal notranslate"><span class="pre">jobs.cancel</span></code> utility provided by Z Open Automation Utilities (ZOAU). You can choose the shutdown mode from NORMAL, IMMEDIATE, or CANCEL.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">job_id</span></code>, <code class="docutils literal notranslate"><span class="pre">job_name</span></code>, or both can be used to shut down a CICS region. If mulitple jobs are running with the same name, the <code class="docutils literal notranslate"><span class="pre">job_id</span></code> is required.</p></li>
-<li><p>During a NORMAL or IMMEDIATE shutdown, a shutdown assist transaction should run to enable CICS to shut down in a controlled manner. By default, the CICS-supplied shutdown assist transaction, CESD is used. You can specify a custom shutdown assist transaction in the SDTRAN system initialization parameter. The task runs until the region has successfully shut down, or until the shutdown fails.</p></li>
+<li><p>During a NORMAL or IMMEDIATE shutdown, a shutdown assist transaction should run to enable CICS to shut down in a controlled manner. By default, the shutdown assist transaction specified in the SDTRAN system initialization parameter is used. If this is not set, the CICS-supplied shutdown assist transaction, CESD, is used instead. The task runs until the region has successfully shut down, or until the shutdown fails.</p></li>
 <li><p>You must have a console installed in the CICS region so that the stop_region module can communicate with CICS. To define a console, you must install a terminal with the CONSNAME attribute set to your TSO user ID. For detailed instructions, see <a class="reference external" href="https://www.ibm.com/docs/en/cics-ts/latest?topic=cics-defining-tso-users-as-console-devices">Defining TSO users as console devices</a>. Add your console definition into one of the resource lists defined on the GRPLIST system initialization parameter so that it gets installed into the CICS region. Alternatively, you can use a DFHCSDUP script to update an existing CSD. This function is provided by the csd module.</p></li>
 <li><p>You can specify a timeout, in seconds, for CICS shutdown processing. After a request to stop CICS is issued, if CICS shutdown processing is not completed when this timeout is reached, the module completes in a failed state. By default, the stop_region module does not use a timeout, that is, the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> parameter assumes a value of -1.</p></li>
 </ul>
@@ -176,7 +176,7 @@
 </div>
 </dd>
 <dt>sdtran</dt><dd><p>The 4-character identifier of the shutdown assist transaction.</p>
-<p>The default shutdown transaction, if neither SDTRAN nor NOSDTRAN is specified, is CESD.</p>
+<p>If neither SDTRAN nor NOSDTRAN is specified, the value specified in the SDTRAN SIT parameter is used; or if this has not been set, the CICS-supplied shutdown assist transaction, CESD, is used instead.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
