@@ -50,7 +50,10 @@ help:
 view-html:
 ifeq ($(shell test -e $(INDEX_HTML) && echo true),true)
 	@echo "Display generated HTML '$(INDEX_HTML)' in default browser."
-ifeq ($(OS_DISTRO), Darwin)
+ifeq ($(CONTAINERIZED_RUNTIME), true)
+	@echo "On the host machine, point the browser at URL 'http://localhost:8080/rhacc/index.html' to see generated HTML '$(INDEX_HTML)'."
+	@echo -e "\e]8;;http://localhost:8080/rhacc/index.html\aClick here, to review generated documentation.\e]8;;\a"
+else ifeq ($(OS_DISTRO), Darwin)
 	@open build/html/index.html
 else ifeq ($(OS_DISTRO), Linux)
 	@xdg-open build/html/index.html &> /dev/null &

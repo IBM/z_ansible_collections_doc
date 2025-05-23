@@ -211,5 +211,13 @@
     # Generate and view HTML
     ############################################################################
 
-    - name: Generate HTML and display the results locally in the users browser
-      raw: make clean; make html; make view-html;
+    - name: Generate HTML.
+      raw: make clean; make html;
+
+    - debug: msg="{{ result }}"
+
+    - name: View HTML and locally in the users browser
+      raw: make view-html;
+      register: result
+
+    - debug: msg="{{ result.stdout_lines }}"
