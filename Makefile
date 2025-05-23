@@ -52,7 +52,6 @@ ifeq ($(shell test -e $(INDEX_HTML) && echo true),true)
 	@echo "Display generated HTML '$(INDEX_HTML)' in default browser."
 ifeq ($(CONTAINERIZED_RUNTIME), true)
 	@echo "On the host machine, point the browser at URL 'http://localhost:8080/rhacc/index.html' to see generated HTML '$(INDEX_HTML)'."
-	@echo -e "\e]8;;http://localhost:8080/rhacc/index.html\aClick here, to review generated documentation.\e]8;;\a"
 else ifeq ($(OS_DISTRO), Darwin)
 	@open build/html/index.html
 else ifeq ($(OS_DISTRO), Linux)
@@ -208,6 +207,14 @@ html:
 	@echo $(line_header)
 	@echo "Completed HTML generation, see $(ROOT_DIR)/build/html; next run 'make view-html' "
 	@echo $(line_header)
+
+ifeq ($(CONTAINERIZED_RUNTIME), true)
+	@echo "On the host machine, point the browser at URL 'http://localhost:8080/rhacc/index.html' to see generated HTML '$(INDEX_HTML)'."
+	@echo "Dected containerized build, will copy HTML files from 'build/html' to 'var/www/html/rhacc/'."
+	@rm -rf /var/www/html/rhacc/*
+	@cp -r build/html/* /var/www/html/rhacc/
+endif
+
 
 version-html:
 	@echo $(line_header)
