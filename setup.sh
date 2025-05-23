@@ -144,7 +144,7 @@ python_launch_venv()
 # source ~/.bash_profile
 
 # Source configurations
-source env.cfg
+source ./env.cfg
 
 if [[ -z "$PYTHON_VENV_HOME" ]]; then
     PYTHON_VENV_HOME=`pwd`
