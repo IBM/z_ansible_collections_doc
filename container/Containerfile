@@ -1,0 +1,55 @@
+FROM ubi9/ubi-minimal
+USER root
+
+# Install 'ubi9/ubi-minimal' necessary dependencies.
+RUN microdnf update -y
+RUN microdnf install python3.9 -y
+RUN microdnf install pip -y
+RUN microdnf install git -y
+RUN microdnf install procps -y
+RUN microdnf install httpd -y
+RUN microdnf install make -y
+RUN microdnf install vi -y
+
+# Install 'fedora:latest' necessary dependencies.
+# FROM fedora:latest
+# RUN yum install python3.9 -y
+# RUN yum install git -y
+# RUN yum install awk -y
+# RUN yum install ps -y
+# RUN dnf install httpd -y
+
+# Identify this as a container for use by project scripts
+ENV CONTAINERIZED_RUNTIME=true
+
+# Generate a ssh key to use for GitHub authentication
+RUN ssh-keygen -t ed25519 -C "hcf-admin@ibm.com" -f ~/.ssh/id_ed25519 -P ""
+
+# WORKDIR sets the directory where the RUN, CMD, ENTRYPOINT, COPY and ADD commands will run.
+WORKDIR /home/rhacc
+
+# Git clone the project to generate documentation, no need for a venv so ./setup.sh is not run.
+RUN git clone https://github.com/IBM/z_ansible_collections_doc.git
+WORKDIR /home/rhacc/z_ansible_collections_doc
+RUN pip3 install -r requirements.txt
+RUN mkdir /var/www/html/rhacc
+
+# Set up web server
+EXPOSE 80
+ENV HTTPD_APP_ROOT=${APP_ROOT} \
+HTTPD_CONFIGURATION_PATH=${APP_ROOT}/etc/httpd.d \
+HTTPD_MAIN_CONF_PATH=/etc/httpd/conf \
+HTTPD_MAIN_CONF_MODULES_D_PATH=/etc/httpd/conf.modules.d \
+HTTPD_MAIN_CONF_D_PATH=/etc/httpd/conf.d \
+HTTPD_VAR_RUN=/var/run/httpd \
+HTTPD_DATA_PATH=/var/www \
+HTTPD_DATA_ORIG_PATH=/var/www \
+HTTPD_LOG_PATH=/var/log/httpd
+
+RUN sed -i \
+'s/#ServerName/ServerName/' $HTTPD_MAIN_CONF_PATH/httpd.conf
+RUN sed -i \
+'s/www\.example\.com/localhost/g' $HTTPD_MAIN_CONF_PATH/httpd.conf
+
+# Start the web server
+CMD ["/usr/sbin/httpd", "-DFOREGROUND"]

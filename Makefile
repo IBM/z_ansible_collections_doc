@@ -209,12 +209,11 @@ html:
 	@echo $(line_header)
 
 ifeq ($(CONTAINERIZED_RUNTIME), true)
-	@echo "On the host machine, point the browser at URL 'http://localhost:8080/rhacc/index.html' to see generated HTML '$(INDEX_HTML)'."
-	@echo "Dected containerized build, will copy HTML files from 'build/html' to 'var/www/html/rhacc/'."
+	@echo "Detected containerized build, will copy HTML files from 'build/html' to 'var/www/html/rhacc/'."
 	@rm -rf /var/www/html/rhacc/*
 	@cp -r build/html/* /var/www/html/rhacc/
+	@echo "On the host machine, enter the URL 'http://localhost:8080/rhacc/index.html' to see generated HTML '$(INDEX_HTML)'."
 endif
-
 
 version-html:
 	@echo $(line_header)
