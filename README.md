@@ -13,7 +13,6 @@ The table of contents outlines the process in chronological order ending in how 
 build the documentation.
 </h4>
 
-
 <!-- META  &  Breadcrumbs -->
 <a id="readme-top"></a>
 ▸ [Table of Contents](README.md)
@@ -22,7 +21,7 @@ build the documentation.
   <li>
     <details open><summary><a href="./toc/container_usage/README.md#setup-a-container-for-generating-documentation">Setup a container for generating documentation</a></summary></details>
   </li>
-  <ul style="margin:0; padding:0;">
+  <ul>
     <li>
       <details><summary><a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a></summary>
       <ul>
