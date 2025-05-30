@@ -23,15 +23,15 @@ build the documentation.
   </li>
   <ul>
     <li>
-      <details>
-        <summary><a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a></summary>
-        <ul>
-          <li><a href="./toc/container_usage/README.md#11---download-podman-desktop">1.1 - Download Podman Desktop</a></li>
-          <li><a href="./toc/container_usage/README.md#12---install-podman-desktop">1.2 - Install Podman Desktop</a></li>
-        </ul>
+      <details><summary><a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a></summary>
+      <ul>
+        <li><a href="./toc/container_usage/README.md#11---download-podman-desktop">1.1 - Download Podman Desktop</a></li>
+        <li><a href="./toc/container_usage/README.md#12---install-podman-desktop">1.2 - Install Podman Desktop</a></li>
+      </ul>
       </details>
     </li>
-    <li><details><summary><a href="./toc/container/README.md#20-podman-image">2.0 - Podman Image</a></summary>
+    <li>
+      <details><summary><a href="./toc/container/README.md#20-podman-image">2.0 - Podman Image</a></summary>
       <ul>
         <li><a href="./toc/container_usage/README.md#21---build-the-image-using-the-containerfile">2.1 - Build the image using a Containerfile</a></li>
         <li><a href="./toc/container_usage/README.md#22---obtain-the-prebuilt-image">2.2 - Obtain the prebuilt image</a></li>
