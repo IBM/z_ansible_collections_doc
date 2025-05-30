@@ -13,6 +13,7 @@ The table of contents outlines the process in chronological order ending in how 
 build the documentation.
 </h4>
 
+
 <!-- META  &  Breadcrumbs -->
 <a id="readme-top"></a>
 ▸ [Table of Contents](README.md)
@@ -21,7 +22,7 @@ build the documentation.
   <li>
     <details open><summary><a href="./toc/container_usage/README.md#setup-a-container-for-generating-documentation">Setup a container for generating documentation</a></summary></details>
   </li>
-  <ul>
+  <ul style="margin-top:0px">
     <li>
       <details><summary><a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a></summary>
       <ul>
@@ -49,17 +50,10 @@ build the documentation.
       </details>
     </li>
     <li>
-      <details>
-        <summary>
-          <a href="./toc/container_usage/README.md#40-add-the-ssh-key-to-your-github-account">4.0 - Add the containers SSH key to your GitHub account</a>
-        </summary>
+      <details><summary><a href="./toc/container_usage/README.md#40-add-the-ssh-key-to-your-github-account">4.0 - Add the containers SSH key to your GitHub account</a></summary>
       <ul>
-        <li>
-          <a href="./toc/container_usage/README.md#41---copy-the-ssh-public-key">4.1 - Copy the SSH public key </a>
-        </li>
-        <li>
-          <a href="./toc/container_usage/README.md#42---add-the-ssh-public-key-to-github">4.2 - Add the SSH public key to GitHub</a>
-        </li>
+        <li><a href="./toc/container_usage/README.md#41---copy-the-ssh-public-key">4.1 - Copy the SSH public key </a></li>
+        <li><a href="./toc/container_usage/README.md#42---add-the-ssh-public-key-to-github">4.2 - Add the SSH public key to GitHub</a></li>
       </ul>
       </details>
     </li>
