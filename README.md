@@ -19,18 +19,12 @@ build the documentation.
 
 <ul>
   <li>
-    <details open>
-      <summary>
-        <a href="./toc/container_usage/README.md#setup-a-container-for-generating-documentation">Setup a container for generating documentation</a>
-      </summary>
-    </details>
+    <details open><summary><a href="./toc/container_usage/README.md#setup-a-container-for-generating-documentation">Setup a container for generating documentation</a></summary></details>
   </li>
   <ul>
     <li>
       <details>
-        <summary>
-          <a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a>
-        </summary>
+        <summary><a href="./toc/container_usage/README.md#10-podman-desktop">1.0 - Podman Desktop</a></summary>
         <ul>
           <li><a href="./toc/container_usage/README.md#11---download-podman-desktop">1.1 - Download Podman Desktop</a></li>
           <li><a href="./toc/container_usage/README.md#12---install-podman-desktop">1.2 - Install Podman Desktop</a></li>
