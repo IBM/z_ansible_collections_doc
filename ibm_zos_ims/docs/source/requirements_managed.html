@@ -62,7 +62,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../requirements/software-requirements.html">Software Requirements</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_core/docs/source/collection-requirements.html">z/OS Core</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">z/OS IMS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Python on z/OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-on-z-os">Python on z/OS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zoau">ZOAU</a></li>
 </ul>
 </li>
@@ -123,7 +123,7 @@ to each release of the <strong>IBM z/OS IMS collection</strong>. Review the deta
 dependencies before you proceed to install the IBM z/OS IMS collection.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.ibm.com/products/open-enterprise-python-zos">IBM Open Enterprise Python for z/OS</a></p></li>
-<li><p>z/OS <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3/en/homepage.html">V2R3</a> or <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW">later</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/zos">z/OS</a> V2R5 - V3Rx</p></li>
 <li><p><a class="reference external" href="requirements_managed.html#zoau">IBM Z Open Automation Utilities</a> (ZOAU)</p>
 <ul>
 <li><p>IBM z/OS IMS collections are dependent on specific versions of ZOAU.
@@ -132,30 +132,17 @@ For information about the required version of ZOAU, review the
 </ul>
 </li>
 <li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.2.0/com.ibm.zos.v2r2.e0za100/ch1openssh.htm">z/OS OpenSSH</a></p></li>
-<li><p>The z/OS® shell</p></li>
+<li><p>The z/OS shell</p></li>
 <li><p><a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SSEPH2_15.1.0/com.ibm.ims15.doc/ims_product_landing_v15.html">IBM IMS V15 or later</a></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, only <code class="docutils literal notranslate"><span class="pre">z/OS®</span> <span class="pre">shell</span></code> is supported . Using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
-to change the default shell is discouraged. For more information, see
-<a class="reference external" href="https://docs.ansible.com/ansible/2.7/user_guide/intro_inventory.html">Ansible documentation</a>.</p>
-<p>Shells such as <code class="docutils literal notranslate"><span class="pre">bash</span></code> are not supported because they handle the reading and
-writing of untagged files differently. <code class="docutils literal notranslate"><span class="pre">bash</span></code> added enhanced ASCII support
-in 4.3 and thus differs from 4.2. If <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell is the only shell
-available, you will need to control how the new and existing files are tagged
-and encoded. This can be controlled by
-setting both “_ENCODE_FILE_NEW” and “_ENCODE_FILE_EXISTING”.
-For example,</p>
-<ul class="simple">
-<li><p>_ENCODE_FILE_NEW: “IBM-1047”</p></li>
-<li><p>_ENCODE_FILE_EXISTING: “IBM-1047”</p></li>
-</ul>
-<p>Please review the README.ZOS guide included with the ported <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell
-for further configurations.</p>
+<p>Only the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.bpxa400/part1.htm">z/OS shell</a> is supported, using <code class="docutils literal notranslate"><span class="pre">ansible_shell_executable</span></code>
+to change the default shell is unsupported. Other shells are not supported
+because they handle the reading and writing of untagged files differently.</p>
 </div>
-<section id="id1">
-<h2>Python on z/OS<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="python-on-z-os">
+<h2>Python on z/OS<a class="headerlink" href="#python-on-z-os" title="Link to this heading"></a></h2>
 <p>If the Ansible target is z/OS, you must install
 <strong>IBM Open Enterprise Python for z/OS</strong> which is ported for the z/OS platform
 and required by <strong>IBM z/OS IMS Collection</strong>.</p>
@@ -176,9 +163,7 @@ instructions.</p></li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, IBM Open Enterprise Python for z/OS is the supported and
-recommended Python distribution for use on z/OS with Ansible and ZOAU. If
-Rocket Python is the only available python on the target, review the
-<a class="reference external" href="playbook_group_vars.html">recommended environment variables</a> for Rocket Python.</p>
+recommended Python distribution for use on z/OS with Ansible and ZOAU.</p>
 </div>
 </section>
 <section id="zoau">

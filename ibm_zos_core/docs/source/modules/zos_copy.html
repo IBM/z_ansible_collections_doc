@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -179,6 +180,14 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
+<dt>identical_gdg_copy</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, and the destination GDG does not exist, the module will copy the source GDG to the destination GDG with identical GDS absolute names.</p>
+<p>If set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the copy will be done as a normal copy, without preserving the source GDG absolute names.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
 <dt>backup</dt><dd><p>Specifies whether a backup of the destination should be created before copying data.</p>
 <p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the module creates a backup file or data set.</p>
 <p>The backup file name will be returned on either success or failure of module execution such that data can be retrieved.</p>
@@ -209,11 +218,12 @@
 </dd>
 <dt>dest</dt><dd><p>The remote absolute path or data set where the content should be copied to.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dest</span></code> can be a USS file, directory or MVS data set name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dest</span></code> can be a alias name of a PS, PDS or PDSE data set.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> has missing parent directories, they will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a new USS file or replacement, the file will be appropriately tagged with either the system’s default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the module will fail.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, it will be created following the process outlined here and in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>is_binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32760, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>is_binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32720, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file and <code class="docutils literal notranslate"><span class="pre">dest</span></code> a partitioned data set, <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not need to include a member in its value, the module can automatically compute the resulting member name from <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, precedence rules apply. If <code class="docutils literal notranslate"><span class="pre">dest_data_set</span></code> is set, this will take precedence over an existing data set. If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. Lastly, if no precendent rule has been exercised, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be created with the same attributes of <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (KSDS) or VSAM (ESDS), then source can be an ESDS, a KSDS or an RRDS. The VSAM (KSDS) or VSAM (ESDS) <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and recreated following the process outlined in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
@@ -357,6 +367,7 @@
 </div>
 </dd>
 <dt>src</dt><dd><p>Path to a file/directory or name of a data set to copy to remote z/OS system.</p>
+<p><code class="docutils literal notranslate"><span class="pre">src</span></code> can be a alias name of a PS, PDS or PDSE data set.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">remote_src</span></code> is true, then <code class="docutils literal notranslate"><span class="pre">src</span></code> must be the path to a Unix System Services (USS) file, name of a data set, or data set member.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a local path or a USS path, it can be absolute or relative.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dest</span></code> must be a partitioned data set or a USS directory.</p>
@@ -899,7 +910,7 @@
 <p>This module uses SFTP (Secure File Transfer Protocol) for the underlying transfer protocol; SCP (secure copy protocol) and Co:Z SFTP are not supported. In the case of Co:z SFTP, you can exempt the Ansible user id on z/OS from using Co:Z thus falling back to using standard SFTP. If the module detects SCP, it will temporarily use SFTP for transfers, if not available, the module will fail.</p>
 <p>Beginning in version 1.8.x, zos_copy will no longer attempt to correct a copy of a data type member into a PDSE that contains program objects. You can control this behavior using module option <code class="docutils literal notranslate"><span class="pre">executable</span></code> that will signify an executable is being copied into a PDSE with other executables. Mixing data type members with program objects will result in a (FSUM8976,./zos_copy.html) error.</p>
 <p>It is the playbook author or user’s responsibility to ensure they have appropriate authority to the RACF FACILITY resource class. A user is described as the remote user, configured either for the playbook or playbook tasks, who can also obtain escalated privileges to execute as root or another user.</p>
-<p>To use this module, you must define the RACF FACILITY class profile and allow READ access to RACF FACILITY profile MVS.MCSOPER.ZOAU. If your system uses a different security product, consult that product’s documentation to configure the required security classes.</p>
+<p>If trying to copy a migrated data set, first recall it before executing this module. This module does not perform recalls automatically. See modules <a class="reference external" href="./zos_mvs_raw.html">zos_mvs_raw</a> and <a class="reference external" href="./zos_tso_cmd.html">zos_tso_cmd</a> for examples of how to recall migrated data sets using this collection.</p>
 </div>
 </section>
 <section id="see-also">
@@ -909,6 +920,8 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="zos_fetch.html#zos-fetch-module"><span class="std std-ref">zos_fetch – Fetch data from z/OS</span></a></p></li>
 <li><p><a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set – Manage data sets</span></a></p></li>
+<li><p><a class="reference internal" href="zos_mvs_raw.html#zos-mvs-raw-module"><span class="std std-ref">zos_mvs_raw – Run a z/OS program.</span></a></p></li>
+<li><p><span class="xref std std-ref">zos_tso_cmd_module</span></p></li>
 </ul>
 </div>
 </section>

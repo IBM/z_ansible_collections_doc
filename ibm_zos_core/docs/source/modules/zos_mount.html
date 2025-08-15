@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -378,8 +379,8 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unmounted</span>
-<span class="w">    </span><span class="nt">unmount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REMOUNT</span>
-<span class="w">    </span><span class="nt">opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same</span>
+<span class="w">    </span><span class="nt">unmount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remount</span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem readonly.</span>
 <span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span>
@@ -387,7 +388,7 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span>
-<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RO</span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ro</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem and record change in BPXPRMAA.</span>
 <span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span>
@@ -425,7 +426,7 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span>
-<span class="w">    </span><span class="nt">opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nowait</span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nowait</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem with no security checks.</span>
 <span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span>
@@ -433,7 +434,7 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span>
-<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NOSECURITY</span>
+<span class="w">    </span><span class="nt">mount_opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nosecurity</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to 4 devices.</span>
 <span class="w">  </span><span class="nt">zos_mount</span><span class="p">:</span>
@@ -441,7 +442,7 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span>
-<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
+<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">automove</span>
 <span class="w">    </span><span class="nt">automove_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">I,DEV1,DEV2,DEV3,DEV9</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mount a filesystem, limiting automove to all except 4 devices.</span>
@@ -450,7 +451,7 @@
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/omvsadm/core</span>
 <span class="w">    </span><span class="nt">fs_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zfs</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounted</span>
-<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTOMOVE</span>
+<span class="w">    </span><span class="nt">automove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">automove</span>
 <span class="w">    </span><span class="nt">automove_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EXCLUDE,DEV4,DEV5,DEV6,DEV7</span>
 </pre></div>
 </div>
@@ -558,14 +559,14 @@
 <div class="line-block">
 <div class="line"><strong>returned</strong>: changed and if state=unmounted</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: DRAIN</div>
+<div class="line"><strong>sample</strong>: drain</div>
 </div>
 </dd>
 <dt>mount_opts</dt><dd><p>Options available to the mount.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: whenever non-None</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: RW,NOSECURITY</div>
+<div class="line"><strong>sample</strong>: rw,nosecurity</div>
 </div>
 </dd>
 <dt>src_params</dt><dd><p>Specifies a parameter string to be passed to the file system type.</p>
@@ -612,7 +613,7 @@
 <div class="line-block">
 <div class="line"><strong>returned</strong>: if Non-None</div>
 <div class="line"><strong>type</strong>: str</div>
-<div class="line"><strong>sample</strong>: AUTOMOVE</div>
+<div class="line"><strong>sample</strong>: automove</div>
 </div>
 </dd>
 <dt>automove_list</dt><dd><p>This specifies the list of servers to include or exclude as destinations.</p>

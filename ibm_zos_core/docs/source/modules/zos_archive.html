@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -408,6 +409,38 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
+<dt>encoding</dt><dd><p>Specifies the character encoding conversion to be applied to the source files before archiving.</p>
+<p>Supported character sets rely on the charset conversion utility <code class="docutils literal notranslate"><span class="pre">iconv</span></code> version the most common character sets are supported.</p>
+<p>After conversion the files are stored in same location and name as src and the same src is taken in consideration for archive.</p>
+<p>Source files will be converted to the new encoding and will not be restored to their original encoding.</p>
+<p>If encoding fails for any file in a set of multiple files, an exception will be raised and archiving will be skipped.</p>
+<p>The original files in <code class="docutils literal notranslate"><span class="pre">src</span></code> will be converted. The module will revert the encoding conversion after a successful archive, but no backup will be created. If you need to encode using a backup and then archive take a look at <a class="reference external" href="./zos_encode.html">zos_encode</a> module.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>from</dt><dd><p>The character set of the source <em>src</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>to</dt><dd><p>The destination <em>dest</em> character set for the files to be written as.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>skip_encoding</dt><dd><p>List of names to skip encoding before archiving. This is only used if <em>encoding</em> is set, otherwise is ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
 </dl>
 </section>
 <section id="attributes">
@@ -498,6 +531,32 @@
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
 <span class="w">      </span><span class="nt">format_options</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">use_adrdssu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Encode the source data set into Latin-1 before archiving into a terse data set</span>
+<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.TEST&quot;</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
+<span class="w">    </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
+<span class="w">      </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Encode and archive multiple data sets but skip encoding for a few.</span>
+<span class="w">  </span><span class="nt">zos_archive</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE1.TEST&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE2.TEST&quot;</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
+<span class="w">      </span><span class="nt">format_options</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">use_adrdssu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
+<span class="w">      </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
+<span class="w">      </span><span class="nt">skip_encoding</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE2.TEST&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -569,6 +628,24 @@
 <dt>expanded_exclude_sources</dt><dd><p>The list of matching exclude paths from the exclude option.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>encoded</dt><dd><p>List of files or data sets that were successfully encoded.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>failed_on_encoding</dt><dd><p>List of files or data sets that were failed while encoding.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>skipped_encoding_targets</dt><dd><p>List of files or data sets that were skipped while encoding.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: list</div>
 </div>
 </dd>

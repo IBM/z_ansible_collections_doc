@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -191,6 +192,8 @@
 <p>If <em>state=cataloged</em> and <em>volumes</em> is provided and the data set is not cataloged, module attempts to perform catalog using supplied <em>name</em> and <em>volumes</em>. If the attempt to catalog the data set catalog fails, returns failure with <em>changed=False</em>.</p>
 <p>If <em>state=uncataloged</em> and the data set is not found, no action taken, module completes successfully with <em>changed=False</em>.</p>
 <p>If <em>state=uncataloged</em> and the data set is found, the data set is uncataloged, module completes successfully with <em>changed=True</em>.</p>
+<p>If <em>state=present</em>, the data set is already cataloged and <em>volumes</em> is provided, the module will compare the volumes where it is cataloged against the provided <em>volumes</em>. If they don’t match, the module will fail with an error indicating the data set is cataloged on a different volume. To resolve this, you must first uncatalog the data set before creating it on the new volume.</p>
+<p>If <em>state=present</em>, the data set is already cataloged, <em>volumes</em> is provided, and the volumes match exactly, no action is taken and the module completes successfully with <em>changed=False</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>

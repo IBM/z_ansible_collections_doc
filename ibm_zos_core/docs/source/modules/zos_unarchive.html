@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -187,7 +188,7 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
-<dt>name</dt><dd><p>The compression format to use.</p>
+<dt>name</dt><dd><p>The compression format used while archiving.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -209,7 +210,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>use_adrdssu</dt><dd><p>If set to true, the <code class="docutils literal notranslate"><span class="pre">zos_archive</span></code> module will use Data Facility Storage Management Subsystem data set services (DFSMSdss) program ADRDSSU to uncompress data sets from a portable format after using <code class="docutils literal notranslate"><span class="pre">xmit</span></code> or <code class="docutils literal notranslate"><span class="pre">terse</span></code>.</p>
+<dt>use_adrdssu</dt><dd><p>If set to true, the <code class="docutils literal notranslate"><span class="pre">zos_unarchive</span></code> module will use Data Facility Storage Management Subsystem data set services (DFSMSdss) program ADRDSSU to uncompress data sets from a portable format after using <code class="docutils literal notranslate"><span class="pre">xmit</span></code> or <code class="docutils literal notranslate"><span class="pre">terse</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -425,6 +426,38 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
+<dt>encoding</dt><dd><p>Specifies the character encoding conversion to be applied to the destination files after unarchiving.</p>
+<p>Supported character sets rely on the charset conversion utility <code class="docutils literal notranslate"><span class="pre">iconv</span></code> version the most common character sets are supported.</p>
+<p>After conversion the files are stored in same location as they were unarchived to under the same original name. No backup of the original unconverted files is there as for that unarchive can be executed again without encoding params on same source archive files.</p>
+<p>Destination files will be converted to the new encoding and will not be restored to their original encoding.</p>
+<p>If encoding fails for any file in a set of multiple files, an exception will be raised and the name of the file skipped will be provided completing the task successfully with rc code 0.</p>
+<p>Encoding does not check if the file is already present or not. It works on the file/files successfully unarchived.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>from</dt><dd><p>The character set of the source <em>src</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>to</dt><dd><p>The destination <em>dest</em> character set for the files to be written as.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>skip_encoding</dt><dd><p>List of names to skip encoding after unarchiving. This is only used if <em>encoding</em> is set, otherwise is ignored.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
 </dl>
 </section>
 <section id="attributes">
@@ -491,6 +524,27 @@
 <span class="w">      </span><span class="nt">format_options</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">use_adrdssu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># Encoding example</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Encode the destination data set into Latin-1 after unarchiving.</span>
+<span class="w">  </span><span class="nt">zos_unarchive</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
+<span class="w">    </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
+<span class="w">      </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Encode the destination data set into Latin-1 after unarchiving.</span>
+<span class="w">  </span><span class="nt">zos_unarchive</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.ARCHIVE.RESULT.TRS&quot;</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terse</span>
+<span class="w">    </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM-1047</span>
+<span class="w">      </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISO8859-1</span>
+<span class="w">      </span><span class="nt">skip_encoding</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.ARCHIVE.TEST1</span>
 </pre></div>
 </div>
 </section>
@@ -537,6 +591,24 @@
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>encoded</dt><dd><p>List of files or data sets that were successfully encoded.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>failed_on_encoding</dt><dd><p>List of files or data sets that were failed while encoding.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
+<dt>skipped_encoding_targets</dt><dd><p>List of files or data sets that were skipped while encoding.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: list</div>
 </div>
 </dd>
 </dl>

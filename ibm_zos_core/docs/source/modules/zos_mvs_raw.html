@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -671,6 +672,13 @@
 <div class="line"><strong>type</strong>: raw</div>
 </div>
 </dd>
+<dt>reserved_cols</dt><dd><p>Determines how many columns at the beginning of the content are reserved with empty spaces.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 2</div>
+</div>
+</dd>
 <dt>return_content</dt><dd><p>Determines how content should be returned to the user.</p>
 <p>If not provided, no content from the DD is returned.</p>
 <div class="line-block">
@@ -782,6 +790,40 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>dd_volume</dt><dd><p>Use <em>dd_volume</em> to specify the volume to use in the DD statement.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>dd_name</dt><dd><p>The DD name.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>volume_name</dt><dd><p>The volume serial number.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>unit</dt><dd><p>Device type for the volume.</p>
+<p>This option is case sensitive.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>disposition</dt><dd><p><em>disposition</em> indicates the status of a data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: new, shr, mod, old</div>
 </div>
 </dd>
 </dl>
@@ -1237,6 +1279,13 @@
 <div class="line"><strong>type</strong>: raw</div>
 </div>
 </dd>
+<dt>reserved_cols</dt><dd><p>Determines how many columns at the beginning of the content are reserved with empty spaces.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>default</strong>: 2</div>
+</div>
+</dd>
 <dt>return_content</dt><dd><p>Determines how content should be returned to the user.</p>
 <p>If not provided, no content from the DD is returned.</p>
 <div class="line-block">
@@ -1333,6 +1382,37 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span>
 <span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SOME.DATASET.*&#39;)&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Full volume dump using ADDRDSU.</span>
+<span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">program_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adrdssu</span>
+<span class="w">    </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">dds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dumpdd</span>
+<span class="w">          </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mypgm.output.ds</span>
+<span class="w">          </span><span class="nt">disposition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="w">          </span><span class="nt">disposition_normal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalog</span>
+<span class="w">          </span><span class="nt">disposition_abnormal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delete</span>
+<span class="w">          </span><span class="nt">space_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cyl</span>
+<span class="w">          </span><span class="nt">space_primary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">          </span><span class="nt">space_secondary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">          </span><span class="nt">record_format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">u</span>
+<span class="w">          </span><span class="nt">record_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">          </span><span class="nt">block_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32760</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seq</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_volume</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">voldd</span>
+<span class="w">          </span><span class="nt">volume_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;000000&quot;</span>
+<span class="w">          </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3390&quot;</span>
+<span class="w">          </span><span class="nt">disposition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">old</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span>
+<span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">VOLDUMP</span><span class="nv"> </span><span class="s">VOL(voldd)</span><span class="nv"> </span><span class="s">DSNAME(dumpdd)</span><span class="nv"> </span><span class="s">FULL&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_output</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysprint</span>
+<span class="w">          </span><span class="nt">return_content</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">List data sets matching patterns in catalog,</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">save output to a new sequential data set and return output as text.</span>
@@ -1604,6 +1684,28 @@
 <span class="w">                      </span><span class="l l-Scalar l-Scalar-Plain">VOLUMES(222222) -</span>
 <span class="w">                      </span><span class="l l-Scalar l-Scalar-Plain">UNIQUE)</span>
 
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Simple FTP connection using frist and second columns.</span>
+<span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">program_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AMAPDUPL</span>
+<span class="w">    </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">dds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_output</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysprint</span>
+<span class="w">          </span><span class="nt">return_content</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYSUT1</span>
+<span class="w">          </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhlq.ds1.output</span>
+<span class="w">          </span><span class="nt">disposition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shr</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span>
+<span class="w">          </span><span class="nt">reserved_cols</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">USERID=anonymous</span>
+<span class="w">            </span><span class="no">PASSWORD=anonymous</span>
+<span class="w">            </span><span class="no">TARGET_SYS=testcase.boulder.ibm.com</span>
+<span class="w">            </span><span class="no">TARGET_DSN=wessamp.bigfile</span>
+
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">List data sets matching pattern in catalog,</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">save output to a new generation of gdgs.</span>
 <span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
@@ -1634,6 +1736,20 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span>
 <span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SOME.DATASET.*&#39;)&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recall a migrated data set.</span>
+<span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">program_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ikjeft01</span>
+<span class="w">    </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">dds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_output</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systsprt</span>
+<span class="w">          </span><span class="nt">return_content</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systsin</span>
+<span class="w">          </span><span class="nt">content</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;HRECALL</span><span class="nv"> </span><span class="s">&#39;MY.DATASET&#39;</span><span class="nv"> </span><span class="s">WAIT&quot;</span>
 </pre></div>
 </div>
 </section>

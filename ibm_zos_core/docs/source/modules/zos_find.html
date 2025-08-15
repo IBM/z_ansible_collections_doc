@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -232,15 +233,27 @@
 <div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
-<dt>resource_type</dt><dd><p>The type of resource to search.</p>
+<dt>resource_type</dt><dd><p>The types of resources to search.</p>
 <p><code class="docutils literal notranslate"><span class="pre">nonvsam</span></code> refers to one of SEQ, LIBRARY (PDSE), PDS, LARGE, BASIC, EXTREQ, or EXTPREF.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cluster</span></code> refers to a VSAM cluster. The <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code> are the data and index components of a VSAM cluster.</p>
 <p><code class="docutils literal notranslate"><span class="pre">gdg</span></code> refers to Generation Data Groups. The module searches based on the GDG base name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">migrated</span></code> refers to listing migrated datasets. Only <code class="docutils literal notranslate"><span class="pre">excludes</span></code> and <code class="docutils literal notranslate"><span class="pre">migrated_type</span></code> options can be used along with this option. The module only searches based on dataset patterns.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
-<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
 <div class="line"><strong>default</strong>: nonvsam</div>
-<div class="line"><strong>choices</strong>: nonvsam, cluster, data, index, gdg</div>
+<div class="line"><strong>choices</strong>: nonvsam, cluster, data, index, gdg, migrated</div>
+</div>
+</dd>
+<dt>migrated_type</dt><dd><p>A migrated data set related attribute, only valid when <code class="docutils literal notranslate"><span class="pre">resource_type=migrated</span></code>.</p>
+<p>If provided, will search for only those types of migrated datasets.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>default</strong>: [‘cluster’, ‘data’, ‘index’, ‘nonvsam’]</div>
+<div class="line"><strong>choices</strong>: nonvsam, cluster, data, index</div>
 </div>
 </dd>
 <dt>volume</dt><dd><p>If provided, only the data sets allocated in the specified list of volumes will be searched.</p>
@@ -334,7 +347,7 @@
 <span class="w">  </span><span class="nt">zos_find</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;IMS.LIB.*&#39;</span>
 <span class="w">    </span><span class="nt">contains</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;hello&#39;</span>
-<span class="w">    </span><span class="nt">excludes</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*.TEST&#39;</span>
+<span class="w">    </span><span class="nt">excludes</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;.*TEST&#39;</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Find all members starting with characters &#39;TE&#39; in a given list of PDS patterns</span>
 <span class="w">  </span><span class="nt">zos_find</span><span class="p">:</span>
@@ -356,16 +369,27 @@
 <span class="w">  </span><span class="nt">zos_find</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">patterns</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.*</span>
-<span class="w">    </span><span class="nt">resource_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster</span>
+<span class="w">    </span><span class="nt">resource_type</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;cluster&#39;</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Find all Generation Data Groups starting with the word &#39;USER&#39; and specific GDG attributes.</span>
 <span class="w">  </span><span class="nt">zos_find</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">patterns</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.*</span>
-<span class="w">    </span><span class="nt">resource_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gdg</span>
+<span class="w">    </span><span class="nt">resource_type</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;gdg&#39;</span>
 <span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 <span class="w">    </span><span class="nt">scratch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">purge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Find all migrated and nonvsam data sets starting with the word &#39;USER&#39;</span>
+<span class="w">  </span><span class="nt">zos_find</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patterns</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER.*</span>
+<span class="w">    </span><span class="nt">resource_type</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;migrated&#39;</span>
+<span class="w">    </span><span class="nt">migrated_type</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;nonvsam&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -378,6 +402,7 @@
 <p>If a data set pattern is specified as <code class="docutils literal notranslate"><span class="pre">USER.*</span></code>, the matching data sets will have two name segments such as <code class="docutils literal notranslate"><span class="pre">USER.ABC</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.XYZ</span></code> etc. If a wildcard is specified as <code class="docutils literal notranslate"><span class="pre">USER.*.ABC</span></code>, the matching data sets will have three name segments such as <code class="docutils literal notranslate"><span class="pre">USER.XYZ.ABC</span></code>, <code class="docutils literal notranslate"><span class="pre">USER.TEST.ABC</span></code> etc.</p>
 <p>The time taken to execute the module is proportional to the number of data sets present on the system and how large the data sets are.</p>
 <p>When searching for content within data sets, only non-binary content is considered.</p>
+<p>As a migrated data set’s information can’t be retrieved without recalling it first, other options besides <code class="docutils literal notranslate"><span class="pre">excludes</span></code> and <code class="docutils literal notranslate"><span class="pre">migrated_type</span></code> are not supported.</p>
 </div>
 </section>
 <section id="see-also">

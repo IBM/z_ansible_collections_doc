@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
@@ -154,6 +155,7 @@
 <li><p><a class="reference internal" href="#attributes" id="id3">Attributes</a></p></li>
 <li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
 <li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
 </ul>
 </nav>
 <section id="synopsis">
@@ -462,6 +464,38 @@
 <p>When using this module, if the RACF FACILITY class profile <strong>STGADMIN.ADR.DUMP.TOLERATE.ENQF</strong> is active, you must have READ access authority to use the module option <em>recover=true</em>. If the RACF FACILITY class checking is not set up, any user can use the module option without access to the class.</p>
 <p>If your system uses a different security product, consult that product’s documentation to configure the required security classes.</p>
 </div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<dl>
+<dt>changed</dt><dd><p>Indicates if the operation made changes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">true</span></code> when backup/restore was successful, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>backup_name</dt><dd><p>The USS file name or data set name that was used as a backup.</p>
+<p>Matches the <em>backup_name</em> parameter provided as input.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: /u/oeusr03/my_backup.dzp</div>
+</div>
+</dd>
+<dt>message</dt><dd><p>Returns any important messages about the modules execution, if any.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
 </section>
 </section>
 
