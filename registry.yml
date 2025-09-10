@@ -43,7 +43,7 @@ collections:
   zhmc-ansible-modules:
     git:  https://github.com/zhmcclient/zhmc-ansible-modules.git
     stable:
-    latest: 1.9.3
+    latest: 1.9.5
     origin: master
   ibm_zos_sysauto:
     git:  https://github.com/ansible-collections/ibm_zos_sysauto.git
