@@ -2,6 +2,7 @@
 :github_url: https://github.com/ansible-collections/ibm_zos_core/blob/dev/plugins/modules/zhmc_cpc.py
 
 .. _zhmc_cpc_module:
+.. _ibm.ibm_zhmc.zhmc_cpc_module:
 
 
 zhmc_cpc -- Manage a CPC
@@ -272,7 +273,7 @@ msg
 cpc
   For :literal:`state=inactive`\ , an empty dictionary.
 
-  For :literal:`state=active|set|facts|upgrade`\ , the resource properties of the CPC after after any specified updates have been applied, and its adapters, partitions, and storage groups.
+  For :literal:`state=active\|set\|facts\|upgrade`\ , the resource properties of the CPC after after any specified updates have been applied, and its adapters, partitions, and storage groups.
 
   | **returned**: success
   | **type**: dict

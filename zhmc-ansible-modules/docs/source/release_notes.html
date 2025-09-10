@@ -73,6 +73,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_sysauto/docs/source/release_notes.html">z/OS Sys Auto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zosmf/docs/source/release_notes.html">z/OS z/OSMF</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Z HMC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-9-5">Version 1.9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-9-4">Version 1.9.4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-9-3">Version 1.9.3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-9-2">Version 1.9.2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-1-9-1">Version 1.9.1</a></li>
@@ -138,6 +140,43 @@
              
   <section id="releases">
 <span id="id1"></span><h1>Releases<a class="headerlink" href="#releases" title="Link to this heading"></a></h1>
+<section id="version-1-9-5">
+<h2>Version 1.9.5<a class="headerlink" href="#version-1-9-5" title="Link to this heading"></a></h2>
+<p>Released: 2025-07-29</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Fixed safety issues up to 2025-07-23.</p></li>
+<li><p>Dev: The test workflow now tolerates linkcheck errors. It now succeeds if there
+are linkcheck errors, but they are still displayed in the Actions summary.</p></li>
+<li><p>Dev: Made order of names in AUTHORS.md reliable. (issue #1141)</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Lifted the size limit of 2GB for ISO images that can be mounted with the
+‘zhmc_partition’ module using ‘state=mount_iso’.</p></li>
+</ul>
+</section>
+<section id="version-1-9-4">
+<h2>Version 1.9.4<a class="headerlink" href="#version-1-9-4" title="Link to this heading"></a></h2>
+<p>Released: 2025-04-14</p>
+<p>Availability: <a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zhmc">AutomationHub</a>, <a class="reference external" href="https://galaxy.ansible.com/ibm/ibm_zhmc">Galaxy</a>, <a class="reference external" href="https://github.com/zhmcclient/zhmc-ansible-modules/releases">GitHub</a></p>
+<p><strong>Bug fixes:</strong></p>
+<ul class="simple">
+<li><p>Fixed safety issues up to 2025-02-26.</p></li>
+<li><p>Fixed missing dependencies for development.</p></li>
+<li><p>Test: Fixed duplicate ‘description’ properties in test YAML files.
+(issue #1097)</p></li>
+<li><p>Circumvention for HTTP error 500.12 when creating NICs on Hipersocket
+adapters on z16 when the PartitionLink feature is enabled. This is a
+temporary circumvention until the defect will be fixed.</p></li>
+</ul>
+<p><strong>Cleanup:</strong></p>
+<ul class="simple">
+<li><p>Test: Accommodated rollout of Ubuntu 24.04 on GitHub Actions by using
+ubuntu-22.04 as the OS image for Python 3.8 based test runs.</p></li>
+</ul>
+</section>
 <section id="version-1-9-3">
 <h2>Version 1.9.3<a class="headerlink" href="#version-1-9-3" title="Link to this heading"></a></h2>
 <p>Released: 2024-11-29</p>
