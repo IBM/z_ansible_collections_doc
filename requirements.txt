@@ -26,7 +26,7 @@ enrich==1.2.6
 filelock==3.0.12
 flake8==3.8.4
 galaxy-importer==0.3.1
-idna==2.9
+idna==3.7
 imagesize==1.4.1
 importlib_metadata==8.5.0
 isort==4.3.15
