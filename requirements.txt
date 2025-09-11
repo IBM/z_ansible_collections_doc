@@ -19,7 +19,7 @@ click==7.1.2
 colorama==0.4.3
 colorclass==2.2.0
 commonmark==0.9.1
-cryptography==41.0.7
+cryptography==44.0.1
 distlib==0.3.0
 docutils==0.21.2
 enrich==1.2.6
