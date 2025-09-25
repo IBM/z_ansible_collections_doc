@@ -101,3 +101,4 @@ Life Cycles
    :maxdepth: 1
 
    z/OS Core collection<../ibm_zos_core/docs/source/life-cycle>
+   z/OS IMS collection<../ibm_zos_ims/docs/source/life-cycle>
