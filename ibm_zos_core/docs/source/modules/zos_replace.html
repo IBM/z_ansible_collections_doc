@@ -150,24 +150,28 @@
 <span id="zos-replace-module"></span><h1>zos_replace – Replace all instances of a pattern within a file or data set.<a class="headerlink" href="#zos-replace-replace-all-instances-of-a-pattern-within-a-file-or-data-set" title="Link to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
-<li><p><a class="reference internal" href="#notes" id="id5">Notes</a></p></li>
-<li><p><a class="reference internal" href="#return-values" id="id6">Return Values</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id3">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id4">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id6">Notes</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id7">Return Values</a></p></li>
 </ul>
 </nav>
 <section id="synopsis">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The module <a class="reference external" href="/zos_replace.html">zos_replace.</a> can replace all instances of a pattern in the contents of a data set.</p></li>
 </ul>
 </section>
 <section id="parameters">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
 <dl>
-<dt>after</dt><dd><p>If specified, only content after this match will be replaced/removed.</p>
-<p>Can be used in combination with <em>before</em>.</p>
+<dt>after</dt><dd><p>A regular expression that, if specified, determines which content will be replaced or removed <strong>after</strong> the match.</p>
+<p>Option <em>after</em> is the start position from where the module will seek to match the <em>regexp</em> pattern. When a pattern is matched, occurrences are substituted with the value set for <em>replace</em>.</p>
+<p>If option <em>after</em> is not set, the module will search from the beginning of the <em>target</em>.</p>
+<p>Option <em>after</em> is a regular expression as described in the <a class="reference external" href="https://docs.python.org/3/library/re.html">Python library</a>.</p>
+<p>Option <em>after</em> can be used in combination with <em>before</em>. When combined with <em>before</em>, patterns are replaced or removed from <em>after</em> until the value set for <em>before</em>.</p>
+<p>Option <em>after</em> can be interpreted as a literal string instead of a regular expression by setting option <em>literal=after</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -195,8 +199,12 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>before</dt><dd><p>If specified, only content before this match will be replaced/removed.</p>
-<p>Can be used in combination with <em>after</em>.</p>
+<dt>before</dt><dd><p>A regular expression that if, specified, determines which content will be replaced or removed <strong>before</strong> the match.</p>
+<p>Option <em>before</em> is the end position from where the module will seek to match the <em>regexp</em> pattern. When a pattern is matched, occurrences are substituted with the value set for <em>replace</em>.</p>
+<p>If option <em>before</em> is not set, the module will search to the end of the <em>target</em>.</p>
+<p>Option <em>before</em> is a regular expression as described in the <a class="reference external" href="https://docs.python.org/3/library/re.html">Python library</a>.</p>
+<p>Option <em>before</em> can be used in combination with <em>after</em>. When combined with <em>after</em>, patterns are replaced or removed from <em>after</em> until the value set for <em>before</em>.</p>
+<p>Option <em>before</em> can be interpreted as a literal string instead of a regular expression by setting option <em>literal=before</em>.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -210,10 +218,14 @@
 <div class="line"><strong>default</strong>: IBM-1047</div>
 </div>
 </dd>
-<dt>literal</dt><dd><p>A list or string that allows the user to specify choices “before”, “after”, or “regexp” as regular strings instead of regex patterns.</p>
+<dt>literal</dt><dd><p>If specified, it enables the module to interpret options <em>after</em>, <em>before</em> and <em>regexp</em> as a literal rather than a regular expression.</p>
+<p>Option <em>literal</em> uses any combination of V(after), V(before) and V(regexp).</p>
+<p>To interpret one option as a literal, use <em>literal=regexp</em>, <em>literal=after</em> or <em>literal=before</em>.</p>
+<p>To interpret multiple options as a literal, use a list such as <code class="docutils literal notranslate"><span class="pre">['after',</span> <span class="pre">'before']</span></code> or <code class="docutils literal notranslate"><span class="pre">['regex',</span> <span class="pre">'after',</span> <span class="pre">'before']</span></code></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: raw</div>
+<div class="line"><strong>default</strong>: []</div>
 </div>
 </dd>
 <dt>target</dt><dd><p>The location can be a UNIX System Services (USS) file, PS (sequential data set), PDS, PDSE, member of a PDS or PDSE.</p>
@@ -247,19 +259,20 @@
 </dl>
 </section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace with blank space on a USS file any occurrences of the regex</span>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace &#39;profile/&#39; pattern in USS file via blank substitution.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/src/somefile</span>
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;profile\/&#39;</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace using after on USS file</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace regexp match with blank after line match in USS file.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/tmp/source&quot;</span>
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^MOUNTPOINT*&#39;</span>
 <span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export ZOAU_ROOT</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line with special character on a dataset after a line</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line with special character on a dataset after a line, treating the text specified</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">for regexp as a literal string and after as regular expression.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SOURCE</span>
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">//*LIB  DD UNIT=SYS,SPACE=(TRK,(1,1)),VOL=SER=vvvvvv</span>
@@ -267,7 +280,16 @@
 <span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^\$source</span><span class="nv"> </span><span class="s">base</span><span class="nv"> </span><span class="s">\([^\s]+\)&#39;</span>
 <span class="w">    </span><span class="nt">literal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">regexp</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line before a specific sentence with backup</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line with special character on a dataset after a line, treating the text specified</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">for regexp and after as regular expression.</span>
+<span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SOURCE</span>
+<span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\</span><span class="nv"> </span><span class="s">\*\*LIB\</span><span class="nv"> </span><span class="s">\</span><span class="nv"> </span><span class="s">DD\</span><span class="nv"> </span><span class="s">UNIT=SYS,SPACE=\(TRK,\(1,1\)\),VOL=SER=vvvvvv&#39;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">//*LIB  DD UNIT=SYS,SPACE=(CYL,(1,1))</span>
+<span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^\$source</span><span class="nv"> </span><span class="s">base</span><span class="nv"> </span><span class="s">\([^\s]+\)&#39;</span>
+<span class="w">    </span><span class="nt">literal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">regexp</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line before a specific sentence with backup, treating the text specified for regexp and before as literal strings.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SOURCE</span>
 <span class="w">    </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -277,7 +299,14 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">regexp</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">before</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace some words between two lines with a backup with tmp_hlq</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace a specific line before a specific sentence with backup, treating the text specified for regexp and before as regular expression.</span>
+<span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.SOURCE</span>
+<span class="w">    </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\</span><span class="nv"> </span><span class="s">//SYSPRINT\</span><span class="nv"> </span><span class="s">DD\</span><span class="nv"> </span><span class="s">SYSOUT=\*&#39;</span>
+<span class="w">    </span><span class="nt">before</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\</span><span class="nv"> </span><span class="s">SAMPLES</span><span class="nv"> </span><span class="s">OUTPUT</span><span class="nv"> </span><span class="s">SYSIN\</span><span class="nv"> </span><span class="s">\*\=\$DSN&#39;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace &#39;var&#39; with &#39;vars&#39; between matched lines after and before with backup.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAMPLE.DATASET</span>
 <span class="w">    </span><span class="nt">tmp_hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ANSIBLE</span>
@@ -288,7 +317,7 @@
 <span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^/tmp/source*</span>
 <span class="w">    </span><span class="nt">before</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^   if*</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace lines on a GDS and generate a backup on the same GDG</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace lines on a GDS and generate a backup on the same GDG.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOURCE.GDG(0)</span>
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^(IEE132I|IEA989I|IEA888I|IEF196I|IEA000I)\s.*</span>
@@ -297,7 +326,7 @@
 <span class="w">    </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOURCE.GDG(+1)&quot;</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete some calls to SYSTEM on a member using a backref</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete &#39;SYSTEM&#39; calls via backref between matched lines in a PDS member.</span>
 <span class="w">  </span><span class="nt">zos_replace</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDS.SOURCE(MEM)</span>
 <span class="w">    </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^(.*?SYSTEM.*?)SYSTEM(.*)&#39;</span>
@@ -308,14 +337,14 @@
 </div>
 </section>
 <section id="notes">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For supported character sets used to encode data, refer to the <a class="reference external" href="https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/resources/character_set.html">documentation</a>.</p>
 </div>
 </section>
 <section id="return-values">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
 <dl>
 <dt>backup_name</dt><dd><p>Name of the backup file or data set that was created.</p>
 <div class="line-block">
@@ -331,7 +360,7 @@
 <div class="line"><strong>sample</strong>:</div>
 </div>
 <blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
 </pre></div>
 </div>
 </div></blockquote>
