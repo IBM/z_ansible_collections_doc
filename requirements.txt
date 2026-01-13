@@ -23,7 +23,7 @@ cryptography==41.0.7
 distlib==0.3.0
 docutils==0.21.2
 enrich==1.2.6
-filelock==3.0.12
+filelock==3.20.3
 flake8==3.8.4
 galaxy-importer==0.3.1
 idna==2.9
