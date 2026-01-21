@@ -31,7 +31,7 @@ one easy-to-use platform.
    z/OS CICS<../ibm_zos_cics/docs/ansible_content>
    z/OS IMS<../ibm_zos_ims/docs/ansible_content>
    z/OS Sys Auto<../ibm_zos_sysauto/docs/ansible_content>
-   z/OSMF<../ibm_zosmf/docs/ansible_content>
+   z/OSMF<../ibm_zosmf/docs/source/ansible_content>
    Z HMC<../zhmc-ansible-modules/docs/ansible_content>
 
 .. grid:: 1 1 2 2
@@ -42,7 +42,7 @@ one easy-to-use platform.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<../ibm_zos_core/docs/ansible_content.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<../ibm_zos_core/docs/source/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_core>`__
@@ -73,13 +73,13 @@ one easy-to-use platform.
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: :bdg-link-primary:`z/OSMF collection<../ibm_zosmf/docs/ansible_content.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OSMF collection<../ibm_zosmf/docs/source/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zosmf>`__
                   - `Ansible Galaxy <https://galaxy.ansible.com/ui/repo/published/ibm/ibm_zosmf>`__
                   - `GitHub <https://github.com/IBM/ibm_zosmf>`__
-                  - `Supplementary Documentation <../ibm_zosmf/docs/source/resources>`__
+                  - `Supplementary Documentation <../ibm_zosmf/docs/source/supplementary_content.html>`__
 
             .. grid-item-card:: :bdg-link-primary:`Z HMC collection<../zhmc-ansible-modules/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
