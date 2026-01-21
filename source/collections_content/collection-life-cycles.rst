@@ -102,3 +102,4 @@ Life Cycles
 
    z/OS Core collection<../ibm_zos_core/docs/source/life-cycle>
    z/OS IMS collection<../ibm_zos_ims/docs/source/life-cycle>
+   z/OSMF collection<../ibm_zosmf/docs/source/life-cycle>
