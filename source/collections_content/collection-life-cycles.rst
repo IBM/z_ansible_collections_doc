@@ -32,14 +32,15 @@ stability inherent, support is divided into life cycle phases:
 
 - **Full support** covers the first year of the products life cycle.
 - **Maintenance support** covers the second year of the products life cycle.
+- **End of life** signifies all support has ended.
 
-+----------+-----------------------+------------------------------+
-| Severity | Full Support (year 1) | Maintenance Support (year 2) |
-+==========+=======================+==============================+
-| Critical | Yes                   | Yes                          |
-+----------+-----------------------+------------------------------+
-| High     | Yes                   | No                           |
-+----------+-----------------------+------------------------------+
++----------+-----------------------+------------------------------+-------------+
+| Severity | Full Support (year 1) | Maintenance Support (year 2) | End of Life |
++==========+=======================+==============================+=============+
+| Critical | Yes                   | Yes                          | No          |
++----------+-----------------------+------------------------------+-------------+
+| High     | Yes                   | No                           | No          |
++----------+-----------------------+------------------------------+-------------+
 
 
 Critical and high severities are included in **year 1**, while
