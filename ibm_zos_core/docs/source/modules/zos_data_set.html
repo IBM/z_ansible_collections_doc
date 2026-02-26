@@ -90,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_started_task.html">zos_started_task – Perform operations on started tasks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
@@ -103,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/ansible_content.html">z/OSMF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 </li>
@@ -352,12 +353,14 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>scratch</dt><dd><p>Sets the <em>scratch</em> attribute for Generation Data Groups.</p>
-<p>Specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.</p>
+<dt>scratch</dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">state=absent</span></code>, specifies whether to physically remove the data set from the volume.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">scratch=true</span></code>, the data set is deleted and its entry is removed from the volume’s VTOC.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">scratch=false</span></code>, the data set is uncataloged but not physically removed from the volume. This is the equivalent of using <code class="docutils literal notranslate"><span class="pre">NOSCRATCH</span></code> in an <code class="docutils literal notranslate"><span class="pre">IDCAMS</span> <span class="pre">DELETE</span></code> command.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">state=present</span></code> option <strong>scratch</strong> sets the <em>scratch</em> attribute for Generation Data Groups and is ignored for any other data set type.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">state=present</span></code> and <code class="docutils literal notranslate"><span class="pre">type=GDG</span></code> specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>volumes</dt><dd><p>If cataloging a data set, <em>volumes</em> specifies the name of the volume(s) where the data set is located.</p>
@@ -587,12 +590,13 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>scratch</dt><dd><p>Sets the <em>scratch</em> attribute for Generation Data Groups.</p>
-<p>Specifies what action is to be taken for a generation data set located on disk volumes when the data set is uncataloged from the GDG base as a result of EMPTY/NOEMPTY processing.</p>
+<dt>scratch</dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">state=absent</span></code>, specifies whether to physically remove the data set from the volume.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">scratch=true</span></code>, the data set is deleted and its entry is removed from the volume’s VTOC.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">scratch=false</span></code>, the data set is uncataloged but not physically removed from the volume. This is the equivalent of using <code class="docutils literal notranslate"><span class="pre">NOSCRATCH</span></code> in an <code class="docutils literal notranslate"><span class="pre">IDCAMS</span> <span class="pre">DELETE</span></code> command.</p>
+<p>The default is <code class="docutils literal notranslate"><span class="pre">true</span></code> for non-GDG data sets and <code class="docutils literal notranslate"><span class="pre">false</span></code> for GDG data sets.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
-<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>volumes</dt><dd><p>If cataloging a data set, <em>volumes</em> specifies the name of the volume(s) where the data set is located.</p>
@@ -709,6 +713,13 @@
 <span class="w">  </span><span class="nt">zos_data_set</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someds.name.here</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Uncatalog a data set but do not remove it from the volume.</span>
+<span class="w">  </span><span class="nt">zos_data_set</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someds.name.here</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seq</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+<span class="w">    </span><span class="nt">scratch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete a data set if it exists. If data set not cataloged, check on volume 222222 for the data set, and then catalog and delete if found.</span>
 <span class="w">  </span><span class="nt">zos_data_set</span><span class="p">:</span>

@@ -90,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_started_task.html">zos_started_task – Perform operations on started tasks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
@@ -103,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/ansible_content.html">z/OSMF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 </li>
@@ -260,6 +261,22 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
+<dt>compress</dt><dd><p>When <em>operation=backup</em>, enables compression of partitioned data sets using system-level compression features. If supported, this may utilize zEDC hardware compression.</p>
+<p>This option can reduce the size of the temporary dataset generated during backup operations either before the AMATERSE step when <em>terse</em> is True or the resulting backup when <em>terse</em> is False.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>terse</dt><dd><p>When <em>operation=backup</em>, executes an AMATERSE step to compress and pack the temporary data set for the backup. This creates a backup with a format suitable for transferring off-platform.</p>
+<p>If <em>operation=backup</em> and if <em>dataset=False</em> then option <em>terse</em> must be True.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
 <dt>sms_storage_class</dt><dd><p>When <em>operation=restore</em>, specifies the storage class to use. The storage class will also be used for temporary data sets created during restore process.</p>
 <p>When <em>operation=backup</em>, specifies the storage class to use for temporary data sets created during backup process.</p>
 <p>If neither of <em>sms_storage_class</em> or <em>sms_management_class</em> are specified, the z/OS system’s Automatic Class Selection (ACS) routines will be used.</p>
@@ -291,6 +308,7 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: m</div>
 <div class="line"><strong>choices</strong>: k, m, g, cyl, trk</div>
 </div>
 </dd>
@@ -358,6 +376,15 @@
 <span class="w">      </span><span class="nt">include</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user.gdg(-1)</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user.gdg(0)</span>
+<span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.backup.dzp</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Backup datasets using compress</span>
+<span class="w">  </span><span class="nt">zos_backup_restore</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup</span>
+<span class="w">    </span><span class="nt">compress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">terse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">data_sets</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someds.name.here</span>
 <span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my.backup.dzp</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Backup all datasets matching the pattern USER.** to UNIX file /tmp/temp_backup.dzp, ignore recoverable errors.</span>

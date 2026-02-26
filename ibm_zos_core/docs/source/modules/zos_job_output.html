@@ -90,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_started_task.html">zos_started_task – Perform operations on started tasks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
@@ -103,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/ansible_content.html">z/OSMF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 </li>
@@ -166,6 +167,7 @@
 <li><p>The job name can be specific such as “TCPIP”, or one that uses a pattern such as “TCP*” or “*”.</p></li>
 <li><p>The owner can be specific such as “IBMUSER”, or one that uses a pattern like “*”.</p></li>
 <li><p>If there is no ddname, or if ddname=”?”, output of all the ddnames under the given job will be displayed.</p></li>
+<li><p>If SYSIN DDs are needed, <em>sysin_dd</em> should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
 </ul>
 </section>
 <section id="parameters">
@@ -193,6 +195,13 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>sysin_dd</dt><dd><p>Whether to include SYSIN DDs as part of the output.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 </dl>
@@ -234,6 +243,11 @@
 <span class="w">    </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;IBMUSER&quot;</span>
 <span class="w">    </span><span class="nt">ddname</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;?&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query a job&#39;s output including SYSIN DDs</span>
+<span class="w">  </span><span class="nt">zos_job_output</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">job_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JOB00548&quot;</span>
+<span class="w">    </span><span class="nt">sysin_dd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </section>

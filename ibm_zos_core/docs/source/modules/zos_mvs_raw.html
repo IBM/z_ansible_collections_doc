@@ -90,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_started_task.html">zos_started_task – Perform operations on started tasks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
@@ -103,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/ansible_content.html">z/OS IMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/ansible_content.html">z/OSMF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
 </ul>
 </li>
@@ -241,6 +242,15 @@
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>raw</dt><dd><p>Create a new data set and let the MVS program assign its own default DCB attributes.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">raw=true</span></code>, all supplied DCB attributes like disposition, space, volumes, SMS, keys, record settings, etc. are ignored.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">raw</span></code> option is not possible for all programs, use this for cases where the MVS program that is called is able to assign its own default dataset attributes.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
 <dt>type</dt><dd><p>The data set type. Only required when <em>disposition=new</em>.</p>
@@ -862,6 +872,15 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
+<dt>raw</dt><dd><p>Create a new data set and let the MVS program assign its own default DCB attributes.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">raw=true</span></code>, all supplied DCB attributes like disposition, space, volumes, SMS, keys, record settings, etc. are ignored.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">raw</span></code> option is not possible for all programs, use this for cases where the MVS program that is called is able to assign its own default dataset attributes.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
 <dt>type</dt><dd><p>The data set type. Only required when <em>disposition=new</em>.</p>
 <p>Maps to DSNTYPE on z/OS.</p>
 <div class="line-block">
@@ -1382,6 +1401,26 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sysin</span>
 <span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">LISTCAT</span><span class="nv"> </span><span class="s">ENTRIES(&#39;SOME.DATASET.*&#39;)&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run ADRDSSU to dump a dataset without having to specify the DCB attributes for dd_data_set by using raw option.</span>
+<span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">program_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADRDSSU</span>
+<span class="w">    </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">dds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_data_set</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OUTDD</span>
+<span class="w">          </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER.TEST.DUMP&quot;</span>
+<span class="w">          </span><span class="nt">raw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_input</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYSIN</span>
+<span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">DUMP DATASET(INCLUDE(USER.TEST.SOURCE)) -</span>
+<span class="w">            </span><span class="no">OUTDDNAME(OUTDD)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dd_output</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">dd_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SYSPRINT</span>
+<span class="w">          </span><span class="nt">return_content</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Full volume dump using ADDRDSU.</span>
 <span class="w">  </span><span class="nt">zos_mvs_raw</span><span class="p">:</span>
