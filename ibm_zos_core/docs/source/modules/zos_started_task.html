@@ -246,7 +246,7 @@
 <div class="line"><strong>elements</strong>: str</div>
 </div>
 </dd>
-<dt>reusable_asid</dt><dd><p>When <em>reusable_asid</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code> and REUSASID(YES) is specified in the DIAGxx parmlib member, a reusable ASID is assigned to the address space created by the START command. If <em>reusable_asid</em> is not specified or REUSASID(NO) is specified in DIAGxx, an ordinary ASID is assigned.</p>
+<dt>reusable_asid</dt><dd><p>When <em>reusable_asid</em> is <code class="docutils literal notranslate"><span class="pre">true</span></code> and REUSASID(YES) is specified in the DIAGxx parmlib member, a reusable ASID is assigned to the address space created by the START command. If <em>reusable_asid</em> is not specified or REUSASID(NO) is specified in DIAGxx, an ordinary ASID is assigned.</p>
 <p>Only applicable when <em>state</em> is <code class="docutils literal notranslate"><span class="pre">started</span></code>, otherwise ignored.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -354,15 +354,15 @@
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;started&quot;</span>
 <span class="w">    </span><span class="nt">member</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PROCAPP&quot;</span>
 <span class="w">    </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SAMPLE&quot;</span>
-<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start a started task and wait for 30 seconds before fetching task details.</span>
 <span class="w">  </span><span class="nt">zos_started_task</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;started&quot;</span>
 <span class="w">    </span><span class="nt">member</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PROCAPP&quot;</span>
-<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">wait_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<span class="w">    </span><span class="nt">wait_full_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">wait_full_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start a started task specifying the subsystem and enabling a reusable ASID.</span>
 <span class="w">  </span><span class="nt">zos_started_task</span><span class="p">:</span>
@@ -405,7 +405,7 @@
 <span class="w">  </span><span class="nt">zos_started_task</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cancelled&quot;</span>
 <span class="w">    </span><span class="nt">task_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SAMPLE&quot;</span>
-<span class="w">    </span><span class="nt">asidx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0014</span>
+<span class="w">    </span><span class="nt">asidx</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0014&quot;</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Modify a started task&#39;s parameters.</span>
 <span class="w">  </span><span class="nt">zos_started_task</span><span class="p">:</span>
@@ -434,7 +434,7 @@
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;stopped&quot;</span>
 <span class="w">    </span><span class="nt">task_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SAMPLE&quot;</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SAMPLE&quot;</span>
-<span class="w">    </span><span class="nt">asidx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00A5</span>
+<span class="w">    </span><span class="nt">asidx</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00A5&quot;</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Force a started task using it&#39;s task name.</span>
 <span class="w">  </span><span class="nt">zos_started_task</span><span class="p">:</span>
