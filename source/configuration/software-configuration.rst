@@ -24,7 +24,7 @@ collections and submit a playbook to test a module.
    :hidden:
 
    z/OS Core<../ibm_zos_core/docs/source/configuration>
-   z/OS IMS<coming_soon_ims>
+   z/OS IMS<../ibm_zos_ims/docs/source/configuration>
    z/OS CICS<coming_soon_cics>
    z/OS Sys Auto<coming_soon_sys_auto>
    z/OSMF<../ibm_zosmf/docs/source/configuration>
