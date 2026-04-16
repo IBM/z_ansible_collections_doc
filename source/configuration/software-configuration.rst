@@ -27,7 +27,7 @@ collections and submit a playbook to test a module.
    z/OS IMS<coming_soon_ims>
    z/OS CICS<coming_soon_cics>
    z/OS Sys Auto<coming_soon_sys_auto>
-   z/OSMF<coming_soon_zosmf>
+   z/OSMF<../ibm_zosmf/docs/source/configuration>
    Z HMC<coming_soon_zhmc>
 
 .. grid:: 1 1 2 2
