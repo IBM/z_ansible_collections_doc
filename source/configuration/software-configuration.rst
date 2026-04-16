@@ -44,7 +44,7 @@ collections and submit a playbook to test a module.
                **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS IMS software configuration :octicon:`link-external`
-               :link: ../coming_soon.html
+               :link: ../ibm_zos_ims/docs/source/configuration.html
 
                **Click** to review the collection configuration.
 
