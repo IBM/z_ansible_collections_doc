@@ -59,7 +59,7 @@ collections and submit a playbook to test a module.
             :gutter: 1
 
             .. grid-item-card:: z/OSMF software configuration :octicon:`link-external`
-               :link: ../coming_soon.html
+               :link: ../ibm_zosmf/docs/source/configuration.html
 
                **Click** to review the collection configuration.
 
