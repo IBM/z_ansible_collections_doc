@@ -27,7 +27,7 @@ collections and submit a playbook to test a module.
    z/OS IMS<coming_soon_ims>
    z/OS CICS<coming_soon_cics>
    z/OS Sys Auto<coming_soon_sys_auto>
-   z/OSMF<../ibm_zosmf/docs/source/configuration>
+   z/OSMF<coming_soon_zosmf>
    Z HMC<coming_soon_zhmc>
 
 .. grid:: 1 1 2 2
@@ -44,7 +44,7 @@ collections and submit a playbook to test a module.
                **Click** to review the collection configuration.
 
             .. grid-item-card:: z/OS IMS software configuration :octicon:`link-external`
-               :link: ../coming_soon.html
+               :link: ../ibm_zos_ims/docs/source/configuration.html
 
                **Click** to review the collection configuration.
 
@@ -59,7 +59,7 @@ collections and submit a playbook to test a module.
             :gutter: 1
 
             .. grid-item-card:: z/OSMF software configuration :octicon:`link-external`
-               :link: ../ibm_zosmf/docs/source/configuration.html
+               :link: ../coming_soon.html
 
                **Click** to review the collection configuration.
 
