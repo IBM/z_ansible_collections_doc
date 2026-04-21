@@ -48,12 +48,12 @@ or its accompanying links.
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/requirements_managed.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/collection-requirements.html>` :octicon:`link-external`
                   :padding: 0
 
-                  - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
-                  - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
-                  - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
+                  - :ref:`Control node <ibm-zos-ims-collection-requirements-control-node>`
+                  - :ref:`Managed node <ibm-zos-ims-collection-requirements-managed-node>`
+                  - :ref:`Dependency matrix <ibm-zos-ims-collection-requirements-dependency-matrix>`
 
             .. grid-item-card:: :bdg-link-primary:`z/OS CICS collection<../ibm_zos_cics/docs/source/requirements.html>` :octicon:`link-external`
                   :padding: 0
