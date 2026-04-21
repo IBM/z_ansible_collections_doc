@@ -26,7 +26,7 @@ or its accompanying links.
    :hidden:
 
    z/OS Core <../ibm_zos_core/docs/source/collection-requirements>
-   z/OS IMS <../ibm_zos_ims/docs/source/requirements_managed>
+   z/OS IMS <../ibm_zos_ims/docs/source/rcollection-requirements>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
    z/OSMF <../ibm_zosmf/docs/source/collection-requirements>
    Z HMC <../zhmc-ansible-modules/docs/source/requirements_managed>
