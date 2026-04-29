@@ -33,7 +33,7 @@ collections:
   ibm_zos_ims:
     git:  https://github.com/ansible-collections/ibm_zos_ims.git
     stable:
-    latest: release-v1.3.1
+    latest: doc_updates
     origin: main
   ibm_zos_cics:
     git:  https://github.com/ansible-collections/ibm_zos_cics.git
@@ -54,4 +54,9 @@ collections:
     git:  https://github.com/IBM/ibm_zosmf.git
     stable:
     latest: main
+    origin: main
+  ibm_z_solutions:
+    git:  git@github.ibm.com:zos-ansible/ibm_z_solutions.git
+    stable:
+    latest: abhi_eda_doc
     origin: main
