@@ -101,6 +101,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    overview/ansible-playbooks.html
 .. _Ansible for IBM Z Trial:
    overview/ansible-for-ztrial.html
+.. _Event Driven Ansible for IBM Z:
+   overview/event-driven-ansible.html
 
 .. ..........................................................................
 .. Installation & Execution
@@ -147,6 +149,7 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
+      * `Event Driven Ansible for IBM Z`_
 
    .. grid-item:: |mainframe| Installation & Execution
 
@@ -186,6 +189,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    overview/ansible-glossary
    overview/ansible-playbooks
    overview/ansible-for-ztrial
+   overview/event-driven-ansible
 
 .. toctree::
    :maxdepth: 1
