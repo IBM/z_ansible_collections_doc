@@ -55,7 +55,7 @@ Today, the available collections include:
                   - Generate Program Specification Blocks (PSB).
                   - Generate Application Control Blocks (ACB).
                   - Run IMS type-1 commands.
-                  - Run IMS IMS type-2 commands.
+                  - Run IMS type-2 commands.
 
             .. grid-item-card:: :bdg-link-primary:`z/OS CICS<../ibm_zos_cics/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
