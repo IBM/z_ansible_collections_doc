@@ -93,12 +93,28 @@ The basic options for the `run` command are:
 1. Start the container with the `run` command with the `--detach (-d)`, `--tty (-t)`, `--publish (-p)` and `--name (-n)` options.
 
     ```
-    podman run -dt -p 8080:80 --name apache localhost/ansible/ibm/z/doc
+    podman run -dt -p 8080:80 --name apache localhost/ansible/ibm-z/doc
     ```
 
     Yields the container id, note it is worth noting the container ID for use with other commands.
     ```
     ea4cf2161459c25ef9d7a76bdde1e42b8bdf06e2d92054b9c0012a4c8f0b2c56
+    ```
+
+    If this command fails for you it could be the case that you'll need to run it specifying the tag, using the `podman images` command you can check the tag:
+    ```
+    podman images
+    REPOSITORY                               TAG          IMAGE ID      CREATED        SIZE
+    localhost/ansible/ibm-z/doc              ubi-minimal  c17cca6c6380  4 minutes ago  1.03 GB
+    registry.access.redhat.com/ubi9-minimal  latest       f36340c5d888  11 days ago    110 MB
+    ```
+    When providing the label name attach the tag with `:ubi-minimal`. Then check the podman container running using `podman ps`.
+    ```
+    podman run -dt -p 8080:80 --name apache "localhost/ansible/ibm-z/doc:ubi-minimal"
+    9bc940b27ccbc34a26ad005b89a9d8c7e32689db731e279690ef7b96dc8592b6
+    podman ps
+    CONTAINER ID  IMAGE                                    COMMAND               CREATED         STATUS         PORTS                 NAMES
+    9bc940b27ccb  localhost/ansible/ibm-z/doc:ubi-minimal  /usr/sbin/httpd -...  43 seconds ago  Up 43 seconds  0.0.0.0:8080->80/tcp  apache
     ```
 
     You can also view the container running from Podman Desktop.
@@ -120,7 +136,7 @@ There are 2 ways to connect to the container so that you can interactively run c
         Yields:
         ```
         CONTAINER ID  IMAGE                                    COMMAND               CREATED       STATUS        PORTS                 NAMES
-        1ec57823bcd1  localhost/ansible/ibm/z/doc:ubi-minimal  /usr/sbin/httpd -...  37 hours ago  Up 8 seconds  0.0.0.0:8080->80/tcp  apache-ubi
+        1ec57823bcd1  localhost/ansible/ibm-z/doc:ubi-minimal  /usr/sbin/httpd -...  37 hours ago  Up 8 seconds  0.0.0.0:8080->80/tcp  apache-ubi
         ```
    2. Now that you have the container ID `1ec57823bcd1` you can run the `exec` command:
          ```
@@ -165,7 +181,7 @@ There are many [more commands](https://docs.podman.io/en/latest/Commands.html) y
    Yields:
    ```
    REPOSITORY                         TAG         IMAGE ID      CREATED         SIZE
-   localhost/ansible/ibm/z/doc        latest      3187123ebece  56 minutes ago  585 MB
+   localhost/ansible/ibm-z/doc        latest      3187123ebece  56 minutes ago  585 MB
    registry.fedoraproject.org/fedora  latest      2312c2296ef8  14 hours ago    176 MB
    ```
 
