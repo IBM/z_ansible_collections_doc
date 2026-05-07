@@ -3,10 +3,10 @@
 .. ...........................................................................
 
 ===========================================
-Red Hat Ansible Certified Content for IBM Z
+Red Hat Ansible Content for IBM Z
 ===========================================
 
-Welcome to the Red Hat® Ansible Certified Content for IBM Z documentation. |br|
+Welcome to the Red Hat® Ansible Content for IBM Z documentation. |br|
 
 Here you will find step-by-step user walkthroughs, best practices and resources
 to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
