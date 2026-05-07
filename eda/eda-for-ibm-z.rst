@@ -11,12 +11,12 @@
 Overview
 ==================
 
-What is Event-Driven Ansible?
+Event-Driven ansible
 --------------------------------------------------
 
 Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
 
-Event-Driven Ansible for IBM Z
+Event-Driven ansible for IBM Z
 --------------------------------------------------
 
 Event-Driven Ansible for IBM Z extends EDA capabilities to IBM Z® mainframe environments, enabling the following capabilities:
@@ -125,7 +125,6 @@ YAML-based definitions that specify the following information:
    - Actions to run
 
 ::
-
 
 4. Actions
 --------------------------------------------------
