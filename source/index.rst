@@ -161,11 +161,9 @@ management, provisioning, and application deployment in one easy-to-use platform
 
    .. grid-item:: |topology| Event Driven Ansible for IBM Z
 
-      * `Ansible for IBM Z`_
-      * `Ansible for IBM Z Glossary`_
-      * `Ansible for IBM Z Playbooks`_
-      * `Ansible for IBM Z Trial`_
-
+      * `Introduction and Architecture`_
+      * `Certified and validated content for IBM Z`_
+   
    .. grid-item:: |mainframe| Installation & Execution
 
       * `Software Requirements`_
@@ -210,11 +208,9 @@ management, provisioning, and application deployment in one easy-to-use platform
    :caption: Event Driven Ansible For IBM Z
    :hidden:
 
-   overview/ansible-for-ibm-z
-   overview/ansible-glossary
-   overview/ansible-playbooks
-   overview/ansible-for-ztrial
-
+   eda/eda-for-ibm-z.html
+   eda/certified-validated-ibm-z.html
+   
 .. toctree::
    :maxdepth: 1
    :caption: Installation & Execution
