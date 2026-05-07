@@ -103,7 +103,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    overview/ansible-for-ztrial.html
 
 .. ..........................................................................
-.. Event Driven Ansible for IBM Z:
+.. Event Driven Ansible for IBM Z
 .. ..........................................................................
 
 .. _Introduction and Architecture:
