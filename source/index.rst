@@ -208,8 +208,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    :caption: Event Driven Ansible For IBM Z
    :hidden:
 
-   eda/eda-for-ibm-z.html
-   eda/certified-validated-ibm-z.html
+   eda/eda-for-ibm-z
+   eda/certified-validated-ibm-z
    
 .. toctree::
    :maxdepth: 1
