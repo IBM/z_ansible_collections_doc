@@ -37,9 +37,9 @@ Key benefits
 - **Integration**: Connection between mainframe events and enterprise automation workflows.
 
 
-==================================================
+
 Architecture
-==================================================
+--------------------------------------------------
 
 Architecture flow
 --------------------------------------------------
