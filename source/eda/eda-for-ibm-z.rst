@@ -98,7 +98,7 @@ Components
 --------------------------------------------------
 
 1. Event sources
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Event sources capture and forward events from IBM Z systems:
 
@@ -110,7 +110,7 @@ Event sources capture and forward events from IBM Z systems:
 - **Simple Network Management Protocol (SNMP) traps**.
 
 2. Rulebook engine
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The core of EDA that performs the following functions:
 
@@ -120,7 +120,7 @@ The core of EDA that performs the following functions:
 - Triggers appropriate actions.
 
 3. Rulebooks
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 YAML-based definitions that specify the following information:
 
@@ -133,7 +133,7 @@ YAML-based definitions that specify the following information:
 ::
 
 4. Actions
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Actions that are triggered when rules match:
 
@@ -144,7 +144,7 @@ Actions that are triggered when rules match:
 - **Run operator commands**.
 
 5. Execution environment
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Container-based environment that performs the following functions:
 
