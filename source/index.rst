@@ -110,6 +110,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z.html
 .. _Certified and Validated Content for IBM Z:
    eda/certified-validated-ibm-z.html
+.. _Prerequisites and setup:
+   eda/prerequisites-setup-ibm-z.html
    
 .. ..........................................................................
 .. Installation & Execution
