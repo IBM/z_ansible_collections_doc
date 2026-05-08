@@ -92,7 +92,7 @@ Architecture explanation
 4. **Certified content**: Runs tasks on IBM Z systems.
 5. **z/OS execution**: Performs the actual system operations.
 
----
+
 ==================================================
 Components
 ==================================================
