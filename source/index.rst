@@ -109,7 +109,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Introduction and Architecture:
    eda/eda-for-ibm-z.html
 .. _Certified and Validated Content:
-   eda/certified-validated-ibm-z.html
+   eda/certified-validated-ibm-z.
    
 .. ..........................................................................
 .. Installation & Execution
