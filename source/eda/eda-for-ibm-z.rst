@@ -42,7 +42,7 @@ Architecture
 --------------------------------------------------
 
 Architecture flow
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -51,7 +51,7 @@ Event Source → Rulebook → Condition → Action → z/OS Execution
 
 
 Layered architecture
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -84,7 +84,7 @@ Layered architecture
 
 
 Architecture explanation
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Event source**: Generates events (logs, alerts, messages).
 2. **Rulebook engine**: Evaluates conditions and matches rules.
