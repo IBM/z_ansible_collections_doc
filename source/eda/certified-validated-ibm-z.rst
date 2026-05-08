@@ -16,7 +16,6 @@ Certified content
 **Red Hat® Ansible® Certified Content Collections** provide enterprise-grade, supported automation content specifically designed and tested for IBM Z environments. 
 These collections are developed in collaboration with IBM and undergo rigorous testing and certification processes.
 
----
 
 Benefits of certified content
 --------------------------------------------------
@@ -37,7 +36,6 @@ Benefits of certified content
 
 ✅ **Community**: Access to expert community and resources.
 
----
 
 Validated content
 --------------------------------------------------

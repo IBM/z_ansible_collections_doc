@@ -36,8 +36,8 @@ Key benefits
 - **Scalability**: Ability to handle multiple z/OS systems and logical partitions (LPARs) simultaneously.
 - **Integration**: Connection between mainframe events and enterprise automation workflows.
 
----
 
+==================================================
 Architecture
 ==================================================
 
@@ -55,26 +55,32 @@ Layered architecture
 
 ::
 
-┌─────────────────────────────────────────┐
-│     zSecure Alert (Event Source)        │
-└──────────────────┬──────────────────────┘
-                   ↓
-┌─────────────────────────────────────────┐
-│  Event-Driven Ansible (Rulebook Engine) │
-└──────────────────┬──────────────────────┘
-                   ↓
-┌─────────────────────────────────────────┐
-│  Validated Content (Playbooks/Use Cases)│
-└──────────────────┬──────────────────────┘
-                   ↓
-┌─────────────────────────────────────────┐
-│ Certified Content (IBM Z Collections)   │
-└──────────────────┬──────────────────────┘
-                   ↓
-┌─────────────────────────────────────────┐
-│        z/OS System Execution            │
-└─────────────────────────────────────────┘
-::
+   +-----------------------------------+
+   | zSecure Alert (Event Source)      |
+   +-----------------------------------+
+                  |
+                  v
+   +-----------------------------------+
+   | Event-Driven Ansible              |
+   | (Rulebook Engine)                 |
+   +-----------------------------------+
+                  |
+                  v
+   +-----------------------------------+
+   | Validated Content                 |
+   | (Playbooks/Use Cases)             |
+   +-----------------------------------+
+                  |
+                  v
+   +-----------------------------------+
+   | Certified Content                 |
+   | (IBM Z Collections)               |
+   +-----------------------------------+
+                  |
+                  v
+   +-----------------------------------+
+   | z/OS System Execution             |
+   +-----------------------------------+
 
 
 Architecture explanation
@@ -87,7 +93,7 @@ Architecture explanation
 5. **z/OS execution**: Performs the actual system operations.
 
 ---
-
+==================================================
 Components
 ==================================================
 
