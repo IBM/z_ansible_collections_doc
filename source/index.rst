@@ -112,7 +112,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    installation/software-installation.html
 .. _Software Configuration:
    configuration/software-configuration.html
-
+.. _Migration Guide:
+   migration/migration-guide.html
 .. ..........................................................................
 .. Collections & Content
 .. ..........................................................................
@@ -153,7 +154,7 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Software Requirements`_
       * `Software Installation`_
       * `Collection Life Cycles`_
-
+      * `Migration Guide`
 .. grid:: 3
 
    .. grid-item:: |collection| Collections & Content
@@ -195,6 +196,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    requirements/software-requirements
    installation/software-installation
    configuration/software-configuration
+   migration/migration-guide
 
 .. toctree::
    :maxdepth: 1
