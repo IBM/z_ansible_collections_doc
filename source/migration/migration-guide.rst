@@ -25,7 +25,7 @@ integrate IBM Z automation into broader enterprise automation ecosystems.
 
 Here are the Migration guides for each collections:
 
-... toctree::
+.. toctree::
    :maxdepth: 1
    :hidden:
 
