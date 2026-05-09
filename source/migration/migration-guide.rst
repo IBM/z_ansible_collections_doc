@@ -12,18 +12,20 @@
 Migration guide
 ==================
 
-Migration guide helps organizations transition from traditional IBM Z automation approaches to Ansible for IBM Z. 
-Whether you are migrating from manual operational processes, legacy scripting languages such as REXX, CLIST, or JCL, or from existing automation tools, 
-this guide provides a structured approach to adopting modern, scalable automation practices on IBM Z environments.
+This migration guide helps organizations transition from traditional IBM Z automation approaches to Ansible for IBM Z. Whether you are migrating from manual operational processes, legacy scripting languages such as REXX, CLIST, or JCL, or from existing automation tools, this guide provides a structured approach to adopting modern, scalable automation practices on IBM Z environments.
 
-The guide introduces the available Ansible for IBM Z collections and explains how they can be used to automate common z/OS administration, application management,
-middleware operations, and infrastructure tasks. It also highlights recommended migration strategies, best practices, and key considerations to help teams 
-modernize their automation workflows while maintaining operational stability and reliability.
-By following this guide, organizations can reduce manual effort, improve consistency, accelerate operational processes, and 
-integrate IBM Z automation into broader enterprise automation ecosystems.
+The guide introduces the available Ansible for IBM Z collections and explains how they can be used to automate common z/OS administration, application management, middleware operations, and infrastructure tasks. It also highlights recommended migration strategies, best practices, and key considerations to help teams modernize their automation workflows while maintaining operational stability and reliability.
 
+By following this guide, organizations can reduce manual effort, improve consistency, accelerate operational processes, and integrate IBM Z automation into broader enterprise automation ecosystems.
 
-Here are the Migration guides for each collections:
+This guide is designed for:
+
+- **IBM Z system administrators** transitioning from manual operations and legacy scripts.
+- **Mainframe programmers** moving from REXX, CLIST, or JCL-based automation to Ansible.
+- **Operations teams** migrating from proprietary automation tools to open-source solutions.
+- **DevOps engineers** implementing infrastructure-as-code practices on IBM Z.
+- **Application teams** automating IBM CICS, IBM IMS, and IBM Db2® deployments.
+
 
 .. toctree::
    :maxdepth: 1
