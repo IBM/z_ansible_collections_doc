@@ -49,6 +49,23 @@ This guide is designed for:
 
 
   
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   z/OS Core<../ibm_zos_core/docs/source/migrationguide/migration-guide>
+
+.. grid:: 1 1 2 2
+    :gutter: 1
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: :bdg-link-primary:`z/OS Core collection<../ibm_zos_core/docs/source//migrationguide/migration-guide.html>` :octicon:`link-external`
+                  :padding: 0
+
 
 .. ...........................................................................
 .. # Site content links
