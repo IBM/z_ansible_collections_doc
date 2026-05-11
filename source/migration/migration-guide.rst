@@ -43,7 +43,7 @@ This guide is designed for:
             :gutter: 1
 
             .. grid-item-card:: z/OS Core
-               :link: ../ibm_zos_core/docs/source/migration-guide.html
+               :link: ../ibm_zos_core/docs/source/migrationguide/migration-guide.html
 
                For more information on migration guide, click.
 
@@ -53,16 +53,3 @@ This guide is designed for:
 .. ...........................................................................
 .. # Site content links
 .. ...........................................................................
-
-.. _IBM z/OS Core:
-   ../ibm_zos_core/docs/source/ansible_content.html
-.. _IBM z/OS CICS:
-   ../ibm_zos_cics/docs/ansible_content.html
-.. _IBM z/OS IMS:
-   ../ibm_zos_ims/docs/ansible_content.html
-.. _IBM Z System Automation:
-   ../ibm_zos_sysauto/docs/ansible_content.html
-.. _IBM z/OS Management Facility:
-   ../ibm_zosmf/docs/ansible_content.html
-.. _IBM Z HMC:
-   ../zhmc-ansible-modules/docs/ansible_content.html
