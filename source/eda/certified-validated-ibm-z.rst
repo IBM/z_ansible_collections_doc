@@ -18,7 +18,7 @@ These collections are developed in collaboration with IBM and undergo rigorous t
 
 
 Benefits of certified content
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ✅ **Enterprise support**: Backed by Red Hat and IBM support agreements.
 
@@ -43,7 +43,7 @@ Validated content refers to automation content (playbooks, rulebooks, and integr
 This content provides proven integration patterns and best practices for connecting Event-Driven Ansible with IBM Z monitoring and management tools.
 
 Benefits of validated content
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ✅ **IBM tested**: Validated by IBM engineers with IBM Z products.
 
