@@ -196,7 +196,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    requirements/software-requirements
    installation/software-installation
    configuration/software-configuration
-   migration/migration-guide
+   migrationguide/migration-guide
 
 .. toctree::
    :maxdepth: 1
