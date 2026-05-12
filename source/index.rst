@@ -101,17 +101,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    overview/ansible-playbooks.html
 .. _Ansible for IBM Z Trial:
    overview/ansible-for-ztrial.html
-
-.. ..........................................................................
-.. Event Driven Ansible for IBM Z
-.. ..........................................................................
-
-.. _Introduction and Architecture:
-   eda/eda-for-ibm-z.html
 .. _Certified and Validated Content for IBM Z:
    eda/certified-validated-ibm-z.html
-.. _Prerequisites and setup:
-   eda/prerequisites-setup-ibm-z.html
    
 .. ..........................................................................
 .. Installation & Execution
@@ -134,6 +125,15 @@ management, provisioning, and application deployment in one easy-to-use platform
    collections_content/collection-releases.html
 .. _Collection Life Cycles:
    collections_content/collection-life-cycles.html
+
+.. ..........................................................................
+.. Event Driven Ansible for IBM Z
+.. ..........................................................................
+
+.. _Introduction and Architecture:
+   eda/eda-for-ibm-z.html
+.. _Prerequisites and setup:
+   eda/prerequisites-setup-ibm-z.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
@@ -164,7 +164,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Software Requirements`_
       * `Software Installation`_
-      * `Collection Life Cycles`_
+      * `Software Configuratiion`_
 
 .. grid:: 3
 
@@ -179,6 +179,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    .. grid-item:: |topology| Event Driven Ansible for IBM Z
 
       * `Introduction and Architecture`_
+      * `Prerequisites and setup`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
@@ -230,6 +231,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    :hidden:
 
    eda/eda-for-ibm-z
+   eda/prerequisites-setup-ibm-z
 
 .. toctree::
    :maxdepth: 1
