@@ -158,12 +158,6 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
-
-.. grid:: 3
-
-   .. grid-item:: |topology| Event Driven Ansible for IBM Z
-
-      * `Introduction and Architecture`_
       * `Certified and validated content for IBM Z`_
    
    .. grid-item:: |mainframe| Installation & Execution
@@ -179,6 +173,12 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Collections`_
       * `Collection Releases`_
       * `Collection Life Cycles`_
+   
+.. grid:: 3
+
+   .. grid-item:: |topology| Event Driven Ansible for IBM Z
+
+      * `Introduction and Architecture`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
@@ -204,13 +204,6 @@ management, provisioning, and application deployment in one easy-to-use platform
    overview/ansible-glossary
    overview/ansible-playbooks
    overview/ansible-for-ztrial
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Event Driven Ansible For IBM Z
-   :hidden:
-
-   eda/eda-for-ibm-z
    eda/certified-validated-ibm-z
    
 .. toctree::
@@ -230,6 +223,13 @@ management, provisioning, and application deployment in one easy-to-use platform
    collections_content/collections
    collections_content/collection-releases
    collections_content/collection-life-cycles
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Event Driven Ansible For IBM Z
+   :hidden:
+
+   eda/eda-for-ibm-z
 
 .. toctree::
    :maxdepth: 1
