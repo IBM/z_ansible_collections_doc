@@ -41,7 +41,7 @@ This migration is designed for:
             .. grid-item-card:: z/OS Core
                :link: ../ibm_zos_core/docs/source/migrationguide/migration-guide.html
 
-               For more information on migration guide, click.
+               For more information on migration, click.
 
 
   
