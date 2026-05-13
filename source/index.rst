@@ -134,6 +134,12 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z.html
 .. _Prerequisites and setup:
    eda/prerequisites-setup-ibm-z.html
+.. _Using Event-driven Ansible for IBM Z:
+   eda/eda-for-ibm-z.html
+.. _Running and managing playbooks:
+   eda/running-managing-playbooks.html
+.. _Additional support:
+   eda/addtional-support.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
@@ -180,6 +186,9 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Introduction and Architecture`_
       * `Prerequisites and setup`_
+      * `Using Event-driven Ansible for IBM Z`_
+      * `Running and managing playbooks`_
+      * `Additional support`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
@@ -232,6 +241,9 @@ management, provisioning, and application deployment in one easy-to-use platform
 
    eda/eda-for-ibm-z
    eda/prerequisites-setup-ibm-z
+   eda/using-eda-ibm-z
+   eda/running-managing-playbooka
+   eda/additional-support
 
 .. toctree::
    :maxdepth: 1
