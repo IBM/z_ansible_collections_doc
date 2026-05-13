@@ -16,7 +16,7 @@ EDA integrates with IBM Z systems through certified Ansible collections:
 - **ibm.ibm_zosmf**: IBM z/OS® Management Facility (z/OSMF) REST API integration.
 
 Integration flow
---------------------------------------------------
+~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -35,7 +35,7 @@ Integration flow
 
 
 Example actions on z/OS
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Run operator commands** (``zos_operator``).
 - **Submit batch jobs** (``zos_job_submit``).
@@ -46,7 +46,7 @@ Example actions on z/OS
 
 
 Quick start checklist
-==================================================
+--------------------------------------------------
 
 - [ ] Install Ansible and ansible-rulebook.
 - [ ] Install IBM Z collections (``ibm.ibm_zos_core``, ``ibm.ibm_zosmf``).
@@ -137,8 +137,6 @@ Getting started with certified content
    ansible-doc -l ibm.ibm_zos_core
 
 ::
-
-
 
 Additional resources
 --------------------------------------------------

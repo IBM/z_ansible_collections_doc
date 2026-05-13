@@ -63,7 +63,7 @@ Inventory file example
 
 
 Best practices
-==================================================
+-----------------
 
 1. Rulebook design
 ~~~~~~~~~~~~~~~~~~~~
