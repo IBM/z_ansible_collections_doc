@@ -242,7 +242,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z
    eda/prerequisites-setup-ibm-z
    eda/using-eda-ibm-z
-   eda/running-managing-playbooka
+   eda/running-managing-playbooks
    eda/additional-support
 
 .. toctree::
