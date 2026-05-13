@@ -154,7 +154,7 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Software Requirements`_
       * `Software Installation`_
       * `Collection Life Cycles`_
-      * `Migration Guide`_
+      * `Migration`_
 .. grid:: 3
 
    .. grid-item:: |collection| Collections & Content
