@@ -112,7 +112,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    installation/software-installation.html
 .. _Software Configuration:
    configuration/software-configuration.html
-.. _Migration Guide:
+.. _Migration:
    migration/migration-guide.html
 .. ..........................................................................
 .. Collections & Content
