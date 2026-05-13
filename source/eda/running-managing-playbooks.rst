@@ -66,7 +66,7 @@ Best practices
 ==================================================
 
 1. Rulebook design
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~
 
 - Keep rules simple and focused.
 - Use descriptive names.
@@ -74,7 +74,7 @@ Best practices
 - Test rules thoroughly before production.
 
 2. Event source configuration
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Use secure connections (TLS/SSL).
 - Implement proper authentication.
@@ -82,7 +82,7 @@ Best practices
 - Monitor event source health.
 
 3. Playbook development
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Make playbooks idempotent.
 - Include error handling.
@@ -90,15 +90,14 @@ Best practices
 - Use Ansible Vault for sensitive data.
 
 4. Security
---------------------------------------------------
-
+~~~~~~~~~~~~~
 - Encrypt credentials with Ansible Vault.
 - Use least privilege access.
 - Audit all automated actions.
 - Implement approval workflows for critical changes.
 
 5. Performance
---------------------------------------------------
+~~~~~~~~~~~~~~~~~
 
 - Optimize event filtering.
 - Use async execution for long-running tasks.
@@ -106,7 +105,7 @@ Best practices
 - Scale horizontally when needed.
 
 6. Monitoring
---------------------------------------------------
+~~~~~~~~~~~~~~~
 
 - Log all rule matches and actions.
 - Track playbook execution results.
