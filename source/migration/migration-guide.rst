@@ -14,7 +14,7 @@ Migration
 
 Organizations can reduce manual effort, improve consistency, accelerate operational processes, and integrate IBM Z automation into broader enterprise automation ecosystems.
 
-This guide is designed for:
+This migration is designed for:
 
 - **IBM Z system administrators** transitioning from manual operations and legacy scripts.
 - **Mainframe programmers** moving from REXX, CLIST, or JCL-based automation to Ansible.
