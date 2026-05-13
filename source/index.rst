@@ -170,7 +170,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Software Requirements`_
       * `Software Installation`_
-      * `Software Configuratiion`_
+      * `Software Configuration`_
 
 .. grid:: 3
 
