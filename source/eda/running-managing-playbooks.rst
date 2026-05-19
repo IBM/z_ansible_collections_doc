@@ -62,8 +62,6 @@ Inventory file example
 
 ::
 
-
-
 Best practices
 ~~~~~~~~~~~~~~~
 
