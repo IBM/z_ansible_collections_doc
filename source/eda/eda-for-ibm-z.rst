@@ -137,7 +137,7 @@ The design is particularly useful for the following goals:
 
 
 Components
---------------------------------------------------
+~~~~~~~~~~~
 
 1. Security event sources on z/OS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
