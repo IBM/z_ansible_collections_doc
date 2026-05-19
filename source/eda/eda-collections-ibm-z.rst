@@ -7,8 +7,8 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-Collections 
-==================================================
+Collections for Event-driven Ansible
+======================================
 
 Rulebooks
 ------------------
