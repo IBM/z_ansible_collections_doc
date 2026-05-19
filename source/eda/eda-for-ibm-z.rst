@@ -160,7 +160,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data for
 - **Kafka** to deliver the transformed event stream to subscribed consumers.
 
 3. Event-Driven Ansible rulebook engine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Event-Driven Ansible layer performs the following functions:
 
@@ -170,7 +170,7 @@ The Event-Driven Ansible layer performs the following functions:
 - Triggers the appropriate automated response when a rule matches.
 
 4. Automation content
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The automation content defines how the privileged-access use case is handled:
 
@@ -179,7 +179,7 @@ The automation content defines how the privileged-access use case is handled:
 - **IBM Z collections** provide the modules used to interact with z/OS systems and services.
 
 5. Execution and response
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Automation Controller and the IBM Z automation content execute the required response actions, such as:
 
@@ -188,10 +188,8 @@ Automation Controller and the IBM Z automation content execute the required resp
 - **Revoke unauthorized access** when the detected change is not approved.
 - **Send notifications** to the security administrator.
 
----
-
 Integration with IBM Z
-==================================================
+--------------------------------------------------
 
 Event-Driven Ansible integrates with IBM Z systems through certified Ansible collections and IBM Z service interfaces.
 
@@ -202,29 +200,6 @@ Relevant integrations for this use case include:
 - **IBM zSecure**: Security monitoring and alert generation.
 - **IBM Common Data Provider for z Systems**: Event forwarding and transformation.
 - **Apache Kafka**: Event transport between z/OS and Event-Driven Ansible.
-
-Integration flow
---------------------------------------------------
-
-::
-
-   1. A RACF privilege change occurs on z/OS
-            ↓
-   2. zSecure Alert detects the authority change
-            ↓
-   3. WTO/syslog data is captured by Common Data Provider
-            ↓
-   4. Common Data Provider formats and streams the event through Kafka
-            ↓
-   5. Event-Driven Ansible rulebook processes the event
-            ↓
-   6. Automation Controller runs the corresponding playbook
-            ↓
-   7. The playbook verifies authorization status
-            ↓
-   8. The system sends a notification or revokes access
-            ↓
-   9. Results are recorded for security operations and audit review
 
 Example actions on z/OS
 --------------------------------------------------
@@ -241,7 +216,7 @@ Typical automated actions in this architecture include:
 Example scenario summary
 --------------------------------------------------
 
-A system authority change on a production LPAR is not permitted without valid authorization. Event-Driven Ansible for IBM Z can be used to automate this workflow end to end:
+A system authority change on a production LPAR is not permitted without valid authorization:
 
 1. A privilege escalation attempt occurs.
 2. IBM zSecure Alert detects the change.
