@@ -8,7 +8,7 @@
 .. ...........................................................................
 
 ==============
-Prerequisites
+Prerequisites and installation
 ==============
 
 Quick start checklist
