@@ -39,7 +39,7 @@ Key benefits
 
 
 Architecture
---------------------------------------------------
+------------
 
 Architecture use case: zSecure Privileges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
