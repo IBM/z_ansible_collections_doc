@@ -39,7 +39,7 @@ Key benefits
 
 
 Architecture
-==================================================
+--------------------------------------------------
 
 Architecture use case: zSecure Privileges
 --------------------------------------------------
@@ -136,12 +136,11 @@ The design is particularly useful for the following goals:
 - **Improved auditability** by linking detection, decision, and response activities.
 
 
-
 Components
-==================================================
+--------------------------------------------------
 
 1. Security event sources on z/OS
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
 
@@ -151,7 +150,7 @@ The z/OS domain generates and exposes the security event that drives the automat
 - **WTO, syslog, RACF DB, and SMF** for message creation, logging, and audit records.
 
 2. Common Data Provider and event transport
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IBM Common Data Provider for z Systems captures and forwards z/OS event data for downstream consumption. In this use case, the relevant components are:
 
@@ -161,7 +160,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data for
 - **Kafka** to deliver the transformed event stream to subscribed consumers.
 
 3. Event-Driven Ansible rulebook engine
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 
 The Event-Driven Ansible layer performs the following functions:
 
