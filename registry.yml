@@ -33,7 +33,7 @@ collections:
   ibm_zos_ims:
     git:  https://github.com/ansible-collections/ibm_zos_ims.git
     stable:
-    latest: release-v1.4.0
+    latest: release-1.4.0
     origin: main
   ibm_zos_cics:
     git:  https://github.com/ansible-collections/ibm_zos_cics.git
