@@ -12,14 +12,13 @@ Using Event-Driven Ansible for IBM Z
 ====================================
 
 Detailed use cases
-==================================================
+___________________
 
 The following use cases demonstrate production-ready implementations for responding to IBM zSecure alerts with comprehensive error handling, ServiceNow® integration, and detailed notifications.
 
----
 
 Use case 1: Unknown user logon detection (Alert 1101)
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario**: Detect and quarantine unknown users attempting to log on to the system.
 
@@ -121,10 +120,9 @@ Use case 1: Unknown user logon detection (Alert 1101)
 ::
 
 
----
 
 Use case 2: Superuser (uid 0) logon detection (Alert 1103)
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario**: Automatically remove uid(0) from users who log on with UNIX® superuser privileges.
 
@@ -221,10 +219,9 @@ Use case 2: Superuser (uid 0) logon detection (Alert 1103)
 ::
 
 
----
 
 Use case 3: System authority changes (Alerts 1105-1108)
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario**: Monitor and document all system authority changes (SPECIAL, OPERATIONS, AUDITOR) with LISTUSER output.
 
@@ -367,10 +364,8 @@ Use case 3: System authority changes (Alerts 1105-1108)
 ::
 
 
----
-
 Use case 4: Invalid password attempts (Alert 1111)
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario**: Detect brute force attacks by counting invalid password attempts within a time window.
 
@@ -508,10 +503,9 @@ Alert 1111: Invalid password attempts exceed limit for C##BSG2
 ::
 
 
----
 
 Use case 5: Emergency user logon (Alert 1102)
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario**: Detect emergency user logon and create ServiceNow ticket for validation.
 
