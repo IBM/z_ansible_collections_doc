@@ -50,8 +50,6 @@ Using certified content in EDA
 
 ::
 
-
-
 Support and licensing
 --------------------------------------------------
 
