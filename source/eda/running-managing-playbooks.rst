@@ -7,12 +7,14 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-
-Running rulebooks
+Collections 
 ==================================================
 
+Rulebooks
+------------------
+
 Start the rulebook engine
---------------------------------------------------
+--------------------------
 
 .. code-block:: bash
 
@@ -111,3 +113,9 @@ Best practices
 - Track playbook execution results.
 - Set up alerts for rulebook failures.
 - Monitor event processing latency.
+
+Playbooks
+----------
+
+Event filter 
+------------

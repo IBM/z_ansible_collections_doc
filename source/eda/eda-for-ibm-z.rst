@@ -7,12 +7,12 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-==================
+=============================
 Introduction and architecture
-==================
+=============================
 
 Event-Driven ansible
---------------------------------------------------
+----------------------
 
 Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
 
@@ -90,7 +90,7 @@ Layered architecture
    └──────────────────────────────────────────────────────────────┘
                                ↓
    ┌──────────────────────────────────────────────────────────────┐
-   │              Ansible Automation Platform 2.5                │
+   │              Ansible Automation Platform 2.5                 │
    │                                                              │
    │  Platform Gateway                                            │
    │  Event-Driven Ansible                                        │
@@ -187,41 +187,3 @@ Automation Controller and the IBM Z automation content execute the required resp
 - **Run z/OS automation tasks** by using supported IBM Z modules.
 - **Revoke unauthorized access** when the detected change is not approved.
 - **Send notifications** to the security administrator.
-
-Integration with IBM Z
---------------------------------------------------
-
-Event-Driven Ansible integrates with IBM Z systems through certified Ansible collections and IBM Z service interfaces.
-
-Relevant integrations for this use case include:
-
-- **ibm.ibm_zos_core**: Core z/OS system automation.
-- **ibm.ibm_zosmf**: IBM z/OS® Management Facility (z/OSMF) REST API integration.
-- **IBM zSecure**: Security monitoring and alert generation.
-- **IBM Common Data Provider for z Systems**: Event forwarding and transformation.
-- **Apache Kafka**: Event transport between z/OS and Event-Driven Ansible.
-
-Example actions on z/OS
---------------------------------------------------
-
-Typical automated actions in this architecture include:
-
-- **Run operator commands** (``zos_operator``).
-- **Submit batch jobs** (``zos_job_submit``).
-- **Collect system information** (``zos_gather_facts``).
-- **Call z/OSMF services** through supported IBM Z modules.
-- **Update security profiles** through authorized RACF command execution.
-- **Trigger notification and remediation workflows** based on privileged-access policy.
-
-Example scenario summary
---------------------------------------------------
-
-A system authority change on a production LPAR is not permitted without valid authorization:
-
-1. A privilege escalation attempt occurs.
-2. IBM zSecure Alert detects the change.
-3. IBM Common Data Provider captures and streams the event.
-4. Event-Driven Ansible matches the event through a rulebook.
-5. Automation Controller runs a playbook to evaluate whether the action is authorized.
-6. If the action is valid, the security administrator is informed.
-7. If the action is invalid, the user access is revoked and the security administrator is informed.
