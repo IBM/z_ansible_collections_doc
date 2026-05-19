@@ -136,7 +136,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/prerequisites-setup-ibm-z.html
 .. _Using Event-driven Ansible for IBM Z:
    eda/eda-for-ibm-z.html
-.. _Collections:
+.. _Collections for Event-driven for Ansible:
    eda/eda-collections-ibm-z.html
 .. _Additional support:
    eda/addtional-support.html
@@ -187,7 +187,7 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Introduction and Architecture`_
       * `Prerequisites and setup`_
       * `Using Event-driven Ansible for IBM Z`_
-      * `Collections`_
+      * `Collections for Event-driven for Ansible`_
       * `Additional support`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
