@@ -137,7 +137,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Using Event-driven Ansible for IBM Z:
    eda/eda-for-ibm-z.html
 .. _Collections:
-   eda/running-managing-playbooks.html
+   eda/eda-collections-ibm-z.html
 .. _Additional support:
    eda/addtional-support.html
 
@@ -242,7 +242,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z
    eda/prerequisites-setup-ibm-z
    eda/using-eda-ibm-z
-   eda/running-managing-playbooks
+   eda/eda-collections-ibm-z
    eda/additional-support
 
 .. toctree::
