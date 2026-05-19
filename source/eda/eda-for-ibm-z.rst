@@ -42,12 +42,12 @@ Architecture
 --------------------------------------------------
 
 Architecture use case: zSecure Privileges
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following architecture shows how Event-Driven Ansible for IBM Z can automate the review and response process for unauthorized privilege changes on a production LPAR. In this scenario, an authority change is detected on z/OS, enriched and streamed through the event pipeline, evaluated by Event-Driven Ansible, and then handled by an automation playbook.
 
 Architecture flow
---------------------------------------------------
+~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -70,7 +70,7 @@ Architecture flow
    Notify security administrator or revoke access
 
 Layered architecture
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -108,7 +108,7 @@ Layered architecture
    └──────────────────────────────────────────────────────────────┘
 
 Architecture explanation
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes a user's privileges.
 2. **Security detection**: IBM zSecure Command Verifier and IBM zSecure Alert monitor the activity and detect the authority change for the affected user ID.
@@ -123,7 +123,7 @@ Architecture explanation
    - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
 
 Why this architecture matters
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This architecture demonstrates how IBM Z security events can be integrated into an enterprise event-driven automation flow. It combines native z/OS security monitoring with Event-Driven Ansible so that privileged access changes can be reviewed quickly and handled consistently.
 
