@@ -14,7 +14,7 @@ Rulebooks
 ------------------
 
 Start the rulebook engine
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -38,7 +38,7 @@ Start the rulebook engine
 
 
 Inventory file example
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 **File:** ``inventory.yml``
 
@@ -65,7 +65,7 @@ Inventory file example
 
 
 Best practices
------------------
+~~~~~~~~~~~~~~~
 
 1. Rulebook design
 ~~~~~~~~~~~~~~~~~~~~
