@@ -26,7 +26,7 @@ or its accompanying links.
    :hidden:
 
    z/OS Core <../ibm_zos_core/docs/source/collection-requirements>
-   z/OS IMS <../ibm_zos_ims/docs/source/requirements_managed>
+   z/OS IMS <../ibm_zos_ims/docs/source/collection-requirements>
    z/OS CICS <../ibm_zos_cics/docs/source/requirements>
    z/OSMF <../ibm_zosmf/docs/source/collection-requirements>
    Z HMC <../zhmc-ansible-modules/docs/source/requirements_managed>
@@ -48,12 +48,12 @@ or its accompanying links.
                   - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
                   - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/requirements_managed.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/collection-requirements.html>` :octicon:`link-external`
                   :padding: 0
 
-                  - :ref:`Control node <ibm-zos-core-collection-requirements-control-node>`
-                  - :ref:`Managed node <ibm-zos-core-collection-requirements-managed-node>`
-                  - :ref:`Dependency matrix <ibm-zos-core-collection-requirements-dependency-matrix>`
+                  - :ref:`Control node <ibm-zos-ims-collection-requirements-control-node>`
+                  - :ref:`Managed node <ibm-zos-ims-collection-requirements-managed-node>`
+                  - :ref:`Dependency matrix <ibm-zos-ims-collection-requirements-dependency-matrix>`
 
             .. grid-item-card:: :bdg-link-primary:`z/OS CICS collection<../ibm_zos_cics/docs/source/requirements.html>` :octicon:`link-external`
                   :padding: 0
