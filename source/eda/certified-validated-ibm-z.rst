@@ -7,8 +7,8 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-Certified and validated content for IBM Z
-==================================================
+Certified and validated content 
+===============================bvg
 
 Certified content
 ------------------
