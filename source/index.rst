@@ -113,7 +113,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Software Configuration:
    configuration/software-configuration.html
 .. _Migration:
-   migration/migration.html
+   migration/migration-core.html
 .. ..........................................................................
 .. Collections & Content
 .. ..........................................................................
@@ -197,7 +197,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    requirements/software-requirements
    installation/software-installation
    configuration/software-configuration
-   migration/migration
+   migration/migration-core
 
 .. toctree::
    :maxdepth: 1
