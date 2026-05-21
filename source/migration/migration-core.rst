@@ -27,7 +27,7 @@ This migration is designed for:
    :maxdepth: 1
    :hidden:
 
-   z/OS Core <../ibm_zos_core/docs/source/migration-guide>
+   z/OS Core <../ibm_zos_core/docs/source/migration>
   
 
 .. grid:: 3
@@ -39,7 +39,7 @@ This migration is designed for:
             :gutter: 1
 
             .. grid-item-card:: z/OS Core
-               :link: ../ibm_zos_core/docs/source/migration/migration-core.html
+               :link: ../ibm_zos_core/docs/source/migration/migration.html
 
                For more information on migration, click.
 
