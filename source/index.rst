@@ -95,14 +95,15 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. _Ansible for IBM Z:
    overview/ansible-for-ibm-z.html
+.. _Certified and Validated content:
+   eda/certified-validated-ibm-z.html
 .. _Ansible for IBM Z Glossary:
    overview/ansible-glossary.html
 .. _Ansible for IBM Z Playbooks:
    overview/ansible-playbooks.html
 .. _Ansible for IBM Z Trial:
    overview/ansible-for-ztrial.html
-.. _Certified and Validated Content for IBM Z:
-   eda/certified-validated-ibm-z.html
+
    
 .. ..........................................................................
 .. Installation & Execution
@@ -135,7 +136,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Prerequisites and installation:
    eda/prerequisites-setup-ibm-z.html
 .. _Using Event-driven Ansible for IBM Z:
-   eda/eda-for-ibm-z.html
+   eda/using-eda-for-ibm-z.html
 .. _Collections for Event-driven for Ansible:
    eda/eda-collections-ibm-z.html
 .. _Additional support:
