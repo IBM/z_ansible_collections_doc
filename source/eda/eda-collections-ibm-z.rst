@@ -11,12 +11,13 @@ Collections
 ================
 
 
-
+Click on a topic to learn more about installing Ansible and managing Ansible
+collections.
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   Rulebooks<../ibm_z_solutions/docs/source/rulebooks-collection>
-   Playbooks<../ibm_z_solutions/docs/source/playbooks-collection>
-   Event filter<../ibm_z_solutions/docs/source/event-filter-collection>
+   rulebooks-collection
+   playbooks-collection
+   event-filter-collection
