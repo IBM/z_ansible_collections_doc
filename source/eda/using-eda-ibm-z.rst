@@ -7,8 +7,8 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-
-Using Event-Driven Ansible for IBM Z
+====================================
+Using Event-Driven Ansible 
 ====================================
 
 Detailed use cases
