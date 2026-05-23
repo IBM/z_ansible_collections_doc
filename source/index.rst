@@ -131,14 +131,14 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. Event Driven Ansible for IBM Z
 .. ..........................................................................
 
-.. _Introduction and Architecture:
+.. _Introduction and architecture:
    eda/eda-for-ibm-z.html
-.. _Prerequisites and installation:
+.. _Install and run:
    eda/prerequisites-setup-ibm-z.html
-.. _Using Event-driven Ansible for IBM Z:
-   eda/using-eda-for-ibm-z.html
-.. _Collections for Event-driven for Ansible:
+.. _Collections:
    eda/eda-collections-ibm-z.html
+.. _Using event-driven Ansible:
+   eda/using-eda-for-ibm-z.html
 .. _Additional support:
    eda/addtional-support.html
 
@@ -187,8 +187,8 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Introduction and Architecture`_
       * `Install and run`_
-      * `Collections for Event-driven for Ansible`_
-      * `Using Event-driven Ansible for IBM Z`_
+      * `Collections`_
+      * `Using Event-driven Ansible`_
       * `Additional support`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
