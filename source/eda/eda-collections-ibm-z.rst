@@ -16,7 +16,7 @@ Click on a topic to learn more about installing Ansible and managing Event-Drive
    Rulebooks<../ibm_z_solutions/docs/source/collections/rulebooks-collection>
    Playbooks<../ibm_z_solutions/docs/source/collections/playbooks-collection>
    Event filter<../ibm_z_solutions/docs/source/collections/event-filter-collection>
-   Rulebooks<../ibm_z_solutions/docs/source/collections/rulebooks-collection>
+ 
    
    . grid:: 3
     :gutter: 1
