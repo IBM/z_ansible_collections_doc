@@ -11,8 +11,8 @@
 Introduction and architecture
 =============================
 
-**Overview**
-
+Overview
+------------
 
 Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
 
