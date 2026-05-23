@@ -1,5 +1,5 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2026                                   .
+.. © Copyright IBM Corporation 2020, 2026                                    .
 .. ...........................................................................
 .. TODO:
 ..    1) Request all contributors provide a reference (ref) back to the
@@ -16,7 +16,7 @@ collections.
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
+   :caption: Collection Content
 
    rulebooks-collection
    playbooks-collection
