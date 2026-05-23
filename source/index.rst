@@ -134,8 +134,8 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Introduction and architecture:
    eda/eda-for-ibm-z.html
 .. _Install and run:
-   eda/prerequisites-setup-ibm-z.html
-.. _Collections:
+   eda/eda-install-run.html
+.. _Collections for EDA:
    eda/eda-collections-ibm-z.html
 .. _Using event-driven Ansible:
    eda/using-eda-for-ibm-z.html
@@ -162,7 +162,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    .. grid-item:: |topology| Overview
 
       * `Ansible for IBM Z`_
-      * `Certified and validated content for IBM Z`_
+      * `Certified and validated content`_
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
@@ -187,7 +187,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Introduction and Architecture`_
       * `Install and run`_
-      * `Collections`_
+      * `Collections for EDA`_
       * `Using Event-driven Ansible`_
       * `Additional support`_
 
