@@ -4,6 +4,9 @@
 Collections
 ================
 
+Event-Driven Ansible (EDA) Collections are packaged bundles of automation content specifically designed for event-driven automation workflows. 
+They extend Ansible's capabilities to respond automatically to events in real-time.
+
 
 Click on a topic to learn more about installing Ansible and managing Ansible
 collections.
@@ -12,6 +15,7 @@ collections.
    :maxdepth: 1
    :caption: Collection Content
 
-   rulebooks-collection
-   playbooks-collection
-   event-filter-collection
+   Rulebooks<../ibm_z_solutions/docs/source/rulebooks-collection>
+   Playbooks<../ibm_z_solutions/docs/source/playbooks-collection>
+   Event filter<../ibm_z_solutions/docs/source/event-filter-collection>
+   
