@@ -28,7 +28,11 @@ collections:
   ibm_zos_core:
     git: https://github.com/ansible-collections/ibm_zos_core.git
     stable:
+<<<<<<< HEAD
     latest: staging-v2.0.0
+=======
+    latest: main
+>>>>>>> b86a141 (Update registry.yml)
     origin: main
   ibm_zos_ims:
     git:  https://github.com/ansible-collections/ibm_zos_ims.git
