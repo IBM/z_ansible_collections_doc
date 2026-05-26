@@ -28,7 +28,7 @@ collections:
   ibm_zos_core:
     git: https://github.com/ansible-collections/ibm_zos_core.git
     stable:
-    latest: abhi_doc_core
+    latest: rel-tasks-v2.0.0
     origin: main
   ibm_zos_ims:
     git:  https://github.com/ansible-collections/ibm_zos_ims.git
