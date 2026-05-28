@@ -27,7 +27,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="z/OS CICS" href="../../../ibm_zos_cics/docs/ansible_content.html" />
+    <link rel="next" title="filter_wtor_messages – Filter a list of WTOR messages" href="filters/filter_wtor_messages.html" />
     <link rel="prev" title="zos_zfs_resize – Resize a zfs data set." href="modules/zos_zfs_resize.html" /> 
 </head>
 
@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../requirements/software-requirements.html">Software Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/software-installation.html">Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/software-configuration.html">Software Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migration/migration-core.html">Migration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
 <ul class="current">
@@ -69,7 +70,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="ansible_content.html">z/OS Core</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plugins.html">Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html">Modules</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Filters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="filters/filter_wtor_messages.html">filter_wtor_messages – Filter a list of WTOR messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filters/generate_data_set_name.html">generate_data_set_name – Filter HLQs to generate a new random valid data set name.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filters/zos_stat_by_type.html">zos_stat_by_type – Filter returned fields from zos_stat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="roles.html">Roles</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -138,6 +145,16 @@ fully qualified name even when included in a collection.</p>
 </div></blockquote>
 <p>For more details on filters, review the filters and documentation under
 the <a class="reference external" href="https://github.com/ansible-collections/ibm_zos_core/tree/main/plugins/filter/">filter</a> directory included in the collection.</p>
+<p>The <strong>IBM z/OS core</strong> collection provides many filters.
+Reference material for each role contains documentation on how to use certain
+filters in your playbook.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters/filter_wtor_messages.html">filter_wtor_messages – Filter a list of WTOR messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters/generate_data_set_name.html">generate_data_set_name – Filter HLQs to generate a new random valid data set name.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters/zos_stat_by_type.html">zos_stat_by_type – Filter returned fields from zos_stat</a></li>
+</ul>
+</div>
 </section>
 
 

@@ -1,0 +1,1776 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zos_user – Manage z/OS user and group profiles in RACF &mdash; Red Hat Ansible Certified Content for IBM Z  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/my_theme.css?v=a0fc712e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/table.css?v=fdc28d34" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=4182aadc" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="zos_volume_init – Initialize volumes or minidisks." href="zos_volume_init.html" />
+    <link rel="prev" title="zos_unarchive – Unarchive files and data sets in z/OS." href="zos_unarchive.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Red Hat Ansible Certified Content for IBM Z
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ibm-z.html">Ansible for IBM Z</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-glossary.html">Ansible for IBM Z Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-playbooks.html">Ansible for IBM Z Playbooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/ansible-for-ztrial.html">Ansible for IBM Z Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/software-requirements.html">Software Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/software-installation.html">Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/software-configuration.html">Software Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration/migration-core.html">Migration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../ansible_content.html">z/OS Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="zos_apf.html">zos_apf – Add or remove libraries to Authorized Program Facility (APF)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_archive.html">zos_archive – Archive files and data sets on z/OS.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_backup_restore.html">zos_backup_restore – Backup and restore data sets and volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_blockinfile.html">zos_blockinfile – Manage block of multi-line textual data on z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_copy.html">zos_copy – Copy data to z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_data_set.html">zos_data_set – Manage data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_encode.html">zos_encode – Perform encoding operations.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_fetch.html">zos_fetch – Fetch data from z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_find.html">zos_find – Find matching data sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_gather_facts.html">zos_gather_facts – Gather z/OS system facts.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_output.html">zos_job_output – Display job output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_query.html">zos_job_query – Query job status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_job_submit.html">zos_job_submit – Submit JCL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_lineinfile.html">zos_lineinfile – Manage textual data on z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_mount.html">zos_mount – Mount a z/OS file system.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_mvs_raw.html">zos_mvs_raw – Run a z/OS program.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_operator.html">zos_operator – Execute operator command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_operator_action_query.html">zos_operator_action_query – Display messages requiring action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_ping.html">zos_ping – Ping z/OS and check dependencies.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_replace.html">zos_replace – Replace all instances of a pattern within a file or data set.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_script.html">zos_script – Run scripts in z/OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_started_task.html">zos_started_task – Perform operations on started tasks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">zos_user – Manage z/OS user and group profiles in RACF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roles.html">Roles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_ims/docs/source/ansible_content.html">z/OS IMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_sysauto/docs/ansible_content.html">z/OS Sys Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zosmf/docs/source/ansible_content.html">z/OSMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../zhmc-ansible-modules/docs/ansible_content.html">Z HMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-releases.html">Collection Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../collections_content/collection-life-cycles.html">Collection Life Cycles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help &amp; Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/getting-support.html">Getting Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/faqs.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../help/helpful-links.html">Helpful links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribution/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Red Hat Ansible Certified Content for IBM Z</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../collections_content/collections.html">Collections  <svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-rocket" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></a></li>
+          <li class="breadcrumb-item"><a href="../ansible_content.html">z/OS Core</a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
+      <li class="breadcrumb-item active">zos_user – Manage z/OS user and group profiles in RACF</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zos-user-manage-z-os-user-and-group-profiles-in-racf">
+<span id="ibm-ibm-zos-core-zos-user-module"></span><h1>zos_user – Manage z/OS user and group profiles in RACF<a class="headerlink" href="#zos-user-manage-z-os-user-and-group-profiles-in-racf" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id3">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id4">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id5">Attributes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id7">Notes</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id8">See Also</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id9">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Manage z/OS user and group profiles in RACF database.</p></li>
+<li><p>Create, update, delete, and purge RACF user and group profiles, and connect users to groups.</p></li>
+<li><p>Operations are performed using RACF TSO commands.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl>
+<dt>name</dt><dd><p>The name of the RACF profile to manage.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>profile_type</dt><dd><p>Whether the RACF profile specified in <em>name</em> is a user or group profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: user, group</div>
+</div>
+</dd>
+<dt>state</dt><dd><p>Specifies the state to perform on the RACF profile.</p>
+<p>The available choices depend on the value of <em>profile_type</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">create</span></code> - Creates a new profile. Supported for both <em>profile_type=user</em> and <em>profile_type=group</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> - Modifies an existing profile. Supported for both <em>profile_type=user</em> and <em>profile_type=group</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the profile from RACF database, but may leave references to the profile in other RACF profiles or database records. Supported for both <em>profile_type=user</em> and <em>profile_type=group</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">purge</span></code> - Completely removes the profile and all associated references from the RACF database. Unloads the RACF database using <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=database-using-racf-unload-utility-irrdbu00">IRRDBU00</a>, identifies all references via <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=database-using-racf-remove-id-irrrid00-utility">IRRRID00</a>, and executes the necessary commands to remove them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">connect</span></code> - Links a user to a group. Only supported when <em>profile_type=user</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">remove</span></code> - Removes a user from a group. Only supported when <em>profile_type=user</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: create, update, delete, purge, connect, remove</div>
+</div>
+</dd>
+<dt>database</dt><dd><p>Name of the RACF database to use for the purge state.</p>
+<p>This option is only applicable when <em>state=purge</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>keep_dump</dt><dd><p>Whether to keep the database dump data sets after the purge completes.</p>
+<p>This option is only applicable when <em>state=purge</em>.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the IRRDBU00 dump data set and IRRRID00 CLIST is retained for debugging or auditing purposes.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, these temporary data sets are deleted after the purge.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>optimize_dump</dt><dd><p>Whether to skip locking the RACF database during the dump state to optimize performance.</p>
+<p>This option is only applicable when <em>state=purge</em>.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the IRRDBU00 utility runs with the <code class="docutils literal notranslate"><span class="pre">NOLOCKINPUT</span></code> option. This improves system availability by allowing concurrent updates to the database. However, it may result in inconsistent data if changes occur during the process.</p>
+<p>The user ID requires <code class="docutils literal notranslate"><span class="pre">READ</span></code> authority to the RACF database when using <code class="docutils literal notranslate"><span class="pre">NOLOCKINPUT</span></code>.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the IRRDBU00 utility runs with the <code class="docutils literal notranslate"><span class="pre">LOCKINPUT</span></code> option. This ensures data consistency by locking the database, but it prevents other processes from updating RACF profiles until the dump completes.</p>
+<p>The user ID requires <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> authority to the RACF database when using <code class="docutils literal notranslate"><span class="pre">LOCKINPUT</span></code>.</p>
+<p>See <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=irrdbu00-allowable-parameters">IRRDBU00 allowable parameters</a> for more information about <code class="docutils literal notranslate"><span class="pre">LOCKINPUT</span></code> and <code class="docutils literal notranslate"><span class="pre">NOLOCKINPUT</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>execute_clist</dt><dd><p>Whether to execute the generated CLIST.</p>
+<p>This option is only applicable when <em>state=purge</em>.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the module generates the CLIST, removes the safety <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> statement, and executes the DELUSER/DELGROUP commands.</p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the module generates the CLIST but does not execute it.</p>
+<p>This option is useful for reviewing the purge commands before execution.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: True</div>
+</div>
+</dd>
+<dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets.</p>
+<p>This option is only applicable when <em>state=purge</em>.</p>
+<p>Temporary data sets are created during the purge for database dumps, CLIST generation, and intermediate processing.</p>
+<p>If not specified, the system default HLQ is used.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>base_segment</dt><dd><p>Configures the RACF BASE segment attributes.</p>
+<p>The BASE segment contains core profile information applicable to both <em>profile_type=user</em> and <em>profile_type=group</em>.</p>
+<p>Supported attributes include <em>display_name</em>, <em>model</em>, <em>owner</em>, <em>installation_data</em>, and <em>custom_fields</em>.</p>
+<p>Note that <em>display_name</em> is only valid when <em>profile_type=user</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>display_name</dt><dd><p>Display name for the user profile (the descriptive name shown in listings, not the 8-character userid used for login).</p>
+<p>This corresponds to the RACF NAME parameter.</p>
+<p>For example, userid “JSMITH01” might have display_name “John Smith”.</p>
+<p>Maximum length of 20 characters.</p>
+<p>This option is only valid for user profiles (<em>profile_type=user</em>).</p>
+<p>This option is only applicable when <em>state=create</em> or <em>state=update</em>.</p>
+<p>If omitted, RACF will display UNKNOWN when listing the user.</p>
+<p>To remove/reset the display name to default (UNKNOWN), set this to an empty string <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>model</dt><dd><p>Name of an existing RACF profile to use as a model.</p>
+<p>Attributes not explicitly specified will be copied from the model profile.</p>
+<p>To remove the model field from the profile, set <code class="docutils literal notranslate"><span class="pre">model=&quot;&quot;</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>owner</dt><dd><p>Specifies the user or group profile name to set as the owner.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>installation_data</dt><dd><p>Installation-defined data to store in the profile.</p>
+<p>Maximum length of 255 characters.</p>
+<p>The module automatically encloses the contents in single quotation marks.</p>
+<p>To remove the installation data from the profile, set <code class="docutils literal notranslate"><span class="pre">installation_data=&quot;&quot;</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>custom_fields</dt><dd><p>Custom fields to store with the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>add</dt><dd><p>Custom fields to add to the profile.</p>
+<p>Custom fields are specified as a dictionary of <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs.</p>
+<p>This option is valid when <em>state=create</em> or <em>state=update</em>.</p>
+<p>This option is mutually exclusive with <em>delete</em> and <em>delete_block</em>.</p>
+<p>Note - Values containing colons should be enclosed in quotes to ensure correct YAML parsing in playbooks.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>List of custom fields to delete.</p>
+<p>This option is only valid when <em>state=update</em>; it is ignored for all other values of state.</p>
+<p>This option is mutually exclusive with <em>add</em> and <em>delete_block</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>delete_block</dt><dd><p>Delete all custom fields from the profile.</p>
+<p>This removes the entire custom fields section, not just individual fields.</p>
+<p>Use <em>delete</em> to remove specific custom fields, or <em>delete_block=true</em> to remove all custom fields at once.</p>
+<p>This option is only valid when <em>state=update</em>; it is ignored for all other values of state, including <em>state=create</em>.</p>
+<p>This option is mutually exclusive with <em>add</em> and <em>delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>group</dt><dd><p>Options that change group-specific attributes in a RACF profile.</p>
+<p>Only valid when <em>profile_type=group</em>, ignored for user profiles.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>superior_group</dt><dd><p>Specifies the name of a group profile to set as the superior group.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>terminal_access</dt><dd><p>Whether to allow the use of the universal access authority for a terminal during authorization checking.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>universal_group</dt><dd><p>Whether the group should be allowed to have an unlimited number of users.</p>
+<p>Valid only for <em>profile_type=group</em>.</p>
+<p>This option is valid for <em>state=create</em> only.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>dfp</dt><dd><p>Options that set DFP attributes from the Storage Management Subsystem (SMS).</p>
+<p>Supported for both <em>profile_type=user</em> and <em>profile_type=group</em>.</p>
+<p>This option is applicable for <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>data_app_id</dt><dd><p>Specifies the name of a DFP data application.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>data_class</dt><dd><p>Specifies the default data class for data set allocation.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>management_class</dt><dd><p>Default management class for data set migration and backup.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>storage_class</dt><dd><p>Default storage class for data set space, device and volume.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>Setting to <code class="docutils literal notranslate"><span class="pre">true</span></code> deletes the whole DFP block from the profile.</p>
+<p>This option is only valid when <em>state=update</em>, it is ignored for all other values of state including <em>state=create</em>.</p>
+<p>This option is mutually exclusive with <em>data_app_id</em>, <em>data_class</em>, <em>management_class</em> and <em>storage_class</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>language</dt><dd><p>Options that set the preferred national languages for a <em>profile_type=user</em>.</p>
+<p>Valid when <em>state=create</em> and <em>state=update</em>.</p>
+<p>These options override the system-wide defaults.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>primary</dt><dd><p>Specifies the user’s primary language.</p>
+<p>Value should be either a 3 character-long language code or an installation-defined name of up to 24 characters.</p>
+<p>To delete this field from the profile, set <em>primary=””</em>.</p>
+<p>This option is mutually exclusive with <em>delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>secondary</dt><dd><p>Specifies the user’s secondary language.</p>
+<p>Value should be either a 3 character-long language code or an installation-defined name of up to 24 characters.</p>
+<p>To delete this field from the profile, set <em>secondary=””</em>.</p>
+<p>This option is mutually exclusive with <em>delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>Setting to <code class="docutils literal notranslate"><span class="pre">true</span></code> deletes the whole LANGUAGE block from the profile.</p>
+<p>This option is only valid when <em>state=update</em>, it is ignored for all other values of state, including <em>state=create</em>.</p>
+<p>This option is mutually exclusive with <em>primary</em> and <em>secondary</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>omvs</dt><dd><p>Attributes for the RACF OMVS segment.</p>
+<p>Configures z/OS Unix System Services access and resource limits for the profile.</p>
+<p>Valid for both <em>profile_type=user</em> and <em>profile_type=group</em> are <em>uid</em>, <em>custom_uid</em>, <em>delete</em>.</p>
+<p>Valid only for <em>profile_type=user</em> are <em>home</em>, <em>program</em>, <em>nonshared_size</em>, <em>shared_size</em>, <em>addr_space_size</em>, <em>map_size</em>, <em>max_procs</em>, <em>max_threads</em>, <em>max_cpu_time</em>, <em>max_files</em>, and their related unit options.</p>
+<p>User-only options control process and memory resource limits which do not apply to group profiles.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>uid</dt><dd><p>Specifies how RACF should assign UIDs to users or GIDs to groups.</p>
+<p>This option is valid when <em>state=create</em> and <em>state=update</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">none</span></code> deletes the user or group identifier from the OMVS segment of the profile. This is only valid when <em>state=update</em>, it is ignored for all other values of state including <em>state=create</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">custom</span></code> and <code class="docutils literal notranslate"><span class="pre">shared</span></code> require <em>omvs.custom_uid</em> to be defined.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: auto, custom, shared, none</div>
+</div>
+</dd>
+<dt>custom_uid</dt><dd><p>Specifies the OMVS identifier for the profile.</p>
+<p>For <em>profile_type=user</em>, this is the UID; for <em>profile_type=group</em>, this is the GID.</p>
+<p>A number between 0 and 2,147,483,647.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>home</dt><dd><p>Specifies the path name for the z/OS Unix System Services home directory.</p>
+<p>Maximum length of 1023 characters.</p>
+<p>To remove the home from the profile, set <em>home=””</em>.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>program</dt><dd><p>Specifies the path to the shell program when the user logs in.</p>
+<p>Maximum length of 1023 characters.</p>
+<p>To remove the program from the profile, set <em>program=””</em>.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>nonshared_size</dt><dd><p>Specifies the maximum number of bytes of nonshared memory that can be allocated by the user.</p>
+<p>Value between 0 and 16,777,215.</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">-1</span></code> to remove the limit <code class="docutils literal notranslate"><span class="pre">NOMEMLIMIT</span></code>. When set to <code class="docutils literal notranslate"><span class="pre">-1</span></code>, <em>nonshared_size_unit</em> is ignored.</p>
+<p>Unit is specified separately via <em>nonshared_size_unit</em>, defaults to ‘m’ (megabytes) if not specified.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>nonshared_size_unit</dt><dd><p>Specifies the unit for the nonshared memory size.</p>
+<p>Only used when <em>nonshared_size</em> is specified and not set to -1.</p>
+<p>Ignored when <em>nonshared_size</em> is -1.</p>
+<p>Defaults to <code class="docutils literal notranslate"><span class="pre">m</span></code> (megabytes) if not specified.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: m, g, t, p</div>
+</div>
+</dd>
+<dt>shared_size</dt><dd><p>Specifies the maximum number of bytes of shared memory that can be allocated by the user.</p>
+<p>Value between 1 and 16,777,215.</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">-1</span></code> to remove the limit <code class="docutils literal notranslate"><span class="pre">NOSHMEMMAX</span></code>. When set to <code class="docutils literal notranslate"><span class="pre">-1</span></code>, <em>shared_size_unit</em> is ignored.</p>
+<p>Unit is specified separately via <em>shared_size_unit</em>, defaults to ‘m’ (megabytes) if not specified.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>shared_size_unit</dt><dd><p>Specifies the unit for the shared memory size.</p>
+<p>Only used when <em>shared_size</em> is specified and not set to -1.</p>
+<p>Ignored when <em>shared_size=-1</em>.</p>
+<p>Defaults to <code class="docutils literal notranslate"><span class="pre">m</span></code> (megabytes) if not specified.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: m, g, t, p</div>
+</div>
+</dd>
+<dt>addr_space_size</dt><dd><p>Specifies the maximum size of the address space region in bytes for the profile.</p>
+<p>Value between 10,485,760 and 2,147,483,647.</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to remove the user-specific limit <code class="docutils literal notranslate"><span class="pre">NOASSIZEMAX</span></code>. This allows the system default from <code class="docutils literal notranslate"><span class="pre">BPXPRMxx</span></code> to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>map_size</dt><dd><p>Specifies the maximum amount of data space storage that can be allocated by the user.</p>
+<p>This option represents the number of memory pages, not bytes, available.</p>
+<p>Value between 1 and 16,777,216.</p>
+<p>Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to remove the user-specific limit (<code class="docutils literal notranslate"><span class="pre">NOMMAPAREAMAX</span></code>). This allows the system default from <code class="docutils literal notranslate"><span class="pre">BPXPRMxx</span></code> to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_procs</dt><dd><p>Specifies the maximum number of processes the user is allowed to have active at the same time.</p>
+<p>Value between 3 and 32,767.</p>
+<p>Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to remove the user-specific limit (NOPROCUSERMAX). This allows the system default from BPXPRMxx to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_threads</dt><dd><p>Specifies the maximum number of threads the user can have concurrently active.</p>
+<p>Value between 0 and 100,000.</p>
+<p>Set this to <code class="docutils literal notranslate"><span class="pre">-1</span></code> to remove the user-specific limit (NOTHREADSMAX). This allows the system default from BPXPRMxx to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_cpu_time</dt><dd><p>Specifies the RLIMIT_CPU hard limit. Indicates the cpu-time that a user process is allowed to use.</p>
+<p>Value between 7 and 2,147,483,647 seconds.</p>
+<p>Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to remove the user-specific limit (NOCPUTIMEMAX). This allows the system default from BPXPRMxx to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_files</dt><dd><p>Specifies the maximum number of files the user is allowed to have concurrently active or open.</p>
+<p>Value between 3 and 524,287.</p>
+<p>Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to remove the user-specific limit <code class="docutils literal notranslate"><span class="pre">NOFILEPROCMAX</span></code>. This allows the system default from BPXPRMxx to apply.</p>
+<p>This option is mutually exclusive with <em>omvs.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>Setting to <code class="docutils literal notranslate"><span class="pre">true</span></code> deletes the whole OMVS block from the profile.</p>
+<p>This option is only valid when <em>state=update</em>; it is ignored for all other state values, including <em>state=create</em>.</p>
+<p>This option is mutually exclusive with <em>uid</em>, <em>custom_uid</em>, <em>home</em>, <em>program</em>, <em>nonshared_size</em>, <em>nonshared_size_unit</em>, <em>shared_size</em>, <em>shared_size_unit</em>, <em>addr_space_size</em>, <em>map_size</em>, <em>max_procs</em>, <em>max_threads</em>, <em>max_cpu_time</em>, and <em>max_files</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>tso</dt><dd><p>Attributes for the RACF TSO segment.</p>
+<p>Configures TSO settings for the user profile.</p>
+<p>Only valid for <em>profile_type=user</em>, <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>account_num</dt><dd><p>Specifies the user’s default TSO account number at logon.</p>
+<p>Maximum length of 39 characters.</p>
+<p>To delete this field from the profile, set <em>account_num=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>logon_cmd</dt><dd><p>Specifies the command to run during TSO/E logon.</p>
+<p>Maximum length of 80 characters.</p>
+<p>This option is case-sensitive.</p>
+<p>To delete this field from the profile, set <em>logon_cmd=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>logon_proc</dt><dd><p>Specifies the user’s default logon procedure.</p>
+<p>The value for this field is 1 to 8 alphanumeric characters.</p>
+<p>To delete this field from the profile, set <em>logon_proc=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>dest_id</dt><dd><p>Specifies the default destination for dynamically allocated SYSOUT data sets.</p>
+<p>The value for this field is 1 to 7 alphanumeric characters.</p>
+<p>To delete this field from the profile, set <em>dest_id=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>hold_class</dt><dd><p>Specifies the user’s default hold class.</p>
+<p>This option consists of 1 alphanumeric character.</p>
+<p>To delete this field from the profile, set <em>hold_class=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>job_class</dt><dd><p>Specifies the user’s default job class.</p>
+<p>This option consists of 1 alphanumeric character.</p>
+<p>To delete this field from the profile, set <em>job_class=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>msg_class</dt><dd><p>Specifies the user’s default message class.</p>
+<p>This option consists of 1 alphanumeric character.</p>
+<p>To delete this field from the profile, set <em>msg_class=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>sysout_class</dt><dd><p>Specifies the user’s default SYSOUT class.</p>
+<p>This option consists of 1 alphanumeric character.</p>
+<p>To delete this field from the profile, set <em>sysout_class=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>region_size</dt><dd><p>Specifies the minimum region size if none is requested at logon.</p>
+<p>A value between 0 and 2,096,128.</p>
+<p>When <em>region_size=-1</em> is set, this field is set to <code class="docutils literal notranslate"><span class="pre">00000000</span></code>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>max_region_size</dt><dd><p>Specifies the maximum region size that can be requested at logon.</p>
+<p>A value between 0 and 2,096,128.</p>
+<p>When <em>max_region_size=-1</em> is set, this field is set to <code class="docutils literal notranslate"><span class="pre">00000000</span></code>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>security_label</dt><dd><p>Specifies the user’s security label on the TSO logon panel.</p>
+<p>To delete this field from the profile, set <em>security_label=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>unit_name</dt><dd><p>Specifies the default device or device group name used for allocations.</p>
+<p>The value for this field is 1 to 8 alphanumeric characters.</p>
+<p>To delete this field from the profile, set <em>unit_name=””</em>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>user_data</dt><dd><p>Specifies optional installation data for the user profile.</p>
+<p>Must be exactly 4 characters (0–9, A–F only).</p>
+<p>When <em>user_data=””</em>, this field is set to <code class="docutils literal notranslate"><span class="pre">0000</span></code>.</p>
+<p>This option is mutually exclusive with <em>tso.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>Setting to <code class="docutils literal notranslate"><span class="pre">true</span></code> deletes the whole TSO block from the profile.</p>
+<p>This option is only valid when <em>state=update</em>; it is ignored for all other values, including <em>state=create</em>.</p>
+<p>This option is mutually exclusive with <em>account_num</em>, <em>logon_cmd</em>, <em>logon_proc</em>, <em>dest_id</em>, <em>hold_class</em>, <em>job_class</em>, <em>msg_class</em>, <em>sysout_class</em>, <em>region_size</em>, <em>max_region_size</em>, <em>security_label</em>, <em>unit_name</em>, and <em>user_data</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>connect</dt><dd><p>Options that configure a user’s connection to a group.</p>
+<p>Only valid when <em>state=connect</em>; ignored for all other state values.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>authority</dt><dd><p>Specifies the level of group authority assigned to the user for the connection.</p>
+<p>This determines what actions the user can perform within the group.</p>
+<p>If not specified when creating a connection, the default authority is <code class="docutils literal notranslate"><span class="pre">use</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">use</span></code> - Allows access to resources authorized to the group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">create</span></code> - Allows creation of RACF data set profiles for the group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">connect</span></code> - Allows connecting other users to the group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">join</span></code> - Allows adding users or subgroups to the group and assigning group authorities.</p>
+<p>See <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=summary-group-authorities">Group Authorities</a>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: use, create, connect, join</div>
+</div>
+</dd>
+<dt>universal_access</dt><dd><p>Specifies the level of universal access authority assigned for the connection.</p>
+<p>Specifies the level of universal access authority <code class="docutils literal notranslate"><span class="pre">(UACC</span></code>) for resources associated with the connection.</p>
+<p>This value applies to new resource profiles created while the user is connected to the group.</p>
+<p>If not specified when creating a connection, the default value is <code class="docutils literal notranslate"><span class="pre">none</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">alter</span></code> - Allows full access, including read, update, and delete.</p>
+<p><code class="docutils literal notranslate"><span class="pre">control</span></code> - Allows read and update access, and modification of the resource profile.</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> - Allows read and update access.</p>
+<p><code class="docutils literal notranslate"><span class="pre">read</span></code> - Allows read-only access.</p>
+<p><code class="docutils literal notranslate"><span class="pre">none</span></code> - Allows no access.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: alter, control, update, read, none</div>
+</div>
+</dd>
+<dt>group_name</dt><dd><p>Specifies the group to connect the user to.</p>
+<p>If omitted, the user is connected to the current connect group.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>group_access</dt><dd><p>Whether data sets defined by the user are accessible to other users in the group.</p>
+<p>When enabled, the group is given UPDATE access to data sets created by the user with the group as the high-level qualifier.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>group_operations</dt><dd><p>Whether the user should has the group-OPERATIONS attribute for the connection.</p>
+<p>Allows the user to perform maintenance operations on RACF-protected data sets and resources within the scope of the group</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>auditor</dt><dd><p>Whether the user has group-AUDITOR attribute for the connection.</p>
+<p>Allows the user to list profiles connected to the group and review audit information for the group.</p>
+<p>This is independent of the system-wide AUDITOR attribute (<em>access.auditor</em>).</p>
+<p>A user can have group-AUDITOR in one group but not in another.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>auto_protect_datasets</dt><dd><p>Whether the user has the group-ADSP attribute for the specific group connection.</p>
+<p>Causes RACF to automatically create discrete profiles for permanent data sets created while the user is connected to the group.</p>
+<p>This is independent of the system-wide ADSP attribute (<em>access.auto_protect_datasets</em>).</p>
+<p>A user can have ADSP in one group but not in another.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>special</dt><dd><p>Whether the user has group-SPECIAL attribute for the connection.</p>
+<p>Allows the user to manage profiles owned by the group and user connections to the group.</p>
+<p>This is independent of the system-wide SPECIAL attribute (<em>access.special</em>).</p>
+<p>A user can have group-SPECIAL in one group but not in another.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>access</dt><dd><p>Options that configure security attributes for a user profile.</p>
+<p>Only valid for <em>profile_type=user</em></p>
+<p>This option is valid for <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>default_group</dt><dd><p>Specifies the RACF default group for the user profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>clauth</dt><dd><p>Specifies the RACF resource classes the user is permitted to define profiles in.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>add</dt><dd><p>List of classes to add to the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>List of classes to remove from the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>roaudit</dt><dd><p>Specifies whether to assign the <code class="docutils literal notranslate"><span class="pre">ROAUDIT</span></code> attribute to the user.</p>
+<p>When enabled, the user has responsibility for auditing system resources with read-only access to audit records and settings.</p>
+<p>In RACF output, this appears under the user’s ATTRIBUTES list.</p>
+<p>Requires the <code class="docutils literal notranslate"><span class="pre">SPECIAL</span></code> attribute to modify.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>category</dt><dd><p>Security categories assigned to the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>add</dt><dd><p>List of security categories to add to the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>List of security categories to remove from the profile.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>operator_card</dt><dd><p>Whether the user must supply an operator identification card at logon.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>maintenance_access</dt><dd><p>Whether the user is authorized to perform maintenance operations on all RACF-protected DASD data sets, tape volumes, and DASD volumes.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>restricted</dt><dd><p>Whether the user profile should have the RESTRICTED attribute.</p>
+<p>When enabled, the user is denied access to resources via UACC or ID(*). Access is only granted if the user or their group is explicitly added to the resource’s access list.</p>
+<p>Also bypasses global access checking and z/OS UNIX other permission bits.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>security_label</dt><dd><p>Specifies the security label applied to the profile.</p>
+<p>To delete this field from the profile, set <em>security_label=””</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>security_level</dt><dd><p>Specifies the security level applied to the profile.</p>
+<p>To delete this field from the profile, set <code class="docutils literal notranslate"><span class="pre">security_level=&quot;&quot;</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>auto_protect_datasets</dt><dd><p>Whether the user has the system-wide ADSP (Automatic Data Set Protection) attribute.</p>
+<p>When enabled, RACF automatically defines a discrete profile for any new data set created by the user.</p>
+<p>This is a user profile attribute that applies globally across all groups.</p>
+<p>Different from <em>connect.auto_protect_datasets</em> which applies only to a specific group connection.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>auditor</dt><dd><p>Whether the user has the system-wide AUDITOR attribute.</p>
+<p>Provides responsibility for auditing the use of system resources.</p>
+<p>Allows the user to review audit records and control logging of accesses to RACF-protected resource</p>
+<p>This is a user profile attribute that applies globally across all groups.</p>
+<p>Different from <em>connect.auditor</em> which provides group-AUDITOR authority for a specific group only.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>authority</dt><dd><p>Specifies the user’s default group authority level.</p>
+<p>This is used as the default when connecting the user to groups if <em>connect.authority</em> is not specified.</p>
+<p>Also applies to the user’s default group (DFLTGRP) connection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">use</span></code> - Allows the user to access resources to which the group is authorized.</p>
+<p><code class="docutils literal notranslate"><span class="pre">create</span></code> - Allows the user to create RACF data set profiles for the group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">connect</span></code> - Allows the user to connect other users to the group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">join</span></code> - Allows the user to add users or subgroups to the group and assign group authorities..</p>
+<p>Can be overridden per-group using <em>connect.authority</em>.</p>
+<p>See <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=summary-group-authorities">Group Authorities</a>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: use, create, connect, join</div>
+</div>
+</dd>
+<dt>special</dt><dd><p>Whether the user has the system-wide SPECIAL attribute.</p>
+<p>Allows the user to issue most RACF commands and manage RACF profiles and user IDs system-wide.</p>
+<p>This is a user profile attribute that applies globally across all groups.</p>
+<p>Different from <em>connect.special</em> which provides group-SPECIAL authority for a specific group only.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>default</strong>: False</div>
+</div>
+</dd>
+<dt>universal_access</dt><dd><p>Specifies the user’s default universal access authority (UACC).</p>
+<p>This value applies to new resource profiles created while the user is connected to a group.</p>
+<p>It is used when <em>connect.universal_access</em> is not specified during group connection.</p>
+<p>Also applies to the user’s default group (DFLTGRP) connection</p>
+<p>The user can have different UACC values for each group connection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">alter</span></code> - Allows full access, including read, update, delete, rename, and control of the resource profile.</p>
+<p><code class="docutils literal notranslate"><span class="pre">control</span></code> - Allows read and update access, and the ability to modify the resource profile.</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> - Allows read and update access to the resource.</p>
+<p><code class="docutils literal notranslate"><span class="pre">read</span></code> - Allows read-only access to the resource.</p>
+<p><code class="docutils literal notranslate"><span class="pre">none</span></code> - Allows no access to the resource.</p>
+<p>Can be overridden per group using <em>connect.universal_access</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: alter, control, update, read, none</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>operator</dt><dd><p>Configures the RACF OPERPARM segment attributes.</p>
+<p>The OPERPARM segment defined extended MCS console session attributes for the user.</p>
+<p>Only valid when <em>profile_type=user</em>.</p>
+<p>Supported for <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>alt_group</dt><dd><p>The console group used in recovery operations.</p>
+<p>Must be between 1 and 8 characters in length.</p>
+<p>To delete this field from the profile, set <em>alt_group=””</em>.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>authority</dt><dd><p>The console authority level for issuing operator commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">master</span></code> - Full authority to issue all commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code> - Authority to issue all commands except those requiring master authority.</p>
+<p><code class="docutils literal notranslate"><span class="pre">info</span></code> - Authority to issue information-only commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cons</span></code> - Authority to issue console-related commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">io</span></code> - Authority to issue I/O-related commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sys</span></code> - Authority to issue system-related commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes this field from the profile.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: master, all, info, cons, io, sys, delete</div>
+</div>
+</dd>
+<dt>cmd_system</dt><dd><p>The system to which commands from this console are sent.</p>
+<p>Specify 1 to 8 characters.</p>
+<p>To remove this field from the profile, set <em>cmd_system=””</em>.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>search_key</dt><dd><p>The name used to display information for all consoles with the specified key.</p>
+<p>Use the MVS command <code class="docutils literal notranslate"><span class="pre">DISPLAY</span> <span class="pre">CONSOLES,KEY</span></code> to view consoles by this key.</p>
+<p>Length must be between 1 and 8 characters.</p>
+<p>To remove this field from the profile, set <em>search_key=””</em>.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>migration_id</dt><dd><p>Whether a 1-byte migration ID should be assigned to this console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Assigns a migration ID to the console (MIGID).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly sets the console to not have a migration ID.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the migration ID parameter from the profile (NOMIGID).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>display</dt><dd><p>List of information to display when monitoring jobs, TSO sessions, or data set status.</p>
+<p><code class="docutils literal notranslate"><span class="pre">jobnames</span></code> - Display job names.</p>
+<p><code class="docutils literal notranslate"><span class="pre">jobnamest</span></code> - Display job names with timestamps.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sess</span></code> - Display TSO session information.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sesst</span></code> - Display TSO session information with timestamps.</p>
+<p><code class="docutils literal notranslate"><span class="pre">status</span></code> - Display status information.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes this field from the profile.</p>
+<p>Multiple values can be specified.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>choices</strong>: jobnames, jobnamest, sess, sesst, status, delete</div>
+</div>
+</dd>
+<dt>msg_level</dt><dd><p>Specifies the message levels that the Extended MCS (EMCS) console associated with this user profile receives.</p>
+<p>This attribute acts as a filter for the messages routed to the user’s console session.</p>
+<p><code class="docutils literal notranslate"><span class="pre">r</span></code> - The console receives messages requiring an operator reply.</p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code> - The console receives immediate action messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ce</span></code> - The console receives critical eventual action messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">e</span></code> - The console receives eventual action messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code> - The console receives informational messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nb</span></code> - The console receives no broadcast messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code> - The console receives all message levels <code class="docutils literal notranslate"><span class="pre">(R,</span> <span class="pre">I,</span> <span class="pre">CE,</span> <span class="pre">E,</span> <span class="pre">and</span> <span class="pre">IN</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the message level field from the user’s profile.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: nb, all, r, i, ce, e, in, delete</div>
+</div>
+</dd>
+<dt>msg_format</dt><dd><p>The format in which messages are displayed at the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">j</span></code> - Job-related format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">m</span></code> - Mixed format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">s</span></code> - Short format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">t</span></code> - Time-stamped format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> - Extended format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes this field from the profile.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: j, m, s, t, x, delete</div>
+</div>
+</dd>
+<dt>msg_storage</dt><dd><p>The amount of storage in the TSO/E user’s address space for message queuing to the console.</p>
+<p>Specify a value between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2000</span></code>.</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to reset this field to <code class="docutils literal notranslate"><span class="pre">00000</span></code>.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>msg_scope</dt><dd><p>Specifies the systems from which the Extended MCS (EMCS) console associated with this user profile receives unsolicited messages (messages not directed to a specific console).</p>
+<p>This field updates the OPERPARM segment of the RACF user profile.</p>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> - The console receives messages only from the system on which the console session is currently active.</p>
+<p><code class="docutils literal notranslate"><span class="pre">*all</span></code> - The console receives messages from all systems in the sysplex.</p>
+<p><code class="docutils literal notranslate"><span class="pre">system_names</span></code> - A list of one or more specific system names (e.g., SYS1, SYS2) to define the scope.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>add</dt><dd><p>List of new systems to add to the message scope list.</p>
+<p>When <em>state=create</em>, this sets the initial message scope <code class="docutils literal notranslate"><span class="pre">(MSCOPE</span></code>).</p>
+<p>When <em>state=update</em>, this adds systems to the existing list <code class="docutils literal notranslate"><span class="pre">(ADDMSCOPE</span></code>).</p>
+<p>This option is mutually exclusive with <em>msg_scope.remove_all</em> and <em>msg_scope.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>remove_all</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to remove all message scope systems from the profile <code class="docutils literal notranslate"><span class="pre">(NOMSCOPE</span></code>).</p>
+<p>This option is mutually exclusive with <em>msg_scope.add</em> and <em>msg_scope.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>List of specific systems to delete from the message scope list <code class="docutils literal notranslate"><span class="pre">(DELMSCOPE</span></code>).</p>
+<p>This does not clear the entire list unless all listed systems are specified.</p>
+<p>This option is mutually exclusive with <em>msg_scope.add</em> and <em>msg_scope.remove_all</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>automated_msgs</dt><dd><p>Whether the extended console can receive messages automated by the Message Flood Automation (MFA).</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables the console to receive automated messages <code class="docutils literal notranslate"><span class="pre">(AUTO</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables automated messages for the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the automated messages parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOAUTO</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>delete_operator_msgs</dt><dd><p>Specifies which Delete Operator Message (DOM) requests the Extended MCS (EMCS) console associated with this user profile can receive.</p>
+<p><code class="docutils literal notranslate"><span class="pre">normal</span></code> - The system queues all appropriate local DOM requests to the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code> - All systems in the sysplex queue DOM requests to the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">none</span></code> - No DOM requests are queued to the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the DOM field from the user profile. This corresponds to the RACF <code class="docutils literal notranslate"><span class="pre">NODOM</span></code> operand.</p>
+<p>Note that when this field is deleted or omitted <code class="docutils literal notranslate"><span class="pre">NODOM</span></code>, the DOM information will not appear in profile listings (e.g., <code class="docutils literal notranslate"><span class="pre">LU</span></code> command), and the EMCS console will default to <code class="docutils literal notranslate"><span class="pre">normal</span></code> behavior when a session is established.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: normal, all, none, delete</div>
+</div>
+</dd>
+<dt>hardcopy_msgs</dt><dd><p>Whether the console receives all messages directed to hardcopy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables the console to receive hardcopy messages <code class="docutils literal notranslate"><span class="pre">(HC</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables hardcopy messages for the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the hardcopy messages parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOHC</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>internal_msgs</dt><dd><p>Whether the console receives messages directed to console ID zero.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables the console to receive internal messages <code class="docutils literal notranslate"><span class="pre">(INTIDS</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables internal messages for the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the internal messages parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOINTIDS</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>routing_msgs</dt><dd><p>The routing codes of messages this operator receives.</p>
+<p>Accepts one of the following (mutually exclusive).</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&quot;ALL&quot;]</span></code> - Receive all routing codes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&quot;NONE&quot;]</span></code> - Receive no routing codes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&quot;delete&quot;]</span></code> - Removes routing code information from the profile (NOROUTCODE).</p>
+<p>List of routing codes - One or more routing codes (integers 1-128) or sequences (ranges).</p>
+<p>Examples - <code class="docutils literal notranslate"><span class="pre">[&quot;1&quot;]</span></code>, <code class="docutils literal notranslate"><span class="pre">[&quot;1&quot;,</span> <span class="pre">&quot;2&quot;,</span> <span class="pre">&quot;11&quot;]</span></code>, <code class="docutils literal notranslate"><span class="pre">[&quot;1-5&quot;]</span></code>, <code class="docutils literal notranslate"><span class="pre">[&quot;1-5&quot;,</span> <span class="pre">&quot;10&quot;,</span> <span class="pre">&quot;20-25&quot;]</span></code>.</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+</div>
+</dd>
+<dt>undelivered_msgs</dt><dd><p>Whether the console receives undelivered messages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables the console to receive undelivered messages <code class="docutils literal notranslate"><span class="pre">(UD</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables undelivered messages for the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the undelivered messages parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOUD</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>unknown_msgs</dt><dd><p>Whether the console receives messages directed to unknown console IDs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables the console to receive unknown messages <code class="docutils literal notranslate"><span class="pre">(UNKNIDS</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables unknown messages for the console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the unknown messages parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOUNKNIDS</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>log_responses</dt><dd><p>Whether command responses should be logged.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> - Enables logging of command responses <code class="docutils literal notranslate"><span class="pre">(LOGCMDRESP(SYSTEM</span></code>)).</p>
+<p><code class="docutils literal notranslate"><span class="pre">no</span></code> - Explicitly disables logging of command responses <code class="docutils literal notranslate"><span class="pre">(LOGCMDRESP(NO</span></code>)).</p>
+<p><code class="docutils literal notranslate"><span class="pre">delete</span></code> - Removes the command response logging parameter from the profile <code class="docutils literal notranslate"><span class="pre">(NOLOGCMDRESP</span></code>).</p>
+<p>This option is mutually exclusive with <em>operator.delete</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: yes, no, delete</div>
+</div>
+</dd>
+<dt>delete</dt><dd><p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, deletes the entire OPERPARM segment from the profile.</p>
+<p>This option is only valid when <em>state=update</em>; it is ignored for all other state values.</p>
+<p>This option is mutually exclusive with <em>alt_group</em>, <em>authority</em>, <em>cmd_system</em>, <em>search_key</em>, <em>migration_id</em>, <em>display</em>, <em>msg_level</em>, <em>msg_format</em>, <em>msg_storage</em>, <em>msg_scope</em>, <em>automated_msgs</em>, <em>delete_operator_msgs</em>, <em>hardcopy_msgs</em>, <em>internal_msgs</em>, <em>routing_msgs</em>, <em>undelivered_msgs</em>, <em>unknown_msgs</em>, and <em>log_responses</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>restrictions</dt><dd><p>Attributes that determine the days and times a user is allowed to login.</p>
+<p>This option is valid for <em>profile_type=user</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>days</dt><dd><p>Days of the week that a user is allowed to login.</p>
+<p>Multiple choices are allowed.</p>
+<p>Valid values are <code class="docutils literal notranslate"><span class="pre">anyday</span></code>, <code class="docutils literal notranslate"><span class="pre">weekdays</span></code>, <code class="docutils literal notranslate"><span class="pre">monday</span></code>, <code class="docutils literal notranslate"><span class="pre">tuesday</span></code>, <code class="docutils literal notranslate"><span class="pre">wednesday</span></code>, <code class="docutils literal notranslate"><span class="pre">thursday</span></code>, <code class="docutils literal notranslate"><span class="pre">friday</span></code>, <code class="docutils literal notranslate"><span class="pre">saturday</span></code> and <code class="docutils literal notranslate"><span class="pre">sunday</span></code>.</p>
+<p>This option is valid for <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>default</strong>: [‘anyday’]</div>
+<div class="line"><strong>choices</strong>: anyday, weekdays, monday, tuesday, wednesday, thursday, friday, saturday, sunday</div>
+</div>
+</dd>
+<dt>time</dt><dd><p>Daily time period when the user is allowed to login.</p>
+<p>The value for this option must be in the format <code class="docutils literal notranslate"><span class="pre">HHMM:HHMM</span></code>.</p>
+<p>Enclose the time value in quotes (for example, 0900:1700) to avoid YAML parsing issues.</p>
+<p>This field uses a 24-hour format.</p>
+<p>This field also accepts the value <code class="docutils literal notranslate"><span class="pre">anytime</span></code> to indicate a user is free to login at any time of the day.</p>
+<p>This option is valid for <em>state=create</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>default</strong>: anytime</div>
+</div>
+</dd>
+<dt>resume</dt><dd><p>Date when the user is allowed access to a system again.</p>
+<p>The value for this option must be in the format <code class="docutils literal notranslate"><span class="pre">MM/DD/YY</span></code>, where <code class="docutils literal notranslate"><span class="pre">YY</span></code> are the last two digits of the year.</p>
+<p>This option is valid for <em>state=connect</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>delete_resume</dt><dd><p>Delete the resume field from the profile.</p>
+<p>This option is valid for <em>state=connect</em> and <em>state=update</em>.</p>
+<p>This option is mutually exclusive with <em>restrictions.resume</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>revoke</dt><dd><p>Date when the user is forbidden access to a system.</p>
+<p>The value for this option must be in the format <code class="docutils literal notranslate"><span class="pre">MM/DD/YY</span></code>, where <code class="docutils literal notranslate"><span class="pre">YY</span></code> are the last two digits of the year.</p>
+<p>This option is valid for <em>state=connect</em> and <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>delete_revoke</dt><dd><p>Delete the revoke field from the profile.</p>
+<p>This option is valid for <em>state=connect</em> and <em>state=update</em>.</p>
+<p>This option is mutually exclusive with <em>restrictions.revoke</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>password_mgmt</dt><dd><p>Options that manage password and passphrase settings for a user profile.</p>
+<p>These options are only valid for user profiles (<em>profile_type=user</em>).</p>
+<p>These options are only applicable when <em>state=create</em> or <em>state=update</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>password</dt><dd><p>Password for the user.</p>
+<p>Maximum length of 8 characters.</p>
+<p>When creating a user, if neither <em>password</em> nor <em>passphrase</em> is specified, no password is assigned. The user must be assigned one before logging in.</p>
+<p>When a password is set for the first time during user creation, RACF marks it as EXPIRED by default. To allow the user to use the password without an immediate change, update the user with <em>expired=false</em> after creation.</p>
+<p><em>password=””</em> removes the password and sets the NOPASSWORD attribute on the user profile.</p>
+<p>It is highly recommended to use <strong>Ansible Vault</strong> to encrypt this value.</p>
+<p>This option is mutually exclusive with <em>passphrase</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>passphrase</dt><dd><p>Passphrase for the user.</p>
+<p>Minimum length of 9 characters, maximum length of 100 characters.</p>
+<p>When creating a user, if neither <em>password</em> nor <em>passphrase</em> is specified, no password or passphrase is assigned. The user must be assigned one before logging in.</p>
+<p>When a passphrase is set for the first time during user creation, RACF marks it as EXPIRED by default. To change this, update the user with <em>expired=false</em> after creation.</p>
+<p>Setting <em>passphrase=””</em> removes the passphrase and sets the NOPHRASE attribute on the user profile.</p>
+<p>It is recommended to use Ansible Vault to encrypt this value.</p>
+<p>This option is mutually exclusive with <em>password</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>expired</dt><dd><p>Whether the password or passphrase should be marked as expired.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the user will be required to change their password/passphrase on next login.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">false</span></code>, the password/passphrase will be marked as NOEXPIRED.</p>
+<p>This option is only applicable when <em>state=update</em>.</p>
+<p>This option <strong>must</strong> be used together with <em>password</em> or <em>passphrase</em> in the same task. RACF requires a password/passphrase to be specified when using <code class="docutils literal notranslate"><span class="pre">EXPIRED/NOEXPIRED</span></code>.</p>
+<p>When a password/passphrase is set for the first time during user creation, RACF automatically marks it as <code class="docutils literal notranslate"><span class="pre">EXPIRED</span></code>. To change it to <code class="docutils literal notranslate"><span class="pre">NOEXPIRED</span></code>, you must update the user and specify the same password/passphrase again with <em>expired=false</em>.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Attributes</a><a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl>
+<dt>action</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: none</div>
+<div class="line"><strong>description</strong>: Indicates this has a corresponding action plugin so some parts of the options can be executed on the controller.</div>
+</div>
+</dd>
+<dt>async</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Supports being used with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword.</div>
+</div>
+</dd>
+<dt>check_mode</dt><dd><div class="line-block">
+<div class="line"><strong>support</strong>: full</div>
+<div class="line"><strong>description</strong>: Can run in check_mode and return changed status prediction without modifying target. If not supported, the action will be skipped.</div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a new group profile using RACF defaults.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newgrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user with full name and owner.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">John Doe</span>
+<span class="w">      </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update a user&#39;s full name.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">existusr</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jane Smith</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove a user&#39;s full name (sets to UNKNOWN).</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">existusr</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a new group profile using another group as a model and setting its owner.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newgrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oldgrp</span>
+<span class="w">      </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a new group profile and set group attributes.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newgrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+<span class="w">    </span><span class="nt">group</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">superior_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sys1</span>
+<span class="w">      </span><span class="nt">terminal_access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">universal_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update a group profile to change its installation data and remove custom fields.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">installation_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New installation data</span>
+<span class="w">      </span><span class="nt">custom_fields</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">delete_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user using RACF defaults.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user using another profile as a model.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">olduser</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user and set how Unix System Services should behave when it logs in.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">omvs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto</span>
+<span class="w">      </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/u/newuser</span>
+<span class="w">      </span><span class="nt">program</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/sh</span>
+<span class="w">      </span><span class="nt">nonshared_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">nonshared_size_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">g</span>
+<span class="w">      </span><span class="nt">shared_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">shared_size_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">g</span>
+<span class="w">      </span><span class="nt">addr_space_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10485760</span>
+<span class="w">      </span><span class="nt">map_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2056</span>
+<span class="w">      </span><span class="nt">max_procs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="w">      </span><span class="nt">max_threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">150</span>
+<span class="w">      </span><span class="nt">max_cpu_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="w">      </span><span class="nt">max_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user and set access permissions to it.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">access</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+<span class="w">      </span><span class="nt">roaudit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">operator_card</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">maintenance_access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">restricted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">restrictions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">days</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monday</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tuesday</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wednesday</span>
+<span class="w">      </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anytime</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update a user profile to change its TSO attributes and owner.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">base_segment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">    </span><span class="nt">tso</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hold_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span>
+<span class="w">      </span><span class="nt">job_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span>
+<span class="w">      </span><span class="nt">msg_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span>
+<span class="w">      </span><span class="nt">sysout_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span>
+<span class="w">      </span><span class="nt">region_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2048</span>
+<span class="w">      </span><span class="nt">max_region_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Connect a user to a group using RACF defaults.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connect</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">connect</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Connect a user to a group and give it special permissions.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connect</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">connect</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+<span class="w">      </span><span class="nt">authority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connect</span>
+<span class="w">      </span><span class="nt">universal_access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alter</span>
+<span class="w">      </span><span class="nt">group_access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">group_operations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">auditor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">auto_protect_datasets</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">special</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove a user from a group.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remove</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">connect</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete a user from the RACF database.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delete</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete group from the RACF database.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usergrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delete</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Purge user from RACF database.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">purge</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">racf_db</span>
+<span class="w">    </span><span class="nt">execute_clist</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dry run of purge group from RACF database (group not purged).</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newgrp</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">purge</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span>
+<span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">racf_db</span>
+<span class="w">    </span><span class="nt">execute_clist</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a user with auto-assigned UID and initial password.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">password_mgmt</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">user_password</span> <span class="cp">}}</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="nt">omvs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create user with passphrase and assign a custom uid.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">password_mgmt</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">passphrase</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">user_passphrase</span> <span class="cp">}}</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="nt">omvs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
+<span class="w">      </span><span class="nt">custom_uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5189</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Update user password and make it active.</span>
+<span class="w">  </span><span class="nt">zos_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newuser</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">    </span><span class="nt">profile_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">password_mgmt</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">user_password</span> <span class="cp">}}</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="nt">expired</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module requires appropriate RACF authority to execute commands.</p>
+<p>For standard states (create, update, delete, connect, remove), the user executing the module must have sufficient RACF authority to perform the requested state (typically <code class="docutils literal notranslate"><span class="pre">SPECIAL</span></code> or <code class="docutils literal notranslate"><span class="pre">group-SPECIAL</span></code> attribute).</p>
+<p>For purge state using the <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=database-using-racf-unload-utility-irrdbu00">IRRDBU00 utility</a>, When <em>optimize_dump=true</em>, IRRDBU00 runs with <code class="docutils literal notranslate"><span class="pre">PARM=NOLOCKINPUT</span></code> requiring <code class="docutils literal notranslate"><span class="pre">READ</span></code> authority to the input RACF database data sets. When <em>optimize_dump=false</em> (default), IRRDBU00 runs with <code class="docutils literal notranslate"><span class="pre">PARM=LOCKINPUT</span></code> requiring <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> authority to lock the database during the unload.</p>
+<p>The <a class="reference external" href="https://www.ibm.com/docs/en/zos/latest?topic=database-using-racf-remove-id-irrrid00-utility">IRRRID00</a> utility is used during purge operations to identify residual references and generate a <code class="docutils literal notranslate"><span class="pre">CLIST</span></code> of removal commands. The user must have <code class="docutils literal notranslate"><span class="pre">READ</span></code> authority to the input data set (the unloaded RACF database produced by IRRDBU00).</p>
+<p>To execute the generated <code class="docutils literal notranslate"><span class="pre">CLIST</span></code> from IRRRID00, the user must have sufficient RACF authority - <code class="docutils literal notranslate"><span class="pre">DELUSER/DELGROUP</span></code> requires the <code class="docutils literal notranslate"><span class="pre">SPECIAL</span></code> attribute, <code class="docutils literal notranslate"><span class="pre">group-SPECIAL</span></code> (within scope), or ownership of the target profile/superior group.</p>
+</div>
+</section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="zos_tso_command.html#ibm-ibm-zos-core-zos-tso-command-module"><span class="std std-ref">zos_tso_command – Execute TSO commands</span></a></p></li>
+</ul>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<dl>
+<dt>changed</dt><dd><p>Indicates whether any changes were made to the system.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>cmd</dt><dd><p>The RACF command that was executed with tsocmd.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: ADDUSER (DUSR1001)</div>
+</div>
+</dd>
+<dt>msg</dt><dd><p>Message returned by the module. Contains error messages on failure, informational messages when no changes are needed (e.g., entity already exists), or validation error messages.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: An error occurred while executing the RACF command.</div>
+</div>
+</dd>
+<dt>rc</dt><dd><p>Return code from the RACF command execution.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+</div>
+</dd>
+<dt>stdout</dt><dd><p>Standard output from the RACF command execution. In check mode, may contain informational messages about the entity state. For <em>state=purge</em>, this includes technical details such as dump data set names and CLIST processing messages.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: User DUSR1001 is defined as PROTECTED.</div>
+</div>
+</dd>
+<dt>stdout_lines</dt><dd><p>List of strings containing individual lines from stdout.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;User DUSR1001 is defined as PROTECTED.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>stderr</dt><dd><p>Standard error from the RACF command execution. TSO command output is automatically filtered out.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>stderr_lines</dt><dd><p>List of strings containing individual lines from stderr.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>num_entities_modified</dt><dd><p>Returns the number of profiles and references modified by the state. Set to <code class="docutils literal notranslate"><span class="pre">0</span></code> if no changes were made (e.g., <code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">entity</span> <span class="pre">is</span> <span class="pre">already</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">desired</span> <span class="pre">state</span></code>). Set to <code class="docutils literal notranslate"><span class="pre">1</span></code> for successful single-entity states <code class="docutils literal notranslate"><span class="pre">create,</span> <span class="pre">update,</span> <span class="pre">or</span> <span class="pre">delete</span></code>. For <em>state=purge</em>, this reflects the total number of user and group entities deleted.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1</div>
+</div>
+</dd>
+<dt>entities_modified</dt><dd><p>A list of profiles and references modified by the state. For <em>profile_type=user</em>, state (<code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">delete</span></code>, <code class="docutils literal notranslate"><span class="pre">connect</span></code>, <code class="docutils literal notranslate"><span class="pre">remove</span></code>): Contains the user profile name upon success. For <em>profile_type=group</em>, state <code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">delete</span></code>): Contains the group profile name upon success. For <em>state=purge</em>, contains all users/groups IDs deleted by the CLIST. Returns an empty list if no changes were necessary (e.g., entity is already in the desired state).</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: str</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;DUSR1001&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+<dt>database_dumped</dt><dd><p>Whether the module used IRRDBU00 utility to dump the RACF database. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> only when the purge state successfully executes the <code class="docutils literal notranslate"><span class="pre">IRRDBU00</span></code> utility. Only relevant when <em>state=purge</em>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>dump_kept</dt><dd><p>Indicates whether the RACF database dump was retained on the managed node. This behavior is controlled by the <em>keep_dump</em> input parameter. Only relevant when <em>database_dumped=true</em>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: bool</div>
+</div>
+</dd>
+<dt>dump_name</dt><dd><p>The name of the data set containing the output from the <code class="docutils literal notranslate"><span class="pre">IRRDBU00</span></code> utility. This field is only populated when both <em>database_dumped</em> and <em>keep_dump</em> are <code class="docutils literal notranslate"><span class="pre">true</span></code>. Otherwise, this value returns <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: USER.BACKUP.RACF.DATABASE</div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright IBM Corp. 2020, 2025.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

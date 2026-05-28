@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/software-requirements.html">Software Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/software-installation.html">Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/software-configuration.html">Software Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration/migration-core.html">Migration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
 <ul class="current">
@@ -94,11 +95,13 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_user.html">zos_user – Manage z/OS user and group profiles in RACF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roles.html">Roles</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -148,7 +151,7 @@
            <div itemprop="articleBody">
              
   <section id="zos-copy-copy-data-to-z-os">
-<span id="zos-copy-module"></span><h1>zos_copy – Copy data to z/OS<a class="headerlink" href="#zos-copy-copy-data-to-z-os" title="Link to this heading"></a></h1>
+<span id="ibm-ibm-zos-core-zos-copy-module"></span><h1>zos_copy – Copy data to z/OS<a class="headerlink" href="#zos-copy-copy-data-to-z-os" title="Link to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -174,7 +177,7 @@
 <p>When <code class="docutils literal notranslate"><span class="pre">src</span></code> is a data set containing ASA control characters and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a USS file, the copy will put all control characters as plain text in the destination.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a non-existent data set, it will be created with record format Fixed Block with ANSI format (FBA).</p>
 <p>If neither <code class="docutils literal notranslate"><span class="pre">src</span></code> or <code class="docutils literal notranslate"><span class="pre">dest</span></code> have record format Fixed Block with ANSI format (FBA) or Variable Block with ANSI format (VBA), the module will fail.</p>
-<p>This option is only valid for text files. If <code class="docutils literal notranslate"><span class="pre">is_binary</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">executable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> as well, the module will fail.</p>
+<p>This option is only valid for text files. If <code class="docutils literal notranslate"><span class="pre">binary</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">executable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> as well, the module will fail.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -224,7 +227,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent USS file, it will be created.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a new USS file or replacement, the file will be appropriately tagged with either the system’s default locale or the encoding option defined. If the USS file is a replacement, the user must have write authority to the file either through ownership, group or other permissions, else the module will fail.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, it will be created following the process outlined here and in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>is_binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32720, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a nonexistent data set, the attributes assigned will depend on the type of <code class="docutils literal notranslate"><span class="pre">src</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a USS file, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format and the remaining attributes will be computed. If <em>binary=true</em>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will have a Fixed Block (FB) record format with a record length of 80, block size of 32720, and the remaining attributes will be computed. If <em>executable=true</em>,``dest`` will have an Undefined (U) record format with a record length of 0, block size of 32760, and the remaining attributes will be computed.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file and <code class="docutils literal notranslate"><span class="pre">dest</span></code> a partitioned data set, <code class="docutils literal notranslate"><span class="pre">dest</span></code> does not need to include a member in its value, the module can automatically compute the resulting member name from <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a data set, precedence rules apply. If <code class="docutils literal notranslate"><span class="pre">dest_data_set</span></code> is set, this will take precedence over an existing data set. If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an empty data set, the empty data set will be written with the expectation its attributes satisfy the copy. Lastly, if no precendent rule has been exercised, <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be created with the same attributes of <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">dest</span></code> is an existing VSAM (KSDS) or VSAM (ESDS), then source can be an ESDS, a KSDS or an RRDS. The VSAM (KSDS) or VSAM (ESDS) <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and recreated following the process outlined in the <code class="docutils literal notranslate"><span class="pre">volume</span></code> option.</p>
@@ -240,7 +243,7 @@
 </dd>
 <dt>encoding</dt><dd><p>Specifies which encodings the destination file or data set should be converted from and to.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">encoding</span></code> is not provided, the module determines which local and remote charsets to convert the data from and to. Note that this is only done for text data and not binary data.</p>
-<p>Only valid if <code class="docutils literal notranslate"><span class="pre">is_binary</span></code> is false.</p>
+<p>Only valid if <code class="docutils literal notranslate"><span class="pre">binary</span></code> is false.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
@@ -267,7 +270,7 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>force</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and the remote file or data set <code class="docutils literal notranslate"><span class="pre">dest</span></code> is empty, the <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be reused.</p>
+<dt>replace</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and the remote file or data set <code class="docutils literal notranslate"><span class="pre">dest</span></code> is empty, the <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be reused.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and the remote file or data set <code class="docutils literal notranslate"><span class="pre">dest</span></code> is NOT empty, the <code class="docutils literal notranslate"><span class="pre">dest</span></code> will be deleted and recreated with the <code class="docutils literal notranslate"><span class="pre">src</span></code> data set attributes, otherwise it will be recreated with the <code class="docutils literal notranslate"><span class="pre">dest</span></code> data set attributes.</p>
 <p>To backup data before any deletion, see parameters <code class="docutils literal notranslate"><span class="pre">backup</span></code> and <code class="docutils literal notranslate"><span class="pre">backup_name</span></code>.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the file or data set will only be copied if the destination does not exist.</p>
@@ -278,9 +281,9 @@
 <div class="line"><strong>default</strong>: False</div>
 </div>
 </dd>
-<dt>force_lock</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> to bypass DISP=SHR and continue with the copy operation.</p>
+<dt>force</dt><dd><p>By default, when <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a MVS data set and is being used by another process with DISP=SHR or DISP=OLD the module will fail. Use <code class="docutils literal notranslate"><span class="pre">force</span></code> to bypass DISP=SHR and continue with the copy operation.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and destination is a MVS data set opened by another process then zos_copy will try to copy using DISP=SHR.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">force_lock</span></code> uses operations that are subject to race conditions and can lead to data loss, use with caution.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">force</span></code> uses operations that are subject to race conditions and can lead to data loss, use with caution.</p>
 <p>If a data set member has aliases, and is not a program object, copying that member to a dataset that is in use will result in the aliases not being preserved in the target dataset. When this scenario occurs the module will fail.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -296,9 +299,9 @@
 <div class="line"><strong>default</strong>: True</div>
 </div>
 </dd>
-<dt>is_binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file or data set.</p>
-<p>When <em>is_binary=true</em>, no encoding conversion is applied to the content, all content transferred retains the original state.</p>
-<p>Use <em>is_binary=true</em> when copying a Database Request Module (DBRM) to retain the original state of the serialized SQL statements of a program.</p>
+<dt>binary</dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, indicates that the file or data set to be copied is a binary file or data set.</p>
+<p>When <em>binary=true</em>, no encoding conversion is applied to the content, all content transferred retains the original state.</p>
+<p>Use <em>binary=true</em> when copying a Database Request Module (DBRM) to retain the original state of the serialized SQL statements of a program.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -770,7 +773,7 @@
 <span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/binary/file</span>
 <span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(MEMBER)</span>
-<span class="w">    </span><span class="nt">is_binary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">binary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a sequential data set to a PDS member</span>
 <span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
@@ -796,14 +799,14 @@
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE</span>
 <span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.EXISTING.PDSE</span>
 <span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy PDS member to a new PDS member. Replace if it already exists</span>
 <span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.SAMPLE.PDSE(SRCMEM)</span>
 <span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLQ.NEW.PDSE(DESTMEM)</span>
 <span class="w">    </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy a USS file to a PDSE member. If PDSE does not exist, allocate it</span>
 <span class="w">  </span><span class="nt">zos_copy</span><span class="p">:</span>
@@ -919,10 +922,10 @@
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="zos_fetch.html#zos-fetch-module"><span class="std std-ref">zos_fetch – Fetch data from z/OS</span></a></p></li>
-<li><p><a class="reference internal" href="zos_data_set.html#zos-data-set-module"><span class="std std-ref">zos_data_set – Manage data sets</span></a></p></li>
-<li><p><a class="reference internal" href="zos_mvs_raw.html#zos-mvs-raw-module"><span class="std std-ref">zos_mvs_raw – Run a z/OS program.</span></a></p></li>
-<li><p><a class="reference internal" href="zos_tso_command.html#zos-tso-command-module"><span class="std std-ref">zos_tso_command – Execute TSO commands</span></a></p></li>
+<li><p><a class="reference internal" href="zos_fetch.html#ibm-ibm-zos-core-zos-fetch-module"><span class="std std-ref">zos_fetch – Fetch data from z/OS</span></a></p></li>
+<li><p><a class="reference internal" href="zos_data_set.html#ibm-ibm-zos-core-zos-data-set-module"><span class="std std-ref">zos_data_set – Manage data sets</span></a></p></li>
+<li><p><a class="reference internal" href="zos_mvs_raw.html#ibm-ibm-zos-core-zos-mvs-raw-module"><span class="std std-ref">zos_mvs_raw – Run a z/OS program.</span></a></p></li>
+<li><p><a class="reference internal" href="zos_tso_command.html#ibm-ibm-zos-core-zos-tso-command-module"><span class="std std-ref">zos_tso_command – Execute TSO commands</span></a></p></li>
 </ul>
 </div>
 </section>
@@ -1084,7 +1087,7 @@
 </dd>
 <dt>note</dt><dd><p>A note to the user after module terminates.</p>
 <div class="line-block">
-<div class="line"><strong>returned</strong>: When <code class="docutils literal notranslate"><span class="pre">force=true</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> exists</div>
+<div class="line"><strong>returned</strong>: When <code class="docutils literal notranslate"><span class="pre">replace=true</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> exists</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: No data was copied</div>
 </div>

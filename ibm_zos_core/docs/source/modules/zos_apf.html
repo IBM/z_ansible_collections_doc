@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../requirements/software-requirements.html">Software Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/software-installation.html">Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/software-configuration.html">Software Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration/migration-core.html">Migration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Collections &amp; Content</span></p>
 <ul class="current">
@@ -94,11 +95,13 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_stat.html">zos_stat – Retrieve facts from MVS data sets, USS files, aggregates and generation data groups</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_user.html">zos_user – Manage z/OS user and group profiles in RACF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roles.html">Roles</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ibm_zos_cics/docs/ansible_content.html">z/OS CICS</a></li>
@@ -148,7 +151,7 @@
            <div itemprop="articleBody">
              
   <section id="zos-apf-add-or-remove-libraries-to-authorized-program-facility-apf">
-<span id="zos-apf-module"></span><h1>zos_apf – Add or remove libraries to Authorized Program Facility (APF)<a class="headerlink" href="#zos-apf-add-or-remove-libraries-to-authorized-program-facility-apf" title="Link to this heading"></a></h1>
+<span id="ibm-ibm-zos-core-zos-apf-module"></span><h1>zos_apf – Add or remove libraries to Authorized Program Facility (APF)<a class="headerlink" href="#zos-apf-add-or-remove-libraries-to-authorized-program-facility-apf" title="Link to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
@@ -231,14 +234,14 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>persistent</dt><dd><p>Add/remove persistent entries to or from <em>data_set_name</em></p>
+<dt>persistent</dt><dd><p>Add/remove persistent entries to or from <em>target</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">library</span></code> will not be persisted or removed if <code class="docutils literal notranslate"><span class="pre">persistent=None</span></code></p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
-<dt>data_set_name</dt><dd><p>The data set name used for persisting or removing a <code class="docutils literal notranslate"><span class="pre">library</span></code> from the APF list.</p>
+<dt>target</dt><dd><p>The data set name used for persisting or removing a <code class="docutils literal notranslate"><span class="pre">library</span></code> from the APF list.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: True</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -255,7 +258,7 @@
 <div class="line"><strong>default</strong>: /* {mark} ANSIBLE MANAGED BLOCK &lt;timestamp&gt; */</div>
 </div>
 </dd>
-<dt>backup</dt><dd><p>Creates a backup file or backup data set for <em>data_set_name</em>, including the timestamp information to ensure that you retrieve the original APF list defined in <em>data_set_name</em>”.</p>
+<dt>backup</dt><dd><p>Creates a backup file or backup data set for <em>target</em>, including the timestamp information to ensure that you retrieve the original APF list defined in <em>target</em>”.</p>
 <p><em>backup_name</em> can be used to specify a backup file name if <em>backup=true</em>.</p>
 <p>The backup file name will be return on either success or failure of module execution such that data can be retrieved.</p>
 <div class="line-block">
@@ -265,7 +268,7 @@
 </div>
 </dd>
 <dt>backup_name</dt><dd><p>Specify the USS file name or data set name for the destination backup.</p>
-<p>If the source <em>data_set_name</em> is a USS file or path, the backup_name name must be a file or path name, and the USS file or path must be an absolute path name.</p>
+<p>If the source <em>target</em> is a USS file or path, the backup_name name must be a file or path name, and the USS file or path must be an absolute path name.</p>
 <p>If the source is an MVS data set, the backup_name must be an MVS data set name.</p>
 <p>If the backup_name is not provided, the default backup_name will be used. If the source is a USS file or path, the name of the backup file will be the source file or path name appended with a timestamp. For example, <code class="docutils literal notranslate"><span class="pre">/path/file_name.2020-04-23-08-32-29-bak.tar</span></code>.</p>
 <p>If the source is an MVS data set, it will be a data set with a random name generated by calling the ZOAU API. The MVS backup data set recovery can be done by renaming it.</p>
@@ -346,18 +349,18 @@
 <span class="w">    </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SEQUENTIAL.DATASET</span>
 <span class="w">    </span><span class="nt">force_dynamic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">persistent</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATASET(MEM)</span>
+<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATASET(MEM)</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remove a library from the APF list and persistence</span>
 <span class="w">  </span><span class="nt">zos_apf</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
 <span class="w">    </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SEQUENTIAL.DATASET</span>
 <span class="w">    </span><span class="nt">volume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T12345</span>
 <span class="w">    </span><span class="nt">persistent</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATASET(MEM)</span>
+<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.PARTITIONED.DATASET(MEM)</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Batch libraries with custom marker, persistence for the APF list</span>
 <span class="w">  </span><span class="nt">zos_apf</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">persistent</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">data_set_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOME.PARTITIONED.DATASET(MEM)&quot;</span>
+<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SOME.PARTITIONED.DATASET(MEM)&quot;</span>
 <span class="w">      </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/*</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">PROG001</span><span class="nv"> </span><span class="s">USR0010</span><span class="nv"> </span><span class="s">*/&quot;</span>
 <span class="w">    </span><span class="nt">batch</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME.SEQ.DS1</span>
@@ -397,12 +400,32 @@
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
+<dt>stdout_lines</dt><dd><p>List of strings containing individual lines from STDOUT.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+</div>
+</dd>
 <dt>stderr</dt><dd><p>The error messages from ZOAU command apfadm</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: always</div>
 <div class="line"><strong>type</strong>: str</div>
 <div class="line"><strong>sample</strong>: BGYSC1310E ADD Error: Dataset COMMON.LINKLIB volume COMN01 is already present in APF list.</div>
 </div>
+</dd>
+<dt>stderr_lines</dt><dd><p>List of strings containing individual lines from STDERR.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: always</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>sample</strong>:</div>
+</div>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;BGYSC1310E ADD Error: Dataset COMMON.LINKLIB volume COMN01 is already present in APF list.&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
 </dd>
 <dt>rc</dt><dd><p>The return code from ZOAU command apfadm</p>
 <div class="line-block">
