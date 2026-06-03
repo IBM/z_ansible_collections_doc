@@ -2,11 +2,11 @@
 .. © Copyright IBM Corporation 2020, 2025                                   .
 .. ...........................................................................
 
-===========================================
-Red Hat Ansible Certified Content for IBM Z
-===========================================
+=====================================
+Red Hat Ansible Content for IBM Z
+=====================================
 
-Welcome to the Red Hat® Ansible Certified Content for IBM Z documentation. |br|
+Welcome to the Red Hat® Ansible Content for IBM Z documentation. |br|
 
 Here you will find step-by-step user walkthroughs, best practices and resources
 to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
@@ -95,6 +95,8 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. _Ansible for IBM Z:
    overview/ansible-for-ibm-z.html
+.. _Certified and Validated content:
+   eda/certified-validated-ibm-z.html
 .. _Ansible for IBM Z Glossary:
    overview/ansible-glossary.html
 .. _Ansible for IBM Z Playbooks:
@@ -102,6 +104,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Ansible for IBM Z Trial:
    overview/ansible-for-ztrial.html
 
+   
 .. ..........................................................................
 .. Installation & Execution
 .. ..........................................................................
@@ -112,8 +115,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    installation/software-installation.html
 .. _Software Configuration:
    configuration/software-configuration.html
-.. _Migration:
-   migration/migration-core.html
+
 .. ..........................................................................
 .. Collections & Content
 .. ..........................................................................
@@ -124,6 +126,21 @@ management, provisioning, and application deployment in one easy-to-use platform
    collections_content/collection-releases.html
 .. _Collection Life Cycles:
    collections_content/collection-life-cycles.html
+
+.. ..........................................................................
+.. Event Driven Ansible for IBM Z
+.. ..........................................................................
+
+.. _Introduction and architecture:
+   eda/eda-for-ibm-z.html
+.. _Install and run:
+   eda/eda-install-run.html
+.. _Collections for EDA:
+   eda/eda-collections-ibm-z.html
+.. _Using event-driven Ansible:
+   eda/using-eda-for-ibm-z.html
+.. _Additional support:
+   eda/addtional-support.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
@@ -145,17 +162,17 @@ management, provisioning, and application deployment in one easy-to-use platform
    .. grid-item:: |topology| Overview
 
       * `Ansible for IBM Z`_
+      * `Certified and validated content`_
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
-
+      
    .. grid-item:: |mainframe| Installation & Execution
 
       * `Software Requirements`_
       * `Software Installation`_
-      * `Collection Life Cycles`_
-      * `Migration`_
-      
+      * `Software Configuration`_
+
 .. grid:: 3
 
    .. grid-item:: |collection| Collections & Content
@@ -163,6 +180,16 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Collections`_
       * `Collection Releases`_
       * `Collection Life Cycles`_
+   
+.. grid:: 3
+
+   .. grid-item:: |topology| Event Driven Ansible for IBM Z
+
+      * `Introduction and Architecture`_
+      * `Install and run`_
+      * `Collections for EDA`_
+      * `Using Event-driven Ansible`_
+      * `Additional support`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
@@ -185,10 +212,11 @@ management, provisioning, and application deployment in one easy-to-use platform
    :hidden:
 
    overview/ansible-for-ibm-z
+   eda/certified-validated-ibm-z
    overview/ansible-glossary
    overview/ansible-playbooks
    overview/ansible-for-ztrial
-
+   
 .. toctree::
    :maxdepth: 1
    :caption: Installation & Execution
@@ -197,7 +225,6 @@ management, provisioning, and application deployment in one easy-to-use platform
    requirements/software-requirements
    installation/software-installation
    configuration/software-configuration
-   migration/migration-core
 
 .. toctree::
    :maxdepth: 1
@@ -207,6 +234,17 @@ management, provisioning, and application deployment in one easy-to-use platform
    collections_content/collections
    collections_content/collection-releases
    collections_content/collection-life-cycles
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Event Driven Ansible For IBM Z
+   :hidden:
+
+   eda/eda-for-ibm-z
+   eda/eda-install-run
+   eda/eda-collections-ibm-z
+   eda/using-eda-ibm-z
+   eda/additional-support
 
 .. toctree::
    :maxdepth: 1
