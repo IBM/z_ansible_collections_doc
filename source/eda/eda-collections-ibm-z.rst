@@ -24,8 +24,8 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Software requirements
-               :link: ../ibm_z_solutions/docs/source/install/software-requirements.html
+            .. grid-item-card:: Collections for EDA
+               :link: ../ibm_z_solutions/docs/source/collections/collections-eda.html
 
 
 
