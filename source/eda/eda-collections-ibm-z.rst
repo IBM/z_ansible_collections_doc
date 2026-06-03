@@ -1,5 +1,3 @@
-.. _ibm-z_solutions-collections:
-
 ================
 Collections and content
 ================
