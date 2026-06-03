@@ -1,7 +1,7 @@
 .. _ibm-z_solutions-collections:
 
 ================
-Collections
+Collections and Content
 ================
 
 Event-Driven Ansible (EDA) collections are packaged bundles of automation content specifically designed for event-driven automation workflows. 
@@ -11,7 +11,7 @@ Click on a topic to learn more about installing Ansible and managing Event-Drive
 
 .. toctree::
    :maxdepth: 1
-   :caption: Collection Content
+   :caption: Collection 
 
    Rulebooks<../ibm_z_solutions/docs/source/collections/rulebooks-collection>
    Playbooks<../ibm_z_solutions/docs/source/collections/playbooks-collection>
