@@ -9,11 +9,11 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
 
 .. toctree::
    :maxdepth: 1
-   :caption: Collections and content
+   :caption: Collections 
 
    Collections<../ibm_z_solutions/docs/source/collections/collections-eda>
-   Collection releases<../ibm_z_solutions/docs/source/collections/collections-releases-eda>
-   Collection life cycles<../ibm_z_solutions/docs/source/collections/life-cycles-eda>
+   Software installation<../ibm_z_solutions/docs/source/install/software-installation>
+   Software execution<../ibm_z_solutions/docs/source/install/software-execution>
  
    
    . grid:: 3
@@ -24,8 +24,8 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Collections
-               :link: ../ibm_z_solutions/docs/source/collections/collections-eda.html
+            .. grid-item-card:: Software requirements
+               :link: ../ibm_z_solutions/docs/source/install/software-requirements.html
 
 
 
@@ -34,8 +34,8 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Collection releases
-               :link: ../ibm_z_solutions/docs/source/collections/collections-releases-eda.html
+            .. grid-item-card:: Software installation
+               :link: ../ibm_z_solutions/docs/source/install/software-installation.html
 
 
     .. grid-item::
@@ -43,5 +43,5 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Collection life cycles
-               :link: ../ibm_z_solutions/docs/source/collections/collections-life-cycle-eda.html
+            .. grid-item-card:: Software execution
+               :link: ../ibm_z_solutions/docs/source/install/software-execution.html
