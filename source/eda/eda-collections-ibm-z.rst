@@ -46,4 +46,4 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
             :gutter: 1
 
             .. grid-item-card:: Collection life cycles
-               :link: ../ibm_z_solutions/docs/source/install/collections-life-cycles-eda.html
+               :link: ../ibm_z_solutions/docs/source/collection/collections-life-cycles-eda.html
