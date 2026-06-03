@@ -36,7 +36,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Software installation
+            .. grid-item-card:: Collection releases
                :link: ../ibm_z_solutions/docs/source/collection/collections-releases-eda.html
 
 
@@ -45,5 +45,5 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Software execution
+            .. grid-item-card:: Collection life cycles
                :link: ../ibm_z_solutions/docs/source/install/collections-life-cycles-eda.html
