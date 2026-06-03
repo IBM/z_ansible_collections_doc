@@ -14,8 +14,8 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
    :caption: Collections 
 
    Collections for EDA<../ibm_z_solutions/docs/source/collection/collections-eda>
-   Software installation<../ibm_z_solutions/docs/source/install/software-installation>
-   Software execution<../ibm_z_solutions/docs/source/install/software-execution>
+   Software installation<../ibm_z_solutions/docs/source/collection/collections-releases-eda>
+   Software execution<../ibm_z_solutions/docs/source/collection/collections-life-cycles-eda>
  
    
    . grid:: 3
@@ -26,7 +26,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Collections for EDA
+            .. grid-item-card:: Collections
                :link: ../ibm_z_solutions/docs/source/collection/collections-eda.html
 
 
@@ -37,7 +37,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
             :gutter: 1
 
             .. grid-item-card:: Software installation
-               :link: ../ibm_z_solutions/docs/source/install/software-installation.html
+               :link: ../ibm_z_solutions/docs/source/collection/collections-releases-eda.html
 
 
     .. grid-item::
@@ -46,4 +46,4 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
             :gutter: 1
 
             .. grid-item-card:: Software execution
-               :link: ../ibm_z_solutions/docs/source/install/software-execution.html
+               :link: ../ibm_z_solutions/docs/source/install/collections-life-cycles-eda.html
