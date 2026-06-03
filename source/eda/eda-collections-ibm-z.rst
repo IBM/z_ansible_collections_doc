@@ -1,3 +1,5 @@
+.. _ibm-zos_solutions-collection:
+
 ================
 Collections and content
 ================
@@ -11,7 +13,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
    :maxdepth: 1
    :caption: Collections 
 
-   Collections for EDA<../ibm_z_solutions/docs/source/collections/collections-eda>
+   Collections for EDA<../ibm_z_solutions/docs/source/collection/collections-eda>
    Software installation<../ibm_z_solutions/docs/source/install/software-installation>
    Software execution<../ibm_z_solutions/docs/source/install/software-execution>
  
@@ -25,7 +27,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
             :gutter: 1
 
             .. grid-item-card:: Collections for EDA
-               :link: ../ibm_z_solutions/docs/source/collections/collections-eda.html
+               :link: ../ibm_z_solutions/docs/source/collection/collections-eda.html
 
 
 
