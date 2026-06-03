@@ -11,7 +11,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
    :maxdepth: 1
    :caption: Collections 
 
-   Collections<../ibm_z_solutions/docs/source/collections/collections-eda>
+   Collections for EDA<../ibm_z_solutions/docs/source/collections/collections-eda>
    Software installation<../ibm_z_solutions/docs/source/install/software-installation>
    Software execution<../ibm_z_solutions/docs/source/install/software-execution>
  
