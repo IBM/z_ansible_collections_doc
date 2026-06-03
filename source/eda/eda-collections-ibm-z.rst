@@ -11,7 +11,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
 
 .. toctree::
    :maxdepth: 1
-   :caption: Collections 
+   :caption:
 
    Collections<../ibm_z_solutions/docs/source/collection/collections-eda>
    Collection releases<../ibm_z_solutions/docs/source/collection/collections-releases-eda>
