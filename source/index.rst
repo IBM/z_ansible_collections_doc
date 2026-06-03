@@ -137,7 +137,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z.html
 .. _Install and run:
    eda/eda-install-run.html
-.. _Collections for EDA:
+.. _Collections and content:
    eda/eda-collections-ibm-z.html
 .. _Using event-driven Ansible:
    eda/using-eda-for-ibm-z.html
@@ -189,7 +189,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
       * `Introduction and Architecture`_
       * `Install and run`_
-      * `Collections for EDA`_
+      * `Collections and Content`_
       * `Using Event-driven Ansible`_
       * `Additional support`_
 
