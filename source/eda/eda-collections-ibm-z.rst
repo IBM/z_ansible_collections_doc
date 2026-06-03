@@ -13,7 +13,7 @@ Click on a topic to learn more about installing and managing Event-Driven Ansibl
 
    Collections<../ibm_z_solutions/docs/source/collections/collections-eda>
    Collection releases<../ibm_z_solutions/docs/source/collections/collections-releases-eda>
-   Collection life cycles<../ibm_z_solutions/docs/source/collections/collections-life-cycles-eda>
+   Collection life cycles<../ibm_z_solutions/docs/source/collections/life-cycles-eda>
  
    
    . grid:: 3
