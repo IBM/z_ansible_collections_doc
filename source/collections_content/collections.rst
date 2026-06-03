@@ -29,7 +29,7 @@ one easy-to-use platform.
 
    z/OS Core<../ibm_zos_core/docs/source/ansible_content>
    z/OS CICS<../ibm_zos_cics/docs/ansible_content>
-   z/OS IMS<../ibm_zos_ims/docs/source/ansible_content>
+   z/OS IMS<../ibm_zos_ims/docs/ansible_content>
    z/OS Sys Auto<../ibm_zos_sysauto/docs/ansible_content>
    z/OSMF<../ibm_zosmf/docs/source/ansible_content>
    Z HMC<../zhmc-ansible-modules/docs/ansible_content>
@@ -50,7 +50,7 @@ one easy-to-use platform.
                   - `GitHub <https://github.com/ansible-collections/ibm_zos_core>`__
                   - `Supplementary Documentation <../ibm_zos_core/docs/source/character_set.html>`__
 
-            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/source/ansible_content.html>` :octicon:`link-external`
+            .. grid-item-card:: :bdg-link-primary:`z/OS IMS collection<../ibm_zos_ims/docs/ansible_content.html>` :octicon:`link-external`
                   :padding: 0
 
                   - `Ansible Automation Platform <https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_zos_ims>`__
