@@ -20,21 +20,21 @@ These collections are developed in collaboration with IBM and undergo rigorous t
 Benefits of certified content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-✅ **Enterprise support**: Backed by Red Hat and IBM support agreements.
+**Enterprise support**: Backed by Red Hat and IBM support agreements.
 
-✅ **Quality assurance**: Rigorous testing and validation processes.
+**Quality assurance**: Rigorous testing and validation processes.
 
-✅ **Security**: Regular security updates and vulnerability patches.
+**Security**: Regular security updates and vulnerability patches.
 
-✅ **Compatibility**: Guaranteed compatibility with supported z/OS versions.
+**Compatibility**: Guaranteed compatibility with supported z/OS versions.
 
-✅ **Documentation**: Comprehensive, maintained documentation.
+**Documentation**: Comprehensive, maintained documentation.
 
-✅ **Updates**: Regular feature updates and bug fixes.
+**Updates**: Regular feature updates and bug fixes.
 
-✅ **Best practices**: Built-in best practices and design patterns.
+**Best practices**: Built-in best practices and design patterns.
 
-✅ **Community**: Access to expert community and resources.
+**Community**: Access to expert community and resources.
 
 
 Validated content
@@ -45,18 +45,18 @@ This content provides proven integration patterns and best practices for connect
 Benefits of validated content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-✅ **IBM tested**: Validated by IBM engineers with IBM Z products.
+**IBM tested**: Validated by IBM engineers with IBM Z products.
 
-✅ **Production ready**: Tested in real-world IBM Z environments.
+**Production ready**: Tested in real-world IBM Z environments.
 
-✅ **Integration focused**: Purpose-built for IBM Z product integration.
+**Integration focused**: Purpose-built for IBM Z product integration.
 
-✅ **Best practices**: Incorporates IBM Z operational best practices.
+**Best practices**: Incorporates IBM Z operational best practices.
 
-✅ **Regular updates**: Updated to support new IBM Z product versions.
+**Regular updates**: Updated to support new IBM Z product versions.
 
-✅ **Documentation**: Comprehensive integration guides and examples.
+**Documentation**: Comprehensive integration guides and examples.
 
-✅ **Community support**: Access to IBM Z community resources.
+**Community support**: Access to IBM Z community resources.
 
-✅ **Faster deployment**: Pre-built integrations reduce development time.
+**Faster deployment**: Pre-built integrations reduce development time.
