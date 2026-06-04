@@ -190,7 +190,6 @@ management, provisioning, and application deployment in one easy-to-use platform
       * `Introduction and Architecture`_
       * `Install and run`_
       * `Collections and Content`_
-      * `Using Event-driven Ansible`_
       * `Additional support`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
@@ -246,7 +245,6 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z
    eda/eda-install-run
    eda/eda-collections-ibm-z
-   eda/using-eda-ibm-z
    eda/additional-support
 
 .. toctree::
