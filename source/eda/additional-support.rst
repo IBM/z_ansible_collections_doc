@@ -11,21 +11,6 @@
 Additional resources
 ====================
 
-Documentation
-------------------
-
-- `Event-Driven Ansible Documentation <https://ansible.readthedocs.io/projects/rulebook/>`_
-- `IBM Z Ansible Collections <https://ibm.github.io/z_ansible_collections_doc/>`_
-- `Red Hat Ansible Automation Platform <https://www.redhat.com/en/technologies/management/ansible>`_
-
-
-Community
--------------
-
-- `Ansible Community Forum <https://forum.ansible.com/>`_
-- `IBM Z Community <https://community.ibm.com/community/user/ibmz-and-linuxone/home>`_
-
-
 Support and licensing
 --------------------------------------------------
 
@@ -51,3 +36,17 @@ Resources
 - **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc/
 - **Red Hat Certified Content**: https://access.redhat.com/articles/3642632
 - **IBM Z DevOps**: https://www.ibm.com/z/devops
+
+Documentation
+------------------
+
+- `Event-Driven Ansible Documentation <https://ansible.readthedocs.io/projects/rulebook/>`_
+- `IBM Z Ansible Collections <https://ibm.github.io/z_ansible_collections_doc/>`_
+- `Red Hat Ansible Automation Platform <https://www.redhat.com/en/technologies/management/ansible>`_
+
+
+Community
+-------------
+
+- `Ansible Community Forum <https://forum.ansible.com/>`_
+- `IBM Z Community <https://community.ibm.com/community/user/ibmz-and-linuxone/home>`_
