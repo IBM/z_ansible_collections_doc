@@ -206,7 +206,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    :hidden:
 
    overview/ansible-for-ibm-z
-   eda/certified-validated-ibm-z
+   overview/certified-validated-ibm-z
    overview/ansible-glossary
    overview/ansible-playbooks
    overview/ansible-for-ztrial
