@@ -6,13 +6,9 @@
 Red Hat Ansible Content for IBM Z
 =====================================
 
-Welcome to the Red Hat® Ansible Content for IBM Z documentation. |br|
-
-Here you will find step-by-step user walkthroughs, best practices and resources
-to aid in your Ansible for IBM Z journey. **Ansible for IBM Z** provides the ability
-to connect IBM Z to your wider enterprise automation strategy through the Ansible
-Automation Platform ecosystem. This enables development and operations automation
-on IBM Z through a seamless, unified workflow orchestration with configuration
+**Ansible for IBM Z** provides the ability to connect IBM Z to your wider enterprise automation
+strategy through the Ansible Automation Platform ecosystem. This enables development and operations 
+automation on IBM Z through a seamless, unified workflow orchestration with configuration
 management, provisioning, and application deployment in one easy-to-use platform.
 
 .. |build| image:: shared_images/build.png
@@ -115,7 +111,6 @@ management, provisioning, and application deployment in one easy-to-use platform
    installation/software-installation.html
 .. _Software Configuration:
    configuration/software-configuration.html
-
 .. _Migration:
    migration/migration-core.html
 .. ..........................................................................
@@ -130,7 +125,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    collections_content/collection-life-cycles.html
 
 .. ..........................................................................
-.. Event Driven Ansible for IBM Z
+.. Event-Driven Ansible for IBM Z
 .. ..........................................................................
 
 .. _Introduction and architecture:
@@ -139,8 +134,6 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-install-run.html
 .. _Collections and content:
    eda/eda-collections-ibm-z.html
-.. _Using event-driven Ansible:
-   eda/using-eda-for-ibm-z.html
 .. _Additional support:
    eda/addtional-support.html
 
@@ -185,7 +178,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    
 .. grid:: 3
 
-   .. grid-item:: |topology| Event Driven Ansible for IBM Z
+   .. grid-item:: |topology| Event-Driven Ansible for IBM Z
 
       * `Introduction and Architecture`_
       * `Install and run`_
@@ -239,7 +232,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. toctree::
    :maxdepth: 1
-   :caption: Event Driven Ansible For IBM Z
+   :caption: Event-Driven Ansible For IBM Z
    :hidden:
 
    eda/eda-for-ibm-z
