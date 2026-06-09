@@ -13,10 +13,9 @@ Certified and validated content
 **Certified content**
 
 
-**Red Hat® Ansible® Certified Content Collections** - Formally certified through Red Hat's certification program.
+Red Hat® Ansible® Certified Content Collections - Formally certified through Red Hat's certification program.
 
-Benefits
-~~~~~~~~
+**Benefits**
 
 * **Enterprise Support & Quality**: Backed by Red Hat and IBM with formal certification, rigorous testing, and regular security updates
 * **Guaranteed Compatibility**: Tested and validated for supported z/OS versions with comprehensive maintained documentation
@@ -26,10 +25,9 @@ Benefits
 **Validated content**
 
 
-**IBM-Validated Automation Content** - Tested by IBM but not formally Red Hat certified.
+IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certified.
 
-Benefits
-~~~~~~~~
+**Benefits**
 
 * **IBM-Tested & Production-Ready**: Validated by IBM engineers in real-world IBM Z environments
 * **Purpose-Built Integration**: Pre-built integrations for IBM Z products with operational best practices
