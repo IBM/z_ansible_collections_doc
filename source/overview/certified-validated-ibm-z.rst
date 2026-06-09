@@ -10,8 +10,8 @@
 Certified and validated content
 ================================
 
-Certified content
------------------
+**Certified content**
+
 
 **Red Hat® Ansible® Certified Content Collections** - Formally certified through Red Hat's certification program.
 
@@ -23,8 +23,8 @@ Benefits
 * **Best Practices Built-in**: Incorporates proven design patterns and automation standards
 
 
-Validated content
------------------
+**Validated content**
+
 
 **IBM-Validated Automation Content** - Tested by IBM but not formally Red Hat certified.
 
@@ -36,8 +36,7 @@ Benefits
 * **Faster Deployment**: Ready-to-use playbooks, rulebooks, and comprehensive integration guides
 
 
-Key differences
----------------
+**Key differences**
 
 .. list-table::
    :header-rows: 1
