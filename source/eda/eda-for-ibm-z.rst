@@ -135,8 +135,8 @@ The design is particularly useful for the following goals:
 Components
 ~~~~~~~~~~~
 
-1. Security event sources on z/OS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. **Security event sources on z/OS**
+
 
 The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
 
@@ -145,8 +145,7 @@ The z/OS domain generates and exposes the security event that drives the automat
 - **IBM zSecure Alert** for detecting authority changes and generating alerts.
 - **WTO, syslog, RACF DB, and SMF** for message creation, logging, and audit records.
 
-2. Common Data Provider and event transport
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. **Common Data Provider and event transport**
 
 IBM Common Data Provider for z Systems captures and forwards z/OS event data for downstream consumption. In this use case, the relevant components are:
 
@@ -155,8 +154,8 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data for
 - **Data Streamer** to normalize and package messages.
 - **Kafka** to deliver the transformed event stream to subscribed consumers.
 
-3. Event-Driven Ansible rulebook engine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. **Event-Driven Ansible rulebook engine**
+
 
 The Event-Driven Ansible layer performs the following functions:
 
@@ -165,8 +164,7 @@ The Event-Driven Ansible layer performs the following functions:
 - Evaluates rulebook conditions against the event content.
 - Triggers the appropriate automated response when a rule matches.
 
-4. Automation content
-~~~~~~~~~~~~~~~~~~~~~~~
+4. **Automation content**
 
 The automation content defines how the privileged-access use case is handled:
 
@@ -174,8 +172,8 @@ The automation content defines how the privileged-access use case is handled:
 - **Playbooks** implement the authorization check and response logic.
 - **IBM Z collections** provide the modules used to interact with z/OS systems and services.
 
-5. Execution and response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**5. Execution and response**
+
 
 Automation Controller and the IBM Z automation content execute the required response actions, such as:
 
