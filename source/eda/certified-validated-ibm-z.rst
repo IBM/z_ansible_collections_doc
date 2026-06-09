@@ -7,56 +7,57 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-Certified and validated content 
-===============================
+Certified and Validated Content
+================================
 
-Certified content
-------------------
+Certified Content
+-----------------
 
-**Red Hat® Ansible® Certified Content Collections** provide enterprise-grade, supported automation content specifically designed and tested for IBM Z environments. 
-These collections are developed in collaboration with IBM and undergo rigorous testing and certification processes.
+**Red Hat® Ansible® Certified Content Collections** - Formally certified through Red Hat's certification program.
 
+Benefits
+~~~~~~~~
 
-Benefits of certified content
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Enterprise support**: Backed by Red Hat and IBM support agreements.
-
-**Quality assurance**: Rigorous testing and validation processes.
-
-**Security**: Regular security updates and vulnerability patches.
-
-**Compatibility**: Guaranteed compatibility with supported z/OS versions.
-
-**Documentation**: Comprehensive, maintained documentation.
-
-**Updates**: Regular feature updates and bug fixes.
-
-**Best practices**: Built-in best practices and design patterns.
-
-**Community**: Access to expert community and resources.
+* **Enterprise Support & Quality**: Backed by Red Hat and IBM with formal certification, rigorous testing, and regular security updates
+* **Guaranteed Compatibility**: Tested and validated for supported z/OS versions with comprehensive maintained documentation
+* **Best Practices Built-in**: Incorporates proven design patterns and automation standards
 
 
-Validated content
---------------------------------------------------
-Validated content refers to automation content (playbooks, rulebooks, and integrations) that has been tested and validated by IBM for use with specific IBM Z products and Event-Driven Ansible. While not formally certified through Red Hat's certification program, validated content has undergone IBM's internal testing and validation processes to ensure compatibility, functionality, and reliability with IBM Z environments.
-This content provides proven integration patterns and best practices for connecting Event-Driven Ansible with IBM Z monitoring and management tools.
+Validated Content
+-----------------
 
-Benefits of validated content
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**IBM-Validated Automation Content** - Tested by IBM but not formally Red Hat certified.
 
-**IBM tested**: Validated by IBM engineers with IBM Z products.
+Benefits
+~~~~~~~~
 
-**Production ready**: Tested in real-world IBM Z environments.
+* **IBM-Tested & Production-Ready**: Validated by IBM engineers in real-world IBM Z environments
+* **Purpose-Built Integration**: Pre-built integrations for IBM Z products with operational best practices
+* **Faster Deployment**: Ready-to-use playbooks, rulebooks, and comprehensive integration guides
 
-**Integration focused**: Purpose-built for IBM Z product integration.
 
-**Best practices**: Incorporates IBM Z operational best practices.
+Key Differences
+---------------
 
-**Regular updates**: Updated to support new IBM Z product versions.
+.. list-table::
+   :header-rows: 1
+   :widths: 20 40 40
 
-**Documentation**: Comprehensive integration guides and examples.
-
-**Community support**: Access to IBM Z community resources.
-
-**Faster deployment**: Pre-built integrations reduce development time.
+   * - Aspect
+     - Certified Content
+     - Validated Content
+   * - **Certification**
+     - Red Hat certified
+     - IBM validated only
+   * - **Support**
+     - Enterprise (Red Hat + IBM)
+     - Community-based
+   * - **Development**
+     - Red Hat + IBM collaboration
+     - IBM-led
+   * - **Focus**
+     - General automation collections
+     - IBM Z product integrations
+   * - **Testing**
+     - Red Hat certification process
+     - IBM internal validation
