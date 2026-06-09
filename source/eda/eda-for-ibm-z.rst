@@ -36,7 +36,7 @@ Event-Driven Ansible for IBM Z extends EDA capabilities to IBM Z® mainframe env
 Architecture
 ------------
 
-Architecture use case: zSecure Privileges
+Architecture use case: zSecure privileges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following architecture shows how Event-Driven Ansible for IBM Z can automate the review and response process for unauthorized privilege changes on a production LPAR. In this scenario, an authority change is detected on z/OS, enriched and streamed through the event pipeline, evaluated by Event-Driven Ansible, and then handled by an automation playbook.
