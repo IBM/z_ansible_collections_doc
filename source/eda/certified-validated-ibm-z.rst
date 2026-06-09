@@ -7,10 +7,10 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-Certified and Validated Content
+Certified and validated content
 ================================
 
-Certified Content
+Certified content
 -----------------
 
 **Red Hat® Ansible® Certified Content Collections** - Formally certified through Red Hat's certification program.
@@ -23,7 +23,7 @@ Benefits
 * **Best Practices Built-in**: Incorporates proven design patterns and automation standards
 
 
-Validated Content
+Validated content
 -----------------
 
 **IBM-Validated Automation Content** - Tested by IBM but not formally Red Hat certified.
@@ -36,7 +36,7 @@ Benefits
 * **Faster Deployment**: Ready-to-use playbooks, rulebooks, and comprehensive integration guides
 
 
-Key Differences
+Key differences
 ---------------
 
 .. list-table::
