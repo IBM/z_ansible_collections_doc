@@ -13,7 +13,7 @@ Certified and validated content
 **Certified content**
 
 
-Red Hat® Ansible® Certified Content Collections - Formally certified through Red Hat's certification program.
+Red Hat Ansible Certified Content Collections - Formally certified through Red Hat's certification program.
 
 **Benefits**
 
@@ -61,4 +61,6 @@ IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certif
 
      To learn more, see `Ansible Automation Platform Certified and Validated Content`_
 
-    * _`https://access.redhat.com/articles/ansible-automation-platform-certified-content`
+  
+  
+  * `_https://access.redhat.com/articles/ansible-automation-platform-certified-content`
