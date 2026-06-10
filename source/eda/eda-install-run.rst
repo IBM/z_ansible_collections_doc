@@ -11,9 +11,10 @@
 Install and run
 ===============
 
-Install and run is the part of 
+Set up Event-driven Ansible in your environment by reviewing system requirements, installing necessary software components, and 
+configuring your automation infrastructure for event-driven operations.
 
-
+To know more, click on the following topics:
 
 .. toctree::
    :maxdepth: 1

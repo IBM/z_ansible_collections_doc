@@ -8,7 +8,7 @@ Event-Driven Ansible (EDA) collections are packaged bundles of automation conten
 They extend Ansible's capabilities to respond automatically to events in real-time.
 
 
-Click on a topic to learn more about installing and managing Event-Driven Ansible (EDA) collections.
+Click on a topic to learn more about installing and managing EDA collections.
 
 .. toctree::
    :maxdepth: 1
