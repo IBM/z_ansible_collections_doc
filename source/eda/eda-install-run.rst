@@ -21,7 +21,7 @@ Install and run is the part of
 
    Software requirements<../ibm_z_solutions/docs/source/install/software-requirements>
    Software installation<../ibm_z_solutions/docs/source/install/software-installation>
-   Software execution<../ibm_z_solutions/docs/source/install/software-execution>
+   Software configuration<../ibm_z_solutions/docs/source/install/software-configuration>
  
    
    . grid:: 3
@@ -51,8 +51,8 @@ Install and run is the part of
         .. grid:: 1 1 1 1
             :gutter: 1
 
-            .. grid-item-card:: Software execution
-               :link: ../ibm_z_solutions/docs/source/install/software-execution.html
+            .. grid-item-card:: Software configuration
+               :link: ../ibm_z_solutions/docs/source/install/software-configuration.html
 
 
 
