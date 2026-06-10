@@ -11,7 +11,7 @@
 Install and run
 ===============
 
-Set up Event-driven Ansible in your environment by reviewing system requirements, installing necessary software components, and 
+Set up Event-Driven Ansible in your environment by reviewing system requirements, installing necessary software components, and 
 configuring your automation infrastructure for event-driven operations.
 
 To know more, click on the following topics:

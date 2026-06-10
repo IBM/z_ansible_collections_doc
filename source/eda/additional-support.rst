@@ -43,7 +43,7 @@ Documentation
 - `Event-Driven Ansible Documentation <https://ansible.readthedocs.io/projects/rulebook/>`_
 - `IBM Z Ansible Collections <https://ibm.github.io/z_ansible_collections_doc/>`_
 - `Red Hat Ansible Automation Platform <https://www.redhat.com/en/technologies/management/ansible>`_
-
+- `Copyright and Trademarks <https://www.ibm.com/legal/copyright-trademarkt>`_
 
 Community
 -------------
