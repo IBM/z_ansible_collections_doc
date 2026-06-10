@@ -12,12 +12,11 @@ with the :term:`managed node<Managed node>` remotely using
 *SSH* and *REST* from a command-line interface or optionally, advanced
 orchestration with Ansible Automation Platform.
 
-The **Ansible for IBM Z** collections will require additional configuration
+The **Ansible for IBM Z** collections require additional configuration
 to ensure that **SSH** or **REST** endpoints are available and configured for
 communication.
 
-Here you will find instructions on how to configure **Ansible for IBM Z**
-collections and submit a playbook to test a module.
+To configure **Ansible for IBM Z** collections and submit a playbook to test a module, see the following:
 
 .. toctree::
    :maxdepth: 1
