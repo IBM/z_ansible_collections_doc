@@ -66,4 +66,4 @@ To learn more, see `Ansible Automation Platform Certified and Validated Content`
 
 
 .. _Ansible Automation Platform Certified and Validated Content:
-  <https://access.redhat.com/articles/ansible-automation-platform-certified-content>
+  <https://access.redhat.com/articles/ansible-automation-platform-certified-content.html>
