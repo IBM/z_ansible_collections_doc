@@ -55,7 +55,7 @@ Option 1: Support from Red Hat and IBM
        with Red Hat first.
 
     For a list of currently supported versions of each collection,
-    see :ref:`collection-life-cycles`
+    see :ref:`collection_content/collection-life-cycles`
 
 Option 2: Support from the community
 ------------------------------------
