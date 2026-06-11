@@ -64,6 +64,9 @@ IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certif
   
 To learn more, see `Ansible Automation Platform Certified and Validated Content`_.
 
+.. ...........................................................................
+.. External links
+.. ...........................................................................
 
 .. _Ansible Automation Platform Certified and Validated Content:
-  <https://access.redhat.com/articles/ansible-automation-platform-certified-content.html>
+  https://access.redhat.com/articles/ansible-automation-platform-certified-content
