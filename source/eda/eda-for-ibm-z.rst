@@ -16,8 +16,9 @@ Overview
 
 Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
 
-Event-Driven Ansible for IBM Z extends EDA capabilities to IBM Z mainframe environments, enabling the following capabilities:
+EDA is a pre-built, tested, and supported automation validated content for IBM Z environments, ensuring reliability and best practices out of the box. For more information on validated content, see `certified-validated-ibm-z`.
 
+**Core capabilities**
 - **Real-time monitoring** of IBM z/OS® systems, subsystems, and applications.
 - **Automated incident response** to system events and alerts.
 - **Proactive problem resolution** before issues affect business operations.
@@ -99,7 +100,6 @@ Components
 
 **1. Security event sources on z/OS**
 
-
 The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
 
 - **SAF and RACF** for system authorization and privilege management.
@@ -135,7 +135,6 @@ The automation content defines how the privileged-access use case is handled:
 - **IBM Z collections** provide the modules used to interact with z/OS systems and services.
 
 **5. Execution and response**
-
 
 Automation Controller and the IBM Z automation content execute the required response actions, such as:
 
