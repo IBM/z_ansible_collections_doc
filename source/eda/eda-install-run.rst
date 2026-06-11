@@ -56,4 +56,4 @@ To know more, click on the following topics:
                :link: ../ibm_z_solutions/docs/source/install/software-configuration.html
 
 
-
+If you encounter any issues, see :ref:`getting-support` section.
