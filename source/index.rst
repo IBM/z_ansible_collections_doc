@@ -134,8 +134,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-install-run.html
 .. _Collections and content:
    eda/eda-collections-ibm-z.html
-.. _Additional support:
-   eda/addtional-support.html
+.. _Additional resources:
+   eda/addtional-resources.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
