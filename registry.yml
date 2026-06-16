@@ -56,7 +56,7 @@ collections:
     latest: main
     origin: main
   ibm_z_solutions:
-    git:  git@github.ibm.com:zos-ansible/ibm_z_solutions.git
+    git:  https://github.com/ansible-collections/ibm_eda_zos
     stable:
     latest: abhi_eda_doc
     origin: main
