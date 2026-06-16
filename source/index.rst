@@ -180,10 +180,10 @@ management, provisioning, and application deployment in one easy-to-use platform
 
    .. grid-item:: |topology| Event-Driven Ansible for IBM Z
 
-      * `Introduction and Architecture`_
+      * `Introduction and architecture`_
       * `Install and run`_
-      * `Collections and Content`_
-      * `Additional support`_
+      * `Collections and content`_
+      * `Additional resources`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
