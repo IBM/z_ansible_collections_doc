@@ -8,19 +8,28 @@
 Getting Support
 ===============
 
-If you encounter issues while using Ansible for IBM Z collections,
-you can access enterprise support from Red Hat and IBM or community support.
+Enterprise support is available from Red Hat and IBM for Ansible collections. 
+You are entitled to enterprise support if all of the following statements are true:
 
-As certified content, the collections are entitled to enterprise support
-from Red Hat to users of Ansible Automation Platform (AAP). If you obtain the
-collections through AAP and have AAP entitlement for z/OS, you are eligible for
-support from Red Hat and IBM. When Red Hat requests IBM involvement in the support
-case, Red Hat will ask you to open a ticket with IBM as well.
+* You obtained the collections through Ansible Automation Platform (AAP).
+* You have AAP entitlement for z/OS.
+* The collection is certified content. To learn more, see `certified-validated-ibm-z`_.
 
-If you obtain a collection from Ansible Galaxy or GitHub, you are **not**
-entitled to official support, you can still engage the community by
-`opening an GitHub issue`_ or through `GitHub discussions`_. From there,
-the issue will be triaged and handled by the development teams.
+If you are entitled to enterprise support, start with Red Hat. In some cases, Red Hat might ask you to open a ticket with IBM.
+
+For validated content, or if you have obtained a collection from Ansible Galaxy or GitHub, 
+support may be available through community engagement:
+
+Review existing [`GitHub issues`_]
+Check [`GitHub discussions`_]
+Open a [`opening an GitHub issue`_]
+
+If you engage with the community, do not include sensitive content. 
+All assets shared with the community are publicly viewable.
+
+Though we are not accepting contributions to our content collections at this time, we encourage you to report bugs, 
+offer comments, or request features. To learn more, see [ansible-collections/ibm_zos_core].
+
 
 Option 1: Support from Red Hat and IBM
 --------------------------------------
@@ -88,7 +97,6 @@ Option 2: Support from the community
 .. _opening an GitHub issue: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _GitHub discussions: https://github.com/ansible-collections/ibm_zos_core/discussions
 .. _Red Hat Customer Portal: https://access.redhat.com/support
-
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|
 .. ...........................................................................
