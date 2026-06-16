@@ -238,7 +238,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z
    eda/eda-install-run
    eda/eda-collections-ibm-z
-   eda/additional-support
+   eda/additional-resources
 
 .. toctree::
    :maxdepth: 1
