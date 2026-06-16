@@ -13,7 +13,7 @@ You are entitled to enterprise support if all of the following statements are tr
 
 * You obtained the collections through Ansible Automation Platform (AAP).
 * You have AAP entitlement for z/OS.
-* The collection is certified content. To learn more, see `certified-validated-ibm-z`_.
+* The collection is certified content. To learn more, see :ref:`certified-validated-ibm-z`.
 
 If you are entitled to enterprise support, start with Red Hat. In some cases, Red Hat might ask you to open a ticket with IBM.
 
