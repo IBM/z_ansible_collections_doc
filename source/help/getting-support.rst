@@ -20,9 +20,9 @@ If you are entitled to enterprise support, start with Red Hat. In some cases, Re
 For validated content, or if you have obtained a collection from Ansible Galaxy or GitHub, 
 support may be available through community engagement:
 
-Review existing [`GitHub issues`_]
-Check [`GitHub discussions`_]
-Open a [`opening an GitHub issue`_]
+* Review existing [`GitHub issues`_]
+* Check [`GitHub discussions`_]
+* Open a [`opening an GitHub issue`_]
 
 If you engage with the community, do not include sensitive content. 
 All assets shared with the community are publicly viewable.
