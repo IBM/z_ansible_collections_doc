@@ -12,26 +12,31 @@ Introduction and architecture
 =============================
 
 Overview
----------
+--------
 
-Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
+Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. 
 
-EDA is a pre-built, tested, and supported automation validated content for IBM Z environments, ensuring reliability and best practices out of the box. For more information on validated content, see `certified-validated-ibm-z`.
+It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
+
+EDA is a pre-built, tested, and supported automation validated content for IBM Z environments, ensuring reliability and best practices out of the box.
+
+For more information on validated content, see `certified-validated-ibm-z`.
 
 **Core capabilities**
-- **Real-time monitoring** of IBM z/OS® systems, subsystems, and applications.
-- **Automated incident response** to system events and alerts.
-- **Proactive problem resolution** before issues affect business operations.
-- **Integration** with existing z/OS monitoring tools and event management systems.
-- **Compliance automation** for mainframe security and operational policies.
+
+* **Real-time monitoring** of IBM z/OS® systems, subsystems, and applications.
+* **Automated incident response** to system events and alerts.
+* **Proactive problem resolution** before issues affect business operations.
+* **Integration** with existing z/OS monitoring tools and event management systems.
+* **Compliance automation** for mainframe security and operational policies.
 
 **Key benefits**
 
-- **Reduced mean time to detect (MTTD) and mean time to resolve (MTTR)**: Faster detection and resolution of issues.
-- **24/7 automation**: Continuous monitoring and response without human intervention.
-- **Consistency**: Standardized responses to common events.
-- **Scalability**: Ability to handle multiple z/OS systems and logical partitions (LPARs) simultaneously.
-- **Integration**: Connection between mainframe events and enterprise automation workflows.
+* **Reduced mean time to detect (MTTD) and mean time to resolve (MTTR)**: Faster detection and resolution of issues.
+* **24/7 automation**: Continuous monitoring and response without human intervention.
+* **Consistency**: Standardized responses to common events.
+* **Scalability**: Ability to handle multiple z/OS systems and logical partitions (LPARs) simultaneously.
+* **Integration**: Connection between mainframe events and enterprise automation workflows.
 
 
 Architecture
@@ -40,7 +45,11 @@ Architecture
 Architecture use case: zSecure privileges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following architecture shows how Event-Driven Ansible for IBM Z can automate the review and response process for unauthorized privilege changes on a production LPAR. In this scenario, an authority change is detected on z/OS, enriched and streamed through the event pipeline, evaluated by Event-Driven Ansible, and then handled by an automation playbook.
+The following architecture shows how Event-Driven Ansible for IBM Z can automate the review and 
+response process for unauthorized privilege changes on a production LPAR. 
+
+In this scenario, an authority change is detected on z/OS, enriched and streamed through 
+the event pipeline, evaluated by Event-Driven Ansible, and then handled by an automation playbook.
 
 Architecture flow
 ~~~~~~~~~~~~~~~~~
@@ -66,18 +75,27 @@ Architecture flow
    Notify security administrator or revoke access
 
 
+
 Architecture explanation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes a user's privileges.
-2. **Security detection**: IBM zSecure Command Verifier and IBM zSecure Alert monitor the activity and detect the authority change for the affected user ID.
-3. **Message creation on z/OS**: zSecure Alert creates a WTO message, which is also made available through the z/OS logging and syslog path.
-4. **Event capture and enrichment**: IBM Common Data Provider for z Systems captures the message through the zLog Forwarder exit, tags it, and sends it to the Data Streamer.
-5. **Event transformation and streaming**: The Data Streamer formats the message data and applies the configured transform logic before publishing the event through Kafka.
-6. **Event matching in Event-Driven Ansible**: An Event-Driven Ansible rulebook subscribes to the Kafka topic, evaluates the event content, and matches the rulebook condition.
-7. **Automated execution**: Event-Driven Ansible calls Automation Controller to run the playbook associated with the matched event.
-8. **Authorization decision**: The playbook checks whether the privilege change is authorized.
-9. **Response and notification**:
+* **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes a user's privileges.
+
+* **Security detection**: IBM zSecure Command Verifier and IBM zSecure Alert monitor the activity and detect the authority change for the affected user ID.
+
+* **Message creation on z/OS**: zSecure Alert creates a WTO message, which is also made available through the z/OS logging and syslog path.
+
+* **Event capture and enrichment**: IBM Common Data Provider for z Systems captures the message through the zLog Forwarder exit, tags it, and sends it to the Data Streamer.
+
+* **Event transformation and streaming**: The Data Streamer formats the message data and applies the configured transform logic before publishing the event through Kafka.
+
+* **Event matching in Event-Driven Ansible**: An Event-Driven Ansible rulebook subscribes to the Kafka topic, evaluates the event content, and matches the rulebook condition.
+
+* **Automated execution**: Event-Driven Ansible calls Automation Controller to run the playbook associated with the matched event.
+
+* **Authorization decision**: The playbook checks whether the privilege change is authorized.
+
+* **Response and notification**:
    - If the change is authorized, a summary is emailed to the security administrator.
    - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
 
@@ -98,7 +116,7 @@ The design is particularly useful for the following goals:
 Components
 ~~~~~~~~~~~
 
-**1. Security event sources on z/OS**
+**Security event sources on z/OS**
 
 The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
 
@@ -107,7 +125,7 @@ The z/OS domain generates and exposes the security event that drives the automat
 - **IBM zSecure Alert** for detecting authority changes and generating alerts.
 - **WTO, syslog, RACF DB, and SMF** for message creation, logging, and audit records.
 
-**2. Common Data Provider and event transport**
+**Common Data Provider and event transport**
 
 IBM Common Data Provider for z Systems captures and forwards z/OS event data for downstream consumption. In this use case, the relevant components are:
 
@@ -116,8 +134,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data for
 - **Data Streamer** to normalize and package messages.
 - **Kafka** to deliver the transformed event stream to subscribed consumers.
 
-**3. Event-Driven Ansible rulebook engine**
-
+**Event-Driven Ansible rulebook engine**
 
 The Event-Driven Ansible layer performs the following functions:
 
@@ -126,7 +143,7 @@ The Event-Driven Ansible layer performs the following functions:
 - Evaluates rulebook conditions against the event content.
 - Triggers the appropriate automated response when a rule matches.
 
-**4. Automation content**
+**Automation content**
 
 The automation content defines how the privileged-access use case is handled:
 
@@ -134,7 +151,7 @@ The automation content defines how the privileged-access use case is handled:
 - **Playbooks** implement the authorization check and response logic.
 - **IBM Z collections** provide the modules used to interact with z/OS systems and services.
 
-**5. Execution and response**
+**Execution and response**
 
 Automation Controller and the IBM Z automation content execute the required response actions, such as:
 

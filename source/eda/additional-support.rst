@@ -7,15 +7,15 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-
+====================
 Additional resources
 ====================
 
 Support and licensing
---------------------------------------------------
+---------------------
 
 Red Hat Ansible Automation Platform subscription
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Includes access to all Red Hat Ansible Certified Content.
 - Enterprise support for certified collections.
@@ -30,7 +30,7 @@ IBM support
 - Access to IBM Z Ansible documentation and resources.
 
 Resources
---------------------------------------------------
+---------
 
 - **Ansible Automation Hub**: https://console.redhat.com/ansible/automation-hub
 - **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc/
@@ -38,7 +38,7 @@ Resources
 - **IBM Z DevOps**: https://www.ibm.com/z/devops
 
 Documentation
-------------------
+-------------
 
 - `Event-Driven Ansible Documentation <https://ansible.readthedocs.io/projects/rulebook/>`_
 - `IBM Z Ansible Collections <https://ibm.github.io/z_ansible_collections_doc/>`_
