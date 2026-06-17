@@ -33,7 +33,7 @@ Resources
 ---------
 
 - **Ansible Automation Hub**: https://console.redhat.com/ansible/automation-hub
-- **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc/
+- **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc
 - **Red Hat Certified Content**: https://access.redhat.com/articles/3642632
 - **IBM Z DevOps**: https://www.ibm.com/z/devops
 
