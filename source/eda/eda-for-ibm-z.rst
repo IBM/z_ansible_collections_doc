@@ -23,7 +23,7 @@ For more information on validated content, see :ref:`certified-validated-ibm-z`.
 
 **Core capabilities**
 
-* Real-time monitoring of IBM z/OS® systems, subsystems, and applications.
+* Real-time monitoring of IBM z/OS systems, subsystems, and applications.
 * Automated incident response to system events and alerts.
 * Proactive problem resolution before issues affect business operations.
 * Integration with existing z/OS monitoring tools and event management systems.
