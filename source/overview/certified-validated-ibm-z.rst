@@ -8,7 +8,7 @@
 .. ...........................................................................
 .. _certified-validated-ibm-z:
 
-Certified and validated content
+Certified and Validated Content
 ================================
 
 Certified content

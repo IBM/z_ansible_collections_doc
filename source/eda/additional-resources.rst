@@ -8,7 +8,7 @@
 .. ...........................................................................
 
 ====================
-Additional resources
+Additional Resources
 ====================
 
 Support and licensing
