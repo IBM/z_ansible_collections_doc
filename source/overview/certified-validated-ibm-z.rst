@@ -7,7 +7,7 @@
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
 
-===============================
+
 Certified and validated content
 ================================
 
