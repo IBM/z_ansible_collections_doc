@@ -6,12 +6,12 @@
 ..       collections ansible_content page like the ibm_zos_core collection.
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
-
 ===============================
 Certified and validated content
 ================================
 
-**Certified content**
+Certified content
+-----------------
 
 Red Hat Ansible Certified Content Collections - Formally certified through Red Hat's certification program.
 
@@ -24,7 +24,8 @@ Red Hat Ansible Certified Content Collections - Formally certified through Red H
 * **Best Practices Built-in**: Incorporates proven design patterns and automation standards.
 
 
-**Validated content**
+Validated content
+-----------------
 
 IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certified.
 
