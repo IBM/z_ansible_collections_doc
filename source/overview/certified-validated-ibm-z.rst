@@ -6,7 +6,7 @@
 ..       collections ansible_content page like the ibm_zos_core collection.
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
-
+.. _certified-validated-ibm-z:
 
 Certified and validated content
 ================================
