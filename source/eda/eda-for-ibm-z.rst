@@ -96,8 +96,8 @@ Architecture explanation
 * **Authorization decision**: The playbook checks whether the privilege change is authorized.
 
 * **Response and notification**:
-   - If the change is authorized, a summary is emailed to the security administrator.
-   - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
+ - If the change is authorized, a summary is emailed to the security administrator.
+ - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
 
 Why this architecture matters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
