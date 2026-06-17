@@ -92,7 +92,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Ansible for IBM Z:
    overview/ansible-for-ibm-z.html
 .. _Certified and Validated content:
-   eda/certified-validated-ibm-z.html
+   overview/certified-validated-ibm-z.html
 .. _Ansible for IBM Z Glossary:
    overview/ansible-glossary.html
 .. _Ansible for IBM Z Playbooks:
@@ -135,7 +135,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 .. _Collections and content:
    eda/eda-collections-ibm-z.html
 .. _Additional resources:
-   eda/addtional-resources.html
+   eda/additional-resources.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
