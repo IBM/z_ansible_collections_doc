@@ -91,7 +91,7 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. _Ansible for IBM Z:
    overview/ansible-for-ibm-z.html
-.. _Certified and Validated content:
+.. _Certified and validated content:
    overview/certified-validated-ibm-z.html
 .. _Ansible for IBM Z Glossary:
    overview/ansible-glossary.html
