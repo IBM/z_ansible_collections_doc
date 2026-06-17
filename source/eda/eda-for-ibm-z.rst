@@ -19,7 +19,7 @@ It connects event sources to automated responses through rulebooks, allowing for
 
 EDA is a pre-built, tested, and supported automation validated content for IBM Z environments, ensuring reliability and best practices out of the box.
 
-For more information on validated content, see `certified-validated-ibm-z`.
+For more information on validated content, see :ref:`certified-validated-ibm-z`.
 
 **Core capabilities**
 

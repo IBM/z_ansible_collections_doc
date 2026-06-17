@@ -95,7 +95,7 @@ Option 2: Support from the community
 .. ...........................................................................
 .. External links:
 .. ...........................................................................
-.. _GitHub issue: https://github.com/ansible-collections/ibm_zos_core/issues
+.. _GitHub issues: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _opening an GitHub issue: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _GitHub discussions: https://github.com/ansible-collections/ibm_zos_core/discussions
 .. _Red Hat Customer Portal: https://access.redhat.com/support
