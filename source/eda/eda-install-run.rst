@@ -8,7 +8,7 @@
 .. ...........................................................................
 
 ===============
-Install and run
+Install and Run
 ===============
 
 Set up Event-Driven Ansible in your environment by reviewing system requirements, 

@@ -8,7 +8,7 @@
 .. ...........................................................................
 
 =============================
-Introduction and architecture
+Introduction and Architecture
 =============================
 
 Overview
@@ -23,11 +23,11 @@ For more information on validated content, see :ref:`certified-validated-ibm-z`.
 
 **Core capabilities**
 
-* **Real-time monitoring** of IBM z/OS® systems, subsystems, and applications.
-* **Automated incident response** to system events and alerts.
-* **Proactive problem resolution** before issues affect business operations.
-* **Integration** with existing z/OS monitoring tools and event management systems.
-* **Compliance automation** for mainframe security and operational policies.
+* Real-time monitoring of IBM z/OS® systems, subsystems, and applications.
+* Automated incident response to system events and alerts.
+* Proactive problem resolution before issues affect business operations.
+* Integration with existing z/OS monitoring tools and event management systems.
+* Compliance automation for mainframe security and operational policies.
 
 **Key benefits**
 
@@ -78,11 +78,11 @@ Architecture flow
 Architecture explanation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes a user's privileges.
+* **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes the privileges of an user.
 
 * **Security detection**: IBM zSecure Command Verifier and IBM zSecure Alert monitor the activity and detect the authority change for the affected user ID.
 
-* **Message creation on z/OS**: zSecure Alert creates a WTO message, which is also made available through the z/OS logging and syslog path.
+* **Message creation on z/OS**: zSecure Alert creates a WTO message, which is available through the z/OS logging and syslog path.
 
 * **Event capture and enrichment**: IBM Common Data Provider for z Systems captures the message through the zLog Forwarder exit, tags it, and sends it to the Data Streamer.
 
@@ -95,6 +95,7 @@ Architecture explanation
 * **Authorization decision**: The playbook checks whether the privilege change is authorized.
 
 * **Response and notification**:
+
  - If the change is authorized, a summary is emailed to the security administrator.
  - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
 
@@ -117,44 +118,44 @@ Components
 
 * **Security event sources on z/OS**
 
-The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
+    The z/OS domain generates and exposes the security event that drives the automation flow. In this use case, the main event-producing components are:
 
-- **SAF and RACF** for system authorization and privilege management.
-- **IBM zSecure Command Verifier** for monitoring and validating command activity.
-- **IBM zSecure Alert** for detecting authority changes and generating alerts.
-- **WTO, syslog, RACF DB, and SMF** for message creation, logging, and audit records.
+    - **SAF and RACF** for system authorization and privilege management.
+    - **IBM zSecure Command Verifier** for monitoring and validating command activity.
+    - **IBM zSecure Alert** for detecting authority changes and generating alerts.
+    - **WTO, syslog, RACF DB, and SMF** for message creation, logging, and audit records.
 
 * **Common Data Provider and event transport**
 
-IBM Common Data Provider for z Systems captures and forwards z/OS event data for downstream consumption. In this use case, the relevant components are:
+    IBM Common Data Provider for z Systems captures and forwards z/OS event data for downstream consumption. In this use case, the relevant components are:
 
-- **zLog Forwarder** to capture the WTO/syslog message.
-- **Configuration Tool** to define routing and transformation behavior.
-- **Data Streamer** to normalize and package messages.
-- **Kafka** to deliver the transformed event stream to subscribed consumers.
+    - **zLog Forwarder** to capture the WTO/syslog message.
+    - **Configuration Tool** to define routing and transformation behavior.
+    - **Data Streamer** to normalize and package messages.
+    - **Kafka** to deliver the transformed event stream to subscribed consumers.
 
 * **Event-Driven Ansible rulebook engine**
 
-The Event-Driven Ansible layer performs the following functions:
+    The Event-Driven Ansible layer performs the following functions:
 
-- Subscribes to the Kafka topic that carries security events.
-- Receives normalized event payloads from the streaming layer.
-- Evaluates rulebook conditions against the event content.
-- Triggers the appropriate automated response when a rule matches.
+    - Subscribes to the Kafka topic that carries security events.
+    - Receives normalized event payloads from the streaming layer.
+    - Evaluates rulebook conditions against the event content.
+    - Triggers the appropriate automated response when a rule matches.
 
 * **Automation content**
 
-The automation content defines how the privileged-access use case is handled:
+    The automation content defines how the privileged-access use case is handled:
 
-- **Rulebooks** define the event source, conditions, and actions.
-- **Playbooks** implement the authorization check and response logic.
-- **IBM Z collections** provide the modules used to interact with z/OS systems and services.
+    - **Rulebooks** define the event source, conditions, and actions.
+    - **Playbooks** implement the authorization check and response logic.
+    - **IBM Z collections** provide the modules used to interact with z/OS systems and services.
 
 * **Execution and response**
 
-Automation Controller and the IBM Z automation content execute the required response actions, such as:
+    Automation Controller and the IBM Z automation content execute the required response actions, such as:
 
-- **Validate the privilege change** against an approved authorization source.
-- **Run z/OS automation tasks** by using supported IBM Z modules.
-- **Revoke unauthorized access** when the detected change is not approved.
-- **Send notifications** to the security administrator.
+    - **Validate the privilege change** against an approved authorization source.
+    - **Run z/OS automation tasks** by using supported IBM Z modules.
+    - **Revoke unauthorized access** when the detected change is not approved.
+    - **Send notifications** to the security administrator.
