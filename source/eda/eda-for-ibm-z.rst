@@ -71,11 +71,10 @@ Architecture flow
    Notify security administrator or revoke access
 
 
-
 Architecture explanation
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes the privileges of an user.
+* **Privilege change initiation**: A RACF authority change is issued on a production LPAR, for example by using a command that changes the privileges of a user.
 
 * **Security detection**: IBM zSecure Command Verifier and IBM zSecure Alert monitor the activity and detect the authority change for the affected user ID.
 
@@ -97,7 +96,7 @@ Architecture explanation
  - If the change is not authorized, the user access is revoked and a summary is emailed to the security administrator.
 
 Why this architecture matters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This architecture demonstrates how IBM Z security events can be integrated into an enterprise event-driven automation flow. It combines native z/OS security monitoring with Event-Driven Ansible so that privileged access changes can be reviewed quickly and handled consistently.
 
@@ -111,7 +110,7 @@ The design is particularly useful for the following goals:
 
 
 Components
-~~~~~~~~~~~
+~~~~~~~~~~
 
 * **Security event sources on z/OS**
 

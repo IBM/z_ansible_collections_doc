@@ -14,7 +14,7 @@ Certified and Validated Content
 Certified content
 -----------------
 
-Red Hat Ansible Certified Content Collections - Formally certified through Red Hat's certification program.
+Red Hat Ansible Certified Content Collections is a formally certified through Red Hat's certification program.
 
 **Benefits**
 
@@ -28,7 +28,8 @@ Red Hat Ansible Certified Content Collections - Formally certified through Red H
 Validated content
 -----------------
 
-IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certified.
+Ansible validated content focuses on delivering an expert-led approach for 
+automating your platform portfolio across infrastructure, networking, cloud, security, and edge use cases.
 
 **Benefits**
 
