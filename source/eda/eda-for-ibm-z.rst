@@ -41,9 +41,6 @@ For more information on validated content, see :ref:`certified-validated-ibm-z`.
 Architecture
 ------------
 
-Architecture use case: zSecure privileges
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 The following architecture shows how Event-Driven Ansible for IBM Z can automate the review and 
 response process for unauthorized privilege changes on a production LPAR. 
 
