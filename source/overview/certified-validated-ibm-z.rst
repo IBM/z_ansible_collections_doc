@@ -14,7 +14,7 @@ Certified and Validated Content
 Certified content
 -----------------
 
-Red Hat Ansible Certified Content Collections is a formally certified through Red Hat's certification program.
+Red Hat Ansible Certified content collections are formally certified through Red Hat's certification program.
 
 **Benefits**
 
