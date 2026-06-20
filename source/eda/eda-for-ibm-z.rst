@@ -69,45 +69,45 @@ Architecture flow
    Notify stakeholders or execute remediation
 
 Architecture explanation
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Security event generation
-~~~~~~~~~~~~~~~~~~~~~``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A security-related event, such as a configuration change, access request, policy violation, or privileged operation, occurs on a z/OS system.
 
 Event detection
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Security monitoring tools identify the event and generate an alert for further processing.
 
 Message creation
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 The detected event is recorded as a WTO or syslog message, making it available through the z/OS logging infrastructure.
 
 Event capture and enrichment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 IBM Common Data Provider for z Systems captures the message, enriches it with additional context, and forwards it to the Data Streamer.
 
 Event transformation and streaming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 The Data Streamer formats and transforms the event before publishing it to a Kafka topic for downstream consumers.
 
 Event evaluation
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 An Event-Driven Ansible rulebook subscribes to the Kafka topic and evaluates the incoming event against predefined conditions.
 
 Automated execution
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 When a rule matches, Event-Driven Ansible invokes Automation Controller to execute the associated playbook.
 
 Response and notification
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 The playbook validates the event and performs the configured actions, such as:
 
@@ -118,7 +118,7 @@ The playbook validates the event and performs the configured actions, such as:
 - Initiating follow-up automation workflows.
 
 Why this architecture matters
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This architecture demonstrates how IBM Z security events can be integrated into an enterprise event-driven automation workflow. By combining native z/OS monitoring capabilities with Event-Driven Ansible, organizations can automate the processing and response to security events while maintaining consistent operational practices.
 
@@ -131,10 +131,10 @@ This design provides the following benefits:
 - Enhanced auditability and traceability across the event lifecycle.
 
 Components
-----------
+~~~~~~~~~~
 
 Security event sources on z/OS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 The z/OS environment generates security and operational events that drive the automation workflow. Typical event sources include:
 
@@ -143,7 +143,7 @@ The z/OS environment generates security and operational events that drive the au
 - **WTO, syslog, RACF database, and SMF** for logging and audit records.
 
 Common Data Provider and event transport
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 IBM Common Data Provider for z Systems captures and forwards z/OS event data by using:
 
@@ -153,7 +153,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data by 
 - **Kafka** to distribute event streams to subscribed consumers.
 
 Event-Driven Ansible rulebook engine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 The Event-Driven Ansible layer:
 
@@ -163,7 +163,7 @@ The Event-Driven Ansible layer:
 - Triggers automated actions based on matching rules.
 
 Automation content
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Automation content defines how events are processed:
 
@@ -172,7 +172,7 @@ Automation content defines how events are processed:
 - **IBM Z collections** provide modules for interacting with z/OS systems and services.
 
 Execution and response
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Automation Controller executes the required automation tasks, which can include:
 
