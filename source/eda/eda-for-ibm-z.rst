@@ -31,11 +31,11 @@ For more information on validated content, see :ref:`certified-validated-ibm-z`.
 
 **Key benefits**
 
-* **Reduced mean time to detect (MTTD) and mean time to resolve (MTTR)**: Faster detection and resolution of issues.
-* **24/7 automation**: Continuous monitoring and response without human intervention.
-* **Consistency**: Standardized responses to common events.
-* **Scalability**: Ability to handle multiple z/OS systems and logical partitions (LPARs) simultaneously.
-* **Integration**: Connection between mainframe events and enterprise automation workflows.
+* Reduced mean time to detect (MTTD) and mean time to resolve (MTTR): Faster detection and resolution of issues.
+* 24/7 automation: Continuous monitoring and response without human intervention.
+* Consistency: Standardized responses to common events.
+* Scalability: Ability to handle multiple z/OS systems and logical partitions (LPARs) simultaneously.
+* Integration: Connection between mainframe events and enterprise automation workflows.
 
 
 Architecture
@@ -138,22 +138,22 @@ Security event sources on z/OS
 
 The z/OS environment generates security and operational events that drive the automation workflow. Typical event sources include:
 
-- **SAF and RACF** for authorization and access management.
-- **IBM zSecure solutions** for security monitoring and alert generation.
-- **WTO, syslog, RACF database, and SMF** for logging and audit records.
+- SAF and RACF for authorization and access management.
+- IBM zSecure solutions for security monitoring and alert generation.
+- WTO, syslog, RACF database, and SMF for logging and audit records.
 
 Common Data Provider and event transport
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 IBM Common Data Provider for z Systems captures and forwards z/OS event data by using:
 
-- **zLog Forwarder** to capture system messages.
-- **Configuration Tool** to define routing and transformation rules.
-- **Data Streamer** to normalize and package events.
-- **Kafka** to distribute event streams to subscribed consumers.
+- zLog Forwarder to capture system messages.
+- Configuration Tool to define routing and transformation rules.
+- Data Streamer to normalize and package events.
+- Kafka to distribute event streams to subscribed consumers.
 
 Event-Driven Ansible rulebook engine
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Event-Driven Ansible layer:
 
@@ -167,12 +167,12 @@ Automation content
 
 Automation content defines how events are processed:
 
-- **Rulebooks** specify event sources, conditions, and actions.
-- **Playbooks** implement validation, orchestration, and remediation logic.
-- **IBM Z collections** provide modules for interacting with z/OS systems and services.
+- Rulebooks specify event sources, conditions, and actions.
+- Playbooks implement validation, orchestration, and remediation logic.
+- IBM Z collections provide modules for interacting with z/OS systems and services.
 
 Execution and response
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Automation Controller executes the required automation tasks, which can include:
 
