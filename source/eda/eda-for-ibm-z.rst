@@ -87,12 +87,12 @@ Message creation
 The detected event is recorded as a WTO or syslog message, making it available through the z/OS logging infrastructure.
 
 Event capture and enrichment
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 IBM Common Data Provider for z Systems captures the message, enriches it with additional context, and forwards it to the Data Streamer.
 
 Event transformation and streaming
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Data Streamer formats and transforms the event before publishing it to a Kafka topic for downstream consumers.
 
@@ -107,7 +107,7 @@ Automated execution
 When a rule matches, Event-Driven Ansible invokes Automation Controller to execute the associated playbook.
 
 Response and notification
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The playbook validates the event and performs the configured actions, such as:
 
