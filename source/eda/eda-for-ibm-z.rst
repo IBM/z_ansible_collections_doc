@@ -102,12 +102,12 @@ Event evaluation
 An Event-Driven Ansible rulebook subscribes to the Kafka topic and evaluates the incoming event against predefined conditions.
 
 Automated execution
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 When a rule matches, Event-Driven Ansible invokes Automation Controller to execute the associated playbook.
 
 Response and notification
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The playbook validates the event and performs the configured actions, such as:
 
@@ -134,7 +134,7 @@ Components
 ~~~~~~~~~~
 
 Security event sources on z/OS
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The z/OS environment generates security and operational events that drive the automation workflow. Typical event sources include:
 
@@ -153,7 +153,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data by 
 - Kafka to distribute event streams to subscribed consumers.
 
 Event-Driven Ansible rulebook engine
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Event-Driven Ansible layer:
 
@@ -163,7 +163,7 @@ The Event-Driven Ansible layer:
 - Triggers automated actions based on matching rules.
 
 Automation content
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Automation content defines how events are processed:
 
