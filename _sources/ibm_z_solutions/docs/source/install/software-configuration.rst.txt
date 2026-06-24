@@ -240,7 +240,7 @@ Create a job template
 4. Click **Save**.
 
 .. tip::
-   Test the job template manually before activating the rulebook to ensure proper configuration.
+   Test the job template manually before activating the rulebook to ensure proper configuration. Select the checkbox to enable prompt on launch.
 
 Step 6: Rulebook setup in Event-Driven Ansible Controller
 ----------------------------------------------------------
