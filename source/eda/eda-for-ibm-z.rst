@@ -155,7 +155,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data by 
 Event-Driven Ansible rulebook engine
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Event-Driven Ansible layer:
+The Event-Driven Ansible layer performs the following actions:
 
 - Subscribes to security event streams.
 - Evaluates incoming events against rulebook conditions.
