@@ -18,7 +18,7 @@ To know more, see the following topics:
 
 .. toctree::
    :maxdepth: 1
-   :caption: Installation Content
+   :caption: Installation content
 
    Software requirements<../ibm_z_solutions/docs/source/install/software-requirements>
    Software installation<../ibm_z_solutions/docs/source/install/software-installation>
