@@ -14,8 +14,7 @@ Introduction and Architecture
 Overview
 --------
 
-Event-Driven Ansible (EDA) is an automation framework that enables organizations to respond to events in real time. 
-It connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
+Event-Driven Ansible (EDA) is an automation framework that connects event sources to automated responses through rulebooks, allowing for intelligent, automated decision-making based on events that occur in your infrastructure.
 
 EDA is a pre-built, tested, and supported automation validated content for IBM Z environments, ensuring reliability and best practices out of the box.
 
@@ -109,7 +108,7 @@ When a rule matches, Event-Driven Ansible invokes Automation Controller to execu
 Response and notification
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The playbook validates the event and performs the configured actions, such as:
+The playbook validates the event and performs the following configured actions.
 
 - Sending notifications to security or operations teams.
 - Collecting additional diagnostic information.
@@ -122,7 +121,7 @@ Why this architecture matters
 
 This architecture demonstrates how IBM Z security events can be integrated into an enterprise event-driven automation workflow. By combining native z/OS monitoring capabilities with Event-Driven Ansible, organizations can automate the processing and response to security events while maintaining consistent operational practices.
 
-This design provides the following benefits:
+This design provides the following benefits.
 
 - Faster detection and processing of security events.
 - Automated and consistent response workflows.
@@ -145,7 +144,7 @@ The z/OS environment generates security and operational events that drive the au
 Common Data Provider and event transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-IBM Common Data Provider for z Systems captures and forwards z/OS event data by using:
+IBM Common Data Provider for z Systems captures and forwards z/OS event data by using the following.
 
 - zLog Forwarder to capture system messages.
 - Configuration Tool to define routing and transformation rules.
@@ -155,7 +154,7 @@ IBM Common Data Provider for z Systems captures and forwards z/OS event data by 
 Event-Driven Ansible rulebook engine
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Event-Driven Ansible layer performs the following actions:
+The Event-Driven Ansible layer performs the following actions.
 
 - Subscribes to security event streams.
 - Evaluates incoming events against rulebook conditions.
@@ -165,7 +164,7 @@ The Event-Driven Ansible layer performs the following actions:
 Automation content
 ^^^^^^^^^^^^^^^^^^
 
-Automation content defines how events are processed:
+Automation content defines how the following events are processed.
 
 - Rulebooks specify event sources, conditions, and actions.
 - Playbooks implement validation, orchestration, and remediation logic.
@@ -174,7 +173,7 @@ Automation content defines how events are processed:
 Execution and response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Automation Controller executes the required automation tasks, which can include:
+Automation Controller executes the required automation tasks, which can include the following.
 
 - Validating security events against organizational policies.
 - Running z/OS automation tasks.
