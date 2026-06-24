@@ -14,7 +14,7 @@ Additional Resources
 Support and licensing
 ---------------------
 
-- Red Hat Ansible Automation Platform subscription
+- Red Hat Ansible Automation Platform subscriptions:
  - Includes access to all Red Hat Ansible Certified Content.
  - Enterprise support for certified collections.
  - Access to Automation Hub for certified content.
