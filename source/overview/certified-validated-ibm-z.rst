@@ -40,7 +40,8 @@ automating your platform portfolio across infrastructure, networking, cloud, sec
 * **Faster Deployment**: Ready-to-use playbooks, rulebooks, and comprehensive integration guides.
 
 
-**Key differences**
+Key differences
+---------------
 
 .. list-table::
    :header-rows: 1
