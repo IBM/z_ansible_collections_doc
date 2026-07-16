@@ -28,12 +28,12 @@ collections:
   ibm_zos_core:
     git: https://github.com/ansible-collections/ibm_zos_core.git
     stable:
-    latest: main
+    latest: staging-v2.0.0
     origin: main
   ibm_zos_ims:
     git:  https://github.com/ansible-collections/ibm_zos_ims.git
     stable:
-    latest: release-v1.4.1
+    latest: release-v1.4.0
     origin: main
   ibm_zos_cics:
     git:  https://github.com/ansible-collections/ibm_zos_cics.git
@@ -54,4 +54,9 @@ collections:
     git:  https://github.com/IBM/ibm_zosmf.git
     stable:
     latest: main
+    origin: main
+  ibm_z_solutions:
+    git:  https://github.com/ansible-collections/ibm_eda_zos
+    stable:
+    latest: staging-v1.0
     origin: main
