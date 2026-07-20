@@ -91,8 +91,8 @@ management, provisioning, and application deployment in one easy-to-use platform
 
 .. _Ansible for IBM Z:
    overview/ansible-for-ibm-z.html
-.. _Certified and Validated content:
-   eda/certified-validated-ibm-z.html
+.. _Certified and validated content:
+   overview/certified-validated-ibm-z.html
 .. _Ansible for IBM Z Glossary:
    overview/ansible-glossary.html
 .. _Ansible for IBM Z Playbooks:
@@ -134,8 +134,8 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-install-run.html
 .. _Collections and content:
    eda/eda-collections-ibm-z.html
-.. _Additional support:
-   eda/addtional-support.html
+.. _Additional resources:
+   eda/additional-resources.html
 
 .. ..........................................................................
 .. Help & Troubleshooting
@@ -157,7 +157,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    .. grid-item:: |topology| Overview
 
       * `Ansible for IBM Z`_
-      * `Certified and validated content`_
+      * `Certified and Validated Content`_
       * `Ansible for IBM Z Glossary`_
       * `Ansible for IBM Z Playbooks`_
       * `Ansible for IBM Z Trial`_
@@ -180,10 +180,10 @@ management, provisioning, and application deployment in one easy-to-use platform
 
    .. grid-item:: |topology| Event-Driven Ansible for IBM Z
 
-      * `Introduction and architecture`_
-      * `Install and run`_
-      * `Collections and content`_
-      * `Additional resources`_
+      * `Introduction and Architecture`_
+      * `Install and Run`_
+      * `Collections and Content`_
+      * `Additional Resources`_
 
    .. grid-item:: |hourglass| Help & Troubleshooting
 
@@ -238,7 +238,7 @@ management, provisioning, and application deployment in one easy-to-use platform
    eda/eda-for-ibm-z
    eda/eda-install-run
    eda/eda-collections-ibm-z
-   eda/additional-support
+   eda/additional-resources
 
 .. toctree::
    :maxdepth: 1

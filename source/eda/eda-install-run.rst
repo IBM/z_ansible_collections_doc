@@ -8,17 +8,17 @@
 .. ...........................................................................
 
 ===============
-Install and run
+Install and Run
 ===============
 
 Set up Event-Driven Ansible in your environment by reviewing system requirements, 
 installing necessary software components, and configuring your automation infrastructure for event-driven operations.
 
-To know more, click on the following topics:
+To know more, see the following topics:
 
 .. toctree::
    :maxdepth: 1
-   :caption: Installation Content
+   :caption: Installation content
 
    Software requirements<../ibm_z_solutions/docs/source/install/software-requirements>
    Software installation<../ibm_z_solutions/docs/source/install/software-installation>
@@ -56,4 +56,4 @@ To know more, click on the following topics:
                :link: ../ibm_z_solutions/docs/source/install/software-configuration.html
 
 
-If you encounter any issues, see :ref:`getting-support` section.
+If you encounter any issues, see :ref:`getting-support`.

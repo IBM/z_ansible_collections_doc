@@ -29,7 +29,7 @@ If you engage with the community, do not include sensitive content.
 All assets shared with the community are publicly viewable.
 
 Though we are not accepting contributions to our content collections at this time, we encourage you to report bugs, 
-offer comments, or request features. To learn more, see [ansible-collections/ibm_zos_core].
+offer comments, or request features. To learn more, see `Report bug`_.
 
 
 Option 1: Support from Red Hat and IBM
@@ -95,9 +95,11 @@ Option 2: Support from the community
 .. ...........................................................................
 .. External links:
 .. ...........................................................................
+.. _GitHub issues: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _opening an GitHub issue: https://github.com/ansible-collections/ibm_zos_core/issues
 .. _GitHub discussions: https://github.com/ansible-collections/ibm_zos_core/discussions
 .. _Red Hat Customer Portal: https://access.redhat.com/support
+.. _Report bug: https://github.com/ansible-collections/ibm_zos_core
 .. ...........................................................................
 .. # Forced HTML line break, use this at the end of a sentence like.... |br|
 .. ...........................................................................

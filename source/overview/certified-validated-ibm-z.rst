@@ -6,14 +6,15 @@
 ..       collections ansible_content page like the ibm_zos_core collection.
 ..       For now, static links are used (which might actually be safer :) )
 .. ...........................................................................
+.. _certified-validated-ibm-z:
 
-===============================
-Certified and validated content
+Certified and Validated Content
 ================================
 
-**Certified content**
+Certified content
+-----------------
 
-Red Hat Ansible Certified Content Collections - Formally certified through Red Hat's certification program.
+Red Hat Ansible Certified content collections are formally certified through Red Hat's certification program.
 
 **Benefits**
 
@@ -24,9 +25,11 @@ Red Hat Ansible Certified Content Collections - Formally certified through Red H
 * **Best Practices Built-in**: Incorporates proven design patterns and automation standards.
 
 
-**Validated content**
+Validated content
+-----------------
 
-IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certified.
+Ansible validated content focuses on delivering an expert-led approach for 
+automating your platform portfolio across infrastructure, networking, cloud, security, and edge use cases.
 
 **Benefits**
 
@@ -37,7 +40,8 @@ IBM-Validated Automation Content - Tested by IBM but not formally Red Hat certif
 * **Faster Deployment**: Ready-to-use playbooks, rulebooks, and comprehensive integration guides.
 
 
-**Key differences**
+Key differences
+---------------
 
 .. list-table::
    :header-rows: 1

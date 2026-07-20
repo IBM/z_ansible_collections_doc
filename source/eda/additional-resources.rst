@@ -8,19 +8,17 @@
 .. ...........................................................................
 
 ====================
-Additional resources
+Additional Resources
 ====================
 
 Support and licensing
 ---------------------
 
-Red Hat Ansible Automation Platform subscription
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Includes access to all Red Hat Ansible Certified Content.
-- Enterprise support for certified collections.
-- Access to Automation Hub for certified content.
-- Regular updates and security patches.
+- Red Hat Ansible Automation Platform subscriptions:
+ - Includes access to all Red Hat Ansible Certified Content.
+ - Enterprise support for certified collections.
+ - Access to Automation Hub for certified content.
+ - Regular updates and security patches.
 
 IBM support
 ~~~~~~~~~~~
@@ -33,7 +31,7 @@ Resources
 ---------
 
 - **Ansible Automation Hub**: https://console.redhat.com/ansible/automation-hub
-- **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc/
+- **IBM Z Ansible Collections**: https://ibm.github.io/z_ansible_collections_doc
 - **Red Hat Certified Content**: https://access.redhat.com/articles/3642632
 - **IBM Z DevOps**: https://www.ibm.com/z/devops
 
