@@ -7,7 +7,7 @@ appdirs==1.4.3
 astroid==2.2.5
 attrs==20.2.0
 babel==2.16.0
-bleach==3.3.0
+bleach==6.4.0
 bleach-allowlist==1.0.3
 bleach-whitelist==0.0.11
 bracex==2.1.1
