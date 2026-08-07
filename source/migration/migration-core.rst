@@ -25,7 +25,7 @@ This migration is designed for:
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
+   :glob:
 
    z/OS Core <../ibm_zos_core/docs/source/migration>
   
