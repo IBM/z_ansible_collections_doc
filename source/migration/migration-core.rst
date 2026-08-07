@@ -45,11 +45,6 @@ This migration is designed for:
 
 
   
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   z/OS Core<../ibm_zos_core/docs/source/migration/migration-core>
 
 
 
