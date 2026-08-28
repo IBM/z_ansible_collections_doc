@@ -97,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_user.html">zos_user – Manage z/OS user and group profiles in RACF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_user_info.html">zos_user_info – Retrieve user and group profile information from RACF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
@@ -190,8 +191,8 @@
 </div>
 </dd>
 <dt>volumes</dt><dd><p>Name(s) of the volume(s) where the data set will be searched on.</p>
-<p>If omitted, the module will look up the master catalog to find all volumes where a data set is allocated.</p>
-<p>When used, if the data set is not found in at least one volume from the list, the module will fail with a “data set not found” message.</p>
+<p>If omitted, the module looks up the master catalog to find all volumes where a data set is allocated.</p>
+<p>When used, if the data set is not found in at least one volume from the list, the module fails with a “data set not found” message.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -207,9 +208,9 @@
 </div>
 </dd>
 <dt>sms_managed</dt><dd><p>Whether the data set is managed by the Storage Management Subsystem.</p>
-<p>It will cause the module to retrieve additional information, may take longer to query all attributes of a data set.</p>
-<p>If the data set is a PDSE and the Ansible user has RACF READ authority on it, retrieving SMS information will update the last referenced date of the data set.</p>
-<p>If the system finds the data set is not actually managed by SMS, the rest of the attributes will still be queried and this will be noted in the output from the task.</p>
+<p>It causes the module to retrieve additional information, may take longer to query all attributes of a data set.</p>
+<p>If the data set is a PDSE and the Ansible user has RACF READ authority on it, retrieving SMS information updates the last referenced date of the data set.</p>
+<p>If the system finds the data set is not actually managed by SMS, the rest of the attributes are still queried and this is noted in the output from the task.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -217,11 +218,11 @@
 </div>
 </dd>
 <dt>recall</dt><dd><p>Whether to recall a migrated data set to fully query its attributes.</p>
-<p>If set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the module will return a limited amount of information for a migrated data set.</p>
-<p>Recalling a data set will make the module take longer to execute.</p>
+<p>If set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the module returns a limited amount of information for a migrated data set.</p>
+<p>Recalling a data set makes the module take longer to run.</p>
 <p>Ignored when the data set is not found to be migrated.</p>
-<p>The data set will not be migrated again afterwards.</p>
-<p>The data set will not get recalled when running the module in check mode.</p>
+<p>The data set is not migrated again afterwards.</p>
+<p>The data set is not recalled when the module runs in check mode.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -229,7 +230,7 @@
 </div>
 </dd>
 <dt>tmp_hlq</dt><dd><p>Override the default high level qualifier (HLQ) for temporary data sets.</p>
-<p>The default HLQ is the Ansible user used to execute the module and if that is not available, then the environment variable value <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> is used.</p>
+<p>The default HLQ is the Ansible user used to run the module. If that is not available, the value of the <code class="docutils literal notranslate"><span class="pre">TMPHLQ</span></code> environment variable is used.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -257,7 +258,7 @@
 </div>
 </dd>
 <dt>checksum_algorithm</dt><dd><p>Algorithm used to compute a file’s checksum.</p>
-<p>Will throw an error if the managed node is unable to use the specified algorithm.</p>
+<p>Returns an error if the managed node is unable to use the specified algorithm.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -347,9 +348,9 @@
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When querying data sets, the module will create two temporary data sets. One requires around 4 kilobytes of available space on the managed node. The second one, around 1 kilobyte of available space. Both data sets will be removed before the module finishes execution.</p>
-<p>Sometimes, the system could be unable to properly determine the organization or record format of the data set or the space units used to represent its allocation. When this happens, the values for these fields will be null.</p>
-<p>When querying a partitioned data set (PDS), if the Ansible user has RACF READ authority on it, the last referenced date will be updated by the query operation.</p>
+<p>When querying data sets, the module creates two temporary data sets. One requires around 4 kilobytes of available space on the managed node. The second one, around 1 kilobyte of available space. Both data sets are removed before the module finishes execution.</p>
+<p>Sometimes the system cannot determine the organization, record format, or space allocation units for the data set. When this happens, these fields are reported as not available.</p>
+<p>When querying a partitioned data set (PDS), if the Ansible user has RACF READ authority on it, the query operation updates the last referenced date.</p>
 <p>If you need to filter the output from the module by resource type, you can use the zos_stat_by_type filter inside of a playbook.</p>
 </div>
 </section>
@@ -375,7 +376,7 @@
 </div>
 <dl>
 <dt>name</dt><dd><p>Name of the resource queried.</p>
-<p>For Generation Data Sets (GDSs), this will be the absolute name.</p>
+<p>For Generation Data Sets (GDSs), this is the absolute name.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -598,7 +599,7 @@
 </div>
 </div></blockquote>
 </dd>
-<dt>missing_volumes</dt><dd><p>When using the <code class="docutils literal notranslate"><span class="pre">volumes</span></code> option, this field will contain every volume specified in a task where the data set was missing. Will be an empty list in any other case.</p>
+<dt>missing_volumes</dt><dd><p>When using the <code class="docutils literal notranslate"><span class="pre">volumes</span></code> option, this field contains every volume specified in a task where the data set was missing. It is an empty list in any other case.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: list</div>
@@ -667,7 +668,7 @@
 </div>
 </dd>
 <dt>extents_used</dt><dd><p>Number of extents used by the data set.</p>
-<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<p>For PDSEs, this value is not available. Refer to the <code class="docutils literal notranslate"><span class="pre">pages_used</span></code> and <code class="docutils literal notranslate"><span class="pre">perc_pages_used</span></code> fields instead.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -744,7 +745,7 @@
 </div>
 </dd>
 <dt>dir_blocks_allocated</dt><dd><p>Number of directory blocks allocated for a PDS.</p>
-<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<p>For PDSEs, this value is not available. Refer to the <code class="docutils literal notranslate"><span class="pre">pages_used</span></code> and <code class="docutils literal notranslate"><span class="pre">perc_pages_used</span></code> fields instead.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -752,7 +753,7 @@
 </div>
 </dd>
 <dt>dir_blocks_used</dt><dd><p>Number of directory blocks used by a PDS.</p>
-<p>For PDSEs, this value will be null. See instead pages_used and perc_pages_used.</p>
+<p>For PDSEs, this value is not available. Refer to the <code class="docutils literal notranslate"><span class="pre">pages_used</span></code> and <code class="docutils literal notranslate"><span class="pre">perc_pages_used</span></code> fields instead.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: int</div>
@@ -765,6 +766,89 @@
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 3</div>
 </div>
+</dd>
+<dt>member_details</dt><dd><p>Details for each member in a partitioned data set including extended attributes and ISPF statistics. Set to null for non-PDS/PDSE types (sequential, VSAM, GDG) where member details do not apply.</p>
+<div class="line-block">
+<div class="line"><strong>returned</strong>: success</div>
+<div class="line"><strong>type</strong>: raw</div>
+<div class="line"><strong>elements</strong>: dict</div>
+</div>
+<dl>
+<dt>name</dt><dd><p>Member name</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: MEMBER1</div>
+</div>
+</dd>
+<dt>extended_attributes</dt><dd><p>SMDE extended attributes for the member</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>user</dt><dd><p>Last user that modified the member</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: USER01</div>
+</div>
+</dd>
+<dt>codeset</dt><dd><p>Coded character set identifier (CCSID).</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 1047</div>
+</div>
+</dd>
+<dt>modified_time</dt><dd><p>Last time the member was modified (YYYY/MM/DD HH:MM:SS).</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2024/01/15 10:30:45</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>ispf_statistics</dt><dd><p>ISPF member statistics</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: dict</div>
+</div>
+<dl>
+<dt>version</dt><dd><p>Version and modification level (VV.MM format)</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 01.05</div>
+</div>
+</dd>
+<dt>created</dt><dd><p>Creation date (YYYY/MM/DD)</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2024/01/15</div>
+</div>
+</dd>
+<dt>changed</dt><dd><p>Last change date and time (YYYY/MM/DD HH:MM:SS)</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: 2024/01/15 10:30:45</div>
+</div>
+</dd>
+<dt>init</dt><dd><p>Initial size (number of lines)</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 95</div>
+</div>
+</dd>
+<dt>mod</dt><dd><p>Number of lines modified since the last full save.</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: int</div>
+<div class="line"><strong>sample</strong>: 3</div>
+</div>
+</dd>
+<dt>id</dt><dd><p>User ID who last modified the member</p>
+<div class="line-block">
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>sample</strong>: USER01</div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd>
 <dt>pages_allocated</dt><dd><p>Number of pages allocated to a PDSE.</p>
 <div class="line-block">
@@ -1136,7 +1220,7 @@
 </div>
 </dd>
 <dt>checksum</dt><dd><p>Checksum of the file computed by the hashing algorithm specified in <code class="docutils literal notranslate"><span class="pre">checksum_algorithm</span></code>.</p>
-<p>Will be null if <code class="docutils literal notranslate"><span class="pre">get_checksum=false</span></code>.</p>
+<p>Not available when <code class="docutils literal notranslate"><span class="pre">get_checksum=false</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -1328,7 +1412,7 @@
 </div>
 </div></blockquote>
 </dd>
-<dt>xoth</dt><dd><p>Whether others have execute permission over the file.</p>
+<dt>xoth</dt><dd><p>Whether others have run permission over the file.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -1358,7 +1442,7 @@
 </div>
 </div></blockquote>
 </dd>
-<dt>executable</dt><dd><p>Whether the Ansible user can execute the path.</p>
+<dt>executable</dt><dd><p>Whether the Ansible user can run the path.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: bool</div>
@@ -1408,7 +1492,7 @@
 </div>
 </dd>
 <dt>mimetype</dt><dd><p>Output from the file utility describing the content.</p>
-<p>Will be null if <code class="docutils literal notranslate"><span class="pre">get_mime=false</span></code>.</p>
+<p>Not available when <code class="docutils literal notranslate"><span class="pre">get_mime=false</span></code>.</p>
 <div class="line-block">
 <div class="line"><strong>returned</strong>: success</div>
 <div class="line"><strong>type</strong>: str</div>

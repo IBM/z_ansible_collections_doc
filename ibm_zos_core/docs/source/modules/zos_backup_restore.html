@@ -97,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_user.html">zos_user – Manage z/OS user and group profiles in RACF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_user_info.html">zos_user_info – Retrieve user and group profile information from RACF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
@@ -423,7 +424,39 @@
 <div class="line"><strong>type</strong>: dict</div>
 </div>
 <dl>
+<dt>write</dt><dd><p>Specifies how the module should write to the file system when performing a restore operation.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">write=conditional</span></code> is used with option <code class="docutils literal notranslate"><span class="pre">names</span></code>, if a data set with the old name exists, the module will allocate and restore the data set with the new name. Otherwise, the data set is restored with the old name even if a new name is provided by the user.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: str</div>
+<div class="line"><strong>choices</strong>: conditional</div>
+</div>
+</dd>
+<dt>names</dt><dd><p>Specifies the data set names to be used for both filtering and replacing during restore.</p>
+<p>Names must be a list of dictionaries where each dictionary is a <code class="docutils literal notranslate"><span class="pre">key-value</span></code> pair with keys <code class="docutils literal notranslate"><span class="pre">old</span></code> and <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
+<p>Mutually exclusive with <em>hlq</em>, you can either set <em>names</em> or <em>hlq</em> but not both.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: False</div>
+<div class="line"><strong>type</strong>: list</div>
+<div class="line"><strong>elements</strong>: dict</div>
+</div>
+<dl>
+<dt>old</dt><dd><p>The original data set name, the value must be a valid data set name or pattern.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+<dt>new</dt><dd><p>The new data set name or pattern to replace the matching <code class="docutils literal notranslate"><span class="pre">old</span></code> data set.</p>
+<div class="line-block">
+<div class="line"><strong>required</strong>: True</div>
+<div class="line"><strong>type</strong>: str</div>
+</div>
+</dd>
+</dl>
+</dd>
 <dt>hlq</dt><dd><p>Specifies the new HLQ to use for the data sets being restored.</p>
+<p>Mutually exclusive with <em>names</em>, you can either set <em>hlq</em> or <em>names</em> but not both.</p>
 <p>If <em>hlq</em> is not provided, the original HLQ remains unchanged.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
@@ -546,7 +579,8 @@
 <span class="w">    </span><span class="nt">data_sets</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;**.TEST&quot;</span>
 <span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
-<span class="w">    </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Only restore data sets whose last, or only qualifier is TEST.</span>
@@ -557,14 +591,16 @@
 <span class="w">      </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;**.TEST&quot;</span>
 <span class="w">    </span><span class="nt">volume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYVOL2</span>
 <span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
-<span class="w">    </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the data set MY.BACKUP.DZP.</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Use MYHLQ as the new HLQ for restored data sets.</span>
 <span class="w">  </span><span class="nt">zos_backup_restore</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restore</span>
 <span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MY.BACKUP.DZP</span>
-<span class="w">    </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hlq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYHLQ</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore volume from backup stored in the data set MY.BACKUP.DZP.</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Restore to volume MYVOL2.</span>
@@ -629,6 +665,22 @@
 <span class="w">    </span><span class="nt">access</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">      </span><span class="nt">share</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore data sets from backup stored in the UNIX file /tmp/temp_backup.dzp.</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Use option &#39;names&#39; to match and rename data sets during restore.</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">If a data set with the old name exists, it will be restored with the new name.</span>
+<span class="w">  </span><span class="nt">zos_backup_restore</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restore</span>
+<span class="w">    </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/temp_backup.dzp</span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conditional</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">old</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.ONE.**&quot;</span>
+<span class="w">          </span><span class="nt">new</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.NEW.ONE.**&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">old</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.TWO.**&quot;</span>
+<span class="w">          </span><span class="nt">new</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.NEW.TWO.**&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">old</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.THREE&quot;</span>
+<span class="w">          </span><span class="nt">new</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SYS1.ANSIBLE.NEW.THREE&quot;</span>
 </pre></div>
 </div>
 </section>

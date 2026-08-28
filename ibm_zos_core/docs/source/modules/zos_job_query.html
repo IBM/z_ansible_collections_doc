@@ -97,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="zos_tso_command.html">zos_tso_command – Execute TSO commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_unarchive.html">zos_unarchive – Unarchive files and data sets in z/OS.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_user.html">zos_user – Manage z/OS user and group profiles in RACF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zos_user_info.html">zos_user_info – Retrieve user and group profile information from RACF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_volume_init.html">zos_volume_init – Initialize volumes or minidisks.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="zos_zfs_resize.html">zos_zfs_resize – Resize a zfs data set.</a></li>
 </ul>
@@ -184,7 +185,7 @@
 <dl>
 <dt>job_name</dt><dd><p>The job name to query.</p>
 <p>A job name can be up to 8 characters long.</p>
-<p>The <em>job_name</em> can contain include multiple wildcards.</p>
+<p>The <em>job_name</em> can contain multiple wildcards.</p>
 <p>The asterisk (<cite>*</cite>) wildcard will match zero or more specified characters.</p>
 <p>Note that using this value will query the system for ‘*’ and then return just matching values.</p>
 <p>This may lead to security issues if there are read-access limitations on some users or jobs.</p>
@@ -195,7 +196,7 @@
 </div>
 </dd>
 <dt>owner</dt><dd><p>Identifies the owner of the job.</p>
-<p>If no owner is set, the default set is ‘none’ and all jobs will be queried.</p>
+<p>If no owner is set, all owners will be queried. This may lead to security issues if there are read-access limitations on some users or jobs.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -204,8 +205,9 @@
 <dt>job_id</dt><dd><p>The job id that has been assigned to the job.</p>
 <p>A job id must begin with <cite>STC</cite>, <cite>JOB</cite>, <cite>TSU</cite> and are followed by up to 5 digits.</p>
 <p>When a job id is greater than 99,999, the job id format will begin with <cite>S</cite>, <cite>J</cite>, <cite>T</cite> and are followed by 7 digits.</p>
-<p>The <em>job_id</em> can contain include multiple wildcards.</p>
+<p>The <em>job_id</em> can contain multiple wildcards.</p>
 <p>The asterisk (<cite>*</cite>) wildcard will match zero or more specified characters.</p>
+<p>If no job_id is set, the parameter will not be used for job querying.</p>
 <div class="line-block">
 <div class="line"><strong>required</strong>: False</div>
 <div class="line"><strong>type</strong>: str</div>
@@ -239,19 +241,19 @@
 <span class="w">  </span><span class="nt">zos_job_query</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JOB12345&quot;</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using a wildcard to match any job id begging with &#39;JOB12&#39;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using a wildcard to match any job id beginning with &#39;JOB12&#39;</span>
 <span class="w">  </span><span class="nt">zos_job_query</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">job_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JOB12*&quot;</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using wildcards to match any job name begging with &#39;H&#39; and ending in &#39;O&#39;.</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using wildcards to match any job name beginning with &#39;H&#39; and ending in &#39;O&#39;.</span>
 <span class="w">  </span><span class="nt">zos_job_query</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;H*O&quot;</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using a wildcards to match a range of job id(s) that include &#39;JOB&#39; and &#39;014&#39;.</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query jobs using wildcards to match a range of job id(s) that include &#39;JOB&#39; and &#39;014&#39;.</span>
 <span class="w">  </span><span class="nt">zos_job_query</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">job_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JOB*014*</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query all job names beginning wih &#39;H&#39; that match job id that includes &#39;14&#39;.</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query all job names beginning with &#39;H&#39; that match job id that includes &#39;14&#39;.</span>
 <span class="w">  </span><span class="nt">zos_job_query</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;H*&quot;</span>
 <span class="w">    </span><span class="nt">job_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JOB*14*&quot;</span>
@@ -540,7 +542,7 @@
 <div class="line"><strong>sample</strong>: 14:15:00</div>
 </div>
 </dd>
-<dt>queue_position</dt><dd><p>The position within the job queue where the jobs resides.</p>
+<dt>queue_position</dt><dd><p>The position within the job queue where the job resides.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: int</div>
 <div class="line"><strong>sample</strong>: 3</div>
