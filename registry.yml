@@ -58,5 +58,5 @@ collections:
   ibm_z_solutions:
     git:  https://github.com/ansible-collections/ibm_eda_zos
     stable:
-    latest: staging-v1.0
+    latest: abhi_doc_eda
     origin: main
