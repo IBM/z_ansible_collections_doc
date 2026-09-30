@@ -27,7 +27,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="setr_jes_batchallracf – Enable RACF authentication for all batch jobs" href="setr_jes_batchallracf.html" />
+    <link rel="next" title="send_1607_alert_email – Send HTML email notification for SMF Record Flood alert" href="send_alert_email_1607.html" />
     <link rel="prev" title="remove_uid_access – Remove OMVS UID(0) access from a RACF user" href="remove_uid_access.html" /> 
 </head>
 
@@ -79,11 +79,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../collection/collections-eda.html">Collections</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../collection/rulebooks-collection.html">Rulebooks</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../collection/playbooks-collection.html">Playbooks</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1607_diagnostic.html">1607_diagnostic – Capture SMF flood diagnostics for zSecure alert C2P1607I</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gather_listuser_information.html">gather_listuser_information – Gather RACF user details and send security notification</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gather_password_policy_information.html">gather_password_policy_information – Validate password breach and gather policy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="quarantine_user.html">quarantine_user – Quarantine a RACF user by applying CONTAIN attribute</a></li>
 <li class="toctree-l4"><a class="reference internal" href="remove_uid_access.html">remove_uid_access – Remove OMVS UID(0) access from a RACF user</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">send_alert_email – Send HTML email notification to security administrators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send_alert_email_1607.html">send_1607_alert_email – Send HTML email notification for SMF Record Flood alert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="send_slack_message.html">send_slack_message – Send Slack notification to security administrators</a></li>
 <li class="toctree-l4"><a class="reference internal" href="setr_jes_batchallracf.html">setr_jes_batchallracf – Enable RACF authentication for all batch jobs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="unquarantine_user.html">unquarantine_user – Remove CONTAIN attribute and resume user access</a></li>
 </ul>
@@ -217,7 +220,7 @@ the job template:</p>
 <div class="line"><strong>type</strong>: str</div>
 </div>
 </dd>
-<dt>target_hosts</dt><dd><p>The inventory host or group where the playbook executes. Defaults to ‘localhost’ if not specified.</p>
+<dt>target_hosts</dt><dd><p>The inventory host or group where the playbook runs. Defaults to ‘localhost’ if not specified.</p>
 <div class="line-block">
 <div class="line"><strong>type</strong>: str</div>
 </div>
@@ -286,7 +289,7 @@ the <code class="docutils literal notranslate"><span class="pre">command_message
 <section id="notes">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>The playbook executes on the host specified by the <code class="docutils literal notranslate"><span class="pre">target_hosts</span></code> variable but delegates email
+<li><p>The playbook runs on the host specified by the <code class="docutils literal notranslate"><span class="pre">target_hosts</span></code> variable but delegates email
 sending to localhost, so the SMTP connection originates from the AAP controller.</p></li>
 <li><p>HTML email requires the recipient mail client to render HTML. Ensure your email template provides
 appropriate formatting for your environment.</p></li>
@@ -296,7 +299,7 @@ incomplete event data.</p></li>
 a single email to report both the alert and the remediation outcome.</p></li>
 <li><p>All output is written to the AAP job log. Restrict access to job logs if your security policy
 requires it.</p></li>
-<li><p>This playbook is typically the final step in a security workflow, executed after remediation
+<li><p>This playbook is typically the final step in a security workflow, that runs after remediation
 playbooks like <a class="reference internal" href="quarantine_user.html#quarantine-user"><span class="std std-ref">quarantine_user – Quarantine a RACF user by applying CONTAIN attribute</span></a>, or <a class="reference internal" href="remove_uid_access.html#remove-uid-access"><span class="std std-ref">remove_uid_access – Remove OMVS UID(0) access from a RACF user</span></a>.</p></li>
 </ul>
 </section>

@@ -78,11 +78,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../eda/eda-collections-ibm-z.html">Collections and Content</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="collections-eda.html">Collections</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Collection releases</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1-0">Version 1.1.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#major-changes">Major Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#availability">Availability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Major Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Minor Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Reference</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
 </ul>
 </li>
@@ -129,18 +136,75 @@
              
   <section id="collection-releases">
 <span id="id1"></span><h1>Collection releases<a class="headerlink" href="#collection-releases" title="Link to this heading"></a></h1>
+<section id="version-1-1-0">
+<h2>Version 1.1.0<a class="headerlink" href="#version-1-1-0" title="Link to this heading"></a></h2>
+<p>Release 1.1.0 of the <cite>ibm.ibm_eda_zos</cite> collection adds new rulebooks for detecting READ/UPDATE access to sensitive data sets and SMF record flood events. The <cite>security_alerts</cite> event filter is extended with <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">resource</span></code>, <code class="docutils literal notranslate"><span class="pre">smf</span></code>, and UNIX authority fields for richer event data extraction. This release also includes a Slack notification playbook for real-time alerting to security teams.</p>
+<section id="major-changes">
+<h3>Major Changes<a class="headerlink" href="#major-changes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added rulebooks for detecting READ-or-higher access to sensitive data sets (alert 1212).</p></li>
+<li><p>Added rulebooks for detecting UPDATE-or-higher access to sensitive data sets (alert 1213).</p></li>
+<li><p>Added rulebook for detecting SMF record flood events using two-event correlation between the IFA780A WTO message and zSecure alert C2P1607I.</p></li>
+<li><p>Extended the <cite>security_alerts</cite> event filter with richer dataset, resource, SMF, and UNIX metadata extraction.</p></li>
+<li><p>Added a Slack notification playbook for security alert distribution.</p></li>
+</ul>
+</section>
+<section id="minor-changes">
+<h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Link to this heading"></a></h3>
+<p><strong>Event filter</strong></p>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dataset</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">dataset_name</span></code>, <code class="docutils literal notranslate"><span class="pre">pds_member</span></code>, <code class="docutils literal notranslate"><span class="pre">volume_serial</span></code>, and <code class="docutils literal notranslate"><span class="pre">program_name</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">resource</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">resource_class</span></code> and <code class="docutils literal notranslate"><span class="pre">resource_name</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">smf</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">smf_record_type</span></code>, <code class="docutils literal notranslate"><span class="pre">smf_subsystem</span></code>, <code class="docutils literal notranslate"><span class="pre">smf_records_lost</span></code>, and <code class="docutils literal notranslate"><span class="pre">wto_msgid</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">unix_path</span></code>, <code class="docutils literal notranslate"><span class="pre">access_level</span></code>, <code class="docutils literal notranslate"><span class="pre">authority_type</span></code>, and <code class="docutils literal notranslate"><span class="pre">user_category</span></code> extraction fields.</p></li>
+</ul>
+<p><strong>Rulebooks</strong></p>
+<ul class="simple">
+<li><p>Added rulebook for detecting READ-or-higher access to sensitive data sets (alert 1212).</p></li>
+<li><p>Added rulebook for detecting UPDATE-or-higher access to sensitive data sets (alert 1213).</p></li>
+<li><p>Added rulebook for detecting SMF record flood events using two-event correlation between the IFA780A WTO message and zSecure alert C2P1607I.</p></li>
+</ul>
+<p><strong>Playbooks</strong></p>
+<ul class="simple">
+<li><p>Added <strong>send_slack_message</strong> playbook for sending Slack notifications to security administrators.</p></li>
+<li><p>Added <strong>1607_diagnostic</strong> playbook to display SMF output and extract the flooded SMF record type from the correlated IFA780A event.</p></li>
+</ul>
+<p><strong>Templates</strong></p>
+<ul class="simple">
+<li><p>Added HTML email template for SMF flood alert notifications including summary and diagnostic output.</p></li>
+</ul>
+<p><strong>Documentation</strong></p>
+<ul class="simple">
+<li><p>Added documentation and examples for the new monitoring scenarios.</p></li>
+</ul>
+</section>
+<section id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_eda_zos">Automation Hub</a></p></li>
+<li><p><a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/ibm/ibm_eda_zos/">Galaxy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_eda_zos">GitHub</a></p></li>
+</ul>
+</section>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Supported by IBM Ansible Content for IBM Z.</p></li>
+</ul>
+</section>
+</section>
 <section id="version-1-0-0">
 <h2>Version 1.0.0<a class="headerlink" href="#version-1-0-0" title="Link to this heading"></a></h2>
 <p>Initial release of the <cite>ibm.ibm_eda_zos</cite> collection, that provides Event Driven Ansible solutions for IBM Z security monitoring and automated response capabilities. This collection integrates with zSecure alerts and provides comprehensive security event handling for z/OS environments.</p>
-<section id="major-changes">
-<h3>Major Changes<a class="headerlink" href="#major-changes" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3>Major Changes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Added <strong>security_alerts</strong> event filter plugin for processing zSecure alerts from Kafka.</p></li>
 <li><p>Initial release of <cite>ibm.ibm_eda_zos</cite> collection for Event Driven Ansible on IBM Z.</p></li>
 </ul>
 </section>
-<section id="minor-changes">
-<h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Link to this heading"></a></h3>
+<section id="id3">
+<h3>Minor Changes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p><strong>Documentation</strong></p>
 <ul class="simple">
 <li><p>Add documentation for collection usage and examples.</p></li>
@@ -168,16 +232,16 @@
 <li><p>Included base template with consistent styling and reusable components for RACF user information.</p></li>
 </ul>
 </section>
-<section id="availability">
-<h3>Availability<a class="headerlink" href="#availability" title="Link to this heading"></a></h3>
+<section id="id4">
+<h3>Availability<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_eda_zos">Automation Hub</a></p></li>
 <li><p><a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/ibm/ibm_eda_zos/">Galaxy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ansible-collections/ibm_eda_zos">GitHub</a></p></li>
 </ul>
 </section>
-<section id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
+<section id="id8">
+<h3>Reference<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Supported by IBM Ansible Content for IBM Z.</p></li>
 </ul>

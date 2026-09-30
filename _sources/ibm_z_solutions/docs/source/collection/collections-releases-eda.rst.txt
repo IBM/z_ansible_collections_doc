@@ -8,6 +8,71 @@
 Collection releases
 ===================
 
+Version 1.1.0
+--------------
+
+Release 1.1.0 of the `ibm.ibm_eda_zos` collection adds new rulebooks for detecting READ/UPDATE access to sensitive data sets and SMF record flood events. The `security_alerts` event filter is extended with ``dataset``, ``resource``, ``smf``, and UNIX authority fields for richer event data extraction. This release also includes a Slack notification playbook for real-time alerting to security teams.
+
+Major Changes
+~~~~~~~~~~~~~~
+
+* Added rulebooks for detecting READ-or-higher access to sensitive data sets (alert 1212).
+* Added rulebooks for detecting UPDATE-or-higher access to sensitive data sets (alert 1213).
+* Added rulebook for detecting SMF record flood events using two-event correlation between the IFA780A WTO message and zSecure alert C2P1607I.
+* Extended the `security_alerts` event filter with richer dataset, resource, SMF, and UNIX metadata extraction.
+* Added a Slack notification playbook for security alert distribution.
+
+Minor Changes
+~~~~~~~~~~~~~
+
+**Event filter**
+
+* Added ``dataset`` sub-object fields: ``dataset_name``, ``pds_member``, ``volume_serial``, and ``program_name``.
+* Added ``resource`` sub-object fields: ``resource_class`` and ``resource_name``.
+* Added ``smf`` sub-object fields: ``smf_record_type``, ``smf_subsystem``, ``smf_records_lost``, and ``wto_msgid``.
+* Added ``unix_path``, ``access_level``, ``authority_type``, and ``user_category`` extraction fields.
+
+**Rulebooks**
+
+* Added rulebook for detecting READ-or-higher access to sensitive data sets (alert 1212).
+* Added rulebook for detecting UPDATE-or-higher access to sensitive data sets (alert 1213).
+* Added rulebook for detecting SMF record flood events using two-event correlation between the IFA780A WTO message and zSecure alert C2P1607I.
+
+**Playbooks**
+
+* Added **send_slack_message** playbook for sending Slack notifications to security administrators.
+* Added **1607_diagnostic** playbook to display SMF output and extract the flooded SMF record type from the correlated IFA780A event.
+
+**Templates**
+
+* Added HTML email template for SMF flood alert notifications including summary and diagnostic output.
+
+**Documentation**
+
+* Added documentation and examples for the new monitoring scenarios.
+
+Availability
+~~~~~~~~~~~~~
+
+* `Automation Hub`_
+* `Galaxy`_
+* `GitHub`_
+
+.. _Automation Hub:
+   https://console.redhat.com/ansible/automation-hub/repo/published/ibm/ibm_eda_zos
+
+.. _Galaxy:
+   https://galaxy.ansible.com/ui/repo/published/ibm/ibm_eda_zos/
+
+.. _GitHub:
+   https://github.com/ansible-collections/ibm_eda_zos
+
+Reference
+~~~~~~~~~
+
+* Supported by IBM Ansible Content for IBM Z.
+
+
 Version 1.0.0
 --------------
 

@@ -29,6 +29,8 @@ its critical dates, and the type of support it is currently eligible for.
 +------------+----------------+-----------------------+------------------+-------------------+
 | Version    | Status         | Changelogs            | GA Date          | EOL Date          | 
 +============+================+=======================+==================+===================+
+| 1.1.x      | Released       | `1.1.x changelogs`_   | September 2026   | October 2028      |     
++------------+----------------+-----------------------+------------------+-------------------+
 | 1.0.x      | Released       | `1.0.x changelogs`_   | June 2026        | October 2028      |     
 +------------+----------------+-----------------------+------------------+-------------------+
 
@@ -37,3 +39,5 @@ its critical dates, and the type of support it is currently eligible for.
 .. .............................................................................
 .. _1.0.x changelogs:
     https://github.com/ansible-collections/ibm_eda_zos/blob/staging-v1.0/CHANGELOG.rst
+.. _1.1.x changelogs:
+    https://github.com/ansible-collections/ibm_eda_zos/blob/staging-v1.1/CHANGELOG.rst

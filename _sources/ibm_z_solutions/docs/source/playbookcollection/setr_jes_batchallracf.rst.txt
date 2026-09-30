@@ -90,7 +90,7 @@ The playbook:
 
 3. Logs the status to the AAP job output, confirming whether the option is now active.
 
-4. Sets status information using ``set_stats`` to record whether the SETROPTS command succeeded or 
+4. Sets the status information by using ``set_stats`` to record whether the SETROPTS command succeeded or 
    failed. This status message is available to downstream processes, such as email notification playbooks.
 
 
@@ -99,7 +99,7 @@ Output
 
 The playbook produces two outputs:
 
-* A status message set via ``set_stats`` that indicates whether the SETROPTS command was executed 
+* A status message set through ``set_stats`` that indicates whether the SETROPTS command was executed 
   successfully or failed. This message is available to subsequent playbooks or notification workflows.
 
 * A run summary in the AAP job output showing the alert message, the SETROPTS command result, and 

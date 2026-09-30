@@ -11,7 +11,8 @@ Release Summary
 ---------------
 
 Release Date: '2026-06-18'
-Initial release of the ibm.ibm_eda_zos collection, providing Event Driven Ansible
+
+Initial release of the ibm.ibm_eda_zos collection, providing Event-Driven Ansible
 solutions for IBM Z security monitoring and automated response capabilities.
 This collection integrates with zSecure alerts and provides comprehensive
 security event handling for z/OS environments.
@@ -19,26 +20,26 @@ security event handling for z/OS environments.
 Major Changes
 -------------
 
-- Added security_alerts event filter plugin for processing zSecure alerts from Kafka
-- Initial release of ibm.ibm_eda_zos collection for Event Driven Ansible on IBM Z
+- Added the ``security_alerts`` event filter plugin for processing zSecure alerts from Kafka.
+- Initial release of the ibm.ibm_eda_zos collection for Event-Driven Ansible on IBM Z.
 
 Minor Changes
 -------------
 
-- Add documentation for collection usage and examples
-- Added HTML email templates for formatted security alert notifications with alert-specific layouts
-- Added rulebook for detecting invalid password limit exceeded events (alert 1111)
-- Added rulebook for detecting logon attempts by unknown users (alert 1101)
-- Added rulebook for monitoring superuser logon events (alert 1103)
-- Added rulebook for tracking group authorization status changes (alerts 1107/1108)
-- Created *gather_listuser_information* playbook for user account details
-- Created *gather_password_policy_information* playbook for policy compliance checks
-- Created *quarantine_user* playbook for automated account suspension
-- Created *remove_uid_access* playbook for emergency access revocation
-- Created *send_alert_email* playbook for security notification distribution
-- Created *setr_jes_batchallracf* playbook for JES batch security configuration
-- Created *unquarantine_user* playbook for account restoration
-- Included base template with consistent styling and reusable components for RACF user information
+- Added documentation for collection usage and examples.
+- Added HTML email templates for formatted security alert notifications with alert-specific layouts.
+- Added a rulebook for detecting invalid password limit exceeded events (alert 1111).
+- Added a rulebook for detecting logon attempts by unknown users (alert 1101).
+- Added a rulebook for monitoring superuser logon events (alert 1103).
+- Added a rulebook for tracking group authorization status changes (alerts 1107/1108).
+- Created the *gather_listuser_information* playbook for user account details.
+- Created the *gather_password_policy_information* playbook for policy compliance checks.
+- Created the *quarantine_user* playbook for automated account suspension.
+- Created the *remove_uid_access* playbook for emergency access revocation.
+- Created the *send_alert_email* playbook for security notification distribution.
+- Created the *setr_jes_batchallracf* playbook for JES batch security configuration.
+- Created the *unquarantine_user* playbook for account restoration.
+- Included a base template with consistent styling and reusable components for RACF user information.
 
 Known Issues
 ------------
@@ -95,3 +96,37 @@ Known Issues
 
   This approach allows you to handle any alert format by customizing the parsing
   logic in your rulebooks.
+
+v1.1.0
+======
+
+Release Summary
+---------------
+
+Release Date: '2026-09-16'
+
+This release extends the IBM EDA z/OS collection with additional security
+monitoring and alerting capabilities for IBM Z environments. It introduces new
+rulebooks for sensitive data set access monitoring and SMF flood detection,
+while enhancing event enrichment for zSecure alerts with additional dataset,
+resource, and UNIX metadata. The collection also includes a Slack notification
+playbook for faster alert distribution to security teams.
+
+Major Changes
+-------------
+
+- Added rulebooks to detect READ-or-higher access to sensitive data sets (alert 1212).
+- Added rulebooks to detect UPDATE-or-higher access to sensitive data sets (alert 1213).
+- Added SMF record flood detection by correlating the IFA780A WTO message with zSecure alert C2P1607I.
+- Extended the ``security_alerts`` event filter with richer dataset, resource, SMF, and UNIX metadata extraction.
+- Added a Slack notification playbook for security alert distribution.
+
+Minor Changes
+-------------
+
+- Added ``dataset`` sub-object fields: ``dataset_name``, ``pds_member``, ``volume_serial``, and ``program_name``.
+- Added ``resource`` sub-object fields: ``resource_class`` and ``resource_name``.
+- Added ``smf`` sub-object fields: ``smf_record_type``, ``smf_subsystem``, ``smf_records_lost``, and ``wto_msgid``.
+- Added ``unix_path``, ``access_level``, ``authority_type``, and ``user_category`` extraction fields.
+- Added an HTML email template for SMF flood alert notifications that includes summary and diagnostic output.
+- Added documentation and examples for the new monitoring scenarios.

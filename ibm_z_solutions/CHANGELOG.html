@@ -110,18 +110,25 @@
            <div itemprop="articleBody">
              
   <section id="ibm-ibm-eda-zos-release-notes">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">ibm.ibm_eda_zos Release Notes</a><a class="headerlink" href="#ibm-ibm-eda-zos-release-notes" title="Link to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">ibm.ibm_eda_zos Release Notes</a><a class="headerlink" href="#ibm-ibm-eda-zos-release-notes" title="Link to this heading"></a></h1>
 <nav class="contents" id="topics">
 <p class="topic-title">Topics</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#ibm-ibm-eda-zos-release-notes" id="id1">ibm.ibm_eda_zos Release Notes</a></p>
+<li><p><a class="reference internal" href="#ibm-ibm-eda-zos-release-notes" id="id4">ibm.ibm_eda_zos Release Notes</a></p>
 <ul>
-<li><p><a class="reference internal" href="#v1-0-0" id="id2">v1.0.0</a></p>
+<li><p><a class="reference internal" href="#v1-0-0" id="id5">v1.0.0</a></p>
 <ul>
-<li><p><a class="reference internal" href="#release-summary" id="id3">Release Summary</a></p></li>
-<li><p><a class="reference internal" href="#major-changes" id="id4">Major Changes</a></p></li>
-<li><p><a class="reference internal" href="#minor-changes" id="id5">Minor Changes</a></p></li>
-<li><p><a class="reference internal" href="#known-issues" id="id6">Known Issues</a></p></li>
+<li><p><a class="reference internal" href="#release-summary" id="id6">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#major-changes" id="id7">Major Changes</a></p></li>
+<li><p><a class="reference internal" href="#minor-changes" id="id8">Minor Changes</a></p></li>
+<li><p><a class="reference internal" href="#known-issues" id="id9">Known Issues</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#v1-1-0" id="id10">v1.1.0</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id11">Release Summary</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id12">Major Changes</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id13">Minor Changes</a></p></li>
 </ul>
 </li>
 </ul>
@@ -129,43 +136,43 @@
 </ul>
 </nav>
 <section id="v1-0-0">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">v1.0.0</a><a class="headerlink" href="#v1-0-0" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">v1.0.0</a><a class="headerlink" href="#v1-0-0" title="Link to this heading"></a></h2>
 <section id="release-summary">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">Release Summary</a><a class="headerlink" href="#release-summary" title="Link to this heading"></a></h3>
-<p>Release Date: ‘2026-06-18’
-Initial release of the ibm.ibm_eda_zos collection, providing Event Driven Ansible
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Release Summary</a><a class="headerlink" href="#release-summary" title="Link to this heading"></a></h3>
+<p>Release Date: ‘2026-06-18’</p>
+<p>Initial release of the ibm.ibm_eda_zos collection, providing Event-Driven Ansible
 solutions for IBM Z security monitoring and automated response capabilities.
 This collection integrates with zSecure alerts and provides comprehensive
 security event handling for z/OS environments.</p>
 </section>
 <section id="major-changes">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Major Changes</a><a class="headerlink" href="#major-changes" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Major Changes</a><a class="headerlink" href="#major-changes" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Added security_alerts event filter plugin for processing zSecure alerts from Kafka</p></li>
-<li><p>Initial release of ibm.ibm_eda_zos collection for Event Driven Ansible on IBM Z</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">security_alerts</span></code> event filter plugin for processing zSecure alerts from Kafka.</p></li>
+<li><p>Initial release of the ibm.ibm_eda_zos collection for Event-Driven Ansible on IBM Z.</p></li>
 </ul>
 </section>
 <section id="minor-changes">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Minor Changes</a><a class="headerlink" href="#minor-changes" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Minor Changes</a><a class="headerlink" href="#minor-changes" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Add documentation for collection usage and examples</p></li>
-<li><p>Added HTML email templates for formatted security alert notifications with alert-specific layouts</p></li>
-<li><p>Added rulebook for detecting invalid password limit exceeded events (alert 1111)</p></li>
-<li><p>Added rulebook for detecting logon attempts by unknown users (alert 1101)</p></li>
-<li><p>Added rulebook for monitoring superuser logon events (alert 1103)</p></li>
-<li><p>Added rulebook for tracking group authorization status changes (alerts 1107/1108)</p></li>
-<li><p>Created <em>gather_listuser_information</em> playbook for user account details</p></li>
-<li><p>Created <em>gather_password_policy_information</em> playbook for policy compliance checks</p></li>
-<li><p>Created <em>quarantine_user</em> playbook for automated account suspension</p></li>
-<li><p>Created <em>remove_uid_access</em> playbook for emergency access revocation</p></li>
-<li><p>Created <em>send_alert_email</em> playbook for security notification distribution</p></li>
-<li><p>Created <em>setr_jes_batchallracf</em> playbook for JES batch security configuration</p></li>
-<li><p>Created <em>unquarantine_user</em> playbook for account restoration</p></li>
-<li><p>Included base template with consistent styling and reusable components for RACF user information</p></li>
+<li><p>Added documentation for collection usage and examples.</p></li>
+<li><p>Added HTML email templates for formatted security alert notifications with alert-specific layouts.</p></li>
+<li><p>Added a rulebook for detecting invalid password limit exceeded events (alert 1111).</p></li>
+<li><p>Added a rulebook for detecting logon attempts by unknown users (alert 1101).</p></li>
+<li><p>Added a rulebook for monitoring superuser logon events (alert 1103).</p></li>
+<li><p>Added a rulebook for tracking group authorization status changes (alerts 1107/1108).</p></li>
+<li><p>Created the <em>gather_listuser_information</em> playbook for user account details.</p></li>
+<li><p>Created the <em>gather_password_policy_information</em> playbook for policy compliance checks.</p></li>
+<li><p>Created the <em>quarantine_user</em> playbook for automated account suspension.</p></li>
+<li><p>Created the <em>remove_uid_access</em> playbook for emergency access revocation.</p></li>
+<li><p>Created the <em>send_alert_email</em> playbook for security notification distribution.</p></li>
+<li><p>Created the <em>setr_jes_batchallracf</em> playbook for JES batch security configuration.</p></li>
+<li><p>Created the <em>unquarantine_user</em> playbook for account restoration.</p></li>
+<li><p>Included a base template with consistent styling and reusable components for RACF user information.</p></li>
 </ul>
 </section>
 <section id="known-issues">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Known Issues</a><a class="headerlink" href="#known-issues" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Known Issues</a><a class="headerlink" href="#known-issues" title="Link to this heading"></a></h3>
 <ul>
 <li><p><strong>Alert Format Compatibility</strong>: The <em>security_alerts</em> event filter extracts
 attributes based on user-specific zSecure alert message patterns. Some custom
@@ -212,6 +219,40 @@ Ansible operators in conditions and Jinja2 filters in actions:</p>
 <p>This approach allows you to handle any alert format by customizing the parsing
 logic in your rulebooks.</p>
 </li>
+</ul>
+</section>
+</section>
+<section id="v1-1-0">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">v1.1.0</a><a class="headerlink" href="#v1-1-0" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Release Summary</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Release Date: ‘2026-09-16’</p>
+<p>This release extends the IBM EDA z/OS collection with additional security
+monitoring and alerting capabilities for IBM Z environments. It introduces new
+rulebooks for sensitive data set access monitoring and SMF flood detection,
+while enhancing event enrichment for zSecure alerts with additional dataset,
+resource, and UNIX metadata. The collection also includes a Slack notification
+playbook for faster alert distribution to security teams.</p>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Major Changes</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added rulebooks to detect READ-or-higher access to sensitive data sets (alert 1212).</p></li>
+<li><p>Added rulebooks to detect UPDATE-or-higher access to sensitive data sets (alert 1213).</p></li>
+<li><p>Added SMF record flood detection by correlating the IFA780A WTO message with zSecure alert C2P1607I.</p></li>
+<li><p>Extended the <code class="docutils literal notranslate"><span class="pre">security_alerts</span></code> event filter with richer dataset, resource, SMF, and UNIX metadata extraction.</p></li>
+<li><p>Added a Slack notification playbook for security alert distribution.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Minor Changes</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dataset</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">dataset_name</span></code>, <code class="docutils literal notranslate"><span class="pre">pds_member</span></code>, <code class="docutils literal notranslate"><span class="pre">volume_serial</span></code>, and <code class="docutils literal notranslate"><span class="pre">program_name</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">resource</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">resource_class</span></code> and <code class="docutils literal notranslate"><span class="pre">resource_name</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">smf</span></code> sub-object fields: <code class="docutils literal notranslate"><span class="pre">smf_record_type</span></code>, <code class="docutils literal notranslate"><span class="pre">smf_subsystem</span></code>, <code class="docutils literal notranslate"><span class="pre">smf_records_lost</span></code>, and <code class="docutils literal notranslate"><span class="pre">wto_msgid</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">unix_path</span></code>, <code class="docutils literal notranslate"><span class="pre">access_level</span></code>, <code class="docutils literal notranslate"><span class="pre">authority_type</span></code>, and <code class="docutils literal notranslate"><span class="pre">user_category</span></code> extraction fields.</p></li>
+<li><p>Added an HTML email template for SMF flood alert notifications that includes summary and diagnostic output.</p></li>
+<li><p>Added documentation and examples for the new monitoring scenarios.</p></li>
 </ul>
 </section>
 </section>

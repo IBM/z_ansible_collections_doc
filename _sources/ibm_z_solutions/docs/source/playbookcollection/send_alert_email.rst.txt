@@ -90,7 +90,7 @@ smtp_server_port
   | **type**: str
 
 target_hosts
-  The inventory host or group where the playbook executes. Defaults to 'localhost' if not specified.
+  The inventory host or group where the playbook runs. Defaults to 'localhost' if not specified.
 
   | **type**: str
 
@@ -161,7 +161,7 @@ Prerequisites
 Notes
 -----
 
-* The playbook executes on the host specified by the ``target_hosts`` variable but delegates email 
+* The playbook runs on the host specified by the ``target_hosts`` variable but delegates email 
   sending to localhost, so the SMTP connection originates from the AAP controller.
 * HTML email requires the recipient mail client to render HTML. Ensure your email template provides 
   appropriate formatting for your environment.
@@ -171,7 +171,7 @@ Notes
   a single email to report both the alert and the remediation outcome.
 * All output is written to the AAP job log. Restrict access to job logs if your security policy 
   requires it.
-* This playbook is typically the final step in a security workflow, executed after remediation 
+* This playbook is typically the final step in a security workflow, that runs after remediation 
   playbooks like :ref:`quarantine_user`, or :ref:`remove_uid_access`.
 
 
