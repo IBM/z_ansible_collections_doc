@@ -55,6 +55,13 @@ for both, the control node and managed node.
    +---------+----------------------------+----------------------------------------------------+-----------------------------------------------------+
    | Version |   Event Source             | Control Node                                       |   Managed Node                                      |
    +=========+============================+====================================================+=====================================================+
+   | 1.1.x   |- IBM zSecure v3.1          |- `z/OS Core collection`_  1.13.x or later          |- `z/OS`_ V2R5 - V3Rx                                |
+   |         |- Apache Kafka for Z v1.1.0 |- `Community General collection`_ 12.0.0 or later   |- `z/OS shell`_                                      |
+   |         |                            |- `AAP`_ 2.6 or later                               |- `z/OS OpenSSH`_                                    |
+   |         |                            |                                                    |- IBM `Open Enterprise SDK for Python`_              |
+   |         |                            |                                                    |- IBM `Z Open Automation Utilities`_ 1.3.6 or later, |
+   |         |                            |                                                    |  1.5.0 or earlier                                   |
+   +---------+----------------------------+----------------------------------------------------+-----------------------------------------------------+
    | 1.0.x   |- IBM zSecure v3.1          |- `z/OS Core collection`_  1.13.x or later          |- `z/OS`_ V2R5 - V3Rx                                |
    |         |- Apache Kafka for Z v1.1.0 |- `Community General collection`_ 12.0.0 or later   |- `z/OS shell`_                                      |
    |         |                            |- `AAP`_ 2.6 or later                               |- `z/OS OpenSSH`_                                    |
