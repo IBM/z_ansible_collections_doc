@@ -1,5 +1,5 @@
 .. ...........................................................................
-.. © Copyright IBM Corporation 2020, 2025
+.. © Copyright IBM Corporation 2020, 2026
 .. Note:
 ..    Use of anonymous references in the hyperlinks
 ..    (double ending underscores, eg `<.../some.html>__`) will suppress the
