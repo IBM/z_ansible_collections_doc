@@ -1,62 +1,59 @@
 ################################################################################
-# Copyright (c) IBM Corporation 2020, 2025
+# Copyright (c) IBM Corporation 2020, 2026
 ################################################################################
 
 ################################################################################
-# Configuration file for locating documentation Red Hat certified collections.
+# Configuration for Red Hat certified collections as part of the
+# IBM Red Hat Certified Collection on Z offering
 #
 # For documentation to be generated and included in the offering pending the
-# certified registry process you must also include the required fields below.
+# certfied registry process you must also include the required fields below.
 #
 # Instructions:
-#  <item>: The collection repository name as a dictionary element. Examples;
-#          - Example: 'ibm_zos_core', 'ibm_zos_ims', etc
-#     git: The collection repository git URL.
-#          - Example: https://github.com/ansible-collections/ibm_zos_core.git
-#  stable: The Git tag or branch name to generate stable documentation.
-#          - Example: main
-#  latest: The Git tag or branch name to generate latest documentation.
-#          - Example: v1.13.0
+#  <item>: The collection repository name as a dictionary element such as
+#          'ibm_zos_core', 'ibm_zos_ims', etc
+#  git:    The collection repository git url such as 'bm_zos_core.git'
+#  stable: The Git tag or branch name to generate stable documenation.
+#  latest: The Git tag or branch name to generate latest documenation.
 #
 # Notes:
-#   - Only the latest version of documentation is currently generated.
-#   - To support headless operations, the URLs now use  'https://github.com/'
-#     instead of 'git@github.com:'
+#   Only one version of documetation is currently generated and supported.
+#   Documentation is only generator for the latest branch or tag, there is plans
+#   to support both latest and stable in the near future.
 ################################################################################
-
 collections:
   ibm_zos_core:
-    git: https://github.com/ansible-collections/ibm_zos_core.git
+    git: git@github.com:ansible-collections/ibm_zos_core.git
     stable:
-    latest: staging-v2.1.0-beta.1
+    latest: main 
     origin: main
   ibm_zos_ims:
-    git:  https://github.com/ansible-collections/ibm_zos_ims.git
+    git: git@github.com:ansible-collections/ibm_zos_ims.git
     stable:
-    latest: release-v1.4.0
+    latest: main
     origin: main
   ibm_zos_cics:
-    git:  https://github.com/ansible-collections/ibm_zos_cics.git
+    git: git@github.com:ansible-collections/ibm_zos_cics.git
     stable:
     latest: main
     origin: main
   zhmc-ansible-modules:
-    git:  https://github.com/zhmcclient/zhmc-ansible-modules.git
+    git: git@github.com:zhmcclient/zhmc-ansible-modules.git
     stable:
-    latest: 1.9.5
+    latest: 1.9.3
     origin: master
   ibm_zos_sysauto:
-    git:  https://github.com/ansible-collections/ibm_zos_sysauto.git
+    git: git@github.com:ansible-collections/ibm_zos_sysauto.git
     stable:
     latest: main
     origin: main
   ibm_zosmf:
-    git:  https://github.com/IBM/ibm_zosmf.git
+    git: git@github.com:IBM/ibm_zosmf.git
     stable:
     latest: main
     origin: main
-  ibm_z_solutions:
+  ibm_zosmf:
     git:  https://github.com/ansible-collections/ibm_eda_zos
     stable:
-    latest: abhi_eda_doc
+    latest: main
     origin: main
