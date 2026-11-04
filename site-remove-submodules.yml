@@ -48,7 +48,7 @@
     - name: Display the collection repository names from the registry
       debug:
          var: collections[item]
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     ##########################################################################
     # Remove all submodules
@@ -59,7 +59,7 @@
       stat:
         path: source/{{ item }}
       register: stat_submodule
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     - name: Display the submodule stats
       debug: msg="{{ stat_submodule }}"

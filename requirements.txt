@@ -1,83 +1,61 @@
-alabaster==0.7.16
-ansible==4.0.0
-ansible-core==2.11.1
-ansible-doc-extractor==0.1.5
-ansible-lint==5.0.7
-appdirs==1.4.3
-astroid==2.2.5
-attrs==20.2.0
-babel==2.16.0
-bleach==3.3.0
-bleach-allowlist==1.0.3
-bleach-whitelist==0.0.11
-bracex==2.1.1
-certifi==2020.4.5.1
-cffi==1.16.0
-chardet==3.0.4
-charset-normalizer==3.4.1
-click==7.1.2
-colorama==0.4.3
-colorclass==2.2.0
-commonmark==0.9.1
-cryptography==41.0.7
-distlib==0.3.0
-docutils==0.21.2
-enrich==1.2.6
-filelock==3.0.12
-flake8==3.8.4
-galaxy-importer==0.3.1
-idna==2.9
-imagesize==1.4.1
-importlib_metadata==8.5.0
-isort==4.3.15
-Jinja2==3.1.5
-jmespath==0.10.0
-lazy-object-proxy==1.3.1
-Markdown==3.3
-MarkupSafe==3.0.2
-mccabe==0.6.1
-mdToRst==1.1.0
-packaging==24.2
-pathspec==0.7.0
-pycodestyle==2.6.0
-pycparser==2.20
-pyflakes==2.2.0
-Pygments==2.19.1
-pylint==2.3.1
-pyparsing==2.4.7
-pytz==2020.1
-PyYAML==5.3.1
-requests==2.32.3
-resolvelib==0.5.4
-rich==10.1.0
-rstcheck==3.3.1
-ruamel.yaml==0.16.12
-ruamel.yaml.clib==0.2.7
-semantic-version==2.8.5
-six==1.14.0
-snowballstemmer==2.2.0
-Sphinx==7.4.7
+################################################################################
+# Copyright (c) IBM Corporation 2020, 2026
+################################################################################
+
+################################################################################
+# Python packages needed to build the site HTML with `make html` and to run the
+# `site-*.yml` playbooks. Requires Python 3.13 or later (Sphinx 9.x), verified
+# on 3.13 and 3.14.
+#
+# The documentation (RST) for each collection is generated in that collection's
+# own repository and committed there; this repository only renders it, so
+# `ansible-doc-extractor`, linters and `galaxy-importer` are not needed here.
+# See the `docs/Makefile` of each collection for those. `ansible-core` (not the
+# full `ansible` package) is enough to run the playbooks, which only use
+# builtin modules.
+#
+# The packages under "Direct" are the ones this repo uses; everything under
+# "Transitive" is pinned only so builds are reproducible. To refresh, in a clean
+# venv run `pip install Sphinx sphinx-rtd-theme sphinx-copybutton sphinx_design
+# ansible-core`, then `pip freeze`, and check the result with `pip-audit`.
+#
+# `make version-html` requires `sphinx-versions`, which imports `pkg_resources`
+# (removed in setuptools 81, absent from Python 3.12+ venvs); it is not used by
+# the site build, to use it: `pip install sphinx-versions "setuptools<81"`.
+################################################################################
+
+# Direct
+ansible-core==2.21.5
 sphinx-copybutton==0.5.2
-sphinx-jinja==1.1.1
-sphinx-rtd-theme==3.0.2
-sphinx-versions==1.0.0
-sphinx_design==0.6.1
-sphinxcontrib-applehelp==1.0.2
-sphinxcontrib-devhelp==1.0.2
+Sphinx==9.2.0
+sphinx_design==0.7.0
+sphinx_rtd_theme==3.1.0
+
+# Transitive
+alabaster==1.0.0
+babel==2.18.0
+certifi==2026.10.23
+cffi==2.1.1
+charset-normalizer==3.5.2
+cryptography==50.0.2
+docutils==0.22.4
+idna==3.20
+imagesize==2.0.1
+Jinja2==3.1.6
+MarkupSafe==3.0.4
+packaging==26.3
+pycparser==3.12
+Pygments==2.21.0
+PyYAML==6.0.3
+requests==2.34.2
+resolvelib==1.2.1
+roman-numerals==4.1.0
+snowballstemmer==3.1.1
+sphinxcontrib-applehelp==2.0.0
+sphinxcontrib-devhelp==2.0.0
 sphinxcontrib-htmlhelp==2.1.0
 sphinxcontrib-jquery==4.1
-sphinxcontrib-jsmath==1.0.1
-sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-jsmath==2.0.0
+sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
-tenacity==7.0.0
-tomli==2.2.1
-typed-ast==1.5.5
-typing-extensions==3.7.4.3
-urllib3==1.25.11
-virtualenv==20.0.15
-voluptuous==0.11.7
-wcmatch==8.1.2
-webencodings==0.5.1
-wrapt==1.11.1
-yamllint==1.21.0
-zipp==3.21.0
+urllib3==2.8.0
