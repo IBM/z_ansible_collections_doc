@@ -88,12 +88,6 @@ triages the issue.
 |          | future product enhancement or modification.        |
 +----------+----------------------------------------------------+
 
-.. note::
-
-   Currently, the IBM z/OS Core collection is the only collection
-   with a documented life cycle, others to follow soon.
-
-.. _Ansible Z life cycles - collections:
 
 Life Cycles
 -----------
