@@ -3,8 +3,8 @@ USER root
 
 # Install 'ubi9/ubi-minimal' necessary dependencies.
 RUN microdnf update -y
-RUN microdnf install python3.9 -y
-RUN microdnf install pip -y
+RUN microdnf install python3.14 -y
+RUN microdnf install python3.14-pip -y
 RUN microdnf install git -y
 RUN microdnf install procps -y
 RUN microdnf install httpd -y
@@ -13,7 +13,7 @@ RUN microdnf install vi -y
 
 # Install 'fedora:latest' necessary dependencies.
 # FROM fedora:latest
-# RUN yum install python3.9 -y
+# RUN yum install python3.14 -y
 # RUN yum install git -y
 # RUN yum install awk -y
 # RUN yum install ps -y
@@ -31,7 +31,7 @@ WORKDIR /home/rhacc
 # Git clone the project to generate documentation, no need for a venv so ./setup.sh is not run.
 RUN git clone https://github.com/IBM/z_ansible_collections_doc.git
 WORKDIR /home/rhacc/z_ansible_collections_doc
-RUN pip3 install -r requirements.txt
+RUN python3.14 -m pip install --root-user-action=ignore -r requirements.txt
 RUN mkdir /var/www/html/rhacc
 
 # Set up web server

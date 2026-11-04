@@ -91,10 +91,9 @@ discover_python(){
         exit
     fi
 
-    # There are wheel and setuptools issues when using later Python versions like 3.11 that
-    # have not been diagnosed currently, so for now we will force python 3.9
-    if [ $(normalize_version_major_minor $PYTHON_VERSION_SUPPORTED) -ne $(normalize_version_major_minor $PYTHON_VERSION) ]; then
-        echo "[ERROR] This installation has only been tested with Python version ${PYTHON_VERSION_SUPPORTED}, you must use this version."
+    # requirements.txt pins Sphinx 9.x which requires a minimum Python version.
+    if [ $(normalize_version_major_minor $PYTHON_VERSION_SUPPORTED) -gt $(normalize_version_major_minor $PYTHON_VERSION) ]; then
+        echo "[ERROR] This installation requires Python version ${PYTHON_VERSION_SUPPORTED} or later."
         echo "[ERROR] This intallation has either detected or been configured to use usupported version ${PYTHON_VERSION}."
         echo "[ERROR] If you have more than one version of python installed, set the environment variable 'PYTHON_EXE_PATH' in 'env.cfg' to a supported Python version."
         exit
