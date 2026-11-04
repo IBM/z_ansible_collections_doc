@@ -12,6 +12,10 @@ yet there a number of reasons to use the container over the Python virtual envir
 - Python wheel builds are not available for your system.  
 - You prefer to work from a pre-configured container.  
 
+The container installs Python 3.14 from the UBI 9 repositories (the newest Python offered
+there, and the dependencies in `requirements.txt` need Python 3.13 or later), so you do not
+need to install Python on your host to use it.
+
 With either solution (containerized or virtual environments), the building, generating and
 publishing documentation will be the same process.
 
