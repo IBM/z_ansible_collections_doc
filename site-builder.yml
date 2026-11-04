@@ -25,7 +25,7 @@
     - name: Display the registered collections and properites in `registry.yml`.
       debug:
          var: collections[item]
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     ############################################################################
     # Evaluate the state of all collections currently in the repo and compare
@@ -36,7 +36,7 @@
       stat:
         path: source/{{ item }}
       register: git_submodule
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     - name: Display the colletions in directory `source/<collection>`
       debug:
@@ -61,7 +61,7 @@
 
     - name: Evaluate if `.gitmodules` has unstaged changes.
       set_fact:
-        status_gitmodule_M: "{{ status_gitmodules.stdout | regex_search('^\\s*M ')}}"
+        status_gitmodule_M: "{{ status_gitmodules.stdout | regex_search('^\\s*M ') is not none }}"
 
     - name: Display if `.gitmodules` has unstaged changes
       debug:
@@ -74,7 +74,7 @@
     #  This is will generate the MM status.
     - name: Evaluate if `.gitmodules` has staged and unstaged changes.
       set_fact:
-        status_gitmodule_MM: "{{ status_gitmodules.stdout | regex_search('^\\s*MM ')}}"
+        status_gitmodule_MM: "{{ status_gitmodules.stdout | regex_search('^\\s*MM ') is not none }}"
 
     - name: Display if `.gitmodules` has staged and unstaged changes.
       debug:
@@ -121,7 +121,7 @@
     #     git config -f .gitmodules --remove-section submodule.source/{{ item }}
     #     git submodule add {{ collections[item].git}} source/{{ item }}
     #     git submodule init
-    #   with_items: "{{collections}}"
+    #   with_items: "{{ collections | list }}"
     #   register: git_add_submodules
     # - name: Display the result from the teardown and init for all submodules registerd in `registry.yml`.
     #   debug: msg="{{ git_add_submodules }}"
@@ -130,65 +130,59 @@
     - name: 1 - Remove cached submodules according to `registry.yml`.
       shell: |
         git rm -f --cached source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_1
       ignore_errors: yes
 
     - name: 1 - Display Remove cached submodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_1 }}"
-      when: git_add_submodules_1
-
+      when: git_add_submodules_1 is defined
     - name: 2 - Remove local files according to `registry.yml`.
       shell: |
         rm -rf source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_2
 
     - name: 2 - Display remove local files according to `registry.yml`.
       debug: msg="{{ git_add_submodules_2 }}"
-      when: git_add_submodules_2
-
+      when: git_add_submodules_2 is defined
     - name: 3 - Remove all git managed submodule content according to `registry.yml`.
       shell: |
         rm -rf .git/modules/source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_3
 
     - name: 3 - Display remove all git managed submodule content according to `registry.yml`.
       debug: msg="{{ git_add_submodules_3 }}"
-      when: git_add_submodules_3
-
+      when: git_add_submodules_3 is defined
     - name: 4 - Remove .gitmodules references for all submodules according to `registry.yml`.
       shell: |
         git config -f .gitmodules --remove-section submodule.source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_4
       ignore_errors: yes
 
     - name: 4 - Display remove .gitmodules references for all submodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_4 }}"
-      when: git_add_submodules_4
-
+      when: git_add_submodules_4 is defined
     - name: 5 - Add all submodules to .gitmodules according to `registry.yml`.
       shell: |
         git submodule add {{ collections[item].git}} source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_5
 
     - name: 5 - Display add all submodules to .gitmodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_5 }}"
-      when: git_add_submodules_5
-
+      when: git_add_submodules_5 is defined
     - name: 6 - Init all submodules according to `registry.yml`.
       shell: |
         git submodule init
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_6
 
     - name: 6 - Init all submodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_6 }}"
-      when: git_add_submodules_6
-
+      when: git_add_submodules_6 is defined
     ############################################################################
     # After teardown and init, traverse each submodule and checkout the latest
     # branch indentified in registry.yml
@@ -201,7 +195,7 @@
           git reset --hard origin/{{ collections[item].origin }}
           git checkout {{ collections[item].latest }}
           git pull origin {{ collections[item].latest }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_checkout_latest
 
     - name: Display the results after updating the submodules under `source/<submodule>`.

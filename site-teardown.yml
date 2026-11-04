@@ -27,7 +27,7 @@
     - name: Display the registered collections and properites in `registry.yml`.
       debug:
          var: collections[item]
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     ############################################################################
     # Evaluate the state of all collections currently in the repo and compare
@@ -38,7 +38,7 @@
       stat:
         path: source/{{ item }}
       register: git_submodule
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
 
     # ############################################################################
     # Perform teardown of all submodules to avoid conflicts
@@ -50,45 +50,41 @@
     - name: 1 - Remove cached submodules according to `registry.yml`.
       shell: |
         git rm -f --cached source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_1
       ignore_errors: yes
 
     - name: 1 - Display Remove cached submodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_1 }}"
-      when: git_add_submodules_1
-
+      when: git_add_submodules_1 is defined
     - name: 2 - Remove local files according to `registry.yml`.
       shell: |
         rm -rf source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_2
 
     - name: 2 - Display remove local files according to `registry.yml`.
       debug: msg="{{ git_add_submodules_2 }}"
-      when: git_add_submodules_2
-
+      when: git_add_submodules_2 is defined
     - name: 3 - Remove all git managed submodule content according to `registry.yml`.
       shell: |
         rm -rf .git/modules/source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_3
 
     - name: 3 - Display remove all git managed submodule content according to `registry.yml`.
       debug: msg="{{ git_add_submodules_3 }}"
-      when: git_add_submodules_3
-
+      when: git_add_submodules_3 is defined
     - name: 4 - Remove .gitmodules references for all submodules according to `registry.yml`.
       shell: |
         git config -f .gitmodules --remove-section submodule.source/{{ item }}
-      with_items: "{{collections}}"
+      with_items: "{{ collections | list }}"
       register: git_add_submodules_4
       ignore_errors: yes
 
     - name: 4 - Display remove .gitmodules references for all submodules according to `registry.yml`.
       debug: msg="{{ git_add_submodules_4 }}"
-      when: git_add_submodules_4
-
+      when: git_add_submodules_4 is defined
     - name: 5 - Temporarily force a `git reset` because site-builder.yaml leaves this in changed state.
       shell: |
         git reset HEAD .gitmodules
@@ -96,8 +92,7 @@
 
     - name: 5 - Display git reset HEAD .gitmodules.
       debug: msg="{{ git_add_submodules_4 }}"
-      when: git_add_submodules_5
-
+      when: git_add_submodules_5 is defined
     ############################################################################
     # Generate and view HTML
     ############################################################################
