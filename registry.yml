@@ -52,8 +52,8 @@ collections:
     stable:
     latest: main
     origin: main
-  ibm_zosmf:
-    git:  https://github.com/ansible-collections/ibm_eda_zos
+  ibm_zos_eda:
+    git:  git@github.com/ansible-collections/ibm_eda_zos
     stable:
     latest: main
     origin: main
