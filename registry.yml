@@ -52,7 +52,7 @@ collections:
     stable:
     latest: main
     origin: main
-  ibm_zos_eda:
+  ibm_eda_zos:
     git:  git@github.com:ansible-collections/ibm_eda_zos.git
     stable:
     latest: abhi_doc_eda
