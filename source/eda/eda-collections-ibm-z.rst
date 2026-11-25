@@ -11,7 +11,7 @@ To learn more about EDA collections, see the following:
 
 .. toctree::
    :maxdepth: 1
-   :hidden: 
+   :glob: 
 
    Collections<../ibm_eda_zos/docs/source/collection/collections-eda>
    Collection releases<../ibm_eda_zos/docs/source/collection/collections-releases-eda>
