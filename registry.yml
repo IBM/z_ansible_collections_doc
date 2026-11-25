@@ -55,5 +55,5 @@ collections:
   ibm_eda_zos:
     git:  git@github.com:ansible-collections/ibm_eda_zos.git
     stable:
-    latest: abhi_doc_eda
+    latest: abhi_eda_doc
     origin: main
