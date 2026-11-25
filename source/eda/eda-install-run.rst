@@ -20,9 +20,9 @@ To know more, see the following topics:
    :maxdepth: 1
    :caption: Installation content
 
-   Software requirements<../ibm_z_solutions/docs/source/install/software-requirements>
-   Software installation<../ibm_z_solutions/docs/source/install/software-installation>
-   Software configuration<../ibm_z_solutions/docs/source/install/software-configuration>
+   Software requirements<../ibm_eda_zos/docs/source/install/software-requirements>
+   Software installation<../ibm_eda_zos/docs/source/install/software-installation>
+   Software configuration<../ibm_eda_zos/docs/source/install/software-configuration>
  
    
    . grid:: 3
